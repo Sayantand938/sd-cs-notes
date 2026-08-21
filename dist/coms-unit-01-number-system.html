@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -55,7 +56,7 @@
 
     <h2>1. Introduction to Number Systems</h2>
 <p>A <strong>number system</strong> (or numeral system) defines a set of values used to represent quantities. It uses a <strong>base</strong> (or <strong>radix</strong>) which determines the number of unique digits used.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Number System</th>
@@ -88,7 +89,7 @@
 <td align="left">0–9, A–F (A=10, B=11, C=12, D=13, E=14, F=15)</td>
 <td align="left">Compact representation for memory addresses and colors.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <blockquote>
 <p><strong>General Representation</strong>: Any number in base $r$ is written as $(N)_r$ or $N_r$.
 Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
@@ -123,7 +124,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 </ul>
 <hr>
 <h3>2.4 Binary ↔ Octal (Grouping by 3)</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Octal Digit</th>
@@ -162,7 +163,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 <td align="left">7</td>
 <td align="left">111</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <ul>
 <li><p><strong>Binary to Octal</strong>: Group binary digits from <strong>right to left</strong> into sets of 3. Add leading zeros if needed.</p>
 <ul>
@@ -177,7 +178,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 </ul>
 <hr>
 <h3>2.5 Binary ↔ Hexadecimal (Grouping by 4)</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Hex Digit</th>
@@ -248,7 +249,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 <td align="left">F</td>
 <td align="left">1111</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <ul>
 <li><p><strong>Binary to Hex</strong>: Group binary digits from <strong>right to left</strong> into sets of 4.</p>
 <ul>
@@ -276,7 +277,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 <li><strong>Weights</strong>: 8, 4, 2, 1.</li>
 <li><strong>Very Important</strong>: Only digits 0 to 9 are valid. 1010 (10) to 1111 (15) are invalid in BCD.</li>
 </ul>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Decimal</th>
@@ -295,7 +296,7 @@ Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
 <td align="left">12</td>
 <td align="left">0001 0010</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>: $(348)_{10}$ in BCD → 3 = 0011, 4 = 0100, 8 = 1000 → <code>0011 0100 1000</code></p>
 <hr>
 <h3>3.3 84-2-1 Code</h3>
@@ -344,7 +345,7 @@ So 7 = <code>1001</code>.</li>
 <li><strong>Self-complementing</strong>: 9&#39;s complement of a decimal is obtained by complementing the bits.</li>
 <li><strong>Uses</strong>: Used in old calculators and digital logic (BCD addition).</li>
 </ul>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Decimal</th>
@@ -377,7 +378,7 @@ So 7 = <code>1001</code>.</li>
 <td align="left">1001</td>
 <td align="left">1100</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>: Represent $(59)_{10}$ in XS-3:</p>
 <ul>
 <li>5 → 0101 + 0011 = 1000</li>
@@ -409,7 +410,7 @@ So 7 = <code>1001</code>.</li>
 </li>
 <li><strong>Examples</strong>: U+0041 = &#39;A&#39;, U+0905 = &#39;अ&#39; (Devanagari).</li>
 </ul>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Encoding</th>
@@ -432,7 +433,7 @@ So 7 = <code>1001</code>.</li>
 <td align="left">8 to 32 bits</td>
 <td align="left">Universal (Global)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2>6. Complements of Binary Numbers</h2>
 <p>Complements are used in computers to perform <strong>subtraction</strong> by addition and to represent <strong>signed numbers</strong> (negative integers).</p>

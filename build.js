@@ -9,6 +9,8 @@ const BASE_DIR = 'D:/obsidian-vault';
 const OUTPUT_DIR = './dist';
 const STYLE_FILE = './style.css';
 const TEMPLATE_FILE = './template.html';
+const INDEX_TEMPLATE_FILE = './index-template.html';
+const ERROR_404_TEMPLATE_FILE = './404-template.html';
 
 // ---------- STRIP EXTENSION ----------
 function stripExtension(filename) {
@@ -62,7 +64,7 @@ function preprocessMarkdown(content) {
     return newLines.join('\n');
 }
 
-// ---------- CUSTOM RENDERER ----------
+// ---------- CUSTOM RENDERER (only for code blocks) ----------
 function escapeHtml(text) {
     return text
         .replace(/&/g, '&amp;')
@@ -74,6 +76,7 @@ function escapeHtml(text) {
 
 const renderer = new marked.Renderer();
 
+// Code blocks (mermaid & syntax highlighting)
 renderer.code = function (token) {
     const code = (typeof token === 'string') ? token : (token.text || '');
     const lang = (typeof token === 'string') ? arguments[1] : (token.lang || '');
@@ -86,11 +89,12 @@ renderer.code = function (token) {
     return `<pre><code${langClass}>${escaped}</code></pre>`;
 };
 
-// ---- WRAP TABLES IN SCROLLABLE CONTAINER ----
-renderer.table = function (token) {
-    const html = this.parser.parse(token);
-    return `<div class="table-wrapper">${html}</div>`;
-};
+// ---------- TABLE WRAPPER (post-processing) ----------
+function wrapTables(html) {
+    // Wrap every <table> in a <div class="table-wrapper">
+    return html.replace(/<table/g, '<div class="table-wrapper"><table')
+        .replace(/<\/table>/g, '</table></div>');
+}
 
 // ---------- UTILITY ----------
 async function getFiles(dir) {
@@ -144,7 +148,7 @@ async function build() {
             console.warn('⚠️  No style.css found in root.');
         }
 
-        // 3. Load template
+        // 3. Load templates
         let templateSource;
         try {
             templateSource = await fs.readFile(TEMPLATE_FILE, 'utf-8');
@@ -153,7 +157,27 @@ async function build() {
             console.error('❌ template.html not found.');
             return;
         }
-        const template = Handlebars.compile(templateSource);
+        const mainTemplate = Handlebars.compile(templateSource);
+
+        let indexTemplate;
+        try {
+            const indexSource = await fs.readFile(INDEX_TEMPLATE_FILE, 'utf-8');
+            indexTemplate = Handlebars.compile(indexSource);
+            console.log('📄 Loaded index-template.html');
+        } catch {
+            console.warn('⚠️  index-template.html not found, falling back to main template.');
+            indexTemplate = mainTemplate;
+        }
+
+        let error404Template;
+        try {
+            const errorSource = await fs.readFile(ERROR_404_TEMPLATE_FILE, 'utf-8');
+            error404Template = Handlebars.compile(errorSource);
+            console.log('📄 Loaded 404-template.html');
+        } catch {
+            console.warn('⚠️  404-template.html not found, using hardcoded fallback.');
+            error404Template = null;
+        }
 
         // 4. Scan source
         console.log(`📂 Building from vault: ${BASE_DIR}`);
@@ -211,7 +235,9 @@ async function build() {
 
             // Build page
             const processedContent = preprocessMarkdown(content);
-            const htmlContent = marked.parse(processedContent, { renderer });
+            let htmlContent = marked.parse(processedContent, { renderer });
+            // Wrap tables for horizontal scrolling
+            htmlContent = wrapTables(htmlContent);
 
             const baseName = path.basename(filePath, '.md');
 
@@ -223,7 +249,7 @@ async function build() {
                 tags: tags,
                 content: htmlContent
             };
-            const fullHtml = template(pageData);
+            const fullHtml = mainTemplate(pageData);
 
             const relativePath = path.relative(BASE_DIR, filePath);
             const dir = path.dirname(relativePath);
@@ -247,28 +273,33 @@ async function build() {
             processedCount++;
         }
 
-        // Homepage
-        const homepageContent = buildHomepageCards(indexFiles);
+        // ---------- HOMEPAGE ----------
+        const cardsHtml = buildHomepageCards(indexFiles);
         const homepageData = {
             title: 'Home – Notes',
-            filename: '',
-            date: '',
             description: 'Index of all COMA/COMS notes',
-            tags: [],
-            content: homepageContent
+            cardsHtml: cardsHtml,
         };
-        const homepageHtml = template(homepageData);
+        const homepageHtml = indexTemplate(homepageData);
         const homepagePath = path.join(OUTPUT_DIR, 'index.html');
         await fs.writeFile(homepagePath, homepageHtml, 'utf-8');
         console.log(`🏠 Generated homepage (index.html) with ${indexFiles.length} index cards`);
 
-        // Default 404
+        // ---------- DEFAULT 404 ----------
         if (!custom404Found) {
             const default404Path = path.join(OUTPUT_DIR, '404.html');
             try {
                 await fs.access(default404Path);
             } catch {
-                const defaultContent = `<!DOCTYPE html>
+                if (error404Template) {
+                    const errorData = {
+                        title: '404 – Page Not Found',
+                        message: 'The page you\'re looking for doesn\'t exist.'
+                    };
+                    await fs.writeFile(default404Path, error404Template(errorData), 'utf-8');
+                    console.log('📄 Generated 404.html from template');
+                } else {
+                    const defaultContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -282,8 +313,9 @@ async function build() {
     <p><a href="/">Go back home</a></p>
 </body>
 </html>`;
-                await fs.writeFile(default404Path, defaultContent, 'utf-8');
-                console.log('📄 Generated default 404.html');
+                    await fs.writeFile(default404Path, defaultContent, 'utf-8');
+                    console.log('📄 Generated default 404.html (fallback)');
+                }
             }
         }
 

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -104,7 +105,7 @@ A pointer that is not assigned to any valid memory address should be set to <cod
     C -- &quot;Stores address&quot; --&gt; E
     D -- &quot;Dereferencing *ptr gives 10&quot; --&gt; A</pre><hr>
 <h2>3. Pointer Operators</h2>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Operator</th>
@@ -125,7 +126,7 @@ A pointer that is not assigned to any valid memory address should be set to <cod
 <td align="left">Returns the value stored at the address held by the pointer.</td>
 <td align="left"><code>*ptr</code> → value <code>10</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 int main() {
@@ -160,7 +161,7 @@ int b = *p; // b = 5</code></pre><p><strong>Writing (Modifying)</strong>:</p>
 <li>If <code>ptr</code> points to an <code>int</code> (size 4 bytes), <code>ptr + 1</code> moves the address forward by <strong>4 bytes</strong>.</li>
 <li>If <code>ptr</code> points to a <code>char</code> (size 1 byte), <code>ptr + 1</code> moves the address forward by <strong>1 byte</strong>.</li>
 </ul>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Operation</th>
@@ -193,7 +194,7 @@ int b = *p; // b = 5</code></pre><p><strong>Writing (Modifying)</strong>:</p>
 <td align="left">Returns the number of elements between two pointers (not bytes).</td>
 <td align="left">If <code>p=1000</code>, <code>q=1008</code>, <code>p-q = -2</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Visualizing Pointer Arithmetic (int array)</strong>:</p>
 <pre class="mermaid">graph LR
     subgraph Memory [Memory Layout]

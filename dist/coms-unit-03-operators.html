@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -65,7 +66,7 @@
 <h2>2. Types of Operators in C</h2>
 <h3>2.1 Arithmetic Operators</h3>
 <p>Used for basic mathematical calculations.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Operator</th>
@@ -104,12 +105,12 @@
 <td align="left"><code>5 % 2</code></td>
 <td align="left"><code>1</code> (Works only with integers)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Important</strong>: Division by zero is a <strong>runtime error</strong>.</p>
 <hr>
 <h3>2.2 Relational (Comparison) Operators</h3>
 <p>Used to compare two values. They return <code>1</code> (true) or <code>0</code> (false).</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Operator</th>
@@ -154,10 +155,10 @@
 <td align="left"><code>5 != 3</code></td>
 <td align="left"><code>1</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h3>2.3 Logical Operators</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Operator</th>
@@ -196,14 +197,14 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <blockquote>
 <p><strong>Short-Circuit Evaluation</strong>: In <code>A &amp;&amp; B</code>, if <code>A</code> is false, <code>B</code> is <strong>not evaluated</strong>. In <code>A || B</code>, if <code>A</code> is true, <code>B</code> is <strong>not evaluated</strong>.</p>
 </blockquote>
 <hr>
 <h3>2.4 Assignment Operators</h3>
 <p>Used to assign values to variables.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Operator</th>
@@ -248,7 +249,7 @@
 <td align="left"><code>x %= 3</code></td>
 <td align="left"><code>x = x % 3</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h3>2.5 Increment and Decrement Operators</h3>
 <ul>
@@ -256,7 +257,7 @@
 <li><code>--</code> (Decrement): Decreases value by <code>1</code>.</li>
 </ul>
 <p><strong>Prefix vs Postfix</strong>:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Mode</th>
@@ -274,7 +275,7 @@
 <td align="left"><code>a++</code> or <code>a--</code></td>
 <td align="left">Use the current value <strong>first</strong>, then increment/decrement.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>: If <code>a = 5</code>:</p>
 <pre><code class="language-c">int b = ++a;  // a becomes 6, then b = 6
 int c = a--;  // c = 6 (current value), then a becomes 5</code></pre><hr>
@@ -295,7 +296,7 @@ b = (a = 5, a * 2);  // a = 5 (evaluated first), then a*2 = 10 (assigned to b)
 <hr>
 <h2>3. Operator Precedence and Associativity</h2>
 <p><strong>Precedence</strong> determines which operator is evaluated first in an expression.<br><strong>Associativity</strong> determines the direction (left-to-right or right-to-left) when operators have the same precedence.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Priority</th>
@@ -368,7 +369,7 @@ b = (a = 5, a * 2);  // a = 5 (evaluated first), then a*2 = 10 (assigned to b)
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example Evaluation</strong>:</p>
 <pre><code class="language-c">int x = 10 + 5 * 2;  // &#39;*&#39; (higher precedence) evaluated first: 5*2=10, then 10+10=20.
 // x = 20</code></pre><hr>
@@ -392,7 +393,7 @@ float w = (float)x / y; // Explicit conversion fixes this → 2.5</code></pre><h
 float result = (float)a / b; // result = 2.33333</code></pre><hr>
 <h2>5. Character I/O (Unformatted I/O)</h2>
 <p>These functions are defined in <code>&lt;stdio.h&gt;</code> and handle single-character input/output without using format specifiers.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Function</th>
@@ -413,7 +414,7 @@ float result = (float)a / b; // result = 2.33333</code></pre><hr>
 <td align="left">Writes a single character (given as integer ASCII value) to the standard output (screen).</td>
 <td align="left"><code>int</code> (character written)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -427,7 +428,7 @@ int main() {
 }</code></pre><hr>
 <h2>6. Escape Sequences</h2>
 <p>An <strong>Escape Sequence</strong> is a combination of a backslash (<code>\</code>) followed by a character, used to represent non-printable characters or special formatting in string/character constants.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Escape Sequence</th>
@@ -480,7 +481,7 @@ int main() {
 <td align="left">Backspace</td>
 <td align="left">Moves the cursor one position backward.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example</strong>:</p>
 <pre><code class="language-c">printf(&quot;Hello\nWorld&quot;);  // Prints Hello on Line 1, World on Line 2.
 printf(&quot;Tab\tHere&quot;);     // Prints &quot;Tab    Here&quot;
@@ -493,7 +494,7 @@ printf(&quot;She said \&quot;Hi\&quot;&quot;); // Prints She said &quot;Hi&quot;
 <li><strong>Purpose</strong>: Prints output to the console as per format specifiers.</li>
 </ul>
 <p><strong>Format Specifiers</strong>:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Specifier</th>
@@ -546,7 +547,7 @@ printf(&quot;She said \&quot;Hi\&quot;&quot;); // Prints She said &quot;Hi&quot;
 <td align="left">Pointer</td>
 <td align="left">Memory address.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Modifiers (Formatting)</strong>:</p>
 <ul>
 <li><strong>Width</strong>: <code>%5d</code> → prints integer in a field of width 5 (right-aligned). <code>%-5d</code> → left-aligned.</li>

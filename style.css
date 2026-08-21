@@ -110,7 +110,7 @@ tr:hover {
     background: #2a2a2a;
 }
 
-/* ===== Scrollable table wrapper ===== */
+/* ===== Scrollable table wrapper (only this one) ===== */
 .table-wrapper {
     overflow-x: auto;
     margin: 1.2em 0;

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -63,7 +64,7 @@
     E --&gt; F[&quot;Declaration Part&lt;br/&gt;Local variables&quot;]
     F --&gt; G[&quot;Executable Part&lt;br/&gt;Statements &amp; Logic&quot;]
     G --&gt; H[&quot;Return Statement&lt;br/&gt;return 0;&quot;]</pre><p><strong>Detailed Breakdown of Sections</strong>:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Section</th>
@@ -111,7 +112,7 @@
 <td align="left">Returns 0 to the OS to indicate successful execution.</td>
 <td align="left"><code>return 0;</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2>2. Character Set</h2>
 <p>The character set is the set of all valid characters that C recognizes. The C compiler supports the <strong>ASCII</strong> character set.</p>
@@ -125,7 +126,7 @@
 <h2>3. Keywords (Reserved Words)</h2>
 <p><strong>Keywords</strong> are pre-defined, reserved words in C that have a special meaning to the compiler. They cannot be used as variable names, function names, or identifiers.</p>
 <p><strong>List of 32 Keywords in C</strong>:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Group</th>
@@ -152,7 +153,7 @@
 <td align="left"><strong>Miscellaneous</strong></td>
 <td align="left"><code>sizeof</code>, <code>typedef</code>, <code>const</code>, <code>union</code>, <code>struct</code>, <code>enum</code>, <code>volatile</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <blockquote>
 <p><strong>Exam Tip</strong>: Keywords are always written in <strong>lowercase</strong>. In C, <code>Int</code> is NOT a keyword, but <code>int</code> is.</p>
 </blockquote>
@@ -179,7 +180,7 @@
 <h2>5. Constants</h2>
 <p>Constants are fixed values that do not change during the execution of a program. C supports two main types:</p>
 <h3>5.1 Literal Constants (Direct Values)</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Type</th>
@@ -207,7 +208,7 @@
 <td align="left">A sequence of characters enclosed in double quotes.</td>
 <td align="left"><code>&quot;Hello&quot;</code>, <code>&quot;C Programming&quot;</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h3>5.2 Symbolic Constants (Named Constants)</h3>
 <p>Defined using <code>#define</code> preprocessor directive or <code>const</code> keyword.</p>
 <ul>
@@ -223,7 +224,7 @@ const float GST = 0.18;</code></pre></li>
 <h3>6.2 Data Types and Type Declaration</h3>
 <p>Every variable must be declared with its <strong>data type</strong> before use. This tells the compiler how much memory to allocate and what operations are valid.</p>
 <p><strong>Basic Primary Data Types</strong>:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Data Type</th>
@@ -268,7 +269,7 @@ const float GST = 0.18;</code></pre></li>
 <td align="left">–</td>
 <td align="left">Represents &quot;no value&quot; (used for functions).</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Type Declaration Syntax</strong>:</p>
 <pre><code class="language-c">data_type variable_name;                // Declaration
 data_type variable_name = initial_value; // Declaration + Initialization</code></pre><p><strong>Example</strong>:</p>
@@ -279,7 +280,7 @@ double pi = 3.1415926535;</code></pre><hr>
 <h2>7. Pre-processor</h2>
 <p><strong>Definition</strong>: The pre-processor is a program that processes the source code <strong>before</strong> it is passed to the compiler. All pre-processor directives begin with a <code>#</code> (hash) symbol and are executed at compile-time.</p>
 <h3>Common Pre-processor Directives</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Directive</th>
@@ -317,7 +318,7 @@ double pi = 3.1415926535;</code></pre><hr>
 <td align="left">Forces an error message and stops compilation.</td>
 <td align="left"><code>#error &quot;Version not supported&quot;</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example of Pre-processor Usage</strong>:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;        // Include standard I/O
 #define PI 3.14159        // Define constant

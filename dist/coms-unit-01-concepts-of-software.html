@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -88,7 +89,7 @@
 </ol>
 <hr>
 <h4>Types of Operating Systems</h4>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">OS Type</th>
@@ -121,7 +122,7 @@
 <td align="left">Extends multiprogramming; each user gets a small time slice (quantum) of CPU. Users feel they have dedicated system.</td>
 <td align="left">UNIX, Linux, Windows (terminal services)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Visualizing OS Types:</strong></p>
 <pre class="mermaid">graph LR
     A[Operating Systems] --&gt; B[Single-User]
@@ -136,7 +137,7 @@
     F --&gt; F1[CPU time slicing]</pre><hr>
 <h3>3.3 Language Translators (Translators)</h3>
 <p>A <strong>translator</strong> converts high-level language (HLL) programs or assembly code into machine code (binary) that the CPU can execute.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Translator</th>
@@ -167,7 +168,7 @@
 <td align="left">Standalone executable file.</td>
 <td align="left">Fast (execution happens later without re-translation).</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <blockquote>
 <p><strong>Key Difference</strong>: Compiler translates once; Interpreter translates every time the program runs.</p>
 </blockquote>
@@ -256,7 +257,7 @@ Source Code → <strong>Compiler</strong> → Object File(s) → <strong>Linker<
 <hr>
 <h2>7. LINUX – Basic Commands (CUI Example)</h2>
 <p>Linux is an open-source, multi-user, multitasking OS. Its terminal uses a <strong>CUI</strong>. Below are essential commands:</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Command</th>
@@ -343,7 +344,7 @@ Source Code → <strong>Compiler</strong> → Object File(s) → <strong>Linker<
 <td align="left">Clears the terminal screen.</td>
 <td align="left"><code>clear</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <blockquote>
 <p><strong>Example Flow in Linux Terminal (CUI)</strong>:</p>
 <pre><code>$ pwd

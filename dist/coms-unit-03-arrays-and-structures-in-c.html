@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title></title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -170,7 +171,7 @@ int main() {
 <p><strong>Declaration</strong>:</p>
 <pre><code class="language-c">char str[20];                // Can hold up to 19 characters + &#39;\0&#39;
 char name[5] = &quot;John&quot;;       // Stored as: J, o, h, n, \0</code></pre><h3>4.1 Reading and Writing Strings</h3>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Function</th>
@@ -209,7 +210,7 @@ char name[5] = &quot;John&quot;;       // Stored as: J, o, h, n, \0</code></pre>
 <td align="left"><code>puts(name);</code></td>
 <td align="left">Fast and simple.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Example (Read/Write with spaces)</strong>:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 int main() {
@@ -220,7 +221,7 @@ int main() {
     return 0;
 }</code></pre><h3>4.2 String Concatenation and Comparison (Manual &amp; Library)</h3>
 <p>String functions are defined in the header file <code>&lt;string.h&gt;</code>.</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th align="left">Function</th>
@@ -265,7 +266,7 @@ int main() {
 <td align="left">Converts all characters to uppercase (non-standard).</td>
 <td align="left"><code>strupr(str);</code></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Manual Concatenation (Logic)</strong>:</p>
 <pre><code class="language-c">int i, j;
 char s1[100] = &quot;Hello&quot;, s2[] = &quot;World&quot;;
