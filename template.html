@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        {{#if title}}<h1>{{title}}</h1>{{/if}}
+
+        {{#if filename}}
+        <p><strong>📄 File:</strong> {{filename}}</p>
+        {{/if}}
+
+        {{#if date}}
+        <p><strong>📅 {{date}}</strong></p>
+        {{/if}}
+
+        {{#if description}}
+        <p><em>{{description}}</em></p>
+        {{/if}}
+
+        {{#if tags}}
+        <p>
+            <strong>🏷️ Tags:</strong>
+            {{#each tags}}
+            <span class="tag-badge">{{this}}</span>
+            {{/each}}
+        </p>
+        {{/if}}
+    </div>
+
+    <hr>
+
+    {{{content}}}
+</body>
+
+</html>

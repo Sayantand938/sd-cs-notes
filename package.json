@@ -1,0 +1,21 @@
+{
+  "name": "sd-cs-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "preview": "npm run build && npx serve dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.9",
+    "highlight.js": "^11.12.0",
+    "marked": "^18.0.10"
+  }
+}
