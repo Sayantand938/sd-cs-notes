@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-03-operators</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Introduction to Operators</h2>
+<p>An <strong>operator</strong> is a symbol that tells the compiler to perform specific mathematical, relational, or logical operations on given values (called <strong>operands</strong>). For example, in <code>a + b</code>, <code>+</code> is the operator and <code>a</code> and <code>b</code> are operands.</p>
+<p>Based on the number of operands, operators are classified as:</p>
+<ul>
+<li><strong>Unary</strong>: Acts on one operand (e.g., <code>-5</code>, <code>++a</code>).</li>
+<li><strong>Binary</strong>: Acts on two operands (e.g., <code>a + b</code>, <code>x &gt; y</code>).</li>
+<li><strong>Ternary</strong>: Acts on three operands (e.g., <code>a ? b : c</code>).</li>
+</ul>
+<hr>
+<h2>2. Types of Operators in C</h2>
+<h3>2.1 Arithmetic Operators</h3>
+<p>Used for basic mathematical calculations.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Meaning</th>
+<th align="left">Example</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>+</code></td>
+<td align="left">Addition</td>
+<td align="left"><code>5 + 2</code></td>
+<td align="left"><code>7</code></td>
+</tr>
+<tr>
+<td align="left"><code>-</code></td>
+<td align="left">Subtraction</td>
+<td align="left"><code>5 - 2</code></td>
+<td align="left"><code>3</code></td>
+</tr>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">Multiplication</td>
+<td align="left"><code>5 * 2</code></td>
+<td align="left"><code>10</code></td>
+</tr>
+<tr>
+<td align="left"><code>/</code></td>
+<td align="left">Division (Quotient)</td>
+<td align="left"><code>5 / 2</code> (int) → <code>2</code> <br> <code>5.0 / 2</code> → <code>2.5</code></td>
+<td align="left">Integer if both ints; float otherwise.</td>
+</tr>
+<tr>
+<td align="left"><code>%</code></td>
+<td align="left">Modulus (Remainder)</td>
+<td align="left"><code>5 % 2</code></td>
+<td align="left"><code>1</code> (Works only with integers)</td>
+</tr>
+</tbody></table>
+<p><strong>Important</strong>: Division by zero is a <strong>runtime error</strong>.</p>
+<hr>
+<h3>2.2 Relational (Comparison) Operators</h3>
+<p>Used to compare two values. They return <code>1</code> (true) or <code>0</code> (false).</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Meaning</th>
+<th align="left">Example</th>
+<th align="left">Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>&lt;</code></td>
+<td align="left">Less than</td>
+<td align="left"><code>5 &lt; 3</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left"><code>&gt;</code></td>
+<td align="left">Greater than</td>
+<td align="left"><code>5 &gt; 3</code></td>
+<td align="left"><code>1</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;=</code></td>
+<td align="left">Less than or equal to</td>
+<td align="left"><code>5 &lt;= 5</code></td>
+<td align="left"><code>1</code></td>
+</tr>
+<tr>
+<td align="left"><code>&gt;=</code></td>
+<td align="left">Greater than or equal to</td>
+<td align="left"><code>5 &gt;= 3</code></td>
+<td align="left"><code>1</code></td>
+</tr>
+<tr>
+<td align="left"><code>==</code></td>
+<td align="left">Equal to</td>
+<td align="left"><code>5 == 3</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left"><code>!=</code></td>
+<td align="left">Not equal to</td>
+<td align="left"><code>5 != 3</code></td>
+<td align="left"><code>1</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>2.3 Logical Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td><code>A &amp;&amp; B</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>`</td>
+<td></td>
+<td>`</td>
+<td>OR</td>
+<td>`A</td>
+<td></td>
+<td>B`</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT</td>
+<td><code>!A</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Short-Circuit Evaluation</strong>: In <code>A &amp;&amp; B</code>, if <code>A</code> is false, <code>B</code> is <strong>not evaluated</strong>. In <code>A || B</code>, if <code>A</code> is true, <code>B</code> is <strong>not evaluated</strong>.</p>
+</blockquote>
+<hr>
+<h3>2.4 Assignment Operators</h3>
+<p>Used to assign values to variables.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Meaning</th>
+<th align="left">Example</th>
+<th align="left">Equivalent To</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>=</code></td>
+<td align="left">Simple assignment</td>
+<td align="left"><code>x = 5</code></td>
+<td align="left">Assigns <code>5</code> to <code>x</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>+=</code></td>
+<td align="left">Add and assign</td>
+<td align="left"><code>x += 3</code></td>
+<td align="left"><code>x = x + 3</code></td>
+</tr>
+<tr>
+<td align="left"><code>-=</code></td>
+<td align="left">Subtract and assign</td>
+<td align="left"><code>x -= 3</code></td>
+<td align="left"><code>x = x - 3</code></td>
+</tr>
+<tr>
+<td align="left"><code>*=</code></td>
+<td align="left">Multiply and assign</td>
+<td align="left"><code>x *= 3</code></td>
+<td align="left"><code>x = x * 3</code></td>
+</tr>
+<tr>
+<td align="left"><code>/=</code></td>
+<td align="left">Divide and assign</td>
+<td align="left"><code>x /= 3</code></td>
+<td align="left"><code>x = x / 3</code></td>
+</tr>
+<tr>
+<td align="left"><code>%=</code></td>
+<td align="left">Modulus and assign</td>
+<td align="left"><code>x %= 3</code></td>
+<td align="left"><code>x = x % 3</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>2.5 Increment and Decrement Operators</h3>
+<ul>
+<li><code>++</code> (Increment): Increases value by <code>1</code>.</li>
+<li><code>--</code> (Decrement): Decreases value by <code>1</code>.</li>
+</ul>
+<p><strong>Prefix vs Postfix</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Mode</th>
+<th align="left">Syntax</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Prefix</strong></td>
+<td align="left"><code>++a</code> or <code>--a</code></td>
+<td align="left">Increment/Decrement <strong>first</strong>, then use the value.</td>
+</tr>
+<tr>
+<td align="left"><strong>Postfix</strong></td>
+<td align="left"><code>a++</code> or <code>a--</code></td>
+<td align="left">Use the current value <strong>first</strong>, then increment/decrement.</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong>: If <code>a = 5</code>:</p>
+<pre><code class="language-c">int b = ++a;  // a becomes 6, then b = 6
+int c = a--;  // c = 6 (current value), then a becomes 5</code></pre><hr>
+<h3>2.6 Conditional (Ternary) Operator</h3>
+<p>A shorthand for <code>if-else</code>. Syntax:</p>
+<pre><code class="language-c">condition ? expression1 : expression2;</code></pre><ul>
+<li>If <code>condition</code> is true (non-zero), <code>expression1</code> is evaluated.</li>
+<li>If <code>condition</code> is false (zero), <code>expression2</code> is evaluated.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int max = (a &gt; b) ? a : b;  // Assigns the larger value to max.</code></pre><hr>
+<h3>2.7 Comma Operator</h3>
+<p>The comma <code>,</code> operator is used to separate multiple expressions. It evaluates <strong>left to right</strong>, but the result of the whole expression is the <strong>rightmost operand</strong>.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int a, b;
+b = (a = 5, a * 2);  // a = 5 (evaluated first), then a*2 = 10 (assigned to b)
+// b = 10</code></pre><p><strong>Usage</strong>: Often used in <code>for</code> loops (<code>for(i=0, j=10; i&lt;5; i++, j--)</code>).</p>
+<hr>
+<h2>3. Operator Precedence and Associativity</h2>
+<p><strong>Precedence</strong> determines which operator is evaluated first in an expression.<br><strong>Associativity</strong> determines the direction (left-to-right or right-to-left) when operators have the same precedence.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Operator</th>
+<th>Associativity</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>()</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>!</code></td>
+<td>Right to Left</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>*</code> <code>/</code> <code>%</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>+</code> <code>-</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>==</code> <code>!=</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>&amp;&amp;</code></td>
+<td>Left to Right</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>`</td>
+<td></td>
+<td>`</td>
+<td>Left to Right</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code></td>
+<td>Right to Left</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Example Evaluation</strong>:</p>
+<pre><code class="language-c">int x = 10 + 5 * 2;  // &#39;*&#39; (higher precedence) evaluated first: 5*2=10, then 10+10=20.
+// x = 20</code></pre><hr>
+<h2>4. Arithmetic Expression Evaluation &amp; Type Conversion</h2>
+<h3>4.1 Implicit Type Conversion (Automatic)</h3>
+<p>When operands of different data types are mixed, C automatically converts them to a <strong>common higher-rank type</strong> to prevent data loss. This is called <strong>Usual Arithmetic Conversion</strong> (Promotion).</p>
+<p><strong>Hierarchy (Lowest to Highest)</strong>:
+<code>char</code> → <code>short</code> → <code>int</code> → <code>unsigned int</code> → <code>long</code> → <code>unsigned long</code> → <code>float</code> → <code>double</code> → <code>long double</code></p>
+<p><strong>Examples</strong>:</p>
+<pre><code class="language-c">int a = 5;
+float b = 2.5;
+float result = a + b;  // &#39;a&#39; is promoted to float (5.0), result = 7.5 (float)
+
+int x = 5, y = 2;
+float z = x / y;       // x/y = 2 (integer division), z = 2.0 (NOT 2.5)
+float w = (float)x / y; // Explicit conversion fixes this → 2.5</code></pre><h3>4.2 Explicit Type Conversion (Type Casting)</h3>
+<p>The programmer manually forces conversion using the cast operator <code>(type)</code>.</p>
+<p><strong>Syntax</strong>: <code>(data_type) expression;</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int a = 7, b = 3;
+float result = (float)a / b; // result = 2.33333</code></pre><hr>
+<h2>5. Character I/O (Unformatted I/O)</h2>
+<p>These functions are defined in <code>&lt;stdio.h&gt;</code> and handle single-character input/output without using format specifiers.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Prototype</th>
+<th align="left">Description</th>
+<th align="left">Return Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>getchar()</code></strong></td>
+<td align="left"><code>int getchar(void);</code></td>
+<td align="left">Reads a single character from the standard input (keyboard) and returns it as an integer (ASCII value).</td>
+<td align="left"><code>int</code> (ASCII value)</td>
+</tr>
+<tr>
+<td align="left"><strong><code>putchar()</code></strong></td>
+<td align="left"><code>int putchar(int c);</code></td>
+<td align="left">Writes a single character (given as integer ASCII value) to the standard output (screen).</td>
+<td align="left"><code>int</code> (character written)</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    char ch;
+    printf(&quot;Enter a character: &quot;);
+    ch = getchar();           // Reads the character (e.g., &#39;A&#39;)
+    printf(&quot;You entered: &quot;);
+    putchar(ch);              // Prints &#39;A&#39;
+    return 0;
+}</code></pre><hr>
+<h2>6. Escape Sequences</h2>
+<p>An <strong>Escape Sequence</strong> is a combination of a backslash (<code>\</code>) followed by a character, used to represent non-printable characters or special formatting in string/character constants.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Escape Sequence</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>\n</code></td>
+<td align="left">Newline</td>
+<td align="left">Moves the cursor to the beginning of the next line.</td>
+</tr>
+<tr>
+<td align="left"><code>\t</code></td>
+<td align="left">Horizontal Tab</td>
+<td align="left">Inserts a tab space.</td>
+</tr>
+<tr>
+<td align="left"><code>\r</code></td>
+<td align="left">Carriage Return</td>
+<td align="left">Moves the cursor to the beginning of the current line (overwrites).</td>
+</tr>
+<tr>
+<td align="left"><code>\a</code></td>
+<td align="left">Alert / Bell</td>
+<td align="left">Produces a beep sound.</td>
+</tr>
+<tr>
+<td align="left"><code>\\</code></td>
+<td align="left">Backslash</td>
+<td align="left">Prints a literal backslash (<code>\</code>).</td>
+</tr>
+<tr>
+<td align="left"><code>\&#39;</code></td>
+<td align="left">Single Quote</td>
+<td align="left">Prints a single quote (<code>&#39;</code>).</td>
+</tr>
+<tr>
+<td align="left"><code>\&quot;</code></td>
+<td align="left">Double Quote</td>
+<td align="left">Prints a double quote (<code>&quot;</code>).</td>
+</tr>
+<tr>
+<td align="left"><code>\0</code></td>
+<td align="left">Null</td>
+<td align="left">Null character (marks the end of a string).</td>
+</tr>
+<tr>
+<td align="left"><code>\b</code></td>
+<td align="left">Backspace</td>
+<td align="left">Moves the cursor one position backward.</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">printf(&quot;Hello\nWorld&quot;);  // Prints Hello on Line 1, World on Line 2.
+printf(&quot;Tab\tHere&quot;);     // Prints &quot;Tab    Here&quot;
+printf(&quot;She said \&quot;Hi\&quot;&quot;); // Prints She said &quot;Hi&quot;</code></pre><hr>
+<h2>7. Formatted I/O</h2>
+<p>Formatted I/O allows reading/writing data in a specified format using <code>scanf</code> and <code>printf</code>.</p>
+<h3>7.1 <code>printf()</code> (Formatted Output)</h3>
+<ul>
+<li><strong>Prototype</strong>: <code>int printf(const char *format, ...);</code></li>
+<li><strong>Purpose</strong>: Prints output to the console as per format specifiers.</li>
+</ul>
+<p><strong>Format Specifiers</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Specifier</th>
+<th align="left">Data Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>%d</code> or <code>%i</code></td>
+<td align="left"><code>int</code></td>
+<td align="left">Signed decimal integer.</td>
+</tr>
+<tr>
+<td align="left"><code>%u</code></td>
+<td align="left"><code>unsigned int</code></td>
+<td align="left">Unsigned decimal integer.</td>
+</tr>
+<tr>
+<td align="left"><code>%f</code></td>
+<td align="left"><code>float</code> / <code>double</code></td>
+<td align="left">Floating-point number (decimal notation).</td>
+</tr>
+<tr>
+<td align="left"><code>%lf</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Used for reading <code>double</code> in <code>scanf</code> (output can use <code>%f</code> too).</td>
+</tr>
+<tr>
+<td align="left"><code>%c</code></td>
+<td align="left"><code>char</code></td>
+<td align="left">Single character.</td>
+</tr>
+<tr>
+<td align="left"><code>%s</code></td>
+<td align="left"><code>char[]</code> (string)</td>
+<td align="left">String of characters.</td>
+</tr>
+<tr>
+<td align="left"><code>%x</code> / <code>%X</code></td>
+<td align="left"><code>int</code></td>
+<td align="left">Hexadecimal (lowercase/uppercase).</td>
+</tr>
+<tr>
+<td align="left"><code>%o</code></td>
+<td align="left"><code>int</code></td>
+<td align="left">Octal.</td>
+</tr>
+<tr>
+<td align="left"><code>%p</code></td>
+<td align="left">Pointer</td>
+<td align="left">Memory address.</td>
+</tr>
+</tbody></table>
+<p><strong>Modifiers (Formatting)</strong>:</p>
+<ul>
+<li><strong>Width</strong>: <code>%5d</code> → prints integer in a field of width 5 (right-aligned). <code>%-5d</code> → left-aligned.</li>
+<li><strong>Precision</strong>: <code>%.2f</code> → prints float with 2 decimal places.</li>
+<li><strong>Combined</strong>: <code>%8.2f</code> → width 8, with 2 decimals.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int age = 25;
+float cgpa = 8.567;
+printf(&quot;Age: %d, CGPA: %.2f\n&quot;, age, cgpa); // Output: Age: 25, CGPA: 8.57</code></pre><hr>
+<h3>7.2 <code>scanf()</code> (Formatted Input)</h3>
+<ul>
+<li><strong>Prototype</strong>: <code>int scanf(const char *format, ...);</code></li>
+<li><strong>Purpose</strong>: Reads formatted data from the standard input (keyboard).</li>
+<li><strong>Important</strong>: <strong>Always use the address-of operator <code>&amp;</code></strong> before variables (except for strings).</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int num;
+float price;
+char letter;
+char name[50];
+
+printf(&quot;Enter int, float, char, and string: &quot;);
+scanf(&quot;%d %f %c %s&quot;, &amp;num, &amp;price, &amp;letter, name);
+// Input: 10 99.99 A John
+// Note: name is already an array (address), so no &amp; is needed.</code></pre><p><strong>Common Issues with <code>scanf</code></strong>:</p>
+<ul>
+<li><code>%c</code> reads whitespace characters (space, newline). To skip whitespace, use a space before <code>%c</code>: <code>scanf(&quot; %c&quot;, &amp;ch);</code>.</li>
+<li>Always match the format string exactly with the input data type.</li>
+</ul>
+<p><strong>Return Value of <code>scanf</code></strong>: Returns the number of items successfully read.</p>
+<h2>8. MCQ</h2>
+<h4>Q1. What is an operator in programming?</h4>
+<div class="question-options"><span class="option">A) A variable that stores data</span>
+<span class="option">B) A symbol that tells the compiler to perform specific operations on operands ✅</span>
+<span class="option">C) A function that returns a value</span>
+<span class="option">D) A loop that repeats code</span></div><h4>Q2. In the expression <code>a + b</code>, what is <code>+</code> called?</h4>
+<div class="question-options"><span class="option">A) Operand</span>
+<span class="option">B) Operator ✅</span>
+<span class="option">C) Variable</span>
+<span class="option">D) Expression</span></div><h4>Q3. In the expression <code>a + b</code>, what are <code>a</code> and <code>b</code> called?</h4>
+<div class="question-options"><span class="option">A) Operators</span>
+<span class="option">B) Operands ✅</span>
+<span class="option">C) Results</span>
+<span class="option">D) Statements</span></div><h4>Q4. Based on the number of operands, operators are classified into which types?</h4>
+<div class="question-options"><span class="option">A) Unary, Binary, Ternary ✅</span>
+<span class="option">B) Integer, Float, Character</span>
+<span class="option">C) Arithmetic, Logical, Relational</span>
+<span class="option">D) Simple, Complex, Conditional</span></div><h4>Q5. A Unary operator acts on how many operands?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 3</span></div><h4>Q6. A Binary operator acts on how many operands?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) 2 ✅</span>
+<span class="option">D) 3</span></div><h4>Q7. A Ternary operator acts on how many operands?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) 2</span>
+<span class="option">D) 3 ✅</span></div><h4>Q8. Which of the following is a Unary operator?</h4>
+<div class="question-options"><span class="option">A) `+`</span>
+<span class="option">B) `-` (as unary minus) ✅</span>
+<span class="option">C) `*`</span>
+<span class="option">D) `/`</span></div><h4>Q9. Which of the following is NOT an Arithmetic operator?</h4>
+<div class="question-options"><span class="option">A) `+`</span>
+<span class="option">B) `*`</span>
+<span class="option">C) `%`</span>
+<span class="option">D) `&&` ✅</span></div><h4>Q10. What is the result of <code>5 + 2</code>?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 7 ✅</span>
+<span class="option">C) 10</span>
+<span class="option">D) 2.5</span></div><h4>Q11. What is the result of <code>5 - 2</code>?</h4>
+<div class="question-options"><span class="option">A) 3 ✅</span>
+<span class="option">B) 7</span>
+<span class="option">C) 10</span>
+<span class="option">D) 2.5</span></div><h4>Q12. What is the result of <code>5 * 2</code>?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 7</span>
+<span class="option">C) 10 ✅</span>
+<span class="option">D) 2.5</span></div><h4>Q13. What is the result of <code>5 / 2</code> when both operands are integers?</h4>
+<div class="question-options"><span class="option">A) 2.5</span>
+<span class="option">B) 2 ✅</span>
+<span class="option">C) 3</span>
+<span class="option">D) 1</span></div><h4>Q14. What is the result of <code>5.0 / 2</code>?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 2.5 ✅</span>
+<span class="option">C) 3</span>
+<span class="option">D) 1</span></div><h4>Q15. What is the result of <code>5 % 2</code>?</h4>
+<div class="question-options"><span class="option">A) 2.5</span>
+<span class="option">B) 2</span>
+<span class="option">C) 1 ✅</span>
+<span class="option">D) 0</span></div><h4>Q16. The modulus operator <code>%</code> works only with which data types?</h4>
+<div class="question-options"><span class="option">A) Float and double</span>
+<span class="option">B) Integers ✅</span>
+<span class="option">C) Characters</span>
+<span class="option">D) Strings</span></div><h4>Q17. What happens when you attempt division by zero in C?</h4>
+<div class="question-options"><span class="option">A) Compilation error</span>
+<span class="option">B) Runtime error ✅</span>
+<span class="option">C) No error, returns 0</span>
+<span class="option">D) No error, returns infinity</span></div><h4>Q18. Relational operators return which values?</h4>
+<div class="question-options"><span class="option">A) 0 or 1 ✅</span>
+<span class="option">B) True or False as strings</span>
+<span class="option">C) Any integer</span>
+<span class="option">D) Floating point values</span></div><h4>Q19. What is the output of <code>5 &lt; 3</code>?</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 0 ✅</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q20. What is the output of <code>5 &gt; 3</code>?</h4>
+<div class="question-options"><span class="option">A) 1 ✅</span>
+<span class="option">B) 0</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q21. What is the output of <code>5 &lt;= 5</code>?</h4>
+<div class="question-options"><span class="option">A) 1 ✅</span>
+<span class="option">B) 0</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q22. What is the output of <code>5 &gt;= 3</code>?</h4>
+<div class="question-options"><span class="option">A) 1 ✅</span>
+<span class="option">B) 0</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q23. What is the output of <code>5 == 3</code>?</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 0 ✅</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q24. What is the output of <code>5 != 3</code>?</h4>
+<div class="question-options"><span class="option">A) 1 ✅</span>
+<span class="option">B) 0</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q25. Which operator is used to check equality in C?</h4>
+<div class="question-options"><span class="option">A) `=`</span>
+<span class="option">B) `==` ✅</span>
+<span class="option">C) `!=`</span>
+<span class="option">D) `===`</span></div><h4>Q26. Which operator is used to check inequality in C?</h4>
+<div class="question-options"><span class="option">A) `=`</span>
+<span class="option">B) `==`</span>
+<span class="option">C) `!=` ✅</span>
+<span class="option">D) `<>`</span></div><h4>Q27. Logical AND (<code>&amp;&amp;</code>) returns true when:</h4>
+<div class="question-options"><span class="option">A) At least one operand is true</span>
+<span class="option">B) Both operands are true ✅</span>
+<span class="option">C) Neither operand is true</span>
+<span class="option">D) The first operand is true</span></div><h4>Q28. Logical OR (<code>||</code>) returns true when:</h4>
+<div class="question-options"><span class="option">A) At least one operand is true ✅</span>
+<span class="option">B) Both operands are true</span>
+<span class="option">C) Neither operand is true</span>
+<span class="option">D) The first operand is true</span></div><h4>Q29. Logical NOT (<code>!</code>) reverses:</h4>
+<div class="question-options"><span class="option">A) The value of a variable</span>
+<span class="option">B) The truth value of an expression ✅</span>
+<span class="option">C) The sign of a number</span>
+<span class="option">D) The order of operations</span></div><h4>Q30. What is the result of <code>1 &amp;&amp; 0</code>?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q31. What is the result of <code>1 || 0</code>?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q32. What is the result of <code>!1</code>?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) True</span>
+<span class="option">D) False</span></div><h4>Q33. What is short-circuit evaluation in logical operators?</h4>
+<div class="question-options"><span class="option">A) All operands are evaluated regardless of the result</span>
+<span class="option">B) Evaluation stops when the overall result is determined ✅</span>
+<span class="option">C) Evaluation skips the operator</span>
+<span class="option">D) Evaluation reverses the operands</span></div><h4>Q34. In <code>A &amp;&amp; B</code>, if <code>A</code> is false, then:</h4>
+<div class="question-options"><span class="option">A) `B` is evaluated</span>
+<span class="option">B) `B` is not evaluated ✅</span>
+<span class="option">C) The result is true</span>
+<span class="option">D) An error occurs</span></div><h4>Q35. In <code>A || B</code>, if <code>A</code> is true, then:</h4>
+<div class="question-options"><span class="option">A) `B` is evaluated</span>
+<span class="option">B) `B` is not evaluated ✅</span>
+<span class="option">C) The result is false</span>
+<span class="option">D) An error occurs</span></div><h4>Q36. Which of the following is an Assignment operator?</h4>
+<div class="question-options"><span class="option">A) `==`</span>
+<span class="option">B) `!`</span>
+<span class="option">C) `=`</span>
+<span class="option">D) `&&` ✅</span></div><h4>Q37. What does <code>x += 3</code> mean?</h4>
+<div class="question-options"><span class="option">A) `x = x + 3` ✅</span>
+<span class="option">B) `x = 3`</span>
+<span class="option">C) `x = x * 3`</span>
+<span class="option">D) `x = x - 3`</span></div><h4>Q38. What does <code>x -= 3</code> mean?</h4>
+<div class="question-options"><span class="option">A) `x = x + 3`</span>
+<span class="option">B) `x = 3`</span>
+<span class="option">C) `x = x * 3`</span>
+<span class="option">D) `x = x - 3` ✅</span></div><h4>Q39. What does <code>x *= 3</code> mean?</h4>
+<div class="question-options"><span class="option">A) `x = x + 3`</span>
+<span class="option">B) `x = 3`</span>
+<span class="option">C) `x = x * 3` ✅</span>
+<span class="option">D) `x = x - 3`</span></div><h4>Q40. What does <code>x /= 3</code> mean?</h4>
+<div class="question-options"><span class="option">A) `x = x + 3`</span>
+<span class="option">B) `x = x / 3` ✅</span>
+<span class="option">C) `x = x * 3`</span>
+<span class="option">D) `x = x - 3`</span></div><h4>Q41. What does <code>x %= 3</code> mean?</h4>
+<div class="question-options"><span class="option">A) `x = x + 3`</span>
+<span class="option">B) `x = x % 3` ✅</span>
+<span class="option">C) `x = x * 3`</span>
+<span class="option">D) `x = x - 3`</span></div><h4>Q42. The increment operator <code>++</code> does what?</h4>
+<div class="question-options"><span class="option">A) Increases value by 0</span>
+<span class="option">B) Increases value by 1 ✅</span>
+<span class="option">C) Increases value by 2</span>
+<span class="option">D) Decreases value by 1</span></div><h4>Q43. The decrement operator <code>--</code> does what?</h4>
+<div class="question-options"><span class="option">A) Increases value by 1</span>
+<span class="option">B) Decreases value by 1 ✅</span>
+<span class="option">C) Decreases value by 2</span>
+<span class="option">D) Doubles the value</span></div><h4>Q44. What is the difference between prefix (<code>++a</code>) and postfix (<code>a++</code>)?</h4>
+<div class="question-options"><span class="option">A) No difference</span>
+<span class="option">B) Prefix increments first, then uses; postfix uses first, then increments ✅</span>
+<span class="option">C) Prefix uses first, then increments; postfix increments first, then uses</span>
+<span class="option">D) Both increment and use simultaneously</span></div><h4>Q45. If <code>a = 5</code>, what is the value of <code>b = ++a</code>?</h4>
+<div class="question-options"><span class="option">A) `a=5, b=5`</span>
+<span class="option">B) `a=6, b=6` ✅</span>
+<span class="option">C) `a=5, b=6`</span>
+<span class="option">D) `a=6, b=5`</span></div><h4>Q46. If <code>a = 5</code>, what is the value of <code>b = a++</code>?</h4>
+<div class="question-options"><span class="option">A) `a=5, b=5`</span>
+<span class="option">B) `a=6, b=6`</span>
+<span class="option">C) `a=5, b=6`</span>
+<span class="option">D) `a=6, b=5` ✅</span></div><h4>Q47. What is the syntax of the Conditional (Ternary) operator?</h4>
+<div class="question-options"><span class="option">A) `condition ? expression1 : expression2` ✅</span>
+<span class="option">B) `condition ? expression1 ; expression2`</span>
+<span class="option">C) `condition : expression1 ? expression2`</span>
+<span class="option">D) `condition expression1 : expression2`</span></div><h4>Q48. In the ternary operator, if the condition is true:</h4>
+<div class="question-options"><span class="option">A) expression2 is evaluated</span>
+<span class="option">B) expression1 is evaluated ✅</span>
+<span class="option">C) Both expressions are evaluated</span>
+<span class="option">D) Neither expression is evaluated</span></div><h4>Q49. In the ternary operator, if the condition is false:</h4>
+<div class="question-options"><span class="option">A) expression2 is evaluated ✅</span>
+<span class="option">B) expression1 is evaluated</span>
+<span class="option">C) Both expressions are evaluated</span>
+<span class="option">D) Neither expression is evaluated</span></div><h4>Q50. <code>int max = (a &gt; b) ? a : b;</code> assigns to <code>max</code>:</h4>
+<div class="question-options"><span class="option">A) The value of `a`</span>
+<span class="option">B) The value of `b`</span>
+<span class="option">C) The larger value between `a` and `b` ✅</span>
+<span class="option">D) The smaller value between `a` and `b`</span></div><h4>Q51. The Comma operator <code>,</code> evaluates expressions:</h4>
+<div class="question-options"><span class="option">A) Right to left</span>
+<span class="option">B) Left to right ✅</span>
+<span class="option">C) Randomly</span>
+<span class="option">D) Only the last expression</span></div><h4>Q52. In <code>b = (a = 5, a * 2);</code>, what is the value of <code>b</code>?</h4>
+<div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) 7</span>
+<span class="option">D) 2.5</span></div><h4>Q53. The Comma operator&#39;s result is the value of:</h4>
+<div class="question-options"><span class="option">A) The leftmost operand</span>
+<span class="option">B) The rightmost operand ✅</span>
+<span class="option">C) The sum of all operands</span>
+<span class="option">D) The first operand</span></div><h4>Q54. The Comma operator is often used in:</h4>
+<div class="question-options"><span class="option">A) While loops</span>
+<span class="option">B) For loops ✅</span>
+<span class="option">C) If-else statements</span>
+<span class="option">D) Switch cases</span></div><h4>Q55. Operator Precedence determines:</h4>
+<div class="question-options"><span class="option">A) Which operand is evaluated first</span>
+<span class="option">B) Which operator is evaluated first ✅</span>
+<span class="option">C) The direction of evaluation</span>
+<span class="option">D) The type of conversion</span></div><h4>Q56. Operator Associativity determines:</h4>
+<div class="question-options"><span class="option">A) Which operator is evaluated first</span>
+<span class="option">B) The direction of evaluation when operators have same precedence ✅</span>
+<span class="option">C) The type of operands</span>
+<span class="option">D) The result of the expression</span></div><h4>Q57. In <code>10 + 5 * 2</code>, which operation is performed first?</h4>
+<div class="question-options"><span class="option">A) Addition</span>
+<span class="option">B) Multiplication ✅</span>
+<span class="option">C) Both simultaneously</span>
+<span class="option">D) Depends on associativity</span></div><h4>Q58. What is the result of <code>10 + 5 * 2</code>?</h4>
+<div class="question-options"><span class="option">A) 20 ✅</span>
+<span class="option">B) 30</span>
+<span class="option">C) 15</span>
+<span class="option">D) 25</span></div><h4>Q59. Which operator has the highest precedence?</h4>
+<div class="question-options"><span class="option">A) `+`</span>
+<span class="option">B) `*`</span>
+<span class="option">C) `()`</span>
+<span class="option">D) `&&` ✅</span></div><h4>Q60. Which operator has the lowest precedence?</h4>
+<div class="question-options"><span class="option">A) `=`</span>
+<span class="option">B) `,`</span>
+<span class="option">C) `+`</span>
+<span class="option">D) `&&` ✅</span></div><h4>Q61. The assignment operator <code>=</code> has which associativity?</h4>
+<div class="question-options"><span class="option">A) Left to Right</span>
+<span class="option">B) Right to Left ✅</span>
+<span class="option">C) Both</span>
+<span class="option">D) None</span></div><h4>Q62. The arithmetic operators <code>+</code> and <code>-</code> have which associativity?</h4>
+<div class="question-options"><span class="option">A) Left to Right ✅</span>
+<span class="option">B) Right to Left</span>
+<span class="option">C) Both</span>
+<span class="option">D) None</span></div><h4>Q63. Implicit Type Conversion is also called:</h4>
+<div class="question-options"><span class="option">A) Type Casting</span>
+<span class="option">B) Usual Arithmetic Conversion (Promotion) ✅</span>
+<span class="option">C) Explicit Conversion</span>
+<span class="option">D) Forced Conversion</span></div><h4>Q64. In implicit type conversion, data types are converted:</h4>
+<div class="question-options"><span class="option">A) Manually by the programmer</span>
+<span class="option">B) Automatically by the compiler ✅</span>
+<span class="option">C) Never</span>
+<span class="option">D) Only for floating point</span></div><h4>Q65. The hierarchy for implicit conversion from lowest to highest is:</h4>
+<div class="question-options"><span class="option">A) char → int → float → double</span>
+<span class="option">B) char → int → double → float</span>
+<span class="option">C) int → char → float → double</span>
+<span class="option">D) double → float → int → char ✅</span></div><h4>Q66. In <code>float result = 5 / 2;</code>, what is the value of <code>result</code>?</h4>
+<div class="question-options"><span class="option">A) 2.5</span>
+<span class="option">B) 2.0 ✅</span>
+<span class="option">C) 3.0</span>
+<span class="option">D) 2.5 (as float)</span></div><h4>Q67. Why is <code>float result = 5 / 2;</code> equal to <code>2.0</code> and not <code>2.5</code>?</h4>
+<div class="question-options"><span class="option">A) Integer division is performed, then converted to float ✅</span>
+<span class="option">B) Float division is performed</span>
+<span class="option">C) Compilation error</span>
+<span class="option">D) 5/2 is rounded down</span></div><h4>Q68. How can you fix <code>float result = 5 / 2;</code> to get <code>2.5</code>?</h4>
+<div class="question-options"><span class="option">A) `result = 5 / 2.0;`</span>
+<span class="option">B) `result = (float)5 / 2;`</span>
+<span class="option">C) Both A and B ✅</span>
+<span class="option">D) Cannot be fixed</span></div><h4>Q69. Explicit Type Conversion is also called:</h4>
+<div class="question-options"><span class="option">A) Implicit Conversion</span>
+<span class="option">B) Type Casting ✅</span>
+<span class="option">C) Automatic Conversion</span>
+<span class="option">D) Promotion</span></div><h4>Q70. What is the syntax for type casting?</h4>
+<div class="question-options"><span class="option">A) `(data_type) expression;` ✅</span>
+<span class="option">B) `expression as data_type;`</span>
+<span class="option">C) `data_type(expression);`</span>
+<span class="option">D) `convert(data_type, expression);`</span></div><h4>Q71. In <code>float result = (float)7 / 3;</code>, what is the value of <code>result</code>?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 2.33333 ✅</span>
+<span class="option">C) 3</span>
+<span class="option">D) 2.0</span></div><h4>Q72. <code>getchar()</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Formatted input</span>
+<span class="option">B) Unformatted single character input ✅</span>
+<span class="option">C) String input</span>
+<span class="option">D) Integer input</span></div><h4>Q73. <code>getchar()</code> returns the character as:</h4>
+<div class="question-options"><span class="option">A) A char</span>
+<span class="option">B) An int (ASCII value) ✅</span>
+<span class="option">C) A string</span>
+<span class="option">D) A float</span></div><h4>Q74. <code>putchar()</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Formatted output</span>
+<span class="option">B) Unformatted single character output ✅</span>
+<span class="option">C) String output</span>
+<span class="option">D) Integer output</span></div><h4>Q75. Which header file contains <code>getchar()</code> and <code>putchar()</code>?</h4>
+<div class="question-options"><span class="option">A) `<stdlib.h>`</span>
+<span class="option">B) `<stdio.h>` ✅</span>
+<span class="option">C) `<string.h>`</span>
+<span class="option">D) `<math.h>`</span></div><h4>Q76. What is the output of <code>putchar(65);</code>?</h4>
+<div class="question-options"><span class="option">A) 65</span>
+<span class="option">B) 'A' ✅</span>
+<span class="option">C) 'a'</span>
+<span class="option">D) Compilation error</span></div><h4>Q77. <code>char ch = getchar();</code> reads:</h4>
+<div class="question-options"><span class="option">A) A string</span>
+<span class="option">B) A single character ✅</span>
+<span class="option">C) An integer</span>
+<span class="option">D) A floating point number</span></div><h4>Q78. An Escape Sequence starts with:</h4>
+<div class="question-options"><span class="option">A) A forward slash `/`</span>
+<span class="option">B) A backslash `\` ✅</span>
+<span class="option">C) A percent sign `%`</span>
+<span class="option">D) An ampersand `&`</span></div><h4>Q79. Which escape sequence represents a newline?</h4>
+<div class="question-options"><span class="option">A) `\t`</span>
+<span class="option">B) `\n` ✅</span>
+<span class="option">C) `\r`</span>
+<span class="option">D) `\a`</span></div><h4>Q80. Which escape sequence inserts a tab space?</h4>
+<div class="question-options"><span class="option">A) `\t` ✅</span>
+<span class="option">B) `\n`</span>
+<span class="option">C) `\r`</span>
+<span class="option">D) `\a`</span></div><h4>Q81. Which escape sequence moves the cursor to the beginning of the current line?</h4>
+<div class="question-options"><span class="option">A) `\t`</span>
+<span class="option">B) `\n`</span>
+<span class="option">C) `\r` ✅</span>
+<span class="option">D) `\a`</span></div><h4>Q82. Which escape sequence produces a beep sound?</h4>
+<div class="question-options"><span class="option">A) `\t`</span>
+<span class="option">B) `\n`</span>
+<span class="option">C) `\r`</span>
+<span class="option">D) `\a` ✅</span></div><h4>Q83. Which escape sequence prints a literal backslash?</h4>
+<div class="question-options"><span class="option">A) `\`</span>
+<span class="option">B) `\\` ✅</span>
+<span class="option">C) `\/`</span>
+<span class="option">D) `\\\`</span></div><h4>Q84. Which escape sequence prints a double quote?</h4>
+<div class="question-options"><span class="option">A) `\`</span>
+<span class="option">B) `\'`</span>
+<span class="option">C) `\"` ✅</span>
+<span class="option">D) `\\`</span></div><h4>Q85. Which escape sequence represents the null character?</h4>
+<div class="question-options"><span class="option">A) `\n`</span>
+<span class="option">B) `\0` ✅</span>
+<span class="option">C) `\t`</span>
+<span class="option">D) `\r`</span></div><h4>Q86. The null character <code>\0</code> marks:</h4>
+<div class="question-options"><span class="option">A) The start of a string</span>
+<span class="option">B) The end of a string ✅</span>
+<span class="option">C) A tab space</span>
+<span class="option">D) A new line</span></div><h4>Q87. <code>printf()</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Formatted output ✅</span>
+<span class="option">B) Unformatted output</span>
+<span class="option">C) Formatted input</span>
+<span class="option">D) Character input</span></div><h4>Q88. <code>printf()</code> returns:</h4>
+<div class="question-options"><span class="option">A) The number of characters printed ✅</span>
+<span class="option">B) A string</span>
+<span class="option">C) An integer representing success</span>
+<span class="option">D) Nothing</span></div><h4>Q89. <code>scanf()</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Formatted output</span>
+<span class="option">B) Unformatted output</span>
+<span class="option">C) Formatted input ✅</span>
+<span class="option">D) Character output</span></div><h4>Q90. <code>scanf()</code> returns:</h4>
+<div class="question-options"><span class="option">A) The number of items successfully read ✅</span>
+<span class="option">B) The input value</span>
+<span class="option">C) A string</span>
+<span class="option">D) Nothing</span></div><h4>Q91. Which format specifier is used for <code>int</code>?</h4>
+<div class="question-options"><span class="option">A) `%f`</span>
+<span class="option">B) `%c`</span>
+<span class="option">C) `%d` or `%i` ✅</span>
+<span class="option">D) `%s`</span></div><h4>Q92. Which format specifier is used for <code>float</code>?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f` ✅</span>
+<span class="option">C) `%c`</span>
+<span class="option">D) `%s`</span></div><h4>Q93. Which format specifier is used for <code>char</code>?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f`</span>
+<span class="option">C) `%c` ✅</span>
+<span class="option">D) `%s`</span></div><h4>Q94. Which format specifier is used for a string?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f`</span>
+<span class="option">C) `%c`</span>
+<span class="option">D) `%s` ✅</span></div><h4>Q95. In <code>scanf</code>, why is the <code>&amp;</code> operator used before variables?</h4>
+<div class="question-options"><span class="option">A) To pass the value of the variable</span>
+<span class="option">B) To pass the address of the variable ✅</span>
+<span class="option">C) To increment the variable</span>
+<span class="option">D) To decrement the variable</span></div><h4>Q96. In <code>scanf</code>, the <code>&amp;</code> operator is NOT required for:</h4>
+<div class="question-options"><span class="option">A) Integers</span>
+<span class="option">B) Floats</span>
+<span class="option">C) Characters</span>
+<span class="option">D) Strings (arrays) ✅</span></div><h4>Q97. <code>printf(&quot;%.2f&quot;, 3.14159);</code> prints what?</h4>
+<div class="question-options"><span class="option">A) 3.1</span>
+<span class="option">B) 3.14 ✅</span>
+<span class="option">C) 3.141</span>
+<span class="option">D) 3.14159</span></div><h4>Q98. <code>printf(&quot;%5d&quot;, 25);</code> prints what?</h4>
+<div class="question-options"><span class="option">A) 25</span>
+<span class="option">B) `   25` (right-aligned, width 5) ✅</span>
+<span class="option">C) `25   ` (left-aligned, width 5)</span>
+<span class="option">D) 00025</span></div><h4>Q99. <code>printf(&quot;%-5d&quot;, 25);</code> prints what?</h4>
+<div class="question-options"><span class="option">A) 25</span>
+<span class="option">B) `   25`</span>
+<span class="option">C) `25   ` (left-aligned, width 5) ✅</span>
+<span class="option">D) 00025</span></div><h4>Q100. <code>scanf(&quot;%d %f&quot;, &amp;a, &amp;b);</code> reads:</h4>
+<div class="question-options"><span class="option">A) One integer and one float ✅</span>
+<span class="option">B) One float and one integer</span>
+<span class="option">C) Two integers</span>
+<span class="option">D) Two floats</span></div>
+
+</body>
+
+</html>

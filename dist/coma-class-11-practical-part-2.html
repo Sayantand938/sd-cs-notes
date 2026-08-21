@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coma-class-11-practical-part-2</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">class-11</span>
+            <span class="tag-badge">coma</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h1>HTML Solutions – Two Tasks</h1>
+<p>This markdown file contains complete HTML code for two tasks:</p>
+<ol>
+<li>A personal information page (with your name, address, phone, email, and a paragraph about your career goal).  </li>
+<li>A school information page with two linked HTML files (main page and a courses page).</li>
+</ol>
+<p>All code is ready to copy, paste, and run.</p>
+<hr>
+<h2>Task 1: Personal Webpage</h2>
+<p>This page displays your personal details and a career statement. It includes simple CSS for a clean, card‑style layout.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;My Personal Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;About Me&lt;/h1&gt;
+
+    &lt;p&gt;
+        &lt;strong&gt;Name:&lt;/strong&gt; John Doe&lt;br&gt;
+        &lt;strong&gt;Address:&lt;/strong&gt; 123 Main Street, Cityville, 45678&lt;br&gt;
+        &lt;strong&gt;Phone:&lt;/strong&gt; +1 (555) 987-6543&lt;br&gt;
+        &lt;strong&gt;Email:&lt;/strong&gt; john.doe@example.com
+    &lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;p&gt;
+        &lt;strong&gt;What I want to be:&lt;/strong&gt;&lt;br&gt;
+        I aspire to become a &lt;strong&gt;Full‑Stack Web Developer&lt;/strong&gt; who builds meaningful, user‑friendly applications that solve real‑world problems. I am passionate about creating clean, accessible code and continuously learning new technologies. In the future, I hope to lead development teams and contribute to open‑source projects, while also mentoring others who are starting their journey in tech.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h2>Task 2: School Webpage with Linked Pages</h2>
+<p>This task consists of two HTML files:</p>
+<ul>
+<li><code>index.html</code> – the main page with the school name and menu.  </li>
+<li><code>courses.html</code> – the information page that lists the courses.</li>
+</ul>
+<p>Both are written in plain, minimal HTML (no CSS) for clarity and ease of modification.</p>
+<hr>
+<h3>File 1: <code>index.html</code> (Main Page)</h3>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;ABC School&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Welcome to ABC School&lt;/h1&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Management&lt;/li&gt;
+        &lt;li&gt;Teachers&lt;/li&gt;
+        &lt;li&gt;Non-teaching staff&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;courses.html&quot;&gt;Information&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h3>File 2: <code>courses.html</code> (Information Page)</h3>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Courses - ABC School&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h2&gt;Courses offered by ABC School in HS under WBCHE&lt;/h2&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Science&lt;/li&gt;
+        &lt;li&gt;Arts&lt;/li&gt;
+        &lt;li&gt;Commerce&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;br&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Go Back&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h2>How to Use</h2>
+<ol>
+<li><strong>Personal Page</strong> – Save the first code as <code>personal.html</code> and open it in any browser.</li>
+<li><strong>School Pages</strong> – Save the second and third codes as <code>index.html</code> and <code>courses.html</code> in the <strong>same folder</strong>. Open <code>index.html</code> in your browser and click the <strong>Information</strong> link to navigate to the courses page.</li>
+</ol>
+<p>All code is ready to run. Feel free to replace the placeholder text (name, address, etc.) with your own details.</p>
+<h1>HTML Solutions – Tasks 3, 4, and 5</h1>
+<ul>
+<li><strong>Task 3:</strong> A webpage for Wonderland Park with a background image.  </li>
+<li><strong>Task 4:</strong> A frameset page containing two frames – one about Rabindranath Tagore and one about Netaji Subhas Chandra Bose.  </li>
+<li><strong>Task 5:</strong> A school timetable with a marquee heading and colored background.</li>
+</ul>
+<p>All code is ready to copy and run.<br><em>(For Task 4, you will need to create three files and place them in the same folder.)</em></p>
+<hr>
+<h2>Task 3 – Wonderland Park</h2>
+<p>This page has a background image, displays the park name, ticket price, and timing.</p>
+<blockquote>
+<p><strong>Note:</strong> Replace <code>&quot;background-image-url.jpg&quot;</code> with the actual URL or file path of your image. The example uses a placeholder from <code>via.placeholder.com</code>.</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Wonderland Park&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-image: url(&#39;https://via.placeholder.com/1920x1080/cccccc/000000?text=Wonderland+Park&#39;);
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 4em;
+            margin-top: 100px;
+        }
+        ul {
+            list-style: none;
+            font-size: 2em;
+            line-height: 2;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to Wonderland Park&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;🎟️ Ticket Price – Rs. 50 per head&lt;/li&gt;
+        &lt;li&gt;🕒 Park Timing – 10:00 to 19:30&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h2>Task 4 – Frameset with Two Frames (Tagore &amp; Netaji)</h2>
+<p>This task requires <strong>three files</strong>:</p>
+<ol>
+<li><strong><code>frameset.html</code></strong> – the main page that divides the screen into two frames.  </li>
+<li><strong><code>tagore.html</code></strong> – content about Rabindranath Tagore.  </li>
+<li><strong><code>netaji.html</code></strong> – content about Netaji Subhas Chandra Bose.</li>
+</ol>
+<p>Place all three files in the same folder and open <code>frameset.html</code>.</p>
+<hr>
+<h3>File 1: <code>frameset.html</code></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Famous Personalities&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols=&quot;50%,50%&quot;&gt;
+    &lt;frame src=&quot;tagore.html&quot; name=&quot;left&quot;&gt;
+    &lt;frame src=&quot;netaji.html&quot; name=&quot;right&quot;&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;</code></pre><hr>
+<h3>File 2: <code>tagore.html</code> (Rabindranath Tagore)</h3>
+<ul>
+<li>Background: Yellow  </li>
+<li>Font colour: Green  </li>
+<li>Title: Kabi Guru  </li>
+<li>Contains: parents&#39; names, three popular books (bulleted list), and an image.</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Kabi Guru&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-color: yellow;
+            color: green;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            border: 2px solid green;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Rabindranath Tagore&lt;/h1&gt;
+    &lt;p&gt;&lt;strong&gt;Parents:&lt;/strong&gt; Debendranath Tagore &amp; Sarada Devi&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Three Popular Books:&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Gitanjali&lt;/li&gt;
+        &lt;li&gt;Gora&lt;/li&gt;
+        &lt;li&gt;The Home and the World&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Rabindranath_Tagore_%28cropped%29.jpg/220px-Rabindranath_Tagore_%28cropped%29.jpg&quot; alt=&quot;Rabindranath Tagore&quot;&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h3>File 3: <code>netaji.html</code> (Netaji Subhas Chandra Bose)</h3>
+<ul>
+<li>Background: image of INA (using a placeholder)  </li>
+<li>Title: Netaji  </li>
+<li>Contains: parents&#39; names and mention of INA.</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Netaji&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-image: url(&#39;https://via.placeholder.com/800x600/000000/ffffff?text=INA+Flag&#39;);
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h1 {
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Netaji Subhas Chandra Bose&lt;/h1&gt;
+    &lt;p&gt;&lt;strong&gt;Parents:&lt;/strong&gt; Janakinath Bose &amp; Prabhavati Devi&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;INA:&lt;/strong&gt; Indian National Army – formed by Netaji to fight for India&#39;s independence.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h2>Task 5 – School Timetable with Marquee</h2>
+<p>This page displays a daily class routine in a table.  </p>
+<ul>
+<li>Background: pink  </li>
+<li>Font colour: dark red  </li>
+<li>Heading: &quot;Our Daily Class Routine&quot; with a marquee effect.</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;School Timetable&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-color: pink;
+            color: darkred;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #ffe0e0;
+            color: darkred;
+        }
+        th, td {
+            border: 2px solid darkred;
+            padding: 12px;
+            font-size: 1.2em;
+        }
+        th {
+            background-color: #ffb3b3;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;6&quot;&gt;
+        &lt;h1&gt;Our Daily Class Routine&lt;/h1&gt;
+    &lt;/marquee&gt;
+
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Time&lt;/th&gt;
+            &lt;th&gt;Monday&lt;/th&gt;
+            &lt;th&gt;Tuesday&lt;/th&gt;
+            &lt;th&gt;Wednesday&lt;/th&gt;
+            &lt;th&gt;Thursday&lt;/th&gt;
+            &lt;th&gt;Friday&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;8:00 – 8:45&lt;/td&gt;
+            &lt;td&gt;Math&lt;/td&gt;
+            &lt;td&gt;English&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+            &lt;td&gt;Math&lt;/td&gt;
+            &lt;td&gt;English&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;8:45 – 9:30&lt;/td&gt;
+            &lt;td&gt;English&lt;/td&gt;
+            &lt;td&gt;Math&lt;/td&gt;
+            &lt;td&gt;Math&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;9:30 – 10:15&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+            &lt;td&gt;English&lt;/td&gt;
+            &lt;td&gt;English&lt;/td&gt;
+            &lt;td&gt;Math&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;10:15 – 10:30&lt;/td&gt;
+            &lt;td colspan=&quot;5&quot;&gt;&lt;strong&gt;Break&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;10:30 – 11:15&lt;/td&gt;
+            &lt;td&gt;Social&lt;/td&gt;
+            &lt;td&gt;Computer&lt;/td&gt;
+            &lt;td&gt;Social&lt;/td&gt;
+            &lt;td&gt;Computer&lt;/td&gt;
+            &lt;td&gt;Social&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;11:15 – 12:00&lt;/td&gt;
+            &lt;td&gt;Computer&lt;/td&gt;
+            &lt;td&gt;Social&lt;/td&gt;
+            &lt;td&gt;Computer&lt;/td&gt;
+            &lt;td&gt;Social&lt;/td&gt;
+            &lt;td&gt;Computer&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;12:00 – 12:45&lt;/td&gt;
+            &lt;td&gt;Hindi&lt;/td&gt;
+            &lt;td&gt;Hindi&lt;/td&gt;
+            &lt;td&gt;Hindi&lt;/td&gt;
+            &lt;td&gt;Hindi&lt;/td&gt;
+            &lt;td&gt;Hindi&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><hr>
+<h2>How to Use</h2>
+<ul>
+<li><strong>Task 3:</strong> Save the code as <code>wonderland.html</code> and open it in a browser.  </li>
+<li><strong>Task 4:</strong> Create the three files (<code>frameset.html</code>, <code>tagore.html</code>, <code>netaji.html</code>) in the same folder. Open <code>frameset.html</code>.  </li>
+<li><strong>Task 5:</strong> Save as <code>timetable.html</code> and open.</li>
+</ul>
+<p>All code is self-contained and works out-of‑the‑box. Replace the placeholder images with your own if needed.</p>
+
+</body>
+
+</html>

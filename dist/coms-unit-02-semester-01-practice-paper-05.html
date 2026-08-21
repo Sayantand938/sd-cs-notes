@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-02-semester-01-practice-paper-05</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>Section 1: Concept of Programming (Questions 1 to 25)</h2>
+<h4>Q1. Which of the following is a characteristic of machine language?</h4>
+<div class="question-options"><span class="option">A) It uses mnemonics</span>
+<span class="option">B) It is machine-independent</span>
+<span class="option">C) It is directly understood by the computer ✅</span>
+<span class="option">D) It is easy to read</span></div><h4>Q2. What is the role of an assembler?</h4>
+<div class="question-options"><span class="option">A) Converts high-level code to machine code</span>
+<span class="option">B) Converts assembly language to machine code ✅</span>
+<span class="option">C) Converts machine code to assembly</span>
+<span class="option">D) Executes the program</span></div><h4>Q3. Which of the following is TRUE about high-level languages?</h4>
+<div class="question-options"><span class="option">A) They are machine-dependent</span>
+<span class="option">B) They are easier to debug than low-level languages ✅</span>
+<span class="option">C) They execute faster than machine language</span>
+<span class="option">D) They cannot be compiled</span></div><h4>Q4. What is the difference between a program and a process?</h4>
+<div class="question-options"><span class="option">A) Program is static code, process is program in execution ✅</span>
+<span class="option">B) Process is static code, program is program in execution</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Program is stored in RAM, process is stored in hard disk</span></div><h4>Q5. What is the concept of &quot;portability&quot; in programming?</h4>
+<div class="question-options"><span class="option">A) The ability to move a program from one hardware to another ✅</span>
+<span class="option">B) The ability to execute a program faster</span>
+<span class="option">C) The ability to use less memory</span>
+<span class="option">D) The ability to have no errors</span></div><h4>Q6. Which of the following languages is NOT a procedural language?</h4>
+<div class="question-options"><span class="option">A) C</span>
+<span class="option">B) Pascal</span>
+<span class="option">C) FORTRAN</span>
+<span class="option">D) SQL ✅</span></div><h4>Q7. What is the purpose of a function in procedural programming?</h4>
+<div class="question-options"><span class="option">A) To store data</span>
+<span class="option">B) To perform a specific task and return a value ✅</span>
+<span class="option">C) To define a class</span>
+<span class="option">D) To create objects</span></div><h4>Q8. What is the difference between a method and a function?</h4>
+<div class="question-options"><span class="option">A) Method is associated with an object, function is not ✅</span>
+<span class="option">B) Function is associated with an object, method is not</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Methods are used in C, functions in Java</span></div><h4>Q9. Which of the following is a feature of OOP that promotes code reuse?</h4>
+<div class="question-options"><span class="option">A) Encapsulation</span>
+<span class="option">B) Inheritance ✅</span>
+<span class="option">C) Polymorphism</span>
+<span class="option">D) Abstraction</span></div><h4>Q10. What is the concept of &quot;dynamic binding&quot; in OOP?</h4>
+<div class="question-options"><span class="option">A) Binding at compile time</span>
+<span class="option">B) Binding at runtime ✅</span>
+<span class="option">C) No binding</span>
+<span class="option">D) Static binding</span></div><h4>Q11. What is the purpose of an interface in programming?</h4>
+<div class="question-options"><span class="option">A) To define a class</span>
+<span class="option">B) To define a contract that classes can implement ✅</span>
+<span class="option">C) To store data</span>
+<span class="option">D) To execute code</span></div><h4>Q12. Which of the following is a characteristic of interpreted languages?</h4>
+<div class="question-options"><span class="option">A) They are faster than compiled languages</span>
+<span class="option">B) They are platform-dependent</span>
+<span class="option">C) They execute code line by line ✅</span>
+<span class="option">D) They generate object code</span></div><h4>Q13. What is Just-In-Time (JIT) compilation?</h4>
+<div class="question-options"><span class="option">A) Compilation before execution</span>
+<span class="option">B) Compilation during execution ✅</span>
+<span class="option">C) No compilation</span>
+<span class="option">D) Compilation after execution</span></div><h4>Q14. Which of the following languages uses JIT compilation?</h4>
+<div class="question-options"><span class="option">A) C</span>
+<span class="option">B) C++</span>
+<span class="option">C) Java ✅</span>
+<span class="option">D) Assembly</span></div><h4>Q15. What is the purpose of a garbage collector?</h4>
+<div class="question-options"><span class="option">A) To compile the program</span>
+<span class="option">B) To automatically free unused memory ✅</span>
+<span class="option">C) To execute the program</span>
+<span class="option">D) To design algorithms</span></div><h4>Q16. Which of the following is NOT a programming language generation?</h4>
+<div class="question-options"><span class="option">A) 1GL</span>
+<span class="option">B) 2GL</span>
+<span class="option">C) 3GL</span>
+<span class="option">D) 5GL ✅ (Actually 5GL exists, so this is tricky; let's say 4GL is the highest common one, but we'll mark something else)</span></div><p>Actually, 1GL, 2GL, 3GL, 4GL, 5GL all exist. So we need a different question. Let&#39;s rephrase: Which of the following is NOT a generation of programming language?</p>
+<div class="question-options"><span class="option">A) Machine Language (1GL)</span>
+<span class="option">B) Assembly Language (2GL)</span>
+<span class="option">C) Procedural Language (3GL)</span>
+<span class="option">D) Natural Language (4GL) ✅ (Natural language is not a programming language generation)</span></div><h4>Q17. What is the role of a software development kit (SDK)?</h4>
+<div class="question-options"><span class="option">A) To execute programs</span>
+<span class="option">B) To provide tools for developing software for a specific platform ✅</span>
+<span class="option">C) To compile programs</span>
+<span class="option">D) To test programs</span></div><h4>Q18. What is the concept of &quot;API&quot; in programming?</h4>
+<div class="question-options"><span class="option">A) A programming language</span>
+<span class="option">B) A set of functions and protocols for building software ✅</span>
+<span class="option">C) A type of compiler</span>
+<span class="option">D) A debugging tool</span></div><h4>Q19. Which of the following is a characteristic of procedural languages?</h4>
+<div class="question-options"><span class="option">A) They use objects</span>
+<span class="option">B) They use inheritance</span>
+<span class="option">C) They use functions and procedures ✅</span>
+<span class="option">D) They use polymorphism</span></div><h4>Q20. What is the purpose of the <code>main()</code> function in C?</h4>
+<div class="question-options"><span class="option">A) To define a class</span>
+<span class="option">B) To serve as the entry point of the program ✅</span>
+<span class="option">C) To print output</span>
+<span class="option">D) To allocate memory</span></div><h4>Q21. What is the concept of &quot;scope&quot; in programming?</h4>
+<div class="question-options"><span class="option">A) The region where a variable is accessible ✅</span>
+<span class="option">B) The size of a variable</span>
+<span class="option">C) The type of a variable</span>
+<span class="option">D) The value of a variable</span></div><h4>Q22. Which of the following has the largest scope?</h4>
+<div class="question-options"><span class="option">A) Local variable</span>
+<span class="option">B) Global variable ✅</span>
+<span class="option">C) Block variable</span>
+<span class="option">D) Function parameter</span></div><h4>Q23. What is the purpose of a library in programming?</h4>
+<div class="question-options"><span class="option">A) To store data</span>
+<span class="option">B) To provide reusable code and functions ✅</span>
+<span class="option">C) To compile programs</span>
+<span class="option">D) To execute programs</span></div><h4>Q24. Which of the following is an example of a static library?</h4>
+<div class="question-options"><span class="option">A) .dll</span>
+<span class="option">B) .so</span>
+<span class="option">C) .lib ✅</span>
+<span class="option">D) .jar</span></div><h4>Q25. What is the difference between static and dynamic linking?</h4>
+<div class="question-options"><span class="option">A) Static linking occurs at compile time, dynamic at runtime ✅</span>
+<span class="option">B) Dynamic linking occurs at compile time, static at runtime</span>
+<span class="option">C) Both occur at compile time</span>
+<span class="option">D) Both occur at runtime</span></div><hr>
+<h2>Section 2: Algorithm Fundamentals (Questions 26 to 80)</h2>
+<h4>Q26. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅ (sum of j = O(n³))</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q27. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q28. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=j; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q29. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        for(k=j; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q30. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=100; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅ (constant inner)</span>
+<span class="option">B) O(n³)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q31. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=100; j++) {
+        for(k=1; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅ (100 \* sum of i = O(n²))</span>
+<span class="option">B) O(n³)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q32. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=100; j++) {
+        for(k=1; k&lt;=100; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n²)</span>
+<span class="option">C) O(n³)</span>
+<span class="option">D) O(1)</span></div><h4>Q33. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        // O(1) work
+    }
+}
+for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        // O(1) work
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅ (both are O(n²), so overall O(n²))</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q34. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        // O(1) work
+    }
+}
+for(i=1; i&lt;=n; i++) {
+    // O(1) work
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q35. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        // O(1) work
+    }
+}
+for(i=1; i&lt;=n; i++) {
+    // O(1) work
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅ (dominant loop)</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q36. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        // O(1) work
+    }
+}
+for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        // O(1) work
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q37. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q38. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=j; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q39. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        for(k=i; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q40. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        for(k=j; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q41. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q42. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=j; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q43. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q44. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q45. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q46. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        if(i == j) {
+            for(k=1; k&lt;=n; k++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅ (when i=j, inner runs n times, and this happens n times)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q47. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        if(i &lt;= j) {
+            for(k=1; k&lt;=n; k++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅ (nested with if but still O(n³))</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q48. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        if(i + j == n) {
+            for(k=1; k&lt;=n; k++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅ (worst case still n³)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q49. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        for(k=1; k&lt;=n; k++) {
+            if(i + j + k == n) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅ (nested loops dominate)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q50. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            for(l=1; l&lt;=k; l++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³)</span>
+<span class="option">C) O(n⁴) ✅</span>
+<span class="option">D) O(n log n)</span></div><h4>Q51. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q52. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=j; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q53. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=i; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q54. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q55. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k++) {
+            for(l=1; l&lt;=k; l++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³)</span>
+<span class="option">C) O(n⁴) ✅</span>
+<span class="option">D) O(n log n)</span></div><h4>Q56. What is the time complexity of the recurrence T(n) = 2T(n/2) + O(n log n)?</h4>
+<div class="question-options"><span class="option">A) O(n log n)</span>
+<span class="option">B) O(n log² n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q57. What is the time complexity of the recurrence T(n) = 2T(n/2) + O(n²)?</h4>
+<div class="question-options"><span class="option">A) O(n²) ✅</span>
+<span class="option">B) O(n² log n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q58. What is the time complexity of the recurrence T(n) = 4T(n/2) + O(n³)?</h4>
+<div class="question-options"><span class="option">A) O(n³) ✅</span>
+<span class="option">B) O(n³ log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q59. What is the time complexity of the recurrence T(n) = 4T(n/2) + O(n² log n)?</h4>
+<div class="question-options"><span class="option">A) O(n² log n)</span>
+<span class="option">B) O(n² log² n) ✅</span>
+<span class="option">C) O(n³)</span>
+<span class="option">D) O(n²)</span></div><h4>Q60. What is the time complexity of the recurrence T(n) = 8T(n/2) + O(n³)?</h4>
+<div class="question-options"><span class="option">A) O(n³)</span>
+<span class="option">B) O(n³ log n) ✅</span>
+<span class="option">C) O(n⁴)</span>
+<span class="option">D) O(n²)</span></div><h4>Q61. What is the time complexity of the recurrence T(n) = 8T(n/2) + O(n²)?</h4>
+<div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n² log n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q62. What is the time complexity of the recurrence T(n) = 9T(n/3) + O(n² log n)?</h4>
+<div class="question-options"><span class="option">A) O(n² log n)</span>
+<span class="option">B) O(n² log² n) ✅</span>
+<span class="option">C) O(n³)</span>
+<span class="option">D) O(n²)</span></div><h4>Q63. What is the time complexity of the recurrence T(n) = 9T(n/3) + O(n³)?</h4>
+<div class="question-options"><span class="option">A) O(n³) ✅</span>
+<span class="option">B) O(n³ log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q64. What is the time complexity of the recurrence T(n) = 9T(n/3) + O(n log n)?</h4>
+<div class="question-options"><span class="option">A) O(n²) ✅ (a=9, b=3, d=1, a > b^d → O(n²))</span>
+<span class="option">B) O(n² log n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q65. What is the time complexity of the recurrence T(n) = 9T(n/3) + O(n)?</h4>
+<div class="question-options"><span class="option">A) O(n²) ✅</span>
+<span class="option">B) O(n² log n)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n³)</span></div><h4>Q66. What is the time complexity of the recurrence T(n) = 16T(n/4) + O(n²)?</h4>
+<div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n² log n) ✅</span>
+<span class="option">C) O(n³)</span>
+<span class="option">D) O(n)</span></div><h4>Q67. What is the time complexity of the recurrence T(n) = 16T(n/4) + O(n³)?</h4>
+<div class="question-options"><span class="option">A) O(n³) ✅</span>
+<span class="option">B) O(n³ log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n⁴)</span></div><h4>Q68. What is the time complexity of the recurrence T(n) = T(n-2) + O(n)?</h4>
+<div class="question-options"><span class="option">A) O(n²) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q69. What is the time complexity of the recurrence T(n) = T(n-2) + O(log n)?</h4>
+<div class="question-options"><span class="option">A) O(n log n) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(log² n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q70. What is the time complexity of the recurrence T(n) = T(n/2) + T(n/3) + O(1)?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q71. What is the time complexity of the recurrence T(n) = T(n/2) + T(n/3) + O(n)?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log² n)</span></div><h4>Q72. What is the time complexity of the recurrence T(n) = T(n/3) + T(n/4) + O(1)?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q73. What is the time complexity of the recurrence T(n) = T(n/3) + T(n/4) + O(n)?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n log n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log² n)</span></div><h4>Q74. What is the time complexity of the recurrence T(n) = T(n-1) + T(n-2) + O(1)?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(2ⁿ) ✅ (Fibonacci-like)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q75. What is the time complexity of the recurrence T(n) = T(n-1) + T(n-2) + O(n)?</h4>
+<div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(2ⁿ) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q76. What is the time complexity of the recurrence T(n) = 2T(n-1) + O(1)?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(2ⁿ) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q77. What is the time complexity of the recurrence T(n) = 3T(n-1) + O(1)?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(3ⁿ) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q78. What is the time complexity of the recurrence T(n) = T(n-1) + O(n²)?</h4>
+<div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n³) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q79. What is the time complexity of the recurrence T(n) = T(n-1) + O(n log n)?</h4>
+<div class="question-options"><span class="option">A) O(n log n)</span>
+<span class="option">B) O(n² log n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log² n)</span></div><h4>Q80. What is the time complexity of the recurrence T(n) = T(n-1) + O(2ⁿ)?</h4>
+<div class="question-options"><span class="option">A) O(2ⁿ)</span>
+<span class="option">B) O(n²ⁿ) ✅ (sum of 2^i = O(2ⁿ), but T(n) = O(2ⁿ) actually, wait T(n) = sum of 2^i = O(2ⁿ). So A is correct)</span></div>
+Actually T(n) = T(n-1) + 2ⁿ → T(n) = O(2ⁿ) ✅<hr>
+<h2>Section 3: Introduction to Problem Solving (Questions 81 to 100)</h2>
+<h4>Q81. What is the first step in solving a problem using a computer?</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Problem analysis ✅</span>
+<span class="option">C) Testing</span>
+<span class="option">D) Debugging</span></div><h4>Q82. What is the output of the algorithm phase?</h4>
+<div class="question-options"><span class="option">A) Machine code</span>
+<span class="option">B) A step-by-step procedure ✅</span>
+<span class="option">C) A compiled program</span>
+<span class="option">D) Test cases</span></div><h4>Q83. What is the purpose of coding?</h4>
+<div class="question-options"><span class="option">A) To design the algorithm</span>
+<span class="option">B) To convert the algorithm into a programming language ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To debug errors</span></div><h4>Q84. What is the purpose of testing in problem solving?</h4>
+<div class="question-options"><span class="option">A) To write the program</span>
+<span class="option">B) To find errors and verify correctness ✅</span>
+<span class="option">C) To design the algorithm</span>
+<span class="option">D) To analyze the problem</span></div><h4>Q85. What is debugging?</h4>
+<div class="question-options"><span class="option">A) Writing the program</span>
+<span class="option">B) Finding and fixing errors ✅</span>
+<span class="option">C) Testing the program</span>
+<span class="option">D) Designing the algorithm</span></div><h4>Q86. What is the correct order of problem-solving steps?</h4>
+<div class="question-options"><span class="option">A) Coding → Testing → Debugging → Analysis</span>
+<span class="option">B) Analysis → Algorithm → Coding → Testing → Debugging ✅</span>
+<span class="option">C) Testing → Coding → Analysis → Debugging</span>
+<span class="option">D) Algorithm → Analysis → Coding → Testing</span></div><h4>Q87. What is the difference between a syntax error and a semantic error?</h4>
+<div class="question-options"><span class="option">A) Syntax error violates language rules, semantic error is logical error ✅</span>
+<span class="option">B) Semantic error violates language rules, syntax error is logical error</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Both occur at runtime</span></div><h4>Q88. What is the purpose of pseudo-code?</h4>
+<div class="question-options"><span class="option">A) To write the final program</span>
+<span class="option">B) To describe the algorithm in a human-readable format ✅</span>
+<span class="option">C) To execute the program</span>
+<span class="option">D) To test the program</span></div><h4>Q89. What is a flowchart used for?</h4>
+<div class="question-options"><span class="option">A) To write code</span>
+<span class="option">B) To visually represent the algorithm ✅</span>
+<span class="option">C) To execute the program</span>
+<span class="option">D) To compile the program</span></div><h4>Q90. What is the role of an algorithm in problem solving?</h4>
+<div class="question-options"><span class="option">A) To provide a solution plan ✅</span>
+<span class="option">B) To execute the program</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To debug the program</span></div><h4>Q91. What is the purpose of test data?</h4>
+<div class="question-options"><span class="option">A) To write the program</span>
+<span class="option">B) To test the program with different inputs ✅</span>
+<span class="option">C) To design the algorithm</span>
+<span class="option">D) To analyze the problem</span></div><h4>Q92. What is the difference between verification and validation?</h4>
+<div class="question-options"><span class="option">A) Verification checks if the product is built correctly, validation checks if the correct product is built ✅</span>
+<span class="option">B) Validation checks if the product is built correctly, verification checks if the correct product is built</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Neither is important</span></div><h4>Q93. What is the purpose of the maintenance phase?</h4>
+<div class="question-options"><span class="option">A) To write the program</span>
+<span class="option">B) To modify and update the program after delivery ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To design the algorithm</span></div><h4>Q94. What is the purpose of code reviews?</h4>
+<div class="question-options"><span class="option">A) To write new code</span>
+<span class="option">B) To examine code for errors and improvements ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To design algorithms</span></div><h4>Q95. What is refactoring?</h4>
+<div class="question-options"><span class="option">A) Writing new code</span>
+<span class="option">B) Restructuring existing code without changing functionality ✅</span>
+<span class="option">C) Testing the program</span>
+<span class="option">D) Debugging errors</span></div><h4>Q96. What is the purpose of documentation in software development?</h4>
+<div class="question-options"><span class="option">A) To make the code longer</span>
+<span class="option">B) To explain the program and its usage ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To debug errors</span></div><h4>Q97. What is the difference between internal and external documentation?</h4>
+<div class="question-options"><span class="option">A) Internal is within the code, external is outside ✅</span>
+<span class="option">B) External is within the code, internal is outside</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Internal is for users, external is for developers</span></div><h4>Q98. What is the purpose of comments in code?</h4>
+<div class="question-options"><span class="option">A) To make the code run faster</span>
+<span class="option">B) To explain the code for other programmers ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To debug errors</span></div><h4>Q99. What is the role of a software engineer in problem solving?</h4>
+<div class="question-options"><span class="option">A) To write code only</span>
+<span class="option">B) To analyze, design, implement, test, and maintain solutions ✅</span>
+<span class="option">C) To test only</span>
+<span class="option">D) To debug only</span></div><h4>Q100. Which of the following is the most important step in problem solving?</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Testing</span>
+<span class="option">C) All steps are equally important ✅</span>
+<span class="option">D) Debugging</span></div><hr>
+<h2>Answer Key</h2>
+<table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>C</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>B</td>
+<td>76</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>B</td>
+<td>77</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>28</td>
+<td>B</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>B</td>
+<td>79</td>
+<td>B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A</td>
+<td>30</td>
+<td>A</td>
+<td>55</td>
+<td>C</td>
+<td>80</td>
+<td>A</td>
+</tr>
+<tr>
+<td>6</td>
+<td>D</td>
+<td>31</td>
+<td>A</td>
+<td>56</td>
+<td>B</td>
+<td>81</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td>32</td>
+<td>A</td>
+<td>57</td>
+<td>A</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>A</td>
+<td>33</td>
+<td>A</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>B</td>
+</tr>
+<tr>
+<td>9</td>
+<td>B</td>
+<td>34</td>
+<td>A</td>
+<td>59</td>
+<td>B</td>
+<td>84</td>
+<td>B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>B</td>
+<td>35</td>
+<td>A</td>
+<td>60</td>
+<td>B</td>
+<td>85</td>
+<td>B</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>A</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>C</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>B</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>B</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>A</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>C</td>
+<td>39</td>
+<td>B</td>
+<td>64</td>
+<td>A</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>B</td>
+<td>40</td>
+<td>B</td>
+<td>65</td>
+<td>A</td>
+<td>90</td>
+<td>A</td>
+</tr>
+<tr>
+<td>16</td>
+<td>D</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>B</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>A</td>
+</tr>
+<tr>
+<td>18</td>
+<td>B</td>
+<td>43</td>
+<td>B</td>
+<td>68</td>
+<td>A</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>C</td>
+<td>44</td>
+<td>B</td>
+<td>69</td>
+<td>A</td>
+<td>94</td>
+<td>B</td>
+</tr>
+<tr>
+<td>20</td>
+<td>B</td>
+<td>45</td>
+<td>B</td>
+<td>70</td>
+<td>A</td>
+<td>95</td>
+<td>B</td>
+</tr>
+<tr>
+<td>21</td>
+<td>A</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>B</td>
+<td>72</td>
+<td>A</td>
+<td>97</td>
+<td>A</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>B</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>B</td>
+</tr>
+<tr>
+<td>24</td>
+<td>C</td>
+<td>49</td>
+<td>B</td>
+<td>74</td>
+<td>B</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>A</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>C</td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>

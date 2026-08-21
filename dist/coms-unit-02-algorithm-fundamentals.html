@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-02-algorithm-fundamentals</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h1>Algorithm Fundamentals – Complete Study Guide</h1>
+<h2>1. Definition</h2>
+<p><strong>Algorithm</strong> = A step-by-step procedure to solve a problem (like a recipe).</p>
+<p><strong>Real-Life Example – Finding the largest test score:</strong></p>
+<ol>
+<li>Remember the first score as the &quot;largest&quot;.</li>
+<li>Check each score; update if a larger one is found.</li>
+<li>Return the largest.</li>
+</ol>
+<p><strong>Key Point:</strong> An algorithm is <strong>not</strong> code. It is a language-independent blueprint.</p>
+<p><strong>C Implementation – find_maximum:</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int find_maximum(int numbers[], int size) {
+    int max_value = numbers[0];
+
+    for (int i = 0; i &lt; size; i++) {
+        if (numbers[i] &gt; max_value) {
+            max_value = numbers[i];
+        }
+    }
+    return max_value;
+}
+
+int main() {
+    int numbers[] = {3, 7, 2, 9, 5};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+
+    int max = find_maximum(numbers, size);
+    printf(&quot;Maximum value: %d\n&quot;, max);
+    return 0;
+}</code></pre><hr>
+<h2>2. Characteristics of an Algorithm</h2>
+<p><strong>Mnemonic:</strong> I Often Drink Fresh Eggnog (I-O-D-F-E)</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Characteristic</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Input</td>
+<td>0 or more values provided</td>
+<td>add(a, b) has 2 inputs</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Output</td>
+<td>At least 1 result produced</td>
+<td>return a + b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Definiteness</td>
+<td>Each step is unambiguous</td>
+<td>&quot;Add 5 grams&quot; vs &quot;Add some&quot;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Finiteness</td>
+<td>Must terminate</td>
+<td>while True: is not valid</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Effectiveness</td>
+<td>Steps are feasible</td>
+<td>&quot;Add numbers&quot; vs &quot;Solve everything&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Types of Algorithms</h2>
+<h3>Recursive Algorithms</h3>
+<p>A function calls itself to solve smaller instances.</p>
+<p><strong>Python Example – Factorial:</strong></p>
+<pre><code class="language-python">def factorial(n):
+    if n &lt;= 1:          # BASE CASE (stops recursion)
+        return 1
+    return n * factorial(n - 1)  # RECURSIVE CASE</code></pre><p><strong>Recursion Stack for factorial(4):</strong></p>
+<pre><code>factorial(4)
+├── 4 * factorial(3)
+    ├── 3 * factorial(2)
+        ├── 2 * factorial(1)
+            └── Returns 1
+        └── Returns 2
+    └── Returns 6
+└── Returns 24</code></pre><p><strong>Mermaid Trace:</strong></p>
+<pre class="mermaid">graph TD
+    A[&quot;factorial(4)&quot;] --&gt; B[&quot;4 × factorial(3)&quot;]
+    B --&gt; C[&quot;4 × 3 × factorial(2)&quot;]
+    C --&gt; D[&quot;4 × 3 × 2 × factorial(1)&quot;]
+    D --&gt; E[&quot;4 × 3 × 2 × 1&quot;]
+    E --&gt; F[&quot;24&quot;]</pre><p><strong>Pros:</strong> Clean code for tree/graph problems.
+<strong>Cons:</strong> Memory-heavy, risk of stack overflow.</p>
+<hr>
+<h3>Iterative Algorithms</h3>
+<p>Use loops instead of self-calls. More memory-efficient.</p>
+<p><strong>C Example – Sum 1 to n:</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int n = 5, sum = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        sum += i;
+    }
+    printf(&quot;%d&quot;, sum);
+    return 0;
+}</code></pre><p><strong>Mermaid Flow:</strong></p>
+<pre class="mermaid">flowchart TD
+    A[&quot;Start: factorial(5)&quot;] --&gt; B[&quot;result = 1&quot;]
+    B --&gt; C[&quot;Loop i = 2 to 5&quot;]
+    C --&gt; D[&quot;result = result × i&quot;]
+    D --&gt; C
+    C --&gt; E[&quot;End Loop&quot;]
+    E --&gt; F[&quot;Return 120&quot;]</pre><p><strong>Comparison:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Recursive</th>
+<th>Iterative</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Memory</td>
+<td>High (stack frames)</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Slower</td>
+<td>Faster</td>
+</tr>
+<tr>
+<td>Best For</td>
+<td>Trees, divide-and-conquer</td>
+<td>Simple loops</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Representation of Algorithms</h2>
+<h3>Flowchart</h3>
+<p>Visual diagram using standard symbols:</p>
+<ul>
+<li>Oval – Start / End</li>
+<li>Parallelogram – Input / Output</li>
+<li>Rectangle – Process</li>
+<li>Diamond – Decision</li>
+</ul>
+<p><strong>Example – Even or Odd:</strong></p>
+<pre class="mermaid">flowchart TD
+    A([Start]) --&gt; B[/Input: n/]
+    B --&gt; C{n % 2 == 0?}
+    C --&gt;|Yes| D[&quot;Even&quot;]
+    C --&gt;|No| E[&quot;Odd&quot;]
+    D --&gt; F([End])
+    E --&gt; F</pre><pre><code class="language-python">def check_even_odd(n):
+    return &quot;Even&quot; if n % 2 == 0 else &quot;Odd&quot;</code></pre><hr>
+<h3>Pseudo Code</h3>
+<p>Plain-text, language-independent logic.</p>
+<p><strong>Example – Calculate Average:</strong></p>
+<pre><code>ALGORITHM CalculateAverage
+INPUT: list of numbers, size
+OUTPUT: average
+
+BEGIN
+    total &lt;- 0
+    FOR i &lt;- 0 TO size - 1 DO
+        total &lt;- total + list[i]
+    END FOR
+
+    IF size = 0 THEN
+        RETURN 0
+    ELSE
+        RETURN total / size
+    END
+END</code></pre><p><strong>C Implementation:</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+float calculateAverage(int arr[], int size) {
+    int total = 0;
+    for (int i = 0; i &lt; size; i++) {
+        total += arr[i];
+    }
+    if (size == 0) return 0;
+    return (float)total / size;
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50, 60};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    float avg = calculateAverage(arr, size);
+    printf(&quot;Average = %.2f\n&quot;, avg);
+    return 0;
+}</code></pre><p><strong>Same logic in Python &amp; JavaScript:</strong></p>
+<pre><code class="language-python"># Python
+def average(numbers):
+    return sum(numbers) / len(numbers) if numbers else 0</code></pre><pre><code class="language-javascript">// JavaScript
+const average = (numbers) =&gt; 
+    numbers.length ? numbers.reduce((a,b) =&gt; a+b) / numbers.length : 0;</code></pre><hr>
+<h2>5. Efficiency of an Algorithm</h2>
+<p>Measures time and space resource usage.</p>
+<p><strong>Example – Sum 1 to n:</strong></p>
+<pre><code class="language-c">// O(n) – slow
+int sum_slow(int n) {
+    int total = 0;
+    for (int i = 1; i &lt;= n; i++) total += i;
+    return total;
+}
+
+// O(1) – fast
+int sum_fast(int n) {
+    return n * (n + 1) / 2;
+}</code></pre><p>For n = 1,000,000:</p>
+<ul>
+<li>Slow: 1 million operations</li>
+<li>Fast: 1 operation (330,000 times faster)</li>
+</ul>
+<p><strong>Three Performance Cases:</strong></p>
+<ul>
+<li>Best – Minimum resources (lucky input)</li>
+<li>Average – Typical usage</li>
+<li>Worst – Maximum resources (guaranteed bound)</li>
+</ul>
+<hr>
+<h2>6. Complexity of Algorithms</h2>
+<h3>Space Complexity – Memory usage vs input size</h3>
+<pre><code class="language-c">// O(1) – Constant space
+int sum_array(int arr[], int n) {
+    int total = 0;
+    for (int i = 0; i &lt; n; i++) total += arr[i];
+    return total;
+}
+
+// O(n) – Linear space
+int* duplicate_array(int arr[], int n) {
+    int* new_arr = (int*)malloc(n * sizeof(int));
+    for (int i = 0; i &lt; n; i++) new_arr[i] = arr[i];
+    return new_arr;
+}</code></pre><h3>Time Complexity – Speed vs input size</h3>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th>Operations for n=100</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O(1)</td>
+<td>1</td>
+<td>Array access</td>
+</tr>
+<tr>
+<td>O(log n)</td>
+<td>~7</td>
+<td>Binary search</td>
+</tr>
+<tr>
+<td>O(n)</td>
+<td>100</td>
+<td>Linear search</td>
+</tr>
+<tr>
+<td>O(n log n)</td>
+<td>~664</td>
+<td>Merge sort</td>
+</tr>
+<tr>
+<td>O(n²)</td>
+<td>10,000</td>
+<td>Bubble sort</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Asymptotic Notation</h2>
+<p>Standard notation to describe growth rates.</p>
+<h3>Big O – Upper Bound / Worst Case</h3>
+<p>&quot;Won&#39;t be worse than this&quot;</p>
+<pre><code class="language-python">def linear_search(arr, target):
+    for i, element in enumerate(arr):
+        if element == target:
+            return i
+    return -1
+
+# Worst case: O(n) – target is last or absent</code></pre><h3>Big Omega (Ω) – Lower Bound / Best Case</h3>
+<p>&quot;Can&#39;t be better than this&quot;</p>
+<pre><code class="language-python"># Best case: Ω(1) – target is the first element
+linear_search([5, 12, 8, 3], 5)</code></pre><h3>Big Theta (Θ) – Tight Bound / Exact</h3>
+<p>&quot;Grows exactly as&quot; (when best = worst)</p>
+<pre><code class="language-python">def sum_array(arr):
+    # Always Θ(n) – must visit every element
+    total = 0
+    for num in arr:
+        total += num
+    return total</code></pre><h3>Notation Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Use When</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Big O</td>
+<td>O</td>
+<td>Worst case</td>
+<td>Performance guarantees</td>
+</tr>
+<tr>
+<td>Big Omega</td>
+<td>Ω</td>
+<td>Best case</td>
+<td>Proving minimums</td>
+</tr>
+<tr>
+<td>Big Theta</td>
+<td>Θ</td>
+<td>Exact</td>
+<td>All cases are the same</td>
+</tr>
+</tbody></table>
+<p><strong>Mermaid Decision Tree:</strong></p>
+<pre class="mermaid">graph TD
+    A[Algorithm Analysis] --&gt; B{Question?}
+    B --&gt; C[Worst case?]
+    B --&gt; D[Best case?]
+    B --&gt; E[Exact growth?]
+    C --&gt; F[Big O]
+    D --&gt; G[Big Omega]
+    E --&gt; H[Big Theta]</pre><hr>
+<h2>8. Complexity Hierarchy (Fastest to Slowest)</h2>
+<pre><code>O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(2ⁿ) &lt; O(n!)</code></pre><p><strong>Growth Rate Chart:</strong></p>
+<pre class="mermaid">xychart-beta
+    title &quot;Big O Growth Rates&quot;
+    x-axis &quot;Input Size (n)&quot; [1, 2, 4, 8, 16, 32]
+    y-axis &quot;Operations&quot; 0 --&gt; 1050
+    line &quot;O(1)&quot; [1, 1, 1, 1, 1, 1]
+    line &quot;O(log n)&quot; [0, 1, 2, 3, 4, 5]
+    line &quot;O(n)&quot; [1, 2, 4, 8, 16, 32]
+    line &quot;O(n log n)&quot; [0, 2, 8, 24, 64, 160]
+    line &quot;O(n²)&quot; [1, 4, 16, 64, 256, 1024]</pre><h2>9. MCQ</h2>
+<h4>Q1. What is an algorithm?</h4>
+<div class="question-options"><span class="option">A) A programming language</span>
+<span class="option">B) A step-by-step procedure to solve a problem ✅</span>
+<span class="option">C) A type of computer hardware</span>
+<span class="option">D) An operating system</span></div><h4>Q2. An algorithm is described as a:</h4>
+<div class="question-options"><span class="option">A) Language-dependent code</span>
+<span class="option">B) Language-independent blueprint ✅</span>
+<span class="option">C) Hardware component</span>
+<span class="option">D) Data structure</span></div><h4>Q3. In the real-life example of finding the largest test score, what is the first step?</h4>
+<div class="question-options"><span class="option">A) Check each score</span>
+<span class="option">B) Return the largest</span>
+<span class="option">C) Remember the first score as the "largest" ✅</span>
+<span class="option">D) Sort all scores</span></div><h4>Q4. Which of the following is TRUE about algorithms?</h4>
+<div class="question-options"><span class="option">A) An algorithm is code written in a specific language</span>
+<span class="option">B) An algorithm is a language-independent blueprint ✅</span>
+<span class="option">C) An algorithm must always be written in Python</span>
+<span class="option">D) An algorithm cannot be represented visually</span></div><h4>Q5. The C function <code>find_maximum</code> returns:</h4>
+<div class="question-options"><span class="option">A) The minimum value in the array</span>
+<span class="option">B) The maximum value in the array ✅</span>
+<span class="option">C) The sum of all elements</span>
+<span class="option">D) The average of all elements</span></div><h4>Q6. In <code>find_maximum</code>, <code>max_value</code> is initialized to:</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) The first element of the array ✅</span>
+<span class="option">C) The last element of the array</span>
+<span class="option">D) The size of the array</span></div><h4>Q7. The mnemonic for characteristics of an algorithm is:</h4>
+<div class="question-options"><span class="option">A) I Often Drink Fresh Eggnog ✅</span>
+<span class="option">B) I Only Drink Fresh Espresso</span>
+<span class="option">C) Input Output Definite Finite Effective</span>
+<span class="option">D) All Algorithms Need Clear Steps</span></div><h4>Q8. How many inputs can an algorithm have?</h4>
+<div class="question-options"><span class="option">A) At least 1</span>
+<span class="option">B) 0 or more ✅</span>
+<span class="option">C) Exactly 2</span>
+<span class="option">D) Exactly 1</span></div><h4>Q9. How many outputs must an algorithm produce?</h4>
+<div class="question-options"><span class="option">A) 0 or more</span>
+<span class="option">B) At least 1 ✅</span>
+<span class="option">C) Exactly 1</span>
+<span class="option">D) At least 2</span></div><h4>Q10. Definiteness in an algorithm means:</h4>
+<div class="question-options"><span class="option">A) Each step is unambiguous ✅</span>
+<span class="option">B) The algorithm must be short</span>
+<span class="option">C) The algorithm must use numbers</span>
+<span class="option">D) The algorithm must have no loops</span></div><h4>Q11. Finiteness in an algorithm means:</h4>
+<div class="question-options"><span class="option">A) It must produce multiple outputs</span>
+<span class="option">B) It must terminate ✅</span>
+<span class="option">C) It must have no inputs</span>
+<span class="option">D) It must be written in C</span></div><h4>Q12. Effectiveness in an algorithm means:</h4>
+<div class="question-options"><span class="option">A) Steps are feasible to perform ✅</span>
+<span class="option">B) Steps are written in English</span>
+<span class="option">C) Steps are theoretical</span>
+<span class="option">D) Steps are not important</span></div><h4>Q13. Which of the following violates the Finiteness characteristic?</h4>
+<div class="question-options"><span class="option">A) `for (i = 0; i < 10; i++)`</span>
+<span class="option">B) `while (True)` ✅</span>
+<span class="option">C) `if (x > 5)`</span>
+<span class="option">D) `return sum`</span></div><h4>Q14. &quot;Add some salt&quot; in a recipe violates which characteristic?</h4>
+<div class="question-options"><span class="option">A) Input</span>
+<span class="option">B) Output</span>
+<span class="option">C) Definiteness ✅</span>
+<span class="option">D) Finiteness</span></div><h4>Q15. <code>add(a, b)</code> has how many inputs?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) 2 ✅</span>
+<span class="option">D) 3</span></div><h4>Q16. A Recursive Algorithm is one where:</h4>
+<div class="question-options"><span class="option">A) A function calls itself to solve smaller instances ✅</span>
+<span class="option">B) A function uses loops</span>
+<span class="option">C) A function has no return value</span>
+<span class="option">D) A function calls another function</span></div><h4>Q17. The base case in a recursive function:</h4>
+<div class="question-options"><span class="option">A) Makes the function run forever</span>
+<span class="option">B) Stops the recursion ✅</span>
+<span class="option">C) Increases the recursion depth</span>
+<span class="option">D) Causes an error</span></div><h4>Q18. What is the base case in the factorial recursive function?</h4>
+<div class="question-options"><span class="option">A) `n > 1`</span>
+<span class="option">B) `n <= 1` ✅</span>
+<span class="option">C) `n == 0`</span>
+<span class="option">D) `n < 0`</span></div><h4>Q19. What is the result of <code>factorial(4)</code>?</h4>
+<div class="question-options"><span class="option">A) 6</span>
+<span class="option">B) 12</span>
+<span class="option">C) 24 ✅</span>
+<span class="option">D) 120</span></div><h4>Q20. In recursion, the recursive case:</h4>
+<div class="question-options"><span class="option">A) Stops the recursion</span>
+<span class="option">B) Calls the function with a smaller input ✅</span>
+<span class="option">C) Increases the input size</span>
+<span class="option">D) Terminates the program</span></div><h4>Q21. The recursion stack for <code>factorial(4)</code> shows:</h4>
+<div class="question-options"><span class="option">A) 4 × 3 × 2 × 1 ✅</span>
+<span class="option">B) 4 + 3 + 2 + 1</span>
+<span class="option">C) 4 × 3 × 2</span>
+<span class="option">D) 1 × 2 × 3 × 4</span></div><h4>Q22. Which of the following is a PRO of recursive algorithms?</h4>
+<div class="question-options"><span class="option">A) Memory-efficient</span>
+<span class="option">B) Clean code for tree/graph problems ✅</span>
+<span class="option">C) No risk of stack overflow</span>
+<span class="option">D) Always faster than iterative</span></div><h4>Q23. Which of the following is a CON of recursive algorithms?</h4>
+<div class="question-options"><span class="option">A) Complex for tree problems</span>
+<span class="option">B) Memory-heavy, risk of stack overflow ✅</span>
+<span class="option">C) Always slower than iterative</span>
+<span class="option">D) Cannot be used for factorial</span></div><h4>Q24. An Iterative Algorithm uses:</h4>
+<div class="question-options"><span class="option">A) Self-calls</span>
+<span class="option">B) Loops instead of self-calls ✅</span>
+<span class="option">C) No loops</span>
+<span class="option">D) Only recursion</span></div><h4>Q25. Which algorithm type is more memory-efficient?</h4>
+<div class="question-options"><span class="option">A) Recursive</span>
+<span class="option">B) Iterative ✅</span>
+<span class="option">C) Both are equally efficient</span>
+<span class="option">D) Depends on the language</span></div><h4>Q26. Iterative algorithms are generally:</h4>
+<div class="question-options"><span class="option">A) Slower than recursive</span>
+<span class="option">B) Faster than recursive ✅</span>
+<span class="option">C) The same speed</span>
+<span class="option">D) Not comparable</span></div><h4>Q27. Recursive algorithms are best for:</h4>
+<div class="question-options"><span class="option">A) Simple loops</span>
+<span class="option">B) Trees and divide-and-conquer ✅</span>
+<span class="option">C) Array traversal</span>
+<span class="option">D) Basic arithmetic</span></div><h4>Q28. Which of the following is TRUE about recursive vs iterative?</h4>
+<div class="question-options"><span class="option">A) Recursive uses less memory</span>
+<span class="option">B) Iterative uses high memory</span>
+<span class="option">C) Recursive uses high memory (stack frames) ✅</span>
+<span class="option">D) Both use the same memory</span></div><h4>Q29. In the C example for iterative sum, the loop runs from:</h4>
+<div class="question-options"><span class="option">A) 0 to n</span>
+<span class="option">B) 1 to n ✅</span>
+<span class="option">C) n to 1</span>
+<span class="option">D) 1 to n-1</span></div><h4>Q30. A Flowchart uses a diamond shape for:</h4>
+<div class="question-options"><span class="option">A) Start/End</span>
+<span class="option">B) Input/Output</span>
+<span class="option">C) Process</span>
+<span class="option">D) Decision ✅</span></div><h4>Q31. In a flowchart, a parallelogram represents:</h4>
+<div class="question-options"><span class="option">A) Start/End</span>
+<span class="option">B) Input/Output ✅</span>
+<span class="option">C) Process</span>
+<span class="option">D) Decision</span></div><h4>Q32. In a flowchart, a rectangle represents:</h4>
+<div class="question-options"><span class="option">A) Start/End</span>
+<span class="option">B) Input/Output</span>
+<span class="option">C) Process ✅</span>
+<span class="option">D) Decision</span></div><h4>Q33. In a flowchart, an oval represents:</h4>
+<div class="question-options"><span class="option">A) Start/End ✅</span>
+<span class="option">B) Input/Output</span>
+<span class="option">C) Process</span>
+<span class="option">D) Decision</span></div><h4>Q34. In the even/odd flowchart, the diamond checks:</h4>
+<div class="question-options"><span class="option">A) `n > 0`</span>
+<span class="option">B) `n % 2 == 0` ✅</span>
+<span class="option">C) `n < 0`</span>
+<span class="option">D) `n == 0`</span></div><h4>Q35. Pseudo code is:</h4>
+<div class="question-options"><span class="option">A) Actual code in a programming language</span>
+<span class="option">B) Plain-text, language-independent logic ✅</span>
+<span class="option">C) Machine code</span>
+<span class="option">D) Assembly code</span></div><h4>Q36. In pseudo code, <code>&lt;-</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Comparison</span>
+<span class="option">B) Assignment ✅</span>
+<span class="option">C) Addition</span>
+<span class="option">D) Loop</span></div><h4>Q37. The pseudo code <code>total &lt;- 0</code> means:</h4>
+<div class="question-options"><span class="option">A) Compare total with 0</span>
+<span class="option">B) Assign total the value 0 ✅</span>
+<span class="option">C) Add total to 0</span>
+<span class="option">D) Loop from total to 0</span></div><h4>Q38. In the average calculation pseudo code, what is checked before division?</h4>
+<div class="question-options"><span class="option">A) If total is 0</span>
+<span class="option">B) If size is 0 ✅</span>
+<span class="option">C) If list is empty</span>
+<span class="option">D) If total is negative</span></div><h4>Q39. The C implementation of average uses which format specifier for float output?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f`</span>
+<span class="option">C) `%.2f` ✅</span>
+<span class="option">D) `%c`</span></div><h4>Q40. In Python, the average function returns:</h4>
+<div class="question-options"><span class="option">A) Sum of numbers</span>
+<span class="option">B) Sum divided by length if numbers exist, else 0 ✅</span>
+<span class="option">C) Length of numbers</span>
+<span class="option">D) Maximum number</span></div><h4>Q41. In JavaScript, the average function uses:</h4>
+<div class="question-options"><span class="option">A) `forEach`</span>
+<span class="option">B) `reduce` ✅</span>
+<span class="option">C) `map`</span>
+<span class="option">D) `filter`</span></div><h4>Q42. Efficiency of an algorithm measures:</h4>
+<div class="question-options"><span class="option">A) Only time usage</span>
+<span class="option">B) Only space usage</span>
+<span class="option">C) Time and space resource usage ✅</span>
+<span class="option">D) Number of lines of code</span></div><h4>Q43. <code>sum_slow(n)</code> has a complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q44. <code>sum_fast(n)</code> has a complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q45. For n = 1,000,000, <code>sum_fast</code> is approximately how many times faster than <code>sum_slow</code>?</h4>
+<div class="question-options"><span class="option">A) 1,000 times</span>
+<span class="option">B) 10,000 times</span>
+<span class="option">C) 330,000 times ✅</span>
+<span class="option">D) 1,000,000 times</span></div><h4>Q46. The three performance cases for algorithms are:</h4>
+<div class="question-options"><span class="option">A) Fast, Medium, Slow</span>
+<span class="option">B) Best, Average, Worst ✅</span>
+<span class="option">C) Minimum, Typical, Maximum</span>
+<span class="option">D) Low, Medium, High</span></div><h4>Q47. Worst case analysis provides:</h4>
+<div class="question-options"><span class="option">A) Minimum resources needed</span>
+<span class="option">B) A guaranteed bound on resources ✅</span>
+<span class="option">C) Average resource usage</span>
+<span class="option">D) No useful information</span></div><h4>Q48. Space Complexity measures:</h4>
+<div class="question-options"><span class="option">A) Speed of execution</span>
+<span class="option">B) Memory usage vs input size ✅</span>
+<span class="option">C) Number of operations</span>
+<span class="option">D) Code readability</span></div><h4>Q49. <code>sum_array</code> that uses only a <code>total</code> variable has space complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q50. <code>duplicate_array</code> that creates a new array of size n has space complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q51. Time Complexity measures:</h4>
+<div class="question-options"><span class="option">A) Memory usage vs input size</span>
+<span class="option">B) Speed vs input size ✅</span>
+<span class="option">C) Number of variables</span>
+<span class="option">D) Code length</span></div><h4>Q52. O(1) operations for n=100 is:</h4>
+<div class="question-options"><span class="option">A) 1 ✅</span>
+<span class="option">B) 7</span>
+<span class="option">C) 100</span>
+<span class="option">D) 10,000</span></div><h4>Q53. O(log n) operations for n=100 is approximately:</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 7 ✅</span>
+<span class="option">C) 100</span>
+<span class="option">D) 10,000</span></div><h4>Q54. O(n) operations for n=100 is:</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 7</span>
+<span class="option">C) 100 ✅</span>
+<span class="option">D) 10,000</span></div><h4>Q55. O(n log n) operations for n=100 is approximately:</h4>
+<div class="question-options"><span class="option">A) 100</span>
+<span class="option">B) 200</span>
+<span class="option">C) 664 ✅</span>
+<span class="option">D) 1,000</span></div><h4>Q56. O(n²) operations for n=100 is:</h4>
+<div class="question-options"><span class="option">A) 100</span>
+<span class="option">B) 1,000</span>
+<span class="option">C) 10,000 ✅</span>
+<span class="option">D) 100,000</span></div><h4>Q57. Asymptotic Notation is used to:</h4>
+<div class="question-options"><span class="option">A) Write actual code</span>
+<span class="option">B) Describe growth rates of algorithms ✅</span>
+<span class="option">C) Debug programs</span>
+<span class="option">D) Design user interfaces</span></div><h4>Q58. Big O notation describes:</h4>
+<div class="question-options"><span class="option">A) Best case</span>
+<span class="option">B) Worst case (Upper Bound) ✅</span>
+<span class="option">C) Exact growth</span>
+<span class="option">D) Average case</span></div><h4>Q59. Big O is used when:</h4>
+<div class="question-options"><span class="option">A) Proving minimums</span>
+<span class="option">B) All cases are the same</span>
+<span class="option">C) Making performance guarantees ✅</span>
+<span class="option">D) Describing best case</span></div><h4>Q60. Big Omega (Ω) notation describes:</h4>
+<div class="question-options"><span class="option">A) Worst case</span>
+<span class="option">B) Best case (Lower Bound) ✅</span>
+<span class="option">C) Exact growth</span>
+<span class="option">D) Average case</span></div><h4>Q61. Big Omega is used when:</h4>
+<div class="question-options"><span class="option">A) Making performance guarantees</span>
+<span class="option">B) Proving minimums ✅</span>
+<span class="option">C) All cases are the same</span>
+<span class="option">D) Describing worst case</span></div><h4>Q62. Big Theta (Θ) notation describes:</h4>
+<div class="question-options"><span class="option">A) Worst case</span>
+<span class="option">B) Best case</span>
+<span class="option">C) Tight Bound (Exact growth) ✅</span>
+<span class="option">D) Average case</span></div><h4>Q63. Big Theta is used when:</h4>
+<div class="question-options"><span class="option">A) Best and worst cases are different</span>
+<span class="option">B) All cases are the same ✅</span>
+<span class="option">C) Only worst case matters</span>
+<span class="option">D) Only best case matters</span></div><h4>Q64. In <code>linear_search</code>, the worst case complexity is:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q65. In <code>linear_search</code>, the best case complexity is:</h4>
+<div class="question-options"><span class="option">A) Ω(1) ✅</span>
+<span class="option">B) Ω(n)</span>
+<span class="option">C) Ω(log n)</span>
+<span class="option">D) Ω(n²)</span></div><h4>Q66. <code>sum_array</code> always visits every element, so its complexity is:</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) Ω(n)</span>
+<span class="option">C) Θ(n) ✅</span>
+<span class="option">D) O(1)</span></div><h4>Q67. The correct order from fastest to slowest is:</h4>
+<div class="question-options"><span class="option">A) O(1) < O(n) < O(log n) < O(n²)</span>
+<span class="option">B) O(1) < O(log n) < O(n) < O(n log n) < O(n²) ✅</span>
+<span class="option">C) O(n) < O(1) < O(log n) < O(n²)</span>
+<span class="option">D) O(n²) < O(n log n) < O(n) < O(log n)</span></div><h4>Q68. Binary search has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(log n) ✅</span>
+<span class="option">D) O(n²)</span></div><h4>Q69. Linear search has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q70. Merge sort has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(n²)</span>
+<span class="option">C) O(n log n) ✅</span>
+<span class="option">D) O(log n)</span></div><h4>Q71. Bubble sort has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n²) ✅</span></div><h4>Q72. Array access has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q73. In Big O notation, O(n) is known as:</h4>
+<div class="question-options"><span class="option">A) Constant time</span>
+<span class="option">B) Linear time ✅</span>
+<span class="option">C) Logarithmic time</span>
+<span class="option">D) Quadratic time</span></div><h4>Q74. In Big O notation, O(1) is known as:</h4>
+<div class="question-options"><span class="option">A) Constant time ✅</span>
+<span class="option">B) Linear time</span>
+<span class="option">C) Logarithmic time</span>
+<span class="option">D) Quadratic time</span></div><h4>Q75. In Big O notation, O(log n) is known as:</h4>
+<div class="question-options"><span class="option">A) Constant time</span>
+<span class="option">B) Linear time</span>
+<span class="option">C) Logarithmic time ✅</span>
+<span class="option">D) Quadratic time</span></div><h4>Q76. In Big O notation, O(n²) is known as:</h4>
+<div class="question-options"><span class="option">A) Constant time</span>
+<span class="option">B) Linear time</span>
+<span class="option">C) Logarithmic time</span>
+<span class="option">D) Quadratic time ✅</span></div><h4>Q77. For an algorithm with O(2ⁿ), n=10 gives approximately:</h4>
+<div class="question-options"><span class="option">A) 100 operations</span>
+<span class="option">B) 1,024 operations ✅</span>
+<span class="option">C) 10,000 operations</span>
+<span class="option">D) 20 operations</span></div><h4>Q78. Which complexity grows the fastest?</h4>
+<div class="question-options"><span class="option">A) O(n log n)</span>
+<span class="option">B) O(n²)</span>
+<span class="option">C) O(2ⁿ) ✅</span>
+<span class="option">D) O(n)</span></div><h4>Q79. The <code>find_maximum</code> function has a time complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q80. The <code>find_maximum</code> function has a space complexity of:</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q81. An algorithm with no <code>#include</code> or function definitions in the representation is:</h4>
+<div class="question-options"><span class="option">A) C code</span>
+<span class="option">B) Pseudo code ✅</span>
+<span class="option">C) Machine code</span>
+<span class="option">D) Assembly</span></div><h4>Q82. In recursion, the factorial function calls itself until:</h4>
+<div class="question-options"><span class="option">A) n becomes 0</span>
+<span class="option">B) n becomes 1 or less ✅</span>
+<span class="option">C) n becomes negative</span>
+<span class="option">D) n becomes 10</span></div><h4>Q83. The return value of <code>factorial(0)</code> would be:</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) -1</span>
+<span class="option">D) Undefined</span></div><h4>Q84. Which of the following is NOT a valid flowchart symbol?</h4>
+<div class="question-options"><span class="option">A) Oval for Start/End</span>
+<span class="option">B) Parallelogram for Input/Output</span>
+<span class="option">C) Rectangle for Process</span>
+<span class="option">D) Triangle for Decision ✅</span></div><h4>Q85. In pseudo code, <code>FOR i &lt;- 0 TO size - 1</code> means:</h4>
+<div class="question-options"><span class="option">A) Loop while i is less than size ✅</span>
+<span class="option">B) Loop until i equals size</span>
+<span class="option">C) Loop forever</span>
+<span class="option">D) Loop while i is greater than size</span></div><h4>Q86. The C implementation of average uses <code>(float)total / size</code> to:</h4>
+<div class="question-options"><span class="option">A) Perform integer division</span>
+<span class="option">B) Perform floating-point division ✅</span>
+<span class="option">C) Convert size to float</span>
+<span class="option">D) Convert total to integer</span></div><h4>Q87. The Python average function uses the expression:</h4>
+<div class="question-options"><span class="option">A) `sum(numbers) / len(numbers) if numbers else 0` ✅</span>
+<span class="option">B) `sum(numbers) / len(numbers)`</span>
+<span class="option">C) `sum(numbers) if numbers else 0`</span>
+<span class="option">D) `sum(numbers) / 0`</span></div><h4>Q88. The JavaScript average function uses:</h4>
+<div class="question-options"><span class="option">A) `numbers.reduce((a,b) => a+b) / numbers.length`</span>
+<span class="option">B) `numbers.reduce((a,b) => a+b) / numbers.length || 0` ✅</span>
+<span class="option">C) `numbers.map((a,b) => a+b) / numbers.length`</span>
+<span class="option">D) `numbers.filter((a,b) => a+b) / numbers.length`</span></div><h4>Q89. Which of the following is NOT a characteristic of an algorithm?</h4>
+<div class="question-options"><span class="option">A) Input</span>
+<span class="option">B) Output</span>
+<span class="option">C) Randomness ✅</span>
+<span class="option">D) Finiteness</span></div><h4>Q90. An algorithm that never terminates violates:</h4>
+<div class="question-options"><span class="option">A) Input</span>
+<span class="option">B) Output</span>
+<span class="option">C) Definiteness</span>
+<span class="option">D) Finiteness ✅</span></div><h4>Q91. The real-life example of finding the largest test score uses:</h4>
+<div class="question-options"><span class="option">A) Recursion</span>
+<span class="option">B) Iteration ✅</span>
+<span class="option">C) Both recursion and iteration</span>
+<span class="option">D) Neither</span></div><h4>Q92. A recursive algorithm&#39;s call stack grows with:</h4>
+<div class="question-options"><span class="option">A) Each recursive call ✅</span>
+<span class="option">B) Each loop iteration</span>
+<span class="option">C) Each variable declaration</span>
+<span class="option">D) Each function return</span></div><h4>Q93. Which is better for memory-constrained environments?</h4>
+<div class="question-options"><span class="option">A) Recursive algorithms</span>
+<span class="option">B) Iterative algorithms ✅</span>
+<span class="option">C) Both are equal</span>
+<span class="option">D) Depends on the problem</span></div><h4>Q94. O(n!) is considered:</h4>
+<div class="question-options"><span class="option">A) Efficient</span>
+<span class="option">B) Very inefficient ✅</span>
+<span class="option">C) Constant time</span>
+<span class="option">D) Logarithmic time</span></div><h4>Q95. Big O notation ignores:</h4>
+<div class="question-options"><span class="option">A) Constant factors ✅</span>
+<span class="option">B) Input size</span>
+<span class="option">C) Worst case</span>
+<span class="option">D) Growth rate</span></div><h4>Q96. The difference between O(n) and O(2n) is:</h4>
+<div class="question-options"><span class="option">A) Significant</span>
+<span class="option">B) Ignored in Big O notation ✅</span>
+<span class="option">C) Always 2x</span>
+<span class="option">D) Always 1.5x</span></div><h4>Q97. An algorithm with best=O(1) and worst=O(n) has which exact bound?</h4>
+<div class="question-options"><span class="option">A) Θ(1)</span>
+<span class="option">B) Θ(n)</span>
+<span class="option">C) Cannot determine Θ ✅</span>
+<span class="option">D) Ω(1)</span></div><h4>Q98. Which of the following algorithms has Θ(n) complexity?</h4>
+<div class="question-options"><span class="option">A) Binary search</span>
+<span class="option">B) Linear search (worst case is O(n) but best is Ω(1))</span>
+<span class="option">C) Sum of array elements ✅</span>
+<span class="option">D) Bubble sort</span></div><h4>Q99. The mermaid diagram for recursion shows:</h4>
+<div class="question-options"><span class="option">A) A loop</span>
+<span class="option">B) Function calls unwinding ✅</span>
+<span class="option">C) A decision tree</span>
+<span class="option">D) A flowchart</span></div><h4>Q100. Which complexity is considered the most efficient for large inputs?</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n²)</span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-01-concepts-of-software</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Definition of Software</h2>
+<p><strong>Software</strong> is a collection of programs, data, and instructions that tell a computer how to perform specific tasks. It is the intangible part of a computer system (as opposed to hardware, which is physical).</p>
+<blockquote>
+<p><strong>Relationship</strong>: Hardware + Software = Functional Computer System.</p>
+</blockquote>
+<hr>
+<h2>2. Types of Software</h2>
+<p>Software is broadly classified into three categories:</p>
+<pre class="mermaid">graph TD
+    A[Software] --&gt; B[System Software]
+    A --&gt; C[Application Software]
+    A --&gt; D[Utility Software]</pre><hr>
+<h2>3. System Software</h2>
+<p><strong>System Software</strong> is a set of programs that manage and control the hardware resources of a computer and provide a platform for running application software. It acts as an <strong>interface</strong> between the user/hardware and the application programs.</p>
+<h3>3.1 Components of System Software</h3>
+<pre class="mermaid">graph TD
+    A[System Software] --&gt; B[Operating System]
+    A --&gt; C[Language Translators]
+    A --&gt; D[Loader]
+    A --&gt; E[Linker]</pre><hr>
+<h3>3.2 Operating System (OS)</h3>
+<h4>Definition</h4>
+<p>An <strong>Operating System</strong> is a system software that acts as an intermediary between the user and the computer hardware. It manages all hardware resources and provides services to application programs.</p>
+<h4>Functions of an Operating System</h4>
+<ol>
+<li><strong>Process Management</strong> – Allocates CPU time to processes and handles multitasking.</li>
+<li><strong>Memory Management</strong> – Manages RAM allocation to programs.</li>
+<li><strong>File Management</strong> – Organizes, stores, retrieves, and manages files on storage devices.</li>
+<li><strong>Device Management</strong> – Controls I/O devices using device drivers.</li>
+<li><strong>Security &amp; Protection</strong> – Provides user authentication, access controls, and data protection.</li>
+<li><strong>User Interface</strong> – Provides a way for users to interact (CUI or GUI).</li>
+<li><strong>Error Detection &amp; Handling</strong> – Detects hardware/software errors and takes corrective actions.</li>
+</ol>
+<hr>
+<h4>Types of Operating Systems</h4>
+<table>
+<thead>
+<tr>
+<th align="left">OS Type</th>
+<th align="left">Definition</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Single-User OS</strong></td>
+<td align="left">Allows only one user to use the system at a time.</td>
+<td align="left">MS-DOS, early Windows (95/98)</td>
+</tr>
+<tr>
+<td align="left"><strong>Multi-User OS</strong></td>
+<td align="left">Allows multiple users to access the system simultaneously via terminals.</td>
+<td align="left">UNIX, Linux, Windows Server</td>
+</tr>
+<tr>
+<td align="left"><strong>Multiprogramming OS</strong></td>
+<td align="left">Keeps multiple programs in memory simultaneously; CPU switches between them to keep busy (no idle time).</td>
+<td align="left">Early IBM mainframe OS</td>
+</tr>
+<tr>
+<td align="left"><strong>Multiprocessing OS</strong></td>
+<td align="left">Supports two or more CPUs (processors) in a single system, executing multiple processes in parallel.</td>
+<td align="left">Windows NT, Linux (on multi-core), Solaris</td>
+</tr>
+<tr>
+<td align="left"><strong>Time-Sharing OS</strong></td>
+<td align="left">Extends multiprogramming; each user gets a small time slice (quantum) of CPU. Users feel they have dedicated system.</td>
+<td align="left">UNIX, Linux, Windows (terminal services)</td>
+</tr>
+</tbody></table>
+<p><strong>Visualizing OS Types:</strong></p>
+<pre class="mermaid">graph LR
+    A[Operating Systems] --&gt; B[Single-User]
+    A --&gt; C[Multi-User]
+    A --&gt; D[Multiprogramming]
+    A --&gt; E[Multiprocessing]
+    A --&gt; F[Time-Sharing]
+    B --&gt; B1[One user at a time]
+    C --&gt; C1[Multiple users concurrently]
+    D --&gt; D1[Multiple programs in memory]
+    E --&gt; E1[Multiple CPUs]
+    F --&gt; F1[CPU time slicing]</pre><hr>
+<h3>3.3 Language Translators (Translators)</h3>
+<p>A <strong>translator</strong> converts high-level language (HLL) programs or assembly code into machine code (binary) that the CPU can execute.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Translator</th>
+<th align="left">Definition</th>
+<th align="left">Process</th>
+<th align="left">Output</th>
+<th align="left">Speed of Execution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Assembler</strong></td>
+<td align="left">Translates <strong>Assembly Language</strong> (mnemonics) into machine code.</td>
+<td align="left">1 step (source → object code).</td>
+<td align="left">Machine code (specific to CPU).</td>
+<td align="left">Fast (direct translation).</td>
+</tr>
+<tr>
+<td align="left"><strong>Interpreter</strong></td>
+<td align="left">Translates HLL code <strong>line-by-line</strong> and executes it immediately.</td>
+<td align="left">Translates → executes → next line.</td>
+<td align="left">No separate object code file.</td>
+<td align="left">Slow (repeats translation each run).</td>
+</tr>
+<tr>
+<td align="left"><strong>Compiler</strong></td>
+<td align="left">Translates entire HLL program into machine code <strong>in one go</strong>, producing an object file.</td>
+<td align="left">Source code → Compiler → Object code (.obj) → Executable (.exe).</td>
+<td align="left">Standalone executable file.</td>
+<td align="left">Fast (execution happens later without re-translation).</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Key Difference</strong>: Compiler translates once; Interpreter translates every time the program runs.</p>
+</blockquote>
+<hr>
+<h3>3.4 Loader</h3>
+<ul>
+<li><strong>Definition</strong>: A system program that loads the executable program (object code) from secondary storage (hard disk) into the main memory (RAM) so that the CPU can execute it.</li>
+<li><strong>Types</strong>: Absolute Loader, Relocating Loader, Dynamic Linker (sometimes combined).</li>
+<li><strong>Function</strong>: Allocates memory space, resolves addresses, and hands control to the starting address of the program.</li>
+</ul>
+<hr>
+<h3>3.5 Linker</h3>
+<ul>
+<li><strong>Definition</strong>: A system program that combines multiple object files (generated by compiler/assembler) into a single executable file.</li>
+<li><strong>Function</strong>: Resolves external references (e.g., linking library functions like <code>printf</code> in C to the main program).</li>
+<li><strong>Output</strong>: Produces an executable file (<code>.exe</code>, <code>.out</code>) that can be loaded by the loader.</li>
+</ul>
+<blockquote>
+<p><strong>Relationship</strong> (Compilation to Execution Flow):
+Source Code → <strong>Compiler</strong> → Object File(s) → <strong>Linker</strong> → Executable File → <strong>Loader</strong> → Memory → CPU executes.</p>
+</blockquote>
+<pre class="mermaid">graph LR
+    A[Source Code] --&gt; B[Compiler/Assembler]
+    B --&gt; C[Object File .obj]
+    C --&gt; D[Linker]
+    D --&gt; E[Executable File .exe]
+    E --&gt; F[Loader]
+    F --&gt; G[Loaded into RAM]
+    G --&gt; H[CPU Execution]</pre><hr>
+<h2>4. Application Software</h2>
+<p><strong>Application Software</strong> is designed to help users perform specific tasks (non-system tasks) such as word processing, calculations, browsing, gaming, etc.</p>
+<ul>
+<li><strong>Definition</strong>: End-user software that runs on top of system software (OS).</li>
+<li><strong>Examples</strong>:<ul>
+<li>Word Processors: MS Word, Google Docs</li>
+<li>Spreadsheets: MS Excel, Google Sheets</li>
+<li>Web Browsers: Chrome, Firefox</li>
+<li>Graphics: Adobe Photoshop, CorelDRAW</li>
+<li>Games, Media Players, Database Management (MySQL Workbench), etc.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>5. Utility Software</h2>
+<p><strong>Utility Software</strong> is a type of system software that helps to maintain, optimize, and secure the computer system. It is neither an OS nor an application—it fills the gap.</p>
+<ul>
+<li><strong>Definition</strong>: Tools that assist in managing the computer&#39;s resources efficiently.</li>
+<li><strong>Examples</strong>:<ul>
+<li>Antivirus (Norton, Kaspersky)</li>
+<li>Disk Cleanup, Defragmentation tools</li>
+<li>Backup software</li>
+<li>File compression (WinRAR, 7-Zip)</li>
+<li>System monitoring tools.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Difference from Application Software</strong>: Utilities are system-oriented (maintenance), while applications are user-task-oriented.</p>
+</blockquote>
+<hr>
+<h2>6. User Interface: CUI vs GUI</h2>
+<h3>6.1 CUI (Character User Interface) / CLI (Command Line Interface)</h3>
+<ul>
+<li><strong>Definition</strong>: User interacts with the computer by typing textual commands.</li>
+<li><strong>Characteristics</strong>:<ul>
+<li>Requires knowledge of commands.</li>
+<li>Low memory/processing overhead.</li>
+<li>Faster for advanced users.</li>
+<li>Less user-friendly for beginners.</li>
+</ul>
+</li>
+<li><strong>Examples</strong>: MS-DOS, <strong>Linux Terminal (Bash)</strong>, Windows Command Prompt, UNIX.</li>
+</ul>
+<h3>6.2 GUI (Graphical User Interface)</h3>
+<ul>
+<li><strong>Definition</strong>: User interacts with the computer using graphical elements like windows, icons, menus, and pointers (WIMP).</li>
+<li><strong>Characteristics</strong>:<ul>
+<li>Intuitive and visual.</li>
+<li>Uses mouse/touch for navigation.</li>
+<li>Requires more system resources (RAM, GPU).</li>
+<li>Easy for beginners.</li>
+</ul>
+</li>
+<li><strong>Examples</strong>: Windows (7/10/11), macOS, Linux desktop environments (GNOME, KDE), Android/iOS.</li>
+</ul>
+<hr>
+<h2>7. LINUX – Basic Commands (CUI Example)</h2>
+<p>Linux is an open-source, multi-user, multitasking OS. Its terminal uses a <strong>CUI</strong>. Below are essential commands:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Syntax</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>pwd</code></td>
+<td align="left"><code>pwd</code></td>
+<td align="left">Prints the current working directory path.</td>
+<td align="left"><code>pwd</code> → <code>/home/user</code></td>
+</tr>
+<tr>
+<td align="left"><code>ls</code></td>
+<td align="left"><code>ls</code></td>
+<td align="left">Lists files and directories in current folder.</td>
+<td align="left"><code>ls</code> → <code>Documents Music</code></td>
+</tr>
+<tr>
+<td align="left"><code>cd</code></td>
+<td align="left"><code>cd [dir]</code></td>
+<td align="left">Changes directory. <code>cd ..</code> goes back one level.</td>
+<td align="left"><code>cd Documents</code></td>
+</tr>
+<tr>
+<td align="left"><code>mkdir</code></td>
+<td align="left"><code>mkdir [name]</code></td>
+<td align="left">Creates a new directory.</td>
+<td align="left"><code>mkdir NewFolder</code></td>
+</tr>
+<tr>
+<td align="left"><code>rmdir</code></td>
+<td align="left"><code>rmdir [name]</code></td>
+<td align="left">Removes an empty directory.</td>
+<td align="left"><code>rmdir OldFolder</code></td>
+</tr>
+<tr>
+<td align="left"><code>touch</code></td>
+<td align="left"><code>touch [file]</code></td>
+<td align="left">Creates an empty file.</td>
+<td align="left"><code>touch notes.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>cp</code></td>
+<td align="left"><code>cp [source] [dest]</code></td>
+<td align="left">Copies a file/directory.</td>
+<td align="left"><code>cp file1.txt file2.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>mv</code></td>
+<td align="left"><code>mv [source] [dest]</code></td>
+<td align="left">Moves or renames a file/directory.</td>
+<td align="left"><code>mv old.txt new.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>rm</code></td>
+<td align="left"><code>rm [file]</code></td>
+<td align="left">Removes/deletes a file.</td>
+<td align="left"><code>rm notes.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>cat</code></td>
+<td align="left"><code>cat [file]</code></td>
+<td align="left">Displays content of a file.</td>
+<td align="left"><code>cat notes.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>man</code></td>
+<td align="left"><code>man [command]</code></td>
+<td align="left">Displays the manual/help for a command.</td>
+<td align="left"><code>man ls</code></td>
+</tr>
+<tr>
+<td align="left"><code>whoami</code></td>
+<td align="left"><code>whoami</code></td>
+<td align="left">Displays the logged-in username.</td>
+<td align="left"><code>whoami</code> → <code>student</code></td>
+</tr>
+<tr>
+<td align="left"><code>clear</code></td>
+<td align="left"><code>clear</code></td>
+<td align="left">Clears the terminal screen.</td>
+<td align="left"><code>clear</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Example Flow in Linux Terminal (CUI)</strong>:</p>
+<pre><code>$ pwd
+/home/student
+$ mkdir Class11
+$ cd Class11
+$ touch notes.md
+$ ls
+notes.md
+$ cat notes.md
+(displays content)</code></pre></blockquote>
+<hr>
+<h2>8. MCQ</h2>
+<h4>Q1. What is software?</h4>
+<div class="question-options"><span class="option">A) Physical components of a computer</span>
+<span class="option">B) Collection of programs, data, and instructions that tell a computer how to perform specific tasks ✅</span>
+<span class="option">C) The monitor and keyboard</span>
+<span class="option">D) The CPU and memory</span></div><h4>Q2. Which equation correctly represents a functional computer system?</h4>
+<div class="question-options"><span class="option">A) Hardware + Software = Functional Computer System ✅</span>
+<span class="option">B) Hardware - Software = Functional Computer System</span>
+<span class="option">C) Hardware × Software = Functional Computer System</span>
+<span class="option">D) Hardware / Software = Functional Computer System</span></div><h4>Q3. Which of the following is NOT a type of software?</h4>
+<div class="question-options"><span class="option">A) System Software</span>
+<span class="option">B) Application Software</span>
+<span class="option">C) Utility Software</span>
+<span class="option">D) Hardware Software ✅</span></div><h4>Q4. System Software acts as an interface between:</h4>
+<div class="question-options"><span class="option">A) User and hardware only</span>
+<span class="option">B) Application programs and hardware ✅</span>
+<span class="option">C) User and application programs only</span>
+<span class="option">D) Two different computers</span></div><h4>Q5. Which of the following is a component of System Software?</h4>
+<div class="question-options"><span class="option">A) Microsoft Word</span>
+<span class="option">B) Operating System ✅</span>
+<span class="option">C) Adobe Photoshop</span>
+<span class="option">D) Chrome Browser</span></div><h4>Q6. What is the primary function of an Operating System?</h4>
+<div class="question-options"><span class="option">A) To create documents</span>
+<span class="option">B) To play games</span>
+<span class="option">C) To act as an intermediary between the user and computer hardware ✅</span>
+<span class="option">D) To design graphics</span></div><h4>Q7. Which function of the OS allocates CPU time to processes?</h4>
+<div class="question-options"><span class="option">A) Memory Management</span>
+<span class="option">B) File Management</span>
+<span class="option">C) Process Management ✅</span>
+<span class="option">D) Device Management</span></div><h4>Q8. Memory Management in an OS refers to:</h4>
+<div class="question-options"><span class="option">A) Organizing files on hard disk</span>
+<span class="option">B) Managing RAM allocation to programs ✅</span>
+<span class="option">C) Controlling I/O devices</span>
+<span class="option">D) User authentication</span></div><h4>Q9. File Management in an OS involves:</h4>
+<div class="question-options"><span class="option">A) Managing RAM</span>
+<span class="option">B) Organizing, storing, retrieving, and managing files on storage devices ✅</span>
+<span class="option">C) Allocating CPU time</span>
+<span class="option">D) Detecting errors</span></div><h4>Q10. Which OS function uses device drivers?</h4>
+<div class="question-options"><span class="option">A) Process Management</span>
+<span class="option">B) Memory Management</span>
+<span class="option">C) File Management</span>
+<span class="option">D) Device Management ✅</span></div><h4>Q11. Security &amp; Protection functions of an OS include:</h4>
+<div class="question-options"><span class="option">A) Defragmentation</span>
+<span class="option">B) User authentication and access controls ✅</span>
+<span class="option">C) File compression</span>
+<span class="option">D) Disk cleanup</span></div><h4>Q12. A GUI (Graphical User Interface) is an example of which OS function?</h4>
+<div class="question-options"><span class="option">A) Process Management</span>
+<span class="option">B) Memory Management</span>
+<span class="option">C) User Interface ✅</span>
+<span class="option">D) Device Management</span></div><h4>Q13. Which type of OS allows only one user to use the system at a time?</h4>
+<div class="question-options"><span class="option">A) Multi-User OS</span>
+<span class="option">B) Multiprogramming OS</span>
+<span class="option">C) Single-User OS ✅</span>
+<span class="option">D) Multiprocessing OS</span></div><h4>Q14. Which of the following is an example of a Single-User OS?</h4>
+<div class="question-options"><span class="option">A) UNIX</span>
+<span class="option">B) Linux</span>
+<span class="option">C) MS-DOS ✅</span>
+<span class="option">D) Windows Server</span></div><h4>Q15. A Multi-User OS allows:</h4>
+<div class="question-options"><span class="option">A) Only one user at a time</span>
+<span class="option">B) Multiple users to access the system simultaneously ✅</span>
+<span class="option">C) Only administrators to use the system</span>
+<span class="option">D) No users to access the system</span></div><h4>Q16. Which OS type keeps multiple programs in memory simultaneously and switches between them?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS ✅</span>
+<span class="option">C) Multiprocessing OS</span>
+<span class="option">D) Time-Sharing OS</span></div><h4>Q17. Which OS supports two or more CPUs executing processes in parallel?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS</span>
+<span class="option">C) Multiprocessing OS ✅</span>
+<span class="option">D) Time-Sharing OS</span></div><h4>Q18. In Time-Sharing OS, each user gets:</h4>
+<div class="question-options"><span class="option">A) Unlimited CPU time</span>
+<span class="option">B) A small time slice (quantum) of CPU ✅</span>
+<span class="option">C) Dedicated CPU</span>
+<span class="option">D) No CPU time</span></div><h4>Q19. Which OS type makes users feel they have a dedicated system?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS</span>
+<span class="option">C) Multiprocessing OS</span>
+<span class="option">D) Time-Sharing OS ✅</span></div><h4>Q20. Which of the following is an example of a Multi-User OS?</h4>
+<div class="question-options"><span class="option">A) MS-DOS</span>
+<span class="option">B) Windows 95</span>
+<span class="option">C) UNIX ✅</span>
+<span class="option">D) Windows 98</span></div><h4>Q21. Which translator converts Assembly Language to machine code?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter</span>
+<span class="option">C) Assembler ✅</span>
+<span class="option">D) Loader</span></div><h4>Q22. An Assembler translates mnemonics into:</h4>
+<div class="question-options"><span class="option">A) High-level code</span>
+<span class="option">B) Machine code ✅</span>
+<span class="option">C) Assembly code</span>
+<span class="option">D) Byte code</span></div><h4>Q23. Which translator converts HLL code line-by-line and executes it immediately?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter ✅</span>
+<span class="option">C) Assembler</span>
+<span class="option">D) Linker</span></div><h4>Q24. Which translator is described as &quot;slow&quot; because it repeats translation each time the program runs?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter ✅</span>
+<span class="option">C) Assembler</span>
+<span class="option">D) Loader</span></div><h4>Q25. A Compiler translates an entire HLL program:</h4>
+<div class="question-options"><span class="option">A) Line-by-line</span>
+<span class="option">B) In one go ✅</span>
+<span class="option">C) Only at runtime</span>
+<span class="option">D) Never</span></div><h4>Q26. Which translator produces a standalone executable file?</h4>
+<div class="question-options"><span class="option">A) Interpreter</span>
+<span class="option">B) Assembler</span>
+<span class="option">C) Compiler ✅</span>
+<span class="option">D) Loader</span></div><h4>Q27. The key difference between a Compiler and an Interpreter is:</h4>
+<div class="question-options"><span class="option">A) Compiler is slower</span>
+<span class="option">B) Compiler translates once; Interpreter translates every time ✅</span>
+<span class="option">C) Interpreter produces an object file</span>
+<span class="option">D) Compiler executes line-by-line</span></div><h4>Q28. A Loader loads the executable program from:</h4>
+<div class="question-options"><span class="option">A) RAM into secondary storage</span>
+<span class="option">B) Secondary storage into RAM ✅</span>
+<span class="option">C) CPU into RAM</span>
+<span class="option">D) ROM into RAM</span></div><h4>Q29. Which system program allocates memory space and hands control to the starting address of the program?</h4>
+<div class="question-options"><span class="option">A) Linker</span>
+<span class="option">B) Compiler</span>
+<span class="option">C) Loader ✅</span>
+<span class="option">D) Interpreter</span></div><h4>Q30. A Linker combines multiple object files into:</h4>
+<div class="question-options"><span class="option">A) Object code</span>
+<span class="option">B) Source code</span>
+<span class="option">C) A single executable file ✅</span>
+<span class="option">D) Assembly code</span></div><h4>Q31. Which system program resolves external references (like linking library functions)?</h4>
+<div class="question-options"><span class="option">A) Loader</span>
+<span class="option">B) Linker ✅</span>
+<span class="option">C) Compiler</span>
+<span class="option">D) Interpreter</span></div><h4>Q32. The correct flow from source code to execution is:</h4>
+<div class="question-options"><span class="option">A) Source Code → Linker → Compiler → Loader → Execute</span>
+<span class="option">B) Source Code → Compiler → Linker → Loader → Execute ✅</span>
+<span class="option">C) Source Code → Loader → Compiler → Linker → Execute</span>
+<span class="option">D) Source Code → Interpreter → Linker → Loader → Execute</span></div><h4>Q33. The Linker produces which type of file?</h4>
+<div class="question-options"><span class="option">A) .obj file</span>
+<span class="option">B) .exe or .out file ✅</span>
+<span class="option">C) .txt file</span>
+<span class="option">D) .c file</span></div><h4>Q34. The Loader loads the executable file into:</h4>
+<div class="question-options"><span class="option">A) Secondary Storage</span>
+<span class="option">B) ROM</span>
+<span class="option">C) RAM ✅</span>
+<span class="option">D) Cache</span></div><h4>Q35. Application Software is designed to:</h4>
+<div class="question-options"><span class="option">A) Manage hardware resources</span>
+<span class="option">B) Help users perform specific non-system tasks ✅</span>
+<span class="option">C) Control I/O devices</span>
+<span class="option">D) Translate high-level code</span></div><h4>Q36. Which of the following is Application Software?</h4>
+<div class="question-options"><span class="option">A) Windows 10</span>
+<span class="option">B) Linux</span>
+<span class="option">C) MS Word ✅</span>
+<span class="option">D) UNIX</span></div><h4>Q37. Which of the following is NOT Application Software?</h4>
+<div class="question-options"><span class="option">A) Google Docs</span>
+<span class="option">B) Adobe Photoshop</span>
+<span class="option">C) MySQL Workbench</span>
+<span class="option">D) Windows Server ✅</span></div><h4>Q38. Utility Software helps to:</h4>
+<div class="question-options"><span class="option">A) Perform user tasks like word processing</span>
+<span class="option">B) Maintain, optimize, and secure the computer system ✅</span>
+<span class="option">C) Manage processes</span>
+<span class="option">D) Browse the internet</span></div><h4>Q39. Which of the following is Utility Software?</h4>
+<div class="question-options"><span class="option">A) Google Chrome</span>
+<span class="option">B) Antivirus (Norton, Kaspersky) ✅</span>
+<span class="option">C) MS Excel</span>
+<span class="option">D) VLC Media Player</span></div><h4>Q40. Disk Cleanup and Defragmentation tools are examples of:</h4>
+<div class="question-options"><span class="option">A) Application Software</span>
+<span class="option">B) System Software (Utility) ✅</span>
+<span class="option">C) Operating System</span>
+<span class="option">D) Language Translator</span></div><h4>Q41. The difference between Utility Software and Application Software is:</h4>
+<div class="question-options"><span class="option">A) Utilities are user-task-oriented; Applications are system-oriented</span>
+<span class="option">B) Utilities are system-oriented; Applications are user-task-oriented ✅</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Utilities are hardware components</span></div><h4>Q42. CUI stands for:</h4>
+<div class="question-options"><span class="option">A) Computer User Interface</span>
+<span class="option">B) Character User Interface ✅</span>
+<span class="option">C) Command User Interface</span>
+<span class="option">D) Central User Interface</span></div><h4>Q43. CLI stands for:</h4>
+<div class="question-options"><span class="option">A) Command Line Interface ✅</span>
+<span class="option">B) Computer Line Interface</span>
+<span class="option">C) Central Language Interface</span>
+<span class="option">D) Character Language Interface</span></div><h4>Q44. Which user interface requires knowledge of commands?</h4>
+<div class="question-options"><span class="option">A) GUI</span>
+<span class="option">B) CUI/CLI ✅</span>
+<span class="option">C) Both require command knowledge</span>
+<span class="option">D) Neither requires command knowledge</span></div><h4>Q45. Which user interface uses graphical elements like windows, icons, menus, and pointers?</h4>
+<div class="question-options"><span class="option">A) CUI</span>
+<span class="option">B) CLI</span>
+<span class="option">C) GUI ✅</span>
+<span class="option">D) Text-based interface</span></div><h4>Q46. WIMP in GUI stands for:</h4>
+<div class="question-options"><span class="option">A) Windows, Icons, Menus, Pointers ✅</span>
+<span class="option">B) Web, Internet, Mouse, Programs</span>
+<span class="option">C) Windows, Input, Mouse, Programs</span>
+<span class="option">D) Work, Icons, Memory, Processors</span></div><h4>Q47. Which user interface is more intuitive and visual?</h4>
+<div class="question-options"><span class="option">A) CUI</span>
+<span class="option">B) CLI</span>
+<span class="option">C) GUI ✅</span>
+<span class="option">D) Command-based interface</span></div><h4>Q48. Which of the following is an example of CUI?</h4>
+<div class="question-options"><span class="option">A) Windows 10</span>
+<span class="option">B) macOS</span>
+<span class="option">C) Linux Terminal (Bash) ✅</span>
+<span class="option">D) Android</span></div><h4>Q49. Which of the following is an example of GUI?</h4>
+<div class="question-options"><span class="option">A) MS-DOS</span>
+<span class="option">B) Windows Command Prompt</span>
+<span class="option">C) Linux Terminal</span>
+<span class="option">D) Windows 7 ✅</span></div><h4>Q50. GUI requires more:</h4>
+<div class="question-options"><span class="option">A) Command knowledge</span>
+<span class="option">B) System resources (RAM, GPU) ✅</span>
+<span class="option">C) Text input</span>
+<span class="option">D) Keyboard shortcuts</span></div><h4>Q51. What is the Linux command to print the current working directory path?</h4>
+<div class="question-options"><span class="option">A) ls</span>
+<span class="option">B) pwd ✅</span>
+<span class="option">C) cd</span>
+<span class="option">D) mkdir</span></div><h4>Q52. The &#39;ls&#39; command in Linux is used to:</h4>
+<div class="question-options"><span class="option">A) Change directory</span>
+<span class="option">B) List files and directories in current folder ✅</span>
+<span class="option">C) Create a new directory</span>
+<span class="option">D) Remove a file</span></div><h4>Q53. Which command is used to change directory in Linux?</h4>
+<div class="question-options"><span class="option">A) ls</span>
+<span class="option">B) pwd</span>
+<span class="option">C) cd ✅</span>
+<span class="option">D) mkdir</span></div><h4>Q54. To go back one level in Linux directory structure, you use:</h4>
+<div class="question-options"><span class="option">A) cd /</span>
+<span class="option">B) cd ..</span>
+<span class="option">C) cd ~</span>
+<span class="option">D) cd . ✅</span></div><h4>Q55. Which command creates a new directory in Linux?</h4>
+<div class="question-options"><span class="option">A) touch</span>
+<span class="option">B) mkdir ✅</span>
+<span class="option">C) rmdir</span>
+<span class="option">D) cp</span></div><h4>Q56. The &#39;rmdir&#39; command in Linux removes:</h4>
+<div class="question-options"><span class="option">A) A file</span>
+<span class="option">B) An empty directory ✅</span>
+<span class="option">C) A non-empty directory</span>
+<span class="option">D) All files in a directory</span></div><h4>Q57. Which command creates an empty file in Linux?</h4>
+<div class="question-options"><span class="option">A) mkdir</span>
+<span class="option">B) touch ✅</span>
+<span class="option">C) cp</span>
+<span class="option">D) mv</span></div><h4>Q58. The &#39;cp&#39; command in Linux is used to:</h4>
+<div class="question-options"><span class="option">A) Move a file</span>
+<span class="option">B) Copy a file ✅</span>
+<span class="option">C) Remove a file</span>
+<span class="option">D) Display file content</span></div><h4>Q59. Which command is used to move or rename a file in Linux?</h4>
+<div class="question-options"><span class="option">A) cp</span>
+<span class="option">B) rm</span>
+<span class="option">C) mv ✅</span>
+<span class="option">D) cat</span></div><h4>Q60. The &#39;rm&#39; command in Linux is used to:</h4>
+<div class="question-options"><span class="option">A) Remove/delete a file ✅</span>
+<span class="option">B) Rename a file</span>
+<span class="option">C) Copy a file</span>
+<span class="option">D) Display file content</span></div><h4>Q61. Which command displays the content of a file in Linux?</h4>
+<div class="question-options"><span class="option">A) cat ✅</span>
+<span class="option">B) mv</span>
+<span class="option">C) cp</span>
+<span class="option">D) touch</span></div><h4>Q62. The &#39;man&#39; command in Linux displays:</h4>
+<div class="question-options"><span class="option">A) The current directory</span>
+<span class="option">B) The manual/help for a command ✅</span>
+<span class="option">C) The username</span>
+<span class="option">D) The file content</span></div><h4>Q63. Which command in Linux displays the logged-in username?</h4>
+<div class="question-options"><span class="option">A) pwd</span>
+<span class="option">B) ls</span>
+<span class="option">C) whoami ✅</span>
+<span class="option">D) clear</span></div><h4>Q64. The &#39;clear&#39; command in Linux:</h4>
+<div class="question-options"><span class="option">A) Deletes all files</span>
+<span class="option">B) Clears the terminal screen ✅</span>
+<span class="option">C) Removes a directory</span>
+<span class="option">D) Displays system information</span></div><h4>Q65. Linux is described as:</h4>
+<div class="question-options"><span class="option">A) Closed-source, single-user OS</span>
+<span class="option">B) Open-source, multi-user, multitasking OS ✅</span>
+<span class="option">C) Closed-source, multi-user OS</span>
+<span class="option">D) Open-source, single-user OS</span></div><h4>Q66. In Linux, the terminal uses which type of interface?</h4>
+<div class="question-options"><span class="option">A) GUI</span>
+<span class="option">B) CUI ✅</span>
+<span class="option">C) Both</span>
+<span class="option">D) Neither</span></div><h4>Q67. Which of the following is NOT a function of an Operating System?</h4>
+<div class="question-options"><span class="option">A) Process Management</span>
+<span class="option">B) File Management</span>
+<span class="option">C) Graphic Design ✅</span>
+<span class="option">D) Security & Protection</span></div><h4>Q68. Early IBM mainframe OS is an example of which OS type?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS ✅</span>
+<span class="option">C) Multiprocessing OS</span>
+<span class="option">D) Time-Sharing OS</span></div><h4>Q69. Windows NT and Linux (on multi-core) are examples of which OS type?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS</span>
+<span class="option">C) Multiprocessing OS ✅</span>
+<span class="option">D) Time-Sharing OS</span></div><h4>Q70. Which OS type extends multiprogramming with CPU time slicing?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multiprogramming OS</span>
+<span class="option">C) Multiprocessing OS</span>
+<span class="option">D) Time-Sharing OS ✅</span></div><h4>Q71. UNIX, Linux, and Windows Server are examples of which OS type?</h4>
+<div class="question-options"><span class="option">A) Single-User OS</span>
+<span class="option">B) Multi-User OS ✅</span>
+<span class="option">C) Multiprogramming OS</span>
+<span class="option">D) Multiprocessing OS</span></div><h4>Q72. Which of the following is NOT an example of System Software?</h4>
+<div class="question-options"><span class="option">A) Loader</span>
+<span class="option">B) Linker</span>
+<span class="option">C) Operating System</span>
+<span class="option">D) Microsoft Word ✅</span></div><h4>Q73. Which of the following is NOT a type of Language Translator?</h4>
+<div class="question-options"><span class="option">A) Assembler</span>
+<span class="option">B) Interpreter</span>
+<span class="option">C) Compiler</span>
+<span class="option">D) Loader ✅</span></div><h4>Q74. Which translator has a one-step process (source → object code)?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter</span>
+<span class="option">C) Assembler ✅</span>
+<span class="option">D) Linker</span></div><h4>Q75. Which translator does NOT produce a separate object code file?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter ✅</span>
+<span class="option">C) Assembler</span>
+<span class="option">D) Linker</span></div><h4>Q76. A Compiler produces which file as output?</h4>
+<div class="question-options"><span class="option">A) .exe file</span>
+<span class="option">B) .obj file ✅</span>
+<span class="option">C) .txt file</span>
+<span class="option">D) .out file</span></div><h4>Q77. Which translator&#39;s execution is described as &quot;fast&quot; because execution happens later without re-translation?</h4>
+<div class="question-options"><span class="option">A) Compiler ✅</span>
+<span class="option">B) Interpreter</span>
+<span class="option">C) Assembler</span>
+<span class="option">D) Loader</span></div><h4>Q78. A Loader can be of which types?</h4>
+<div class="question-options"><span class="option">A) Absolute, Relocating, Dynamic Linker ✅</span>
+<span class="option">B) Simple, Complex, Hybrid</span>
+<span class="option">C) Static, Dynamic, Variable</span>
+<span class="option">D) Primary, Secondary, Tertiary</span></div><h4>Q79. The Linker&#39;s output is fed directly to which system program?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Assembler</span>
+<span class="option">C) Loader ✅</span>
+<span class="option">D) Interpreter</span></div><h4>Q80. Which Linux command would you use to see the manual for the &#39;ls&#39; command?</h4>
+<div class="question-options"><span class="option">A) man ls ✅</span>
+<span class="option">B) help ls</span>
+<span class="option">C) ls --help</span>
+<span class="option">D) info ls</span></div><h4>Q81. In Linux, the &#39;pwd&#39; command output shows:</h4>
+<div class="question-options"><span class="option">A) The list of files</span>
+<span class="option">B) The current working directory path ✅</span>
+<span class="option">C) The current username</span>
+<span class="option">D) The system date</span></div><h4>Q82. Which Linux command sequence would create a directory called &#39;Projects&#39; and then move into it?</h4>
+<div class="question-options"><span class="option">A) mkdir Projects → cd Projects ✅</span>
+<span class="option">B) cd Projects → mkdir Projects</span>
+<span class="option">C) touch Projects → cd Projects</span>
+<span class="option">D) ls Projects → cd Projects</span></div><h4>Q83. To copy a file &#39;data.txt&#39; to &#39;backup.txt&#39; in Linux, you would use:</h4>
+<div class="question-options"><span class="option">A) mv data.txt backup.txt</span>
+<span class="option">B) cp data.txt backup.txt ✅</span>
+<span class="option">C) rm data.txt backup.txt</span>
+<span class="option">D) touch data.txt backup.txt</span></div><h4>Q84. To rename &#39;oldfile.txt&#39; to &#39;newfile.txt&#39; in Linux, you would use:</h4>
+<div class="question-options"><span class="option">A) cp oldfile.txt newfile.txt</span>
+<span class="option">B) rm oldfile.txt newfile.txt</span>
+<span class="option">C) mv oldfile.txt newfile.txt ✅</span>
+<span class="option">D) cat oldfile.txt newfile.txt</span></div><h4>Q85. Which of the following statements about Linux commands is TRUE?</h4>
+<div class="question-options"><span class="option">A) 'rm' deletes a directory by default</span>
+<span class="option">B) 'cat' creates a new file</span>
+<span class="option">C) 'pwd' shows the current directory path ✅</span>
+<span class="option">D) 'ls' changes the directory</span></div><h4>Q86. Which feature is NOT associated with CUI/CLI?</h4>
+<div class="question-options"><span class="option">A) Requires knowledge of commands</span>
+<span class="option">B) Low memory/processing overhead</span>
+<span class="option">C) Uses mouse for navigation ✅</span>
+<span class="option">D) Faster for advanced users</span></div><h4>Q87. Which feature is NOT associated with GUI?</h4>
+<div class="question-options"><span class="option">A) Intuitive and visual</span>
+<span class="option">B) Uses mouse/touch for navigation</span>
+<span class="option">C) Requires command knowledge ✅</span>
+<span class="option">D) Easy for beginners</span></div><h4>Q88. Examples of GUI include:</h4>
+<div class="question-options"><span class="option">A) Windows 10, macOS, Android ✅</span>
+<span class="option">B) MS-DOS, UNIX, Linux Terminal</span>
+<span class="option">C) Bash, Command Prompt, Terminal</span>
+<span class="option">D) All of the above</span></div><h4>Q89. Examples of CUI include:</h4>
+<div class="question-options"><span class="option">A) Windows 10, macOS</span>
+<span class="option">B) Linux Terminal (Bash), MS-DOS ✅</span>
+<span class="option">C) Android, iOS</span>
+<span class="option">D) GNOME, KDE</span></div><h4>Q90. Which of the following is Application Software used for graphics?</h4>
+<div class="question-options"><span class="option">A) MS Word</span>
+<span class="option">B) MS Excel</span>
+<span class="option">C) Adobe Photoshop ✅</span>
+<span class="option">D) MySQL Workbench</span></div><h4>Q91. Which of the following is Utility Software used for file compression?</h4>
+<div class="question-options"><span class="option">A) Norton Antivirus</span>
+<span class="option">B) WinRAR, 7-Zip ✅</span>
+<span class="option">C) Disk Cleanup</span>
+<span class="option">D) Backup software</span></div><h4>Q92. What is the role of device drivers in an OS?</h4>
+<div class="question-options"><span class="option">A) To manage files</span>
+<span class="option">B) To control I/O devices ✅</span>
+<span class="option">C) To manage memory</span>
+<span class="option">D) To handle user authentication</span></div><h4>Q93. Error Detection &amp; Handling in an OS involves:</h4>
+<div class="question-options"><span class="option">A) Creating new files</span>
+<span class="option">B) Detecting hardware/software errors and taking corrective actions ✅</span>
+<span class="option">C) Allocating memory</span>
+<span class="option">D) Managing processes</span></div><h4>Q94. The Linux command &#39;rmdir OldFolder&#39; will:</h4>
+<div class="question-options"><span class="option">A) Delete the file 'OldFolder'</span>
+<span class="option">B) Remove the empty directory 'OldFolder' ✅</span>
+<span class="option">C) Rename 'OldFolder'</span>
+<span class="option">D) Copy 'OldFolder'</span></div><h4>Q95. The Linux command &#39;touch notes.md&#39; will:</h4>
+<div class="question-options"><span class="option">A) Display content of 'notes.md'</span>
+<span class="option">B) Create an empty file called 'notes.md' ✅</span>
+<span class="option">C) Delete 'notes.md'</span>
+<span class="option">D) Move 'notes.md'</span></div><h4>Q96. Which system software is a set of programs that manage and control hardware resources and provide a platform for application software?</h4>
+<div class="question-options"><span class="option">A) Application Software</span>
+<span class="option">B) Utility Software</span>
+<span class="option">C) System Software ✅</span>
+<span class="option">D) Firmware</span></div><h4>Q97. Which of the following is TRUE about Multiprogramming OS?</h4>
+<div class="question-options"><span class="option">A) It uses multiple CPUs</span>
+<span class="option">B) It keeps multiple programs in memory simultaneously ✅</span>
+<span class="option">C) It supports only one user</span>
+<span class="option">D) It has no memory management</span></div><h4>Q98. Which of the following is TRUE about Multiprocessing OS?</h4>
+<div class="question-options"><span class="option">A) It supports only one CPU</span>
+<span class="option">B) It executes multiple processes in parallel using multiple CPUs ✅</span>
+<span class="option">C) It is single-user</span>
+<span class="option">D) It has no process management</span></div><h4>Q99. The components of System Software include:</h4>
+<div class="question-options"><span class="option">A) OS, Language Translators, Loader, Linker ✅</span>
+<span class="option">B) OS, Word Processors, Spreadsheets</span>
+<span class="option">C) Antivirus, Games, Media Players</span>
+<span class="option">D) Compilers, Browsers, Graphics Software</span></div><h4>Q100. The relationship between hardware, software, and a functional computer system is:</h4>
+<div class="question-options"><span class="option">A) Hardware alone is sufficient</span>
+<span class="option">B) Software alone is sufficient</span>
+<span class="option">C) Hardware + Software = Functional Computer System ✅</span>
+<span class="option">D) Hardware and Software are unrelated</span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-01-boolean-algebra</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Introduction to Boolean Algebra</h2>
+<p><strong>Boolean Algebra</strong> is a branch of mathematics that deals with binary variables (0 and 1) and logical operations. It was introduced by <strong>George Boole</strong> and is the foundation of digital electronics and computer logic circuits.</p>
+<ul>
+<li><strong>Variables</strong>: Represented by letters (A, B, C, X, Y, etc.). Each can be either <code>0</code> (False) or <code>1</code> (True).</li>
+<li><strong>Operators</strong>: <code>+</code> (OR), <code>·</code> or no sign (AND), <code>&#39;</code> or <code>¬</code> (NOT).</li>
+</ul>
+<hr>
+<h2>2. Postulates and Laws of Boolean Algebra</h2>
+<p>These are the fundamental rules used to simplify boolean expressions.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Law / Postulate</th>
+<th align="left">AND Form ( · )</th>
+<th align="left">OR Form ( + )</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Identity Law</strong></td>
+<td align="left">$A \cdot 1 = A$</td>
+<td align="left">$A + 0 = A$</td>
+</tr>
+<tr>
+<td align="left"><strong>Null / Dominance Law</strong></td>
+<td align="left">$A \cdot 0 = 0$</td>
+<td align="left">$A + 1 = 1$</td>
+</tr>
+<tr>
+<td align="left"><strong>Idempotent Law</strong></td>
+<td align="left">$A \cdot A = A$</td>
+<td align="left">$A + A = A$</td>
+</tr>
+<tr>
+<td align="left"><strong>Complement Law</strong></td>
+<td align="left">$A \cdot A&#39; = 0$</td>
+<td align="left">$A + A&#39; = 1$</td>
+</tr>
+<tr>
+<td align="left"><strong>Double Negation (Involution)</strong></td>
+<td align="left">$(A&#39;)&#39; = A$</td>
+<td align="left">$(A&#39;)&#39; = A$</td>
+</tr>
+<tr>
+<td align="left"><strong>Commutative Law</strong></td>
+<td align="left">$A \cdot B = B \cdot A$</td>
+<td align="left">$A + B = B + A$</td>
+</tr>
+<tr>
+<td align="left"><strong>Associative Law</strong></td>
+<td align="left">$(A \cdot B) \cdot C = A \cdot (B \cdot C)$</td>
+<td align="left">$(A + B) + C = A + (B + C)$</td>
+</tr>
+<tr>
+<td align="left"><strong>Distributive Law</strong></td>
+<td align="left">$A \cdot (B + C) = (A \cdot B) + (A \cdot C)$</td>
+<td align="left">$A + (B \cdot C) = (A + B) \cdot (A + C)$</td>
+</tr>
+<tr>
+<td align="left"><strong>Absorption Law</strong></td>
+<td align="left">$A \cdot (A + B) = A$</td>
+<td align="left">$A + (A \cdot B) = A$</td>
+</tr>
+<tr>
+<td align="left"><strong>Absorption Law (Variant)</strong></td>
+<td align="left">$A \cdot (A&#39; + B) = A \cdot B$</td>
+<td align="left">$A + (A&#39; \cdot B) = A + B$</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Logic Gates and Truth Tables</h2>
+<p>Logic gates are the physical building blocks of digital circuits. They implement boolean functions.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Gate Name</th>
+<th align="left">Symbol Representation</th>
+<th align="left">Boolean Expression</th>
+<th align="left">Truth Table (Inputs → Output)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>NOT</strong> (Inverter)</td>
+<td align="left">Triangle with bubble</td>
+<td align="left">$Y = A&#39;$ or $\overline{A}$</td>
+<td align="left"><strong>A | Y</strong> <br> 0 | 1 <br> 1 | 0</td>
+</tr>
+<tr>
+<td align="left"><strong>AND</strong></td>
+<td align="left">D-shaped</td>
+<td align="left">$Y = A \cdot B$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 0 <br> 0 1 | 0 <br> 1 0 | 0 <br> 1 1 | 1</td>
+</tr>
+<tr>
+<td align="left"><strong>OR</strong></td>
+<td align="left">Shield-shaped</td>
+<td align="left">$Y = A + B$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 0 <br> 0 1 | 1 <br> 1 0 | 1 <br> 1 1 | 1</td>
+</tr>
+<tr>
+<td align="left"><strong>NAND</strong></td>
+<td align="left">AND + bubble</td>
+<td align="left">$Y = (A \cdot B)&#39;$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 1 <br> 0 1 | 1 <br> 1 0 | 1 <br> 1 1 | 0</td>
+</tr>
+<tr>
+<td align="left"><strong>NOR</strong></td>
+<td align="left">OR + bubble</td>
+<td align="left">$Y = (A + B)&#39;$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 1 <br> 0 1 | 0 <br> 1 0 | 0 <br> 1 1 | 0</td>
+</tr>
+<tr>
+<td align="left"><strong>XOR</strong> (Exclusive OR)</td>
+<td align="left">OR with extra curve</td>
+<td align="left">$Y = A \oplus B = A&#39;B + AB&#39;$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 0 <br> 0 1 | 1 <br> 1 0 | 1 <br> 1 1 | 0</td>
+</tr>
+<tr>
+<td align="left"><strong>XNOR</strong> (Exclusive NOR)</td>
+<td align="left">XOR + bubble</td>
+<td align="left">$Y = (A \oplus B)&#39; = AB + A&#39;B&#39;$</td>
+<td align="left"><strong>A B | Y</strong> <br> 0 0 | 1 <br> 0 1 | 0 <br> 1 0 | 0 <br> 1 1 | 1</td>
+</tr>
+</tbody></table>
+<p><strong>Mermaid Diagram (Logic Gate Symbols)</strong>:</p>
+<pre class="mermaid">graph LR
+    subgraph Gates
+        A[Input A] --&gt; NOT[NOT Gate]
+        NOT --&gt; Y1[Output]
+
+        B1[Input A] --&gt; AND[AND Gate]
+        C1[Input B] --&gt; AND
+        AND --&gt; Y2[Output]
+
+        B2[Input A] --&gt; OR[OR Gate]
+        C2[Input B] --&gt; OR
+        OR --&gt; Y3[Output]
+
+        B3[Input A] --&gt; NAND[NAND Gate]
+        C3[Input B] --&gt; NAND
+        NAND --&gt; Y4[Output]
+
+        B4[Input A] --&gt; XOR[XOR Gate]
+        C4[Input B] --&gt; XOR
+        XOR --&gt; Y5[Output]
+    end</pre><p><em>(Note: Mermaid draws basic blocks; the actual shapes are standardized in textbooks).</em></p>
+<hr>
+<h2>4. De Morgan&#39;s Theorem</h2>
+<p>This theorem is essential for simplifying expressions and converting between gate types (e.g., changing AND-OR to NAND-NAND).</p>
+<ul>
+<li><p><strong>Theorem 1</strong>: The complement of a <strong>product</strong> is equal to the <strong>sum</strong> of the complements.</p>
+<p>$$(A \cdot B)&#39; = A&#39; + B&#39;$$
+<em>(NAND = Bubbled OR)</em></p>
+</li>
+<li><p><strong>Theorem 2</strong>: The complement of a <strong>sum</strong> is equal to the <strong>product</strong> of the complements.</p>
+<p>$$(A + B)&#39; = A&#39; \cdot B&#39;$$
+<em>(NOR = Bubbled AND)</em></p>
+</li>
+</ul>
+<p><strong>Generalization for n variables</strong>:</p>
+<ul>
+<li>$(A \cdot B \cdot C ...)&#39; = A&#39; + B&#39; + C&#39; + ...$</li>
+<li>$(A + B + C ...)&#39; = A&#39; \cdot B&#39; \cdot C&#39; ...$</li>
+</ul>
+<hr>
+<h2>5. Standard Forms: SOP and POS</h2>
+<h3>5.1 Minterms and Maxterms</h3>
+<p>For a function of <em>n</em> variables:</p>
+<ul>
+<li><strong>Minterm (m)</strong>: A product term where every variable appears exactly once (either uncomplemented or complemented). It yields <code>1</code> for exactly one combination.</li>
+<li><strong>Maxterm (M)</strong>: A sum term where every variable appears exactly once. It yields <code>0</code> for exactly one combination.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">Minterm (m)</th>
+<th align="left">Maxterm (M)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">$m_0 = A&#39;B&#39;$</td>
+<td align="left">$M_0 = A + B$</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">$m_1 = A&#39;B$</td>
+<td align="left">$M_1 = A + B&#39;$</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">$m_2 = AB&#39;$</td>
+<td align="left">$M_2 = A&#39; + B$</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">$m_3 = AB$</td>
+<td align="left">$M_3 = A&#39; + B&#39;$</td>
+</tr>
+</tbody></table>
+<p><em>(Note: $m_i = M_i&#39;$)</em></p>
+<h3>5.2 SOP (Sum of Products)</h3>
+<ul>
+<li><strong>Definition</strong>: A boolean expression where several <strong>product</strong> terms (minterms) are <strong>ORed</strong> together.</li>
+<li><strong>Canonical SOP</strong>: Sum of all minterms where the output is <code>1</code>. Denoted as $\sum m( \text{indices} )$.</li>
+<li><strong>Example</strong>: If $F$ is 1 for inputs $00$ and $10$, then $F = \sum m(0, 2) = A&#39;B&#39; + AB&#39;$.</li>
+</ul>
+<h3>5.3 POS (Product of Sums)</h3>
+<ul>
+<li><strong>Definition</strong>: A boolean expression where several <strong>sum</strong> terms (maxterms) are <strong>ANDed</strong> together.</li>
+<li><strong>Canonical POS</strong>: Product of all maxterms where the output is <code>0</code>. Denoted as $\prod M( \text{indices} )$.</li>
+<li><strong>Example</strong>: If $F$ is 0 for inputs $01$ and $11$, then $F = \prod M(1, 3) = (A + B&#39;) \cdot (A&#39; + B&#39;)$.</li>
+</ul>
+<blockquote>
+<p><strong>Conversion Tip</strong>: SOP and POS are duals. If $F = \sum m(0, 2)$, then $F&#39; = \sum m(1, 3)$.</p>
+</blockquote>
+<hr>
+<h2>6. Simplification using Boolean Algebra</h2>
+<p><strong>Example</strong>: Simplify $F = A&#39;BC + A&#39;BC&#39; + AB&#39;C&#39; + AB&#39;C$</p>
+<ul>
+<li>Combine $A&#39;BC + A&#39;BC&#39; = A&#39;B(C + C&#39;) = A&#39;B$.</li>
+<li>Combine $AB&#39;C&#39; + AB&#39;C = AB&#39;(C&#39; + C) = AB&#39;$.</li>
+<li>Result: $F = A&#39;B + AB&#39;$ which is the <strong>XOR</strong> function $(A \oplus B)$.</li>
+</ul>
+<p><strong>Another Example</strong>: Simplify $F = (A + B)(A + B&#39;)$</p>
+<ul>
+<li>Using Distributive law: $F = A + (B \cdot B&#39;) = A + 0 = A$.</li>
+</ul>
+<hr>
+<h2>7. Simplification using Karnaugh Maps (K-Map)</h2>
+<p>A K-Map is a graphical method to minimize boolean expressions. It uses the concept of Gray code (adjacent cells differ by 1 bit).</p>
+<h3>7.1 Grouping Rules</h3>
+<ol>
+<li>Groups must be in powers of 2 (1, 2, 4, 8, 16).</li>
+<li>Group must be rectangular (row/column) and can wrap around edges.</li>
+<li>Larger groups reduce the expression more.</li>
+<li>Every <code>1</code> must be covered at least once. Overlapping is allowed.</li>
+</ol>
+<h3>7.2 2-Variable K-Map</h3>
+<table>
+<thead>
+<tr>
+<th align="left">AB \</th>
+<th align="left">0</th>
+<th align="left">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>00</strong></td>
+<td align="left">m0</td>
+<td align="left">m1</td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left">m2</td>
+<td align="left">m3</td>
+</tr>
+</tbody></table>
+<p><em>(Grid positions: Row1: A=0, Row2: A=1; Col1: B=0, Col2: B=1)</em></p>
+<h3>7.3 3-Variable K-Map</h3>
+<p><em>Order: 00, 01, 11, 10 (Gray Code)</em></p>
+<table>
+<thead>
+<tr>
+<th align="left">AB\C</th>
+<th align="left">0</th>
+<th align="left">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>00</strong></td>
+<td align="left">m0</td>
+<td align="left">m1</td>
+</tr>
+<tr>
+<td align="left"><strong>01</strong></td>
+<td align="left">m2</td>
+<td align="left">m3</td>
+</tr>
+<tr>
+<td align="left"><strong>11</strong></td>
+<td align="left">m6</td>
+<td align="left">m7</td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left">m4</td>
+<td align="left">m5</td>
+</tr>
+</tbody></table>
+<h3>7.4 4-Variable K-Map</h3>
+<table>
+<thead>
+<tr>
+<th align="left">AB\CD</th>
+<th align="left">00</th>
+<th align="left">01</th>
+<th align="left">11</th>
+<th align="left">10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>00</strong></td>
+<td align="left">m0</td>
+<td align="left">m1</td>
+<td align="left">m3</td>
+<td align="left">m2</td>
+</tr>
+<tr>
+<td align="left"><strong>01</strong></td>
+<td align="left">m4</td>
+<td align="left">m5</td>
+<td align="left">m7</td>
+<td align="left">m6</td>
+</tr>
+<tr>
+<td align="left"><strong>11</strong></td>
+<td align="left">m12</td>
+<td align="left">m13</td>
+<td align="left">m15</td>
+<td align="left">m14</td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left">m8</td>
+<td align="left">m9</td>
+<td align="left">m11</td>
+<td align="left">m10</td>
+</tr>
+</tbody></table>
+<h3>7.5 K-Map Simplification Example</h3>
+<p><strong>Problem</strong>: Minimize $F = \sum m(0, 1, 3, 7, 5)$ (3 variables).</p>
+<ol>
+<li>Plot 1s at positions 0,1,3,5,7 on the 3-var map.</li>
+<li><strong>Group 1</strong>: m0, m1 (Row 0, Col 0 &amp; 1) → Variables: $A&#39;B&#39;$ + $A&#39;B$ = $A&#39;$ (C cancels out).</li>
+<li><strong>Group 2</strong>: m5, m7 (Row 1 &amp; 3? Actually m5=101, m7=111. Row=10, Col=1 and Row=11, Col=1. Wait, Row=10 and 11 are adjacent? No, in 3-var, rows are 00, 01, 11, 10. Row 10 (A=1,B=0) and Row 11 (A=1,B=1) are adjacent). Group m5(101) and m7(111) → Variables: $A$ is 1, B varies (0 and 1), C is 1 → Removes B → $A C$.</li>
+<li><strong>Group 3</strong>: m1, m3, m5, m7 (A 2x2 square at columns 1, row 0,1,3? Actually m1=001, m3=011, m5=101, m7=111 → This is a quads where A varies, B varies, C=1). Group m1,m3,m5,m7 → $C$.</li>
+<li>The optimized expression = <strong>$A&#39; + C$</strong> (since Group 1 gives $A&#39;$, Group 3 gives $C$). Wait, Group 1 was $A&#39;$, Group 3 is $C$. So $F = A&#39; + C$.</li>
+</ol>
+<p><em>(Double-check: The m0,m1 group cancels B, leaves A&#39;. The m1,m3,m5,m7 group cancels A and B, leaves C).</em></p>
+<hr>
+<h2>8. Logic Circuit Design</h2>
+<p>We can convert a simplified boolean expression into a logic gate circuit.</p>
+<p><strong>Example</strong>: Draw the circuit for $F = AB + C&#39;$.</p>
+<ol>
+<li><strong>Term $AB$</strong>: Pass A and B through an <strong>AND</strong> gate.</li>
+<li><strong>Term $C&#39;$</strong>: Pass C through a <strong>NOT</strong> gate.</li>
+<li><strong>Final $F$</strong>: Pass outputs of step 1 and step 2 through an <strong>OR</strong> gate.</li>
+</ol>
+<pre class="mermaid">graph TD
+    A[Input A] --&gt; AND1[AND Gate]
+    B[Input B] --&gt; AND1
+    AND1 --&gt; OR1[OR Gate]
+    C[Input C] --&gt; NOT1[NOT Gate]
+    NOT1 --&gt; OR1
+    OR1 --&gt; F[Output F]</pre><p><strong>Another Example (SOP to Circuit)</strong>:
+For $F = A&#39;B + AB&#39;$ (XOR).</p>
+<ul>
+<li>A goes to NOT (to get A&#39;) and AND2.</li>
+<li>B goes to NOT (to get B&#39;) and AND1.</li>
+<li>AND1 (A&#39;B), AND2 (AB&#39;).</li>
+<li>OR combines both.</li>
+</ul>
+<h2>9. MCQ</h2>
+<h4>Q1. Who introduced Boolean Algebra?</h4>
+<div class="question-options"><span class="option">A) Alan Turing</span>
+<span class="option">B) George Boole ✅</span>
+<span class="option">C) Charles Babbage</span>
+<span class="option">D) John von Neumann</span></div><h4>Q2. Boolean Algebra deals with variables that can have how many values?</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 2 ✅</span>
+<span class="option">C) 8</span>
+<span class="option">D) 10</span></div><h4>Q3. In Boolean Algebra, the value &#39;1&#39; represents:</h4>
+<div class="question-options"><span class="option">A) False</span>
+<span class="option">B) True ✅</span>
+<span class="option">C) Maybe</span>
+<span class="option">D) Undefined</span></div><h4>Q4. In Boolean Algebra, the value &#39;0&#39; represents:</h4>
+<div class="question-options"><span class="option">A) True</span>
+<span class="option">B) False ✅</span>
+<span class="option">C) Maybe</span>
+<span class="option">D) Undefined</span></div><h4>Q5. Which operator represents the AND operation in Boolean Algebra?</h4>
+<div class="question-options"><span class="option">A) +</span>
+<span class="option">B) · or no sign ✅</span>
+<span class="option">C) '</span>
+<span class="option">D) ¬</span></div><h4>Q6. Which operator represents the OR operation in Boolean Algebra?</h4>
+<div class="question-options"><span class="option">A) +</span>
+<span class="option">B) · or no sign</span>
+<span class="option">C) '</span>
+<span class="option">D) ¬</span></div><h4>Q7. Which operator represents the NOT operation in Boolean Algebra?</h4>
+<div class="question-options"><span class="option">A) +</span>
+<span class="option">B) ·</span>
+<span class="option">C) ' or ¬ ✅</span>
+<span class="option">D) ⊕</span></div><h4>Q8. According to the Identity Law, what is A · 1 equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) A ✅</span>
+<span class="option">C) 1</span>
+<span class="option">D) A'</span></div><h4>Q9. According to the Identity Law, what is A + 0 equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) A ✅</span>
+<span class="option">D) A'</span></div><h4>Q10. According to the Null or Dominance Law, what is A · 0 equal to?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) A</span>
+<span class="option">D) A'</span></div><h4>Q11. According to the Null or Dominance Law, what is A + 1 equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) A</span>
+<span class="option">D) A'</span></div><h4>Q12. According to the Idempotent Law, what is A · A equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) A ✅</span>
+<span class="option">D) A'</span></div><h4>Q13. According to the Idempotent Law, what is A + A equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) A ✅</span>
+<span class="option">D) A'</span></div><h4>Q14. According to the Complement Law, what is A · A&#39; equal to?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) A</span>
+<span class="option">D) A'</span></div><h4>Q15. According to the Complement Law, what is A + A&#39; equal to?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) A</span>
+<span class="option">D) A'</span></div><h4>Q16. What is the Double Negation (Involution) Law?</h4>
+<div class="question-options"><span class="option">A) (A')' = A ✅</span>
+<span class="option">B) (A')' = A'</span>
+<span class="option">C) (A')' = 1</span>
+<span class="option">D) (A')' = 0</span></div><h4>Q17. The Commutative Law for AND states that:</h4>
+<div class="question-options"><span class="option">A) A · B = B · A ✅</span>
+<span class="option">B) A · B = B + A</span>
+<span class="option">C) A · B = A + B</span>
+<span class="option">D) A · B = A · B'</span></div><h4>Q18. The Commutative Law for OR states that:</h4>
+<div class="question-options"><span class="option">A) A + B = B · A</span>
+<span class="option">B) A + B = B + A ✅</span>
+<span class="option">C) A + B = B'</span>
+<span class="option">D) A + B = A · B</span></div><h4>Q19. According to the Associative Law, (A · B) · C equals:</h4>
+<div class="question-options"><span class="option">A) A · (B + C)</span>
+<span class="option">B) A · (B · C) ✅</span>
+<span class="option">C) A + (B · C)</span>
+<span class="option">D) (A + B) · C</span></div><h4>Q20. According to the Associative Law, (A + B) + C equals:</h4>
+<div class="question-options"><span class="option">A) A + (B + C) ✅</span>
+<span class="option">B) A + (B · C)</span>
+<span class="option">C) A · (B + C)</span>
+<span class="option">D) (A · B) + C</span></div><h4>Q21. The Distributive Law states that A · (B + C) equals:</h4>
+<div class="question-options"><span class="option">A) (A · B) + C</span>
+<span class="option">B) (A + B) · (A + C)</span>
+<span class="option">C) (A · B) + (A · C) ✅</span>
+<span class="option">D) A + (B · C)</span></div><h4>Q22. The Distributive Law states that A + (B · C) equals:</h4>
+<div class="question-options"><span class="option">A) (A + B) · (A + C) ✅</span>
+<span class="option">B) (A · B) + (A · C)</span>
+<span class="option">C) (A + B) + C</span>
+<span class="option">D) A · B + A · C</span></div><h4>Q23. According to the Absorption Law, what is A · (A + B) equal to?</h4>
+<div class="question-options"><span class="option">A) A ✅</span>
+<span class="option">B) B</span>
+<span class="option">C) A · B</span>
+<span class="option">D) A + B</span></div><h4>Q24. According to the Absorption Law, what is A + (A · B) equal to?</h4>
+<div class="question-options"><span class="option">A) A ✅</span>
+<span class="option">B) B</span>
+<span class="option">C) A · B</span>
+<span class="option">D) A + B</span></div><h4>Q25. According to Absorption Law (Variant), A · (A&#39; + B) equals:</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) A · B ✅</span>
+<span class="option">D) A + B</span></div><h4>Q26. According to Absorption Law (Variant), A + (A&#39; · B) equals:</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) A · B</span>
+<span class="option">D) A + B ✅</span></div><h4>Q27. The NOT gate is also called:</h4>
+<div class="question-options"><span class="option">A) Inverter ✅</span>
+<span class="option">B) Amplifier</span>
+<span class="option">C) Buffer</span>
+<span class="option">D) Adder</span></div><h4>Q28. The Boolean expression for the AND gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A + B</span>
+<span class="option">B) Y = A · B ✅</span>
+<span class="option">C) Y = (A · B)'</span>
+<span class="option">D) Y = A ⊕ B</span></div><h4>Q29. The Boolean expression for the OR gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A · B</span>
+<span class="option">B) Y = A + B ✅</span>
+<span class="option">C) Y = (A + B)'</span>
+<span class="option">D) Y = A ⊕ B</span></div><h4>Q30. The NAND gate is an AND gate followed by a:</h4>
+<div class="question-options"><span class="option">A) AND gate</span>
+<span class="option">B) OR gate</span>
+<span class="option">C) NOT gate ✅</span>
+<span class="option">D) XOR gate</span></div><h4>Q31. The Boolean expression for the NAND gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A · B</span>
+<span class="option">B) Y = A + B</span>
+<span class="option">C) Y = (A · B)' ✅</span>
+<span class="option">D) Y = (A + B)'</span></div><h4>Q32. The NOR gate is an OR gate followed by a:</h4>
+<div class="question-options"><span class="option">A) AND gate</span>
+<span class="option">B) OR gate</span>
+<span class="option">C) NOT gate ✅</span>
+<span class="option">D) XNOR gate</span></div><h4>Q33. The Boolean expression for the NOR gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A · B</span>
+<span class="option">B) Y = A + B</span>
+<span class="option">C) Y = (A · B)'</span>
+<span class="option">D) Y = (A + B)' ✅</span></div><h4>Q34. The Boolean expression for the XOR gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A + B</span>
+<span class="option">B) Y = A · B</span>
+<span class="option">C) Y = A'B + AB' ✅</span>
+<span class="option">D) Y = AB + A'B'</span></div><h4>Q35. The XOR gate outputs 1 when:</h4>
+<div class="question-options"><span class="option">A) Both inputs are 0</span>
+<span class="option">B) Both inputs are 1</span>
+<span class="option">C) Inputs are different ✅</span>
+<span class="option">D) Inputs are same</span></div><h4>Q36. The Boolean expression for the XNOR gate is:</h4>
+<div class="question-options"><span class="option">A) Y = A'B + AB'</span>
+<span class="option">B) Y = AB + A'B' ✅</span>
+<span class="option">C) Y = A + B</span>
+<span class="option">D) Y = (A · B)'</span></div><h4>Q37. The XNOR gate outputs 1 when:</h4>
+<div class="question-options"><span class="option">A) Both inputs are 0</span>
+<span class="option">B) Both inputs are 1</span>
+<span class="option">C) Inputs are same ✅</span>
+<span class="option">D) Inputs are different</span></div><h4>Q38. What is the output of an AND gate when A=1 and B=1?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q39. What is the output of an OR gate when A=0 and B=0?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q40. What is the output of a NAND gate when A=1 and B=1?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q41. What is the output of a NOR gate when A=0 and B=0?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q42. What is the output of an XOR gate when A=1 and B=1?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q43. What is the output of an XNOR gate when A=1 and B=1?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Don't Care</span></div><h4>Q44. De Morgan&#39;s Theorem 1 states that (A · B)&#39; equals:</h4>
+<div class="question-options"><span class="option">A) A' + B' ✅</span>
+<span class="option">B) A' · B'</span>
+<span class="option">C) A + B</span>
+<span class="option">D) A · B</span></div><h4>Q45. De Morgan&#39;s Theorem 2 states that (A + B)&#39; equals:</h4>
+<div class="question-options"><span class="option">A) A' + B'</span>
+<span class="option">B) A' · B' ✅</span>
+<span class="option">C) A + B</span>
+<span class="option">D) A · B</span></div><h4>Q46. According to De Morgan&#39;s Theorem, NAND gate is equivalent to:</h4>
+<div class="question-options"><span class="option">A) Bubbled AND</span>
+<span class="option">B) Bubbled OR ✅</span>
+<span class="option">C) Bubbled NOR</span>
+<span class="option">D) Bubbled XOR</span></div><h4>Q47. According to De Morgan&#39;s Theorem, NOR gate is equivalent to:</h4>
+<div class="question-options"><span class="option">A) Bubbled AND ✅</span>
+<span class="option">B) Bubbled OR</span>
+<span class="option">C) Bubbled NAND</span>
+<span class="option">D) Bubbled XOR</span></div><h4>Q48. The generalization of De Morgan&#39;s Theorem for n variables states that (A · B · C ...)&#39; equals:</h4>
+<div class="question-options"><span class="option">A) A' + B' + C' + ... ✅</span>
+<span class="option">B) A' · B' · C' · ...</span>
+<span class="option">C) A + B + C + ...</span>
+<span class="option">D) A · B · C · ...</span></div><h4>Q49. The generalization of De Morgan&#39;s Theorem for n variables states that (A + B + C ...)&#39; equals:</h4>
+<div class="question-options"><span class="option">A) A' + B' + C' + ...</span>
+<span class="option">B) A' · B' · C' · ... ✅</span>
+<span class="option">C) A + B + C + ...</span>
+<span class="option">D) A · B · C · ...</span></div><h4>Q50. A minterm is a product term where every variable appears exactly once. It yields:</h4>
+<div class="question-options"><span class="option">A) 0 for exactly one combination</span>
+<span class="option">B) 1 for exactly one combination ✅</span>
+<span class="option">C) 0 for all combinations</span>
+<span class="option">D) 1 for all combinations</span></div><h4>Q51. A maxterm is a sum term where every variable appears exactly once. It yields:</h4>
+<div class="question-options"><span class="option">A) 0 for exactly one combination ✅</span>
+<span class="option">B) 1 for exactly one combination</span>
+<span class="option">C) 0 for all combinations</span>
+<span class="option">D) 1 for all combinations</span></div><h4>Q52. For two variables A and B, the minterm m0 is:</h4>
+<div class="question-options"><span class="option">A) A'B'</span>
+<span class="option">B) A'B</span>
+<span class="option">C) AB'</span>
+<span class="option">D) AB ✅</span></div><h4>Q53. For two variables A and B, the minterm m1 is:</h4>
+<div class="question-options"><span class="option">A) A'B'</span>
+<span class="option">B) A'B ✅</span>
+<span class="option">C) AB'</span>
+<span class="option">D) AB</span></div><h4>Q54. For two variables A and B, the maxterm M0 is:</h4>
+<div class="question-options"><span class="option">A) A + B ✅</span>
+<span class="option">B) A + B'</span>
+<span class="option">C) A' + B</span>
+<span class="option">D) A' + B'</span></div><h4>Q55. For two variables A and B, the maxterm M3 is:</h4>
+<div class="question-options"><span class="option">A) A + B</span>
+<span class="option">B) A + B'</span>
+<span class="option">C) A' + B</span>
+<span class="option">D) A' + B' ✅</span></div><h4>Q56. The relationship between a minterm and maxterm with the same index is:</h4>
+<div class="question-options"><span class="option">A) mi = Mi</span>
+<span class="option">B) mi = Mi' ✅</span>
+<span class="option">C) mi = 1 + Mi</span>
+<span class="option">D) mi = 0 · Mi</span></div><h4>Q57. SOP stands for:</h4>
+<div class="question-options"><span class="option">A) Sum of Products ✅</span>
+<span class="option">B) Sum of Positives</span>
+<span class="option">C) Standard of Products</span>
+<span class="option">D) System of Products</span></div><h4>Q58. In canonical SOP, product terms (minterms) are:</h4>
+<div class="question-options"><span class="option">A) ANDed together</span>
+<span class="option">B) ORed together ✅</span>
+<span class="option">C) XORed together</span>
+<span class="option">D) NOTed together</span></div><h4>Q59. In canonical SOP, the expression includes:</h4>
+<div class="question-options"><span class="option">A) All minterms where output is 0</span>
+<span class="option">B) All minterms where output is 1 ✅</span>
+<span class="option">C) Only minterms with don't cares</span>
+<span class="option">D) Only the first minterm</span></div><h4>Q60. Canonical SOP is denoted as:</h4>
+<div class="question-options"><span class="option">A) ∑ m(indices) ✅</span>
+<span class="option">B) ∏ m(indices)</span>
+<span class="option">C) ∑ M(indices)</span>
+<span class="option">D) ∏ M(indices)</span></div><h4>Q61. POS stands for:</h4>
+<div class="question-options"><span class="option">A) Product of Sums ✅</span>
+<span class="option">B) Product of Systems</span>
+<span class="option">C) Power of Sums</span>
+<span class="option">D) Positive of Sums</span></div><h4>Q62. In canonical POS, sum terms (maxterms) are:</h4>
+<div class="question-options"><span class="option">A) ANDed together ✅</span>
+<span class="option">B) ORed together</span>
+<span class="option">C) XORed together</span>
+<span class="option">D) NOTed together</span></div><h4>Q63. In canonical POS, the expression includes:</h4>
+<div class="question-options"><span class="option">A) All maxterms where output is 1</span>
+<span class="option">B) All maxterms where output is 0 ✅</span>
+<span class="option">C) Only maxterms with don't cares</span>
+<span class="option">D) Only the first maxterm</span></div><h4>Q64. Canonical POS is denoted as:</h4>
+<div class="question-options"><span class="option">A) ∑ m(indices)</span>
+<span class="option">B) ∏ m(indices)</span>
+<span class="option">C) ∑ M(indices)</span>
+<span class="option">D) ∏ M(indices) ✅</span></div><h4>Q65. If F = ∑ m(0, 2), then F&#39; equals:</h4>
+<div class="question-options"><span class="option">A) ∑ m(0, 2)</span>
+<span class="option">B) ∑ m(1, 3) ✅</span>
+<span class="option">C) ∏ m(0, 2)</span>
+<span class="option">D) ∏ m(1, 3)</span></div><h4>Q66. Simplify: F = A&#39;BC + A&#39;BC&#39; + AB&#39;C&#39; + AB&#39;C</h4>
+<div class="question-options"><span class="option">A) A + B</span>
+<span class="option">B) A'B + AB' ✅</span>
+<span class="option">C) AB + A'B'</span>
+<span class="option">D) A ⊕ B'</span></div><h4>Q67. Simplify: F = (A + B)(A + B&#39;)</h4>
+<div class="question-options"><span class="option">A) A ✅</span>
+<span class="option">B) B</span>
+<span class="option">C) 1</span>
+<span class="option">D) 0</span></div><h4>Q68. Simplify: F = A + A&#39;B</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) A + B ✅</span>
+<span class="option">D) A · B</span></div><h4>Q69. Simplify: F = A(A&#39; + B)</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) A · B ✅</span>
+<span class="option">D) A + B</span></div><h4>Q70. Simplify: F = AB + AB&#39;</h4>
+<div class="question-options"><span class="option">A) A ✅</span>
+<span class="option">B) B</span>
+<span class="option">C) 1</span>
+<span class="option">D) 0</span></div><h4>Q71. A K-Map is a graphical method to:</h4>
+<div class="question-options"><span class="option">A) Convert binary to decimal</span>
+<span class="option">B) Minimize boolean expressions ✅</span>
+<span class="option">C) Generate truth tables</span>
+<span class="option">D) Design circuits</span></div><h4>Q72. K-Map uses the concept of:</h4>
+<div class="question-options"><span class="option">A) Binary code</span>
+<span class="option">B) Gray code ✅</span>
+<span class="option">C) ASCII code</span>
+<span class="option">D) BCD code</span></div><h4>Q73. In a K-Map, adjacent cells differ by:</h4>
+<div class="question-options"><span class="option">A) 2 bits</span>
+<span class="option">B) 1 bit ✅</span>
+<span class="option">C) 0 bits</span>
+<span class="option">D) 3 bits</span></div><h4>Q74. In K-Map simplification, groups must be in powers of:</h4>
+<div class="question-options"><span class="option">A) 2 ✅</span>
+<span class="option">B) 3</span>
+<span class="option">C) 4</span>
+<span class="option">D) 8</span></div><h4>Q75. In K-Map, valid group sizes include:</h4>
+<div class="question-options"><span class="option">A) 1, 2, 4, 8 ✅</span>
+<span class="option">B) 1, 3, 5, 7</span>
+<span class="option">C) 2, 4, 6, 8</span>
+<span class="option">D) 1, 2, 3, 4</span></div><h4>Q76. In a 2-variable K-Map, how many cells are there?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 4 ✅</span>
+<span class="option">C) 8</span>
+<span class="option">D) 16</span></div><h4>Q77. In a 3-variable K-Map, how many cells are there?</h4>
+<div class="question-options"><span class="option">A) 4</span>
+<span class="option">B) 8 ✅</span>
+<span class="option">C) 16</span>
+<span class="option">D) 32</span></div><h4>Q78. In a 4-variable K-Map, how many cells are there?</h4>
+<div class="question-options"><span class="option">A) 4</span>
+<span class="option">B) 8</span>
+<span class="option">C) 16 ✅</span>
+<span class="option">D) 32</span></div><h4>Q79. In K-Map, the order of rows/columns follows:</h4>
+<div class="question-options"><span class="option">A) Binary sequence (00, 01, 10, 11)</span>
+<span class="option">B) Gray code sequence (00, 01, 11, 10) ✅</span>
+<span class="option">C) Random sequence</span>
+<span class="option">D) Octal sequence</span></div><h4>Q80. In K-Map, larger groups reduce the expression:</h4>
+<div class="question-options"><span class="option">A) Less</span>
+<span class="option">B) More ✅</span>
+<span class="option">C) Not at all</span>
+<span class="option">D) By adding terms</span></div><h4>Q81. In K-Map, every &#39;1&#39; must be covered at least once. Overlapping is:</h4>
+<div class="question-options"><span class="option">A) Allowed ✅</span>
+<span class="option">B) Not allowed</span>
+<span class="option">C) Mandatory</span>
+<span class="option">D) Optional</span></div><h4>Q82. In a 3-variable K-Map, what is the simplified expression for a group of 4 cells?</h4>
+<div class="question-options"><span class="option">A) A single variable ✅</span>
+<span class="option">B) Two variables</span>
+<span class="option">C) Three variables</span>
+<span class="option">D) A constant</span></div><h4>Q83. In a 4-variable K-Map, what is the simplified expression for a group of 8 cells?</h4>
+<div class="question-options"><span class="option">A) A single variable ✅</span>
+<span class="option">B) Two variables</span>
+<span class="option">C) Three variables</span>
+<span class="option">D) Four variables</span></div><h4>Q84. Simplify using K-Map: F = ∑ m(0, 1, 3, 7, 5) for 3 variables</h4>
+<div class="question-options"><span class="option">A) A'B + C</span>
+<span class="option">B) A' + C ✅</span>
+<span class="option">C) A + C'</span>
+<span class="option">D) B' + C</span></div><h4>Q85. In a K-Map, a group of 2 cells eliminates how many variables?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 3</span></div><h4>Q86. In a K-Map, a group of 4 cells eliminates how many variables?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1</span>
+<span class="option">C) 2 ✅</span>
+<span class="option">D) 3</span></div><h4>Q87. In a K-Map, a group of 8 cells eliminates how many variables?</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 2</span>
+<span class="option">C) 3 ✅</span>
+<span class="option">D) 4</span></div><h4>Q88. K-Map cells can wrap around:</h4>
+<div class="question-options"><span class="option">A) Only horizontally</span>
+<span class="option">B) Only vertically</span>
+<span class="option">C) Both horizontally and vertically ✅</span>
+<span class="option">D) Diagonally</span></div><h4>Q89. The logic circuit for F = AB + C&#39; requires:</h4>
+<div class="question-options"><span class="option">A) AND, NOT, OR gates ✅</span>
+<span class="option">B) AND, OR, NAND gates</span>
+<span class="option">C) OR, NOT, NOR gates</span>
+<span class="option">D) Only AND gates</span></div><h4>Q90. The expression F = A&#39;B + AB&#39; is the:</h4>
+<div class="question-options"><span class="option">A) AND function</span>
+<span class="option">B) OR function</span>
+<span class="option">C) XOR function ✅</span>
+<span class="option">D) XNOR function</span></div><h4>Q91. The expression F = AB + A&#39;B&#39; is the:</h4>
+<div class="question-options"><span class="option">A) AND function</span>
+<span class="option">B) OR function</span>
+<span class="option">C) XOR function</span>
+<span class="option">D) XNOR function ✅</span></div><h4>Q92. Which gate is known as a &quot;universal gate&quot;?</h4>
+<div class="question-options"><span class="option">A) AND and OR</span>
+<span class="option">B) NAND and NOR ✅</span>
+<span class="option">C) XOR and XNOR</span>
+<span class="option">D) NOT only</span></div><h4>Q93. Which of the following is NOT a basic logic gate?</h4>
+<div class="question-options"><span class="option">A) AND</span>
+<span class="option">B) OR</span>
+<span class="option">C) NOT</span>
+<span class="option">D) XOR (it's derived) ✅</span></div><h4>Q94. SOP expressions are implemented using:</h4>
+<div class="question-options"><span class="option">A) AND-OR logic ✅</span>
+<span class="option">B) OR-AND logic</span>
+<span class="option">C) NAND-NAND logic</span>
+<span class="option">D) NOR-NOR logic</span></div><h4>Q95. POS expressions are implemented using:</h4>
+<div class="question-options"><span class="option">A) AND-OR logic</span>
+<span class="option">B) OR-AND logic ✅</span>
+<span class="option">C) NAND-NAND logic</span>
+<span class="option">D) NOR-NOR logic</span></div><h4>Q96. In a 2-variable K-Map, if F = ∑ m(0, 3), what is the simplified expression?</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) A ⊕ B ✅</span>
+<span class="option">D) A' + B'</span></div><h4>Q97. In a 3-variable K-Map, a group of 2 cells eliminates:</h4>
+<div class="question-options"><span class="option">A) 1 variable ✅</span>
+<span class="option">B) 2 variables</span>
+<span class="option">C) 3 variables</span>
+<span class="option">D) 0 variables</span></div><h4>Q98. Which Boolean law states that A + 0 = A?</h4>
+<div class="question-options"><span class="option">A) Null Law</span>
+<span class="option">B) Identity Law ✅</span>
+<span class="option">C) Complement Law</span>
+<span class="option">D) Idempotent Law</span></div><h4>Q99. Which Boolean law states that A · A&#39; = 0?</h4>
+<div class="question-options"><span class="option">A) Null Law</span>
+<span class="option">B) Identity Law</span>
+<span class="option">C) Complement Law ✅</span>
+<span class="option">D) Idempotent Law</span></div><h4>Q100. De Morgan&#39;s Theorem is used to:</h4>
+<div class="question-options"><span class="option">A) Add binary numbers</span>
+<span class="option">B) Simplify expressions and convert between gate types ✅</span>
+<span class="option">C) Convert decimal to binary</span>
+<span class="option">D) Multiply binary numbers</span></div>
+
+</body>
+
+</html>

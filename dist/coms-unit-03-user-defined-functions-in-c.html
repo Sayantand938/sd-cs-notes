@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-03-user-defined-functions-in-c</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Introduction and Need for Functions</h2>
+<p>A <strong>function</strong> is a self-contained block of code that performs a specific task. In C, functions can be broadly classified into:</p>
+<ol>
+<li><strong>Library Functions</strong>: Pre-defined functions provided by C (e.g., <code>printf()</code>, <code>scanf()</code>, <code>strlen()</code>).</li>
+<li><strong>User-Defined Functions</strong>: Functions created by the programmer to perform custom tasks.</li>
+</ol>
+<h3>The Need for Functions (Advantages)</h3>
+<ol>
+<li><strong>Modularity</strong>: Breaks a large program into smaller, manageable, and logical modules.</li>
+<li><strong>Reusability (DRY Principle)</strong>: Once defined, a function can be called multiple times from different parts of the program, reducing code duplication.</li>
+<li><strong>Readability</strong>: The <code>main()</code> function becomes concise and reads like a high-level solution.</li>
+<li><strong>Ease of Debugging</strong>: Errors are localized to specific functions, making testing and debugging easier.</li>
+<li><strong>Team Development</strong>: Different programmers can work on different functions simultaneously.</li>
+<li><strong>Memory Efficiency</strong>: Saves memory by executing shared code without duplicating it.</li>
+</ol>
+<hr>
+<h2>2. Components of a Function</h2>
+<p>A function typically has three parts:</p>
+<ol>
+<li><strong>Declaration (Prototype)</strong>: Tells the compiler about the function&#39;s name, return type, and parameters (optional, but required before calling).</li>
+<li><strong>Definition</strong>: Contains the actual body/logic of the function.</li>
+<li><strong>Call</strong>: Invoking the function from <code>main()</code> or another function.</li>
+</ol>
+<h3>Syntax of Function Definition</h3>
+<pre><code class="language-c">return_type function_name(parameter_list) {
+    // Body of the function
+    // ... statements ...
+    return value; // If return_type is not &#39;void&#39;
+}</code></pre><h3>Example</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// 1. Declaration (Prototype)
+int add(int a, int b);
+
+int main() {
+    int result;
+    // 3. Function Call
+    result = add(5, 3);
+    printf(&quot;Sum = %d&quot;, result);
+    return 0;
+}
+
+// 2. Definition
+int add(int a, int b) {
+    return a + b; // Return value
+}</code></pre><hr>
+<h2>3. Parameter Passing: Call by Value vs Call by Reference</h2>
+<h3>3.1 Call by Value</h3>
+<ul>
+<li><strong>Mechanism</strong>: A copy of the actual argument&#39;s value is passed to the formal parameter.</li>
+<li><strong>Effect</strong>: Changes made inside the function <strong>do not</strong> affect the original variable in the calling function.</li>
+<li><strong>Default Behavior</strong>: C uses Call by Value by default for all data types (except arrays, which decay to pointers).</li>
+</ul>
+<pre class="mermaid">graph LR
+    subgraph main [main function]
+        M_A[a = 10]
+    end
+    subgraph function [function]
+        F_A[x = 10 (copy)]
+    end
+    M_A -- &quot;Passes value (10)&quot; --&gt; F_A
+    F_A -- &quot;Changes x to 20 (copy changes)&quot; --&gt; M_A
+    style M_A fill:#f9f,stroke:#333
+    style F_A fill:#bbf,stroke:#333</pre><p><em>(Note: <code>a</code> in main remains 10 because the function only changed the copy).</em></p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">void changeValue(int x) {
+    x = 20; // Modifies the local copy only
+}
+
+int main() {
+    int a = 10;
+    changeValue(a);
+    printf(&quot;%d&quot;, a); // Output: 10 (unchanged)
+    return 0;
+}</code></pre><hr>
+<h3>3.2 Call by Reference (Simulated using Pointers)</h3>
+<ul>
+<li><strong>Mechanism</strong>: The <strong>address</strong> of the actual variable is passed to the formal parameter (which must be a pointer).</li>
+<li><strong>Effect</strong>: The function can directly access and modify the original variable using the dereference operator (<code>*</code>).</li>
+<li><strong>Crucial Rule</strong>: C does not have a native &quot;pass by reference&quot; for variables; we <em>simulate</em> it by passing addresses via pointers.</li>
+</ul>
+<pre class="mermaid">graph LR
+    subgraph main [main function]
+        M_A[a = 10]
+        M_Addr[Address: 1000]
+    end
+    subgraph function [function]
+        F_Ptr[ptr = 1000]
+        F_Val[&quot;*ptr = 20&lt;br&gt;(Changes value at address 1000)&quot;]
+    end
+    M_Addr -- &quot;Passes address (1000)&quot; --&gt; F_Ptr
+    F_Val -- &quot;Modifies memory at Address 1000&quot; --&gt; M_A
+    style M_A fill:#f9f,stroke:#333
+    style F_Ptr fill:#bbf,stroke:#333</pre><p><em>(Note: Changes affect the original <code>a</code> because the function writes directly to its memory address).</em></p>
+<p><strong>Example</strong> (Swapping Two Numbers):</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Pass by Reference (using pointers)
+void swap(int *x, int *y) {
+    int temp;
+    temp = *x;  // Dereference x to get its value
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a = 5, b = 10;
+    printf(&quot;Before: a=%d, b=%d\n&quot;, a, b); // 5, 10
+    swap(&amp;a, &amp;b); // Pass addresses of a and b
+    printf(&quot;After: a=%d, b=%d\n&quot;, a, b);  // 10, 5 (Swapped!)
+    return 0;
+}</code></pre><h3>Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Call by Value</th>
+<th align="left">Call by Reference (using pointers)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Passed to function</strong></td>
+<td align="left">Value (copy)</td>
+<td align="left">Address (pointer)</td>
+</tr>
+<tr>
+<td align="left"><strong>Memory</strong></td>
+<td align="left">Separate memory allocated for parameter.</td>
+<td align="left">Pointer variable stores address (no duplicate data).</td>
+</tr>
+<tr>
+<td align="left"><strong>Original Variable</strong></td>
+<td align="left">Protected (cannot be modified).</td>
+<td align="left">Can be modified directly.</td>
+</tr>
+<tr>
+<td align="left"><strong>Performance</strong></td>
+<td align="left">Slower for large structures (due to copying).</td>
+<td align="left">Faster (only address is passed, ~4/8 bytes).</td>
+</tr>
+<tr>
+<td align="left"><strong>Syntax</strong></td>
+<td align="left">Standard variable.</td>
+<td align="left"><code>*</code> in declaration, <code>&amp;</code> while calling.</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Case</strong></td>
+<td align="left">Simple calculations where original data shouldn&#39;t change.</td>
+<td align="left">Modifying large arrays/structures, returning multiple values.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Return Values and Types</h2>
+<p>A function can return a value to the caller using the <code>return</code> statement.</p>
+<h3>4.1 Return Types</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Return Type</th>
+<th align="left">Description</th>
+<th align="left">Example Function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>void</code></td>
+<td align="left">Returns nothing. Used for functions that just perform actions (e.g., printing).</td>
+<td align="left"><code>void printHello() { ... }</code></td>
+</tr>
+<tr>
+<td align="left"><code>int</code></td>
+<td align="left">Returns an integer value.</td>
+<td align="left"><code>int add(int a, int b) { return a+b; }</code></td>
+</tr>
+<tr>
+<td align="left"><code>float</code> / <code>double</code></td>
+<td align="left">Returns floating-point numbers.</td>
+<td align="left"><code>float area(float r) { return 3.14*r*r; }</code></td>
+</tr>
+<tr>
+<td align="left"><code>char *</code></td>
+<td align="left">Returns a character pointer (string).</td>
+<td align="left"><code>char* getName() { return &quot;John&quot;; }</code></td>
+</tr>
+<tr>
+<td align="left"><code>struct</code></td>
+<td align="left">Can return an entire structure (by value).</td>
+<td align="left"><code>Student getStudent() { ... }</code></td>
+</tr>
+<tr>
+<td align="left"><code>int*</code></td>
+<td align="left">Returns a pointer (e.g., dynamically allocated memory).</td>
+<td align="left">(Use with caution for local variables).</td>
+</tr>
+</tbody></table>
+<h3>4.2 The <code>return</code> Statement</h3>
+<ul>
+<li>It can appear anywhere in the function.</li>
+<li>As soon as <code>return</code> is executed, the function exits immediately.</li>
+<li>A function can have only one return value, but we can return multiple values indirectly using <strong>Call by Reference</strong> (pointers) or by returning a <strong>structure</strong>.</li>
+</ul>
+<p><strong>Example</strong> (Returning Multiple Values using Pointers):</p>
+<pre><code class="language-c">void calculate(int a, int b, int *sum, int *diff) {
+    *sum = a + b;
+    *diff = a - b;
+}
+// In main: calculate(5, 3, &amp;s, &amp;d);</code></pre><hr>
+<h2>5. Nesting of Functions</h2>
+<p>C does <strong>not</strong> allow defining a function inside another function (nested definitions). However, it allows <strong>nested function calls</strong>—calling one function from inside another function.</p>
+<h3>Concept</h3>
+<ul>
+<li>Function <code>A</code> can call Function <code>B</code>.</li>
+<li>Function <code>B</code> can call Function <code>C</code>.</li>
+<li>This creates a call hierarchy.</li>
+</ul>
+<p><strong>Example</strong> (Nested Calls):</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int calculate(int x, int y) {
+    int sum = add(x, y);          // Nested call: calculate calls add
+    int prod = multiply(sum, y);  // Nested call: calculate calls multiply
+    return prod;
+}
+
+int main() {
+    int result = calculate(3, 2); // main calls calculate
+    // calculate -&gt; add -&gt; (returns) -&gt; multiply -&gt; (returns) -&gt; main
+    printf(&quot;%d&quot;, result); // (3+2) * 2 = 10
+    return 0;
+}</code></pre><p><strong>Call Stack Flow (Nesting)</strong>:</p>
+<pre class="mermaid">graph TD
+    A[main()] --&gt; B[calculate(3,2)]
+    B --&gt; C[add(3,2)]
+    C -- returns 5 --&gt; B
+    B --&gt; D[multiply(5,2)]
+    D -- returns 10 --&gt; B
+    B -- returns 10 --&gt; A</pre><hr>
+<h2>6. Recursion</h2>
+<p><strong>Definition</strong>: Recursion is a programming technique where a function calls <strong>itself</strong> to solve a smaller instance of the same problem.</p>
+<h3>Structure of a Recursive Function</h3>
+<ol>
+<li><strong>Base Case</strong>: The simplest condition that stops the recursion and returns a direct answer (prevents infinite calls).</li>
+<li><strong>Recursive Case</strong>: The function calls itself with a modified input, moving toward the base case.</li>
+</ol>
+<h3>Memory Management (Stack)</h3>
+<p>Each recursive call creates a new activation record (stack frame) on the call stack, storing local variables and the return address. Excessive recursion can lead to <strong>Stack Overflow</strong>.</p>
+<hr>
+<h3>6.1 Example: Factorial using Recursion</h3>
+<p><em>Mathematical Formula</em>: $n! = n \times (n-1)!$ with base case $0! = 1$.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+    // Base Case
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // Recursive Case
+    else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int num = 5;
+    printf(&quot;Factorial of %d is %d&quot;, num, factorial(num));
+    // factorial(5) -&gt; 5 * factorial(4) -&gt; 4 * factorial(3) -&gt; 3 * factorial(2) -&gt; 2 * factorial(1)
+    // factorial(1) returns 1.
+    // Results in 5 * 4 * 3 * 2 * 1 = 120
+    return 0;
+}</code></pre><p><strong>Recursive Call Stack Visualization</strong>:</p>
+<pre class="mermaid">graph TD
+    subgraph Stack [Function Call Stack]
+        F1[factorial(1) returns 1] --&gt; F2[factorial(2) returns 2 * 1]
+        F2 --&gt; F3[factorial(3) returns 3 * 2]
+        F3 --&gt; F4[factorial(4) returns 4 * 6]
+        F4 --&gt; F5[factorial(5) returns 5 * 24 = 120]
+    end</pre><p><strong>Time Complexity</strong>:
+The recurrence relation is $T(n) = T(n-1) + O(1)$, which solves to <strong>$O(n)$</strong>.</p>
+<hr>
+<h3>6.2 Example: Fibonacci Series using Recursion</h3>
+<p><em>Formula</em>: $F(n) = F(n-1) + F(n-2)$ with base cases $F(0) = 0$, $F(1) = 1$.</p>
+<pre><code class="language-c">int fibonacci(int n) {
+    if (n == 0) return 0;      // Base Case
+    if (n == 1) return 1;      // Base Case
+    return fibonacci(n - 1) + fibonacci(n - 2); // Recursive Case
+}
+// fibonacci(5) = fibonacci(4) + fibonacci(3) ... leads to 5</code></pre><p><strong>Time Complexity</strong>: $T(n) = T(n-1) + T(n-2) + O(1)$, which solves to <strong>$O(2^n)$</strong> (Exponential).</p>
+<hr>
+<h3>6.3 Recursion vs Iteration (Non-Recursive)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Aspect</th>
+<th align="left">Recursion</th>
+<th align="left">Iteration (Loops)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Code Length</strong></td>
+<td align="left">Shorter, cleaner, elegant.</td>
+<td align="left">Longer, more verbose.</td>
+</tr>
+<tr>
+<td align="left"><strong>Memory Usage</strong></td>
+<td align="left">High (uses stack for each call).</td>
+<td align="left">Low (constant memory).</td>
+</tr>
+<tr>
+<td align="left"><strong>Speed</strong></td>
+<td align="left">Slower (function call overhead).</td>
+<td align="left">Faster.</td>
+</tr>
+<tr>
+<td align="left"><strong>Infinite Loop Risk</strong></td>
+<td align="left">Risk of Stack Overflow if base case missing.</td>
+<td align="left">Can run indefinitely if condition false, but uses CPU only.</td>
+</tr>
+<tr>
+<td align="left"><strong>Best For</strong></td>
+<td align="left">Tree/Graph traversals, Divide-and-Conquer (QuickSort, MergeSort).</td>
+<td align="left">Simple repetitions, mathematical computations.</td>
+</tr>
+</tbody></table>
+<h2>7. MCQ</h2>
+<h4>Q1. A function is defined as:</h4>
+<div class="question-options"><span class="option">A) A collection of variables</span>
+<span class="option">B) A self-contained block of code that performs a specific task ✅</span>
+<span class="option">C) A data structure</span>
+<span class="option">D) A type of loop</span></div><h4>Q2. Which of the following is a Library Function in C?</h4>
+<div class="question-options"><span class="option">A) `add()`</span>
+<span class="option">B) `subtract()`</span>
+<span class="option">C) `printf()` ✅</span>
+<span class="option">D) `swap()`</span></div><h4>Q3. User-Defined Functions are:</h4>
+<div class="question-options"><span class="option">A) Functions provided by C</span>
+<span class="option">B) Functions created by the programmer ✅</span>
+<span class="option">C) Functions that cannot be called</span>
+<span class="option">D) Functions without a return type</span></div><h4>Q4. Which of the following is NOT an advantage of functions?</h4>
+<div class="question-options"><span class="option">A) Modularity</span>
+<span class="option">B) Reusability</span>
+<span class="option">C) Increased code duplication ✅</span>
+<span class="option">D) Ease of debugging</span></div><h4>Q5. The DRY Principle in functions stands for:</h4>
+<div class="question-options"><span class="option">A) Don't Run Yourself</span>
+<span class="option">B) Don't Repeat Yourself ✅</span>
+<span class="option">C) Do Repeat Yourself</span>
+<span class="option">D) Don't Return Yourself</span></div><h4>Q6. Functions help in modularity by:</h4>
+<div class="question-options"><span class="option">A) Making the program longer</span>
+<span class="option">B) Breaking a large program into smaller, manageable modules ✅</span>
+<span class="option">C) Combining all code into one block</span>
+<span class="option">D) Removing all loops</span></div><h4>Q7. Which advantage of functions allows different programmers to work on different parts simultaneously?</h4>
+<div class="question-options"><span class="option">A) Reusability</span>
+<span class="option">B) Readability</span>
+<span class="option">C) Team Development ✅</span>
+<span class="option">D) Memory Efficiency</span></div><h4>Q8. Functions save memory by:</h4>
+<div class="question-options"><span class="option">A) Duplicating code</span>
+<span class="option">B) Executing shared code without duplicating it ✅</span>
+<span class="option">C) Using more variables</span>
+<span class="option">D) Creating multiple copies</span></div><h4>Q9. The three parts of a function are:</h4>
+<div class="question-options"><span class="option">A) Declaration, Definition, Call ✅</span>
+<span class="option">B) Declaration, Initialization, Execution</span>
+<span class="option">C) Definition, Execution, Return</span>
+<span class="option">D) Call, Return, Print</span></div><h4>Q10. The function prototype tells the compiler about:</h4>
+<div class="question-options"><span class="option">A) The function's body</span>
+<span class="option">B) The function's name, return type, and parameters ✅</span>
+<span class="option">C) The function's local variables</span>
+<span class="option">D) The function's memory address</span></div><h4>Q11. What is the syntax of a function definition?</h4>
+<div class="question-options"><span class="option">A) `return_type function_name(parameter_list) { body }` ✅</span>
+<span class="option">B) `function_name(parameter_list) return_type { body }`</span>
+<span class="option">C) `{ body } function_name(parameter_list) return_type`</span>
+<span class="option">D) `return_type { body } function_name(parameter_list)`</span></div><h4>Q12. In the function <code>int add(int a, int b)</code>, what is the return type?</h4>
+<div class="question-options"><span class="option">A) `void`</span>
+<span class="option">B) `int` ✅</span>
+<span class="option">C) `float`</span>
+<span class="option">D) `char`</span></div><h4>Q13. In the function <code>int add(int a, int b)</code>, what are <code>a</code> and <code>b</code> called?</h4>
+<div class="question-options"><span class="option">A) Return values</span>
+<span class="option">B) Local variables</span>
+<span class="option">C) Parameters ✅</span>
+<span class="option">D) Global variables</span></div><h4>Q14. In Call by Value, what is passed to the formal parameter?</h4>
+<div class="question-options"><span class="option">A) The address of the variable</span>
+<span class="option">B) A copy of the actual argument's value ✅</span>
+<span class="option">C) The variable itself</span>
+<span class="option">D) A pointer</span></div><h4>Q15. In Call by Value, changes made inside the function:</h4>
+<div class="question-options"><span class="option">A) Affect the original variable</span>
+<span class="option">B) Do not affect the original variable ✅</span>
+<span class="option">C) Cause a compilation error</span>
+<span class="option">D) Affect all variables</span></div><h4>Q16. What is the default parameter passing mechanism in C?</h4>
+<div class="question-options"><span class="option">A) Call by Reference</span>
+<span class="option">B) Call by Value ✅</span>
+<span class="option">C) Call by Address</span>
+<span class="option">D) Call by Pointer</span></div><h4>Q17. In the example <code>void changeValue(int x) { x = 20; }</code>, if <code>a = 10</code> and <code>changeValue(a)</code> is called, what is the output of <code>printf(&quot;%d&quot;, a);</code>?</h4>
+<div class="question-options"><span class="option">A) 10 ✅</span>
+<span class="option">B) 20</span>
+<span class="option">C) 0</span>
+<span class="option">D) Garbage value</span></div><h4>Q18. Call by Reference in C is simulated using:</h4>
+<div class="question-options"><span class="option">A) Arrays</span>
+<span class="option">B) Pointers ✅</span>
+<span class="option">C) Structures</span>
+<span class="option">D) Global variables</span></div><h4>Q19. In Call by Reference, what is passed to the function?</h4>
+<div class="question-options"><span class="option">A) The value of the variable</span>
+<span class="option">B) The address of the variable ✅</span>
+<span class="option">C) A copy of the variable</span>
+<span class="option">D) The variable name</span></div><h4>Q20. To modify the original variable in a function, the parameter must be:</h4>
+<div class="question-options"><span class="option">A) An integer</span>
+<span class="option">B) A float</span>
+<span class="option">C) A pointer ✅</span>
+<span class="option">D) A character</span></div><h4>Q21. In the swap function <code>void swap(int *x, int *y)</code>, <code>*x</code> is used to:</h4>
+<div class="question-options"><span class="option">A) Get the address of x</span>
+<span class="option">B) Dereference x to get its value ✅</span>
+<span class="option">C) Assign a new address to x</span>
+<span class="option">D) Increment x</span></div><h4>Q22. In the swap function, <code>swap(&amp;a, &amp;b)</code> passes:</h4>
+<div class="question-options"><span class="option">A) The values of a and b</span>
+<span class="option">B) The addresses of a and b ✅</span>
+<span class="option">C) Copies of a and b</span>
+<span class="option">D) The size of a and b</span></div><h4>Q23. What is the output of the swap program if <code>a = 5</code> and <code>b = 10</code> before the swap?</h4>
+<div class="question-options"><span class="option">A) a=5, b=10</span>
+<span class="option">B) a=10, b=5 ✅</span>
+<span class="option">C) a=0, b=0</span>
+<span class="option">D) a=5, b=5</span></div><h4>Q24. Which parameter passing method protects the original variable from modification?</h4>
+<div class="question-options"><span class="option">A) Call by Reference</span>
+<span class="option">B) Call by Value ✅</span>
+<span class="option">C) Call by Address</span>
+<span class="option">D) Call by Pointer</span></div><h4>Q25. Which parameter passing method is faster for large structures?</h4>
+<div class="question-options"><span class="option">A) Call by Value</span>
+<span class="option">B) Call by Reference ✅</span>
+<span class="option">C) Both are equally fast</span>
+<span class="option">D) Depends on the data type</span></div><h4>Q26. In Call by Value, memory is:</h4>
+<div class="question-options"><span class="option">A) Shared between actual and formal parameters</span>
+<span class="option">B) Separately allocated for the formal parameter ✅</span>
+<span class="option">C) Not allocated</span>
+<span class="option">D) Freed immediately</span></div><h4>Q27. In Call by Reference, the pointer variable stores:</h4>
+<div class="question-options"><span class="option">A) The value of the variable</span>
+<span class="option">B) The address of the variable ✅</span>
+<span class="option">C) A copy of the variable</span>
+<span class="option">D) The size of the variable</span></div><h4>Q28. The <code>return</code> statement in a function:</h4>
+<div class="question-options"><span class="option">A) Continues the function execution</span>
+<span class="option">B) Exits the function immediately ✅</span>
+<span class="option">C) Restarts the function</span>
+<span class="option">D) Skips the next statement</span></div><h4>Q29. A function with return type <code>void</code>:</h4>
+<div class="question-options"><span class="option">A) Returns an integer</span>
+<span class="option">B) Returns a float</span>
+<span class="option">C) Returns nothing ✅</span>
+<span class="option">D) Returns a character</span></div><h4>Q30. Which of the following is a valid function with <code>void</code> return type?</h4>
+<div class="question-options"><span class="option">A) `int add(int a, int b) { return a+b; }`</span>
+<span class="option">B) `void printHello() { printf("Hello"); }` ✅</span>
+<span class="option">C) `float area(float r) { return 3.14*r*r; }`</span>
+<span class="option">D) `char* getName() { return "John"; }`</span></div><h4>Q31. A function can return how many values directly?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) Multiple</span></div><h4>Q32. How can a function return multiple values indirectly?</h4>
+<div class="question-options"><span class="option">A) Using global variables</span>
+<span class="option">B) Using pointers (Call by Reference) ✅</span>
+<span class="option">C) Using multiple return statements</span>
+<span class="option">D) Using void functions</span></div><h4>Q33. In <code>void calculate(int a, int b, int *sum, int *diff)</code>, <code>sum</code> and <code>diff</code> are:</h4>
+<div class="question-options"><span class="option">A) Return values</span>
+<span class="option">B) Pointers used to return multiple values ✅</span>
+<span class="option">C) Local variables</span>
+<span class="option">D) Global variables</span></div><h4>Q34. C allows:</h4>
+<div class="question-options"><span class="option">A) Nested function definitions</span>
+<span class="option">B) Nested function calls ✅</span>
+<span class="option">C) Both nested definitions and calls</span>
+<span class="option">D) Neither</span></div><h4>Q35. Nested function calls means:</h4>
+<div class="question-options"><span class="option">A) Defining one function inside another</span>
+<span class="option">B) Calling one function from inside another function ✅</span>
+<span class="option">C) A function calling itself</span>
+<span class="option">D) Two functions calling each other</span></div><h4>Q36. In <code>calculate(3, 2)</code> calling <code>add(3, 2)</code> and then <code>multiply(5, 2)</code>, this is an example of:</h4>
+<div class="question-options"><span class="option">A) Recursion</span>
+<span class="option">B) Nested function calls ✅</span>
+<span class="option">C) Infinite loop</span>
+<span class="option">D) Call by Reference</span></div><h4>Q37. What is the output of the nested call example: <code>calculate(3, 2)</code> where <code>calculate</code> does <code>add(x, y)</code> then <code>multiply(sum, y)</code>?</h4>
+<div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 6</span>
+<span class="option">C) 10 ✅</span>
+<span class="option">D) 12</span></div><h4>Q38. Recursion is a technique where a function:</h4>
+<div class="question-options"><span class="option">A) Calls another function</span>
+<span class="option">B) Calls itself ✅</span>
+<span class="option">C) Is defined inside another function</span>
+<span class="option">D) Has no return statement</span></div><h4>Q39. A recursive function must have:</h4>
+<div class="question-options"><span class="option">A) Only a recursive case</span>
+<span class="option">B) Only a base case</span>
+<span class="option">C) Both a base case and a recursive case ✅</span>
+<span class="option">D) No cases</span></div><h4>Q40. The base case in recursion:</h4>
+<div class="question-options"><span class="option">A) Calls the function again</span>
+<span class="option">B) Stops the recursion and returns a direct answer ✅</span>
+<span class="option">C) Increases the recursion depth</span>
+<span class="option">D) Causes infinite recursion</span></div><h4>Q41. The recursive case in recursion:</h4>
+<div class="question-options"><span class="option">A) Stops the recursion</span>
+<span class="option">B) Calls the function with a modified input toward the base case ✅</span>
+<span class="option">C) Returns immediately</span>
+<span class="option">D) Has no effect</span></div><h4>Q42. What is the base case for the factorial recursive function?</h4>
+<div class="question-options"><span class="option">A) `n == 1` ✅</span>
+<span class="option">B) `n == 0` ✅</span>
+<span class="option">C) `n < 0`</span>
+<span class="option">D) Both A and B are correct</span></div><h4>Q43. What is the factorial of 5 using recursion?</h4>
+<div class="question-options"><span class="option">A) 60</span>
+<span class="option">B) 120 ✅</span>
+<span class="option">C) 24</span>
+<span class="option">D) 720</span></div><h4>Q44. In recursive factorial, <code>factorial(5)</code> calls:</h4>
+<div class="question-options"><span class="option">A) `factorial(6)`</span>
+<span class="option">B) `factorial(4)` ✅</span>
+<span class="option">C) `factorial(3)`</span>
+<span class="option">D) `factorial(2)`</span></div><h4>Q45. The time complexity of recursive factorial is:</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(2ⁿ)</span></div><h4>Q46. Each recursive call creates a new:</h4>
+<div class="question-options"><span class="option">A) Variable</span>
+<span class="option">B) Activation record (stack frame) ✅</span>
+<span class="option">C) Function</span>
+<span class="option">D) Loop</span></div><h4>Q47. Excessive recursion can lead to:</h4>
+<div class="question-options"><span class="option">A) Faster execution</span>
+<span class="option">B) Stack Overflow ✅</span>
+<span class="option">C) Memory optimization</span>
+<span class="option">D) Infinite loop</span></div><h4>Q48. What is the Fibonacci series base case for <code>n == 0</code>?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) -1</span>
+<span class="option">D) Undefined</span></div><h4>Q49. What is the Fibonacci series base case for <code>n == 1</code>?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) -1</span>
+<span class="option">D) Undefined</span></div><h4>Q50. What is <code>fibonacci(5)</code>?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 5 ✅</span>
+<span class="option">C) 8</span>
+<span class="option">D) 13</span></div><h4>Q51. The time complexity of recursive Fibonacci is:</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(n²)</span>
+<span class="option">C) O(2ⁿ) ✅</span>
+<span class="option">D) O(log n)</span></div><h4>Q52. Recursive code is generally:</h4>
+<div class="question-options"><span class="option">A) Longer and more verbose than iterative</span>
+<span class="option">B) Shorter and cleaner than iterative ✅</span>
+<span class="option">C) The same length as iterative</span>
+<span class="option">D) Not comparable</span></div><h4>Q53. Iterative code uses:</h4>
+<div class="question-options"><span class="option">A) High memory (stack frames)</span>
+<span class="option">B) Low memory (constant memory) ✅</span>
+<span class="option">C) No memory</span>
+<span class="option">D) Only recursion</span></div><h4>Q54. Recursive code has higher memory usage because:</h4>
+<div class="question-options"><span class="option">A) It uses more variables</span>
+<span class="option">B) Each call creates a stack frame ✅</span>
+<span class="option">C) It uses global memory</span>
+<span class="option">D) It uses heap memory</span></div><h4>Q55. Recursive code is generally:</h4>
+<div class="question-options"><span class="option">A) Faster than iterative</span>
+<span class="option">B) Slower than iterative (due to function call overhead) ✅</span>
+<span class="option">C) The same speed as iterative</span>
+<span class="option">D) Not comparable</span></div><h4>Q56. Recursion is best for:</h4>
+<div class="question-options"><span class="option">A) Simple repetitions</span>
+<span class="option">B) Tree/Graph traversals and Divide-and-Conquer ✅</span>
+<span class="option">C) Mathematical computations only</span>
+<span class="option">D) All problems equally</span></div><h4>Q57. Iteration is best for:</h4>
+<div class="question-options"><span class="option">A) Tree traversals</span>
+<span class="option">B) Simple repetitions and mathematical computations ✅</span>
+<span class="option">C) Recursive problems only</span>
+<span class="option">D) Graph problems</span></div><h4>Q58. What happens if the base case is missing in a recursive function?</h4>
+<div class="question-options"><span class="option">A) The function runs once</span>
+<span class="option">B) Infinite recursion leading to stack overflow ✅</span>
+<span class="option">C) The function returns 0</span>
+<span class="option">D) Compilation error</span></div><h4>Q59. In the factorial recursion, the call stack unwinds:</h4>
+<div class="question-options"><span class="option">A) From the base case back to the original call ✅</span>
+<span class="option">B) From the original call to the base case</span>
+<span class="option">C) In a random order</span>
+<span class="option">D) Only once</span></div><h4>Q60. In the mermaid diagram for factorial recursion, <code>factorial(5)</code> returns:</h4>
+<div class="question-options"><span class="option">A) 5 \* factorial(4) ✅</span>
+<span class="option">B) 5 + factorial(4)</span>
+<span class="option">C) 5 / factorial(4)</span>
+<span class="option">D) 5 - factorial(4)</span></div><h4>Q61. The function declaration is also called:</h4>
+<div class="question-options"><span class="option">A) Function definition</span>
+<span class="option">B) Function prototype ✅</span>
+<span class="option">C) Function call</span>
+<span class="option">D) Function body</span></div><h4>Q62. Which of the following is a function prototype for <code>add</code>?</h4>
+<div class="question-options"><span class="option">A) `int add(int a, int b) { return a+b; }`</span>
+<span class="option">B) `int add(int a, int b);` ✅</span>
+<span class="option">C) `add(5, 3);`</span>
+<span class="option">D) `void add(int a, int b);`</span></div><h4>Q63. If a function is defined before it is called, the prototype is:</h4>
+<div class="question-options"><span class="option">A) Mandatory</span>
+<span class="option">B) Optional ✅</span>
+<span class="option">C) Not allowed</span>
+<span class="option">D) Always required</span></div><h4>Q64. Which of the following is TRUE about the <code>return</code> statement?</h4>
+<div class="question-options"><span class="option">A) A function can have multiple return statements ✅</span>
+<span class="option">B) A function cannot have multiple return statements</span>
+<span class="option">C) The return statement is optional for all functions</span>
+<span class="option">D) The return statement must be the last line</span></div><h4>Q65. In <code>int* getAddress()</code>, the function returns:</h4>
+<div class="question-options"><span class="option">A) An integer</span>
+<span class="option">B) A pointer to an integer ✅</span>
+<span class="option">C) A float</span>
+<span class="option">D) A character</span></div><h4>Q66. Returning a pointer to a local variable is:</h4>
+<div class="question-options"><span class="option">A) Safe</span>
+<span class="option">B) Dangerous (local variable goes out of scope) ✅</span>
+<span class="option">C) Recommended</span>
+<span class="option">D) Not possible</span></div><h4>Q67. The call stack in recursion stores:</h4>
+<div class="question-options"><span class="option">A) Only the return values</span>
+<span class="option">B) Local variables and return addresses for each call ✅</span>
+<span class="option">C) Only the function names</span>
+<span class="option">D) Only the parameters</span></div><h4>Q68. What is the output of <code>factorial(0)</code> in the recursive factorial function?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) -1</span>
+<span class="option">D) Undefined</span></div><h4>Q69. What is the output of <code>factorial(3)</code>?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 6 ✅</span>
+<span class="option">C) 9</span>
+<span class="option">D) 12</span></div><h4>Q70. In the recursive factorial, the expression <code>n * factorial(n - 1)</code> is:</h4>
+<div class="question-options"><span class="option">A) The base case</span>
+<span class="option">B) The recursive case ✅</span>
+<span class="option">C) The return statement</span>
+<span class="option">D) The function call</span></div><h4>Q71. Which of the following is an advantage of recursion?</h4>
+<div class="question-options"><span class="option">A) Lower memory usage</span>
+<span class="option">B) Faster execution</span>
+<span class="option">C) Elegant solution for problems with recursive structure ✅</span>
+<span class="option">D) No risk of stack overflow</span></div><h4>Q72. Which of the following is a disadvantage of recursion?</h4>
+<div class="question-options"><span class="option">A) Code becomes longer</span>
+<span class="option">B) Risk of stack overflow ✅</span>
+<span class="option">C) Cannot solve complex problems</span>
+<span class="option">D) Not suitable for any problem</span></div><h4>Q73. In the Fibonacci recursion, <code>fibonacci(4)</code> calls:</h4>
+<div class="question-options"><span class="option">A) `fibonacci(3)` and `fibonacci(2)` ✅</span>
+<span class="option">B) `fibonacci(5)` and `fibonacci(3)`</span>
+<span class="option">C) `fibonacci(3)` only</span>
+<span class="option">D) `fibonacci(2)` only</span></div><h4>Q74. The recurrence relation for recursive factorial is:</h4>
+<div class="question-options"><span class="option">A) T(n) = T(n-1) + O(n)</span>
+<span class="option">B) T(n) = T(n-1) + O(1) ✅</span>
+<span class="option">C) T(n) = T(n/2) + O(1)</span>
+<span class="option">D) T(n) = 2T(n-1) + O(1)</span></div><h4>Q75. The recurrence relation for recursive Fibonacci is:</h4>
+<div class="question-options"><span class="option">A) T(n) = T(n-1) + O(1)</span>
+<span class="option">B) T(n) = T(n-1) + T(n-2) + O(1) ✅</span>
+<span class="option">C) T(n) = T(n/2) + O(1)</span>
+<span class="option">D) T(n) = 2T(n-1) + O(1)</span></div><h4>Q76. A function can be called from:</h4>
+<div class="question-options"><span class="option">A) Only main()</span>
+<span class="option">B) Only other functions</span>
+<span class="option">C) Any function including main() and itself ✅</span>
+<span class="option">D) Only from global scope</span></div><h4>Q77. In Call by Value, the formal parameter is:</h4>
+<div class="question-options"><span class="option">A) A pointer</span>
+<span class="option">B) A separate memory location holding a copy ✅</span>
+<span class="option">C) The actual variable</span>
+<span class="option">D) A global variable</span></div><h4>Q78. In Call by Reference, the formal parameter is:</h4>
+<div class="question-options"><span class="option">A) An integer</span>
+<span class="option">B) A pointer ✅</span>
+<span class="option">C) A float</span>
+<span class="option">D) A character</span></div><h4>Q79. The <code>&amp;</code> operator in <code>swap(&amp;a, &amp;b)</code> is used to:</h4>
+<div class="question-options"><span class="option">A) Get the value of a</span>
+<span class="option">B) Get the address of a ✅</span>
+<span class="option">C) Dereference a</span>
+<span class="option">D) Increment a</span></div><h4>Q80. The <code>*</code> operator in <code>*x = *y</code> is used to:</h4>
+<div class="question-options"><span class="option">A) Get the address of x</span>
+<span class="option">B) Dereference x to get its value ✅</span>
+<span class="option">C) Assign a new address to x</span>
+<span class="option">D) Increment x</span></div><h4>Q81. Which of the following is NOT a valid return type for a function in C?</h4>
+<div class="question-options"><span class="option">A) `void`</span>
+<span class="option">B) `int`</span>
+<span class="option">C) `string` ✅</span>
+<span class="option">D) `float`</span></div><h4>Q82. In C, <code>char*</code> is used to return:</h4>
+<div class="question-options"><span class="option">A) A single character</span>
+<span class="option">B) A string (character pointer) ✅</span>
+<span class="option">C) An integer</span>
+<span class="option">D) A float</span></div><h4>Q83. A function with return type <code>struct Student</code>:</h4>
+<div class="question-options"><span class="option">A) Returns a pointer to a structure</span>
+<span class="option">B) Returns an entire structure by value ✅</span>
+<span class="option">C) Returns an integer</span>
+<span class="option">D) Returns nothing</span></div><h4>Q84. The <code>return</code> statement can appear:</h4>
+<div class="question-options"><span class="option">A) Only at the end of the function</span>
+<span class="option">B) Anywhere in the function ✅</span>
+<span class="option">C) Only in main()</span>
+<span class="option">D) Only in loops</span></div><h4>Q85. What is the purpose of the function prototype?</h4>
+<div class="question-options"><span class="option">A) To define the function body</span>
+<span class="option">B) To inform the compiler about the function before it is called ✅</span>
+<span class="option">C) To call the function</span>
+<span class="option">D) To return a value</span></div><h4>Q86. In nested calls, the call stack grows:</h4>
+<div class="question-options"><span class="option">A) With each function call ✅</span>
+<span class="option">B) With each return</span>
+<span class="option">C) In a random order</span>
+<span class="option">D) Only with recursive calls</span></div><h4>Q87. The call stack in nested calls unwinds:</h4>
+<div class="question-options"><span class="option">A) From the first call to the last</span>
+<span class="option">B) From the last call back to the first ✅</span>
+<span class="option">C) In a random order</span>
+<span class="option">D) Only with recursive calls</span></div><h4>Q88. Recursion is a type of:</h4>
+<div class="question-options"><span class="option">A) Iteration</span>
+<span class="option">B) Function calling itself ✅</span>
+<span class="option">C) Array manipulation</span>
+<span class="option">D) Structure definition</span></div><h4>Q89. Which of the following problems is best solved using recursion?</h4>
+<div class="question-options"><span class="option">A) Sum of array elements</span>
+<span class="option">B) Factorial ✅</span>
+<span class="option">C) Finding maximum in array</span>
+<span class="option">D) Simple addition</span></div><h4>Q90. Which of the following problems is best solved using iteration?</h4>
+<div class="question-options"><span class="option">A) Tree traversal</span>
+<span class="option">B) Graph traversal</span>
+<span class="option">C) Sum of first n numbers ✅</span>
+<span class="option">D) Fibonacci</span></div><h4>Q91. The term &quot;activation record&quot; refers to:</h4>
+<div class="question-options"><span class="option">A) A file on disk</span>
+<span class="option">B) A stack frame created for each function call ✅</span>
+<span class="option">C) A global variable</span>
+<span class="option">D) A loop iteration</span></div><h4>Q92. In the factorial recursion, the multiplication happens:</h4>
+<div class="question-options"><span class="option">A) Before the recursive call</span>
+<span class="option">B) After the recursive call returns ✅</span>
+<span class="option">C) During the recursive call</span>
+<span class="option">D) At the base case</span></div><h4>Q93. In the Fibonacci recursion, the addition happens:</h4>
+<div class="question-options"><span class="option">A) Before the recursive calls</span>
+<span class="option">B) After the recursive calls return ✅</span>
+<span class="option">C) During the recursive calls</span>
+<span class="option">D) At the base case</span></div><h4>Q94. A function with no return statement and return type <code>void</code>:</h4>
+<div class="question-options"><span class="option">A) Causes a compilation error</span>
+<span class="option">B) Executes and returns automatically ✅</span>
+<span class="option">C) Returns garbage value</span>
+<span class="option">D) Returns 0</span></div><h4>Q95. Which of the following is TRUE about function parameters in C?</h4>
+<div class="question-options"><span class="option">A) All parameters are passed by reference</span>
+<span class="option">B) All parameters are passed by value (by default) ✅</span>
+<span class="option">C) Parameters cannot be modified</span>
+<span class="option">D) Parameters are global</span></div><h4>Q96. In the swap function, after <code>swap(&amp;a, &amp;b)</code>, the values of a and b:</h4>
+<div class="question-options"><span class="option">A) Remain unchanged</span>
+<span class="option">B) Are swapped ✅</span>
+<span class="option">C) Become 0</span>
+<span class="option">D) Become garbage</span></div><h4>Q97. Which of the following would NOT cause infinite recursion?</h4>
+<div class="question-options"><span class="option">A) Missing base case</span>
+<span class="option">B) Base case never reached</span>
+<span class="option">C) Proper base case with decreasing input ✅</span>
+<span class="option">D) Recursive case that doesn't change the input</span></div><h4>Q98. The <code>fibonacci(2)</code> using recursion returns:</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 3</span></div><h4>Q99. The <code>fibonacci(3)</code> using recursion returns:</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 2 ✅</span>
+<span class="option">C) 3</span>
+<span class="option">D) 5</span></div><h4>Q100. Which of the following is a valid recursive function structure?</h4>
+<div class="question-options"><span class="option">A) `if (base_condition) return base_value; else return recursive_call;` ✅</span>
+<span class="option">B) `while (condition) recursive_call;`</span>
+<span class="option">C) `for (i=0; i<n; i++) recursive_call;`</span>
+<span class="option">D) `return recursive_call;` (without base case)</span></div>
+
+</body>
+
+</html>

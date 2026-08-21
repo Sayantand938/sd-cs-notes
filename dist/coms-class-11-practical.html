@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-class-11-practical</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>C Programming</h2>
+<h3>1. Sum and product of digits of an integer</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num, digit, sum = 0, product = 1;
+    printf(&quot;Enter an integer: &quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+
+    // Work with absolute value to handle negative numbers
+    if (num &lt; 0) num = -num;
+
+    // If the number is 0, product should be 0 (since 0*... = 0)
+    if (num == 0) {
+        sum = 0;
+        product = 0;
+    } else {
+        while (num &gt; 0) {
+            digit = num % 10;
+            sum += digit;
+            product *= digit;
+            num /= 10;
+        }
+    }
+
+    printf(&quot;Sum of digits = %d\n&quot;, sum);
+    printf(&quot;Product of digits = %d\n&quot;, product);
+
+    return 0;
+}</code></pre><hr>
+<h3>2. Reverse a number</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num, reversed = 0, remainder;
+    printf(&quot;Enter an integer: &quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+
+    int original = num;   // keep original for later
+    if (num &lt; 0) num = -num; // work with positive
+
+    while (num &gt; 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+
+    // Restore sign if original was negative
+    if (original &lt; 0) reversed = -reversed;
+
+    printf(&quot;Reversed number = %d\n&quot;, reversed);
+    return 0;
+}</code></pre><hr>
+<h3>3. Sum of the series S = 1 + 1/2 + 1/3 + ... + 1/n</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    float sum = 0.0;
+    printf(&quot;Enter the number of terms (n): &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int i = 1; i &lt;= n; i++) {
+        sum += 1.0 / i;   // use 1.0 to force floating-point division
+    }
+
+    printf(&quot;Sum of the first %d terms = %.4f\n&quot;, n, sum);
+    return 0;
+}</code></pre><hr>
+<h3>4. Sum of the series S = 1 - 2 + 3 - 4 + 5 - ... (n terms)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int n, sum = 0;
+    printf(&quot;Enter the number of terms (n): &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int i = 1; i &lt;= n; i++) {
+        if (i % 2 == 1)   // odd terms are added
+            sum += i;
+        else              // even terms are subtracted
+            sum -= i;
+    }
+
+    printf(&quot;Sum of the first %d terms = %d\n&quot;, n, sum);
+    return 0;
+}</code></pre><hr>
+<h3>5. Check if a string is a palindrome</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Function to check palindrome
+bool isPalindrome(char str[]) {
+    int len = strlen(str);
+    for (int i = 0; i &lt; len / 2; i++) {
+        if (str[i] != str[len - 1 - i])
+            return false;
+    }
+    return true;
+}
+
+int main() {
+    char str[100];
+    printf(&quot;Enter a string: &quot;);
+    scanf(&quot;%s&quot;, str);   // reads a single word (no spaces)
+
+    if (isPalindrome(str))
+        printf(&quot;\&quot;%s\&quot; is a palindrome.\n&quot;, str);
+    else
+        printf(&quot;\&quot;%s\&quot; is not a palindrome.\n&quot;, str);
+
+    return 0;
+}</code></pre><p>Here are the easy-to-understand C programs for questions 6 to 10.</p>
+<hr>
+<h3>6. Prime check function + generate primes less than 100</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num &lt; 2) return false;
+    for (int i = 2; i * i &lt;= num; i++) {
+        if (num % i == 0)
+            return false;
+    }
+    return true;
+}
+
+int main() {
+    int num;
+    printf(&quot;Enter a number to check: &quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+
+    if (isPrime(num))
+        printf(&quot;%d is prime.\n&quot;, num);
+    else
+        printf(&quot;%d is not prime.\n&quot;, num);
+
+    printf(&quot;\nPrime numbers less than 100:\n&quot;);
+    for (int i = 2; i &lt; 100; i++) {
+        if (isPrime(i))
+            printf(&quot;%d &quot;, i);
+    }
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><hr>
+<h3>7. Compute factors of a given number</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf(&quot;Enter a positive integer: &quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+
+    printf(&quot;Factors of %d are: &quot;, num);
+    for (int i = 1; i &lt;= num; i++) {
+        if (num % i == 0)
+            printf(&quot;%d &quot;, i);
+    }
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><hr>
+<h3>8. Macro that swaps two numbers + program to use it</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Macro to swap two integers using a temporary variable
+#define SWAP(a, b)  do { int temp = a; a = b; b = temp; } while(0)
+
+int main() {
+    int x, y;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+
+    printf(&quot;Before swap: x = %d, y = %d\n&quot;, x, y);
+    SWAP(x, y);
+    printf(&quot;After swap:  x = %d, y = %d\n&quot;, x, y);
+
+    return 0;
+}</code></pre><hr>
+<h3>9. Print a triangle of stars (odd number of stars per line)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int lines;
+    printf(&quot;Enter number of lines: &quot;);
+    scanf(&quot;%d&quot;, &amp;lines);
+
+    for (int i = 1; i &lt;= lines; i++) {
+        // Print stars: 1, 3, 5, 7, ... =&gt; (2*i - 1) stars
+        for (int j = 1; j &lt;= (2 * i - 1); j++) {
+            printf(&quot;*&quot;);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre><hr>
+<h3>10. Menu-driven program for array operations</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+#define MAX 100
+
+// Function to print even elements
+void printEven(int arr[], int n) {
+    printf(&quot;Even elements: &quot;);
+    for (int i = 0; i &lt; n; i++)
+        if (arr[i] % 2 == 0)
+            printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+}
+
+// Function to print odd elements
+void printOdd(int arr[], int n) {
+    printf(&quot;Odd elements: &quot;);
+    for (int i = 0; i &lt; n; i++)
+        if (arr[i] % 2 != 0)
+            printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+}
+
+// Function to print sum and average
+void sumAvg(int arr[], int n) {
+    int sum = 0;
+    for (int i = 0; i &lt; n; i++)
+        sum += arr[i];
+    printf(&quot;Sum = %d, Average = %.2f\n&quot;, sum, (float)sum / n);
+}
+
+// Function to print max and min
+void maxMin(int arr[], int n) {
+    int max = arr[0], min = arr[0];
+    for (int i = 1; i &lt; n; i++) {
+        if (arr[i] &gt; max) max = arr[i];
+        if (arr[i] &lt; min) min = arr[i];
+    }
+    printf(&quot;Max = %d, Min = %d\n&quot;, max, min);
+}
+
+// Function to remove duplicates (keeps first occurrence)
+void removeDuplicates(int arr[], int *n) {
+    for (int i = 0; i &lt; *n; i++) {
+        for (int j = i + 1; j &lt; *n; j++) {
+            if (arr[i] == arr[j]) {
+                // Shift elements left
+                for (int k = j; k &lt; *n - 1; k++)
+                    arr[k] = arr[k + 1];
+                (*n)--;
+                j--; // check the new element at this position
+            }
+        }
+    }
+    printf(&quot;After removing duplicates: &quot;);
+    for (int i = 0; i &lt; *n; i++)
+        printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+}
+
+// Function to print array in reverse order
+void printReverse(int arr[], int n) {
+    printf(&quot;Reverse order: &quot;);
+    for (int i = n - 1; i &gt;= 0; i--)
+        printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+}
+
+int main() {
+    int arr[MAX], n, choice;
+
+    printf(&quot;Enter number of elements (max %d): &quot;, MAX);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (int i = 0; i &lt; n; i++)
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+
+    do {
+        printf(&quot;\n--- MENU ---\n&quot;);
+        printf(&quot;1. Print even elements\n&quot;);
+        printf(&quot;2. Print odd elements\n&quot;);
+        printf(&quot;3. Sum and average\n&quot;);
+        printf(&quot;4. Max and min\n&quot;);
+        printf(&quot;5. Remove duplicates\n&quot;);
+        printf(&quot;6. Print reverse order\n&quot;);
+        printf(&quot;7. Re-enter array\n&quot;);
+        printf(&quot;8. Quit\n&quot;);
+        printf(&quot;Enter your choice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+
+        switch (choice) {
+            case 1: printEven(arr, n); break;
+            case 2: printOdd(arr, n); break;
+            case 3: sumAvg(arr, n); break;
+            case 4: maxMin(arr, n); break;
+            case 5: removeDuplicates(arr, &amp;n); break;
+            case 6: printReverse(arr, n); break;
+            case 7:
+                printf(&quot;Enter new number of elements: &quot;);
+                scanf(&quot;%d&quot;, &amp;n);
+                printf(&quot;Enter %d new elements: &quot;, n);
+                for (int i = 0; i &lt; n; i++)
+                    scanf(&quot;%d&quot;, &amp;arr[i]);
+                break;
+            case 8: printf(&quot;Exiting...\n&quot;); break;
+            default: printf(&quot;Invalid choice!\n&quot;);
+        }
+    } while (choice != 8);
+
+    return 0;
+}</code></pre><p>Here are the easy-to-understand C programs for questions 11 to 15.</p>
+<hr>
+<h3>11. Count occurrences of each alphabet in command line arguments</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main(int argc, char *argv[]) {
+    int count[26] = {0};  // for &#39;a&#39; to &#39;z&#39;
+
+    if (argc &lt; 2) {
+        printf(&quot;Usage: %s &lt;text&gt; ...\n&quot;, argv[0]);
+        return 1;
+    }
+
+    // Process each command line argument (skip argv[0] which is program name)
+    for (int i = 1; i &lt; argc; i++) {
+        for (int j = 0; argv[i][j] != &#39;\0&#39;; j++) {
+            char ch = tolower(argv[i][j]);
+            if (ch &gt;= &#39;a&#39; &amp;&amp; ch &lt;= &#39;z&#39;)
+                count[ch - &#39;a&#39;]++;
+        }
+    }
+
+    // Print table
+    printf(&quot;Alphabet Occurrences:\n&quot;);
+    for (int i = 0; i &lt; 26; i++) {
+        if (count[i] &gt; 0)
+            printf(&quot;%c : %d\n&quot;, &#39;a&#39; + i, count[i]);
+    }
+
+    return 0;
+}</code></pre><hr>
+<h3>12. Swap two numbers using pointers</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Function to swap using pointers
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x, y;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+
+    printf(&quot;Before swap: x = %d, y = %d\n&quot;, x, y);
+    swap(&amp;x, &amp;y);
+    printf(&quot;After swap:  x = %d, y = %d\n&quot;, x, y);
+
+    return 0;
+}</code></pre><hr>
+<h3>13. Function passed addresses to alter contents</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Function that alters the contents of two variables (adds 10 to each)
+void alter(int *a, int *b) {
+    *a = *a + 10;
+    *b = *b + 10;
+}
+
+int main() {
+    int x, y;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;y);
+
+    printf(&quot;Before alteration: x = %d, y = %d\n&quot;, x, y);
+    alter(&amp;x, &amp;y);
+    printf(&quot;After alteration (added 10 to each): x = %d, y = %d\n&quot;, x, y);
+
+    return 0;
+}</code></pre><hr>
+<h3>14. Compute area and circumference using another function</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define PI 3.14159
+
+// Function to compute area and circumference; results stored via pointers
+void computeCircle(float radius, float *area, float *circumference) {
+    *area = PI * radius * radius;
+    *circumference = 2 * PI * radius;
+}
+
+int main() {
+    float radius, area, circumference;
+    printf(&quot;Enter radius of circle: &quot;);
+    scanf(&quot;%f&quot;, &amp;radius);
+
+    computeCircle(radius, &amp;area, &amp;circumference);
+    printf(&quot;Area = %.2f\n&quot;, area);
+    printf(&quot;Circumference = %.2f\n&quot;, circumference);
+
+    return 0;
+}</code></pre><hr>
+<h3>15. Sum of n elements using dynamic memory allocation (malloc)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int n, sum = 0;
+    int *arr;
+
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    // Allocate memory for n integers
+    arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        printf(&quot;Memory allocation failed!\n&quot;);
+        return 1;
+    }
+
+    printf(&quot;Enter %d integers: &quot;, n);
+    for (int i = 0; i &lt; n; i++) {
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf(&quot;Sum of entered numbers = %d\n&quot;, sum);
+
+    free(arr);  // free allocated memory
+    return 0;
+}</code></pre><p>Here are the easy-to-understand C programs for questions 16 to 20.</p>
+<hr>
+<h3>16. Menu-driven string operations</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+
+void showAddresses(char str[]) {
+    printf(&quot;Character Addresses:\n&quot;);
+    for (int i = 0; str[i] != &#39;\0&#39;; i++)
+        printf(&quot;%c : %p\n&quot;, str[i], &amp;str[i]);
+}
+
+void concatWithoutStrcat(char str1[], char str2[]) {
+    char result[200];
+    int i = 0, j = 0;
+    while (str1[i] != &#39;\0&#39;) {
+        result[i] = str1[i];
+        i++;
+    }
+    while (str2[j] != &#39;\0&#39;) {
+        result[i] = str2[j];
+        i++; j++;
+    }
+    result[i] = &#39;\0&#39;;
+    printf(&quot;Concatenated (without strcat): %s\n&quot;, result);
+}
+
+void concatWithStrcat(char str1[], char str2[]) {
+    char temp[200];
+    strcpy(temp, str1);
+    strcat(temp, str2);
+    printf(&quot;Concatenated (with strcat): %s\n&quot;, temp);
+}
+
+void compareStrings(char str1[], char str2[]) {
+    int result = strcmp(str1, str2);
+    if (result == 0)
+        printf(&quot;Strings are equal.\n&quot;);
+    else if (result &lt; 0)
+        printf(&quot;String 1 is less than String 2.\n&quot;);
+    else
+        printf(&quot;String 1 is greater than String 2.\n&quot;);
+}
+
+void stringLengthUsingPointer(char str[]) {
+    char *p = str;
+    int len = 0;
+    while (*p != &#39;\0&#39;) {
+        len++;
+        p++;
+    }
+    printf(&quot;Length of string = %d\n&quot;, len);
+}
+
+void toUpperCase(char str[]) {
+    char temp[100];
+    strcpy(temp, str);
+    for (int i = 0; temp[i] != &#39;\0&#39;; i++)
+        temp[i] = toupper(temp[i]);
+    printf(&quot;Uppercase: %s\n&quot;, temp);
+}
+
+void toLowerCase(char str[]) {
+    char temp[100];
+    strcpy(temp, str);
+    for (int i = 0; temp[i] != &#39;\0&#39;; i++)
+        temp[i] = tolower(temp[i]);
+    printf(&quot;Lowercase: %s\n&quot;, temp);
+}
+
+void countVowels(char str[]) {
+    int count = 0;
+    for (int i = 0; str[i] != &#39;\0&#39;; i++) {
+        char ch = tolower(str[i]);
+        if (ch == &#39;a&#39; || ch == &#39;e&#39; || ch == &#39;i&#39; || ch == &#39;o&#39; || ch == &#39;u&#39;)
+            count++;
+    }
+    printf(&quot;Number of vowels = %d\n&quot;, count);
+}
+
+void reverseString(char str[]) {
+    int len = strlen(str);
+    char temp[100];
+    for (int i = 0; i &lt; len; i++)
+        temp[i] = str[len - 1 - i];
+    temp[len] = &#39;\0&#39;;
+    printf(&quot;Reversed string: %s\n&quot;, temp);
+}
+
+int main() {
+    char str1[100], str2[100];
+    int choice;
+
+    printf(&quot;Enter first string: &quot;);
+    scanf(&quot;%s&quot;, str1);
+    printf(&quot;Enter second string: &quot;);
+    scanf(&quot;%s&quot;, str2);
+
+    do {
+        printf(&quot;\n--- MENU ---\n&quot;);
+        printf(&quot;a) Show address of each character in string\n&quot;);
+        printf(&quot;b) Concatenate two strings without strcat\n&quot;);
+        printf(&quot;c) Concatenate two strings using strcat\n&quot;);
+        printf(&quot;d) Compare two strings\n&quot;);
+        printf(&quot;e) Calculate length of string (pointers)\n&quot;);
+        printf(&quot;f) Convert lowercase to uppercase\n&quot;);
+        printf(&quot;g) Convert uppercase to lowercase\n&quot;);
+        printf(&quot;h) Count vowels\n&quot;);
+        printf(&quot;i) Reverse the string\n&quot;);
+        printf(&quot;j) Quit\n&quot;);
+        printf(&quot;Enter your choice: &quot;);
+        scanf(&quot; %c&quot;, &amp;choice);  // space before %c to skip newline
+
+        switch (choice) {
+            case &#39;a&#39;: showAddresses(str1); break;
+            case &#39;b&#39;: concatWithoutStrcat(str1, str2); break;
+            case &#39;c&#39;: concatWithStrcat(str1, str2); break;
+            case &#39;d&#39;: compareStrings(str1, str2); break;
+            case &#39;e&#39;: stringLengthUsingPointer(str1); break;
+            case &#39;f&#39;: toUpperCase(str1); break;
+            case &#39;g&#39;: toLowerCase(str1); break;
+            case &#39;h&#39;: countVowels(str1); break;
+            case &#39;i&#39;: reverseString(str1); break;
+            case &#39;j&#39;: printf(&quot;Exiting...\n&quot;); break;
+            default: printf(&quot;Invalid choice!\n&quot;);
+        }
+    } while (choice != &#39;j&#39;);
+
+    return 0;
+}</code></pre><hr>
+<h3>17. Merge two ordered arrays</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void merge(int arr1[], int n1, int arr2[], int n2, int merged[]) {
+    int i = 0, j = 0, k = 0;
+    while (i &lt; n1 &amp;&amp; j &lt; n2) {
+        if (arr1[i] &lt;= arr2[j])
+            merged[k++] = arr1[i++];
+        else
+            merged[k++] = arr2[j++];
+    }
+    while (i &lt; n1)
+        merged[k++] = arr1[i++];
+    while (j &lt; n2)
+        merged[k++] = arr2[j++];
+}
+
+int main() {
+    int arr1[100], arr2[100], merged[200];
+    int n1, n2;
+
+    printf(&quot;Enter size of first sorted array: &quot;);
+    scanf(&quot;%d&quot;, &amp;n1);
+    printf(&quot;Enter %d elements (sorted): &quot;, n1);
+    for (int i = 0; i &lt; n1; i++) scanf(&quot;%d&quot;, &amp;arr1[i]);
+
+    printf(&quot;Enter size of second sorted array: &quot;);
+    scanf(&quot;%d&quot;, &amp;n2);
+    printf(&quot;Enter %d elements (sorted): &quot;, n2);
+    for (int i = 0; i &lt; n2; i++) scanf(&quot;%d&quot;, &amp;arr2[i]);
+
+    merge(arr1, n1, arr2, n2, merged);
+
+    printf(&quot;Merged sorted array: &quot;);
+    for (int i = 0; i &lt; n1 + n2; i++)
+        printf(&quot;%d &quot;, merged[i]);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><hr>
+<h3>18. Fibonacci series using recursion and iteration</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Recursive function
+int fibRecursive(int n) {
+    if (n &lt;= 1) return n;
+    return fibRecursive(n - 1) + fibRecursive(n - 2);
+}
+
+// Iterative function
+void fibIterative(int n) {
+    int a = 0, b = 1, c;
+    if (n &gt;= 1) printf(&quot;%d &quot;, a);
+    if (n &gt;= 2) printf(&quot;%d &quot;, b);
+    for (int i = 3; i &lt;= n; i++) {
+        c = a + b;
+        printf(&quot;%d &quot;, c);
+        a = b;
+        b = c;
+    }
+    printf(&quot;\n&quot;);
+}
+
+int main() {
+    int n, choice;
+    printf(&quot;Enter number of terms: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    printf(&quot;Using recursion: &quot;);
+    for (int i = 0; i &lt; n; i++)
+        printf(&quot;%d &quot;, fibRecursive(i));
+    printf(&quot;\n&quot;);
+
+    printf(&quot;Using iteration: &quot;);
+    fibIterative(n);
+
+    return 0;
+}</code></pre><hr>
+<h3>19. Factorial using recursion and iteration</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Recursive factorial
+long long factRecursive(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * factRecursive(n - 1);
+}
+
+// Iterative factorial
+long long factIterative(int n) {
+    long long fact = 1;
+    for (int i = 2; i &lt;= n; i++)
+        fact *= i;
+    return fact;
+}
+
+int main() {
+    int n;
+    printf(&quot;Enter a number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    printf(&quot;Factorial (recursive) = %lld\n&quot;, factRecursive(n));
+    printf(&quot;Factorial (iterative) = %lld\n&quot;, factIterative(n));
+
+    return 0;
+}</code></pre><hr>
+<h3>20. GCD of two numbers with recursion and without recursion</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Recursive GCD (Euclidean algorithm)
+int gcdRecursive(int a, int b) {
+    if (b == 0) return a;
+    return gcdRecursive(b, a % b);
+}
+
+// Iterative GCD
+int gcdIterative(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int num1, num2;
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;num1, &amp;num2);
+
+    printf(&quot;GCD (recursive) = %d\n&quot;, gcdRecursive(num1, num2));
+    printf(&quot;GCD (iterative) = %d\n&quot;, gcdIterative(num1, num2));
+
+    return 0;
+}</code></pre><p>Here are the easy-to-understand C programs for questions 21 to 28.</p>
+<hr>
+<h3>21. Menu-driven matrix operations (Sum, Difference, Product, Transpose)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+#define MAX 10
+
+void readMatrix(int mat[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i &lt; rows; i++)
+        for (int j = 0; j &lt; cols; j++)
+            scanf(&quot;%d&quot;, &amp;mat[i][j]);
+}
+
+void printMatrix(int mat[MAX][MAX], int rows, int cols) {
+    for (int i = 0; i &lt; rows; i++) {
+        for (int j = 0; j &lt; cols; j++)
+            printf(&quot;%d &quot;, mat[i][j]);
+        printf(&quot;\n&quot;);
+    }
+}
+
+void add(int a[MAX][MAX], int b[MAX][MAX], int rows, int cols) {
+    int result[MAX][MAX];
+    for (int i = 0; i &lt; rows; i++)
+        for (int j = 0; j &lt; cols; j++)
+            result[i][j] = a[i][j] + b[i][j];
+    printf(&quot;Sum:\n&quot;);
+    printMatrix(result, rows, cols);
+}
+
+void subtract(int a[MAX][MAX], int b[MAX][MAX], int rows, int cols) {
+    int result[MAX][MAX];
+    for (int i = 0; i &lt; rows; i++)
+        for (int j = 0; j &lt; cols; j++)
+            result[i][j] = a[i][j] - b[i][j];
+    printf(&quot;Difference:\n&quot;);
+    printMatrix(result, rows, cols);
+}
+
+void multiply(int a[MAX][MAX], int b[MAX][MAX], int r1, int c1, int c2) {
+    int result[MAX][MAX] = {0};
+    for (int i = 0; i &lt; r1; i++)
+        for (int j = 0; j &lt; c2; j++)
+            for (int k = 0; k &lt; c1; k++)
+                result[i][j] += a[i][k] * b[k][j];
+    printf(&quot;Product:\n&quot;);
+    printMatrix(result, r1, c2);
+}
+
+void transpose(int mat[MAX][MAX], int rows, int cols) {
+    int trans[MAX][MAX];
+    for (int i = 0; i &lt; rows; i++)
+        for (int j = 0; j &lt; cols; j++)
+            trans[j][i] = mat[i][j];
+    printf(&quot;Transpose:\n&quot;);
+    printMatrix(trans, cols, rows);
+}
+
+int main() {
+    int a[MAX][MAX], b[MAX][MAX];
+    int r1, c1, r2, c2;
+    int choice;
+
+    printf(&quot;Enter rows and cols for first matrix: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;r1, &amp;c1);
+    printf(&quot;Enter first matrix:\n&quot;);
+    readMatrix(a, r1, c1);
+
+    printf(&quot;Enter rows and cols for second matrix: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;r2, &amp;c2);
+    printf(&quot;Enter second matrix:\n&quot;);
+    readMatrix(b, r2, c2);
+
+    do {
+        printf(&quot;\n--- MENU ---\n&quot;);
+        printf(&quot;1. Sum (same size)\n&quot;);
+        printf(&quot;2. Difference (same size)\n&quot;);
+        printf(&quot;3. Product (cols1 == rows2)\n&quot;);
+        printf(&quot;4. Transpose of first matrix\n&quot;);
+        printf(&quot;5. Quit\n&quot;);
+        printf(&quot;Enter choice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+
+        switch (choice) {
+            case 1:
+                if (r1 == r2 &amp;&amp; c1 == c2) add(a, b, r1, c1);
+                else printf(&quot;Matrices must be same size!\n&quot;);
+                break;
+            case 2:
+                if (r1 == r2 &amp;&amp; c1 == c2) subtract(a, b, r1, c1);
+                else printf(&quot;Matrices must be same size!\n&quot;);
+                break;
+            case 3:
+                if (c1 == r2) multiply(a, b, r1, c1, c2);
+                else printf(&quot;Cols of first must equal rows of second!\n&quot;);
+                break;
+            case 4: transpose(a, r1, c1); break;
+            case 5: printf(&quot;Exiting...\n&quot;); break;
+            default: printf(&quot;Invalid choice!\n&quot;);
+        }
+    } while (choice != 5);
+
+    return 0;
+}</code></pre><hr>
+<h3>22. Copy contents of one text file to another, removing all whitespaces</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+    FILE *source, *dest;
+    char ch;
+
+    source = fopen(&quot;source.txt&quot;, &quot;r&quot;);
+    if (source == NULL) {
+        printf(&quot;Cannot open source file.\n&quot;);
+        return 1;
+    }
+
+    dest = fopen(&quot;destination.txt&quot;, &quot;w&quot;);
+    if (dest == NULL) {
+        printf(&quot;Cannot create destination file.\n&quot;);
+        fclose(source);
+        return 1;
+    }
+
+    while ((ch = fgetc(source)) != EOF) {
+        if (!isspace(ch))  // if not whitespace, write to destination
+            fputc(ch, dest);
+    }
+
+    printf(&quot;File copied successfully without whitespaces.\n&quot;);
+    fclose(source);
+    fclose(dest);
+    return 0;
+}</code></pre><hr>
+<h3>23. Reverse elements of an array in place using only one pointer</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void reverse(int *arr, int n) {
+    int *left = arr;
+    int *right = arr + n - 1;
+    int temp;
+
+    while (left &lt; right) {
+        temp = *left;
+        *left = *right;
+        *right = temp;
+        left++;
+        right--;
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf(&quot;Original array: &quot;);
+    for (int i = 0; i &lt; n; i++) printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+
+    reverse(arr, n);
+
+    printf(&quot;Reversed array: &quot;);
+    for (int i = 0; i &lt; n; i++) printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><hr>
+<h3>24. Read 10 integers using pointers, print ascending and descending order</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void sortAscending(int *arr, int n) {
+    for (int i = 0; i &lt; n - 1; i++)
+        for (int j = i + 1; j &lt; n; j++)
+            if (*(arr + i) &gt; *(arr + j)) {
+                int temp = *(arr + i);
+                *(arr + i) = *(arr + j);
+                *(arr + j) = temp;
+            }
+}
+
+void sortDescending(int *arr, int n) {
+    for (int i = 0; i &lt; n - 1; i++)
+        for (int j = i + 1; j &lt; n; j++)
+            if (*(arr + i) &lt; *(arr + j)) {
+                int temp = *(arr + i);
+                *(arr + i) = *(arr + j);
+                *(arr + j) = temp;
+            }
+}
+
+int main() {
+    int arr[10];
+    int *ptr = arr;
+
+    printf(&quot;Enter 10 integers: &quot;);
+    for (int i = 0; i &lt; 10; i++)
+        scanf(&quot;%d&quot;, ptr + i);  // using pointer arithmetic
+
+    // Sort ascending
+    sortAscending(ptr, 10);
+    printf(&quot;Ascending order: &quot;);
+    for (int i = 0; i &lt; 10; i++)
+        printf(&quot;%d &quot;, *(ptr + i));
+    printf(&quot;\n&quot;);
+
+    // Sort descending
+    sortDescending(ptr, 10);
+    printf(&quot;Descending order: &quot;);
+    for (int i = 0; i &lt; 10; i++)
+        printf(&quot;%d &quot;, *(ptr + i));
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><hr>
+<h3>25. Stack operations using array</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define MAX 100
+
+int stack[MAX];
+int top = -1;
+
+void push(int value) {
+    if (top == MAX - 1) {
+        printf(&quot;Stack overflow!\n&quot;);
+        return;
+    }
+    stack[++top] = value;
+    printf(&quot;%d pushed.\n&quot;, value);
+}
+
+int pop() {
+    if (top == -1) {
+        printf(&quot;Stack underflow!\n&quot;);
+        return -1;
+    }
+    return stack[top--];
+}
+
+void display() {
+    if (top == -1) {
+        printf(&quot;Stack is empty.\n&quot;);
+        return;
+    }
+    printf(&quot;Stack: &quot;);
+    for (int i = 0; i &lt;= top; i++)
+        printf(&quot;%d &quot;, stack[i]);
+    printf(&quot;\n&quot;);
+}
+
+int main() {
+    int choice, value;
+
+    do {
+        printf(&quot;\n--- STACK MENU ---\n&quot;);
+        printf(&quot;1. Push\n2. Pop\n3. Display\n4. Quit\n&quot;);
+        printf(&quot;Enter choice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+
+        switch (choice) {
+            case 1:
+                printf(&quot;Enter value: &quot;);
+                scanf(&quot;%d&quot;, &amp;value);
+                push(value);
+                break;
+            case 2:
+                value = pop();
+                if (value != -1)
+                    printf(&quot;Popped: %d\n&quot;, value);
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf(&quot;Exiting...\n&quot;);
+                break;
+            default:
+                printf(&quot;Invalid choice!\n&quot;);
+        }
+    } while (choice != 4);
+
+    return 0;
+}</code></pre><hr>
+<h3>26. Queue operations using array</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define MAX 100
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int value) {
+    if (rear == MAX - 1) {
+        printf(&quot;Queue overflow!\n&quot;);
+        return;
+    }
+    if (front == -1) front = 0;
+    queue[++rear] = value;
+    printf(&quot;%d enqueued.\n&quot;, value);
+}
+
+int dequeue() {
+    if (front == -1 || front &gt; rear) {
+        printf(&quot;Queue underflow!\n&quot;);
+        return -1;
+    }
+    int value = queue[front++];
+    if (front &gt; rear) front = rear = -1; // reset when empty
+    return value;
+}
+
+void display() {
+    if (front == -1 || front &gt; rear) {
+        printf(&quot;Queue is empty.\n&quot;);
+        return;
+    }
+    printf(&quot;Queue: &quot;);
+    for (int i = front; i &lt;= rear; i++)
+        printf(&quot;%d &quot;, queue[i]);
+    printf(&quot;\n&quot;);
+}
+
+int main() {
+    int choice, value;
+
+    do {
+        printf(&quot;\n--- QUEUE MENU ---\n&quot;);
+        printf(&quot;1. Enqueue\n2. Dequeue\n3. Display\n4. Quit\n&quot;);
+        printf(&quot;Enter choice: &quot;);
+        scanf(&quot;%d&quot;, &amp;choice);
+
+        switch (choice) {
+            case 1:
+                printf(&quot;Enter value: &quot;);
+                scanf(&quot;%d&quot;, &amp;value);
+                enqueue(value);
+                break;
+            case 2:
+                value = dequeue();
+                if (value != -1)
+                    printf(&quot;Dequeued: %d\n&quot;, value);
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf(&quot;Exiting...\n&quot;);
+                break;
+            default:
+                printf(&quot;Invalid choice!\n&quot;);
+        }
+    } while (choice != 4);
+
+    return 0;
+}</code></pre><hr>
+<h3>27. Linear search in a collection</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int linearSearch(int arr[], int n, int key) {
+    for (int i = 0; i &lt; n; i++)
+        if (arr[i] == key)
+            return i;  // return index
+    return -1;
+}
+
+int main() {
+    int arr[100], n, key;
+
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (int i = 0; i &lt; n; i++)
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+
+    printf(&quot;Enter element to search: &quot;);
+    scanf(&quot;%d&quot;, &amp;key);
+
+    int pos = linearSearch(arr, n, key);
+    if (pos == -1)
+        printf(&quot;Element not found.\n&quot;);
+    else
+        printf(&quot;Element found at index %d.\n&quot;, pos);
+
+    return 0;
+}</code></pre><hr>
+<h3>28. Bubble sort</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i &lt; n - 1; i++) {
+        for (int j = 0; j &lt; n - i - 1; j++) {
+            if (arr[j] &gt; arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[100], n;
+
+    printf(&quot;Enter number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;Enter %d elements: &quot;, n);
+    for (int i = 0; i &lt; n; i++)
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+
+    bubbleSort(arr, n);
+
+    printf(&quot;Sorted array: &quot;);
+    for (int i = 0; i &lt; n; i++)
+        printf(&quot;%d &quot;, arr[i]);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre><h2>Experiment: Basic Linux Commands</h2>
+<h3>Objective</h3>
+<p>Learn and practice fundamental Linux/Unix commands for file and directory manipulation, navigation, and system information.</p>
+<hr>
+<h3>1. <code>ls</code> – List directory contents</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>ls [options] [path]</code></li>
+<li><strong>Common options</strong>:<ul>
+<li><code>-l</code> : long format (permissions, size, date)</li>
+<li><code>-a</code> : show all files including hidden (starting with <code>.</code>)</li>
+<li><code>-lh</code> : human‑readable sizes</li>
+</ul>
+</li>
+<li><strong>Example</strong>:<pre><code class="language-bash">ls -la /home/user</code></pre></li>
+</ul>
+<hr>
+<h3>2. <code>cd</code> – Change directory</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>cd [directory]</code></li>
+<li><strong>Special paths</strong>:<ul>
+<li><code>cd ..</code> → go up one level</li>
+<li><code>cd ~</code> → go to home directory</li>
+<li><code>cd /</code> → go to root</li>
+<li><code>cd -</code> → go to previous directory</li>
+</ul>
+</li>
+<li><strong>Example</strong>:<pre><code class="language-bash">cd Documents/Projects</code></pre></li>
+</ul>
+<hr>
+<h3>3. <code>cp</code> – Copy files or directories</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>cp [options] source destination</code></li>
+<li><strong>Common options</strong>:<ul>
+<li><code>-r</code> : recursive (copy directories)</li>
+<li><code>-i</code> : prompt before overwrite</li>
+</ul>
+</li>
+<li><strong>Examples</strong>:<pre><code class="language-bash">cp file1.txt file2.txt        # copy file
+cp -r folder1/ folder2/       # copy directory</code></pre></li>
+</ul>
+<hr>
+<h3>4. <code>cat</code> – Concatenate and display file content</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>cat [file]</code></li>
+<li>Also used to create small files (with <code>&gt;</code>)</li>
+<li><strong>Examples</strong>:<pre><code class="language-bash">cat myfile.txt                # view content
+cat file1.txt file2.txt &gt; combined.txt   # merge two files</code></pre></li>
+</ul>
+<hr>
+<h3>5. <code>mv</code> – Move or rename files/directories</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>mv source destination</code></li>
+<li>Used both for moving and renaming.</li>
+<li><strong>Examples</strong>:<pre><code class="language-bash">mv oldname.txt newname.txt    # rename
+mv file.txt /home/user/       # move</code></pre></li>
+</ul>
+<hr>
+<h3>6. <code>mkdir</code> – Make a new directory</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>mkdir [options] directory_name</code></li>
+<li><strong>Option</strong> <code>-p</code> : create parent directories if needed</li>
+<li><strong>Example</strong>:<pre><code class="language-bash">mkdir -p project/src          # creates both project and src</code></pre></li>
+</ul>
+<hr>
+<h3>7. <code>rmdir</code> – Remove an empty directory</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>rmdir [directory]</code></li>
+<li><strong>Note</strong>: Only works if the directory is empty. To remove non‑empty directories, use <code>rm -r</code>.</li>
+<li><strong>Example</strong>:<pre><code class="language-bash">rmdir empty_folder</code></pre></li>
+</ul>
+<hr>
+<h3>8. <code>who</code> – Show who is logged in</h3>
+<ul>
+<li><strong>Syntax</strong>: <code>who</code></li>
+<li>Shows username, terminal, login time, and remote host.</li>
+<li><strong>Example</strong>:<pre><code class="language-bash">who</code></pre></li>
+</ul>
+<hr>
+<h3>9. Wildcards (<code>*</code>, <code>?</code>, <code>[ ]</code>)</h3>
+<p>Wildcards help you match multiple files.</p>
+<ul>
+<li><code>*</code> – matches zero or more characters<br>Example: <code>ls *.txt</code> → lists all <code>.txt</code> files.</li>
+<li><code>?</code> – matches exactly one character<br>Example: <code>ls file?.txt</code> → matches <code>file1.txt</code>, <code>fileA.txt</code>, etc.</li>
+<li><code>[ ]</code> – matches any one character from a set<br>Example: <code>ls file[0-9].txt</code> → matches <code>file0.txt</code> … <code>file9.txt</code>.</li>
+</ul>
+<hr>
+<h3>Sample Experiment (What you can do for your 5 marks)</h3>
+<ol>
+<li>Open a terminal.</li>
+<li>Create a directory structure:<pre><code class="language-bash">mkdir -p LinuxLab/{docs,backup}
+cd LinuxLab</code></pre></li>
+<li>Create sample files using <code>cat</code>:<pre><code class="language-bash">echo &quot;Hello&quot; &gt; docs/file1.txt
+echo &quot;World&quot; &gt; docs/file2.txt</code></pre></li>
+<li>List files with <code>ls -l</code>.</li>
+<li>Copy files to backup:<pre><code class="language-bash">cp docs/*.txt backup/</code></pre></li>
+<li>Use wildcard to view all <code>.txt</code> files: <code>cat backup/*.txt</code>.</li>
+<li>Rename a file: <code>mv docs/file1.txt docs/hello.txt</code>.</li>
+<li>Remove a directory (first empty it, then <code>rmdir</code> or use <code>rm -r</code>).</li>
+<li>Check who is logged in: <code>who</code>.</li>
+<li>Navigate with <code>cd ..</code>, <code>cd ~</code>, etc.</li>
+</ol>
+<hr>
+<h3>Bonus Commands (helpful)</h3>
+<ul>
+<li><code>pwd</code> – print current working directory.</li>
+<li><code>echo</code> – display text.</li>
+<li><code>man</code> – show manual for any command (e.g., <code>man ls</code>).</li>
+</ul>
+<hr>
+
+</body>
+
+</html>

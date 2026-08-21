@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-02-introduction-to-problem-solving</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Introduction to Problem Solving</h2>
+<p><strong>Problem Solving</strong> in computer science is the process of transforming a given problem (real-world or theoretical) into a working, efficient, and correct software solution. It is the most fundamental skill for a programmer and involves logical thinking, analysis, and systematic execution.</p>
+<hr>
+<h2>2. Steps for Problem Solving</h2>
+<p>The process of solving a problem using a computer follows a standard <strong>5-step lifecycle</strong>. This is an iterative process—meaning if a later step fails (e.g., testing), you must go back to a previous step.</p>
+<pre class="mermaid">graph TD
+    A[Step 1: Analyzing&lt;br&gt;the Problem] --&gt; B[Step 2: Developing&lt;br&gt;an Algorithm]
+    B --&gt; C[Step 3: Coding]
+    C --&gt; D[Step 4: Testing]
+    D --&gt; E{Errors Found?}
+    E --&gt;|No| F[Step 5: Successful&lt;br&gt;Solution &amp; Deployment]
+    E --&gt;|Yes| G[Step 5: Debugging]
+    G --&gt; H{Fix Logic&lt;br&gt;or Design?}
+    H --&gt;|Yes| B
+    H --&gt;|No| C
+    H --&gt;|Hardware/Environment| A</pre><hr>
+<h3>Step 1: Analyzing the Problem</h3>
+<p><strong>Definition</strong>: This is the most crucial phase. It involves understanding the problem deeply before attempting to solve it. If you misunderstand the problem, the entire solution will be wrong.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li><strong>Read and Re-read</strong>: Carefully read the problem statement multiple times.</li>
+<li><strong>Identify Inputs</strong>: What data does the problem provide? (e.g., numbers, strings, files).</li>
+<li><strong>Identify Outputs</strong>: What is the expected result? (e.g., sum, sorted list, a boolean true/false).</li>
+<li><strong>Identify Constraints</strong>: Are there any limitations? (e.g., input size, time limits, memory limits, valid ranges).</li>
+<li><strong>Stakeholder Queries</strong>: Ask &quot;what if&quot; questions to clarify ambiguous parts.</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li><strong>Problem</strong>: Calculate the area of a rectangle.</li>
+<li><strong>Analysis</strong>:<ul>
+<li>Inputs: Length ($L$) and Breadth ($B$). Must be positive real numbers.</li>
+<li>Output: Area ($A = L \times B$).</li>
+<li>Constraints: $L &gt; 0$, $B &gt; 0$.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>Step 2: Developing an Algorithm</h3>
+<p><strong>Definition</strong>: Once the problem is understood, the next step is to design a step-by-step logical procedure (the algorithm) to solve it.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li>Break down the main problem into smaller, manageable sub-problems (Modularization).</li>
+<li>Write down the exact sequence of operations.</li>
+<li>Choose the appropriate control structures: <strong>Sequence</strong>, <strong>Selection</strong> (if-else), and <strong>Iteration</strong> (loops).</li>
+<li>Represent the algorithm using:<ul>
+<li><strong>Flowcharts</strong> (graphical representation).</li>
+<li><strong>Pseudo-code</strong> (textual representation).</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example</strong> (Rectangle Area Algorithm in Pseudo-code):</p>
+<pre><code>BEGIN
+    INPUT L, B
+    AREA ← L * B
+    OUTPUT AREA
+END</code></pre><hr>
+<h3>Step 3: Coding</h3>
+<p><strong>Definition</strong>: Translating the algorithm (pseudo-code/flowchart) into a specific programming language (like C, C++, Python, Java) that the computer can understand and execute.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li>Choose an appropriate programming language based on the problem domain.</li>
+<li>Write the source code following strict <strong>syntax rules</strong> (grammar of the language).</li>
+<li>Use meaningful variable names and proper indentation to make the code readable (maintainability).</li>
+<li><strong>Integrate</strong> the various modules (if the algorithm was broken into functions/procedures).</li>
+</ol>
+<p><strong>Example</strong> (Coding the Rectangle Area in Python):</p>
+<pre><code class="language-python"># Step 3: Coding
+L = float(input(&quot;Enter length: &quot;))
+B = float(input(&quot;Enter breadth: &quot;))
+Area = L * B
+print(&quot;Area is:&quot;, Area)</code></pre><hr>
+<h3>Step 4: Testing</h3>
+<p><strong>Definition</strong>: Running the program with various sets of input data (test cases) to verify that the algorithm/code produces the correct output.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li><strong>Unit Testing</strong>: Testing individual components/functions of the program.</li>
+<li><strong>Integration Testing</strong>: Testing the interaction between combined modules.</li>
+<li><strong>System Testing</strong>: Testing the entire program as a whole.</li>
+<li><strong>Types of Test Cases</strong>:<ul>
+<li><strong>Valid / Normal</strong>: Standard expected inputs (e.g., $L=5, B=10$).</li>
+<li><strong>Boundary / Edge</strong>: Values at the extreme limits (e.g., $L=0$, $B=1$).</li>
+<li><strong>Invalid / Erroneous</strong>: Incorrect data types or out-of-range values (e.g., $L=\text{&quot;abc&quot;}$).</li>
+</ul>
+</li>
+<li><strong>Expected vs Actual</strong>: Compare the actual output of the program against the manually calculated expected output.</li>
+</ol>
+<hr>
+<h3>Step 5: Debugging</h3>
+<p><strong>Definition</strong>: The systematic process of finding, isolating, and correcting <strong>errors (bugs)</strong> in the program discovered during testing.</p>
+<p><strong>Types of Errors (Bugs)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Error Type</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+<th align="left">Detection Method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Syntax Error</strong></td>
+<td align="left">Violates the grammatical rules of the language.</td>
+<td align="left">Writing <code>prnit</code> instead of <code>print</code> in Python.</td>
+<td align="left">Compiler / Interpreter</td>
+</tr>
+<tr>
+<td align="left"><strong>Runtime Error</strong></td>
+<td align="left">Occurs during execution; crashes the program.</td>
+<td align="left">Dividing by zero (<code>10/0</code>), accessing a missing file.</td>
+<td align="left">During execution (crashes)</td>
+</tr>
+<tr>
+<td align="left"><strong>Logical Error</strong></td>
+<td align="left">Program runs without crashing but gives wrong results.</td>
+<td align="left">Using <code>L + B</code> instead of <code>L * B</code> for area.</td>
+<td align="left">Dry-run, Manual testing, Print statements. (Hardest to find)</td>
+</tr>
+</tbody></table>
+<p><strong>Debugging Techniques</strong>:</p>
+<ol>
+<li><strong>Dry Run</strong>: Manually execute the code on paper with sample inputs, tracking variable values.</li>
+<li><strong>Print Statements</strong>: Insert temporary <code>print</code> commands to check variable states at various points.</li>
+<li><strong>Debugging Tools (Debuggers)</strong>: Use tools like <code>pdb</code> (Python), GDB (C/C++), or IDE built-in debuggers. They allow you to set <strong>breakpoints</strong> and step through the code line-by-line.</li>
+<li><strong>Rubber Duck Debugging</strong>: Explaining the code logic aloud to someone (or an inanimate object) often reveals the flaw.</li>
+</ol>
+<hr>
+<h2>3. Iterative Nature of Problem Solving</h2>
+<p>It is crucial to understand that problem-solving is <strong>not linear</strong>. It is a <strong>feedback loop</strong>.</p>
+<ul>
+<li>If <strong>Testing</strong> finds a logical error → you go back to <strong>Coding</strong>.</li>
+<li>If the algorithm design seems too complex or flawed → you go back to <strong>Developing the Algorithm</strong>.</li>
+<li>If the problem constraints change or were misunderstood → you go back to <strong>Analyzing the Problem</strong>.</li>
+</ul>
+<h2>4. MCQ</h2>
+<h4>Q1. Problem Solving in computer science is the process of:</h4>
+<div class="question-options"><span class="option">A) Writing code without planning</span>
+<span class="option">B) Transforming a problem into a working, efficient, and correct software solution ✅</span>
+<span class="option">C) Designing hardware components</span>
+<span class="option">D) Installing operating systems</span></div><h4>Q2. What is the most fundamental skill for a programmer?</h4>
+<div class="question-options"><span class="option">A) Typing speed</span>
+<span class="option">B) Problem Solving ✅</span>
+<span class="option">C) Hardware knowledge</span>
+<span class="option">D) Networking</span></div><h4>Q3. The problem-solving process follows how many steps in the standard lifecycle?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 4</span>
+<span class="option">C) 5 ✅</span>
+<span class="option">D) 6</span></div><h4>Q4. The problem-solving lifecycle is described as:</h4>
+<div class="question-options"><span class="option">A) Linear</span>
+<span class="option">B) Iterative ✅</span>
+<span class="option">C) Random</span>
+<span class="option">D) Unidirectional</span></div><h4>Q5. If testing finds errors, the process goes back to which step?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding or Algorithm development ✅</span>
+<span class="option">D) Deployment</span></div><h4>Q6. The first step in problem solving is:</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Testing</span>
+<span class="option">C) Analyzing the Problem ✅</span>
+<span class="option">D) Developing an Algorithm</span></div><h4>Q7. Which step is described as the most crucial phase?</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Testing</span>
+<span class="option">C) Analyzing the Problem ✅</span>
+<span class="option">D) Debugging</span></div><h4>Q8. If you misunderstand the problem, what will happen?</h4>
+<div class="question-options"><span class="option">A) The entire solution will be wrong ✅</span>
+<span class="option">B) Only the output will be wrong</span>
+<span class="option">C) The code will not compile</span>
+<span class="option">D) Nothing will happen</span></div><h4>Q9. Which of the following is NOT a key activity in problem analysis?</h4>
+<div class="question-options"><span class="option">A) Read and re-read the problem</span>
+<span class="option">B) Identify inputs and outputs</span>
+<span class="option">C) Write the final code ✅</span>
+<span class="option">D) Identify constraints</span></div><h4>Q10. In problem analysis, what should you identify about inputs?</h4>
+<div class="question-options"><span class="option">A) Their color</span>
+<span class="option">B) Their data type and source ✅</span>
+<span class="option">C) Their location in memory</span>
+<span class="option">D) Their file size</span></div><h4>Q11. In problem analysis, outputs refer to:</h4>
+<div class="question-options"><span class="option">A) The error messages</span>
+<span class="option">B) The expected result ✅</span>
+<span class="option">C) The input data</span>
+<span class="option">D) The algorithm steps</span></div><h4>Q12. Constraints in problem analysis refer to:</h4>
+<div class="question-options"><span class="option">A) The programming language used</span>
+<span class="option">B) Limitations like input size, time limits, memory limits ✅</span>
+<span class="option">C) The output format</span>
+<span class="option">D) The number of developers</span></div><h4>Q13. For the problem &quot;Calculate the area of a rectangle&quot;, the inputs are:</h4>
+<div class="question-options"><span class="option">A) Area only</span>
+<span class="option">B) Length and Breadth ✅</span>
+<span class="option">C) Length, Breadth, and Area</span>
+<span class="option">D) Only Length</span></div><h4>Q14. For the problem &quot;Calculate the area of a rectangle&quot;, what are the constraints?</h4>
+<div class="question-options"><span class="option">A) L > 0, B > 0 ✅</span>
+<span class="option">B) L ≥ 0, B ≥ 0</span>
+<span class="option">C) L < 0, B < 0</span>
+<span class="option">D) No constraints</span></div><h4>Q15. The second step in problem solving is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm ✅</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing</span></div><h4>Q16. Breaking down the main problem into smaller sub-problems is called:</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Debugging</span>
+<span class="option">C) Modularization ✅</span>
+<span class="option">D) Testing</span></div><h4>Q17. Which control structures are used in algorithm development?</h4>
+<div class="question-options"><span class="option">A) Sequence, Selection, Iteration ✅</span>
+<span class="option">B) Only Sequence</span>
+<span class="option">C) Only Selection</span>
+<span class="option">D) Only Iteration</span></div><h4>Q18. Algorithms can be represented using:</h4>
+<div class="question-options"><span class="option">A) Only Flowcharts</span>
+<span class="option">B) Only Pseudo-code</span>
+<span class="option">C) Flowcharts and Pseudo-code ✅</span>
+<span class="option">D) Only C code</span></div><h4>Q19. The rectangle area algorithm in pseudo-code uses which steps?</h4>
+<div class="question-options"><span class="option">A) INPUT, PROCESS, OUTPUT ✅</span>
+<span class="option">B) WRITE, READ, CALCULATE</span>
+<span class="option">C) START, MIDDLE, END</span>
+<span class="option">D) BEGIN, EXECUTE, FINISH</span></div><h4>Q20. The third step in problem solving is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding ✅</span>
+<span class="option">D) Testing</span></div><h4>Q21. Coding is defined as:</h4>
+<div class="question-options"><span class="option">A) Designing the algorithm</span>
+<span class="option">B) Translating the algorithm into a specific programming language ✅</span>
+<span class="option">C) Running the program</span>
+<span class="option">D) Finding errors</span></div><h4>Q22. While coding, what syntax rules must be followed?</h4>
+<div class="question-options"><span class="option">A) The grammar rules of the programming language ✅</span>
+<span class="option">B) The grammar rules of English</span>
+<span class="option">C) No rules</span>
+<span class="option">D) Only indentation rules</span></div><h4>Q23. Using meaningful variable names and proper indentation improves:</h4>
+<div class="question-options"><span class="option">A) Execution speed</span>
+<span class="option">B) Code readability and maintainability ✅</span>
+<span class="option">C) Memory usage</span>
+<span class="option">D) Compilation time</span></div><h4>Q24. The fourth step in problem solving is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing ✅</span></div><h4>Q25. Testing involves running the program with:</h4>
+<div class="question-options"><span class="option">A) Only one set of input data</span>
+<span class="option">B) Various sets of input data (test cases) ✅</span>
+<span class="option">C) No input data</span>
+<span class="option">D) Only invalid data</span></div><h4>Q26. Testing individual components/functions is called:</h4>
+<div class="question-options"><span class="option">A) System Testing</span>
+<span class="option">B) Integration Testing</span>
+<span class="option">C) Unit Testing ✅</span>
+<span class="option">D) Acceptance Testing</span></div><h4>Q27. Testing the interaction between combined modules is called:</h4>
+<div class="question-options"><span class="option">A) Unit Testing</span>
+<span class="option">B) Integration Testing ✅</span>
+<span class="option">C) System Testing</span>
+<span class="option">D) Alpha Testing</span></div><h4>Q28. Testing the entire program as a whole is called:</h4>
+<div class="question-options"><span class="option">A) Unit Testing</span>
+<span class="option">B) Integration Testing</span>
+<span class="option">C) System Testing ✅</span>
+<span class="option">D) Unit Testing</span></div><h4>Q29. Valid/Normal test cases use:</h4>
+<div class="question-options"><span class="option">A) Values at extreme limits</span>
+<span class="option">B) Standard expected inputs ✅</span>
+<span class="option">C) Incorrect data types</span>
+<span class="option">D) Out-of-range values</span></div><h4>Q30. Boundary/Edge test cases use:</h4>
+<div class="question-options"><span class="option">A) Standard expected inputs</span>
+<span class="option">B) Values at extreme limits ✅</span>
+<span class="option">C) Incorrect data types</span>
+<span class="option">D) Random values</span></div><h4>Q31. Invalid/Erroneous test cases use:</h4>
+<div class="question-options"><span class="option">A) Standard expected inputs</span>
+<span class="option">B) Values at extreme limits</span>
+<span class="option">C) Incorrect data types or out-of-range values ✅</span>
+<span class="option">D) Only positive numbers</span></div><h4>Q32. In testing, expected output is compared with:</h4>
+<div class="question-options"><span class="option">A) The algorithm</span>
+<span class="option">B) The actual output ✅</span>
+<span class="option">C) The input data</span>
+<span class="option">D) The pseudo-code</span></div><h4>Q33. The fifth step in problem solving when errors are found is:</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Testing</span>
+<span class="option">C) Debugging ✅</span>
+<span class="option">D) Deployment</span></div><h4>Q34. Debugging is the process of:</h4>
+<div class="question-options"><span class="option">A) Writing new code</span>
+<span class="option">B) Finding, isolating, and correcting errors ✅</span>
+<span class="option">C) Designing algorithms</span>
+<span class="option">D) Testing the program</span></div><h4>Q35. Errors in programs are commonly called:</h4>
+<div class="question-options"><span class="option">A) Features</span>
+<span class="option">B) Bugs ✅</span>
+<span class="option">C) Enhancements</span>
+<span class="option">D) Updates</span></div><h4>Q36. Which type of error violates the grammatical rules of the language?</h4>
+<div class="question-options"><span class="option">A) Logical Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Syntax Error ✅</span>
+<span class="option">D) Semantic Error</span></div><h4>Q37. Writing <code>prnit</code> instead of <code>print</code> in Python is an example of:</h4>
+<div class="question-options"><span class="option">A) Logical Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Syntax Error ✅</span>
+<span class="option">D) Design Error</span></div><h4>Q38. Syntax errors are detected by:</h4>
+<div class="question-options"><span class="option">A) The user</span>
+<span class="option">B) The compiler or interpreter ✅</span>
+<span class="option">C) Runtime execution</span>
+<span class="option">D) Test cases</span></div><h4>Q39. Which type of error occurs during execution and crashes the program?</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error ✅</span>
+<span class="option">C) Logical Error</span>
+<span class="option">D) Compilation Error</span></div><h4>Q40. Dividing by zero (10/0) is an example of:</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error ✅</span>
+<span class="option">C) Logical Error</span>
+<span class="option">D) Design Error</span></div><h4>Q41. Which type of error causes the program to run without crashing but gives wrong results?</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Logical Error ✅</span>
+<span class="option">D) Compilation Error</span></div><h4>Q42. Using <code>L + B</code> instead of <code>L * B</code> for area calculation is an example of:</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Logical Error ✅</span>
+<span class="option">D) Compilation Error</span></div><h4>Q43. Which type of error is the hardest to find?</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Logical Error ✅</span>
+<span class="option">D) Compilation Error</span></div><h4>Q44. Logical errors are detected by:</h4>
+<div class="question-options"><span class="option">A) The compiler</span>
+<span class="option">B) The interpreter</span>
+<span class="option">C) Dry-run and manual testing ✅</span>
+<span class="option">D) Automatic detection</span></div><h4>Q45. Manually executing code on paper with sample inputs is called:</h4>
+<div class="question-options"><span class="option">A) Compiling</span>
+<span class="option">B) Debugging</span>
+<span class="option">C) Dry Run ✅</span>
+<span class="option">D) Testing</span></div><h4>Q46. Inserting temporary print commands to check variable states is a debugging technique called:</h4>
+<div class="question-options"><span class="option">A) Breakpoints</span>
+<span class="option">B) Print Statements ✅</span>
+<span class="option">C) Rubber Duck Debugging</span>
+<span class="option">D) Dry Run</span></div><h4>Q47. Debugging tools that allow setting breakpoints and stepping through code are called:</h4>
+<div class="question-options"><span class="option">A) Compilers</span>
+<span class="option">B) Interpreters</span>
+<span class="option">C) Debuggers ✅</span>
+<span class="option">D) Linkers</span></div><h4>Q48. Explaining code logic aloud to someone (or an inanimate object) is called:</h4>
+<div class="question-options"><span class="option">A) Pair Programming</span>
+<span class="option">B) Code Review</span>
+<span class="option">C) Rubber Duck Debugging ✅</span>
+<span class="option">D) Dry Run</span></div><h4>Q49. If testing finds a logical error, the process should go back to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing the Algorithm</span>
+<span class="option">C) Coding ✅</span>
+<span class="option">D) Deployment</span></div><h4>Q50. If the algorithm design seems too complex or flawed, the process goes back to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing the Algorithm ✅</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing</span></div><h4>Q51. If problem constraints change or were misunderstood, the process goes back to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem ✅</span>
+<span class="option">B) Developing the Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing</span></div><h4>Q52. The problem-solving lifecycle is best described as:</h4>
+<div class="question-options"><span class="option">A) A straight line</span>
+<span class="option">B) A feedback loop ✅</span>
+<span class="option">C) A circle with no exit</span>
+<span class="option">D) A random process</span></div><h4>Q53. The 5-step problem-solving lifecycle includes:</h4>
+<div class="question-options"><span class="option">A) Analysis, Algorithm, Coding, Testing, Debugging ✅</span>
+<span class="option">B) Planning, Design, Code, Execute, Maintain</span>
+<span class="option">C) Input, Process, Output, Store, Retrieve</span>
+<span class="option">D) Start, Middle, End, Loop, Stop</span></div><h4>Q54. In the problem-solving flowchart, after Testing, if no errors are found, the next step is:</h4>
+<div class="question-options"><span class="option">A) Debugging</span>
+<span class="option">B) Successful Solution & Deployment ✅</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Algorithm Development</span></div><h4>Q55. In the problem-solving flowchart, after Debugging, if the logic needs fixing, the process goes to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing the Algorithm ✅</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing</span></div><h4>Q56. In the problem-solving flowchart, after Debugging, if the code needs fixing, the process goes to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing the Algorithm</span>
+<span class="option">C) Coding ✅</span>
+<span class="option">D) Testing</span></div><h4>Q57. In the problem-solving flowchart, after Debugging, if hardware/environment issues exist, the process goes to:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem ✅</span>
+<span class="option">B) Developing the Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing</span></div><h4>Q58. The most crucial phase in problem solving is:</h4>
+<div class="question-options"><span class="option">A) Coding</span>
+<span class="option">B) Testing</span>
+<span class="option">C) Analyzing the Problem ✅</span>
+<span class="option">D) Debugging</span></div><h4>Q59. The phase where the algorithm is translated into a specific programming language is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding ✅</span>
+<span class="option">D) Testing</span></div><h4>Q60. The phase where the program is run with various input sets is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing ✅</span></div><h4>Q61. The phase where errors are found and corrected is:</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Debugging ✅</span></div><h4>Q62. Unit Testing, Integration Testing, and System Testing are part of which phase?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing ✅</span></div><h4>Q63. Which of the following is an example of a normal test case for rectangle area?</h4>
+<div class="question-options"><span class="option">A) L=0, B=10</span>
+<span class="option">B) L=-5, B=10</span>
+<span class="option">C) L=5, B=10 ✅</span>
+<span class="option">D) L="abc", B=10</span></div><h4>Q64. Which of the following is an example of a boundary test case for rectangle area?</h4>
+<div class="question-options"><span class="option">A) L=5, B=10</span>
+<span class="option">B) L=0, B=10 ✅</span>
+<span class="option">C) L=-5, B=10</span>
+<span class="option">D) L="abc", B=10</span></div><h4>Q65. Which of the following is an example of an invalid test case for rectangle area?</h4>
+<div class="question-options"><span class="option">A) L=5, B=10</span>
+<span class="option">B) L=0, B=10</span>
+<span class="option">C) L=-5, B=10 ✅</span>
+<span class="option">D) L=1, B=1</span></div><h4>Q66. For an algorithm, the term &quot;Iterative&quot; in the context of problem solving means:</h4>
+<div class="question-options"><span class="option">A) It uses loops</span>
+<span class="option">B) It repeats steps with feedback ✅</span>
+<span class="option">C) It is written in iterative language</span>
+<span class="option">D) It never ends</span></div><h4>Q67. What is the output of the rectangle area algorithm if L=5 and B=10?</h4>
+<div class="question-options"><span class="option">A) 15</span>
+<span class="option">B) 50 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 5</span></div><h4>Q68. If the area algorithm uses <code>L + B</code> instead of <code>L * B</code>, this is a:</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Logical Error ✅</span>
+<span class="option">D) Compilation Error</span></div><h4>Q69. Which debugging technique involves tracking variable values on paper?</h4>
+<div class="question-options"><span class="option">A) Print Statements</span>
+<span class="option">B) Using Debuggers</span>
+<span class="option">C) Dry Run ✅</span>
+<span class="option">D) Rubber Duck Debugging</span></div><h4>Q70. GDB (GNU Debugger) is used for which programming language primarily?</h4>
+<div class="question-options"><span class="option">A) Python</span>
+<span class="option">B) Java</span>
+<span class="option">C) C/C++ ✅</span>
+<span class="option">D) JavaScript</span></div><h4>Q71. In the problem-solving process, what should you do first when given a problem?</h4>
+<div class="question-options"><span class="option">A) Start coding immediately</span>
+<span class="option">B) Read and re-read the problem statement ✅</span>
+<span class="option">C) Draw a flowchart</span>
+<span class="option">D) Write test cases</span></div><h4>Q72. Which of the following is NOT a type of error in programs?</h4>
+<div class="question-options"><span class="option">A) Syntax Error</span>
+<span class="option">B) Runtime Error</span>
+<span class="option">C) Design Error ✅</span>
+<span class="option">D) Logical Error</span></div><h4>Q73. Compilation errors are another name for:</h4>
+<div class="question-options"><span class="option">A) Syntax Errors ✅</span>
+<span class="option">B) Runtime Errors</span>
+<span class="option">C) Logical Errors</span>
+<span class="option">D) Semantic Errors</span></div><h4>Q74. Runtime errors are also called:</h4>
+<div class="question-options"><span class="option">A) Compilation errors</span>
+<span class="option">B) Execution errors ✅</span>
+<span class="option">C) Logical errors</span>
+<span class="option">D) Design errors</span></div><h4>Q75. Logical errors are also called:</h4>
+<div class="question-options"><span class="option">A) Compilation errors</span>
+<span class="option">B) Execution errors</span>
+<span class="option">C) Semantic errors ✅</span>
+<span class="option">D) Syntax errors</span></div><h4>Q76. The feedback loop in problem solving ensures:</h4>
+<div class="question-options"><span class="option">A) The process is always linear</span>
+<span class="option">B) Issues can be fixed by revisiting earlier steps ✅</span>
+<span class="option">C) No changes are ever made</span>
+<span class="option">D) Only testing is important</span></div><h4>Q77. Which step comes immediately after Developing an Algorithm?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Coding ✅</span>
+<span class="option">C) Testing</span>
+<span class="option">D) Debugging</span></div><h4>Q78. Which step comes immediately after Coding?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Testing ✅</span>
+<span class="option">D) Debugging</span></div><h4>Q79. Which step comes immediately after Testing if errors are found?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Debugging ✅</span></div><h4>Q80. Successful Solution &amp; Deployment happens after which step?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing (with no errors) ✅</span></div><h4>Q81. In the analysis phase, &quot;Stakeholder Queries&quot; involve:</h4>
+<div class="question-options"><span class="option">A) Asking the compiler</span>
+<span class="option">B) Asking "what if" questions to clarify ambiguous parts ✅</span>
+<span class="option">C) Asking the debugger</span>
+<span class="option">D) Asking for more time</span></div><h4>Q82. The acronym for the types of test cases is:</h4>
+<div class="question-options"><span class="option">A) VBI (Valid, Boundary, Invalid) ✅</span>
+<span class="option">B) VIB (Valid, Invalid, Boundary)</span>
+<span class="option">C) BVI (Boundary, Valid, Invalid)</span>
+<span class="option">D) IVB (Invalid, Valid, Boundary)</span></div><h4>Q83. Which of the following is an example of a runtime error?</h4>
+<div class="question-options"><span class="option">A) `printf("%d", x);` where x is undeclared</span>
+<span class="option">B) `10 / 0` ✅</span>
+<span class="option">C) `sum = a + b;` when it should be `sum = a - b;`</span>
+<span class="option">D) `prnit("Hello");`</span></div><h4>Q84. Which of the following is an example of a syntax error?</h4>
+<div class="question-options"><span class="option">A) `10 / 0`</span>
+<span class="option">B) `prnit("Hello");` ✅</span>
+<span class="option">C) `sum = a + b;` when it should be `sum = a - b;`</span>
+<span class="option">D) File not found</span></div><h4>Q85. Which of the following is an example of a logical error?</h4>
+<div class="question-options"><span class="option">A) `10 / 0`</span>
+<span class="option">B) `prnit("Hello");`</span>
+<span class="option">C) `sum = a + b;` when it should be `sum = a - b;` ✅</span>
+<span class="option">D) File not found</span></div><h4>Q86. The process of finding the root cause of a bug is called:</h4>
+<div class="question-options"><span class="option">A) Testing</span>
+<span class="option">B) Coding</span>
+<span class="option">C) Debugging ✅</span>
+<span class="option">D) Analyzing</span></div><h4>Q87. Breakpoints are used in which debugging technique?</h4>
+<div class="question-options"><span class="option">A) Print Statements</span>
+<span class="option">B) Dry Run</span>
+<span class="option">C) Debuggers ✅</span>
+<span class="option">D) Rubber Duck Debugging</span></div><h4>Q88. Which of the following is NOT a debugging technique?</h4>
+<div class="question-options"><span class="option">A) Dry Run</span>
+<span class="option">B) Print Statements</span>
+<span class="option">C) Using Debuggers</span>
+<span class="option">D) Compiling ✅</span></div><h4>Q89. In the problem-solving flowchart, what does the diamond decision represent?</h4>
+<div class="question-options"><span class="option">A) Start/End</span>
+<span class="option">B) Process</span>
+<span class="option">C) Errors Found? ✅</span>
+<span class="option">D) Input/Output</span></div><h4>Q90. The rectangle area problem analysis identified constraints as:</h4>
+<div class="question-options"><span class="option">A) L > 0, B > 0 ✅</span>
+<span class="option">B) L >= 0, B >= 0</span>
+<span class="option">C) L < 0, B < 0</span>
+<span class="option">D) No constraints</span></div><h4>Q91. If the output of the program does not match the expected output, what should be done?</h4>
+<div class="question-options"><span class="option">A) Ignore it</span>
+<span class="option">B) Run the program again</span>
+<span class="option">C) Debug the program ✅</span>
+<span class="option">D) Change the requirements</span></div><h4>Q92. Which is the most time-consuming phase in problem solving?</h4>
+<div class="question-options"><span class="option">A) Analyzing the Problem</span>
+<span class="option">B) Developing an Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Depends on the problem, often Debugging ✅</span></div><h4>Q93. The problem-solving process requires:</h4>
+<div class="question-options"><span class="option">A) Only technical skills</span>
+<span class="option">B) Only logical thinking</span>
+<span class="option">C) Logical thinking, analysis, and systematic execution ✅</span>
+<span class="option">D) Only coding skills</span></div><h4>Q94. In the analysis phase, identifying inputs and outputs helps to:</h4>
+<div class="question-options"><span class="option">A) Write the code directly</span>
+<span class="option">B) Understand what data is given and what result is expected ✅</span>
+<span class="option">C) Test the program</span>
+<span class="option">D) Deploy the solution</span></div><h4>Q95. The term &quot;Modularization&quot; in algorithm development means:</h4>
+<div class="question-options"><span class="option">A) Writing the entire algorithm in one block</span>
+<span class="option">B) Breaking the main problem into smaller, manageable sub-problems ✅</span>
+<span class="option">C) Using only one module</span>
+<span class="option">D) Avoiding functions</span></div><h4>Q96. Which of the following is the correct order of the problem-solving steps?</h4>
+<div class="question-options"><span class="option">A) Analysis → Algorithm → Coding → Testing → Debugging ✅</span>
+<span class="option">B) Algorithm → Analysis → Coding → Testing → Debugging</span>
+<span class="option">C) Coding → Analysis → Algorithm → Testing → Debugging</span>
+<span class="option">D) Testing → Analysis → Algorithm → Coding → Debugging</span></div><h4>Q97. The expected output in testing is calculated by:</h4>
+<div class="question-options"><span class="option">A) The computer</span>
+<span class="option">B) The compiler</span>
+<span class="option">C) Manual calculation based on the problem ✅</span>
+<span class="option">D) The debugger</span></div><h4>Q98. What happens if a test case fails?</h4>
+<div class="question-options"><span class="option">A) The program is deployed</span>
+<span class="option">B) Debugging is performed to find and fix the error ✅</span>
+<span class="option">C) The program is ignored</span>
+<span class="option">D) The test case is deleted</span></div><h4>Q99. The purpose of using test cases is to:</h4>
+<div class="question-options"><span class="option">A) Make the program run faster</span>
+<span class="option">B) Verify that the algorithm/code produces the correct output ✅</span>
+<span class="option">C) Increase memory usage</span>
+<span class="option">D) Add more features</span></div><h4>Q100. Which of the following best describes the relationship between the 5 steps?</h4>
+<div class="question-options"><span class="option">A) Each step is independent and does not affect others</span>
+<span class="option">B) They are part of an iterative feedback loop ✅</span>
+<span class="option">C) Only the first step matters</span>
+<span class="option">D) The steps must always be in reverse order</span></div>
+
+</body>
+
+</html>

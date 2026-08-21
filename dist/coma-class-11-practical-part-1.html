@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coma-class-11-practical-part-1</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">class-11</span>
+            <span class="tag-badge">coma</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Create a Personal Budget Spreadsheet in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>Create a personal budget spreadsheet that tracks income, expenses, and savings over a specified period. Use formulas and functions to calculate totals, percentages, and remaining balances.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Personal Budget</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Add the Spreadsheet Title</h3>
+<ol>
+<li>In <strong>A1</strong>, type:</li>
+</ol>
+<pre><code>Personal Budget Tracker</code></pre><ol start="2">
+<li>Select the range <strong>A1:F1</strong>.</li>
+<li>Click <strong>Merge &amp; Center</strong>.</li>
+<li>Make the title <strong>Bold</strong> and increase the font size.</li>
+</ol>
+<hr>
+<h3>Step 4: Create the Income Table</h3>
+<p>Enter the following headings:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A3</td>
+<td>Income Source</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Amount ()</td>
+</tr>
+</tbody></table>
+<p>Enter the sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Income Source</th>
+<th align="right">Amount ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Salary</td>
+<td align="right">5000</td>
+</tr>
+<tr>
+<td>Freelance</td>
+<td align="right">800</td>
+</tr>
+<tr>
+<td>Other Income</td>
+<td align="right">200</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 5: Calculate Total Income</h3>
+<p>In <strong>A8</strong>, type:</p>
+<pre><code>Total Income</code></pre><p>In <strong>B8</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(B4:B6)</code></pre><p>Press <strong>Enter</strong>.</p>
+<hr>
+<h3>Step 6: Create the Expense Table</h3>
+<p>Starting from <strong>D3</strong>, enter:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D3</td>
+<td>Expense Category</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Amount ()</td>
+</tr>
+</tbody></table>
+<p>Enter the sample expenses:</p>
+<table>
+<thead>
+<tr>
+<th>Expense Category</th>
+<th align="right">Amount ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rent</td>
+<td align="right">1500</td>
+</tr>
+<tr>
+<td>Food</td>
+<td align="right">700</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td align="right">250</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td align="right">150</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td align="right">80</td>
+</tr>
+<tr>
+<td>Entertainment</td>
+<td align="right">300</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 7: Calculate Total Expenses</h3>
+<p>In <strong>D11</strong>, type:</p>
+<pre><code>Total Expenses</code></pre><p>In <strong>E11</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(E4:E9)</code></pre><hr>
+<h3>Step 8: Calculate Savings</h3>
+<p>In <strong>A10</strong>, type:</p>
+<pre><code>Savings</code></pre><p>In <strong>B10</strong>, enter:</p>
+<pre><code class="language-excel">=B8-E11</code></pre><hr>
+<h3>Step 9: Calculate Expense Percentage</h3>
+<p>Create another column.</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>% of Income</td>
+</tr>
+</tbody></table>
+<p>In <strong>F4</strong>, enter:</p>
+<pre><code class="language-excel">=E4/B8</code></pre><p>Press <strong>Enter</strong> and copy the formula down to <strong>F9</strong>.</p>
+<p>Format the cells as <strong>Percentage</strong>.</p>
+<hr>
+<h3>Step 10: Calculate Savings Percentage</h3>
+<p>In <strong>A12</strong>, type:</p>
+<pre><code>Savings %</code></pre><p>In <strong>B12</strong>, enter:</p>
+<pre><code class="language-excel">=B10/B8</code></pre><p>Format the cell as <strong>Percentage</strong>.</p>
+<hr>
+<h3>Step 11: Calculate Remaining Balance</h3>
+<p>In <strong>A14</strong>, type:</p>
+<pre><code>Remaining Balance</code></pre><p>In <strong>B14</strong>, enter:</p>
+<pre><code class="language-excel">=B8-E11</code></pre><hr>
+<h3>Step 12: Apply Formatting</h3>
+<ul>
+<li>Make all headings <strong>Bold</strong>.</li>
+<li>Apply <strong>All Borders</strong> to the tables.</li>
+<li>Fill the header cells with a light background color.</li>
+<li>Format the amount columns as <strong>Currency</strong>.</li>
+<li>Format the percentage cells as <strong>Percentage</strong>.</li>
+</ul>
+<hr>
+<h3>Step 13: Apply Conditional Formatting</h3>
+<p>To highlight savings:</p>
+<ol>
+<li><p>Select <strong>B10</strong>.</p>
+</li>
+<li><p>Go to <strong>Home → Conditional Formatting</strong>.</p>
+</li>
+<li><p>Create a rule:</p>
+<ul>
+<li><strong>Green</strong> if the value is greater than <strong>0</strong>.</li>
+<li><strong>Red</strong> if the value is less than <strong>0</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>Step 14: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Personal_Budget.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>SUM()</code></li>
+<li>Basic arithmetic (<code>-</code>)</li>
+<li>Division (<code>/</code>)</li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Track income, expenses, and savings.</li>
+<li>Calculate total income and total expenses automatically.</li>
+<li>Calculate savings and remaining balance.</li>
+<li>Display expense and savings percentages.</li>
+<li>Highlight savings using conditional formatting.</li>
+</ul>
+<h2>2. Create a Sales Analysis Spreadsheet in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>A dataset containing sales data for a company is provided. Create a spreadsheet that calculates monthly sales totals, identifies the top-selling products, and visualizes sales trends using line charts or bar graphs. Use conditional formatting to highlight exceptional sales performances.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Sales Report</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Sales Dataset</h3>
+<p>Enter the following headers in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Product</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Sales ()</td>
+</tr>
+</tbody></table>
+<p>Enter the following sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Product</th>
+<th align="right">Sales ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>January</td>
+<td>Laptop</td>
+<td align="right">12000</td>
+</tr>
+<tr>
+<td>January</td>
+<td>Mouse</td>
+<td align="right">2500</td>
+</tr>
+<tr>
+<td>January</td>
+<td>Keyboard</td>
+<td align="right">3500</td>
+</tr>
+<tr>
+<td>February</td>
+<td>Laptop</td>
+<td align="right">15000</td>
+</tr>
+<tr>
+<td>February</td>
+<td>Mouse</td>
+<td align="right">2800</td>
+</tr>
+<tr>
+<td>February</td>
+<td>Keyboard</td>
+<td align="right">4000</td>
+</tr>
+<tr>
+<td>March</td>
+<td>Laptop</td>
+<td align="right">17000</td>
+</tr>
+<tr>
+<td>March</td>
+<td>Mouse</td>
+<td align="right">3200</td>
+</tr>
+<tr>
+<td>March</td>
+<td>Keyboard</td>
+<td align="right">4500</td>
+</tr>
+<tr>
+<td>April</td>
+<td>Laptop</td>
+<td align="right">18000</td>
+</tr>
+<tr>
+<td>April</td>
+<td>Mouse</td>
+<td align="right">3500</td>
+</tr>
+<tr>
+<td>April</td>
+<td>Keyboard</td>
+<td align="right">5000</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Create the Monthly Sales Summary</h3>
+<p>Starting from <strong>E1</strong>, enter:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Total Sales ()</td>
+</tr>
+</tbody></table>
+<p>Enter the months:</p>
+<p>| E2 | January |
+| E3 | February |
+| E4 | March |
+| E5 | April |</p>
+<hr>
+<h3>Step 5: Calculate Monthly Sales Totals</h3>
+<p>In <strong>F2</strong>, enter the formula:</p>
+<pre><code class="language-excel">=SUMIF(A2:A13,E2,C2:C13)</code></pre><p>Press <strong>Enter</strong> and drag the formula down to <strong>F5</strong>.</p>
+<hr>
+<h3>Step 6: Create the Product Sales Summary</h3>
+<p>Starting from <strong>H1</strong>, enter:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H1</td>
+<td>Product</td>
+</tr>
+<tr>
+<td>I1</td>
+<td>Total Sales ()</td>
+</tr>
+</tbody></table>
+<p>Enter:</p>
+<p>| H2 | Laptop |
+| H3 | Mouse |
+| H4 | Keyboard |</p>
+<hr>
+<h3>Step 7: Calculate Total Sales for Each Product</h3>
+<p>In <strong>I2</strong>, enter:</p>
+<pre><code class="language-excel">=SUMIF(B2:B13,H2,C2:C13)</code></pre><p>Copy the formula down to <strong>I4</strong>.</p>
+<hr>
+<h3>Step 8: Identify the Top-Selling Product</h3>
+<p>In <strong>H6</strong>, type:</p>
+<pre><code>Top Selling Product</code></pre><p>In <strong>I6</strong>, enter:</p>
+<pre><code class="language-excel">=INDEX(H2:H4,MATCH(MAX(I2:I4),I2:I4,0))</code></pre><hr>
+<h3>Step 9: Find the Highest Sales Amount</h3>
+<p>In <strong>H7</strong>, type:</p>
+<pre><code>Highest Sales</code></pre><p>In <strong>I7</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(I2:I4)</code></pre><hr>
+<h3>Step 10: Create a Line Chart for Monthly Sales</h3>
+<ol>
+<li>Select the range <strong>E1:F5</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Line Chart</strong>.</li>
+<li>Select <strong>2-D Line</strong>.</li>
+<li>Rename the chart <strong>Monthly Sales Trend</strong>.</li>
+</ol>
+<hr>
+<h3>Step 11: Create a Bar Chart for Product Sales</h3>
+<ol>
+<li>Select the range <strong>H1:I4</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Column Chart</strong>.</li>
+<li>Choose <strong>Clustered Column</strong>.</li>
+<li>Rename the chart <strong>Product Sales Comparison</strong>.</li>
+</ol>
+<hr>
+<h3>Step 12: Apply Conditional Formatting</h3>
+<p>To highlight exceptional sales:</p>
+<ol>
+<li>Select <strong>C2:C13</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting → Highlight Cells Rules → Greater Than</strong>.</li>
+<li>Enter <strong>15000</strong>.</li>
+<li>Choose <strong>Green Fill with Dark Green Text</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<p>Sales values greater than <strong>15,000</strong> will be highlighted automatically.</p>
+<hr>
+<h3>Step 13: Calculate Overall Sales</h3>
+<p>In <strong>E7</strong>, type:</p>
+<pre><code>Overall Sales</code></pre><p>In <strong>F7</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(C2:C13)</code></pre><hr>
+<h3>Step 14: Calculate Average Sales</h3>
+<p>In <strong>E8</strong>, type:</p>
+<pre><code>Average Sales</code></pre><p>In <strong>F8</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(C2:C13)</code></pre><hr>
+<h3>Step 15: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Sales_Report.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>SUM()</code></li>
+<li><code>SUMIF()</code></li>
+<li><code>MAX()</code></li>
+<li><code>INDEX()</code></li>
+<li><code>MATCH()</code></li>
+<li><code>AVERAGE()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store and organize sales data.</li>
+<li>Calculate monthly sales totals automatically.</li>
+<li>Identify the top-selling product.</li>
+<li>Display sales trends using line and bar charts.</li>
+<li>Highlight exceptional sales using conditional formatting.</li>
+<li>Calculate the overall and average sales automatically.</li>
+</ul>
+<h2>3. Design a Grade Book Spreadsheet in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>Design a grade book spreadsheet that calculates students&#39; final grades based on assignments, exams, and participation. Incorporate a weighted grading system, use formulas to calculate averages and final grades, apply conditional formatting to indicate performance levels, and generate reports to track individual student progress.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Grade Book</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Student Grade Table</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Student Name</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Assignment (%)</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Exam (%)</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Participation (%)</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Final Grade (%)</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Grade</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>Status</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Enter Sample Student Data</h3>
+<table>
+<thead>
+<tr>
+<th>Student Name</th>
+<th align="right">Assignment</th>
+<th align="right">Exam</th>
+<th align="right">Participation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alice</td>
+<td align="right">85</td>
+<td align="right">90</td>
+<td align="right">95</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td align="right">78</td>
+<td align="right">72</td>
+<td align="right">80</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td align="right">92</td>
+<td align="right">88</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td>David</td>
+<td align="right">65</td>
+<td align="right">70</td>
+<td align="right">75</td>
+</tr>
+<tr>
+<td>Emma</td>
+<td align="right">98</td>
+<td align="right">95</td>
+<td align="right">100</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 5: Apply the Weighted Grading System</h3>
+<p>Use the following weight distribution:</p>
+<ul>
+<li><strong>Assignments:</strong> 40%</li>
+<li><strong>Exams:</strong> 50%</li>
+<li><strong>Participation:</strong> 10%</li>
+</ul>
+<p>In <strong>E2</strong>, enter:</p>
+<pre><code class="language-excel">=(B2*40%)+(C2*50%)+(D2*10%)</code></pre><p>Press <strong>Enter</strong> and drag the formula down to the remaining students.</p>
+<hr>
+<h3>Step 6: Assign Letter Grades</h3>
+<p>In <strong>F2</strong>, enter:</p>
+<pre><code class="language-excel">=IF(E2&gt;=90,&quot;A&quot;,IF(E2&gt;=80,&quot;B&quot;,IF(E2&gt;=70,&quot;C&quot;,IF(E2&gt;=60,&quot;D&quot;,&quot;F&quot;))))</code></pre><p>Copy the formula down to all students.</p>
+<hr>
+<h3>Step 7: Determine Pass or Fail Status</h3>
+<p>In <strong>G2</strong>, enter:</p>
+<pre><code class="language-excel">=IF(E2&gt;=40,&quot;Pass&quot;,&quot;Fail&quot;)</code></pre><p>Copy the formula down.</p>
+<hr>
+<h3>Step 8: Calculate the Class Average</h3>
+<p>In <strong>D9</strong>, type:</p>
+<pre><code class="language-text">Class Average</code></pre><p>In <strong>E9</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(E2:E6)</code></pre><hr>
+<h3>Step 9: Find the Highest Grade</h3>
+<p>In <strong>D10</strong>, type:</p>
+<pre><code class="language-text">Highest Grade</code></pre><p>In <strong>E10</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(E2:E6)</code></pre><hr>
+<h3>Step 10: Find the Lowest Grade</h3>
+<p>In <strong>D11</strong>, type:</p>
+<pre><code class="language-text">Lowest Grade</code></pre><p>In <strong>E11</strong>, enter:</p>
+<pre><code class="language-excel">=MIN(E2:E6)</code></pre><hr>
+<h3>Step 11: Count the Number of Students</h3>
+<p>In <strong>D12</strong>, type:</p>
+<pre><code class="language-text">Total Students</code></pre><p>In <strong>E12</strong>, enter:</p>
+<pre><code class="language-excel">=COUNTA(A2:A6)</code></pre><hr>
+<h3>Step 12: Apply Conditional Formatting</h3>
+<p>Highlight student performance levels.</p>
+<ol>
+<li>Select <strong>E2:E6</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting</strong>.</li>
+</ol>
+<p>Create the following rules:</p>
+<ul>
+<li><strong>Green Fill</strong> for grades <strong>90 and above</strong>.</li>
+<li><strong>Yellow Fill</strong> for grades <strong>70 to 89</strong>.</li>
+<li><strong>Red Fill</strong> for grades <strong>below 70</strong>.</li>
+</ul>
+<hr>
+<h3>Step 13: Generate a Student Progress Report</h3>
+<p>Create a summary table starting from <strong>I1</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I1</td>
+<td>Student Name</td>
+</tr>
+<tr>
+<td>J1</td>
+<td>Final Grade (%)</td>
+</tr>
+<tr>
+<td>K1</td>
+<td>Grade</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>Status</td>
+</tr>
+</tbody></table>
+<p>Copy the data from columns <strong>A, E, F, and G</strong> into the report.</p>
+<p>This report provides a quick overview of each student&#39;s academic performance.</p>
+<hr>
+<h3>Step 14: Create a Bar Chart</h3>
+<ol>
+<li>Select <strong>A1:A6</strong> and <strong>E1:E6</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Choose <strong>Column Chart → Clustered Column</strong>.</li>
+<li>Rename the chart <strong>Student Final Grades</strong>.</li>
+</ol>
+<hr>
+<h3>Step 15: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Grade_Book.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>AVERAGE()</code></li>
+<li><code>MAX()</code></li>
+<li><code>MIN()</code></li>
+<li><code>COUNTA()</code></li>
+<li><code>IF()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store student marks for assignments, exams, and participation.</li>
+<li>Calculate weighted final grades automatically.</li>
+<li>Assign letter grades.</li>
+<li>Display pass/fail status.</li>
+<li>Calculate class average, highest grade, lowest grade, and total number of students.</li>
+<li>Highlight performance levels using conditional formatting.</li>
+<li>Generate a student progress report.</li>
+<li>Visualize student performance using a bar chart.</li>
+</ul>
+<h2>4. Create an Inventory Management Spreadsheet in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>Create a spreadsheet that tracks inventory for a hypothetical business. Include columns for item names, quantities, unit prices, and total values. Use formulas to automatically update inventory totals, generate alerts for low stock, and create visualizations to represent inventory levels over time.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Inventory Management</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Inventory Table</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Item Name</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Unit Price ()</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Total Value ()</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Stock Status</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Enter Sample Inventory Data</h3>
+<table>
+<thead>
+<tr>
+<th>Item Name</th>
+<th align="right">Quantity</th>
+<th align="right">Unit Price ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Laptop</td>
+<td align="right">20</td>
+<td align="right">800</td>
+</tr>
+<tr>
+<td>Mouse</td>
+<td align="right">60</td>
+<td align="right">20</td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td align="right">40</td>
+<td align="right">35</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td align="right">15</td>
+<td align="right">180</td>
+</tr>
+<tr>
+<td>Printer</td>
+<td align="right">8</td>
+<td align="right">250</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 5: Calculate Total Value for Each Item</h3>
+<p>In <strong>D2</strong>, enter:</p>
+<pre><code class="language-excel">=B2*C2</code></pre><p>Press <strong>Enter</strong> and drag the formula down to <strong>D6</strong>.</p>
+<hr>
+<h3>Step 6: Generate Low Stock Alerts</h3>
+<p>Assume that stock below <strong>10 units</strong> is considered low.</p>
+<p>In <strong>E2</strong>, enter:</p>
+<pre><code class="language-excel">=IF(B2&lt;10,&quot;Low Stock&quot;,&quot;In Stock&quot;)</code></pre><p>Press <strong>Enter</strong> and drag the formula down to <strong>E6</strong>.</p>
+<hr>
+<h3>Step 7: Calculate Total Inventory Value</h3>
+<p>In <strong>C8</strong>, type:</p>
+<pre><code class="language-text">Total Inventory Value</code></pre><p>In <strong>D8</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(D2:D6)</code></pre><hr>
+<h3>Step 8: Calculate Total Quantity in Stock</h3>
+<p>In <strong>C9</strong>, type:</p>
+<pre><code class="language-text">Total Quantity</code></pre><p>In <strong>D9</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(B2:B6)</code></pre><hr>
+<h3>Step 9: Find the Highest Priced Item</h3>
+<p>In <strong>C10</strong>, type:</p>
+<pre><code class="language-text">Highest Unit Price</code></pre><p>In <strong>D10</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(C2:C6)</code></pre><hr>
+<h3>Step 10: Find the Average Unit Price</h3>
+<p>In <strong>C11</strong>, type:</p>
+<pre><code class="language-text">Average Unit Price</code></pre><p>In <strong>D11</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(C2:C6)</code></pre><hr>
+<h3>Step 11: Apply Conditional Formatting</h3>
+<p>To highlight low stock items:</p>
+<ol>
+<li>Select <strong>B2:B6</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting → Highlight Cells Rules → Less Than</strong>.</li>
+<li>Enter <strong>10</strong>.</li>
+<li>Choose <strong>Red Fill with Dark Red Text</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<p>Items with fewer than <strong>10 units</strong> will be highlighted automatically.</p>
+<hr>
+<h3>Step 12: Create a Bar Chart for Inventory Levels</h3>
+<ol>
+<li>Select the range <strong>A1:B6</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Column Chart</strong>.</li>
+<li>Choose <strong>Clustered Column</strong>.</li>
+<li>Rename the chart <strong>Current Inventory Levels</strong>.</li>
+</ol>
+<hr>
+<h3>Step 13: Create an Inventory Tracking Table</h3>
+<p>Starting from <strong>G1</strong>, create the following table to record inventory levels over time.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th align="right">Laptop</th>
+<th align="right">Mouse</th>
+<th align="right">Keyboard</th>
+<th align="right">Monitor</th>
+<th align="right">Printer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Week 1</td>
+<td align="right">20</td>
+<td align="right">60</td>
+<td align="right">40</td>
+<td align="right">15</td>
+<td align="right">8</td>
+</tr>
+<tr>
+<td>Week 2</td>
+<td align="right">18</td>
+<td align="right">58</td>
+<td align="right">38</td>
+<td align="right">14</td>
+<td align="right">7</td>
+</tr>
+<tr>
+<td>Week 3</td>
+<td align="right">16</td>
+<td align="right">55</td>
+<td align="right">36</td>
+<td align="right">12</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td align="right">15</td>
+<td align="right">52</td>
+<td align="right">35</td>
+<td align="right">10</td>
+<td align="right">5</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 14: Create a Line Chart for Inventory Trends</h3>
+<ol>
+<li>Select the tracking table created in <strong>Step 13</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Line Chart</strong>.</li>
+<li>Choose <strong>2-D Line</strong>.</li>
+<li>Rename the chart <strong>Inventory Levels Over Time</strong>.</li>
+</ol>
+<hr>
+<h3>Step 15: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Inventory_Management.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>SUM()</code></li>
+<li><code>AVERAGE()</code></li>
+<li><code>MAX()</code></li>
+<li><code>IF()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store inventory details for all items.</li>
+<li>Calculate the total value of each inventory item automatically.</li>
+<li>Calculate the total inventory quantity and overall inventory value.</li>
+<li>Generate automatic low stock alerts.</li>
+<li>Highlight low stock items using conditional formatting.</li>
+<li>Display current inventory levels using a bar chart.</li>
+<li>Track inventory changes over time using a line chart.</li>
+</ul>
+<h2>5. Create a Loan Repayment Calculator in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>Loan parameters, such as principal amount, interest rate, and loan term, are provided. Create a spreadsheet that calculates monthly loan payments, remaining balances, and interest paid over time using appropriate formulas. Create a chart to visualize the loan&#39;s repayment schedule.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Loan Calculator</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Enter the Loan Parameters</h3>
+<p>Create the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A2</td>
+<td>Principal Amount ()</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>100000</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Annual Interest Rate</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Loan Term (Years)</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Calculate the Monthly Loan Payment</h3>
+<p>In <strong>A6</strong>, type:</p>
+<pre><code class="language-text">Monthly Payment</code></pre><p>In <strong>B6</strong>, enter:</p>
+<pre><code class="language-excel">=PMT(B3/12,B4*12,-B2)</code></pre><p>Press <strong>Enter</strong>.</p>
+<hr>
+<h3>Step 5: Create the Loan Repayment Schedule</h3>
+<p>Enter the following headings starting from <strong>A9</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A9</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>Monthly Payment</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>Interest Paid</td>
+</tr>
+<tr>
+<td>D9</td>
+<td>Principal Paid</td>
+</tr>
+<tr>
+<td>E9</td>
+<td>Remaining Balance</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 6: Enter the First Month</h3>
+<p>In <strong>A10</strong>, enter:</p>
+<pre><code class="language-text">1</code></pre><p>In <strong>B10</strong>, enter:</p>
+<pre><code class="language-excel">=B6</code></pre><p>In <strong>C10</strong>, enter:</p>
+<pre><code class="language-excel">=B2*(B3/12)</code></pre><p>In <strong>D10</strong>, enter:</p>
+<pre><code class="language-excel">=B10-C10</code></pre><p>In <strong>E10</strong>, enter:</p>
+<pre><code class="language-excel">=B2-D10</code></pre><hr>
+<h3>Step 7: Complete the Remaining Months</h3>
+<p>In <strong>A11</strong>, enter:</p>
+<pre><code class="language-excel">=A10+1</code></pre><p>Drag down until the final month (<strong>60</strong> for a 5-year loan).</p>
+<p>In <strong>B11</strong>, enter:</p>
+<pre><code class="language-excel">=B6</code></pre><p>Copy down.</p>
+<p>In <strong>C11</strong>, enter:</p>
+<pre><code class="language-excel">=E10*(B3/12)</code></pre><p>Copy down.</p>
+<p>In <strong>D11</strong>, enter:</p>
+<pre><code class="language-excel">=B11-C11</code></pre><p>Copy down.</p>
+<p>In <strong>E11</strong>, enter:</p>
+<pre><code class="language-excel">=E10-D11</code></pre><p>Copy down until the loan balance reaches approximately <strong>0</strong>.</p>
+<hr>
+<h3>Step 8: Calculate Total Interest Paid</h3>
+<p>In <strong>G2</strong>, type:</p>
+<pre><code class="language-text">Total Interest Paid</code></pre><p>In <strong>H2</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(C10:C69)</code></pre><hr>
+<h3>Step 9: Calculate Total Amount Paid</h3>
+<p>In <strong>G3</strong>, type:</p>
+<pre><code class="language-text">Total Amount Paid</code></pre><p>In <strong>H3</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(B10:B69)</code></pre><hr>
+<h3>Step 10: Apply Conditional Formatting</h3>
+<p>Highlight the remaining balance.</p>
+<ol>
+<li><p>Select <strong>E10:E69</strong>.</p>
+</li>
+<li><p>Go to <strong>Home → Conditional Formatting</strong>.</p>
+</li>
+<li><p>Create a rule:</p>
+<ul>
+<li>Green fill when the value equals <strong>0</strong>.</li>
+<li>Yellow fill for values greater than <strong>0</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>Step 11: Create a Line Chart for the Repayment Schedule</h3>
+<ol>
+<li>Select the columns <strong>Month</strong> and <strong>Remaining Balance</strong> (<strong>A9:A69</strong> and <strong>E9:E69</strong>).</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Line Chart</strong>.</li>
+<li>Choose <strong>2-D Line</strong>.</li>
+<li>Rename the chart <strong>Loan Repayment Schedule</strong>.</li>
+</ol>
+<hr>
+<h3>Step 12: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Loan_Repayment_Calculator.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>PMT()</code></li>
+<li><code>SUM()</code></li>
+<li>Basic arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>)</li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store the loan principal, interest rate, and loan term.</li>
+<li>Calculate the monthly loan payment automatically.</li>
+<li>Calculate the monthly interest and principal payments.</li>
+<li>Display the remaining loan balance after each payment.</li>
+<li>Calculate the total interest paid and total amount repaid.</li>
+<li>Highlight the completed loan balance using conditional formatting.</li>
+<li>Visualize the repayment schedule with a line chart.</li>
+</ul>
+<h2>6. Perform Data Analysis Using Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>A dataset is provided for analysis. Create a spreadsheet to calculate summary statistics, sort and filter the data, and generate charts or graphs to visualize patterns or trends within the dataset.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Data Analysis</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Dataset</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Employee</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Department</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Age</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Salary ()</td>
+</tr>
+</tbody></table>
+<p>Enter the sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Employee</th>
+<th>Department</th>
+<th align="right">Age</th>
+<th align="right">Salary ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>John</td>
+<td>HR</td>
+<td align="right">28</td>
+<td align="right">42000</td>
+</tr>
+<tr>
+<td>Alice</td>
+<td>IT</td>
+<td align="right">30</td>
+<td align="right">55000</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>Sales</td>
+<td align="right">35</td>
+<td align="right">48000</td>
+</tr>
+<tr>
+<td>Emma</td>
+<td>IT</td>
+<td align="right">27</td>
+<td align="right">60000</td>
+</tr>
+<tr>
+<td>David</td>
+<td>HR</td>
+<td align="right">40</td>
+<td align="right">50000</td>
+</tr>
+<tr>
+<td>Sophia</td>
+<td>Sales</td>
+<td align="right">32</td>
+<td align="right">53000</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Calculate Summary Statistics</h3>
+<p>Create the following summary table:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>Average Salary</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>Highest Salary</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>Lowest Salary</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>Total Salary</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>Number of Employees</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 5: Enter the Formulas</h3>
+<p>In <strong>G2</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(D2:D7)</code></pre><p>In <strong>G3</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(D2:D7)</code></pre><p>In <strong>G4</strong>, enter:</p>
+<pre><code class="language-excel">=MIN(D2:D7)</code></pre><p>In <strong>G5</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(D2:D7)</code></pre><p>In <strong>G6</strong>, enter:</p>
+<pre><code class="language-excel">=COUNTA(A2:A7)</code></pre><hr>
+<h3>Step 6: Sort the Data</h3>
+<ol>
+<li>Select the dataset (<strong>A1:D7</strong>).</li>
+<li>Go to the <strong>Data</strong> tab.</li>
+<li>Click <strong>Sort</strong>.</li>
+<li>Sort by <strong>Salary ()</strong>.</li>
+<li>Choose <strong>Largest to Smallest</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<hr>
+<h3>Step 7: Filter the Data</h3>
+<ol>
+<li>Select the dataset (<strong>A1:D7</strong>).</li>
+<li>Go to the <strong>Data</strong> tab.</li>
+<li>Click <strong>Filter</strong>.</li>
+<li>Click the filter arrow in the <strong>Department</strong> column.</li>
+<li>Select a department (e.g., <strong>IT</strong>) to display only employees from that department.</li>
+</ol>
+<hr>
+<h3>Step 8: Apply Conditional Formatting</h3>
+<p>Highlight employees with high salaries.</p>
+<ol>
+<li>Select <strong>D2:D7</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting → Highlight Cells Rules → Greater Than</strong>.</li>
+<li>Enter:</li>
+</ol>
+<pre><code class="language-text">50000</code></pre><ol start="4">
+<li>Choose <strong>Green Fill with Dark Green Text</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<hr>
+<h3>Step 9: Create a Bar Chart</h3>
+<ol>
+<li>Select the <strong>Employee</strong> and <strong>Salary</strong> columns (<strong>A1:A7</strong> and <strong>D1:D7</strong>).</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Column Chart</strong>.</li>
+<li>Choose <strong>Clustered Column</strong>.</li>
+<li>Rename the chart <strong>Employee Salary Comparison</strong>.</li>
+</ol>
+<hr>
+<h3>Step 10: Create a Pie Chart</h3>
+<ol>
+<li>Select the <strong>Department</strong> and <strong>Salary</strong> columns.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Pie Chart</strong>.</li>
+<li>Choose <strong>2-D Pie</strong>.</li>
+<li>Rename the chart <strong>Salary Distribution by Department</strong>.</li>
+</ol>
+<hr>
+<h3>Step 11: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Data_Analysis_Report.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>AVERAGE()</code></li>
+<li><code>MAX()</code></li>
+<li><code>MIN()</code></li>
+<li><code>SUM()</code></li>
+<li><code>COUNTA()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store and organize the dataset.</li>
+<li>Calculate summary statistics such as average, maximum, minimum, total, and employee count.</li>
+<li>Sort the data based on salary.</li>
+<li>Filter the data by department.</li>
+<li>Highlight high salaries using conditional formatting.</li>
+<li>Visualize the data using bar and pie charts to identify patterns and trends.</li>
+</ul>
+<h2>7. Create Time Series Charts in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>Select a dataset (e.g., stock prices, weather data, population growth, etc.) and create line charts or area charts to visualize trends over time. Choose appropriate chart types, label the axes, and add chart titles and legends to make the visualization clear and informative.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Time Series Analysis</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Dataset</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Average Temperature (°C)</td>
+</tr>
+</tbody></table>
+<p>Enter the sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th align="right">Average Temperature (°C)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>January</td>
+<td align="right">18</td>
+</tr>
+<tr>
+<td>February</td>
+<td align="right">20</td>
+</tr>
+<tr>
+<td>March</td>
+<td align="right">25</td>
+</tr>
+<tr>
+<td>April</td>
+<td align="right">30</td>
+</tr>
+<tr>
+<td>May</td>
+<td align="right">34</td>
+</tr>
+<tr>
+<td>June</td>
+<td align="right">33</td>
+</tr>
+<tr>
+<td>July</td>
+<td align="right">31</td>
+</tr>
+<tr>
+<td>August</td>
+<td align="right">30</td>
+</tr>
+<tr>
+<td>September</td>
+<td align="right">29</td>
+</tr>
+<tr>
+<td>October</td>
+<td align="right">27</td>
+</tr>
+<tr>
+<td>November</td>
+<td align="right">23</td>
+</tr>
+<tr>
+<td>December</td>
+<td align="right">19</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Create a Line Chart</h3>
+<ol>
+<li>Select the range <strong>A1:B13</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Line Chart</strong>.</li>
+<li>Choose <strong>2-D Line</strong>.</li>
+</ol>
+<hr>
+<h3>Step 5: Add a Chart Title</h3>
+<ol>
+<li>Click the chart title.</li>
+<li>Rename it to:</li>
+</ol>
+<pre><code class="language-text">Monthly Average Temperature Trend</code></pre><hr>
+<h3>Step 6: Add Axis Titles</h3>
+<ol>
+<li>Click the chart.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Axis Titles</strong>.</li>
+<li>Add the following:</li>
+</ol>
+<ul>
+<li><strong>Horizontal Axis:</strong> Month</li>
+<li><strong>Vertical Axis:</strong> Temperature (°C)</li>
+</ul>
+<hr>
+<h3>Step 7: Display the Legend</h3>
+<ol>
+<li>Click the chart.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Legend</strong>.</li>
+<li>Choose <strong>Right</strong> (or any preferred position).</li>
+</ol>
+<hr>
+<h3>Step 8: Create an Area Chart</h3>
+<ol>
+<li>Select the range <strong>A1:B13</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Area Chart</strong>.</li>
+<li>Choose <strong>2-D Area</strong>.</li>
+<li>Rename the chart <strong>Monthly Temperature Analysis</strong>.</li>
+</ol>
+<hr>
+<h3>Step 9: Format the Charts</h3>
+<ul>
+<li>Increase the chart title font size.</li>
+<li>Apply a suitable chart style.</li>
+<li>Resize the charts for better readability.</li>
+<li>Ensure the axis labels and legend are clearly visible.</li>
+</ul>
+<hr>
+<h3>Step 10: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Time_Series_Charts.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Features Used</h3>
+<ul>
+<li>Line Chart</li>
+<li>Area Chart</li>
+<li>Chart Title</li>
+<li>Axis Titles</li>
+<li>Legend</li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store time-series data in a structured format.</li>
+<li>Visualize trends using a line chart and an area chart.</li>
+<li>Display properly labeled axes.</li>
+<li>Include informative chart titles and legends.</li>
+<li>Present the data clearly for trend analysis over time.</li>
+</ul>
+<h2>8. Create Bar Charts or Column Charts for Data Comparison in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>A dataset containing information about different products (e.g., sales data or customer satisfaction ratings) is provided. Create bar charts or column charts to compare the performance or rankings of the products. Use colors, data labels, and chart elements to enhance the visual comparison.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Product Comparison</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Dataset</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Product</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Sales ()</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Customer Rating</td>
+</tr>
+</tbody></table>
+<p>Enter the sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th align="right">Sales ()</th>
+<th align="right">Customer Rating</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Laptop</td>
+<td align="right">65000</td>
+<td align="right">4.8</td>
+</tr>
+<tr>
+<td>Mouse</td>
+<td align="right">18000</td>
+<td align="right">4.5</td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td align="right">22000</td>
+<td align="right">4.6</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td align="right">35000</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Printer</td>
+<td align="right">15000</td>
+<td align="right">4.2</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Calculate Total Sales</h3>
+<p>In <strong>A8</strong>, type:</p>
+<pre><code class="language-text">Total Sales</code></pre><p>In <strong>B8</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(B2:B6)</code></pre><hr>
+<h3>Step 5: Calculate Average Customer Rating</h3>
+<p>In <strong>A9</strong>, type:</p>
+<pre><code class="language-text">Average Rating</code></pre><p>In <strong>C9</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(C2:C6)</code></pre><hr>
+<h3>Step 6: Find the Highest Sales</h3>
+<p>In <strong>A10</strong>, type:</p>
+<pre><code class="language-text">Highest Sales</code></pre><p>In <strong>B10</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(B2:B6)</code></pre><hr>
+<h3>Step 7: Find the Highest Customer Rating</h3>
+<p>In <strong>A11</strong>, type:</p>
+<pre><code class="language-text">Highest Rating</code></pre><p>In <strong>C11</strong>, enter:</p>
+<pre><code class="language-excel">=MAX(C2:C6)</code></pre><hr>
+<h3>Step 8: Create a Column Chart</h3>
+<ol>
+<li>Select the range <strong>A1:B6</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Column Chart</strong>.</li>
+<li>Choose <strong>Clustered Column</strong>.</li>
+<li>Rename the chart <strong>Product Sales Comparison</strong>.</li>
+</ol>
+<hr>
+<h3>Step 9: Create a Bar Chart</h3>
+<ol>
+<li>Select the range <strong>A1:C6</strong>.</li>
+<li>Go to the <strong>Insert</strong> tab.</li>
+<li>Click <strong>Bar Chart</strong>.</li>
+<li>Choose <strong>Clustered Bar</strong>.</li>
+<li>Rename the chart <strong>Customer Rating Comparison</strong>.</li>
+</ol>
+<hr>
+<h3>Step 10: Add Data Labels</h3>
+<ol>
+<li>Click the chart.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Data Labels</strong>.</li>
+<li>Select <strong>Outside End</strong>.</li>
+</ol>
+<p>This displays the exact value for each bar.</p>
+<hr>
+<h3>Step 11: Format the Charts</h3>
+<ul>
+<li>Apply different colors to each bar or column.</li>
+<li>Add <strong>Chart Title</strong>.</li>
+<li>Add <strong>Axis Titles</strong>.</li>
+<li>Display the <strong>Legend</strong>.</li>
+<li>Resize the chart for better readability.</li>
+</ul>
+<hr>
+<h3>Step 12: Apply Conditional Formatting</h3>
+<p>Highlight products with high sales.</p>
+<ol>
+<li>Select <strong>B2:B6</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting → Highlight Cells Rules → Greater Than</strong>.</li>
+<li>Enter <strong>30000</strong>.</li>
+<li>Choose <strong>Green Fill with Dark Green Text</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<p>Products with sales greater than <strong>30,000</strong> will be highlighted.</p>
+<hr>
+<h3>Step 13: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Product_Comparison.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>SUM()</code></li>
+<li><code>AVERAGE()</code></li>
+<li><code>MAX()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store product sales and customer ratings.</li>
+<li>Calculate total sales, average customer rating, and highest values.</li>
+<li>Compare product performance using column and bar charts.</li>
+<li>Display data labels, chart titles, axis titles, and legends for better visualization.</li>
+<li>Highlight high-performing products using conditional formatting.</li>
+</ul>
+<h2>9. Create a Combo Chart in Microsoft Excel</h2>
+<h3>Problem Statement</h3>
+<p>A dataset containing time-series data for multiple variables (e.g., monthly sales data for different products) is provided. Create a combo chart with lines and columns to compare the trends of the variables and identify any relationships or patterns.</p>
+<hr>
+<h3>Step 1: Open Microsoft Excel</h3>
+<ul>
+<li>Open <strong>Microsoft Excel</strong>.</li>
+<li>Click <strong>Blank Workbook</strong>.</li>
+</ul>
+<hr>
+<h3>Step 2: Rename the Worksheet</h3>
+<ul>
+<li>Rename <strong>Sheet1</strong> to <strong>Combo Chart Analysis</strong>.</li>
+</ul>
+<hr>
+<h3>Step 3: Create the Dataset</h3>
+<p>Enter the following headings in <strong>Row 1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cell</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Laptop Sales ()</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Mouse Sales ()</td>
+</tr>
+</tbody></table>
+<p>Enter the sample data:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th align="right">Laptop Sales ()</th>
+<th align="right">Mouse Sales ()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>January</td>
+<td align="right">12000</td>
+<td align="right">2500</td>
+</tr>
+<tr>
+<td>February</td>
+<td align="right">15000</td>
+<td align="right">2800</td>
+</tr>
+<tr>
+<td>March</td>
+<td align="right">17000</td>
+<td align="right">3200</td>
+</tr>
+<tr>
+<td>April</td>
+<td align="right">18000</td>
+<td align="right">3500</td>
+</tr>
+<tr>
+<td>May</td>
+<td align="right">20000</td>
+<td align="right">3800</td>
+</tr>
+<tr>
+<td>June</td>
+<td align="right">22000</td>
+<td align="right">4000</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Step 4: Calculate Total Sales</h3>
+<p>In <strong>E2</strong>, type:</p>
+<pre><code class="language-text">Total Laptop Sales</code></pre><p>In <strong>F2</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(B2:B7)</code></pre><p>In <strong>E3</strong>, type:</p>
+<pre><code class="language-text">Total Mouse Sales</code></pre><p>In <strong>F3</strong>, enter:</p>
+<pre><code class="language-excel">=SUM(C2:C7)</code></pre><hr>
+<h3>Step 5: Calculate Average Monthly Sales</h3>
+<p>In <strong>E5</strong>, type:</p>
+<pre><code class="language-text">Average Laptop Sales</code></pre><p>In <strong>F5</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(B2:B7)</code></pre><p>In <strong>E6</strong>, type:</p>
+<pre><code class="language-text">Average Mouse Sales</code></pre><p>In <strong>F6</strong>, enter:</p>
+<pre><code class="language-excel">=AVERAGE(C2:C7)</code></pre><hr>
+<h3>Step 6: Create a Combo Chart</h3>
+<ol>
+<li><p>Select the range <strong>A1:C7</strong>.</p>
+</li>
+<li><p>Go to the <strong>Insert</strong> tab.</p>
+</li>
+<li><p>Click <strong>Insert Combo Chart</strong>.</p>
+</li>
+<li><p>Choose <strong>Clustered Column – Line Combo Chart</strong>.</p>
+</li>
+<li><p>Set:</p>
+<ul>
+<li><strong>Laptop Sales</strong> → <strong>Clustered Column</strong></li>
+<li><strong>Mouse Sales</strong> → <strong>Line</strong></li>
+</ul>
+</li>
+<li><p>Click <strong>OK</strong>.</p>
+</li>
+</ol>
+<hr>
+<h3>Step 7: Add Chart Title</h3>
+<p>Rename the chart:</p>
+<pre><code class="language-text">Monthly Sales Comparison</code></pre><hr>
+<h3>Step 8: Add Axis Titles</h3>
+<ol>
+<li>Click the chart.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Axis Titles</strong>.</li>
+</ol>
+<p>Add:</p>
+<ul>
+<li><strong>Horizontal Axis:</strong> Month</li>
+<li><strong>Vertical Axis:</strong> Sales ()</li>
+</ul>
+<hr>
+<h3>Step 9: Display the Legend</h3>
+<ol>
+<li>Click the chart.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Legend</strong>.</li>
+<li>Choose <strong>Right</strong> (or any preferred position).</li>
+</ol>
+<hr>
+<h3>Step 10: Add Data Labels</h3>
+<ol>
+<li>Click the column series.</li>
+<li>Go to <strong>Chart Design → Add Chart Element → Data Labels</strong>.</li>
+<li>Select <strong>Outside End</strong>.</li>
+</ol>
+<p>Repeat the same for the line series.</p>
+<hr>
+<h3>Step 11: Apply Conditional Formatting</h3>
+<p>Highlight months where <strong>Laptop Sales</strong> exceed <strong>18,000</strong>.</p>
+<ol>
+<li>Select <strong>B2:B7</strong>.</li>
+<li>Go to <strong>Home → Conditional Formatting → Highlight Cells Rules → Greater Than</strong>.</li>
+<li>Enter <strong>18000</strong>.</li>
+<li>Choose <strong>Green Fill with Dark Green Text</strong>.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<hr>
+<h3>Step 12: Save the Workbook</h3>
+<ul>
+<li>Click <strong>File → Save As</strong>.</li>
+<li>Save the workbook as <strong>Combo_Chart_Analysis.xlsx</strong>.</li>
+</ul>
+<hr>
+<h3>Excel Functions Used</h3>
+<ul>
+<li><code>SUM()</code></li>
+<li><code>AVERAGE()</code></li>
+</ul>
+<hr>
+<h3>Outcome</h3>
+<p>The completed spreadsheet will:</p>
+<ul>
+<li>Store monthly sales data for multiple products.</li>
+<li>Calculate total and average sales automatically.</li>
+<li>Compare sales trends using a combo chart with columns and a line.</li>
+<li>Display chart titles, axis titles, legends, and data labels.</li>
+<li>Highlight high sales values using conditional formatting.</li>
+<li>Help identify relationships and trends between the different product sales over time.</li>
+</ul>
+<h2>Formula Reference</h2>
+<h3>1. Mathematical &amp; Statistical Functions</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Syntax</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>SUM()</code></strong></td>
+<td align="left"><code>=SUM(range)</code></td>
+<td align="left">Adds all numbers in a range.</td>
+<td align="left"><code>=SUM(B4:B6)</code> adds up all income sources.</td>
+<td align="left">Budget, Sales, Inventory, Loan, Data Analysis, Product Comparison</td>
+</tr>
+<tr>
+<td align="left"><strong><code>AVERAGE()</code></strong></td>
+<td align="left"><code>=AVERAGE(range)</code></td>
+<td align="left">Calculates the arithmetic mean of a range.</td>
+<td align="left"><code>=AVERAGE(E2:E6)</code> calculates the class average grade.</td>
+<td align="left">Grade Book, Data Analysis, Product Comparison, Combo Chart</td>
+</tr>
+<tr>
+<td align="left"><strong><code>MAX()</code></strong></td>
+<td align="left"><code>=MAX(range)</code></td>
+<td align="left">Returns the largest number in a range.</td>
+<td align="left"><code>=MAX(I2:I4)</code> finds the highest product sales total.</td>
+<td align="left">Sales Analysis, Grade Book, Inventory, Data Analysis, Product Comparison</td>
+</tr>
+<tr>
+<td align="left"><strong><code>MIN()</code></strong></td>
+<td align="left"><code>=MIN(range)</code></td>
+<td align="left">Returns the smallest number in a range.</td>
+<td align="left"><code>=MIN(E2:E6)</code> finds the lowest final grade.</td>
+<td align="left">Grade Book, Data Analysis</td>
+</tr>
+<tr>
+<td align="left"><strong><code>COUNTA()</code></strong></td>
+<td align="left"><code>=COUNTA(range)</code></td>
+<td align="left">Counts the number of non-empty cells in a range (useful for counting entries).</td>
+<td align="left"><code>=COUNTA(A2:A6)</code> counts how many students are listed.</td>
+<td align="left">Grade Book, Data Analysis</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>2. Logical Functions (Conditional)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Syntax</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>IF()</code></strong></td>
+<td align="left"><code>=IF(logical_test, value_if_true, value_if_false)</code></td>
+<td align="left">Checks a condition and returns one value if true, another if false.</td>
+<td align="left"><code>=IF(E2&gt;=90,&quot;A&quot;,IF(E2&gt;=80,&quot;B&quot;,&quot;C&quot;))</code> assigns letter grades.</td>
+<td align="left">Grade Book, Inventory Management</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>3. Conditional Aggregation (Lookup &amp; Sum with Criteria)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Syntax</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>SUMIF()</code></strong></td>
+<td align="left"><code>=SUMIF(range, criteria, sum_range)</code></td>
+<td align="left">Adds values in a range only if they meet a given condition.</td>
+<td align="left"><code>=SUMIF(A2:A13, E2, C2:C13)</code> adds sales only for the month in <code>E2</code>.</td>
+<td align="left">Sales Analysis</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>4. Lookup &amp; Reference Functions (Advanced)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Syntax</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>INDEX()</code></strong></td>
+<td align="left"><code>=INDEX(array, row_num, [column_num])</code></td>
+<td align="left">Returns a value from a specific position within a table/range.</td>
+<td align="left"><code>=INDEX(H2:H4, ...)</code> returns the product name from the list.</td>
+<td align="left">Sales Analysis</td>
+</tr>
+<tr>
+<td align="left"><strong><code>MATCH()</code></strong></td>
+<td align="left"><code>=MATCH(lookup_value, lookup_array, [match_type])</code></td>
+<td align="left">Finds the position of a value in a list.</td>
+<td align="left"><code>=MATCH(MAX(I2:I4), I2:I4, 0)</code> finds which row has the max sales.</td>
+<td align="left">Sales Analysis</td>
+</tr>
+<tr>
+<td align="left"><strong><code>INDEX + MATCH</code> (Combo)</strong></td>
+<td align="left">Combined together</td>
+<td align="left">Looks up a value dynamically (more flexible than VLOOKUP).</td>
+<td align="left"><code>=INDEX(H2:H4, MATCH(MAX(I2:I4), I2:I4, 0))</code> identifies the top-selling product.</td>
+<td align="left">Sales Analysis</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>5. Financial Functions</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Syntax</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>PMT()</code></strong></td>
+<td align="left"><code>=PMT(rate, nper, pv, [fv], [type])</code></td>
+<td align="left">Calculates the periodic payment for a loan based on constant payments and a constant interest rate.</td>
+<td align="left"><code>=PMT(B3/12, B4*12, -B2)</code> calculates the monthly loan payment.</td>
+<td align="left">Loan Repayment Calculator</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6. Arithmetic Operators (Basic Building Blocks)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">What It Does</th>
+<th align="left">Example from the Tutorials</th>
+<th align="left">Used In</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>+</code></strong> (Plus)</td>
+<td align="left">Addition</td>
+<td align="left"><code>=(B2*40%)+(C2*50%)+(D2*10%)</code> adds weighted scores together.</td>
+<td align="left">Grade Book, Loan Calculator</td>
+</tr>
+<tr>
+<td align="left"><strong><code>-</code></strong> (Minus)</td>
+<td align="left">Subtraction</td>
+<td align="left"><code>=B8-E11</code> subtracts total expenses from total income to get savings.</td>
+<td align="left">Budget, Loan Calculator</td>
+</tr>
+<tr>
+<td align="left"><strong><code>*</code></strong> (Asterisk)</td>
+<td align="left">Multiplication</td>
+<td align="left"><code>=B2*C2</code> multiplies quantity by unit price to get total value.</td>
+<td align="left">Inventory, Grade Book (for weights)</td>
+</tr>
+<tr>
+<td align="left"><strong><code>/</code></strong> (Forward slash)</td>
+<td align="left">Division</td>
+<td align="left"><code>=E4/B8</code> divides an expense by total income to get a percentage.</td>
+<td align="left">Budget, Loan Calculator</td>
+</tr>
+<tr>
+<td align="left"><strong><code>%</code></strong> (Percent)</td>
+<td align="left">Percentage</td>
+<td align="left"><code>=B2*40%</code> applies a 40% weight to an assignment score.</td>
+<td align="left">Grade Book</td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>

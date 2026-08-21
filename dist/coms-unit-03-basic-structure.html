@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-03-basic-structure</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Basic Structure of a C Program</h2>
+<p>A C program follows a structured format. Understanding this skeleton is essential before writing any code.</p>
+<pre class="mermaid">graph TD
+    A[&quot;Documentation Section&lt;br/&gt;Comments&quot;] --&gt; B[&quot;Link / Preprocessor Section&lt;br/&gt;#include directives&quot;]
+    B --&gt; C[&quot;Definition / Declaration Section&lt;br/&gt;#define constants, global variables&quot;]
+    C --&gt; D[&quot;Global Declaration Section&lt;br/&gt;Function prototypes&quot;]
+    D --&gt; E[&quot;Main Function Section&lt;br/&gt;int main()&quot;]
+    E --&gt; F[&quot;Declaration Part&lt;br/&gt;Local variables&quot;]
+    F --&gt; G[&quot;Executable Part&lt;br/&gt;Statements &amp; Logic&quot;]
+    G --&gt; H[&quot;Return Statement&lt;br/&gt;return 0;&quot;]</pre><p><strong>Detailed Breakdown of Sections</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Section</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Documentation</strong></td>
+<td align="left">Optional. Contains comments describing the program purpose/author.</td>
+<td align="left"><code>/* Program to add two numbers */</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Link / Preprocessor</strong></td>
+<td align="left">Mandatory. Includes header files for standard I/O and library functions.</td>
+<td align="left"><code>#include &lt;stdio.h&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Definition</strong></td>
+<td align="left">Defines constants (symbolic constants) using <code>#define</code>.</td>
+<td align="left"><code>#define PI 3.14</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Global Declaration</strong></td>
+<td align="left">Declares variables/functions accessible by all functions.</td>
+<td align="left"><code>int globalVar;</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>main()</code> Function</strong></td>
+<td align="left">Mandatory. The starting point of execution. Returns an integer.</td>
+<td align="left"><code>int main() { ... }</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Declaration Part</strong></td>
+<td align="left">Declares local variables inside <code>main()</code>.</td>
+<td align="left"><code>int a, b, sum;</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Executable Part</strong></td>
+<td align="left">Contains the logic (input, processing, output).</td>
+<td align="left"><code>printf</code>, <code>scanf</code>, arithmetic.</td>
+</tr>
+<tr>
+<td align="left"><strong>Return Statement</strong></td>
+<td align="left">Returns 0 to the OS to indicate successful execution.</td>
+<td align="left"><code>return 0;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Character Set</h2>
+<p>The character set is the set of all valid characters that C recognizes. The C compiler supports the <strong>ASCII</strong> character set.</p>
+<p>| Category            | Characters                                                      |
+| :------------------ | :-------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| <strong>Alphabets</strong>       | Uppercase: <code>A</code> to <code>Z</code> <br> Lowercase: <code>a</code> to <code>z</code>                |
+| <strong>Digits</strong>          | <code>0</code> to <code>9</code>                                                      |
+| <strong>Special Symbols</strong> | <code>,</code> <code>.</code> <code>;</code> <code>:</code> <code>?</code> <code>&#39;</code> <code>&quot;</code> <code>!</code> <code>                              |</code> <code>/</code> <code>\</code> <code>~</code> <code>$</code> <code>%</code> <code>^</code> <code>&amp;</code> <code>*</code> <code>(</code> <code>)</code> <code>[</code> <code>]</code> <code>{</code> <code>}</code> <code>&lt;</code> <code>&gt;</code> <code>-</code> <code>+</code> <code>=</code> <code>#</code> <code>@</code> |
+| **White Spaces**    | Blank space, Tab (<code>\t</code>), Newline (<code>\n</code>), Carriage return (<code>\r</code>) |</p>
+<hr>
+<h2>3. Keywords (Reserved Words)</h2>
+<p><strong>Keywords</strong> are pre-defined, reserved words in C that have a special meaning to the compiler. They cannot be used as variable names, function names, or identifiers.</p>
+<p><strong>List of 32 Keywords in C</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Group</th>
+<th align="left">Keywords</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Data Types</strong></td>
+<td align="left"><code>int</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>void</code>, <code>short</code>, <code>long</code>, <code>signed</code>, <code>unsigned</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Control Flow</strong></td>
+<td align="left"><code>if</code>, <code>else</code>, <code>switch</code>, <code>case</code>, <code>default</code>, <code>break</code>, <code>continue</code>, <code>goto</code>, <code>return</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Loops</strong></td>
+<td align="left"><code>for</code>, <code>while</code>, <code>do</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Storage Class</strong></td>
+<td align="left"><code>auto</code>, <code>static</code>, <code>register</code>, <code>extern</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Miscellaneous</strong></td>
+<td align="left"><code>sizeof</code>, <code>typedef</code>, <code>const</code>, <code>union</code>, <code>struct</code>, <code>enum</code>, <code>volatile</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Exam Tip</strong>: Keywords are always written in <strong>lowercase</strong>. In C, <code>Int</code> is NOT a keyword, but <code>int</code> is.</p>
+</blockquote>
+<hr>
+<h2>4. Identifiers</h2>
+<p><strong>Definition</strong>: Identifiers are the names given to program elements such as variables, functions, arrays, structures, etc.</p>
+<h3>Rules for Naming Identifiers (Valid Names)</h3>
+<ol>
+<li>First character must be a letter (<code>A-Z</code>, <code>a-z</code>) or an underscore (<code>_</code>).</li>
+<li>Subsequent characters can be letters, digits (<code>0-9</code>), or underscores.</li>
+<li>No special symbols are allowed (except <code>_</code>). E.g., <code>$</code>, <code>@</code>, <code>#</code> are <strong>not</strong> allowed.</li>
+<li>C is <strong>case-sensitive</strong>. <code>Sum</code> and <code>sum</code> are different identifiers.</li>
+<li>Keywords <strong>cannot</strong> be used as identifiers.</li>
+<li>Length: ANSI standard guarantees up to 31 characters significant; modern compilers support longer.</li>
+</ol>
+<p><strong>Valid Examples</strong>: <code>roll_no</code>, <code>_temp</code>, <code>marks1</code>, <code>studentName</code>, <code>MAX_VALUE</code>.</p>
+<p><strong>Invalid Examples</strong>:</p>
+<ul>
+<li><code>1stPlace</code> (starts with digit)</li>
+<li><code>char</code> (keyword)</li>
+<li><code>marks+</code> (special symbol <code>+</code>)</li>
+</ul>
+<hr>
+<h2>5. Constants</h2>
+<p>Constants are fixed values that do not change during the execution of a program. C supports two main types:</p>
+<h3>5.1 Literal Constants (Direct Values)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Integer Constant</strong></td>
+<td align="left">Whole numbers (positive/negative/zero).</td>
+<td align="left"><code>10</code>, <code>-5</code>, <code>0</code>, <code>1000</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Floating / Real Constant</strong></td>
+<td align="left">Numbers with a decimal point or exponential form.</td>
+<td align="left"><code>3.14</code>, <code>-0.5</code>, <code>1.2e3</code> ($1.2 \times 10^3$)</td>
+</tr>
+<tr>
+<td align="left"><strong>Character Constant</strong></td>
+<td align="left">A single character enclosed in single quotes.</td>
+<td align="left"><code>&#39;A&#39;</code>, <code>&#39;5&#39;</code>, <code>&#39;$&#39;</code>, <code>&#39;\n&#39;</code> (escape sequence)</td>
+</tr>
+<tr>
+<td align="left"><strong>String Constant</strong></td>
+<td align="left">A sequence of characters enclosed in double quotes.</td>
+<td align="left"><code>&quot;Hello&quot;</code>, <code>&quot;C Programming&quot;</code></td>
+</tr>
+</tbody></table>
+<h3>5.2 Symbolic Constants (Named Constants)</h3>
+<p>Defined using <code>#define</code> preprocessor directive or <code>const</code> keyword.</p>
+<ul>
+<li><strong>Using <code>#define</code></strong>:<pre><code class="language-c">#define PI 3.14159
+#define MAX 100</code></pre></li>
+<li><strong>Using <code>const</code></strong>:<pre><code class="language-c">const int DAYS = 7;
+const float GST = 0.18;</code></pre></li>
+</ul>
+<hr>
+<h2>6. Variables and Type Declaration</h2>
+<h3>6.1 Variables</h3>
+<p>A <strong>variable</strong> is a named memory location whose value can change during program execution. It holds data of a specific type.</p>
+<h3>6.2 Data Types and Type Declaration</h3>
+<p>Every variable must be declared with its <strong>data type</strong> before use. This tells the compiler how much memory to allocate and what operations are valid.</p>
+<p><strong>Basic Primary Data Types</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Data Type</th>
+<th align="left">Size (Typical)</th>
+<th align="left">Range (Approx)</th>
+<th align="left">Format Specifier</th>
+<th align="left">Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>int</code></td>
+<td align="left">2 or 4 bytes</td>
+<td align="left">$-2^{31}$ to $2^{31}-1$</td>
+<td align="left"><code>%d</code></td>
+<td align="left">Whole numbers</td>
+</tr>
+<tr>
+<td align="left"><code>float</code></td>
+<td align="left">4 bytes</td>
+<td align="left">$3.4 \times 10^{-38}$ to $3.4 \times 10^{38}$</td>
+<td align="left"><code>%f</code></td>
+<td align="left">Single-precision decimals</td>
+</tr>
+<tr>
+<td align="left"><code>double</code></td>
+<td align="left">8 bytes</td>
+<td align="left">$1.7 \times 10^{-308}$ to $1.7 \times 10^{308}$</td>
+<td align="left"><code>%lf</code></td>
+<td align="left">Double-precision decimals</td>
+</tr>
+<tr>
+<td align="left"><code>char</code></td>
+<td align="left">1 byte</td>
+<td align="left">-128 to 127 (or 0 to 255)</td>
+<td align="left"><code>%c</code></td>
+<td align="left">Single character (ASCII)</td>
+</tr>
+<tr>
+<td align="left"><code>void</code></td>
+<td align="left">–</td>
+<td align="left">No value</td>
+<td align="left">–</td>
+<td align="left">Represents &quot;no value&quot; (used for functions).</td>
+</tr>
+</tbody></table>
+<p><strong>Type Declaration Syntax</strong>:</p>
+<pre><code class="language-c">data_type variable_name;                // Declaration
+data_type variable_name = initial_value; // Declaration + Initialization</code></pre><p><strong>Example</strong>:</p>
+<pre><code class="language-c">int age;                  // Declaration
+float salary = 45000.50;  // Initialization
+char grade = &#39;A&#39;;
+double pi = 3.1415926535;</code></pre><hr>
+<h2>7. Pre-processor</h2>
+<p><strong>Definition</strong>: The pre-processor is a program that processes the source code <strong>before</strong> it is passed to the compiler. All pre-processor directives begin with a <code>#</code> (hash) symbol and are executed at compile-time.</p>
+<h3>Common Pre-processor Directives</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Directive</th>
+<th align="left">Purpose</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>#include</code></strong></td>
+<td align="left">Includes the contents of a header file into the program.</td>
+<td align="left"><code>#include &lt;stdio.h&gt;</code> (standard library) <br> <code>#include &quot;myfile.h&quot;</code> (user-defined)</td>
+</tr>
+<tr>
+<td align="left"><strong><code>#define</code></strong></td>
+<td align="left">Defines a macro (symbolic constant or function-like macro).</td>
+<td align="left"><code>#define MAX 100</code> <br> <code>#define SQUARE(x) ((x)*(x))</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>#undef</code></strong></td>
+<td align="left">Undefines an existing macro.</td>
+<td align="left"><code>#undef MAX</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>#ifdef</code></strong> / <strong><code>#endif</code></strong></td>
+<td align="left">Conditional compilation. Code inside is compiled only if macro is defined.</td>
+<td align="left"><code>#ifdef DEBUG</code> <br> <code>printf(&quot;Debug mode&quot;);</code> <br> <code>#endif</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>#ifndef</code></strong></td>
+<td align="left">Compiles code if the macro is <strong>not</strong> defined (often used to prevent multiple inclusions).</td>
+<td align="left"><code>#ifndef HEADER_H</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>#error</code></strong></td>
+<td align="left">Forces an error message and stops compilation.</td>
+<td align="left"><code>#error &quot;Version not supported&quot;</code></td>
+</tr>
+</tbody></table>
+<p><strong>Example of Pre-processor Usage</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;        // Include standard I/O
+#define PI 3.14159        // Define constant
+#define AREA(r) (PI * r * r) // Function-like macro
+
+int main() {
+    float rad = 5.0;
+    printf(&quot;Area = %f&quot;, AREA(rad)); // AREA(5) becomes PI * 5 * 5
+    return 0;
+}</code></pre><blockquote>
+<p><strong>Note</strong>: Macros (<code>#define</code>) do <strong>not</strong> use semicolons at the end.</p>
+</blockquote>
+<hr>
+<h2>8. Sample Programs</h2>
+<h3>Program 1: Hello World (Basic Structure)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;   // Pre-processor directive
+
+int main() {         // Main function - execution starts here
+    // Declaration and Executable Part
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;        // Return statement
+}</code></pre><h3>Program 2: Addition of Two Numbers (Variables &amp; Input)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, sum;                 // Variable declaration
+
+    printf(&quot;Enter two numbers: &quot;);
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);        // Input using scanf (format specifier %d)
+
+    sum = a + b;                   // Processing
+
+    printf(&quot;Sum = %d\n&quot;, sum);     // Output
+    return 0;
+}</code></pre><h3>Program 3: Using Symbolic Constants</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define PI 3.14159
+
+int main() {
+    float radius, area;
+
+    printf(&quot;Enter radius: &quot;);
+    scanf(&quot;%f&quot;, &amp;radius);
+
+    area = PI * radius * radius;
+
+    printf(&quot;Area of circle = %.2f\n&quot;, area); // %.2f prints 2 decimal places
+    return 0;
+}</code></pre><h2>9. MCQ</h2>
+<h4>Q1. Which section of a C program is optional and contains comments describing the program?</h4>
+<div class="question-options"><span class="option">A) Link Section</span>
+<span class="option">B) Documentation Section ✅</span>
+<span class="option">C) Global Declaration Section</span>
+<span class="option">D) Main Function Section</span></div><h4>Q2. The Link/Preprocessor section in a C program is:</h4>
+<div class="question-options"><span class="option">A) Optional</span>
+<span class="option">B) Mandatory ✅</span>
+<span class="option">C) Only required for large programs</span>
+<span class="option">D) Only required for Windows programs</span></div><h4>Q3. Which directive is used to include header files in a C program?</h4>
+<div class="question-options"><span class="option">A) `#define`</span>
+<span class="option">B) `#include` ✅</span>
+<span class="option">C) `#undef`</span>
+<span class="option">D) `#ifdef`</span></div><h4>Q4. What is the starting point of execution in a C program?</h4>
+<div class="question-options"><span class="option">A) `#include` directive</span>
+<span class="option">B) `main()` function ✅</span>
+<span class="option">C) Global variable declaration</span>
+<span class="option">D) Macro definition</span></div><h4>Q5. <code>main()</code> function in C returns an integer. What does <code>return 0;</code> indicate?</h4>
+<div class="question-options"><span class="option">A) Program execution failed</span>
+<span class="option">B) Program execution was successful ✅</span>
+<span class="option">C) Program needs more input</span>
+<span class="option">D) Program has an error</span></div><h4>Q6. Which section defines symbolic constants using <code>#define</code>?</h4>
+<div class="question-options"><span class="option">A) Documentation Section</span>
+<span class="option">B) Link Section</span>
+<span class="option">C) Definition Section ✅</span>
+<span class="option">D) Declaration Part</span></div><h4>Q7. The Declaration Part inside <code>main()</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Including header files</span>
+<span class="option">B) Declaring local variables ✅</span>
+<span class="option">C) Defining global variables</span>
+<span class="option">D) Writing comments</span></div><h4>Q8. The Executable Part of <code>main()</code> contains:</h4>
+<div class="question-options"><span class="option">A) Only variable declarations</span>
+<span class="option">B) Only return statements</span>
+<span class="option">C) Logic including input, processing, and output ✅</span>
+<span class="option">D) Preprocessor directives</span></div><h4>Q9. Which of the following is NOT a valid character in the C character set?</h4>
+<div class="question-options"><span class="option">A) `A`</span>
+<span class="option">B) `5`</span>
+<span class="option">C) `@` ✅</span>
+<span class="option">D) `\n`</span></div><h4>Q10. White spaces in C include:</h4>
+<div class="question-options"><span class="option">A) Only blank space</span>
+<span class="option">B) Only newline</span>
+<span class="option">C) Blank space, tab, newline, carriage return ✅</span>
+<span class="option">D) Only tab</span></div><h4>Q11. How many keywords are there in C?</h4>
+<div class="question-options"><span class="option">A) 16</span>
+<span class="option">B) 32 ✅</span>
+<span class="option">C) 64</span>
+<span class="option">D) 128</span></div><h4>Q12. Which of the following is a keyword in C?</h4>
+<div class="question-options"><span class="option">A) `Int`</span>
+<span class="option">B) `int` ✅</span>
+<span class="option">C) `integer`</span>
+<span class="option">D) `INT`</span></div><h4>Q13. Which of the following is NOT a keyword in C?</h4>
+<div class="question-options"><span class="option">A) `if`</span>
+<span class="option">B) `else`</span>
+<span class="option">C) `loop` ✅</span>
+<span class="option">D) `switch`</span></div><h4>Q14. <code>sizeof</code> is a keyword in C. What does it do?</h4>
+<div class="question-options"><span class="option">A) Returns the size of a variable or data type ✅</span>
+<span class="option">B) Creates a new variable</span>
+<span class="option">C) Deletes a variable</span>
+<span class="option">D) Copies a variable</span></div><h4>Q15. Keywords in C are always written in:</h4>
+<div class="question-options"><span class="option">A) Uppercase</span>
+<span class="option">B) Lowercase ✅</span>
+<span class="option">C) Title case</span>
+<span class="option">D) Any case is acceptable</span></div><h4>Q16. Which of the following is a valid identifier in C?</h4>
+<div class="question-options"><span class="option">A) `1stPlace`</span>
+<span class="option">B) `_temp` ✅</span>
+<span class="option">C) `marks+`</span>
+<span class="option">D) `char`</span></div><h4>Q17. Which of the following is an INVALID identifier in C?</h4>
+<div class="question-options"><span class="option">A) `roll_no`</span>
+<span class="option">B) `studentName`</span>
+<span class="option">C) `MAX_VALUE`</span>
+<span class="option">D) `1stPlace` ✅</span></div><h4>Q18. C is case-sensitive. Which of the following statements is TRUE?</h4>
+<div class="question-options"><span class="option">A) `Sum` and `sum` are the same identifier</span>
+<span class="option">B) `Sum` and `sum` are different identifiers ✅</span>
+<span class="option">C) `Sum` is not a valid identifier</span>
+<span class="option">D) Case does not matter in C</span></div><h4>Q19. Which of the following identifiers is invalid because it uses a special symbol?</h4>
+<div class="question-options"><span class="option">A) `_temp`</span>
+<span class="option">B) `marks1`</span>
+<span class="option">C) `marks+` ✅</span>
+<span class="option">D) `studentName`</span></div><h4>Q20. What is the maximum number of characters significant in an identifier according to ANSI standard?</h4>
+<div class="question-options"><span class="option">A) 8</span>
+<span class="option">B) 16</span>
+<span class="option">C) 31 ✅</span>
+<span class="option">D) 64</span></div><h4>Q21. Which of the following is a valid identifier?</h4>
+<div class="question-options"><span class="option">A) `float`</span>
+<span class="option">B) `_float` ✅</span>
+<span class="option">C) `float$`</span>
+<span class="option">D) `1float`</span></div><h4>Q22. Which of the following is a literal constant?</h4>
+<div class="question-options"><span class="option">A) `PI`</span>
+<span class="option">B) `MAX`</span>
+<span class="option">C) `3.14` ✅</span>
+<span class="option">D) `DAYS`</span></div><h4>Q23. An integer constant in C can be:</h4>
+<div class="question-options"><span class="option">A) Only positive</span>
+<span class="option">B) Only negative</span>
+<span class="option">C) Positive, negative, or zero ✅</span>
+<span class="option">D) Only zero</span></div><h4>Q24. Which of the following is a floating/real constant?</h4>
+<div class="question-options"><span class="option">A) `10`</span>
+<span class="option">B) `-5`</span>
+<span class="option">C) `1.2e3` ✅</span>
+<span class="option">D) `'A'`</span></div><h4>Q25. A character constant in C is enclosed in:</h4>
+<div class="question-options"><span class="option">A) Double quotes</span>
+<span class="option">B) Single quotes ✅</span>
+<span class="option">C) Angle brackets</span>
+<span class="option">D) Parentheses</span></div><h4>Q26. Which of the following is a string constant?</h4>
+<div class="question-options"><span class="option">A) `'A'`</span>
+<span class="option">B) `"Hello"` ✅</span>
+<span class="option">C) `5`</span>
+<span class="option">D) `3.14`</span></div><h4>Q27. What is the correct way to define a symbolic constant using <code>#define</code>?</h4>
+<div class="question-options"><span class="option">A) `#define PI 3.14159` ✅</span>
+<span class="option">B) `#define PI = 3.14159`</span>
+<span class="option">C) `#define PI; 3.14159`</span>
+<span class="option">D) `#define 3.14159 PI`</span></div><h4>Q28. What is the correct way to define a constant using the <code>const</code> keyword?</h4>
+<div class="question-options"><span class="option">A) `const int DAYS = 7;` ✅</span>
+<span class="option">B) `const int DAYS = 7`</span>
+<span class="option">C) `int const DAYS = 7;`</span>
+<span class="option">D) Both A and C are correct ✅</span></div><h4>Q29. Which of the following is TRUE about variables in C?</h4>
+<div class="question-options"><span class="option">A) Variables cannot change value</span>
+<span class="option">B) Variables are named memory locations whose value can change ✅</span>
+<span class="option">C) Variables must always be constants</span>
+<span class="option">D) Variables are only for integers</span></div><h4>Q30. Before using a variable in C, it must be:</h4>
+<div class="question-options"><span class="option">A) Initialized</span>
+<span class="option">B) Declared with its data type ✅</span>
+<span class="option">C) Assigned a value</span>
+<span class="option">D) Defined as a constant</span></div><h4>Q31. What is the typical size of an <code>int</code> data type in C?</h4>
+<div class="question-options"><span class="option">A) 1 byte</span>
+<span class="option">B) 2 or 4 bytes ✅</span>
+<span class="option">C) 8 bytes</span>
+<span class="option">D) 16 bytes</span></div><h4>Q32. What is the format specifier for <code>int</code> in <code>printf</code>?</h4>
+<div class="question-options"><span class="option">A) `%f`</span>
+<span class="option">B) `%c`</span>
+<span class="option">C) `%d` ✅</span>
+<span class="option">D) `%s`</span></div><h4>Q33. What is the typical size of a <code>float</code> data type in C?</h4>
+<div class="question-options"><span class="option">A) 1 byte</span>
+<span class="option">B) 2 bytes</span>
+<span class="option">C) 4 bytes ✅</span>
+<span class="option">D) 8 bytes</span></div><h4>Q34. What is the format specifier for <code>float</code> in <code>printf</code>?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f` ✅</span>
+<span class="option">C) `%c`</span>
+<span class="option">D) `%s`</span></div><h4>Q35. What is the typical size of a <code>double</code> data type in C?</h4>
+<div class="question-options"><span class="option">A) 2 bytes</span>
+<span class="option">B) 4 bytes</span>
+<span class="option">C) 6 bytes</span>
+<span class="option">D) 8 bytes ✅</span></div><h4>Q36. What is the format specifier for <code>double</code> in <code>scanf</code>?</h4>
+<div class="question-options"><span class="option">A) `%f`</span>
+<span class="option">B) `%lf` ✅</span>
+<span class="option">C) `%d`</span>
+<span class="option">D) `%c`</span></div><h4>Q37. What is the typical size of a <code>char</code> data type in C?</h4>
+<div class="question-options"><span class="option">A) 1 byte ✅</span>
+<span class="option">B) 2 bytes</span>
+<span class="option">C) 4 bytes</span>
+<span class="option">D) 8 bytes</span></div><h4>Q38. What is the format specifier for <code>char</code> in <code>printf</code>?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%f`</span>
+<span class="option">C) `%c` ✅</span>
+<span class="option">D) `%s`</span></div><h4>Q39. The <code>void</code> data type represents:</h4>
+<div class="question-options"><span class="option">A) An integer</span>
+<span class="option">B) A character</span>
+<span class="option">C) No value ✅</span>
+<span class="option">D) A floating point number</span></div><h4>Q40. Which of the following is the correct syntax for declaring a variable?</h4>
+<div class="question-options"><span class="option">A) `data_type variable_name;` ✅</span>
+<span class="option">B) `variable_name data_type;`</span>
+<span class="option">C) `data_type = variable_name;`</span>
+<span class="option">D) `variable_name = data_type;`</span></div><h4>Q41. Which of the following declares and initializes a variable?</h4>
+<div class="question-options"><span class="option">A) `int age;`</span>
+<span class="option">B) `float salary = 45000.50;` ✅</span>
+<span class="option">C) `char grade;`</span>
+<span class="option">D) `double pi;`</span></div><h4>Q42. The pre-processor processes source code:</h4>
+<div class="question-options"><span class="option">A) After compilation</span>
+<span class="option">B) Before compilation ✅</span>
+<span class="option">C) During execution</span>
+<span class="option">D) Only on runtime errors</span></div><h4>Q43. All pre-processor directives begin with which symbol?</h4>
+<div class="question-options"><span class="option">A) `%`</span>
+<span class="option">B) `$`</span>
+<span class="option">C) `#` ✅</span>
+<span class="option">D) `&`</span></div><h4>Q44. Which pre-processor directive includes the contents of a header file?</h4>
+<div class="question-options"><span class="option">A) `#define`</span>
+<span class="option">B) `#include` ✅</span>
+<span class="option">C) `#undef`</span>
+<span class="option">D) `#ifdef`</span></div><h4>Q45. Which pre-processor directive is used to define a macro?</h4>
+<div class="question-options"><span class="option">A) `#include`</span>
+<span class="option">B) `#undef`</span>
+<span class="option">C) `#define` ✅</span>
+<span class="option">D) `#endif`</span></div><h4>Q46. Macros defined with <code>#define</code> do NOT use:</h4>
+<div class="question-options"><span class="option">A) Parentheses</span>
+<span class="option">B) Semicolons at the end ✅</span>
+<span class="option">C) Spaces</span>
+<span class="option">D) Keywords</span></div><h4>Q47. Which pre-processor directive is used to undefine an existing macro?</h4>
+<div class="question-options"><span class="option">A) `#define`</span>
+<span class="option">B) `#include`</span>
+<span class="option">C) `#undef` ✅</span>
+<span class="option">D) `#ifdef`</span></div><h4>Q48. What does <code>#ifdef</code> do?</h4>
+<div class="question-options"><span class="option">A) Includes a header file</span>
+<span class="option">B) Defines a constant</span>
+<span class="option">C) Compiles code only if a macro is defined ✅</span>
+<span class="option">D) Undefines a macro</span></div><h4>Q49. What does <code>#ifndef</code> do?</h4>
+<div class="question-options"><span class="option">A) Includes a header file</span>
+<span class="option">B) Defines a constant</span>
+<span class="option">C) Compiles code only if a macro is NOT defined ✅</span>
+<span class="option">D) Forces an error message</span></div><h4>Q50. What does <code>#error</code> do?</h4>
+<div class="question-options"><span class="option">A) Includes a header file</span>
+<span class="option">B) Defines a constant</span>
+<span class="option">C) Compiles code conditionally</span>
+<span class="option">D) Forces an error message and stops compilation ✅</span></div><h4>Q51. Which of the following is a function-like macro in C?</h4>
+<div class="question-options"><span class="option">A) `#define PI 3.14159`</span>
+<span class="option">B) `#define AREA(r) (PI * r * r)` ✅</span>
+<span class="option">C) `#include <stdio.h>`</span>
+<span class="option">D) `#undef MAX`</span></div><h4>Q52. In <code>#include &lt;stdio.h&gt;</code>, the angle brackets indicate:</h4>
+<div class="question-options"><span class="option">A) The file is user-defined</span>
+<span class="option">B) The file is a standard library header ✅</span>
+<span class="option">C) The file is optional</span>
+<span class="option">D) The file is not required</span></div><h4>Q53. In <code>#include &quot;myfile.h&quot;</code>, the double quotes indicate:</h4>
+<div class="question-options"><span class="option">A) The file is a standard library header</span>
+<span class="option">B) The file is user-defined ✅</span>
+<span class="option">C) The file is not required</span>
+<span class="option">D) The file contains only comments</span></div><h4>Q54. Which section of a C program contains function prototypes?</h4>
+<div class="question-options"><span class="option">A) Link Section</span>
+<span class="option">B) Definition Section</span>
+<span class="option">C) Global Declaration Section ✅</span>
+<span class="option">D) Declaration Part</span></div><h4>Q55. Which of the following is an invalid character in an identifier?</h4>
+<div class="question-options"><span class="option">A) `_`</span>
+<span class="option">B) `$` ✅</span>
+<span class="option">C) `A`</span>
+<span class="option">D) `5` (after first character)</span></div><h4>Q56. Which of the following is NOT a control flow keyword in C?</h4>
+<div class="question-options"><span class="option">A) `if`</span>
+<span class="option">B) `else`</span>
+<span class="option">C) `for`</span>
+<span class="option">D) `int` ✅</span></div><h4>Q57. Which of the following is a storage class keyword in C?</h4>
+<div class="question-options"><span class="option">A) `int`</span>
+<span class="option">B) `char`</span>
+<span class="option">C) `static` ✅</span>
+<span class="option">D) `double`</span></div><h4>Q58. Which of the following is a loop keyword in C?</h4>
+<div class="question-options"><span class="option">A) `if`</span>
+<span class="option">B) `switch`</span>
+<span class="option">C) `do` ✅</span>
+<span class="option">D) `break`</span></div><h4>Q59. Which of the following is a data type keyword in C?</h4>
+<div class="question-options"><span class="option">A) `if`</span>
+<span class="option">B) `else`</span>
+<span class="option">C) `short` ✅</span>
+<span class="option">D) `for`</span></div><h4>Q60. Which of the following is a valid way to declare a symbolic constant?</h4>
+<div class="question-options"><span class="option">A) `const float GST = 0.18;` ✅</span>
+<span class="option">B) `const float GST = 0.18`</span>
+<span class="option">C) `float const GST = 0.18;`</span>
+<span class="option">D) Both A and C are correct ✅</span></div><h4>Q61. What is the correct output of <code>printf(&quot;Hello, World!\n&quot;);</code>?</h4>
+<div class="question-options"><span class="option">A) Hello, World!</span>
+<span class="option">B) Hello, World! (followed by a newline) ✅</span>
+<span class="option">C) Hello, World!\n</span>
+<span class="option">D) Hello, World (without comma)</span></div><h4>Q62. In a C program, the <code>#include &lt;stdio.h&gt;</code> line is an example of:</h4>
+<div class="question-options"><span class="option">A) A comment</span>
+<span class="option">B) A pre-processor directive ✅</span>
+<span class="option">C) A function call</span>
+<span class="option">D) A variable declaration</span></div><h4>Q63. Which of the following is NOT a valid identifier?</h4>
+<div class="question-options"><span class="option">A) `_123`</span>
+<span class="option">B) `name_1`</span>
+<span class="option">C) `2name` ✅</span>
+<span class="option">D) `Name2`</span></div><h4>Q64. Which of the following is a valid character constant?</h4>
+<div class="question-options"><span class="option">A) `'AB'`</span>
+<span class="option">B) `"A"`</span>
+<span class="option">C) `'A'` ✅</span>
+<span class="option">D) `A`</span></div><h4>Q65. Which of the following is a valid string constant?</h4>
+<div class="question-options"><span class="option">A) `'Hello'`</span>
+<span class="option">B) `"Hello"` ✅</span>
+<span class="option">C) `Hello`</span>
+<span class="option">D) `'H'`</span></div><h4>Q66. What is the range of values for a <code>char</code> data type?</h4>
+<div class="question-options"><span class="option">A) 0 to 255 only</span>
+<span class="option">B) -128 to 127 (or 0 to 255) ✅</span>
+<span class="option">C) 0 to 65535</span>
+<span class="option">D) -32768 to 32767</span></div><h4>Q67. The <code>int</code> data type is used for:</h4>
+<div class="question-options"><span class="option">A) Single characters</span>
+<span class="option">B) Whole numbers ✅</span>
+<span class="option">C) Decimal numbers</span>
+<span class="option">D) No value</span></div><h4>Q68. The <code>float</code> data type is used for:</h4>
+<div class="question-options"><span class="option">A) Whole numbers</span>
+<span class="option">B) Single characters</span>
+<span class="option">C) Single-precision decimal numbers ✅</span>
+<span class="option">D) No value</span></div><h4>Q69. The <code>double</code> data type is used for:</h4>
+<div class="question-options"><span class="option">A) Whole numbers</span>
+<span class="option">B) Single characters</span>
+<span class="option">C) Double-precision decimal numbers ✅</span>
+<span class="option">D) No value</span></div><h4>Q70. Which data type has the highest precision among these?</h4>
+<div class="question-options"><span class="option">A) `int`</span>
+<span class="option">B) `float`</span>
+<span class="option">C) `double` ✅</span>
+<span class="option">D) `char`</span></div><h4>Q71. What is the typical size of a <code>long int</code>?</h4>
+<div class="question-options"><span class="option">A) 2 bytes</span>
+<span class="option">B) 4 bytes ✅</span>
+<span class="option">C) 8 bytes</span>
+<span class="option">D) 1 byte</span></div><h4>Q72. Which of the following is NOT a valid way to represent a floating-point constant?</h4>
+<div class="question-options"><span class="option">A) `3.14`</span>
+<span class="option">B) `-0.5`</span>
+<span class="option">C) `1.2e3`</span>
+<span class="option">D) `1,2.3` ✅</span></div><h4>Q73. The escape sequence <code>\n</code> represents:</h4>
+<div class="question-options"><span class="option">A) Tab</span>
+<span class="option">B) Newline ✅</span>
+<span class="option">C) Carriage return</span>
+<span class="option">D) Null character</span></div><h4>Q74. The escape sequence <code>\t</code> represents:</h4>
+<div class="question-options"><span class="option">A) Newline</span>
+<span class="option">B) Horizontal tab ✅</span>
+<span class="option">C) Carriage return</span>
+<span class="option">D) Null character</span></div><h4>Q75. Which of the following is a correct C program structure?</h4>
+<div class="question-options"><span class="option">A) `main()` → `#include` → `return 0;`</span>
+<span class="option">B) `#include` → `main()` → `return 0;` ✅</span>
+<span class="option">C) `return 0;` → `#include` → `main()`</span>
+<span class="option">D) `main()` → `return 0;` → `#include`</span></div><h4>Q76. What does the <code>return</code> statement do in <code>main()</code>?</h4>
+<div class="question-options"><span class="option">A) It declares a variable</span>
+<span class="option">B) It includes a header file</span>
+<span class="option">C) It returns a value to the operating system ✅</span>
+<span class="option">D) It prints output</span></div><h4>Q77. In the program <code>int main() { ... }</code>, the <code>int</code> before <code>main</code> indicates:</h4>
+<div class="question-options"><span class="option">A) `main` returns an integer ✅</span>
+<span class="option">B) `main` takes an integer parameter</span>
+<span class="option">C) `main` has no return value</span>
+<span class="option">D) `main` is a keyword</span></div><h4>Q78. Which of the following is a correct example of a comment in C?</h4>
+<div class="question-options"><span class="option">A) `// This is a comment` ✅</span>
+<span class="option">B) `/* This is a comment */` ✅</span>
+<span class="option">C) `# This is a comment`</span>
+<span class="option">D) Both A and B are correct ✅</span></div><h4>Q79. Which of the following is a valid macro definition?</h4>
+<div class="question-options"><span class="option">A) `#define SQUARE(x) (x*x)` ✅</span>
+<span class="option">B) `#define SQUARE(x) = (x*x)`</span>
+<span class="option">C) `#define SQUARE(x) (x*x);`</span>
+<span class="option">D) `#define SQUARE (x) (x*x)`</span></div><h4>Q80. What is the output of the macro <code>SQUARE(5)</code> if defined as <code>#define SQUARE(x) ((x)*(x))</code>?</h4>
+<div class="question-options"><span class="option">A) 10</span>
+<span class="option">B) 20</span>
+<span class="option">C) 25 ✅</span>
+<span class="option">D) 5</span></div><h4>Q81. Which of the following is a valid variable declaration in C?</h4>
+<div class="question-options"><span class="option">A) `int $age;`</span>
+<span class="option">B) `int age;` ✅</span>
+<span class="option">C) `int age?;`</span>
+<span class="option">D) `int 1age;`</span></div><h4>Q82. Which of the following is a valid array declaration?</h4>
+<div class="question-options"><span class="option">A) `int arr[10];` ✅</span>
+<span class="option">B) `int 10arr;`</span>
+<span class="option">C) `int arr[10.5];`</span>
+<span class="option">D) `int arr@10;`</span></div><h4>Q83. The pre-processor directive <code>#ifdef DEBUG</code> is used for:</h4>
+<div class="question-options"><span class="option">A) Including a file</span>
+<span class="option">B) Defining a constant</span>
+<span class="option">C) Conditional compilation ✅</span>
+<span class="option">D) Error handling</span></div><h4>Q84. Which of the following is NOT a valid constant in C?</h4>
+<div class="question-options"><span class="option">A) `'A'`</span>
+<span class="option">B) `"Hello"`</span>
+<span class="option">C) `10`</span>
+<span class="option">D) `1,000` ✅</span></div><h4>Q85. What is the size of <code>void</code> in C?</h4>
+<div class="question-options"><span class="option">A) 1 byte</span>
+<span class="option">B) 2 bytes</span>
+<span class="option">C) 4 bytes</span>
+<span class="option">D) No size (no value) ✅</span></div><h4>Q86. Which of the following is a valid statement in C?</h4>
+<div class="question-options"><span class="option">A) `int a = b = c = 10;` ✅</span>
+<span class="option">B) `int a = b;`</span>
+<span class="option">C) `int a + b;`</span>
+<span class="option">D) `int a, b = ;`</span></div><h4>Q87. The <code>#undef</code> directive is used to:</h4>
+<div class="question-options"><span class="option">A) Define a macro</span>
+<span class="option">B) Undefine a macro ✅</span>
+<span class="option">C) Include a file</span>
+<span class="option">D) Compile conditionally</span></div><h4>Q88. Which of the following is TRUE about constants in C?</h4>
+<div class="question-options"><span class="option">A) Constants can change during program execution</span>
+<span class="option">B) Constants are fixed values that do not change ✅</span>
+<span class="option">C) Constants are only for integers</span>
+<span class="option">D) Constants cannot be defined by the programmer</span></div><h4>Q89. Which of the following is a valid identifier according to C rules?</h4>
+<div class="question-options"><span class="option">A) `int`</span>
+<span class="option">B) `_int` ✅</span>
+<span class="option">C) `int$`</span>
+<span class="option">D) `1int`</span></div><h4>Q90. In C, which of the following is NOT a valid data type?</h4>
+<div class="question-options"><span class="option">A) `int`</span>
+<span class="option">B) `float`</span>
+<span class="option">C) `string` ✅</span>
+<span class="option">D) `double`</span></div><h4>Q91. Which of the following is a valid way to declare multiple variables of the same type?</h4>
+<div class="question-options"><span class="option">A) `int a, b, c;` ✅</span>
+<span class="option">B) `int a, b, c`</span>
+<span class="option">C) `int a; int b; int c;`</span>
+<span class="option">D) Both A and C are correct ✅</span></div><h4>Q92. What is the purpose of the <code>#include</code> directive?</h4>
+<div class="question-options"><span class="option">A) To define a constant</span>
+<span class="option">B) To include the contents of a header file ✅</span>
+<span class="option">C) To declare a variable</span>
+<span class="option">D) To return a value</span></div><h4>Q93. Which of the following is a valid way to define a constant using <code>#define</code>?</h4>
+<div class="question-options"><span class="option">A) `#define MAX 100` ✅</span>
+<span class="option">B) `#define MAX = 100`</span>
+<span class="option">C) `#define MAX; 100`</span>
+<span class="option">D) `#define 100 MAX`</span></div><h4>Q94. In the program <code>#include &lt;stdio.h&gt;</code>, <code>stdio.h</code> is a:</h4>
+<div class="question-options"><span class="option">A) User-defined header file</span>
+<span class="option">B) Standard library header file ✅</span>
+<span class="option">C) Executable file</span>
+<span class="option">D) Object file</span></div><h4>Q95. Which of the following is the correct order of sections in a C program?</h4>
+<div class="question-options"><span class="option">A) Documentation → Link → Definition → Global Declaration → main() ✅</span>
+<span class="option">B) main() → Link → Definition → Global Declaration → Documentation</span>
+<span class="option">C) Definition → Documentation → Link → Global Declaration → main()</span>
+<span class="option">D) Global Declaration → Link → Definition → Documentation → main()</span></div><h4>Q96. Which of the following is a valid character set element in C?</h4>
+<div class="question-options"><span class="option">A) `~` ✅</span>
+<span class="option">B) `€`</span>
+<span class="option">C) `£`</span>
+<span class="option">D) `¥`</span></div><h4>Q97. Which of the following is NOT a special symbol in C?</h4>
+<div class="question-options"><span class="option">A) `;`</span>
+<span class="option">B) `{`</span>
+<span class="option">C) `&`</span>
+<span class="option">D) `©` ✅</span></div><h4>Q98. Which of the following is a valid statement about identifiers?</h4>
+<div class="question-options"><span class="option">A) Identifiers can start with a digit</span>
+<span class="option">B) Identifiers can contain special symbols like `@`</span>
+<span class="option">C) Identifiers can start with an underscore ✅</span>
+<span class="option">D) Identifiers can be the same as keywords</span></div><h4>Q99. Which of the following is a valid declaration of a floating-point variable?</h4>
+<div class="question-options"><span class="option">A) `float x = 5;`</span>
+<span class="option">B) `float y = 5.5;` ✅</span>
+<span class="option">C) `float z = 'A';`</span>
+<span class="option">D) Both A and B are valid ✅</span></div><h4>Q100. Which of the following is NOT a pre-processor directive?</h4>
+<div class="question-options"><span class="option">A) `#include`</span>
+<span class="option">B) `#define`</span>
+<span class="option">C) `#undef`</span>
+<span class="option">D) `#return` ✅</span></div>
+
+</body>
+
+</html>

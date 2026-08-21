@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-03-semester-01-practice-paper-03</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>Section 1: Basic Structure (Questions 1 to 15)</h2>
+<h4>Q1. Which of the following is a valid identifier in C?</h4>
+<div class="question-options"><span class="option">A) `_variable` ✅</span>
+<span class="option">B) `2variable`</span>
+<span class="option">C) `var-iable`</span>
+<span class="option">D) `int`</span></div><h4>Q2. What is the size of <code>float</code> data type on a 32‑bit compiler?</h4>
+<div class="question-options"><span class="option">A) 2 bytes</span>
+<span class="option">B) 4 bytes ✅</span>
+<span class="option">C) 8 bytes</span>
+<span class="option">D) 16 bytes</span></div><h4>Q3. Which preprocessor directive is used to check if a macro is defined?</h4>
+<div class="question-options"><span class="option">A) `#ifdef` ✅</span>
+<span class="option">B) `#define`</span>
+<span class="option">C) `#undef`</span>
+<span class="option">D) `#include`</span></div><h4>Q4. What is the output of the following code?</h4>
+<pre><code class="language-c">#define SQUARE(x) x*x
+printf(&quot;%d&quot;, SQUARE(3+2));</code></pre><div class="question-options"><span class="option">A) 25</span>
+<span class="option">B) 13</span>
+<span class="option">C) 11 ✅</span>
+<span class="option">D) 9</span></div><h4>Q5. Which of the following is NOT a valid data type modifier in C?</h4>
+<div class="question-options"><span class="option">A) `signed`</span>
+<span class="option">B) `unsigned`</span>
+<span class="option">C) `long`</span>
+<span class="option">D) `string` ✅</span></div><h4>Q6. What is the default value of a global variable if not initialized?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) Garbage value</span>
+<span class="option">C) NULL</span>
+<span class="option">D) Undefined</span></div><h4>Q7. Which header file contains functions like <code>sqrt()</code> and <code>pow()</code>?</h4>
+<div class="question-options"><span class="option">A) `stdio.h`</span>
+<span class="option">B) `stdlib.h`</span>
+<span class="option">C) `math.h` ✅</span>
+<span class="option">D) `string.h`</span></div><h4>Q8. How many bytes does the <code>long int</code> occupy on a 64‑bit Linux system?</h4>
+<div class="question-options"><span class="option">A) 4</span>
+<span class="option">B) 8 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 16</span></div><h4>Q9. Which of the following is a valid character constant in C?</h4>
+<div class="question-options"><span class="option">A) `'ab'`</span>
+<span class="option">B) `"a"`</span>
+<span class="option">C) `'\n'` ✅</span>
+<span class="option">D) `\a`</span></div><h4>Q10. The <code>#ifndef</code> directive is used to:</h4>
+<div class="question-options"><span class="option">A) Define a macro if not defined ✅</span>
+<span class="option">B) Undefine a macro</span>
+<span class="option">C) Include a file</span>
+<span class="option">D) Generate an error</span></div><h4>Q11. What is the range of <code>signed int</code> on a 16‑bit system?</h4>
+<div class="question-options"><span class="option">A) –32768 to 32767 ✅</span>
+<span class="option">B) –2147483648 to 2147483647</span>
+<span class="option">C) 0 to 65535</span>
+<span class="option">D) –128 to 127</span></div><h4>Q12. Which of the following statements about variable declaration is correct?</h4>
+<div class="question-options"><span class="option">A) Variables must be declared at the beginning of the function.</span>
+<span class="option">B) Variables can be declared anywhere before they are used (C99 onwards). ✅</span>
+<span class="option">C) Variables cannot be declared inside loops.</span>
+<span class="option">D) Variables must be initialized at declaration.</span></div><h4>Q13. What is the purpose of the <code>typedef</code> keyword?</h4>
+<div class="question-options"><span class="option">A) To define a new data type alias ✅</span>
+<span class="option">B) To define a macro</span>
+<span class="option">C) To declare a variable</span>
+<span class="option">D) To include a header</span></div><h4>Q14. Which of the following is NOT a valid escape sequence in C?</h4>
+<div class="question-options"><span class="option">A) `\n`</span>
+<span class="option">B) `\t`</span>
+<span class="option">C) `\b`</span>
+<span class="option">D) `\s` ✅</span></div><h4>Q15. What is the output of the following code?</h4>
+<pre><code class="language-c">int x = 10;
+const int y = 20;
+x = y;
+printf(&quot;%d&quot;, x);</code></pre><div class="question-options"><span class="option">A) 10</span>
+<span class="option">B) 20 ✅</span>
+<span class="option">C) Error</span>
+<span class="option">D) Garbage</span></div><hr>
+<h2>Section 2: Operators &amp; I/O (Questions 16 to 35)</h2>
+<h4>Q16. What is the result of <code>7 &amp; 3</code> (bitwise AND)?</h4>
+<div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 3 ✅</span>
+<span class="option">C) 7</span>
+<span class="option">D) 4</span></div><h4>Q17. Which operator is used to perform logical NOT?</h4>
+<div class="question-options"><span class="option">A) `!` ✅</span>
+<span class="option">B) `~`</span>
+<span class="option">C) `-`</span>
+<span class="option">D) `not`</span></div><h4>Q18. What is the output of <code>printf(&quot;%d&quot;, 10 ^ 6);</code> (bitwise XOR)?</h4>
+<div class="question-options"><span class="option">A) 12 ✅</span>
+<span class="option">B) 16</span>
+<span class="option">C) 10</span>
+<span class="option">D) 6</span></div><h4>Q19. What is the value of <code>x</code> after <code>int x = 5; x = x &lt;&lt; 2;</code>?</h4>
+<div class="question-options"><span class="option">A) 20 ✅</span>
+<span class="option">B) 10</span>
+<span class="option">C) 5</span>
+<span class="option">D) 2</span></div><h4>Q20. Which of the following has the highest precedence?</h4>
+<div class="question-options"><span class="option">A) `*`</span>
+<span class="option">B) `+`</span>
+<span class="option">C) `!` ✅</span>
+<span class="option">D) `&&`</span></div><h4>Q21. What is the output of the following?</h4>
+<pre><code class="language-c">int a = 5, b = 10, c;
+c = (a &gt; b) ? a : b;
+printf(&quot;%d&quot;, c);</code></pre><div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) 15</span>
+<span class="option">D) 0</span></div><h4>Q22. Which function is used to print a string with a newline automatically?</h4>
+<div class="question-options"><span class="option">A) `printf()`</span>
+<span class="option">B) `puts()` ✅</span>
+<span class="option">C) `putchar()`</span>
+<span class="option">D) `write()`</span></div><h4>Q23. What is the result of <code>5 / 2</code> in integer division?</h4>
+<div class="question-options"><span class="option">A) 2.5</span>
+<span class="option">B) 2 ✅</span>
+<span class="option">C) 3</span>
+<span class="option">D) 2.0</span></div><h4>Q24. What does the <code>\t</code> escape sequence do?</h4>
+<div class="question-options"><span class="option">A) Horizontal tab ✅</span>
+<span class="option">B) Vertical tab</span>
+<span class="option">C) Backspace</span>
+<span class="option">D) Carriage return</span></div><h4>Q25. Which format specifier is used to print an unsigned integer?</h4>
+<div class="question-options"><span class="option">A) `%d`</span>
+<span class="option">B) `%u` ✅</span>
+<span class="option">C) `%o`</span>
+<span class="option">D) `%x`</span></div><h4>Q26. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 5;
+printf(&quot;%d&quot;, x == 5 ? 10 : 20);</code></pre><div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) 20</span>
+<span class="option">D) Error</span></div><h4>Q27. Which of the following is NOT a valid assignment operator?</h4>
+<div class="question-options"><span class="option">A) `=`</span>
+<span class="option">B) `+=`</span>
+<span class="option">C) `<=` ✅</span>
+<span class="option">D) `*=`</span></div><h4>Q28. What is the value of <code>(3, 5, 7, 9)</code> using the comma operator?</h4>
+<div class="question-options"><span class="option">A) 3</span>
+<span class="option">B) 5</span>
+<span class="option">C) 7</span>
+<span class="option">D) 9 ✅</span></div><h4>Q29. Which function is used to read a line of text including spaces?</h4>
+<div class="question-options"><span class="option">A) `scanf()`</span>
+<span class="option">B) `gets()`</span>
+<span class="option">C) `fgets()` ✅</span>
+<span class="option">D) `getchar()`</span></div><h4>Q30. What is the output of <code>printf(&quot;%.2f&quot;, 3.14159);</code>?</h4>
+<div class="question-options"><span class="option">A) `3.14` ✅</span>
+<span class="option">B) `3.14159`</span>
+<span class="option">C) `3.142`</span>
+<span class="option">D) `3.14`</span></div><h4>Q31. Which operator is used to access the value at a pointer?</h4>
+<div class="question-options"><span class="option">A) `&`</span>
+<span class="option">B) `*` ✅</span>
+<span class="option">C) `->`</span>
+<span class="option">D) `.`</span></div><h4>Q32. What is the result of implicit conversion in <code>double d = 5 / 2;</code>?</h4>
+<div class="question-options"><span class="option">A) 2.5</span>
+<span class="option">B) 2.0 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 3.0</span></div><h4>Q33. How do you read a single character from standard input?</h4>
+<div class="question-options"><span class="option">A) `scanf("%c", &ch);` ✅</span>
+<span class="option">B) `getchar(ch);`</span>
+<span class="option">C) `scanf("%s", &ch);`</span>
+<span class="option">D) `read(ch);`</span></div><h4>Q34. What is the output of <code>printf(&quot;%d&quot;, 8 &gt;&gt; 2);</code> (right shift)?</h4>
+<div class="question-options"><span class="option">A) 2 ✅</span>
+<span class="option">B) 4</span>
+<span class="option">C) 8</span>
+<span class="option">D) 1</span></div><h4>Q35. Which escape sequence produces a backslash?</h4>
+<div class="question-options"><span class="option">A) `\\` ✅</span>
+<span class="option">B) `\b`</span>
+<span class="option">C) `\/`</span>
+<span class="option">D) `\`</span></div><hr>
+<h2>Section 3: Branching and Looping (Questions 36 to 50)</h2>
+<h4>Q36. What is the output of the following code?</h4>
+<pre><code class="language-c">int x = 10;
+if (x &gt; 20)
+    printf(&quot;A&quot;);
+else if (x &gt; 5)
+    printf(&quot;B&quot;);
+else
+    printf(&quot;C&quot;);</code></pre><div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B ✅</span>
+<span class="option">C) C</span>
+<span class="option">D) AB</span></div><h4>Q37. How many times will the following loop execute?</h4>
+<pre><code class="language-c">int i = 0;
+do {
+    i++;
+} while(i &lt; 3);</code></pre><div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 3 ✅</span>
+<span class="option">C) 4</span>
+<span class="option">D) Infinite</span></div><h4>Q38. What will be the output of the following?</h4>
+<pre><code class="language-c">for(int i=0; i&lt;5; i+=2)
+    printf(&quot;%d&quot;, i);</code></pre><div class="question-options"><span class="option">A) 0 1 2 3 4</span>
+<span class="option">B) 0 2 4 ✅</span>
+<span class="option">C) 1 3 5</span>
+<span class="option">D) 0 2 4 6</span></div><h4>Q39. What is the output of the following <code>switch</code>?</h4>
+<pre><code class="language-c">int x = 1;
+switch(x) {
+    case 1: printf(&quot;A&quot;);
+    case 2: printf(&quot;B&quot;);
+            break;
+    default: printf(&quot;C&quot;);
+}</code></pre><div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) AB ✅</span>
+<span class="option">D) AC</span></div><h4>Q40. Which loop is guaranteed to execute its body at least once?</h4>
+<div class="question-options"><span class="option">A) `while`</span>
+<span class="option">B) `for`</span>
+<span class="option">C) `do-while` ✅</span>
+<span class="option">D) None</span></div><h4>Q41. What is the output of the following?</h4>
+<pre><code class="language-c">int i=1;
+while(i &lt;= 3) {
+    if(i == 2) break;
+    printf(&quot;%d&quot;, i);
+    i++;
+}</code></pre><div class="question-options"><span class="option">A) 1 2 3</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) 1 2</span>
+<span class="option">D) 2 3</span></div><h4>Q42. What is the purpose of the <code>default</code> case in a <code>switch</code>?</h4>
+<div class="question-options"><span class="option">A) It is mandatory.</span>
+<span class="option">B) It executes when no case matches. ✅</span>
+<span class="option">C) It is executed first.</span>
+<span class="option">D) It terminates the switch.</span></div><h4>Q43. How many times will the following loop execute?</h4>
+<pre><code class="language-c">int i = 5;
+while(i &gt; 0) {
+    i--;
+}</code></pre><div class="question-options"><span class="option">A) 4</span>
+<span class="option">B) 5 ✅</span>
+<span class="option">C) 6</span>
+<span class="option">D) Infinite</span></div><h4>Q44. What is the output of the following nested loop?</h4>
+<pre><code class="language-c">for(int i=1; i&lt;=2; i++) {
+    for(int j=1; j&lt;=2; j++) {
+        if(i == j) continue;
+        printf(&quot;%d%d&quot;, i, j);
+    }
+}</code></pre><div class="question-options"><span class="option">A) 1112 2122</span>
+<span class="option">B) 12 21 ✅</span>
+<span class="option">C) 11 22</span>
+<span class="option">D) 1221</span></div><h4>Q45. What does <code>break</code> do inside a <code>switch</code>?</h4>
+<div class="question-options"><span class="option">A) Exits the `switch` ✅</span>
+<span class="option">B) Exits the program</span>
+<span class="option">C) Continues to next case</span>
+<span class="option">D) Restarts the switch</span></div><h4>Q46. Which of the following is a valid infinite <code>for</code> loop?</h4>
+<div class="question-options"><span class="option">A) `for(int i=0; i<10; i--)`</span>
+<span class="option">B) `for( ; ; )` ✅</span>
+<span class="option">C) `for(int i=0; ; i++)`</span>
+<span class="option">D) Both B and C ✅</span></div><h4>Q47. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 0;
+if(x = 0)
+    printf(&quot;Zero&quot;);
+else
+    printf(&quot;Non-zero&quot;);</code></pre><div class="question-options"><span class="option">A) Zero</span>
+<span class="option">B) Non-zero ✅</span>
+<span class="option">C) Error</span>
+<span class="option">D) ZeroNon-zero</span></div><h4>Q48. What is the output of the following <code>while</code> loop?</h4>
+<pre><code class="language-c">int i = 0;
+while(i++ &lt; 3)
+    printf(&quot;%d&quot;, i);</code></pre><div class="question-options"><span class="option">A) 0 1 2</span>
+<span class="option">B) 1 2 3 ✅</span>
+<span class="option">C) 1 2</span>
+<span class="option">D) 0 1 2 3</span></div><h4>Q49. Which statement is used to skip the remaining code in a loop iteration?</h4>
+<div class="question-options"><span class="option">A) `break`</span>
+<span class="option">B) `continue` ✅</span>
+<span class="option">C) `return`</span>
+<span class="option">D) `goto`</span></div><h4>Q50. What is the output of the following?</h4>
+<pre><code class="language-c">int i;
+for(i=0; i&lt;3; i++);
+    printf(&quot;%d&quot;, i);</code></pre><div class="question-options"><span class="option">A) 0 1 2</span>
+<span class="option">B) 3 ✅</span>
+<span class="option">C) 2</span>
+<span class="option">D) 0</span></div><hr>
+<h2>Section 4: Arrays and Structures (Questions 51 to 70)</h2>
+<h4>Q51. What is the index of the last element in an array of size 10?</h4>
+<div class="question-options"><span class="option">A) 10</span>
+<span class="option">B) 9 ✅</span>
+<span class="option">C) 0</span>
+<span class="option">D) 11</span></div><h4>Q52. What is the output of the following?</h4>
+<pre><code class="language-c">int arr[5] = {1,2,3};
+printf(&quot;%d&quot;, arr[3]);</code></pre><div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) Garbage</span>
+<span class="option">C) 3</span>
+<span class="option">D) Error</span></div><h4>Q53. How is a two-dimensional array of size <code>[3][4]</code> stored?</h4>
+<div class="question-options"><span class="option">A) Column-major</span>
+<span class="option">B) Row-major ✅</span>
+<span class="option">C) Diagonal</span>
+<span class="option">D) Sparse</span></div><h4>Q54. Which function copies one string to another?</h4>
+<div class="question-options"><span class="option">A) `strcpy()` ✅</span>
+<span class="option">B) `strcat()`</span>
+<span class="option">C) `strcmp()`</span>
+<span class="option">D) `strlen()`</span></div><h4>Q55. What is the output of the following?</h4>
+<pre><code class="language-c">char str[] = &quot;C Programming&quot;;
+printf(&quot;%lu&quot;, sizeof(str));</code></pre><div class="question-options"><span class="option">A) 13</span>
+<span class="option">B) 14 ✅</span>
+<span class="option">C) 12</span>
+<span class="option">D) 15</span></div><h4>Q56. Which function returns the length of a string excluding the null character?</h4>
+<div class="question-options"><span class="option">A) `strlen()` ✅</span>
+<span class="option">B) `sizeof()`</span>
+<span class="option">C) `strlength()`</span>
+<span class="option">D) `strlen()` returns including null</span></div><h4>Q57. What is the output of the following?</h4>
+<pre><code class="language-c">char s1[10] = &quot;Hello&quot;;
+char s2[10] = &quot;World&quot;;
+strcat(s1, s2);
+printf(&quot;%s&quot;, s1);</code></pre><div class="question-options"><span class="option">A) Hello</span>
+<span class="option">B) World</span>
+<span class="option">C) HelloWorld ✅</span>
+<span class="option">D) Hello World</span></div><h4>Q58. How do you initialize a structure variable?</h4>
+<div class="question-options"><span class="option">A) `struct Student s1 = {10, "John"};` ✅</span>
+<span class="option">B) `Student s1 = {10, "John"};`</span>
+<span class="option">C) `s1 = (struct Student){10, "John"};`</span>
+<span class="option">D) All of the above are valid. ✅</span></div><h4>Q59. What is the output of the following?</h4>
+<pre><code class="language-c">struct {
+    int a;
+    int b;
+} p = {5, 10};
+printf(&quot;%d&quot;, p.b);</code></pre><div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) Error</span>
+<span class="option">D) p.b</span></div><h4>Q60. How do you access structure member <code>x</code> via pointer <code>ptr</code>?</h4>
+<div class="question-options"><span class="option">A) `ptr.x`</span>
+<span class="option">B) `ptr->x` ✅</span>
+<span class="option">C) `*ptr.x`</span>
+<span class="option">D) `&ptr.x`</span></div><h4>Q61. What is the output of the following?</h4>
+<pre><code class="language-c">int arr[2][3] = {{1,2,3},{4,5,6}};
+printf(&quot;%d&quot;, arr[0][2]);</code></pre><div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 2</span>
+<span class="option">C) 3 ✅</span>
+<span class="option">D) 4</span></div><h4>Q62. Which of the following correctly declares an array of 5 structures of type <code>Student</code>?</h4>
+<div class="question-options"><span class="option">A) `struct Student[5] s;`</span>
+<span class="option">B) `struct Student s[5];` ✅</span>
+<span class="option">C) `Student s[5];`</span>
+<span class="option">D) `struct s[5] Student;`</span></div><h4>Q63. What does <code>strcmp(str1, str2)</code> return if strings are equal?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) -1</span>
+<span class="option">D) Positive value</span></div><h4>Q64. What is a nested structure?</h4>
+<div class="question-options"><span class="option">A) A structure that contains another structure as a member ✅</span>
+<span class="option">B) An array of structures</span>
+<span class="option">C) A structure with pointers</span>
+<span class="option">D) A recursive structure</span></div><h4>Q65. What is the output of the following?</h4>
+<pre><code class="language-c">struct Employee {
+    int id;
+    char name[20];
+} e = {101, &quot;Rahul&quot;};
+printf(&quot;%d&quot;, e.id);</code></pre><div class="question-options"><span class="option">A) 101 ✅</span>
+<span class="option">B) Rahul</span>
+<span class="option">C) Error</span>
+<span class="option">D) 0</span></div><h4>Q66. What is the size of the following structure on a 32‑bit system (ignore padding)?</h4>
+<pre><code class="language-c">struct Sample {
+    int x;
+    char y;
+};</code></pre><div class="question-options"><span class="option">A) 5 bytes</span>
+<span class="option">B) 8 bytes (with padding) ✅</span>
+<span class="option">C) 4 bytes</span>
+<span class="option">D) 6 bytes</span></div><h4>Q67. Which function concatenates at most <code>n</code> characters?</h4>
+<div class="question-options"><span class="option">A) `strncat()` ✅</span>
+<span class="option">B) `strcat()`</span>
+<span class="option">C) `strcpy()`</span>
+<span class="option">D) `strncpy()`</span></div><h4>Q68. What is the output of the following?</h4>
+<pre><code class="language-c">char s[20] = &quot;Hello&quot;;
+strcpy(s, &quot;Hi&quot;);
+printf(&quot;%s&quot;, s);</code></pre><div class="question-options"><span class="option">A) Hello</span>
+<span class="option">B) Hi ✅</span>
+<span class="option">C) HelloHi</span>
+<span class="option">D) Error</span></div><h4>Q69. In C, array name represents:</h4>
+<div class="question-options"><span class="option">A) The address of the first element ✅</span>
+<span class="option">B) The value of the first element</span>
+<span class="option">C) The size of the array</span>
+<span class="option">D) The last element</span></div><h4>Q70. Which of the following initializes a 2D array completely?</h4>
+<div class="question-options"><span class="option">A) `int a[2][3] = {0};`</span>
+<span class="option">B) `int a[2][3] = {{0,0,0},{0,0,0}};`</span>
+<span class="option">C) `int a[2][3] = {0,0,0,0,0,0};`</span>
+<span class="option">D) All of the above ✅</span></div><hr>
+<h2>Section 5: User-Defined Functions (Questions 71 to 85)</h2>
+<h4>Q71. What is a function declaration called?</h4>
+<div class="question-options"><span class="option">A) Prototype ✅</span>
+<span class="option">B) Definition</span>
+<span class="option">C) Call</span>
+<span class="option">D) Return</span></div><h4>Q72. In call by value, the formal parameters receive:</h4>
+<div class="question-options"><span class="option">A) The address of actual arguments</span>
+<span class="option">B) A copy of actual arguments ✅</span>
+<span class="option">C) The original arguments</span>
+<span class="option">D) Nothing</span></div><h4>Q73. How can we achieve call by reference in C?</h4>
+<div class="question-options"><span class="option">A) By passing pointers ✅</span>
+<span class="option">B) By passing values</span>
+<span class="option">C) By using global variables</span>
+<span class="option">D) By using `register` variables</span></div><h4>Q74. What is the output of the following?</h4>
+<pre><code class="language-c">void inc(int x) {
+    x++;
+}
+int main() {
+    int a = 5;
+    inc(a);
+    printf(&quot;%d&quot;, a);
+}</code></pre><div class="question-options"><span class="option">A) 6</span>
+<span class="option">B) 5 ✅</span>
+<span class="option">C) 0</span>
+<span class="option">D) Error</span></div><h4>Q75. What is the base case in recursion?</h4>
+<div class="question-options"><span class="option">A) The simplest case that can be solved directly ✅</span>
+<span class="option">B) The recursive call</span>
+<span class="option">C) The return statement</span>
+<span class="option">D) The function definition</span></div><h4>Q76. What is the output of the following recursive function for <code>fib(3)</code>?</h4>
+<pre><code class="language-c">int fib(int n) {
+    if(n &lt;= 1) return n;
+    return fib(n-1) + fib(n-2);
+}</code></pre><div class="question-options"><span class="option">A) 2 ✅</span>
+<span class="option">B) 3</span>
+<span class="option">C) 1</span>
+<span class="option">D) 0</span></div><h4>Q77. Which of the following is a valid function prototype?</h4>
+<div class="question-options"><span class="option">A) `int sum(int a, int b);` ✅</span>
+<span class="option">B) `sum(int a, int b);`</span>
+<span class="option">C) `int sum(a, b);`</span>
+<span class="option">D) `sum(a, b) int;`</span></div><h4>Q78. What is the output of the following?</h4>
+<pre><code class="language-c">int func(int x) {
+    if(x == 0) return 1;
+    return x * func(x-1);
+}
+printf(&quot;%d&quot;, func(3));</code></pre><div class="question-options"><span class="option">A) 6 ✅</span>
+<span class="option">B) 3</span>
+<span class="option">C) 1</span>
+<span class="option">D) 0</span></div><h4>Q79. Which keyword makes a variable retain its value between function calls?</h4>
+<div class="question-options"><span class="option">A) `static` ✅</span>
+<span class="option">B) `auto`</span>
+<span class="option">C) `register`</span>
+<span class="option">D) `extern`</span></div><h4>Q80. Can a function in C return multiple values directly?</h4>
+<div class="question-options"><span class="option">A) Yes, using a comma.</span>
+<span class="option">B) No, only one value can be returned. ✅</span>
+<span class="option">C) Yes, by using arrays.</span>
+<span class="option">D) Yes, by using structures (by returning a structure). ✅</span></div><h4>Q81. What is the default return type of a function if omitted?</h4>
+<div class="question-options"><span class="option">A) `void`</span>
+<span class="option">B) `int` ✅</span>
+<span class="option">C) `char`</span>
+<span class="option">D) `float`</span></div><h4>Q82. Which function is called automatically when a program starts?</h4>
+<div class="question-options"><span class="option">A) `start()`</span>
+<span class="option">B) `main()` ✅</span>
+<span class="option">C) `init()`</span>
+<span class="option">D) `begin()`</span></div><h4>Q83. What is the output of the following?</h4>
+<pre><code class="language-c">int square(int x) { return x*x; }
+int main() {
+    int a = square(5);
+    printf(&quot;%d&quot;, a);
+}</code></pre><div class="question-options"><span class="option">A) 25 ✅</span>
+<span class="option">B) 10</span>
+<span class="option">C) 5</span>
+<span class="option">D) Error</span></div><h4>Q84. Which storage class makes a variable global accessible across files?</h4>
+<div class="question-options"><span class="option">A) `extern` ✅</span>
+<span class="option">B) `static`</span>
+<span class="option">C) `auto`</span>
+<span class="option">D) `register`</span></div><h4>Q85. What is the maximum depth of recursion in C?</h4>
+<div class="question-options"><span class="option">A) Limited by stack size ✅</span>
+<span class="option">B) Unlimited</span>
+<span class="option">C) 1000</span>
+<span class="option">D) 255</span></div><hr>
+<h2>Section 6: Pointers (Questions 86 to 100)</h2>
+<h4>Q86. Which operator gives the address of a variable?</h4>
+<div class="question-options"><span class="option">A) `*`</span>
+<span class="option">B) `&` ✅</span>
+<span class="option">C) `->`</span>
+<span class="option">D) `.`</span></div><h4>Q87. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 20;
+int *p = &amp;x;
+printf(&quot;%d&quot;, *p);</code></pre><div class="question-options"><span class="option">A) Address of x</span>
+<span class="option">B) 20 ✅</span>
+<span class="option">C) 0</span>
+<span class="option">D) Garbage</span></div><h4>Q88. What is a wild pointer?</h4>
+<div class="question-options"><span class="option">A) Pointer that points to a freed memory</span>
+<span class="option">B) Uninitialized pointer ✅</span>
+<span class="option">C) NULL pointer</span>
+<span class="option">D) Pointer to constant</span></div><h4>Q89. What is the output of the following?</h4>
+<pre><code class="language-c">int arr[3] = {10,20,30};
+int *p = arr;
+printf(&quot;%d&quot;, *(p+2));</code></pre><div class="question-options"><span class="option">A) 10</span>
+<span class="option">B) 20</span>
+<span class="option">C) 30 ✅</span>
+<span class="option">D) Error</span></div><h4>Q90. If <code>int *p;</code> and <code>sizeof(int)</code> is 4, what is <code>p+1</code>?</h4>
+<div class="question-options"><span class="option">A) Address incremented by 1 byte</span>
+<span class="option">B) Address incremented by 4 bytes ✅</span>
+<span class="option">C) Address incremented by 2 bytes</span>
+<span class="option">D) Compilation error</span></div><h4>Q91. What is the output of the following?</h4>
+<pre><code class="language-c">char s[] = &quot;Good&quot;;
+char *p = s;
+printf(&quot;%c&quot;, *(p+1));</code></pre><div class="question-options"><span class="option">A) G</span>
+<span class="option">B) o ✅</span>
+<span class="option">C) o</span>
+<span class="option">D) d</span></div><h4>Q92. Which pointer type can point to any data type without casting?</h4>
+<div class="question-options"><span class="option">A) `void *` ✅</span>
+<span class="option">B) `char *`</span>
+<span class="option">C) `int *`</span>
+<span class="option">D) `NULL *`</span></div><h4>Q93. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 5;
+int *p = &amp;x;
+*p = 15;
+printf(&quot;%d&quot;, x);</code></pre><div class="question-options"><span class="option">A) 5</span>
+<span class="option">B) 15 ✅</span>
+<span class="option">C) Address</span>
+<span class="option">D) 0</span></div><h4>Q94. A dangling pointer refers to:</h4>
+<div class="question-options"><span class="option">A) Memory that has been freed ✅</span>
+<span class="option">B) NULL</span>
+<span class="option">C) Uninitialized</span>
+<span class="option">D) Constant address</span></div><h4>Q95. Which of the following is invalid pointer arithmetic?</h4>
+<div class="question-options"><span class="option">A) `ptr + 1`</span>
+<span class="option">B) `ptr - 1`</span>
+<span class="option">C) `ptr1 + ptr2` ✅</span>
+<span class="option">D) `ptr1 - ptr2`</span></div><h4>Q96. What is the size of a pointer on a typical 64‑bit system?</h4>
+<div class="question-options"><span class="option">A) 4 bytes</span>
+<span class="option">B) 8 bytes ✅</span>
+<span class="option">C) 2 bytes</span>
+<span class="option">D) 16 bytes</span></div><h4>Q97. What is the output of the following?</h4>
+<pre><code class="language-c">int a[2][2] = {{1,2},{3,4}};
+int *p = &amp;a[0][0];
+printf(&quot;%d&quot;, *(p+3));</code></pre><div class="question-options"><span class="option">A) 1</span>
+<span class="option">B) 2</span>
+<span class="option">C) 3</span>
+<span class="option">D) 4 ✅</span></div><h4>Q98. How to declare a pointer to a function that takes two ints and returns int?</h4>
+<div class="question-options"><span class="option">A) `int (*func)(int, int);` ✅</span>
+<span class="option">B) `int *func(int, int);`</span>
+<span class="option">C) `int func(int, int)*;`</span>
+<span class="option">D) `func *int(int, int);`</span></div><h4>Q99. What is the output of the following?</h4>
+<pre><code class="language-c">int *p;
+printf(&quot;%p&quot;, p);</code></pre><div class="question-options"><span class="option">A) Garbage address ✅</span>
+<span class="option">B) NULL</span>
+<span class="option">C) 0</span>
+<span class="option">D) Error</span></div><h4>Q100. Which of the following is TRUE about array name as pointer?</h4>
+<div class="question-options"><span class="option">A) It is a constant pointer ✅</span>
+<span class="option">B) It can be incremented</span>
+<span class="option">C) It can be assigned to another array</span>
+<span class="option">D) It stores the size of the array</span></div><hr>
+<h2>Answer Key</h2>
+<table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>A</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>B</td>
+<td>76</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>C</td>
+<td>52</td>
+<td>A</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td>28</td>
+<td>D</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>29</td>
+<td>C</td>
+<td>54</td>
+<td>A</td>
+<td>79</td>
+<td>A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>D</td>
+<td>30</td>
+<td>A</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>B (and D also correct)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>A</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>A</td>
+<td>81</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>C</td>
+<td>32</td>
+<td>B</td>
+<td>57</td>
+<td>C</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>A</td>
+<td>58</td>
+<td>D</td>
+<td>83</td>
+<td>A</td>
+</tr>
+<tr>
+<td>9</td>
+<td>C</td>
+<td>34</td>
+<td>A</td>
+<td>59</td>
+<td>B</td>
+<td>84</td>
+<td>A</td>
+</tr>
+<tr>
+<td>10</td>
+<td>A</td>
+<td>35</td>
+<td>A</td>
+<td>60</td>
+<td>B</td>
+<td>85</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>A</td>
+<td>36</td>
+<td>B</td>
+<td>61</td>
+<td>C</td>
+<td>86</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>B</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>B</td>
+<td>87</td>
+<td>B</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>A</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>D</td>
+<td>39</td>
+<td>C</td>
+<td>64</td>
+<td>A</td>
+<td>89</td>
+<td>C</td>
+</tr>
+<tr>
+<td>15</td>
+<td>B</td>
+<td>40</td>
+<td>C</td>
+<td>65</td>
+<td>A</td>
+<td>90</td>
+<td>B</td>
+</tr>
+<tr>
+<td>16</td>
+<td>B</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>A</td>
+<td>42</td>
+<td>B</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>A</td>
+</tr>
+<tr>
+<td>18</td>
+<td>A</td>
+<td>43</td>
+<td>B</td>
+<td>68</td>
+<td>B</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>A</td>
+<td>44</td>
+<td>B</td>
+<td>69</td>
+<td>A</td>
+<td>94</td>
+<td>A</td>
+</tr>
+<tr>
+<td>20</td>
+<td>C</td>
+<td>45</td>
+<td>A</td>
+<td>70</td>
+<td>D</td>
+<td>95</td>
+<td>C</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>D</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>B</td>
+<td>72</td>
+<td>B</td>
+<td>97</td>
+<td>D</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>B</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>A</td>
+</tr>
+<tr>
+<td>24</td>
+<td>A</td>
+<td>49</td>
+<td>B</td>
+<td>74</td>
+<td>B</td>
+<td>99</td>
+<td>A</td>
+</tr>
+<tr>
+<td>25</td>
+<td>B</td>
+<td>50</td>
+<td>B</td>
+<td>75</td>
+<td>A</td>
+<td>100</td>
+<td>A</td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>

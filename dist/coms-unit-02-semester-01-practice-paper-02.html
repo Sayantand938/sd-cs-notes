@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-02-semester-01-practice-paper-02</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>Section 1: Concept of Programming (Questions 1 to 25)</h2>
+<h4>Q1. Which of the following is the lowest level of programming language?</h4>
+<div class="question-options"><span class="option">A) High-Level Language</span>
+<span class="option">B) Assembly Language</span>
+<span class="option">C) Machine Language ✅</span>
+<span class="option">D) Structured Language</span></div><h4>Q2. Which language uses mnemonics like ADD, MOV, SUB?</h4>
+<div class="question-options"><span class="option">A) Machine Language</span>
+<span class="option">B) Assembly Language ✅</span>
+<span class="option">C) C Language</span>
+<span class="option">D) Java</span></div><h4>Q3. What is the main advantage of High-Level Languages?</h4>
+<div class="question-options"><span class="option">A) Faster execution</span>
+<span class="option">B) Easier to understand and write ✅</span>
+<span class="option">C) Uses less memory</span>
+<span class="option">D) No need for compilers</span></div><h4>Q4. Which of the following is NOT a high-level language?</h4>
+<div class="question-options"><span class="option">A) Python</span>
+<span class="option">B) Java</span>
+<span class="option">C) Assembly ✅</span>
+<span class="option">D) C++</span></div><h4>Q5. What is the difference between an instruction and a program?</h4>
+<div class="question-options"><span class="option">A) Instruction is a single command, program is a set of instructions ✅</span>
+<span class="option">B) Instruction is a set, program is a single command</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Instruction is used only in machine language</span></div><h4>Q6. Which of the following is an example of a program?</h4>
+<div class="question-options"><span class="option">A) `int x = 5;`</span>
+<span class="option">B) A word processor application ✅</span>
+<span class="option">C) A single `printf` statement</span>
+<span class="option">D) A flowchart</span></div><h4>Q7. What is the role of a compiler?</h4>
+<div class="question-options"><span class="option">A) To execute the program directly</span>
+<span class="option">B) To convert high-level code to machine code ✅</span>
+<span class="option">C) To design algorithms</span>
+<span class="option">D) To test the program</span></div><h4>Q8. Which of the following is TRUE about assembly language?</h4>
+<div class="question-options"><span class="option">A) It is machine-independent</span>
+<span class="option">B) It uses mnemonics for operations ✅</span>
+<span class="option">C) It is easier than high-level languages</span>
+<span class="option">D) It does not need translation</span></div><h4>Q9. What is the advantage of machine language?</h4>
+<div class="question-options"><span class="option">A) Easy to understand</span>
+<span class="option">B) Fast execution ✅</span>
+<span class="option">C) Portable</span>
+<span class="option">D) Easy to debug</span></div><h4>Q10. Which programming paradigm focuses on functions and procedures?</h4>
+<div class="question-options"><span class="option">A) Object-Oriented Programming</span>
+<span class="option">B) Procedural Programming ✅</span>
+<span class="option">C) Non-Procedural Programming</span>
+<span class="option">D) Functional Programming</span></div><h4>Q11. Which of the following is a characteristic of Procedural Programming?</h4>
+<div class="question-options"><span class="option">A) Data is hidden</span>
+<span class="option">B) Programs are organized around functions ✅</span>
+<span class="option">C) Uses inheritance</span>
+<span class="option">D) Uses polymorphism</span></div><h4>Q12. What is the main focus of Object-Oriented Programming?</h4>
+<div class="question-options"><span class="option">A) Functions</span>
+<span class="option">B) Data and objects ✅</span>
+<span class="option">C) Procedures</span>
+<span class="option">D) Algorithms</span></div><h4>Q13. Which of the following is NOT a principle of OOP?</h4>
+<div class="question-options"><span class="option">A) Encapsulation</span>
+<span class="option">B) Inheritance</span>
+<span class="option">C) Polymorphism</span>
+<span class="option">D) Recursion ✅</span></div><h4>Q14. What is encapsulation in OOP?</h4>
+<div class="question-options"><span class="option">A) Combining data and methods into a single unit ✅</span>
+<span class="option">B) Creating multiple classes</span>
+<span class="option">C) Using many functions</span>
+<span class="option">D) Hiding all code</span></div><h4>Q15. What is inheritance in OOP?</h4>
+<div class="question-options"><span class="option">A) Reusing code by deriving new classes from existing ones ✅</span>
+<span class="option">B) Creating multiple objects</span>
+<span class="option">C) Defining many functions</span>
+<span class="option">D) Using pointers</span></div><h4>Q16. Which of the following languages supports OOP?</h4>
+<div class="question-options"><span class="option">A) C</span>
+<span class="option">B) FORTRAN</span>
+<span class="option">C) C++ ✅</span>
+<span class="option">D) Assembly</span></div><h4>Q17. What is the difference between Structured Programming and OOP?</h4>
+<div class="question-options"><span class="option">A) Structured uses objects, OOP uses functions</span>
+<span class="option">B) Structured uses functions and data separately, OOP combines them ✅</span>
+<span class="option">C) Both are same</span>
+<span class="option">D) Structured is newer</span></div><h4>Q18. Which concept in OOP allows one interface to be used for multiple data types?</h4>
+<div class="question-options"><span class="option">A) Encapsulation</span>
+<span class="option">B) Inheritance</span>
+<span class="option">C) Polymorphism ✅</span>
+<span class="option">D) Abstraction</span></div><h4>Q19. What is abstraction in OOP?</h4>
+<div class="question-options"><span class="option">A) Hiding implementation details and showing only functionality ✅</span>
+<span class="option">B) Creating many objects</span>
+<span class="option">C) Using multiple inheritance</span>
+<span class="option">D) Writing many functions</span></div><h4>Q20. Which of the following is a non-procedural language?</h4>
+<div class="question-options"><span class="option">A) C</span>
+<span class="option">B) Pascal</span>
+<span class="option">C) SQL ✅</span>
+<span class="option">D) FORTRAN</span></div><h4>Q21. In non-procedural languages, what is the programmer&#39;s focus?</h4>
+<div class="question-options"><span class="option">A) How to do a task</span>
+<span class="option">B) What to do ✅</span>
+<span class="option">C) Memory management</span>
+<span class="option">D) Function definitions</span></div><h4>Q22. Which of the following is a characteristic of Structured Programming?</h4>
+<div class="question-options"><span class="option">A) Top-down design ✅</span>
+<span class="option">B) Use of goto statements</span>
+<span class="option">C) Global variables only</span>
+<span class="option">D) No functions</span></div><h4>Q23. Who introduced the concept of Structured Programming?</h4>
+<div class="question-options"><span class="option">A) Dennis Ritchie</span>
+<span class="option">B) Edsger Dijkstra ✅</span>
+<span class="option">C) James Gosling</span>
+<span class="option">D) Alan Turing</span></div><h4>Q24. Which of the following is NOT a feature of Structured Programming?</h4>
+<div class="question-options"><span class="option">A) Sequence</span>
+<span class="option">B) Selection</span>
+<span class="option">C) Iteration</span>
+<span class="option">D) Inheritance ✅</span></div><h4>Q25. What is the main disadvantage of low-level languages?</h4>
+<div class="question-options"><span class="option">A) Hard to understand and write ✅</span>
+<span class="option">B) Slow execution</span>
+<span class="option">C) Cannot control hardware</span>
+<span class="option">D) They are not portable</span></div><hr>
+<h2>Section 2: Algorithm Fundamentals (Questions 26 to 80)</h2>
+<h4>Q26. An algorithm must have which of the following?</h4>
+<div class="question-options"><span class="option">A) Infinite steps</span>
+<span class="option">B) No inputs</span>
+<span class="option">C) Finiteness ✅</span>
+<span class="option">D) No output</span></div><h4>Q27. What does &quot;definiteness&quot; in an algorithm mean?</h4>
+<div class="question-options"><span class="option">A) The algorithm must produce some output</span>
+<span class="option">B) Each step must be precisely defined ✅</span>
+<span class="option">C) The algorithm must be short</span>
+<span class="option">D) The algorithm must be recursive</span></div><h4>Q28. What is the output of an algorithm?</h4>
+<div class="question-options"><span class="option">A) The result of the problem being solved ✅</span>
+<span class="option">B) The input data</span>
+<span class="option">C) The code</span>
+<span class="option">D) The algorithm itself</span></div><h4>Q29. Which of the following is an example of a recursive algorithm?</h4>
+<div class="question-options"><span class="option">A) Sum of array elements using a loop</span>
+<span class="option">B) Binary search using recursion ✅</span>
+<span class="option">C) Finding max using if-else</span>
+<span class="option">D) Swapping two numbers</span></div><h4>Q30. In recursion, what is the role of the recursive case?</h4>
+<div class="question-options"><span class="option">A) Terminates the recursion</span>
+<span class="option">B) Calls the function again with smaller problem ✅</span>
+<span class="option">C) Prints the output</span>
+<span class="option">D) Defines the base case</span></div><h4>Q31. What is the main disadvantage of recursion?</h4>
+<div class="question-options"><span class="option">A) Code is longer</span>
+<span class="option">B) More memory and time overhead due to stack ✅</span>
+<span class="option">C) Not suitable for any problems</span>
+<span class="option">D) Cannot be implemented in C</span></div><h4>Q32. What is a flowchart&#39;s purpose?</h4>
+<div class="question-options"><span class="option">A) To represent an algorithm graphically ✅</span>
+<span class="option">B) To write actual code</span>
+<span class="option">C) To execute a program</span>
+<span class="option">D) To store data</span></div><h4>Q33. Which symbol is used for processing in a flowchart?</h4>
+<div class="question-options"><span class="option">A) Rectangle ✅</span>
+<span class="option">B) Diamond</span>
+<span class="option">C) Oval</span>
+<span class="option">D) Parallelogram</span></div><h4>Q34. Which symbol is used for a loop in a flowchart?</h4>
+<div class="question-options"><span class="option">A) Rectangle</span>
+<span class="option">B) Diamond (decision) ✅ (loops are represented by decisions)</span>
+<span class="option">C) Oval</span>
+<span class="option">D) Parallelogram</span></div><h4>Q35. What does a parallelogram represent in a flowchart?</h4>
+<div class="question-options"><span class="option">A) Start/End</span>
+<span class="option">B) Decision</span>
+<span class="option">C) Input/Output ✅</span>
+<span class="option">D) Processing</span></div><h4>Q36. What is pseudo-code?</h4>
+<div class="question-options"><span class="option">A) A high-level programming language</span>
+<span class="option">B) A mix of natural language and programming constructs ✅</span>
+<span class="option">C) Machine code</span>
+<span class="option">D) A type of flowchart</span></div><h4>Q37. Which of the following is an advantage of pseudo-code?</h4>
+<div class="question-options"><span class="option">A) It can be executed directly</span>
+<span class="option">B) It is independent of any programming language ✅</span>
+<span class="option">C) It is faster than code</span>
+<span class="option">D) It uses less memory</span></div><h4>Q38. What is the time complexity of sequential search?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q39. What is the time complexity of binary search?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q40. Which of the following has the highest time complexity?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n²) ✅</span></div><h4>Q41. What does O(n²) mean?</h4>
+<div class="question-options"><span class="option">A) Running time increases linearly</span>
+<span class="option">B) Running time increases quadratically ✅</span>
+<span class="option">C) Running time is constant</span>
+<span class="option">D) Running time increases logarithmically</span></div><h4>Q42. Which complexity notation is used to express the average-case performance?</h4>
+<div class="question-options"><span class="option">A) Big O</span>
+<span class="option">B) Big Omega</span>
+<span class="option">C) Big Theta ✅</span>
+<span class="option">D) Little o</span></div><h4>Q43. What is the worst-case time complexity of insertion sort?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(n²) ✅</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q44. What is the best-case time complexity of insertion sort?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n²)</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q45. What is the time complexity of quick sort in the worst case?</h4>
+<div class="question-options"><span class="option">A) O(n log n)</span>
+<span class="option">B) O(n²) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(log n)</span></div><h4>Q46. What is the time complexity of quick sort in the average case?</h4>
+<div class="question-options"><span class="option">A) O(n²)</span>
+<span class="option">B) O(n log n) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(log n)</span></div><h4>Q47. Which sorting algorithm has a time complexity of O(n log n) in all cases?</h4>
+<div class="question-options"><span class="option">A) Bubble sort</span>
+<span class="option">B) Selection sort</span>
+<span class="option">C) Merge sort ✅</span>
+<span class="option">D) Quick sort (worst case)</span></div><h4>Q48. What is the space complexity of merge sort?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q49. Which asymptotic notation gives the tightest bound?</h4>
+<div class="question-options"><span class="option">A) Big O</span>
+<span class="option">B) Big Omega</span>
+<span class="option">C) Big Theta ✅</span>
+<span class="option">D) Little omega</span></div><h4>Q50. What is the time complexity of reading an element from an array by index?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(1) ✅</span>
+<span class="option">D) O(n²)</span></div><h4>Q51. What is the time complexity of inserting an element at the end of a linked list (if you have a tail pointer)?</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(log n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q52. What is the time complexity of searching in a sorted array using binary search?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q53. What does Big Omega notation describe?</h4>
+<div class="question-options"><span class="option">A) Upper bound</span>
+<span class="option">B) Lower bound ✅</span>
+<span class="option">C) Exact bound</span>
+<span class="option">D) Average bound</span></div><h4>Q54. What is the purpose of algorithm analysis?</h4>
+<div class="question-options"><span class="option">A) To make the code longer</span>
+<span class="option">B) To estimate resource usage ✅</span>
+<span class="option">C) To add more comments</span>
+<span class="option">D) To make the program unreadable</span></div><h4>Q55. What is the time complexity of a while loop that runs log n times?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n) ✅</span>
+<span class="option">C) O(1)</span>
+<span class="option">D) O(n²)</span></div><h4>Q56. What is the time complexity of a loop that runs n/2 times?</h4>
+<div class="question-options"><span class="option">A) O(n) ✅</span>
+<span class="option">B) O(n/2) (but we drop constants, so O(n))</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q57. What is the time complexity of nested loops where outer runs n and inner runs m?</h4>
+<div class="question-options"><span class="option">A) O(n+m)</span>
+<span class="option">B) O(n*m) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(m)</span></div><h4>Q58. What is the space complexity of an iterative binary search?</h4>
+<div class="question-options"><span class="option">A) O(1) ✅</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q59. What is the space complexity of a recursive binary search?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(log n) ✅</span>
+<span class="option">C) O(n)</span>
+<span class="option">D) O(n²)</span></div><h4>Q60. Which of the following is NOT a characteristic of a good algorithm?</h4>
+<div class="question-options"><span class="option">A) Definiteness</span>
+<span class="option">B) Finiteness</span>
+<span class="option">C) Ambiguity ✅</span>
+<span class="option">D) Effectiveness</span></div><h4>Q61. What is an &quot;effective&quot; step in an algorithm?</h4>
+<div class="question-options"><span class="option">A) A step that is vague</span>
+<span class="option">B) A step that can be performed exactly and in a finite time ✅</span>
+<span class="option">C) A step that uses recursion</span>
+<span class="option">D) A step that has no output</span></div><h4>Q62. What is the difference between an algorithm and a program?</h4>
+<div class="question-options"><span class="option">A) Algorithm is human-readable, program is machine-readable ✅</span>
+<span class="option">B) Program is human-readable, algorithm is machine-readable</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Algorithm is written in a language, program is not</span></div><h4>Q63. What is the time complexity of finding the minimum element in an unsorted array?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q64. What is the time complexity of matrix multiplication (Strassen&#39;s algorithm)?</h4>
+<div class="question-options"><span class="option">A) O(n³)</span>
+<span class="option">B) O(n².81) ✅ (approx)</span>
+<span class="option">C) O(n log n)</span>
+<span class="option">D) O(n)</span></div><h4>Q65. Which growth rate is faster?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n)</span>
+<span class="option">C) O(n²) ✅</span>
+<span class="option">D) O(n log n)</span></div><h4>Q66. What is the time complexity of factorial using iteration?</h4>
+<div class="question-options"><span class="option">A) O(1)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q67. What is the time complexity of Fibonacci using dynamic programming?</h4>
+<div class="question-options"><span class="option">A) O(2ⁿ)</span>
+<span class="option">B) O(n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q68. What is the space complexity of Fibonacci using dynamic programming?</h4>
+<div class="question-options"><span class="option">A) O(1) ✅ (if using only two variables)</span>
+<span class="option">B) O(n)</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(log n)</span></div><h4>Q69. What is the primary use of a flowchart?</h4>
+<div class="question-options"><span class="option">A) To write code</span>
+<span class="option">B) To design and document algorithms visually ✅</span>
+<span class="option">C) To execute programs</span>
+<span class="option">D) To test programs</span></div><h4>Q70. What is a decision box in a flowchart used for?</h4>
+<div class="question-options"><span class="option">A) To perform calculations</span>
+<span class="option">B) To make a decision based on a condition ✅</span>
+<span class="option">C) To input data</span>
+<span class="option">D) To output results</span></div><h4>Q71. Which of the following is a correct pseudo-code representation of a loop?</h4>
+<div class="question-options"><span class="option">A) `for i = 1 to n do` ✅</span>
+<span class="option">B) `loop i = 1..n`</span>
+<span class="option">C) `repeat i from 1 to n`</span>
+<span class="option">D) `while (i <= n)`</span></div><h4>Q72. What does the term &quot;space-time tradeoff&quot; mean?</h4>
+<div class="question-options"><span class="option">A) Using more memory to reduce time or vice versa ✅</span>
+<span class="option">B) Using no memory and no time</span>
+<span class="option">C) Using the same memory and time</span>
+<span class="option">D) Using less memory and more time</span></div><h4>Q73. Which algorithm design technique divides the problem into smaller subproblems?</h4>
+<div class="question-options"><span class="option">A) Greedy</span>
+<span class="option">B) Divide and Conquer ✅</span>
+<span class="option">C) Dynamic Programming</span>
+<span class="option">D) Brute Force</span></div><h4>Q74. Which of the following is a recursive algorithm design technique?</h4>
+<div class="question-options"><span class="option">A) Divide and Conquer ✅</span>
+<span class="option">B) Iteration</span>
+<span class="option">C) Greedy</span>
+<span class="option">D) Brute Force</span></div><h4>Q75. What is the time complexity of Tower of Hanoi (recurrence T(n) = 2T(n-1) + 1)?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(2ⁿ) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(n log n)</span></div><h4>Q76. What is the time complexity of exponentiation by squaring (fast power)?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) O(log n) ✅</span>
+<span class="option">C) O(n²)</span>
+<span class="option">D) O(2ⁿ)</span></div><h4>Q77. What is the recurrence for binary search?</h4>
+<div class="question-options"><span class="option">A) T(n) = T(n-1) + 1</span>
+<span class="option">B) T(n) = T(n/2) + 1 ✅</span>
+<span class="option">C) T(n) = 2T(n/2) + 1</span>
+<span class="option">D) T(n) = T(n/2) + n</span></div><h4>Q78. What does Big Theta notation represent?</h4>
+<div class="question-options"><span class="option">A) Both upper and lower bounds ✅</span>
+<span class="option">B) Only upper bound</span>
+<span class="option">C) Only lower bound</span>
+<span class="option">D) Average case</span></div><h4>Q79. Which asymptotic notation is used for the best-case running time?</h4>
+<div class="question-options"><span class="option">A) Big O</span>
+<span class="option">B) Big Omega ✅</span>
+<span class="option">C) Big Theta</span>
+<span class="option">D) Little o</span></div><h4>Q80. Which of the following is not a valid asymptotic notation?</h4>
+<div class="question-options"><span class="option">A) O(n)</span>
+<span class="option">B) Ω(n)</span>
+<span class="option">C) Θ(n)</span>
+<span class="option">D) Δ(n) ✅</span></div><hr>
+<h2>Section 3: Introduction to Problem Solving (Questions 81 to 100)</h2>
+<h4>Q81. What is the first step in the problem-solving process?</h4>
+<div class="question-options"><span class="option">A) Implementation</span>
+<span class="option">B) Algorithm development</span>
+<span class="option">C) Problem understanding ✅</span>
+<span class="option">D) Debugging</span></div><h4>Q82. What is the role of algorithm development?</h4>
+<div class="question-options"><span class="option">A) To write code</span>
+<span class="option">B) To design a step-by-step solution ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To fix errors</span></div><h4>Q83. What is the last step in problem solving?</h4>
+<div class="question-options"><span class="option">A) Analysis</span>
+<span class="option">B) Algorithm</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing and Debugging ✅</span></div><h4>Q84. What is the purpose of testing?</h4>
+<div class="question-options"><span class="option">A) To write the program</span>
+<span class="option">B) To find and fix errors ✅</span>
+<span class="option">C) To design the algorithm</span>
+<span class="option">D) To analyze the problem</span></div><h4>Q85. Which step involves converting the algorithm into a specific programming language?</h4>
+<div class="question-options"><span class="option">A) Problem analysis</span>
+<span class="option">B) Algorithm design</span>
+<span class="option">C) Coding ✅</span>
+<span class="option">D) Testing</span></div><h4>Q86. What is debugging?</h4>
+<div class="question-options"><span class="option">A) Writing code</span>
+<span class="option">B) Testing the program</span>
+<span class="option">C) Identifying and removing errors ✅</span>
+<span class="option">D) Designing the algorithm</span></div><h4>Q87. What is the difference between a syntax error and a runtime error?</h4>
+<div class="question-options"><span class="option">A) Syntax error occurs during compilation, runtime error occurs during execution ✅</span>
+<span class="option">B) Both occur during execution</span>
+<span class="option">C) Both occur during compilation</span>
+<span class="option">D) Runtime error is easier to fix</span></div><h4>Q88. What is a logical error?</h4>
+<div class="question-options"><span class="option">A) A violation of language rules</span>
+<span class="option">B) The program runs but produces wrong output ✅</span>
+<span class="option">C) A memory error</span>
+<span class="option">D) A division by zero</span></div><h4>Q89. Which of the following is a tool used for debugging?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Debugger ✅</span>
+<span class="option">C) Linker</span>
+<span class="option">D) Interpreter</span></div><h4>Q90. What is the importance of problem analysis?</h4>
+<div class="question-options"><span class="option">A) It helps in writing code faster</span>
+<span class="option">B) It ensures clear understanding of requirements ✅</span>
+<span class="option">C) It tests the program</span>
+<span class="option">D) It generates errors</span></div><h4>Q91. What is the difference between testing and debugging?</h4>
+<div class="question-options"><span class="option">A) Testing finds errors, debugging fixes them ✅</span>
+<span class="option">B) Testing fixes errors, debugging finds them</span>
+<span class="option">C) Both are the same</span>
+<span class="option">D) Testing is done before coding</span></div><h4>Q92. What is unit testing?</h4>
+<div class="question-options"><span class="option">A) Testing the entire system</span>
+<span class="option">B) Testing individual components ✅</span>
+<span class="option">C) Testing the algorithm</span>
+<span class="option">D) Testing the user interface</span></div><h4>Q93. What is integration testing?</h4>
+<div class="question-options"><span class="option">A) Testing individual modules</span>
+<span class="option">B) Testing combined modules together ✅</span>
+<span class="option">C) Testing the complete system</span>
+<span class="option">D) Testing the database</span></div><h4>Q94. What is the main goal of problem solving?</h4>
+<div class="question-options"><span class="option">A) To write as much code as possible</span>
+<span class="option">B) To create a correct and efficient solution ✅</span>
+<span class="option">C) To add more features</span>
+<span class="option">D) To make the program complex</span></div><h4>Q95. Which step is most time-consuming in problem solving?</h4>
+<div class="question-options"><span class="option">A) Analysis</span>
+<span class="option">B) Algorithm design</span>
+<span class="option">C) Coding</span>
+<span class="option">D) Testing and Debugging ✅</span></div><h4>Q96. What is the purpose of pseudo-code in problem solving?</h4>
+<div class="question-options"><span class="option">A) To execute directly</span>
+<span class="option">B) To plan the algorithm before coding ✅</span>
+<span class="option">C) To test the program</span>
+<span class="option">D) To generate machine code</span></div><h4>Q97. What is a flowchart used for?</h4>
+<div class="question-options"><span class="option">A) To execute the program</span>
+<span class="option">B) To visualize the algorithm steps ✅</span>
+<span class="option">C) To store data</span>
+<span class="option">D) To compile code</span></div><h4>Q98. What is the final output of the problem-solving process?</h4>
+<div class="question-options"><span class="option">A) An algorithm</span>
+<span class="option">B) A flowchart</span>
+<span class="option">C) A working program ✅</span>
+<span class="option">D) A pseudo-code</span></div><h4>Q99. What is the role of an IDE in problem solving?</h4>
+<div class="question-options"><span class="option">A) To design algorithms</span>
+<span class="option">B) To provide tools for coding, testing, and debugging ✅</span>
+<span class="option">C) To analyze problems</span>
+<span class="option">D) To generate pseudo-code</span></div><h4>Q100. Which of the following is TRUE about the problem-solving process?</h4>
+<div class="question-options"><span class="option">A) It is linear and never requires iteration</span>
+<span class="option">B) It may require going back to previous steps (iterative) ✅</span>
+<span class="option">C) Testing is not important</span>
+<span class="option">D) Analysis is optional</span></div><hr>
+<h2>Answer Key</h2>
+<table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>C</td>
+<td>26</td>
+<td>C</td>
+<td>51</td>
+<td>A</td>
+<td>76</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>B</td>
+<td>77</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>28</td>
+<td>A</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>B</td>
+<td>79</td>
+<td>B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A</td>
+<td>30</td>
+<td>B</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>D</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>A</td>
+<td>81</td>
+<td>C</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td>32</td>
+<td>A</td>
+<td>57</td>
+<td>B</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>A</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>D</td>
+</tr>
+<tr>
+<td>9</td>
+<td>B</td>
+<td>34</td>
+<td>B</td>
+<td>59</td>
+<td>B</td>
+<td>84</td>
+<td>B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>B</td>
+<td>35</td>
+<td>C</td>
+<td>60</td>
+<td>C</td>
+<td>85</td>
+<td>C</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>B</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>C</td>
+</tr>
+<tr>
+<td>12</td>
+<td>B</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>D</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>B</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>A</td>
+<td>39</td>
+<td>B</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>A</td>
+<td>40</td>
+<td>D</td>
+<td>65</td>
+<td>C</td>
+<td>90</td>
+<td>B</td>
+</tr>
+<tr>
+<td>16</td>
+<td>C</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>A</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>C</td>
+<td>67</td>
+<td>B</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>43</td>
+<td>B</td>
+<td>68</td>
+<td>A</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>A</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>B</td>
+<td>94</td>
+<td>B</td>
+</tr>
+<tr>
+<td>20</td>
+<td>C</td>
+<td>45</td>
+<td>B</td>
+<td>70</td>
+<td>B</td>
+<td>95</td>
+<td>D</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>A</td>
+<td>47</td>
+<td>C</td>
+<td>72</td>
+<td>A</td>
+<td>97</td>
+<td>B</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>B</td>
+<td>73</td>
+<td>B</td>
+<td>98</td>
+<td>C</td>
+</tr>
+<tr>
+<td>24</td>
+<td>D</td>
+<td>49</td>
+<td>C</td>
+<td>74</td>
+<td>A</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>A</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>B</td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>

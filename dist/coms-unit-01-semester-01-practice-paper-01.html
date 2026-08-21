@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coms-unit-01-semester-01-practice-paper-01</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coms</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>Section 1: Basic Computer Organisation (Questions 1 to 20)</h2>
+<h4>Q1. What does CPU stand for?</h4>
+<div class="question-options"><span class="option">A) Central Processing Unit ✅</span>
+<span class="option">B) Computer Personal Unit</span>
+<span class="option">C) Central Program Unit</span>
+<span class="option">D) Central Processing Utility</span></div><h4>Q2. Which of the following is a primary memory device?</h4>
+<div class="question-options"><span class="option">A) Hard Disk</span>
+<span class="option">B) RAM ✅</span>
+<span class="option">C) Pen Drive</span>
+<span class="option">D) CD-ROM</span></div><h4>Q3. What is the full form of ROM?</h4>
+<div class="question-options"><span class="option">A) Read Only Memory ✅</span>
+<span class="option">B) Random Only Memory</span>
+<span class="option">C) Read Operate Memory</span>
+<span class="option">D) Random Operate Memory</span></div><h4>Q4. Which type of memory is volatile?</h4>
+<div class="question-options"><span class="option">A) ROM</span>
+<span class="option">B) Hard Disk</span>
+<span class="option">C) RAM ✅</span>
+<span class="option">D) DVD</span></div><h4>Q5. What is the smallest unit of memory?</h4>
+<div class="question-options"><span class="option">A) Byte</span>
+<span class="option">B) Bit ✅</span>
+<span class="option">C) KB</span>
+<span class="option">D) MB</span></div><h4>Q6. 1 Kilobyte (KB) is equal to:</h4>
+<div class="question-options"><span class="option">A) 100 bytes</span>
+<span class="option">B) 1024 bytes ✅</span>
+<span class="option">C) 1024 bits</span>
+<span class="option">D) 1000 bits</span></div><h4>Q7. Which of the following is a secondary storage device?</h4>
+<div class="question-options"><span class="option">A) RAM</span>
+<span class="option">B) ROM</span>
+<span class="option">C) Hard Disk ✅</span>
+<span class="option">D) Cache Memory</span></div><h4>Q8. What is the function of Cache Memory?</h4>
+<div class="question-options"><span class="option">A) Permanent storage</span>
+<span class="option">B) Storing frequently accessed data for faster access ✅</span>
+<span class="option">C) Storing boot instructions</span>
+<span class="option">D) Input/Output operations</span></div><h4>Q9. 1 Terabyte (TB) is equal to:</h4>
+<div class="question-options"><span class="option">A) 1024 GB ✅</span>
+<span class="option">B) 1000 GB</span>
+<span class="option">C) 1024 MB</span>
+<span class="option">D) 1024 KB</span></div><h4>Q10. Which of the following is an input device?</h4>
+<div class="question-options"><span class="option">A) Monitor</span>
+<span class="option">B) Printer</span>
+<span class="option">C) Keyboard ✅</span>
+<span class="option">D) Speaker</span></div><h4>Q11. Which of the following is an output device?</h4>
+<div class="question-options"><span class="option">A) Mouse</span>
+<span class="option">B) Scanner</span>
+<span class="option">C) Monitor ✅</span>
+<span class="option">D) Microphone</span></div><h4>Q12. What is the full form of ALU?</h4>
+<div class="question-options"><span class="option">A) Arithmetic Logic Unit ✅</span>
+<span class="option">B) Arithmetic Logical Unit</span>
+<span class="option">C) Array Logic Unit</span>
+<span class="option">D) Advanced Logic Unit</span></div><h4>Q13. Which component of CPU performs arithmetic operations?</h4>
+<div class="question-options"><span class="option">A) CU</span>
+<span class="option">B) ALU ✅</span>
+<span class="option">C) MU</span>
+<span class="option">D) Register</span></div><h4>Q14. What is the function of the Control Unit (CU)?</h4>
+<div class="question-options"><span class="option">A) Performs calculations</span>
+<span class="option">B) Stores data</span>
+<span class="option">C) Directs and coordinates operations ✅</span>
+<span class="option">D) Input/output operations</span></div><h4>Q15. Which of the following memory is fastest?</h4>
+<div class="question-options"><span class="option">A) RAM</span>
+<span class="option">B) Hard Disk</span>
+<span class="option">C) Cache Memory ✅</span>
+<span class="option">D) ROM</span></div><h4>Q16. 1 Petabyte (PB) is equal to:</h4>
+<div class="question-options"><span class="option">A) 1024 TB ✅</span>
+<span class="option">B) 1000 TB</span>
+<span class="option">C) 1024 GB</span>
+<span class="option">D) 1024 MB</span></div><h4>Q17. What type of memory is used for storing BIOS?</h4>
+<div class="question-options"><span class="option">A) RAM</span>
+<span class="option">B) ROM ✅</span>
+<span class="option">C) Hard Disk</span>
+<span class="option">D) Cache</span></div><h4>Q18. Which of the following is NOT a unit of memory?</h4>
+<div class="question-options"><span class="option">A) Byte</span>
+<span class="option">B) KB</span>
+<span class="option">C) Hertz ✅</span>
+<span class="option">D) GB</span></div><h4>Q19. The CPU consists of:</h4>
+<div class="question-options"><span class="option">A) ALU and Registers</span>
+<span class="option">B) ALU and CU ✅</span>
+<span class="option">C) CU and Registers</span>
+<span class="option">D) ALU, CU and Memory</span></div><h4>Q20. What is the function of the system bus?</h4>
+<div class="question-options"><span class="option">A) Connects CPU to peripherals</span>
+<span class="option">B) Transfers data between components ✅</span>
+<span class="option">C) Stores data</span>
+<span class="option">D) Performs calculations</span></div><hr>
+<h2>Section 2: Classification of Computers (Questions 21 to 30)</h2>
+<h4>Q21. Which type of computer has the highest processing power?</h4>
+<div class="question-options"><span class="option">A) Mainframe Computer</span>
+<span class="option">B) Supercomputer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Personal Computer</span></div><h4>Q22. Which type of computer is used for weather forecasting?</h4>
+<div class="question-options"><span class="option">A) Mainframe Computer</span>
+<span class="option">B) Supercomputer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Personal Computer</span></div><h4>Q23. Which computer is used in banks for transaction processing?</h4>
+<div class="question-options"><span class="option">A) Supercomputer</span>
+<span class="option">B) Mainframe Computer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Personal Computer</span></div><h4>Q24. Which type of computer is also known as a workstation?</h4>
+<div class="question-options"><span class="option">A) Supercomputer</span>
+<span class="option">B) Mainframe Computer</span>
+<span class="option">C) Mini Computer ✅</span>
+<span class="option">D) Microcomputer</span></div><h4>Q25. Which of the following is the most commonly used computer?</h4>
+<div class="question-options"><span class="option">A) Supercomputer</span>
+<span class="option">B) Mainframe Computer</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Personal Computer ✅</span></div><h4>Q26. CRAY X-MP is an example of which type of computer?</h4>
+<div class="question-options"><span class="option">A) Mainframe</span>
+<span class="option">B) Supercomputer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Microcomputer</span></div><h4>Q27. Which type of computer is used in scientific research?</h4>
+<div class="question-options"><span class="option">A) Mainframe</span>
+<span class="option">B) Supercomputer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Microcomputer</span></div><h4>Q28. IBM Z series is an example of which type of computer?</h4>
+<div class="question-options"><span class="option">A) Supercomputer</span>
+<span class="option">B) Mainframe Computer ✅</span>
+<span class="option">C) Mini Computer</span>
+<span class="option">D) Microcomputer</span></div><h4>Q29. Which type of computer supports multiple users simultaneously?</h4>
+<div class="question-options"><span class="option">A) Microcomputer</span>
+<span class="option">B) Mainframe Computer ✅</span>
+<span class="option">C) Personal Computer</span>
+<span class="option">D) Laptop</span></div><h4>Q30. Which computer is most suitable for small businesses?</h4>
+<div class="question-options"><span class="option">A) Supercomputer</span>
+<span class="option">B) Mainframe</span>
+<span class="option">C) Mini Computer ✅</span>
+<span class="option">D) Microcomputer</span></div><hr>
+<h2>Section 3: Concepts of Software (Questions 31 to 55)</h2>
+<h4>Q31. What is software?</h4>
+<div class="question-options"><span class="option">A) Physical components of a computer</span>
+<span class="option">B) A set of instructions/programs ✅</span>
+<span class="option">C) Input/output devices</span>
+<span class="option">D) Memory storage</span></div><h4>Q32. Which of the following is system software?</h4>
+<div class="question-options"><span class="option">A) MS Word</span>
+<span class="option">B) Operating System ✅</span>
+<span class="option">C) Photoshop</span>
+<span class="option">D) Tally</span></div><h4>Q33. What is the function of an operating system?</h4>
+<div class="question-options"><span class="option">A) Compile programs</span>
+<span class="option">B) Manage hardware and software resources ✅</span>
+<span class="option">C) Create documents</span>
+<span class="option">D) Browse the internet</span></div><h4>Q34. Which of the following is an example of application software?</h4>
+<div class="question-options"><span class="option">A) Windows 10</span>
+<span class="option">B) Linux</span>
+<span class="option">C) Microsoft Word ✅</span>
+<span class="option">D) BIOS</span></div><h4>Q35. What is a compiler?</h4>
+<div class="question-options"><span class="option">A) Converts high-level language to machine code ✅</span>
+<span class="option">B) Executes programs line by line</span>
+<span class="option">C) Manages files</span>
+<span class="option">D) Provides user interface</span></div><h4>Q36. What is an interpreter?</h4>
+<div class="question-options"><span class="option">A) Converts high-level code to machine code line by line ✅</span>
+<span class="option">B) Converts entire program at once</span>
+<span class="option">C) Combines object files</span>
+<span class="option">D) Loads programs into memory</span></div><h4>Q37. What is the difference between a compiler and an interpreter?</h4>
+<div class="question-options"><span class="option">A) Compiler translates all at once, interpreter translates line by line ✅</span>
+<span class="option">B) Interpreter translates all at once, compiler translates line by line</span>
+<span class="option">C) Both work the same</span>
+<span class="option">D) Compiler is used for all languages</span></div><h4>Q38. What is a linker?</h4>
+<div class="question-options"><span class="option">A) Converts source code to object code</span>
+<span class="option">B) Combines object files into executable ✅</span>
+<span class="option">C) Loads program into memory</span>
+<span class="option">D) Manages files</span></div><h4>Q39. What is the function of a loader?</h4>
+<div class="question-options"><span class="option">A) Converts source code to object code</span>
+<span class="option">B) Combines object files</span>
+<span class="option">C) Loads program into memory for execution ✅</span>
+<span class="option">D) Provides user interface</span></div><h4>Q40. Which type of OS allows multiple users to work simultaneously?</h4>
+<div class="question-options"><span class="option">A) Single-user OS</span>
+<span class="option">B) Multi-user OS ✅</span>
+<span class="option">C) Real-time OS</span>
+<span class="option">D) Embedded OS</span></div><h4>Q41. Which type of OS allows multiple programs to run simultaneously?</h4>
+<div class="question-options"><span class="option">A) Single-user</span>
+<span class="option">B) Multiprogramming OS ✅</span>
+<span class="option">C) Single-tasking</span>
+<span class="option">D) Batch OS</span></div><h4>Q42. What is multiprocessing?</h4>
+<div class="question-options"><span class="option">A) Running multiple programs on one CPU</span>
+<span class="option">B) Using multiple CPUs for processing ✅</span>
+<span class="option">C) Running one program at a time</span>
+<span class="option">D) Using multiple monitors</span></div><h4>Q43. What is time-sharing?</h4>
+<div class="question-options"><span class="option">A) CPU time divided among multiple users ✅</span>
+<span class="option">B) Multiple CPUs used simultaneously</span>
+<span class="option">C) One user at a time</span>
+<span class="option">D) Batch processing</span></div><h4>Q44. What is GUI?</h4>
+<div class="question-options"><span class="option">A) Graphical User Interface ✅</span>
+<span class="option">B) General User Interface</span>
+<span class="option">C) Graphic Utility Interface</span>
+<span class="option">D) General Utility Interface</span></div><h4>Q45. What is CUI?</h4>
+<div class="question-options"><span class="option">A) Character User Interface ✅</span>
+<span class="option">B) Command User Interface</span>
+<span class="option">C) Character Utility Interface</span>
+<span class="option">D) Computer User Interface</span></div><h4>Q46. Which of the following is a Linux command to list files?</h4>
+<div class="question-options"><span class="option">A) `dir`</span>
+<span class="option">B) `ls` ✅</span>
+<span class="option">C) `list`</span>
+<span class="option">D) `show`</span></div><h4>Q47. Which command is used to change directory in Linux?</h4>
+<div class="question-options"><span class="option">A) `cd` ✅</span>
+<span class="option">B) `chdir`</span>
+<span class="option">C) `md`</span>
+<span class="option">D) `rd`</span></div><h4>Q48. Which command is used to create a new directory in Linux?</h4>
+<div class="question-options"><span class="option">A) `mkdir` ✅</span>
+<span class="option">B) `md`</span>
+<span class="option">C) `cr`</span>
+<span class="option">D) `newdir`</span></div><h4>Q49. What is utility software?</h4>
+<div class="question-options"><span class="option">A) Software that manages computer resources</span>
+<span class="option">B) Software that performs specific maintenance tasks ✅</span>
+<span class="option">C) Software that creates documents</span>
+<span class="option">D) Software that manages network</span></div><h4>Q50. Which of the following is an example of utility software?</h4>
+<div class="question-options"><span class="option">A) Windows 10</span>
+<span class="option">B) Microsoft Word</span>
+<span class="option">C) Antivirus ✅</span>
+<span class="option">D) Google Chrome</span></div><h4>Q51. What is an assembler?</h4>
+<div class="question-options"><span class="option">A) Converts assembly language to machine code ✅</span>
+<span class="option">B) Converts high-level language to machine code</span>
+<span class="option">C) Executes programs</span>
+<span class="option">D) Manages memory</span></div><h4>Q52. Which of the following is a single-user operating system?</h4>
+<div class="question-options"><span class="option">A) Windows 10 ✅</span>
+<span class="option">B) Linux (server)</span>
+<span class="option">C) UNIX</span>
+<span class="option">D) Windows Server</span></div><h4>Q53. Which type of operating system is Windows 10?</h4>
+<div class="question-options"><span class="option">A) Single-user, Single-tasking</span>
+<span class="option">B) Single-user, Multi-tasking ✅</span>
+<span class="option">C) Multi-user, Single-tasking</span>
+<span class="option">D) Multi-user, Multi-tasking</span></div><h4>Q54. Which of the following is NOT a translator?</h4>
+<div class="question-options"><span class="option">A) Compiler</span>
+<span class="option">B) Interpreter</span>
+<span class="option">C) Assembler</span>
+<span class="option">D) Loader ✅</span></div><h4>Q55. What is the purpose of system software?</h4>
+<div class="question-options"><span class="option">A) To help users do specific tasks</span>
+<span class="option">B) To run and manage the computer hardware ✅</span>
+<span class="option">C) To create documents</span>
+<span class="option">D) To browse the internet</span></div><hr>
+<h2>Section 4: Number System (Questions 56 to 80)</h2>
+<h4>Q56. What is the base of the binary number system?</h4>
+<div class="question-options"><span class="option">A) 8</span>
+<span class="option">B) 2 ✅</span>
+<span class="option">C) 10</span>
+<span class="option">D) 16</span></div><h4>Q57. What is the base of the octal number system?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 8 ✅</span>
+<span class="option">C) 10</span>
+<span class="option">D) 16</span></div><h4>Q58. What is the base of the decimal number system?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 8</span>
+<span class="option">C) 10 ✅</span>
+<span class="option">D) 16</span></div><h4>Q59. What is the base of the hexadecimal number system?</h4>
+<div class="question-options"><span class="option">A) 8</span>
+<span class="option">B) 10</span>
+<span class="option">C) 16 ✅</span>
+<span class="option">D) 2</span></div><h4>Q60. Convert binary <code>1010</code> to decimal.</h4>
+<div class="question-options"><span class="option">A) 8</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) 12</span>
+<span class="option">D) 5</span></div><h4>Q61. Convert decimal <code>15</code> to binary.</h4>
+<div class="question-options"><span class="option">A) 1000</span>
+<span class="option">B) 1111 ✅</span>
+<span class="option">C) 1100</span>
+<span class="option">D) 1010</span></div><h4>Q62. Convert octal <code>17</code> to decimal.</h4>
+<div class="question-options"><span class="option">A) 15 ✅</span>
+<span class="option">B) 17</span>
+<span class="option">C) 13</span>
+<span class="option">D) 19</span></div><h4>Q63. Convert decimal <code>25</code> to octal.</h4>
+<div class="question-options"><span class="option">A) 31 ✅</span>
+<span class="option">B) 30</span>
+<span class="option">C) 32</span>
+<span class="option">D) 33</span></div><h4>Q64. Convert hexadecimal <code>A</code> to decimal.</h4>
+<div class="question-options"><span class="option">A) 8</span>
+<span class="option">B) 10 ✅</span>
+<span class="option">C) 11</span>
+<span class="option">D) 12</span></div><h4>Q65. Convert decimal <code>12</code> to hexadecimal.</h4>
+<div class="question-options"><span class="option">A) A</span>
+<span class="option">B) B</span>
+<span class="option">C) C ✅</span>
+<span class="option">D) D</span></div><h4>Q66. What is BCD code?</h4>
+<div class="question-options"><span class="option">A) Binary Coded Decimal ✅</span>
+<span class="option">B) Basic Coded Decimal</span>
+<span class="option">C) Binary Converted Decimal</span>
+<span class="option">D) Byte Coded Decimal</span></div><h4>Q67. What is the BCD representation of decimal <code>15</code>?</h4>
+<div class="question-options"><span class="option">A) 0001 0101 ✅</span>
+<span class="option">B) 1111</span>
+<span class="option">C) 1000 1000</span>
+<span class="option">D) 1111 1111</span></div><h4>Q68. What is Grey code?</h4>
+<div class="question-options"><span class="option">A) Weighted code</span>
+<span class="option">B) Non-weighted code ✅</span>
+<span class="option">C) Binary code</span>
+<span class="option">D) BCD code</span></div><h4>Q69. What is Excess-3 code?</h4>
+<div class="question-options"><span class="option">A) Weighted code</span>
+<span class="option">B) Non-weighted code ✅</span>
+<span class="option">C) Binary code</span>
+<span class="option">D) BCD code</span></div><h4>Q70. What is ASCII?</h4>
+<div class="question-options"><span class="option">A) American Standard Code for Information Interchange ✅</span>
+<span class="option">B) American System Code for Information Interchange</span>
+<span class="option">C) Advanced Standard Code for Information Interchange</span>
+<span class="option">D) American Standard Character for Information Interchange</span></div><h4>Q71. How many characters can ASCII represent?</h4>
+<div class="question-options"><span class="option">A) 128 ✅</span>
+<span class="option">B) 64</span>
+<span class="option">C) 256</span>
+<span class="option">D) 512</span></div><h4>Q72. What is ISCII?</h4>
+<div class="question-options"><span class="option">A) Indian Standard Code for Information Interchange ✅</span>
+<span class="option">B) Indian System Code for Information Interchange</span>
+<span class="option">C) International Standard Code for Information Interchange</span>
+<span class="option">D) Indian Standard Character for Information Interchange</span></div><h4>Q73. What is Unicode?</h4>
+<div class="question-options"><span class="option">A) An encoding scheme for all languages ✅</span>
+<span class="option">B) An encoding scheme for English only</span>
+<span class="option">C) A hardware component</span>
+<span class="option">D) A type of memory</span></div><h4>Q74. What is 1&#39;s complement of binary <code>1010</code>?</h4>
+<div class="question-options"><span class="option">A) 0101 ✅</span>
+<span class="option">B) 1010</span>
+<span class="option">C) 1111</span>
+<span class="option">D) 0000</span></div><h4>Q75. What is 2&#39;s complement of binary <code>1010</code>?</h4>
+<div class="question-options"><span class="option">A) 0101</span>
+<span class="option">B) 0110 ✅ (1's complement + 1 = 0101 + 1 = 0110)</span>
+<span class="option">C) 1111</span>
+<span class="option">D) 0000</span></div><h4>Q76. Which of the following is a weighted code?</h4>
+<div class="question-options"><span class="option">A) Grey Code</span>
+<span class="option">B) Excess-3</span>
+<span class="option">C) BCD ✅</span>
+<span class="option">D) ASCII</span></div><h4>Q77. Convert binary <code>1111</code> to hexadecimal.</h4>
+<div class="question-options"><span class="option">A) F ✅</span>
+<span class="option">B) 15</span>
+<span class="option">C) E</span>
+<span class="option">D) 1F</span></div><h4>Q78. Convert hexadecimal <code>1A</code> to decimal.</h4>
+<div class="question-options"><span class="option">A) 16</span>
+<span class="option">B) 26 ✅</span>
+<span class="option">C) 20</span>
+<span class="option">D) 18</span></div><h4>Q79. Convert octal <code>12</code> to binary.</h4>
+<div class="question-options"><span class="option">A) 1010</span>
+<span class="option">B) 1110</span>
+<span class="option">C) 1010</span>
+<span class="option">D) 001010 ✅ (1→001, 2→010 → 001010)</span></div><p>Actually, octal 1 = 001, 2 = 010 → 001010. So D is correct.</p>
+<h4>Q80. Which encoding scheme is used for all modern operating systems?</h4>
+<div class="question-options"><span class="option">A) ASCII</span>
+<span class="option">B) ISCII</span>
+<span class="option">C) Unicode ✅</span>
+<span class="option">D) BCD</span></div><hr>
+<h2>Section 5: Boolean Algebra (Questions 81 to 100)</h2>
+<h4>Q81. What is Boolean Algebra?</h4>
+<div class="question-options"><span class="option">A) Algebra of numbers</span>
+<span class="option">B) Algebra of logic with two values (0 and 1) ✅</span>
+<span class="option">C) Algebra of letters</span>
+<span class="option">D) Algebra of symbols</span></div><h4>Q82. The AND operation is represented by:</h4>
+<div class="question-options"><span class="option">A) `+`</span>
+<span class="option">B) `.` ✅</span>
+<span class="option">C) `^`</span>
+<span class="option">D) `~`</span></div><h4>Q83. The OR operation is represented by:</h4>
+<div class="question-options"><span class="option">A) `+` ✅</span>
+<span class="option">B) `.`</span>
+<span class="option">C) `^`</span>
+<span class="option">D) `~`</span></div><h4>Q84. The NOT operation is represented by:</h4>
+<div class="question-options"><span class="option">A) `+`</span>
+<span class="option">B) `.`</span>
+<span class="option">C) `^`</span>
+<span class="option">D) `~` or `'` ✅</span></div><h4>Q85. What is the output of <code>0 AND 1</code>?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Depends</span></div><h4>Q86. What is the output of <code>1 OR 0</code>?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Depends</span></div><h4>Q87. What is the output of <code>NOT 1</code>?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Depends</span></div><h4>Q88. Which logic gate is represented by the symbol <code>&amp;</code>?</h4>
+<div class="question-options"><span class="option">A) AND ✅</span>
+<span class="option">B) OR</span>
+<span class="option">C) NOT</span>
+<span class="option">D) XOR</span></div><h4>Q89. What is the truth table entry for <code>1 AND 1</code>?</h4>
+<div class="question-options"><span class="option">A) 0</span>
+<span class="option">B) 1 ✅</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Depends</span></div><h4>Q90. Which gate is known as the universal gate?</h4>
+<div class="question-options"><span class="option">A) AND</span>
+<span class="option">B) OR</span>
+<span class="option">C) NAND ✅</span>
+<span class="option">D) NOT</span></div><h4>Q91. What is De Morgan&#39;s first theorem?</h4>
+<div class="question-options"><span class="option">A) `(A + B)' = A' . B'` ✅</span>
+<span class="option">B) `(A . B)' = A' + B'`</span>
+<span class="option">C) `A + B = B + A`</span>
+<span class="option">D) `A . B = B . A`</span></div><h4>Q92. What is De Morgan&#39;s second theorem?</h4>
+<div class="question-options"><span class="option">A) `(A + B)' = A' . B'`</span>
+<span class="option">B) `(A . B)' = A' + B'` ✅</span>
+<span class="option">C) `A + B = B + A`</span>
+<span class="option">D) `A . B = B . A`</span></div><h4>Q93. What is SOP form?</h4>
+<div class="question-options"><span class="option">A) Sum of Products ✅</span>
+<span class="option">B) Sum of Products</span>
+<span class="option">C) Standard of Products</span>
+<span class="option">D) Sum of Products</span></div><h4>Q94. What is POS form?</h4>
+<div class="question-options"><span class="option">A) Product of Sums ✅</span>
+<span class="option">B) Product of Standards</span>
+<span class="option">C) Product of Systems</span>
+<span class="option">D) Product of Sums</span></div><h4>Q95. Which gate is also known as a half-adder?</h4>
+<div class="question-options"><span class="option">A) AND</span>
+<span class="option">B) OR</span>
+<span class="option">C) XOR ✅</span>
+<span class="option">D) NAND</span></div><h4>Q96. What is the truth table output for XOR gate when both inputs are same?</h4>
+<div class="question-options"><span class="option">A) 0 ✅</span>
+<span class="option">B) 1</span>
+<span class="option">C) Invalid</span>
+<span class="option">D) Depends</span></div><h4>Q97. What is K-Map used for?</h4>
+<div class="question-options"><span class="option">A) Simplifying Boolean expressions ✅</span>
+<span class="option">B) Converting numbers</span>
+<span class="option">C) Designing CPUs</span>
+<span class="option">D) Storing data</span></div><h4>Q98. How many cells does a 2-variable K-Map have?</h4>
+<div class="question-options"><span class="option">A) 2</span>
+<span class="option">B) 4 ✅</span>
+<span class="option">C) 8</span>
+<span class="option">D) 16</span></div><h4>Q99. How many cells does a 3-variable K-Map have?</h4>
+<div class="question-options"><span class="option">A) 4</span>
+<span class="option">B) 8 ✅</span>
+<span class="option">C) 16</span>
+<span class="option">D) 32</span></div><h4>Q100. Which of the following is a logic gate?</h4>
+<div class="question-options"><span class="option">A) XOR ✅</span>
+<span class="option">B) SOX</span>
+<span class="option">C) XOG</span>
+<span class="option">D) XAR</span></div><hr>
+<h2>Answer Key</h2>
+<table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>A</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>A</td>
+<td>76</td>
+<td>C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>A</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td>28</td>
+<td>B</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>D</td>
+<td>79</td>
+<td>D</td>
+</tr>
+<tr>
+<td>5</td>
+<td>B</td>
+<td>30</td>
+<td>C</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>B</td>
+<td>81</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>C</td>
+<td>32</td>
+<td>B</td>
+<td>57</td>
+<td>B</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>B</td>
+<td>58</td>
+<td>C</td>
+<td>83</td>
+<td>A</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A</td>
+<td>34</td>
+<td>C</td>
+<td>59</td>
+<td>C</td>
+<td>84</td>
+<td>D</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C</td>
+<td>35</td>
+<td>A</td>
+<td>60</td>
+<td>B</td>
+<td>85</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>C</td>
+<td>36</td>
+<td>A</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>A</td>
+<td>37</td>
+<td>A</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>B</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>A</td>
+<td>88</td>
+<td>A</td>
+</tr>
+<tr>
+<td>14</td>
+<td>C</td>
+<td>39</td>
+<td>C</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>C</td>
+<td>40</td>
+<td>B</td>
+<td>65</td>
+<td>C</td>
+<td>90</td>
+<td>C</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>A</td>
+<td>91</td>
+<td>A</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>B</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>43</td>
+<td>A</td>
+<td>68</td>
+<td>B</td>
+<td>93</td>
+<td>A</td>
+</tr>
+<tr>
+<td>19</td>
+<td>B</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>B</td>
+<td>94</td>
+<td>A</td>
+</tr>
+<tr>
+<td>20</td>
+<td>B</td>
+<td>45</td>
+<td>A</td>
+<td>70</td>
+<td>A</td>
+<td>95</td>
+<td>C</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>A</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>A</td>
+<td>72</td>
+<td>A</td>
+<td>97</td>
+<td>A</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>A</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>B</td>
+</tr>
+<tr>
+<td>24</td>
+<td>C</td>
+<td>49</td>
+<td>B</td>
+<td>74</td>
+<td>A</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>D</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>A</td>
+</tr>
+</tbody></table>
+
+</body>
+
+</html>
