@@ -76,7 +76,7 @@ li {
     margin: 0.2em 0;
 }
 
-/* ===== Tables ===== */
+/* ===== Tables (dark theme) ===== */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -108,6 +108,18 @@ tr:last-child td {
 
 tr:hover {
     background: #2a2a2a;
+}
+
+/* ===== Scrollable table wrapper ===== */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.2em 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper table {
+    margin: 0;
+    width: 100%;
 }
 
 /* ===== Blockquotes ===== */
@@ -305,7 +317,6 @@ a:active {
         page-break-after: avoid;
     }
 
-    /* Keep moderate sizes in print too */
     h1 {
         font-size: 1.6em;
     }
@@ -438,7 +449,6 @@ a:active {
         padding: 0.05em 0;
     }
 
-    /* Metadata box in print */
     .metadata-box {
         background: #f9f9f9 !important;
         border: 1px solid #aaa !important;
@@ -448,6 +458,16 @@ a:active {
 
     .metadata-box h1 {
         color: #000 !important;
+    }
+
+    /* Ensure table wrapper doesn't break print */
+    .table-wrapper {
+        overflow: visible !important;
+        margin: 0 !important;
+    }
+
+    .table-wrapper table {
+        width: 100% !important;
     }
 }
 

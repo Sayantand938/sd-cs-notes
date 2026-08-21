@@ -23,7 +23,7 @@ function resolveInternalLinks(markdownContent) {
     });
 }
 
-// ---------- MCQ LINE BREAKS & WRAPPER ----------
+// ---------- MCQ LINE BREAKS ----------
 function preprocessMarkdown(content) {
     let processed = resolveInternalLinks(content);
     const lines = processed.split('\n');
@@ -34,22 +34,16 @@ function preprocessMarkdown(content) {
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         const trimmed = line.trim();
-
-        // Detect MCQ options: A), B), C), D) (case insensitive)
         if (/^[A-D]\)\s/.test(trimmed)) {
             if (!inMCQ) {
                 inMCQ = true;
                 mcqOptions = [];
             }
-            // Preserve existing trailing spaces if any, otherwise add two
             const optionLine = line.endsWith('  ') ? line : line + '  ';
             mcqOptions.push(optionLine);
             continue;
         }
-
-        // If we were in an MCQ block and this line is not an option, close the block
         if (inMCQ) {
-            // Build a compact HTML block
             const optionsHtml = mcqOptions
                 .map(opt => `<span class="option">${opt.trim()}</span>`)
                 .join('\n');
@@ -57,18 +51,14 @@ function preprocessMarkdown(content) {
             inMCQ = false;
             mcqOptions = [];
         }
-
         newLines.push(line);
     }
-
-    // Handle case where MCQ is at the end of the file
     if (inMCQ) {
         const optionsHtml = mcqOptions
             .map(opt => `<span class="option">${opt.trim()}</span>`)
             .join('\n');
         newLines.push(`<div class="question-options">${optionsHtml}</div>`);
     }
-
     return newLines.join('\n');
 }
 
@@ -96,6 +86,12 @@ renderer.code = function (token) {
     return `<pre><code${langClass}>${escaped}</code></pre>`;
 };
 
+// ---- WRAP TABLES IN SCROLLABLE CONTAINER ----
+renderer.table = function (token) {
+    const html = this.parser.parse(token);
+    return `<div class="table-wrapper">${html}</div>`;
+};
+
 // ---------- UTILITY ----------
 async function getFiles(dir) {
     const dirents = await fs.readdir(dir, { withFileTypes: true });
@@ -115,13 +111,11 @@ function buildHomepageCards(indexFiles) {
     if (!indexFiles.length) {
         return `<p>No index pages found. Create notes with <code>tags: index</code> and <code>coma</code> or <code>coms</code>.</p>`;
     }
-
     let cards = '';
     for (const file of indexFiles) {
         const title = file.data.title || path.basename(file.path, '.md');
         const description = file.data.description || '';
         const link = `${stripExtension(path.basename(file.path))}.html`;
-
         cards += `
             <div class="home-card">
                 <a href="${link}">
@@ -131,12 +125,7 @@ function buildHomepageCards(indexFiles) {
             </div>
         `;
     }
-
-    return `
-        <div class="home-grid">
-            ${cards}
-        </div>
-    `;
+    return `<div class="home-grid">${cards}</div>`;
 }
 
 // ---------- MAIN ----------
@@ -155,7 +144,7 @@ async function build() {
             console.warn('⚠️  No style.css found in root.');
         }
 
-        // 3. Load and compile Handlebars template
+        // 3. Load template
         let templateSource;
         try {
             templateSource = await fs.readFile(TEMPLATE_FILE, 'utf-8');
@@ -166,7 +155,7 @@ async function build() {
         }
         const template = Handlebars.compile(templateSource);
 
-        // 4. Scan vault
+        // 4. Scan source
         console.log(`📂 Building from vault: ${BASE_DIR}`);
         const allFiles = await getFiles(BASE_DIR);
         const mdFiles = allFiles.filter(f => f.endsWith('.md') || f.endsWith('.markdown'));
@@ -208,7 +197,6 @@ async function build() {
                 continue;
             }
 
-            // Check for coma/coms
             const hasComaOrComs = tags.some(t => t.toLowerCase() === 'coma' || t.toLowerCase() === 'coms');
             if (!hasComaOrComs) {
                 skippedCount++;
@@ -216,13 +204,12 @@ async function build() {
                 continue;
             }
 
-            // Check if it's an "index" page (for homepage)
             const hasIndex = tags.some(t => t.toLowerCase() === 'index');
             if (hasIndex) {
                 indexFiles.push({ path: filePath, data });
             }
 
-            // ---- Build regular page ----
+            // Build page
             const processedContent = preprocessMarkdown(content);
             const htmlContent = marked.parse(processedContent, { renderer });
 
@@ -244,7 +231,6 @@ async function build() {
             let outputFileName;
             let outputDir = dir;
 
-            // Special: 404
             if (baseName.toLowerCase() === '404') {
                 outputFileName = '404.html';
                 outputDir = '.';
@@ -261,7 +247,7 @@ async function build() {
             processedCount++;
         }
 
-        // ---- Generate homepage (index.html) from indexFiles ----
+        // Homepage
         const homepageContent = buildHomepageCards(indexFiles);
         const homepageData = {
             title: 'Home – Notes',
@@ -276,7 +262,7 @@ async function build() {
         await fs.writeFile(homepagePath, homepageHtml, 'utf-8');
         console.log(`🏠 Generated homepage (index.html) with ${indexFiles.length} index cards`);
 
-        // ---- Generate default 404 if missing ----
+        // Default 404
         if (!custom404Found) {
             const default404Path = path.join(OUTPUT_DIR, '404.html');
             try {
@@ -306,6 +292,7 @@ async function build() {
 
     } catch (error) {
         console.error('❌ Build failed:', error);
+        process.exit(1);
     }
 }
 
