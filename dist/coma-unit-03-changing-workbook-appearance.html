@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coma-unit-03-changing-workbook-appearance</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coma</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Formatting Cells</h2>
+<p>Cell formatting alters how data is displayed without changing the underlying stored value.</p>
+<h3>A. The &quot;Format Cells&quot; Central Hub</h3>
+<ul>
+<li><strong>Keyboard Shortcut:</strong> <strong><code>Ctrl + 1</code></strong> (Windows) or <strong><code>Cmd + 1</code></strong> (macOS).</li>
+<li>Opens the comprehensive formatting dialogue with six tabs: <em>Number, Alignment, Font, Border, Fill,</em> and <em>Protection</em>.</li>
+</ul>
+<h3>B. Core Formatting Dimensions</h3>
+<pre><code>                    ┌────────────── FORMATTING DIMENSIONS ──────────────┐
+                    │                                                   │
+             Typography &amp; Style                  Alignment &amp; Layout             Borders &amp; Fills
+        ┌───────────┴───────────┐           ┌───────────┴───────────┐      ┌──────────┴──────────┐
+      Font        Weight       Color      Horizontal    Vertical    Wrap  Border Style   Fill Shading
+     Family       Size       Effects     Alignment    Alignment   Text    Line Color     Gradients</code></pre><ol>
+<li><p><strong>Font Formatting:</strong></p>
+<ul>
+<li><strong>Attributes:</strong> Typeface (e.g., Aptos, Calibri, Arial), font size, font color, bold (<code>Ctrl + B</code>), italic (<code>Ctrl + I</code>), and underline (<code>Ctrl + U</code>).</li>
+<li><strong>Special Typography:</strong> Strikethrough (for completed tasks), Superscript ($X^2$), and Subscript ($H_2O$) available within <code>Ctrl + 1</code>.</li>
+</ul>
+</li>
+<li><p><strong>Alignment &amp; Orientation:</strong></p>
+<ul>
+<li><strong>Horizontal Alignment:</strong> Left (default for text), Center, Right (default for numbers), and Justify.</li>
+<li><strong>Vertical Alignment:</strong> Top, Center, or Bottom of the cell.</li>
+<li><strong>Orientation (Text Rotation):</strong> Slants text counterclockwise, clockwise, or vertically. Ideal for labeling narrow columns to save horizontal screen real estate.</li>
+</ul>
+</li>
+<li><p><strong>Text Control Options:</strong></p>
+<ul>
+<li><strong>Wrap Text (<code>Alt + H + W</code>):</strong> Displays multi-line text within a single cell when the text exceeds column width, increasing row height automatically.</li>
+<li><strong>Shrink to Fit:</strong> Automatically scales down the visual font size so data fits within current column boundaries without altering column width (does not change the actual font point size setting).</li>
+<li><strong>Merge &amp; Center:</strong> Combines multiple adjacent cells into one large cell and centers the contents.<ul>
+<li><em>Best Practice Warning:</em> Avoid merging cells inside raw data ranges; it breaks column sorting, filtering, and VBA selections.</li>
+<li><em>Safer Alternative:</em> Use <strong>&quot;Center Across Selection&quot;</strong> (found under <code>Ctrl + 1</code> $\rightarrow$ <em>Alignment</em> $\rightarrow$ <em>Horizontal</em>). It centers the title visually across selected columns without merging cell boundaries.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Borders and Fill Shading:</strong></p>
+<ul>
+<li><strong>Borders:</strong> Add visual grid structure for printing (default worksheet gridlines do not always print). Customize border weight, line style (dashed, double-line for accounting totals), and border line colors.</li>
+<li><strong>Fills:</strong> Applies solid background colors, pattern fills, or two-color gradient fills to highlight headers, summary rows, or alert areas.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>2. Defining and Using Styles</h2>
+<p>A <strong>Cell Style</strong> is a predefined set of formatting attributes (font, font size, number format, cell borders, and cell shading) saved under a single name.</p>
+<h3>A. Benefits of Styles</h3>
+<ul>
+<li><strong>Consistency:</strong> Enforces a unified visual standard across corporate financial reports and workbooks.</li>
+<li><strong>Efficiency:</strong> Applies complex multi-attribute formatting (e.g., 12pt Bold Aptos, Currency format, top border, double-underline bottom border) in a single click.</li>
+<li><strong>Global Updates:</strong> Modifying a defined style automatically updates every cell in the workbook linked to that style.</li>
+</ul>
+<h3>B. Built-in Cell Styles (<code>Home</code> Tab $\rightarrow$ <code>Cell Styles</code>)</h3>
+<ul>
+<li><strong>Good, Bad, and Neutral:</strong> Green (Good/Passed), Red (Bad/Failed), Yellow (Neutral/Warning).</li>
+<li><strong>Data and Model:</strong> Specific styles for <em>Input</em> cells (orange/peach unshaded), <em>Calculation</em> cells, <em>Notes</em>, and <em>Output</em>.</li>
+<li><strong>Titles and Headings:</strong> Pre-scaled hierarchical typography (Title, Heading 1, Heading 2, Heading 3).</li>
+<li><strong>Number Formats:</strong> Instant styling for <em>Comma</em>, <em>Currency</em>, and <em>Percent</em>.</li>
+</ul>
+<h3>C. Creating, Modifying, and Merging Styles</h3>
+<ol>
+<li><strong>Create Style from an Existing Cell:</strong><ul>
+<li>Format a cell with your desired font, colors, borders, and number formats.</li>
+<li>Go to <code>Home</code> $\rightarrow$ <strong>Cell Styles</strong> $\rightarrow$ click <strong>New Cell Style...</strong></li>
+<li>Name the style (e.g., <code>Corporate_Header</code>) $\rightarrow$ check the formatting properties you want included $\rightarrow$ click <strong>OK</strong>.</li>
+</ul>
+</li>
+<li><strong>Modifying an Existing Style:</strong><ul>
+<li>Right-click the style in the Cell Styles gallery $\rightarrow$ click <strong>Modify...</strong> $\rightarrow$ adjust settings. All cells formatted with this style update dynamically across the workbook.</li>
+</ul>
+</li>
+<li><strong>Merging Styles from Another Workbook:</strong><ul>
+<li>Open both the source workbook (containing custom styles) and the target workbook.</li>
+<li>In the target workbook: Go to <code>Home</code> $\rightarrow$ <strong>Cell Styles</strong> $\rightarrow$ click <strong>Merge Styles...</strong> $\rightarrow$ select the open source workbook.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>3. Workbook Themes and Table Styles</h2>
+<p>While Cell Styles format individual cells, <strong>Themes</strong> and <strong>Table Styles</strong> format the document globally.</p>
+<pre><code>┌──────────────────────────────── WORKBOOK THEME ────────────────────────────────┐
+│ Applies document-wide across all worksheets, charts, shapes, and tables        │
+│                                                                                │
+│   ┌─────────────────────┐   ┌─────────────────────┐   ┌─────────────────────┐  │
+│   │    Theme Colors     │   │     Theme Fonts     │   │    Theme Effects    │  │
+│   │ 4 Text/Background   │   │  Heading Font       │   │ Visual styling for  │  │
+│   │ 6 Accent Colors     │   │  Body Font          │   │ shapes, charts, and │  │
+│   │ 2 Hyperlink Colors  │   │                     │   │ smart art objects   │  │
+│   └─────────────────────┘   └─────────────────────┘   └─────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────────────┘</code></pre><h3>A. Workbook Themes (<code>Page Layout</code> Tab)</h3>
+<p>A <strong>Theme</strong> is a universal palette comprising three coordinated design elements:</p>
+<ol>
+<li><strong>Colors:</strong> 12 specific color swatches (4 for text and backgrounds, 6 accent colors for charts and tables, and 2 for hyperlinks).</li>
+<li><strong>Fonts:</strong> A paired set of typography—one font for <strong>Headings</strong> and one for <strong>Body text</strong> (e.g., <em>Aptos Display / Aptos</em> or <em>Calibri Light / Calibri</em>).</li>
+<li><strong>Effects:</strong> Pre-set line styles, shadows, and 3D visual treatments applied to graphic shapes and charts.</li>
+</ol>
+<ul>
+<li><strong>Switching Themes:</strong> Changing the Theme (e.g., from <em>Office</em> to <em>Facet</em> or <em>Slate</em>) dynamically shifts all colors, table headers, and fonts across every sheet without needing manual re-formatting.</li>
+<li><strong>Standard Colors vs. Theme Colors:</strong> <ul>
+<li><em>Theme Colors</em> adjust automatically when the theme changes.</li>
+<li><em>Standard Colors</em> (fixed red, dark blue, yellow, etc.) remain static regardless of theme shifts.</li>
+</ul>
+</li>
+</ul>
+<h3>B. Table Styles (<code>Table Design</code> Tab)</h3>
+<p>When a range is converted into an official Table (<code>Ctrl + T</code>), dedicated <strong>Table Styles</strong> control its appearance:</p>
+<ul>
+<li>Categorized into <strong>Light</strong>, <strong>Medium</strong>, and <strong>Dark</strong> designs.</li>
+<li><strong>Table Style Options (Checkboxes):</strong><ul>
+<li><strong>Header Row:</strong> Distinct styling/shading for column headers.</li>
+<li><strong>Total Row:</strong> Displays bold bottom-border accounting styling.</li>
+<li><strong>Banded Rows / Banded Columns:</strong> Alternates colors between consecutive rows/columns to prevent eye-tracking errors across wide tables.</li>
+<li><strong>First / Last Column:</strong> Applies unique bold formatting to highlight key identifier columns or end-line totals.</li>
+</ul>
+</li>
+<li><strong>Creating a Custom Table Style:</strong> Right-click an existing table style $\rightarrow$ choose <strong>Duplicate...</strong> $\rightarrow$ customize individual components (such as <em>Whole Table</em>, <em>First Row Stripe</em>, or <em>Header Row</em>).</li>
+</ul>
+<hr>
+<h2>4. Making Numbers Easier to Read</h2>
+<p>Raw numbers (e.g., <code>1234567.891</code>) are difficult to read and interpret. Number formatting introduces structure (commas, currency symbols, fixed decimal places) without altering mathematical precision.</p>
+<h3>A. Core Number Formats</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Format</th>
+<th align="left">Raw Stored Data</th>
+<th align="left">Displayed Output</th>
+<th align="left">Distinct Characteristic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>General</strong></td>
+<td align="left"><code>1250.5</code></td>
+<td align="left"><code>1250.5</code></td>
+<td align="left">Default unformatted representation; displays as entered.</td>
+</tr>
+<tr>
+<td align="left"><strong>Number</strong></td>
+<td align="left"><code>1250.5</code></td>
+<td align="left"><code>1,250.50</code></td>
+<td align="left">User defines fixed decimal places and toggles $1,000$ separator <code>,</code>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Currency</strong></td>
+<td align="left"><code>1250.5</code></td>
+<td align="left"><code>$1,250.50</code></td>
+<td align="left">Currency symbol placed <strong>immediately flush</strong> against the first digit.</td>
+</tr>
+<tr>
+<td align="left"><strong>Accounting</strong></td>
+<td align="left"><code>1250.5</code></td>
+<td align="left"><code>$  1,250.50</code></td>
+<td align="left">Currency symbol pinned to the far left; decimals align vertically; <strong>zeros display as a dash (<code>-</code>)</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Percentage</strong></td>
+<td align="left"><code>0.155</code></td>
+<td align="left"><code>15.50%</code></td>
+<td align="left">Multiplies stored value by $100$ and appends a <code>%</code> sign.</td>
+</tr>
+<tr>
+<td align="left"><strong>Date</strong></td>
+<td align="left"><code>46277</code></td>
+<td align="left"><code>09/12/2026</code></td>
+<td align="left">Converts serial integer numbers to calendar dates.</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>Accounting vs. Currency:</strong><br>Financial models favor <strong>Accounting</strong> format because it vertically aligns decimal points and currency symbols, and replaces distracting zeros (<code>$0.00</code>) with a clean dash (<code>-</code>).</p>
+</blockquote>
+<hr>
+<h3>B. Custom Number Formatting Syntax</h3>
+<p>Accessed via <code>Ctrl + 1</code> $\rightarrow$ <em>Number</em> tab $\rightarrow$ <strong>Custom</strong>.<br>Excel interprets custom formats through up to four sections separated by semicolons:</p>
+<p>$$\mathbf{\text{POSITIVE}} ;;; \mathbf{\text{NEGATIVE}} ;;; \mathbf{\text{ZERO}} ;;; \mathbf{\text{TEXT}}$$</p>
+<pre><code class="language-excel">#,##0.00;[Red](#,##0.00);&quot;-&quot;;@</code></pre><h4>Syntax Key &amp; Placeholders:</h4>
+<ul>
+<li><strong><code>0</code> (Digit Placeholder):</strong> Displays nonsignificant zeros if the number has fewer digits than specified (e.g., format <code>0.00</code> turns <code>5</code> into <code>5.00</code>).</li>
+<li><strong><code>#</code> (Digit Placeholder):</strong> Displays only significant digits; suppresses leading/trailing zeros (e.g., format <code>#.##</code> turns <code>5</code> into <code>5</code>).</li>
+<li><strong><code>?</code> (Alignment Placeholder):</strong> Adds non-printing spaces for insignificant zeros to ensure decimal points align when using non-proportional fonts.</li>
+<li><strong><code>,</code> (Thousands Separator or Scaling Factor):</strong> <ul>
+<li>Between digits: <code>#,##0</code> adds standard commas (<code>1,000,000</code>).</li>
+<li>At the end: Scales by thousands. Format <code>#,##0, &quot;K&quot;</code> displays <code>50,000</code> as <code>50 K</code>. Format <code>#,##0.0,, &quot;M&quot;</code> displays <code>2,500,000</code> as <code>2.5 M</code>.</li>
+</ul>
+</li>
+<li><strong><code>@</code> (Text Placeholder):</strong> Represents where text entered in the cell will display.</li>
+<li><strong>Color Identifiers:</strong> Placed in square brackets at the start of a section (e.g., <code>[Red]</code>, <code>[Green]</code>, <code>[Blue]</code>).</li>
+</ul>
+<hr>
+<h2>5. Changing Appearance Based on Value (Conditional Formatting)</h2>
+<p><strong>Conditional Formatting</strong> changes the visual style of a cell (fill, font color, borders) dynamically based on conditions or evaluations.</p>
+<pre><code>                    ┌──────────── CONDITIONAL FORMATTING MODES ────────────┐
+                    │                                                      │
+             Rule-Based Triggers                               Visual Data Representation
+        ┌───────────┴───────────┐                      ┌───────────────────┼───────────────────┐
+  Highlight Rules         Top/Bottom Rules          Data Bars         Color Scales         Icon Sets
+  (&gt;, &lt;, =, Between,      (Top 10%, Above Avg,     (In-cell mini      (Heatmaps: 2-color  (Indicators: arrows,
+   Text Contains)          Bottom 10 Items)         bar graphics)      or 3-color bands)   flags, traffic lights)</code></pre><h3>A. Pre-built Rule Types</h3>
+<ol>
+<li><strong>Highlight Cells Rules:</strong><ul>
+<li>Flags values: <em>Greater Than, Less Than, Between, Equal To, Text that Contains, A Date Occurring,</em> or <em>Duplicate Values</em>.</li>
+</ul>
+</li>
+<li><strong>Top / Bottom Rules:</strong><ul>
+<li>Identifies upper or lower tiers: <em>Top 10 Items, Top 10%, Bottom 10 Items, Bottom 10%, Above Average,</em> or <em>Below Average</em>.</li>
+</ul>
+</li>
+<li><strong>Data Bars:</strong><ul>
+<li>Inserts colored horizontal bars inside cells. Length represents cell value relative to the rest of the range (acts as an in-cell micro bar chart).</li>
+</ul>
+</li>
+<li><strong>Color Scales (Heatmaps):</strong><ul>
+<li>Uses 2-color or 3-color gradients (e.g., Green-Yellow-Red) where shading indicates high, mid-tier, and low data distribution.</li>
+</ul>
+</li>
+<li><strong>Icon Sets:</strong><ul>
+<li>Adds indicator symbols (directional arrows, traffic lights, flags, checkmarks/crosses) classified by user-defined percentiles or hard values.</li>
+</ul>
+</li>
+</ol>
+<h3>B. Custom Formula Rules (Highlighting Entire Rows)</h3>
+<p>To apply formatting to an entire record (row) based on the value of a single column cell, use a custom logical formula:</p>
+<ol>
+<li>Select the entire table data range (e.g., <code>A2:E50</code>).</li>
+<li>Go to <code>Conditional Formatting</code> $\rightarrow$ <strong>New Rule...</strong> $\rightarrow$ select <strong>&quot;Use a formula to determine which cells to format&quot;</strong>.</li>
+<li>Type the formula using a <strong>mixed cell reference</strong> (lock the column with <code>$</code>, leave the row relative):<pre><code class="language-excel">=$E2=&quot;Overdue&quot;</code></pre></li>
+<li>Choose the formatting (e.g., light red fill) $\rightarrow$ click <strong>OK</strong>.<br><em>Result:</em> Whenever the status in column <code>E</code> reads &quot;Overdue&quot;, the entire corresponding row ($A$ through $E$) turns light red.</li>
+</ol>
+<h3>C. The Conditional Formatting Rules Manager</h3>
+<ul>
+<li>Located at: <code>Home</code> $\rightarrow$ <code>Conditional Formatting</code> $\rightarrow$ <strong>Manage Rules...</strong></li>
+<li>Displays all active rules across the current selection or the entire worksheet.</li>
+<li><strong>Features:</strong><ul>
+<li>Adjust rule evaluation hierarchy (up/down priority arrows).</li>
+<li>Edit rule conditions and formatting styles.</li>
+<li>Adjust the range of cells to which the rule applies (<strong>Applies to</strong> field).</li>
+<li><strong>Stop If True Checkbox:</strong> Halts evaluation of subsequent rules for a cell if the current rule evaluates to true.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>6. Adding and Formatting Images in Worksheets</h2>
+<p>Spreadsheets can incorporate corporate branding (logos), product photos, and explanatory diagrams.</p>
+<h3>A. Inserting Images</h3>
+<ul>
+<li>Go to the <code>Insert</code> tab $\rightarrow$ <strong>Illustrations</strong> $\rightarrow$ <strong>Pictures</strong>:<ul>
+<li><strong>This Device:</strong> Inserts local graphics files (<code>.png</code>, <code>.jpg</code>, <code>.svg</code>).</li>
+<li><strong>Stock Images:</strong> Inserts royalty-free images from Microsoft&#39;s built-in library.</li>
+<li><strong>Online Pictures:</strong> Searches web sources (Bing).</li>
+</ul>
+</li>
+</ul>
+<h3>B. &quot;Place in Cell&quot; vs. &quot;Place Over Cells&quot;</h3>
+<ul>
+<li><strong>Place Over Cells (Traditional):</strong> The image floats on top of the worksheet canvas as a free-floating object.</li>
+<li><strong>Place in Cell:</strong> Embeds the image directly inside the cell grid itself.<ul>
+<li>The image behaves like standard cell data.</li>
+<li>It stays locked within the cell, resizes when rows/columns change, sorts with the data, and filters seamlessly without drifting across the screen.</li>
+</ul>
+</li>
+</ul>
+<h3>C. Formatting and Manipulating Graphic Objects</h3>
+<p>When a floating image is selected, the <strong>Picture Format</strong> contextual tab appears:</p>
+<ul>
+<li><strong>Sizing &amp; Cropping:</strong> Use the <strong>Crop</strong> tool to remove unwanted margins. Hold <code>Shift</code> while dragging corner sizing handles to preserve the original <strong>Aspect Ratio</strong> (preventing distortion).</li>
+<li><strong>Color &amp; Contrast:</strong> Adjust Brightness, Sharpness, Contrast, or convert to Grayscale.</li>
+<li><strong>Remove Background:</strong> Automatically detects and strips solid background colors from company logos.</li>
+<li><strong>Compress Pictures:</strong> Reduces the image resolution (e.g., for Web, Print, or Email) to lower overall workbook file size.</li>
+</ul>
+<h3>D. Object Placement Properties</h3>
+<p>Right-click image $\rightarrow$ select <strong>Format Picture...</strong> $\rightarrow$ open <strong>Size &amp; Properties</strong> tab $\rightarrow$ expand <strong>Properties</strong>:</p>
+<pre><code>                       ┌───────── OBJECT PLACEMENT PROPERTIES ─────────┐
+                       │                                               │
+           Move and size with cells       Move but don&#39;t size with cells      Don&#39;t move or size with cells
+           • Columns widen = Pic widens   • Row deleted = Pic shifts position • Stays completely static
+           • Ideal for product catalogs   • Size remains constant             • Ideal for floating logos</code></pre><ol>
+<li><strong>Move and size with cells:</strong> If rows or columns behind the picture are inserted, deleted, expanded, or filtered, the picture resizes and shifts accordingly.</li>
+<li><strong>Move but don&#39;t size with cells:</strong> If rows/columns are inserted or hidden above/left of the image, it shifts position to stay with adjacent data, but its dimensions (height and width) remain static.</li>
+<li><strong>Don&#39;t move or size with cells:</strong> The image remains fixed in place on the screen regardless of structural grid adjustments.</li>
+</ol>
+<hr>
+<h2>Quick-Review Summary (Exam Cheat Sheet)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Action / Concept</th>
+<th align="left">Shortcut / Syntax</th>
+<th align="left">Core Application / Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Open Format Cells</strong></td>
+<td align="left"><code>Ctrl + 1</code></td>
+<td align="left">Primary hub for numbers, alignment, fonts, borders, fills</td>
+</tr>
+<tr>
+<td align="left"><strong>Wrap Text Toggle</strong></td>
+<td align="left"><code>Alt + H + W</code></td>
+<td align="left">Displays multi-line text; increases row height automatically</td>
+</tr>
+<tr>
+<td align="left"><strong>Center Across Selection</strong></td>
+<td align="left"><code>Ctrl + 1</code> $\rightarrow$ <em>Alignment</em></td>
+<td align="left">Best-practice alternative to problematic Merged Cells</td>
+</tr>
+<tr>
+<td align="left"><strong>Accounting vs. Currency</strong></td>
+<td align="left">—</td>
+<td align="left">Accounting aligns currency symbols to left, displays zero as <code>-</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Custom Format 4-Parts</strong></td>
+<td align="left"><code>Pos ; Neg ; Zero ; Text</code></td>
+<td align="left">Standard structural pattern for custom number masking</td>
+</tr>
+<tr>
+<td align="left"><strong>Force Decimal Alignment</strong></td>
+<td align="left"><code>?</code> placeholder</td>
+<td align="left">Format <code>0.0??</code> creates clean non-proportional vertical alignment</td>
+</tr>
+<tr>
+<td align="left"><strong>Scale Numbers to Millions</strong></td>
+<td align="left"><code>#,##0.0,, &quot;M&quot;</code></td>
+<td align="left">Each trailing comma suppresses three orders of magnitude ($10^3$)</td>
+</tr>
+<tr>
+<td align="left"><strong>Row Conditional Formatting</strong></td>
+<td align="left"><code>=$Column2=&quot;Target&quot;</code></td>
+<td align="left">Use mixed reference (lock column <code>$</code>, leave row relative)</td>
+</tr>
+<tr>
+<td align="left"><strong>Preserve Image Aspect Ratio</strong></td>
+<td align="left"><code>Shift + Drag Corner</code></td>
+<td align="left">Prevents stretching or squishing image dimensions</td>
+</tr>
+<tr>
+<td align="left"><strong>Embedded Image Mode</strong></td>
+<td align="left"><em>Place in Cell</em></td>
+<td align="left">Locks picture into the grid to sort and filter alongside data</td>
+</tr>
+</tbody></table></div>
+
+</body>
+
+</html>

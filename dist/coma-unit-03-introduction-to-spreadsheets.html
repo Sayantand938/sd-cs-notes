@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="metadata-box">
+        
+
+        <p><strong>📄 File:</strong> coma-unit-03-introduction-to-spreadsheets</p>
+
+
+
+        <p>
+            <strong>🏷️ Tags:</strong>
+            <span class="tag-badge">coma</span>
+            <span class="tag-badge">class-11</span>
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>1. Introduction to Spreadsheets &amp; Applications</h2>
+<h3>What is a Spreadsheet?</h3>
+<p>A <strong>spreadsheet</strong> is an interactive computer application designed for storing, organizing, analyzing, and calculating tabular data. </p>
+<ul>
+<li><strong>Workbook vs. Worksheet:</strong><ul>
+<li><strong>Workbook:</strong> The entire file (like a multi-page binder).</li>
+<li><strong>Worksheet (or Sheet):</strong> A single grid page inside the workbook where data is entered.</li>
+</ul>
+</li>
+<li><strong>Basic Components:</strong><ul>
+<li><strong>Column:</strong> Vertical division identified by letters ($A, B, C, \dots, Z, AA, AB, \dots$).</li>
+<li><strong>Row:</strong> Horizontal division identified by numbers ($1, 2, 3, \dots$).</li>
+<li><strong>Cell:</strong> The intersection of a row and a column (e.g., cell <code>B5</code> is column $B$, row $5$).</li>
+<li><strong>Cell Reference / Address:</strong> The unique alphanumeric identifier of a cell (e.g., <code>A1</code>).</li>
+<li><strong>Cell Range:</strong> A collection of two or more selected cells, written using a colon (e.g., <code>A1:C10</code>).</li>
+</ul>
+</li>
+</ul>
+<h3>Real-World Applications</h3>
+<ol>
+<li><strong>Financial &amp; Accounting Management:</strong> Budgeting, balance sheets, profit &amp; loss statements, payroll, loan amortization schedules.</li>
+<li><strong>Data Analysis &amp; Visualization:</strong> Sorting, filtering, conditional formatting, pivot tables, and chart generation (bar, line, pie, scatter).</li>
+<li><strong>Inventory &amp; Asset Tracking:</strong> Stock monitoring, reorder alerts, product catalogs with dynamic pricing.</li>
+<li><strong>Project Management:</strong> Gantt charts, task-tracking matrices, resource allocation.</li>
+<li><strong>Academic &amp; Research Computing:</strong> Gradebook management, scientific calculations, statistical modeling, hypothesis testing.</li>
+</ol>
+<hr>
+<h2>2. Overview of Major Spreadsheet Software</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Microsoft Excel</th>
+<th align="left">Google Sheets</th>
+<th align="left">Apache OpenOffice / LibreOffice Calc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Developer</strong></td>
+<td align="left">Microsoft Corporation</td>
+<td align="left">Google</td>
+<td align="left">The Document Foundation / Apache</td>
+</tr>
+<tr>
+<td align="left"><strong>Platform</strong></td>
+<td align="left">Windows, macOS, Web, iOS, Android</td>
+<td align="left">Web-based (Cloud-native), iOS, Android</td>
+<td align="left">Windows, macOS, Linux (Open-source)</td>
+</tr>
+<tr>
+<td align="left"><strong>Primary File Format</strong></td>
+<td align="left"><code>.xlsx</code> (modern), <code>.xls</code> (legacy)</td>
+<td align="left">Stored in Google Drive (exports to <code>.xlsx</code>, <code>.pdf</code>, <code>.csv</code>)</td>
+<td align="left"><code>.ods</code> (OpenDocument Spreadsheet)</td>
+</tr>
+<tr>
+<td align="left"><strong>Key Advantage</strong></td>
+<td align="left">High computational power, advanced macro/VBA support, large data capacity ($1,048,576$ rows).</td>
+<td align="left">Real-time multi-user collaboration, revision history, accessible via any browser.</td>
+<td align="left">$100%$ free, open-source, no subscription or internet required.</td>
+</tr>
+<tr>
+<td align="left"><strong>Target Use</strong></td>
+<td align="left">Heavy corporate financial modeling, large data sets, enterprise computing.</td>
+<td align="left">Collaborative team projects, remote work, dynamic web forms integration.</td>
+<td align="left">Budget-conscious environments, Linux environments, basic-to-intermediate office tasks.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>3. Navigating the Spreadsheet Interface</h2>
+<h3>Core Interface Components</h3>
+<ul>
+<li><strong>Title Bar:</strong> Displays the workbook name (e.g., <code>Book1 - Excel</code>) and window control buttons (Minimize, Maximize/Restore, Close).</li>
+<li><strong>Ribbon:</strong> Tabbed menu at the top containing tools grouped logically (Home, Insert, Page Layout, Formulas, Data, Review, View).</li>
+<li><strong>Name Box:</strong> Located to the left of the Formula Bar; displays the active cell&#39;s address (e.g., <code>C4</code>) or the name of a defined range.</li>
+<li><strong>Formula Bar:</strong> Displays the actual formula, function, or raw data stored in the active cell. Data can be edited directly here.</li>
+<li><strong>Active Cell Indicator:</strong> A thick border (often green or blue) around the currently selected cell.</li>
+<li><strong>Sheet Tabs:</strong> Found at the bottom of the screen; allows switching between different worksheets within the workbook.</li>
+<li><strong>Status Bar:</strong> Bottom strip showing view options, zoom controls, and quick calculations (Sum, Average, Count of selected cells).</li>
+</ul>
+<h3>Essential Navigation Shortcuts</h3>
+<ul>
+<li><code>Arrow Keys</code>: Move one cell Up, Down, Left, or Right.</li>
+<li><code>Tab</code>: Move one cell to the right.</li>
+<li><code>Shift + Tab</code>: Move one cell to the left.</li>
+<li><code>Enter</code>: Move one cell down (default behavior).</li>
+<li><code>Shift + Enter</code>: Move one cell up.</li>
+<li><code>Ctrl + Arrow Key</code>: Jump to the edge of the current data region (last non-empty cell).</li>
+<li><code>Home</code>: Move to Column <code>A</code> in the current row.</li>
+<li><code>Ctrl + Home</code>: Jump immediately to cell <code>A1</code>.</li>
+<li><code>Ctrl + End</code>: Jump to the lowest-rightmost cell containing data or formatting.</li>
+<li><code>Page Up / Page Down</code>: Scroll one screen up or down.</li>
+<li><code>Alt + Page Down / Alt + Page Up</code>: Scroll one screen to the right or left.</li>
+</ul>
+<hr>
+<h2>4. Workbook Management</h2>
+<h3>Creating Workbooks</h3>
+<ul>
+<li><strong>Blank Workbook:</strong> <ul>
+<li>Go to <code>File</code> $\rightarrow$ <code>New</code> $\rightarrow$ Click <strong>Blank Workbook</strong> (Shortcut: <code>Ctrl + N</code>).</li>
+</ul>
+</li>
+<li><strong>From a Template:</strong> <ul>
+<li>Go to <code>File</code> $\rightarrow$ <code>New</code> $\rightarrow$ Choose from built-in templates (e.g., Monthly Budget, Invoice, Calendar) to avoid designing from scratch.</li>
+</ul>
+</li>
+</ul>
+<h3>Modifying Worksheets within a Workbook</h3>
+<ol>
+<li><strong>Inserting a Sheet:</strong> Click the <strong><code>+</code></strong> (New Sheet) icon next to the sheet tabs, or press <code>Shift + F11</code>.</li>
+<li><strong>Renaming a Sheet:</strong> Double-click the sheet tab, or right-click the tab $\rightarrow$ select <strong>Rename</strong> $\rightarrow$ type the new name and press <code>Enter</code>.</li>
+<li><strong>Deleting a Sheet:</strong> Right-click the sheet tab $\rightarrow$ select <strong>Delete</strong> <em>(Caution: Deleting a worksheet cannot be undone with <code>Ctrl + Z</code>)</em>.</li>
+<li><strong>Moving / Copying a Sheet:</strong><ul>
+<li><em>Drag &amp; Drop:</em> Click and drag the sheet tab along the tab bar to rearrange.</li>
+<li><em>Copying:</em> Hold <code>Ctrl</code> while dragging a sheet tab, or right-click $\rightarrow$ <strong>Move or Copy...</strong> $\rightarrow$ check the <strong>Create a copy</strong> checkbox.</li>
+</ul>
+</li>
+<li><strong>Tab Color:</strong> Right-click the tab $\rightarrow$ select <strong>Tab Color</strong> $\rightarrow$ choose a color for quick visual organization.</li>
+<li><strong>Hiding / Unhiding Sheets:</strong> Right-click tab $\rightarrow$ choose <strong>Hide</strong> or <strong>Unhide...</strong> (useful for hiding lookup tables or raw data).</li>
+</ol>
+<hr>
+<h2>5. Customizing the Workspace &amp; View</h2>
+<h3>A. Zooming In / Out on a Worksheet</h3>
+<ul>
+<li><strong>Zoom Slider:</strong> Located at the bottom-right corner on the Status Bar (drag left/right or click <code>+</code> / <code>-</code>).</li>
+<li><strong>Mouse Wheel:</strong> Hold down <code>Ctrl</code> and scroll the mouse wheel up (zoom in) or down (zoom out).</li>
+<li><strong>View Tab:</strong> Go to the <code>View</code> tab $\rightarrow$ <strong>Zoom</strong> group:<ul>
+<li><strong>Zoom (100%):</strong> Resets display instantly to standard size.</li>
+<li><strong>Zoom to Selection:</strong> Zooms the sheet so that the currently selected cells fill the entire screen.</li>
+</ul>
+</li>
+</ul>
+<h3>B. Arranging Multiple Workbook Windows</h3>
+<p>When working across multiple files simultaneously, opening each in separate floating windows helps compare data:</p>
+<ol>
+<li>Open the required workbooks.</li>
+<li>Go to the <code>View</code> tab $\rightarrow$ <strong>Window</strong> group $\rightarrow$ click <strong>Arrange All</strong>.</li>
+<li>Choose an arrangement layout:<ul>
+<li><strong>Tiled:</strong> Splits the screen into equal square/rectangular grids.</li>
+<li><strong>Horizontal:</strong> Stacks workbooks one above another.</li>
+<li><strong>Vertical:</strong> Places workbooks side-by-side.</li>
+<li><strong>Cascade:</strong> Overlaps windows showing title bars.</li>
+</ul>
+</li>
+<li>Check <strong>Windows of active workbook</strong> if you only want to arrange multiple views of the <em>same</em> file.</li>
+</ol>
+<h3>C. Adding Buttons to the Quick Access Toolbar (QAT)</h3>
+<p>The <strong>Quick Access Toolbar (QAT)</strong> is a customizable toolbar at the top of the application that stays visible regardless of which Ribbon tab is selected.</p>
+<ul>
+<li><strong>Quick Add:</strong> Click the drop-down arrow at the right end of the QAT $\rightarrow$ check desired standard tools (e.g., <em>Quick Print</em>, <em>Undo</em>, <em>Redo</em>, <em>Sort Ascending</em>).</li>
+<li><strong>From Ribbon:</strong> Right-click any tool or button on the Ribbon $\rightarrow$ click <strong>Add to Quick Access Toolbar</strong>.</li>
+<li><strong>Advanced Customization:</strong><ol>
+<li>Click the drop-down arrow on the QAT $\rightarrow$ choose <strong>More Commands...</strong></li>
+<li>Select commands from the left panel and click <strong>Add &gt;&gt;</strong> to move them to the right panel.</li>
+<li>Reorder with the up/down arrows $\rightarrow$ click <strong>OK</strong>.</li>
+</ol>
+</li>
+</ul>
+<h3>D. Customizing the Ribbon</h3>
+<p>Allows users to tailor tabs and tool groupings to their workflow:</p>
+<ol>
+<li>Right-click any blank space on the Ribbon $\rightarrow$ select <strong>Customize the Ribbon...</strong></li>
+<li><strong>Adding a New Tab/Group:</strong> Click <strong>New Tab</strong> or <strong>New Group</strong>, then click <strong>Rename</strong> to provide custom titles.</li>
+<li><strong>Adding Commands:</strong> Select desired tools from the left pane and click <strong>Add &gt;&gt;</strong> to place them into your custom group.</li>
+<li><strong>Hiding Tabs:</strong> Uncheck tabs (like <em>Developer</em> or <em>Draw</em>) to remove clutter from the top menu.</li>
+</ol>
+<h3>E. Maximizing Usable Space in the Program Window</h3>
+<p>To display more rows and columns on smaller displays:</p>
+<ol>
+<li><strong>Collapse the Ribbon:</strong><ul>
+<li>Double-click any active Ribbon tab (e.g., double-click <code>Home</code>).</li>
+<li>Press shortcut: <code>Ctrl + F1</code>.</li>
+<li>Click the small caret/arrow <code>^</code> icon at the bottom-right edge of the Ribbon.</li>
+</ul>
+</li>
+<li><strong>Ribbon Display Options (Top-right corner near Minimize button):</strong><ul>
+<li><strong>Auto-hide Ribbon:</strong> Completely hides Ribbon and tabs; hover/click top bar to reveal.</li>
+<li><strong>Show Tabs:</strong> Displays only the tab headers; ribbon appears only upon clicking a tab.</li>
+<li><strong>Show Tabs and Commands:</strong> Default mode showing all icons.</li>
+</ul>
+</li>
+<li><strong>Full Screen Mode:</strong> Maximizes worksheet view by hiding title bars and toolbars.</li>
+</ol>
+<hr>
+<h2>6. Entering and Editing Data in Cells</h2>
+<h3>Data Types in Spreadsheets</h3>
+<ul>
+<li><strong>Text (Labels):</strong> Any combination of letters, numbers, and symbols not intended for calculations (e.g., <code>Employee Name</code>, <code>TX-102</code>). <em>Default alignment: Left.</em></li>
+<li><strong>Numeric Values:</strong> Real numbers, currency, percentages, decimals used in computations (e.g., <code>450</code>, <code>$1,200.50</code>, <code>15%</code>). <em>Default alignment: Right.</em></li>
+<li><strong>Date &amp; Time:</strong> Serial numbers formatted as calendar dates (e.g., <code>2026-09-12</code>, <code>14:30</code>). <em>Default alignment: Right.</em></li>
+<li><strong>Formulas &amp; Functions:</strong> Mathematical instructions that always begin with an equal sign (<code>=</code>) (e.g., <code>=A1+B1</code>, <code>=SUM(C1:C10)</code>).</li>
+</ul>
+<h3>Entering Data</h3>
+<ol>
+<li>Click the desired cell.</li>
+<li>Type the data.</li>
+<li>Commit the entry by pressing:<ul>
+<li><code>Enter</code> (completes and moves to the cell below).</li>
+<li><code>Tab</code> (completes and moves to the cell to the right).</li>
+<li><code>Esc</code> (cancels entry before committing).</li>
+</ul>
+</li>
+</ol>
+<h3>Overwrite Mode vs. Edit Mode</h3>
+<ul>
+<li><strong>Overwrite Mode (Replacing Data):</strong> Select the cell with a single click and type new content. The old content is immediately erased.</li>
+<li><strong>Edit Mode (Modifying existing data without retyping):</strong><ul>
+<li>Press <strong><code>F2</code></strong> on the keyboard.</li>
+<li>Double-click directly inside the cell.</li>
+<li>Click inside the <strong>Formula Bar</strong> at the top.</li>
+<li>A blinking cursor appears inside the cell, allowing individual characters to be added or erased.</li>
+</ul>
+</li>
+</ul>
+<h3>Clearing vs. Deleting</h3>
+<ul>
+<li><strong>Clearing (Pressing <code>Delete</code> key):</strong> Erases only the <em>contents</em> of the cell, leaving the cell grid, background formatting, and comments intact.</li>
+<li><strong>Deleting Cells/Rows/Columns (<code>Ctrl + -</code>):</strong> Completely removes the structural cells from the grid; neighboring cells shift up or left to fill the vacancy.</li>
+</ul>
+<hr>
+<h2>7. Saving, Opening, and Closing Spreadsheet Files</h2>
+<h3>Saving Files</h3>
+<ul>
+<li><strong>Save (<code>Ctrl + S</code>):</strong> Updates and overwrites the existing file on storage with the latest modifications.</li>
+<li><strong>Save As (<code>F12</code> or <code>File</code> $\rightarrow$ <code>Save As</code>):</strong> Saves the document under a new name, in a different file path, or in an alternate file format.</li>
+<li><strong>Common File Extensions:</strong><ul>
+<li><code>.xlsx</code>: Default standard XML-based spreadsheet format (Excel 2007 onwards).</li>
+<li><code>.xlsm</code>: Macro-enabled workbook (contains automated VBA scripts).</li>
+<li><code>.csv</code> (Comma Separated Values): Plain text file with comma delimiters, used for raw data exchange between different software systems.</li>
+<li><code>.ods</code>: OpenDocument Spreadsheet used natively by LibreOffice/OpenOffice.</li>
+<li><code>.pdf</code>: Portable Document Format for non-editable viewing and printing.</li>
+</ul>
+</li>
+<li><strong>AutoSave &amp; AutoRecover:</strong> Cloud files (OneDrive / Google Drive) save automatically in real time. Local Excel instances use <em>AutoRecover</em> (typically every 10 minutes) to safeguard against unexpected system crashes.</li>
+</ul>
+<h3>Opening Files</h3>
+<ul>
+<li>Go to <code>File</code> $\rightarrow$ <strong>Open</strong> (Shortcut: <code>Ctrl + O</code>).</li>
+<li>Choose from <strong>Recent Workbooks</strong>, search local PC directories via <strong>Browse</strong>, or access cloud drives (e.g., OneDrive / Google Drive).</li>
+</ul>
+<h3>Closing Workbooks</h3>
+<ul>
+<li><strong>Close Active Workbook:</strong> Click <code>File</code> $\rightarrow$ <strong>Close</strong>, or press <code>Ctrl + W</code> / <code>Ctrl + F4</code>. The application window stays open, but the document closes.</li>
+<li><strong>Exit Spreadsheet Program entirely:</strong> Click the <code>X</code> button in the top-right corner, or press <code>Alt + F4</code>. If unsaved changes exist, a prompt will appear asking to <strong>Save</strong>, <strong>Don&#39;t Save</strong>, or <strong>Cancel</strong>.</li>
+</ul>
+<hr>
+<h2>Quick-Review Summary (Exam Cheat Sheet)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Task</th>
+<th align="left">Shortcut / Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>New Workbook</strong></td>
+<td align="left"><code>Ctrl + N</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Open Workbook</strong></td>
+<td align="left"><code>Ctrl + O</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Save Workbook</strong></td>
+<td align="left"><code>Ctrl + S</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Save As</strong></td>
+<td align="left"><code>F12</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Close Current Workbook</strong></td>
+<td align="left"><code>Ctrl + W</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Exit Application</strong></td>
+<td align="left"><code>Alt + F4</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Edit Active Cell</strong></td>
+<td align="left"><code>F2</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Toggle Ribbon Display</strong></td>
+<td align="left"><code>Ctrl + F1</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Insert New Sheet</strong></td>
+<td align="left"><code>Shift + F11</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Jump to Cell <code>A1</code></strong></td>
+<td align="left"><code>Ctrl + Home</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><strong>Data Alignment Defaults</strong></td>
+<td align="left">Text = Left; Numbers/Dates = Right</td>
+<td></td>
+</tr>
+</tbody></table></div>
+
+</body>
+
+</html>
