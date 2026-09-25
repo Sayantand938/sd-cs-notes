@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Basic Computer Organisation (Questions 1 to 20)</h2>
+<h4>Q1. Which of the following is the main circuit board of a computer?</h4>
+<p>A) Processor
+B) Motherboard ✅
+C) RAM
+D) Hard Disk</p>
+<h4>Q2. What is the function of a power supply unit (PSU)?</h4>
+<p>A) Converts AC to DC for computer components ✅
+B) Stores data
+C) Performs calculations
+D) Displays output</p>
+<h4>Q3. Which memory is used to store the boot process instructions?</h4>
+<p>A) RAM
+B) ROM ✅
+C) Cache
+D) Hard Disk</p>
+<h4>Q4. What is the speed of memory measured in?</h4>
+<p>A) Hertz (Hz) ✅
+B) Bytes
+C) Bits
+D) Meters</p>
+<h4>Q5. 1 Zettabyte (ZB) is equal to:</h4>
+<p>A) 1024 EB ✅
+B) 1000 EB
+C) 1024 PB
+D) 1024 TB</p>
+<h4>Q6. Which of the following is a volatile memory?</h4>
+<p>A) ROM
+B) Hard Disk
+C) RAM ✅
+D) DVD</p>
+<h4>Q7. What is the function of the system clock?</h4>
+<p>A) Synchronizes all computer operations ✅
+B) Stores data
+C) Performs calculations
+D) Displays output</p>
+<h4>Q8. Which of the following is NOT a type of ROM?</h4>
+<p>A) PROM
+B) EPROM
+C) EEPROM
+D) DRAM ✅</p>
+<h4>Q9. What is the full form of DRAM?</h4>
+<p>A) Dynamic Random Access Memory ✅
+B) Digital Random Access Memory
+C) Dynamic Read Access Memory
+D) Digital Read Access Memory</p>
+<h4>Q10. Which storage device has the largest capacity typically?</h4>
+<p>A) RAM
+B) ROM
+C) Hard Disk ✅
+D) Cache</p>
+<h4>Q11. What is the function of the heat sink in a computer?</h4>
+<p>A) Stores data
+B) Dissipates heat from the CPU ✅
+C) Displays output
+D) Controls operations</p>
+<h4>Q12. Which of the following is a multi-touch input device?</h4>
+<p>A) Mouse
+B) Keyboard
+C) Touchscreen ✅
+D) Scanner</p>
+<h4>Q13. What is the full form of SSD?</h4>
+<p>A) Solid State Drive ✅
+B) Solid System Drive
+C) Static State Drive
+D) Static System Drive</p>
+<h4>Q14. Which is faster: SSD or HDD?</h4>
+<p>A) HDD
+B) SSD ✅
+C) Both are same
+D) Depends on capacity</p>
+<h4>Q15. 1 Yottabyte (YB) is equal to:</h4>
+<p>A) 1024 ZB ✅
+B) 1000 ZB
+C) 1024 EB
+D) 1024 PB</p>
+<h4>Q16. Which port is used to connect a keyboard?</h4>
+<p>A) USB ✅
+B) HDMI
+C) VGA
+D) Ethernet</p>
+<h4>Q17. Which port is used to connect a monitor?</h4>
+<p>A) USB
+B) HDMI / VGA ✅
+C) Ethernet
+D) Audio Jack</p>
+<h4>Q18. What is the function of the Northbridge chipset?</h4>
+<p>A) Connects CPU to memory and graphics ✅
+B) Connects CPU to I/O devices
+C) Stores data
+D) Manages power</p>
+<h4>Q19. What is the function of the Southbridge chipset?</h4>
+<p>A) Connects CPU to memory
+B) Connects CPU to I/O devices ✅
+C) Performs calculations
+D) Displays output</p>
+<h4>Q20. Which of the following is an example of firmware?</h4>
+<p>A) Windows 10
+B) BIOS ✅
+C) MS Word
+D) Google Chrome</p>
+<hr>
+<h2>Section 2: Classification of Computers (Questions 21 to 30)</h2>
+<h4>Q21. Which type of computer is the fastest?</h4>
+<p>A) Mainframe
+B) Supercomputer ✅
+C) Mini
+D) Micro</p>
+<h4>Q22. Which type of computer is used in weather prediction?</h4>
+<p>A) Mainframe
+B) Supercomputer ✅
+C) Mini
+D) Micro</p>
+<h4>Q23. Which type of computer is used in banks?</h4>
+<p>A) Supercomputer
+B) Mainframe ✅
+C) Mini
+D) Micro</p>
+<h4>Q24. Which type of computer is used in educational institutions?</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Mini
+D) Microcomputer ✅</p>
+<h4>Q25. Which computer is used for CAD/CAM applications?</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Workstation (Mini) ✅
+D) Microcomputer</p>
+<h4>Q26. CRAY-1 is an example of:</h4>
+<p>A) Mainframe
+B) Supercomputer ✅
+C) Mini
+D) Micro</p>
+<h4>Q27. IBM AS/400 is an example of:</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Mini ✅
+D) Micro</p>
+<h4>Q28. Which type of computer is most energy-efficient?</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Mini
+D) Microcomputer ✅</p>
+<h4>Q29. Which type of computer is used in airline reservation systems?</h4>
+<p>A) Supercomputer
+B) Mainframe ✅
+C) Mini
+D) Micro</p>
+<h4>Q30. Which type of computer is most affordable?</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Mini
+D) Microcomputer ✅</p>
+<hr>
+<h2>Section 3: Concepts of Software (Questions 31 to 55)</h2>
+<h4>Q31. Which of the following is NOT a system software?</h4>
+<p>A) Operating System
+B) Compiler
+C) Antivirus ✅ (Utility software, but can be considered system software too... let&#39;s make it clear)</p>
+<p>Actually, antivirus is often classified as utility software. But if we need to pick one that is clearly NOT system software:
+A better option: Which of the following is application software?
+A) Windows
+B) Linux
+C) MS Word ✅
+D) BIOS</p>
+<p>Let&#39;s redo Q31:</p>
+<h4>Q31. Which of the following is application software?</h4>
+<p>A) Windows 10
+B) Linux
+C) MS Word ✅
+D) BIOS</p>
+<h4>Q32. What is the role of the operating system in memory management?</h4>
+<p>A) Allocates memory to programs ✅
+B) Creates documents
+C) Plays games
+D) Designs graphics</p>
+<h4>Q33. Which of the following is an example of a multi-user operating system?</h4>
+<p>A) Windows 10 Home
+B) MS-DOS
+C) UNIX ✅
+D) Windows 7 Home</p>
+<h4>Q34. What does a compiler produce?</h4>
+<p>A) Source code
+B) Object code ✅
+C) Executable code
+D) Pseudo-code</p>
+<h4>Q35. What is the difference between compilation and interpretation?</h4>
+<p>A) Compilation converts entire program, interpretation converts line by line ✅
+B) Interpretation converts entire program, compilation converts line by line
+C) Both are the same
+D) Compilation is faster than interpretation</p>
+<h4>Q36. Which translator converts assembly code to machine code?</h4>
+<p>A) Compiler
+B) Interpreter
+C) Assembler ✅
+D) Loader</p>
+<h4>Q37. What is the function of a linker in the compilation process?</h4>
+<p>A) Translates source code
+B) Combines object files ✅
+C) Loads programs into memory
+D) Executes programs</p>
+<h4>Q38. What is the function of a loader?</h4>
+<p>A) Translates source code
+B) Combines object files
+C) Loads executable program into memory ✅
+D) Manages memory</p>
+<h4>Q39. Which type of OS processes jobs in batches without user interaction?</h4>
+<p>A) Time-sharing
+B) Batch OS ✅
+C) Real-time OS
+D) Multiprogramming</p>
+<h4>Q40. Which type of OS is used in embedded systems?</h4>
+<p>A) Batch OS
+B) Time-sharing
+C) Real-time OS ✅
+D) Multiprogramming</p>
+<h4>Q41. What is multiprogramming?</h4>
+<p>A) Multiple programs running simultaneously on one CPU ✅
+B) Multiple CPUs running one program
+C) Multiple users using one program
+D) One program running on multiple CPUs</p>
+<h4>Q42. What is the advantage of time-sharing?</h4>
+<p>A) Faster processing
+B) Multiple users can interact with the system simultaneously ✅
+C) Uses less memory
+D) No need for CPU</p>
+<h4>Q43. Which Linux command displays the contents of a directory?</h4>
+<p>A) <code>ls</code> ✅
+B) <code>dir</code>
+C) <code>list</code>
+D) <code>show</code></p>
+<h4>Q44. Which Linux command is used to create a directory?</h4>
+<p>A) <code>mkdir</code> ✅
+B) <code>create</code>
+C) <code>newdir</code>
+D) <code>makedir</code></p>
+<h4>Q45. Which Linux command removes an empty directory?</h4>
+<p>A) <code>rmdir</code> ✅
+B) <code>rm</code>
+C) <code>del</code>
+D) <code>remove</code></p>
+<h4>Q46. Which Linux command displays the system date and time?</h4>
+<p>A) <code>date</code> ✅
+B) <code>time</code>
+C) <code>clock</code>
+D) <code>calendar</code></p>
+<h4>Q47. Which Linux command is used to clear the terminal screen?</h4>
+<p>A) <code>clear</code> ✅
+B) <code>cls</code>
+C) <code>reset</code>
+D) <code>clean</code></p>
+<h4>Q48. Which of the following is a utility program?</h4>
+<p>A) Windows 10
+B) Compiler
+C) Disk Cleanup ✅
+D) MS Word</p>
+<h4>Q49. What is the difference between CUI and GUI?</h4>
+<p>A) CUI uses text-based interface, GUI uses graphical interface ✅
+B) GUI uses text-based interface, CUI uses graphical interface
+C) Both are the same
+D) CUI is more user-friendly</p>
+<h4>Q50. Which of the following is a CUI operating system?</h4>
+<p>A) Windows 10
+B) macOS
+C) MS-DOS ✅
+D) Android</p>
+<h4>Q51. What is the full form of BIOS?</h4>
+<p>A) Basic Input Output System ✅
+B) Basic Input Output Software
+C) Basic Interface Output System
+D) Basic Input Output Standard</p>
+<h4>Q52. Which of the following is NOT a function of an OS?</h4>
+<p>A) Process Management
+B) Memory Management
+C) Word Processing ✅
+D) File Management</p>
+<h4>Q53. Which type of OS allows programs to run on multiple CPUs?</h4>
+<p>A) Multiprogramming
+B) Multiprocessing ✅
+C) Multi-tasking
+D) Multi-user</p>
+<h4>Q54. What is a device driver?</h4>
+<p>A) A hardware component
+B) Software that controls a hardware device ✅
+C) A type of memory
+D) A programming language</p>
+<h4>Q55. Which of the following is a bootable device?</h4>
+<p>A) Hard Disk ✅
+B) Keyboard
+C) Mouse
+D) Monitor</p>
+<hr>
+<h2>Section 4: Number System (Questions 56 to 80)</h2>
+<h4>Q56. What is the decimal equivalent of binary <code>1001</code>?</h4>
+<p>A) 8
+B) 9 ✅
+C) 10
+D) 11</p>
+<h4>Q57. What is the decimal equivalent of octal <code>10</code>?</h4>
+<p>A) 8 ✅
+B) 10
+C) 9
+D) 11</p>
+<h4>Q58. What is the decimal equivalent of hexadecimal <code>1F</code>?</h4>
+<p>A) 31 ✅
+B) 30
+C) 32
+D) 33</p>
+<h4>Q59. What is the binary equivalent of decimal <code>7</code>?</h4>
+<p>A) 100
+B) 101
+C) 110
+D) 111 ✅</p>
+<h4>Q60. What is the octal equivalent of decimal <code>8</code>?</h4>
+<p>A) 10 ✅
+B) 11
+C) 12
+D) 13</p>
+<h4>Q61. What is the hexadecimal equivalent of decimal <code>15</code>?</h4>
+<p>A) E
+B) F ✅
+C) 10
+D) 0F</p>
+<h4>Q62. What is the binary equivalent of octal <code>7</code>?</h4>
+<p>A) 111 ✅
+B) 110
+C) 101
+D) 100</p>
+<h4>Q63. What is the octal equivalent of binary <code>101010</code>?</h4>
+<p>A) 50
+B) 52 ✅
+C) 55
+D) 54</p>
+<h4>Q64. What is the hexadecimal equivalent of binary <code>1111</code>?</h4>
+<p>A) E
+B) F ✅
+C) 10
+D) 0F</p>
+<h4>Q65. What is the binary equivalent of hexadecimal <code>A</code>?</h4>
+<p>A) 1000
+B) 1001
+C) 1010 ✅
+D) 1011</p>
+<h4>Q66. What is the BCD code for decimal <code>7</code>?</h4>
+<p>A) 0111 ✅
+B) 1000
+C) 1001
+D) 0100</p>
+<h4>Q67. What is the BCD code for decimal <code>12</code>?</h4>
+<p>A) 0001 0010 ✅
+B) 1100
+C) 0001 0000
+D) 0001 0011</p>
+<h4>Q68. Which code is a self-complementing code?</h4>
+<p>A) BCD
+B) 8421
+C) Excess-3 ✅
+D) Grey</p>
+<h4>Q69. What is the Grey code for binary <code>1010</code>?</h4>
+<p>A) 1111 ✅ (1010 → 1111)
+B) 1010
+C) 1100
+D) 1001</p>
+<h4>Q70. What is the binary for Grey code <code>1111</code>?</h4>
+<p>A) 1010 ✅
+B) 1111
+C) 1100
+D) 1001</p>
+<h4>Q71. How many bytes are required to store one ASCII character?</h4>
+<p>A) 1 byte ✅
+B) 2 bytes
+C) 4 bytes
+D) 8 bytes</p>
+<h4>Q72. Which encoding scheme is used for all languages in modern computing?</h4>
+<p>A) ASCII
+B) ISCII
+C) Unicode ✅
+D) EBCDIC</p>
+<h4>Q73. What is the 1&#39;s complement of binary <code>0101</code>?</h4>
+<p>A) 1010 ✅
+B) 0101
+C) 0000
+D) 1111</p>
+<h4>Q74. What is the 2&#39;s complement of binary <code>0101</code>?</h4>
+<p>A) 1010
+B) 1011 ✅ (1&#39;s complement 1010 + 1 = 1011)
+C) 1111
+D) 0000</p>
+<h4>Q75. Convert decimal <code>-5</code> to binary using 2&#39;s complement (4-bit)?</h4>
+<p>A) 1011 ✅ (-5 in 4-bit 2&#39;s complement)
+B) 1010
+C) 1100
+D) 1111</p>
+<h4>Q76. What is the range of 4-bit 2&#39;s complement numbers?</h4>
+<p>A) -8 to 7 ✅
+B) -7 to 8
+C) -16 to 15
+D) -15 to 16</p>
+<h4>Q77. Convert binary <code>1010</code> to decimal (using 2&#39;s complement).</h4>
+<p>A) -6 ✅
+B) 10
+C) -5
+D) -7</p>
+<h4>Q78. Which is the most common encoding for English characters?</h4>
+<p>A) ASCII ✅
+B) ISCII
+C) Unicode
+D) BCD</p>
+<h4>Q79. What is the octal equivalent of binary <code>111111</code>?</h4>
+<p>A) 77 ✅
+B) 70
+C) 80
+D) 76</p>
+<h4>Q80. Convert hexadecimal <code>2A</code> to binary.</h4>
+<p>A) 0010 1010 ✅
+B) 0010 1000
+C) 0010 1100
+D) 0010 1110</p>
+<hr>
+<h2>Section 5: Boolean Algebra (Questions 81 to 100)</h2>
+<h4>Q81. What is the value of <code>A + A&#39;</code>?</h4>
+<p>A) A
+B) A&#39;
+C) 1 ✅
+D) 0</p>
+<h4>Q82. What is the value of <code>A . A&#39;</code>?</h4>
+<p>A) A
+B) A&#39;
+C) 1
+D) 0 ✅</p>
+<h4>Q83. What is the value of <code>A + 0</code>?</h4>
+<p>A) A ✅
+B) 0
+C) 1
+D) A&#39;</p>
+<h4>Q84. What is the value of <code>A . 0</code>?</h4>
+<p>A) A
+B) 0 ✅
+C) 1
+D) A&#39;</p>
+<h4>Q85. What is the value of <code>A + 1</code>?</h4>
+<p>A) A
+B) 0
+C) 1 ✅
+D) A&#39;</p>
+<h4>Q86. What is the value of <code>A . 1</code>?</h4>
+<p>A) A ✅
+B) 0
+C) 1
+D) A&#39;</p>
+<h4>Q87. Which gate is the complement of AND?</h4>
+<p>A) OR
+B) NOR
+C) NAND ✅
+D) XOR</p>
+<h4>Q88. Which gate is the complement of OR?</h4>
+<p>A) AND
+B) NOR ✅
+C) NAND
+D) XNOR</p>
+<h4>Q89. What is the output of <code>1 NAND 1</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q90. What is the output of <code>1 NOR 0</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q91. What is the output of <code>1 XNOR 1</code>?</h4>
+<p>A) 0
+B) 1 ✅
+C) Invalid
+D) Depends</p>
+<h4>Q92. What is the output of <code>0 XNOR 1</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q93. Which theorem states <code>(A + B)&#39; = A&#39; . B&#39;</code>?</h4>
+<p>A) De Morgan&#39;s First Theorem ✅
+B) De Morgan&#39;s Second Theorem
+C) Distributive Law
+D) Commutative Law</p>
+<h4>Q94. Which theorem states <code>(A . B)&#39; = A&#39; + B&#39;</code>?</h4>
+<p>A) De Morgan&#39;s First Theorem
+B) De Morgan&#39;s Second Theorem ✅
+C) Distributive Law
+D) Commutative Law</p>
+<h4>Q95. What is the complement of <code>A&#39; + B&#39;</code>?</h4>
+<p>A) <code>A . B</code> ✅
+B) <code>A + B</code>
+C) <code>A&#39; . B&#39;</code>
+D) <code>A + B&#39;</code></p>
+<h4>Q96. What is the complement of <code>A&#39; . B&#39;</code>?</h4>
+<p>A) <code>A . B</code>
+B) <code>A + B</code> ✅
+C) <code>A&#39; + B&#39;</code>
+D) <code>A + B&#39;</code></p>
+<h4>Q97. How many rows are in the truth table for 3 variables?</h4>
+<p>A) 4
+B) 8 ✅
+C) 16
+D) 32</p>
+<h4>Q98. How many rows are in the truth table for 4 variables?</h4>
+<p>A) 8
+B) 16 ✅
+C) 32
+D) 64</p>
+<h4>Q99. What is the SOP form of <code>A . B</code>?</h4>
+<p>A) Minterm ✅
+B) Maxterm
+C) Complement
+D) Dual</p>
+<h4>Q100. What is the POS form of <code>A + B</code>?</h4>
+<p>A) Minterm
+B) Maxterm ✅
+C) Complement
+D) Dual</p>
+<hr>
+<h2>Answer Key</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>B</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>A</td>
+<td>76</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A</td>
+<td>27</td>
+<td>C</td>
+<td>52</td>
+<td>C</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>28</td>
+<td>D</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>B</td>
+<td>79</td>
+<td>A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A</td>
+<td>30</td>
+<td>D</td>
+<td>55</td>
+<td>A</td>
+<td>80</td>
+<td>A</td>
+</tr>
+<tr>
+<td>6</td>
+<td>C</td>
+<td>31</td>
+<td>C</td>
+<td>56</td>
+<td>B</td>
+<td>81</td>
+<td>C</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A</td>
+<td>32</td>
+<td>A</td>
+<td>57</td>
+<td>A</td>
+<td>82</td>
+<td>D</td>
+</tr>
+<tr>
+<td>8</td>
+<td>D</td>
+<td>33</td>
+<td>C</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>A</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A</td>
+<td>34</td>
+<td>B</td>
+<td>59</td>
+<td>D</td>
+<td>84</td>
+<td>B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C</td>
+<td>35</td>
+<td>A</td>
+<td>60</td>
+<td>A</td>
+<td>85</td>
+<td>C</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>C</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>A</td>
+</tr>
+<tr>
+<td>12</td>
+<td>C</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>C</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A</td>
+<td>38</td>
+<td>C</td>
+<td>63</td>
+<td>B</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>B</td>
+<td>39</td>
+<td>B</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>A</td>
+</tr>
+<tr>
+<td>15</td>
+<td>A</td>
+<td>40</td>
+<td>C</td>
+<td>65</td>
+<td>C</td>
+<td>90</td>
+<td>A</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A</td>
+<td>41</td>
+<td>A</td>
+<td>66</td>
+<td>A</td>
+<td>91</td>
+<td>B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>B</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>A</td>
+</tr>
+<tr>
+<td>18</td>
+<td>A</td>
+<td>43</td>
+<td>A</td>
+<td>68</td>
+<td>C</td>
+<td>93</td>
+<td>A</td>
+</tr>
+<tr>
+<td>19</td>
+<td>B</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>A</td>
+<td>94</td>
+<td>B</td>
+</tr>
+<tr>
+<td>20</td>
+<td>B</td>
+<td>45</td>
+<td>A</td>
+<td>70</td>
+<td>A</td>
+<td>95</td>
+<td>A</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>A</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>A</td>
+<td>72</td>
+<td>C</td>
+<td>97</td>
+<td>B</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>C</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>B</td>
+</tr>
+<tr>
+<td>24</td>
+<td>D</td>
+<td>49</td>
+<td>A</td>
+<td>74</td>
+<td>B</td>
+<td>99</td>
+<td>A</td>
+</tr>
+<tr>
+<td>25</td>
+<td>C</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>A</td>
+<td>100</td>
+<td>B</td>
+</tr>
+</tbody></table></div>
+
+    </main>
+</body>
+
+</html>

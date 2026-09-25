@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>06 Pointers In C (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Pointers</h2>
+<p>A <strong>pointer</strong> is a variable that stores the memory address of another variable (or function) instead of storing a direct value.</p>
+<ul>
+<li><strong>Why use pointers?</strong><ol>
+<li><strong>Efficiency</strong>: Pass large data structures (arrays, structs) without copying them.</li>
+<li><strong>Dynamic Memory</strong>: Allocate memory at runtime using <code>malloc()</code>/<code>calloc()</code>.</li>
+<li><strong>Modification</strong>: Change variables passed to functions (Call by Reference).</li>
+<li><strong>Data Structures</strong>: Essential for building linked lists, trees, and graphs.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><strong>Think of it like this</strong>: If a variable is a house, its address is a pointer. Instead of moving the house, you just tell someone the address. The <code>&amp;</code> operator gives you the address; the <code>*</code> operator lets you look inside the house.</p>
+</blockquote>
+<hr>
+<h2>2. Declaration and Initialization</h2>
+<h3>2.1 Declaration</h3>
+<p>When declaring a pointer, you must specify the <strong>data type</strong> of the variable it will point to. This tells the compiler how many bytes to read when dereferencing.</p>
+<p><strong>Syntax</strong>: <code>data_type *pointer_name;</code></p>
+<p><strong>Examples</strong>:</p>
+<pre><code class="language-c">int *ptr;        // Pointer to an integer
+float *fptr;     // Pointer to a float
+char *cptr;      // Pointer to a character (string)</code></pre><h3>2.2 Initialization</h3>
+<p>A pointer should be initialized with a valid memory address before it is dereferenced.</p>
+<ol>
+<li><p><strong>Using the Address-of Operator (<code>&amp;</code>)</strong>:</p>
+<pre><code class="language-c">int num = 10;
+int *ptr = &amp;num; // ptr stores the address of num</code></pre></li>
+<li><p><strong>Using Arrays (Base Address)</strong>:</p>
+<pre><code class="language-c">int arr[5] = {1,2,3,4,5};
+int *ptr = arr; // arr already gives the address of arr[0]; &amp;arr[0] is also correct.</code></pre></li>
+<li><p><strong>Using <code>NULL</code> (Safety)</strong>:
+A pointer that is not assigned to any valid memory address should be set to <code>NULL</code> (defined in <code>&lt;stdio.h&gt;</code> or <code>&lt;stdlib.h&gt;</code>).</p>
+<pre><code class="language-c">int *ptr = NULL;
+// Always check if(ptr != NULL) before using it to avoid crashes.</code></pre></li>
+</ol>
+<p><strong>Mermaid Diagram (Pointer pointing to variable)</strong>:</p>
+<pre class="mermaid">graph LR
+    subgraph Memory [Memory Layout]
+        A[Variable: num]
+        B[Value: 10]
+        C[Address: 1000]
+    end
+    subgraph Pointer [Pointer Variable]
+        D[Variable: ptr]
+        E[Value: 1000]
+        F[Address: 2000]
+    end
+    C -- &quot;Stores address&quot; --&gt; E
+    D -- &quot;Dereferencing *ptr gives 10&quot; --&gt; A</pre><hr>
+<h2>3. Pointer Operators</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>&amp;</code></td>
+<td align="left">Address-of</td>
+<td align="left">Returns the memory address of its operand.</td>
+<td align="left"><code>&amp;num</code> → address like <code>1000</code></td>
+</tr>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">Indirection (Dereference)</td>
+<td align="left">Returns the value stored at the address held by the pointer.</td>
+<td align="left"><code>*ptr</code> → value <code>10</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int num = 25;
+    int *ptr = &amp;num;
+
+    printf(&quot;Address of num: %p\n&quot;, &amp;num);   // Prints address (e.g., 0x7fff)
+    printf(&quot;Value of ptr: %p\n&quot;, ptr);      // Same address
+    printf(&quot;Value at ptr: %d\n&quot;, *ptr);     // Prints 25
+    printf(&quot;Address of ptr: %p\n&quot;, &amp;ptr);   // Address where pointer itself is stored
+
+    *ptr = 100; // Changing num indirectly
+    printf(&quot;New num: %d&quot;, num);             // Prints 100
+    return 0;
+}</code></pre><hr>
+<h2>4. Accessing Variables</h2>
+<p>Pointers allow us to read and write values at specific memory locations using the dereference operator (<code>*</code>).</p>
+<p><strong>Reading</strong>:</p>
+<pre><code class="language-c">int a = 5;
+int *p = &amp;a;
+int b = *p; // b = 5</code></pre><p><strong>Writing (Modifying)</strong>:</p>
+<pre><code class="language-c">*p = 20; // a now becomes 20</code></pre><p><strong>Swapping two numbers (Classic Use Case)</strong>:</p>
+<pre><code class="language-c">void swap(int *x, int *y) {
+    int temp = *x; // Read value at x
+    *x = *y;       // Write value at x
+    *y = temp;     // Write value at y
+}
+// In main: swap(&amp;a, &amp;b);</code></pre><hr>
+<h2>5. Pointer Arithmetic</h2>
+<p>Pointer arithmetic is performed relative to the <strong>size of the data type</strong> the pointer points to.</p>
+<ul>
+<li>If <code>ptr</code> points to an <code>int</code> (size 4 bytes), <code>ptr + 1</code> moves the address forward by <strong>4 bytes</strong>.</li>
+<li>If <code>ptr</code> points to a <code>char</code> (size 1 byte), <code>ptr + 1</code> moves the address forward by <strong>1 byte</strong>.</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Operation</th>
+<th align="left">Description</th>
+<th align="left">Example (int *p at address 1000)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>p + n</code></td>
+<td align="left">Adds <code>n * sizeof(type)</code> to the address.</td>
+<td align="left"><code>p + 2</code> → Address <code>1000 + (2*4) = 1008</code></td>
+</tr>
+<tr>
+<td align="left"><code>p - n</code></td>
+<td align="left">Subtracts <code>n * sizeof(type)</code> from the address.</td>
+<td align="left"><code>p - 1</code> → Address <code>1000 - 4 = 996</code></td>
+</tr>
+<tr>
+<td align="left"><code>p++</code></td>
+<td align="left">Increments pointer to next element.</td>
+<td align="left">Moves to <code>1004</code></td>
+</tr>
+<tr>
+<td align="left"><code>p--</code></td>
+<td align="left">Decrements pointer to previous element.</td>
+<td align="left">Moves to <code>996</code></td>
+</tr>
+<tr>
+<td align="left"><code>p - q</code></td>
+<td align="left">Returns the number of elements between two pointers (not bytes).</td>
+<td align="left">If <code>p=1000</code>, <code>q=1008</code>, <code>p-q = -2</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>Visualizing Pointer Arithmetic (int array)</strong>:</p>
+<pre class="mermaid">graph LR
+    subgraph Memory [Memory Layout]
+        direction LR
+        A[Address 1000] --&gt; B[arr[0] = 10]
+        C[Address 1004] --&gt; D[arr[1] = 20]
+        E[Address 1008] --&gt; F[arr[2] = 30]
+    end
+    P[ptr = 1000] --&gt; A
+    P1[&quot;ptr + 1 = 1004&quot;] --&gt; C
+    P2[&quot;ptr + 2 = 1008&quot;] --&gt; E</pre><p><strong>Code Example</strong>:</p>
+<pre><code class="language-c">int arr[3] = {10, 20, 30};
+int *p = arr; // p points to arr[0]
+
+printf(&quot;%d\n&quot;, *p);     // 10
+printf(&quot;%d\n&quot;, *(p+1)); // 20
+printf(&quot;%d\n&quot;, *(p+2)); // 30</code></pre><hr>
+<h2>6. Pointers and Arrays</h2>
+<p>In C, the name of an array <strong>acts as a constant pointer</strong> to the first element.</p>
+<ul>
+<li><code>arr</code> is equivalent to <code>&amp;arr[0]</code>.</li>
+<li><code>arr[i]</code> is equivalent to <code>*(arr + i)</code>.</li>
+</ul>
+<h3>6.1 Traversing Array using Pointer</h3>
+<pre><code class="language-c">int arr[5] = {11, 22, 33, 44, 55};
+int *ptr = arr; // or &amp;arr[0]
+
+for(int i = 0; i &lt; 5; i++) {
+    printf(&quot;%d &quot;, *(ptr + i)); // Prints all elements
+}</code></pre><h3>6.2 Difference between <code>arr</code> and <code>ptr</code></h3>
+<ul>
+<li><code>arr</code> is a <strong>constant pointer</strong>. You cannot do <code>arr++</code> or <code>arr = something</code>.</li>
+<li><code>ptr</code> is a <strong>variable pointer</strong>. You can do <code>ptr++</code> to move to the next element.</li>
+</ul>
+<h3>6.3 Array of Pointers</h3>
+<p>We can have an array where each element is a pointer.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int a = 1, b = 2, c = 3;
+int *arr[3] = {&amp;a, &amp;b, &amp;c};
+for(int i = 0; i &lt; 3; i++) {
+    printf(&quot;%d &quot;, *arr[i]); // Prints 1 2 3
+}</code></pre><hr>
+<h2>7. Pointers and Strings</h2>
+<p>In C, strings are represented as arrays of characters terminated by a <code>\0</code>. There are two main ways to handle strings using pointers:</p>
+<h3>7.1 String as a Character Array (<code>char str[]</code>)</h3>
+<p>Memory is allocated in the stack (or global). The string is modifiable.</p>
+<pre><code class="language-c">char str[] = &quot;Hello&quot;;
+char *ptr = str; // ptr points to str[0]
+printf(&quot;%c&quot;, *ptr); // &#39;H&#39;
+printf(&quot;%s&quot;, ptr);  // &quot;Hello&quot;</code></pre><h3>7.2 String as a Pointer to a Character (<code>char *str</code>)</h3>
+<p>Memory is allocated in the <strong>read-only</strong> section (string literal). It cannot be modified directly (undefined behavior).</p>
+<pre><code class="language-c">char *str = &quot;World&quot;;
+printf(&quot;%s&quot;, str);  // Outputs &quot;World&quot;
+// str[0] = &#39;A&#39;; // CRASH! Do not modify string literals.</code></pre><p>To modify it safely, use an array <code>char str[] = &quot;World&quot;;</code>.</p>
+<h3>7.3 Traversing a String using Pointer</h3>
+<pre><code class="language-c">char str[20] = &quot;Pointer&quot;;
+char *p = str;
+while(*p != &#39;\0&#39;) {
+    printf(&quot;%c&quot;, *p);
+    p++; // Move to next character
+}
+// Output: Pointer</code></pre><hr>
+<h2>8. Pointers and Functions</h2>
+<p>Pointers and functions interact in three major ways: passing arguments, returning values, and function pointers.</p>
+<h3>8.1 Pointers as Function Arguments (Call by Reference)</h3>
+<p>Already covered in the &quot;Functions&quot; chapter. Allows modification of original variables.</p>
+<pre><code class="language-c">void addTen(int *val) {
+    *val = *val + 10;
+}
+int main() {
+    int num = 5;
+    addTen(&amp;num);
+    printf(&quot;%d&quot;, num); // 15
+    return 0;
+}</code></pre><h3>8.2 Pointers as Return Values</h3>
+<p>A function can return a pointer. However, <strong>never return a pointer to a local variable</strong> (as it goes out of scope). Return pointers to:</p>
+<ul>
+<li>Static variables.</li>
+<li>Dynamically allocated memory (using <code>malloc</code>).</li>
+</ul>
+<p><strong>Correct Example (Static)</strong>:</p>
+<pre><code class="language-c">int* getStaticValue() {
+    static int x = 100; // Static variable persists beyond function scope
+    return &amp;x;
+}</code></pre><p><strong>Correct Example (Dynamic)</strong>:</p>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+int* createArray(int size) {
+    int *arr = (int*)malloc(size * sizeof(int)); // Allocated in Heap
+    return arr; // Valid
+}</code></pre><p><strong>Wrong Example (Causes Undefined Behavior)</strong>:</p>
+<pre><code class="language-c">int* invalid() {
+    int local = 10;
+    return &amp;local; // WARNING! local is destroyed when function exits.
+}</code></pre><h3>8.3 Function Pointers (Advanced Concept)</h3>
+<p>Functions themselves have addresses. We can store the address of a function in a pointer and call it later.</p>
+<p><strong>Syntax</strong>: <code>return_type (*ptr_name)(parameter_types) = function_name;</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int (*funcPtr)(int, int) = add; // funcPtr stores address of add
+    int result = funcPtr(5, 3);     // Calling add via pointer
+    printf(&quot;%d&quot;, result);           // 8
+    return 0;
+}</code></pre><p><strong>Use Case</strong>: Used in callback functions (e.g., <code>qsort()</code> sorting function) and event-driven programming.</p>
+<h2>9. MCQ</h2>
+<h4>Q1. A pointer is a variable that stores:</h4>
+<p>A) A direct value
+B) The memory address of another variable ✅
+C) A character
+D) A floating point number</p>
+<h4>Q2. Which of the following is a reason to use pointers?</h4>
+<p>A) To make code longer
+B) To pass large data structures without copying them ✅
+C) To avoid using arrays
+D) To slow down execution</p>
+<h4>Q3. Pointers allow:</h4>
+<p>A) Only reading values
+B) Dynamic memory allocation at runtime ✅
+C) Only static memory allocation
+D) No memory allocation</p>
+<h4>Q4. In the house analogy, a pointer is like:</h4>
+<p>A) The house itself
+B) The address of the house ✅
+C) The people in the house
+D) The furniture in the house</p>
+<h4>Q5. The <code>&amp;</code> operator in C is called:</h4>
+<p>A) Dereference operator
+B) Address-of operator ✅
+C) Indirection operator
+D) Assignment operator</p>
+<h4>Q6. The <code>*</code> operator in C (when used with pointers) is called:</h4>
+<p>A) Address-of operator
+B) Multiplication operator
+C) Indirection or Dereference operator ✅
+D) Assignment operator</p>
+<h4>Q7. What is the syntax to declare a pointer to an integer?</h4>
+<p>A) <code>int ptr;</code>
+B) <code>int *ptr;</code> ✅
+C) <code>*int ptr;</code>
+D) <code>ptr int *;</code></p>
+<h4>Q8. Which of the following is a valid pointer declaration?</h4>
+<p>A) <code>float *fptr;</code> ✅
+B) <code>float fptr*;</code>
+C) <code>*float fptr;</code>
+D) <code>fptr float*;</code></p>
+<h4>Q9. A pointer to a character is declared as:</h4>
+<p>A) <code>char *cptr;</code> ✅
+B) <code>char cptr*;</code>
+C) <code>*char cptr;</code>
+D) <code>cptr char*;</code></p>
+<h4>Q10. What does <code>int num = 10; int *ptr = &amp;num;</code> do?</h4>
+<p>A) ptr stores the value 10
+B) ptr stores the address of num ✅
+C) ptr stores the value of num
+D) ptr stores nothing</p>
+<h4>Q11. A pointer should be initialized with a valid memory address before it is:</h4>
+<p>A) Declared
+B) Dereferenced ✅
+C) Allocated
+D) Assigned</p>
+<h4>Q12. What is the value of <code>ptr</code> in <code>int arr[5] = {1,2,3,4,5}; int *ptr = arr;</code>?</h4>
+<p>A) The value of arr[0]
+B) The address of arr[0] ✅
+C) The value of arr[5]
+D) The address of arr[5]</p>
+<h4>Q13. <code>int *ptr = NULL;</code> sets the pointer to:</h4>
+<p>A) A random address
+B) Zero address (null pointer) ✅
+C) The address of variable
+D) The value 0</p>
+<h4>Q14. Which header file typically defines NULL?</h4>
+<p>A) <code>&lt;string.h&gt;</code>
+B) <code>&lt;stdio.h&gt;</code> or <code>&lt;stdlib.h&gt;</code> ✅
+C) <code>&lt;math.h&gt;</code>
+D) <code>&lt;ctype.h&gt;</code></p>
+<h4>Q15. Before dereferencing a pointer, it is good practice to check:</h4>
+<p>A) If the pointer is NULL ✅
+B) If the pointer is negative
+C) If the pointer is positive
+D) If the pointer is zero</p>
+<h4>Q16. In the example, <code>*ptr = 100;</code> does what?</h4>
+<p>A) Changes the address stored in ptr
+B) Changes the value at the address stored in ptr ✅
+C) Deletes the variable
+D) Creates a new variable</p>
+<h4>Q17. What is the output of <code>printf(&quot;%d&quot;, *ptr);</code> if <code>int num = 25; int *ptr = &amp;num;</code>?</h4>
+<p>A) 25 ✅
+B) Address of num
+C) Address of ptr
+D) Garbage value</p>
+<h4>Q18. The address of the pointer variable itself is obtained using:</h4>
+<p>A) <code>ptr</code>
+B) <code>*ptr</code>
+C) <code>&amp;ptr</code> ✅
+D) <code>&amp;*ptr</code></p>
+<h4>Q19. In <code>int a = 5; int *p = &amp;a; int b = *p;</code>, what is the value of b?</h4>
+<p>A) Address of a
+B) 5 ✅
+C) Address of p
+D) Garbage</p>
+<h4>Q20. In <code>int a = 5; int *p = &amp;a; *p = 20;</code>, what is the new value of a?</h4>
+<p>A) 5
+B) 20 ✅
+C) 0
+D) Garbage</p>
+<h4>Q21. Pointer arithmetic is performed relative to:</h4>
+<p>A) The size of the pointer variable
+B) The size of the data type the pointer points to ✅
+C) The size of memory
+D) A fixed byte value</p>
+<h4>Q22. If <code>ptr</code> points to an <code>int</code> (4 bytes) at address 1000, what is the address of <code>ptr + 1</code>?</h4>
+<p>A) 1001
+B) 1004 ✅
+C) 1008
+D) 1016</p>
+<h4>Q23. If <code>ptr</code> points to a <code>char</code> (1 byte) at address 1000, what is the address of <code>ptr + 1</code>?</h4>
+<p>A) 1000
+B) 1001 ✅
+C) 1004
+D) 1008</p>
+<h4>Q24. If <code>p</code> points to a <code>double</code> (8 bytes) at address 2000, what is the address of <code>p + 2</code>?</h4>
+<p>A) 2002
+B) 2008
+C) 2016 ✅
+D) 2024</p>
+<h4>Q25. If <code>p = 1000</code> and <code>q = 1008</code> for an <code>int*</code> (4 bytes), what is <code>q - p</code>?</h4>
+<p>A) 8
+B) 2 ✅
+C) 4
+D) 1</p>
+<h4>Q26. Pointer subtraction returns:</h4>
+<p>A) The number of bytes between pointers
+B) The number of elements between pointers ✅
+C) The sum of addresses
+D) The product of addresses</p>
+<h4>Q27. What is the output of <code>printf(&quot;%d&quot;, *(p+1));</code> for <code>int arr[3] = {10, 20, 30}; int *p = arr;</code>?</h4>
+<p>A) 10
+B) 20 ✅
+C) 30
+D) Garbage</p>
+<h4>Q28. In C, the name of an array acts as:</h4>
+<p>A) A variable pointer
+B) A constant pointer to the first element ✅
+C) A pointer to the last element
+D) A pointer to the size</p>
+<h4>Q29. <code>arr[i]</code> is equivalent to:</h4>
+<p>A) <code>*(arr + i)</code> ✅
+B) <code>arr + i</code>
+C) <code>&amp;arr[i]</code>
+D) <code>*arr + i</code></p>
+<h4>Q30. Which of the following is TRUE about <code>arr</code> (array name) and <code>ptr</code> (pointer)?</h4>
+<p>A) Both are constant pointers
+B) Both are variable pointers
+C) <code>arr</code> is constant, <code>ptr</code> is variable ✅
+D) <code>arr</code> is variable, <code>ptr</code> is constant</p>
+<h4>Q31. You cannot do <code>arr++</code> because:</h4>
+<p>A) arr is a variable pointer
+B) arr is a constant pointer ✅
+C) arr is not a pointer
+D) arr has no address</p>
+<h4>Q32. Which of the following correctly traverses an array using a pointer?</h4>
+<p>A) <code>for(i=0; i&lt;5; i++) printf(&quot;%d&quot;, *(ptr + i));</code> ✅
+B) <code>for(i=0; i&lt;5; i++) printf(&quot;%d&quot;, ptr + i);</code>
+C) <code>for(i=0; i&lt;5; i++) printf(&quot;%d&quot;, *ptr + i);</code>
+D) <code>for(i=0; i&lt;5; i++) printf(&quot;%d&quot;, ptr[i]);</code> ✅</p>
+<h4>Q33. An array of pointers is declared as:</h4>
+<p>A) <code>int *arr[3];</code> ✅
+B) <code>int arr*[3];</code>
+C) <code>*int arr[3];</code>
+D) <code>int arr[3]*;</code></p>
+<h4>Q34. In <code>int *arr[3] = {&amp;a, &amp;b, &amp;c};</code>, <code>arr[1]</code> stores:</h4>
+<p>A) The value of a
+B) The address of b ✅
+C) The value of b
+D) The address of a</p>
+<h4>Q35. To print the value pointed to by <code>arr[1]</code> in the above, you use:</h4>
+<p>A) <code>printf(&quot;%d&quot;, arr[1]);</code>
+B) <code>printf(&quot;%d&quot;, *arr[1]);</code> ✅
+C) <code>printf(&quot;%d&quot;, &amp;arr[1]);</code>
+D) <code>printf(&quot;%d&quot;, arr);</code></p>
+<h4>Q36. A string in C is:</h4>
+<p>A) A character array terminated by &#39;\0&#39; ✅
+B) A character array terminated by &#39;\n&#39;
+C) An integer array
+D) A pointer to a double</p>
+<h4>Q37. Which of the following creates a modifiable string?</h4>
+<p>A) <code>char *str = &quot;Hello&quot;;</code>
+B) <code>char str[] = &quot;Hello&quot;;</code> ✅
+C) Both A and B are equally modifiable
+D) Neither is modifiable</p>
+<h4>Q38. <code>char *str = &quot;World&quot;;</code> stores the string in:</h4>
+<p>A) Stack memory (modifiable)
+B) Read-only memory (string literal) ✅
+C) Heap memory
+D) Global memory</p>
+<h4>Q39. <code>str[0] = &#39;A&#39;;</code> on <code>char *str = &quot;World&quot;;</code> causes:</h4>
+<p>A) No effect
+B) Undefined behavior (often crash) ✅
+C) The string to become &quot;Aorld&quot;
+D) A compilation error</p>
+<h4>Q40. To safely modify a string, use:</h4>
+<p>A) <code>char *str = &quot;Hello&quot;;</code>
+B) <code>char str[] = &quot;Hello&quot;;</code> ✅
+C) Both are safe
+D) Neither is safe</p>
+<h4>Q41. What is the output of traversing <code>char str[20] = &quot;Pointer&quot;; char *p = str; while(*p != &#39;\0&#39;) { printf(&quot;%c&quot;, *p); p++; }</code>?</h4>
+<p>A) Pointer ✅
+B) P
+C) r
+D) Inﬁnite loop</p>
+<h4>Q42. In the string traversal, <code>p++</code> moves the pointer to:</h4>
+<p>A) The previous character
+B) The next character ✅
+C) The end of string
+D) The beginning of string</p>
+<h4>Q43. Pointers as function arguments allow:</h4>
+<p>A) Call by Value
+B) Call by Reference (modifying original variables) ✅
+C) No modification of variables
+D) Only reading variables</p>
+<h4>Q44. In <code>void addTen(int *val) { *val = *val + 10; }</code>, the function modifies:</h4>
+<p>A) A local copy
+B) The original variable in the caller ✅
+C) Nothing
+D) A global variable</p>
+<h4>Q45. To call <code>addTen</code> with <code>num = 5</code>, you write:</h4>
+<p>A) <code>addTen(num);</code>
+B) <code>addTen(&amp;num);</code> ✅
+C) <code>addTen(*num);</code>
+D) <code>addTen(num);</code></p>
+<h4>Q46. After calling <code>addTen(&amp;num)</code>, the value of num becomes:</h4>
+<p>A) 5
+B) 10
+C) 15 ✅
+D) 0</p>
+<h4>Q47. A function can return a pointer to:</h4>
+<p>A) A local variable (always safe)
+B) A static variable ✅
+C) A local variable (never safe)
+D) A parameter</p>
+<h4>Q48. Returning a pointer to a local variable causes:</h4>
+<p>A) Correct behavior
+B) Undefined behavior (dangling pointer) ✅
+C) Compilation error
+D) Memory leak</p>
+<h4>Q49. To return a pointer that remains valid, use:</h4>
+<p>A) A local variable
+B) A static variable or dynamically allocated memory ✅
+C) A parameter
+D) A global variable (also valid but not ideal)</p>
+<h4>Q50. In <code>int* invalid() { int local = 10; return &amp;local; }</code>, the returned pointer:</h4>
+<p>A) Is valid and safe
+B) Points to memory that goes out of scope ✅
+C) Points to a static variable
+D) Points to heap memory</p>
+<h4>Q51. <code>static int x = 100; return &amp;x;</code> is safe because:</h4>
+<p>A) x is local
+B) x persists beyond function scope ✅
+C) x is on the heap
+D) x is a parameter</p>
+<h4>Q52. Dynamically allocated memory using <code>malloc</code> persists until:</h4>
+<p>A) The function returns
+B) It is freed using <code>free()</code> ✅
+C) The program ends automatically
+D) It goes out of scope</p>
+<h4>Q53. A function pointer stores:</h4>
+<p>A) The address of a variable
+B) The address of a function ✅
+C) The value of a function
+D) The size of a function</p>
+<h4>Q54. What is the syntax for declaring a function pointer <code>funcPtr</code> that points to a function taking two ints and returning int?</h4>
+<p>A) <code>int *funcPtr(int, int);</code>
+B) <code>int (*funcPtr)(int, int);</code> ✅
+C) <code>int funcPtr*(int, int);</code>
+D) <code>(*int funcPtr)(int, int);</code></p>
+<h4>Q55. If <code>int add(int a, int b) { return a+b; }</code>, how do you store its address in <code>funcPtr</code>?</h4>
+<p>A) <code>funcPtr = &amp;add;</code> ✅
+B) <code>funcPtr = add;</code> ✅
+C) <code>funcPtr = *add;</code>
+D) Both A and B are correct</p>
+<h4>Q56. To call a function using a function pointer, you write:</h4>
+<p>A) <code>funcPtr(5, 3);</code> ✅
+B) <code>*funcPtr(5, 3);</code>
+C) <code>&amp;funcPtr(5, 3);</code>
+D) <code>funcPtr = 5, 3;</code></p>
+<h4>Q57. Function pointers are commonly used for:</h4>
+<p>A) Storing data
+B) Callback functions (e.g., in <code>qsort</code>) ✅
+C) Arithmetic operations
+D) Variable declaration</p>
+<h4>Q58. Which of the following is NOT a valid use of pointers?</h4>
+<p>A) Dynamic memory allocation
+B) Passing large structures efficiently
+C) Returning multiple values from a function
+D) Storing values directly without indirection ✅</p>
+<h4>Q59. The <code>NULL</code> pointer is:</h4>
+<p>A) A pointer pointing to address 0 ✅
+B) A pointer pointing to garbage
+C) A pointer pointing to a variable
+D) A pointer pointing to itself</p>
+<h4>Q60. Dereferencing a NULL pointer causes:</h4>
+<p>A) No effect
+B) Segmentation fault (crash) ✅
+C) The program to continue
+D) A warning</p>
+<h4>Q61. <code>int *p;</code> (uninitialized) points to:</h4>
+<p>A) Address 0
+B) Garbage address ✅
+C) A valid variable
+D) The stack</p>
+<h4>Q62. Which of the following is a correct way to declare a pointer to a float?</h4>
+<p>A) <code>float *p;</code> ✅
+B) <code>float p*;</code>
+C) <code>*float p;</code>
+D) <code>p float*;</code></p>
+<h4>Q63. If <code>ptr</code> is an <code>int*</code> at address 2000, <code>ptr - 2</code> moves the address by how many bytes (assuming int is 4 bytes)?</h4>
+<p>A) 2 bytes
+B) 4 bytes
+C) 8 bytes ✅
+D) 16 bytes</p>
+<h4>Q64. If <code>ptr</code> is a <code>char*</code> at address 3000, <code>ptr + 5</code> gives address:</h4>
+<p>A) 3005 ✅
+B) 3020
+C) 3004
+D) 3010</p>
+<h4>Q65. In the pointer arithmetic visualization, <code>ptr + 1</code> for an int array points to:</h4>
+<p>A) The next byte
+B) The next integer element ✅
+C) The previous element
+D) The end of the array</p>
+<h4>Q66. Which of the following correctly swaps two integers using pointers?</h4>
+<p>A) <code>void swap(int *x, int *y) { int *temp = x; x = y; y = temp; }</code>
+B) <code>void swap(int *x, int *y) { int temp = *x; *x = *y; *y = temp; }</code> ✅
+C) <code>void swap(int x, int y) { int temp = x; x = y; y = temp; }</code>
+D) <code>void swap(int *x, int *y) { *x = *y; *y = *x; }</code></p>
+<h4>Q67. In the correct swap function, <code>temp</code> stores:</h4>
+<p>A) The address of x
+B) The value pointed to by x ✅
+C) The address of y
+D) The value pointed to by y</p>
+<h4>Q68. Why is <code>*x = *y; *y = *x;</code> wrong for swapping?</h4>
+<p>A) It uses wrong syntax
+B) It loses the original value of x ✅
+C) It swaps addresses
+D) It does nothing</p>
+<h4>Q69. A pointer to an array element can be used to:</h4>
+<p>A) Access that element only
+B) Traverse the array using pointer arithmetic ✅
+C) Change the array size
+D) Delete the array</p>
+<h4>Q70. <code>char *str = &quot;Hello&quot;;</code> and <code>char str2[] = &quot;Hello&quot;;</code> differ in:</h4>
+<p>A) Only syntax
+B) Mutability (str2 is modifiable, str literal is not) ✅
+C) Memory location (both in same place)
+D) Both are identical</p>
+<h4>Q71. Which of the following is NOT a pointer operator?</h4>
+<p>A) <code>&amp;</code>
+B) <code>*</code>
+C) <code>-&gt;</code> (for structures, but still pointer-related)
+D) <code>#</code> ✅</p>
+<h4>Q72. The <code>-&gt;</code> operator is used with pointers to structures as a shorthand for:</h4>
+<p>A) <code>(*ptr).member</code>
+B) <code>ptr.member</code>
+C) <code>&amp;ptr.member</code>
+D) <code>ptr-&gt;*member</code> ✅</p>
+<h4>Q73. If <code>struct Student *s;</code>, how do you access the <code>roll</code> member?</h4>
+<p>A) <code>s.roll</code>
+B) <code>s-&gt;roll</code> ✅
+C) <code>*s.roll</code>
+D) <code>&amp;s.roll</code></p>
+<h4>Q74. Pointers are essential for building:</h4>
+<p>A) Only arrays
+B) Linked lists, trees, and graphs ✅
+C) Only strings
+D) Only functions</p>
+<h4>Q75. In a linked list, each node contains:</h4>
+<p>A) Only data
+B) Only a pointer
+C) Data and a pointer to the next node ✅
+D) Data and an array</p>
+<h4>Q76. <code>malloc()</code> returns:</h4>
+<p>A) An integer
+B) A pointer to the allocated memory ✅
+C) A float
+D) A character</p>
+<h4>Q77. The memory allocated by <code>malloc()</code> is in:</h4>
+<p>A) Stack
+B) Heap ✅
+C) Read-only section
+D) Global section</p>
+<h4>Q78. To free dynamically allocated memory, use:</h4>
+<p>A) <code>delete()</code>
+B) <code>free()</code> ✅
+C) <code>release()</code>
+D) <code>clear()</code></p>
+<h4>Q79. Not freeing dynamically allocated memory causes:</h4>
+<p>A) Stack overflow
+B) Memory leak ✅
+C) No issue
+D) Compilation error</p>
+<h4>Q80. In <code>int *arr = (int*)malloc(5 * sizeof(int));</code>, what does <code>(int*)</code> do?</h4>
+<p>A) Allocates memory
+B) Type casts the pointer returned by malloc ✅
+C) Frees memory
+D) Initializes memory</p>
+<h4>Q81. Which of the following is a valid pointer declaration and initialization?</h4>
+<p>A) <code>int *p = &amp;num;</code> ✅
+B) <code>int *p = num;</code>
+C) <code>int p = &amp;num;</code>
+D) <code>*int p = &amp;num;</code></p>
+<h4>Q82. The address of a variable can be printed using:</h4>
+<p>A) <code>%d</code> format specifier
+B) <code>%p</code> format specifier ✅
+C) <code>%s</code> format specifier
+D) <code>%c</code> format specifier</p>
+<h4>Q83. <code>printf(&quot;%p&quot;, ptr);</code> prints:</h4>
+<p>A) The value of ptr
+B) The address stored in ptr ✅
+C) The value at ptr
+D) The size of ptr</p>
+<h4>Q84. If <code>int *p;</code> and <code>int a = 10; p = &amp;a;</code>, then <code>&amp;*p</code> is equivalent to:</h4>
+<p>A) <code>p</code> ✅
+B) <code>&amp;a</code> ✅
+C) <code>a</code>
+D) Both A and B are correct</p>
+<h4>Q85. <code>*&amp;a</code> is equivalent to:</h4>
+<p>A) <code>a</code> ✅
+B) <code>&amp;a</code>
+C) <code>*a</code>
+D) Address of a</p>
+<h4>Q86. Which of the following operations is NOT allowed on a <code>void*</code> pointer?</h4>
+<p>A) Assignment
+B) Dereferencing without casting ✅
+C) Comparison with other pointers
+D) Passing to functions</p>
+<h4>Q87. A <code>void*</code> pointer can store:</h4>
+<p>A) Only integer addresses
+B) Any type of address ✅
+C) Only character addresses
+D) Only float addresses</p>
+<h4>Q88. To dereference a <code>void*</code> pointer, you must:</h4>
+<p>A) Use the <code>*</code> operator directly
+B) Cast it to the appropriate type first ✅
+C) Use <code>-&gt;</code> operator
+D) Use <code>&amp;</code> operator</p>
+<h4>Q89. Which of the following is a valid use of pointer arithmetic?</h4>
+<p>A) Adding two pointers
+B) Subtracting two pointers to get element difference ✅
+C) Multiplying two pointers
+D) Dividing two pointers</p>
+<h4>Q90. Adding two pointers is:</h4>
+<p>A) Allowed and useful
+B) Not allowed in C ✅
+C) Allowed but meaningless
+D) Used for pointer arithmetic</p>
+<h4>Q91. In C, the size of a pointer depends on:</h4>
+<p>A) The data type it points to
+B) The architecture (e.g., 32-bit or 64-bit) ✅
+C) The value it stores
+D) The operating system</p>
+<h4>Q92. On a 32-bit system, the size of a pointer is typically:</h4>
+<p>A) 2 bytes
+B) 4 bytes ✅
+C) 8 bytes
+D) 16 bytes</p>
+<h4>Q93. On a 64-bit system, the size of a pointer is typically:</h4>
+<p>A) 2 bytes
+B) 4 bytes
+C) 8 bytes ✅
+D) 16 bytes</p>
+<h4>Q94. All pointers on a given system occupy:</h4>
+<p>A) Different sizes depending on type
+B) The same size ✅
+C) No size
+D) Variable size</p>
+<h4>Q95. Which of the following is TRUE about the <code>&amp;</code> operator?</h4>
+<p>A) It can be applied to any expression
+B) It can be applied to variables only ✅
+C) It can be applied to constants
+D) It can be applied to literals</p>
+<h4>Q96. Which of the following is TRUE about the <code>*</code> operator in declarations vs expressions?</h4>
+<p>A) Same meaning in both
+B) In declarations, it creates a pointer; in expressions, it dereferences ✅
+C) In declarations, it dereferences; in expressions, it creates a pointer
+D) It is only used in declarations</p>
+<h4>Q97. In <code>int *p = &amp;a;</code>, the <code>*</code> is:</h4>
+<p>A) Dereference operator
+B) Part of the declaration indicating p is a pointer ✅
+C) Multiplication operator
+D) Address operator</p>
+<h4>Q98. In <code>printf(&quot;%d&quot;, *p);</code>, the <code>*</code> is:</h4>
+<p>A) Part of declaration
+B) Dereference operator ✅
+C) Multiplication operator
+D) Address operator</p>
+<h4>Q99. A pointer to a constant is declared as:</h4>
+<p>A) <code>int *const ptr;</code>
+B) <code>const int *ptr;</code> ✅
+C) <code>int const *ptr;</code> ✅
+D) Both B and C are valid</p>
+<h4>Q100. A constant pointer is declared as:</h4>
+<p>A) <code>const int *ptr;</code>
+B) <code>int *const ptr;</code> ✅
+C) <code>int const *ptr;</code>
+D) <code>const *int ptr;</code></p>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>02 Transmission Media (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 Computer Networks: Transmission Media</h1>
+<p><strong>Detailed Study Notes for Class 11</strong><br><em>(Estimated Study Time: 3 Hours)</em></p>
+<hr>
+<h2>1. Introduction to Transmission Media</h2>
+<p><strong>Transmission Media</strong> refers to the physical path or channel through which data is transmitted from a sender to a receiver in a network. It is broadly classified into two categories:</p>
+<ol>
+<li><strong>Guided Media (Wired)</strong>: Data travels through a solid physical medium (cables).</li>
+<li><strong>Unguided Media (Wireless)</strong>: Data travels through the air or vacuum using electromagnetic waves.</li>
+</ol>
+<pre class="mermaid">graph TD
+    A[Transmission Media] --&gt; B[Guided / Wired Media]
+    A --&gt; C[Unguided / Wireless Media]
+    
+    B --&gt; B1[Twisted Pair Cable]
+    B --&gt; B2[Co-axial Cable]
+    B --&gt; B3[Fiber Optic Cable]
+    
+    C --&gt; C1[Radio Waves]
+    C --&gt; C2[Microwaves]
+    C --&gt; C3[Infrared]
+    C --&gt; C4[Satellite Communication]</pre><hr>
+<h2>2. Wired Communication Media (Guided Media)</h2>
+<p>In guided media, signals are directed and contained within a physical link. </p>
+<h3>A. Twisted Pair Cable</h3>
+<p>Consists of two insulated copper wires twisted together to reduce electromagnetic interference (EMI) and crosstalk.</p>
+<ul>
+<li><strong>Types</strong>: <ul>
+<li><strong>UTP (Unshielded Twisted Pair)</strong>: No extra shielding (e.g., standard Ethernet LAN cables).</li>
+<li><strong>STP (Shielded Twisted Pair)</strong>: Has a metallic foil/braided shield for better noise protection.</li>
+</ul>
+</li>
+<li><strong>Pros</strong>: Cheap, easy to install, flexible.</li>
+<li><strong>Cons</strong>: High attenuation (signal loss) over long distances, susceptible to EMI (especially UTP), lower bandwidth compared to fiber.</li>
+<li><strong>Examples</strong>: Telephone lines, Local Area Networks (LAN / Cat5e, Cat6 cables).</li>
+</ul>
+<h3>B. Co-axial Cable</h3>
+<p>Consists of a central solid copper conductor, surrounded by an insulating layer, a braided metallic shield, and an outer plastic jacket.</p>
+<ul>
+<li><strong>Pros</strong>: Better shielding against EMI than twisted pair, supports higher bandwidth and longer distances than twisted pair.</li>
+<li><strong>Cons</strong>: Bulkier, less flexible, more expensive than twisted pair, difficult to install.</li>
+<li><strong>Examples</strong>: Cable TV networks, older Ethernet networks (10BASE2), broadband internet connections.</li>
+</ul>
+<h3>C. Fiber Optic Cable</h3>
+<p>Consists of a core made of extremely thin glass or plastic, surrounded by a layer of glass called <strong>cladding</strong>, and a protective outer jacket. </p>
+<ul>
+<li><strong>Working Principle</strong>: Transmits data as pulses of light using the principle of <strong>Total Internal Reflection</strong>.</li>
+<li><strong>Pros</strong>: <ul>
+<li>Highest bandwidth and fastest data transfer speeds.</li>
+<li>Immune to Electromagnetic Interference (EMI) and radio frequency interference.</li>
+<li>Highly secure (very difficult to tap).</li>
+<li>Minimal signal attenuation (can travel tens of kilometers without repeaters).</li>
+</ul>
+</li>
+<li><strong>Cons</strong>: Very expensive, fragile, requires highly skilled technicians for installation and splicing.</li>
+<li><strong>Examples</strong>: Internet backbone networks, undersea cables, high-speed FTTH (Fiber to the Home) connections.</li>
+</ul>
+<hr>
+<h2>3. Wireless Communication Media (Unguided Media)</h2>
+<p>In unguided media, data is transmitted through the air or vacuum using electromagnetic waves without a physical conductor.</p>
+<h3>A. Radio Waves</h3>
+<p>Electromagnetic waves with the lowest frequency and longest wavelength in the wireless spectrum. They are <strong>omni-directional</strong> (travel in all directions).</p>
+<ul>
+<li><strong>Pros</strong>: Can penetrate walls and obstacles, cheap to implement, wide coverage area.</li>
+<li><strong>Cons</strong>: Low bandwidth, highly susceptible to interference from other devices, less secure (anyone within range can intercept).</li>
+<li><strong>Examples</strong>: AM/FM radio broadcasting, Wi-Fi (2.4 GHz), Bluetooth, walkie-talkies.</li>
+</ul>
+<h3>B. Microwaves</h3>
+<p>High-frequency electromagnetic waves that travel in a straight line. They are <strong>uni-directional</strong> and require <strong>Line-of-Sight (LOS)</strong> between the sender and receiver.</p>
+<ul>
+<li><strong>Types</strong>: <ul>
+<li><em>Terrestrial Microwave</em>: Uses ground-based towers (spaced ~30-50 km apart due to Earth&#39;s curvature).</li>
+<li><em>Satellite Microwave</em>: Uses satellites as relay stations (covered below).</li>
+</ul>
+</li>
+<li><strong>Pros</strong>: High bandwidth, no need for laying physical cables, good for point-to-point communication.</li>
+<li><strong>Cons</strong>: Requires strict Line-of-Sight (LOS), easily blocked by buildings/mountains, affected by heavy rain or fog (rain fade).</li>
+<li><strong>Examples</strong>: Mobile phone networks (4G/5G towers), point-to-point building-to-building links, radar.</li>
+</ul>
+<h3>C. Infrared (IR)</h3>
+<p>Uses low-frequency light waves just below the visible light spectrum. It is strictly <strong>short-range</strong> and requires <strong>Line-of-Sight (LOS)</strong>.</p>
+<ul>
+<li><strong>Pros</strong>: Very cheap, secure (cannot penetrate walls, so it stays within a room), no interference with radio devices.</li>
+<li><strong>Cons</strong>: Very short range (a few meters), requires direct line-of-sight, easily blocked by obstacles or bright sunlight.</li>
+<li><strong>Examples</strong>: TV remote controls, wireless mice/keyboards, short-range data transfer (older mobile phones).</li>
+</ul>
+<h3>D. Satellite Communication</h3>
+<p>Uses artificial satellites placed in Earth&#39;s orbit (e.g., Geostationary - GEO, Low Earth Orbit - LEO) to act as relay stations for microwave signals.</p>
+<ul>
+<li><strong>How it works</strong>: A ground station sends a signal <em>up</em> to the satellite (<strong>Uplink</strong>), the satellite amplifies it and sends it <em>down</em> to another ground station (<strong>Downlink</strong>).</li>
+<li><strong>Pros</strong>: Provides coverage over vast geographic areas (even oceans and remote villages), ideal for global broadcasting and GPS.</li>
+<li><strong>Cons</strong>: Very high setup and maintenance cost, high latency (signal delay, especially in GEO satellites), signal degradation due to atmospheric conditions.</li>
+<li><strong>Examples</strong>: GPS navigation, Direct-to-Home (DTH) satellite TV, global internet services (e.g., Starlink).</li>
+</ul>
+<hr>
+<h2>📝 Quick Revision Summary (Cheat Sheet)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Media Type</th>
+<th align="left">Key Characteristic</th>
+<th align="left">Best Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Twisted Pair</strong></td>
+<td align="left">Cheap, flexible, prone to EMI.</td>
+<td align="left">LANs, Telephone wiring.</td>
+</tr>
+<tr>
+<td align="left"><strong>Co-axial</strong></td>
+<td align="left">Central copper core + braided shield.</td>
+<td align="left">Cable TV, Broadband.</td>
+</tr>
+<tr>
+<td align="left"><strong>Fiber Optic</strong></td>
+<td align="left">Light pulses, Total Internal Reflection, immune to EMI, fastest.</td>
+<td align="left">Internet backbone, long-distance high-speed data.</td>
+</tr>
+<tr>
+<td align="left"><strong>Radio Waves</strong></td>
+<td align="left">Omni-directional, penetrates walls, low frequency.</td>
+<td align="left">Wi-Fi, Bluetooth, FM Radio.</td>
+</tr>
+<tr>
+<td align="left"><strong>Microwaves</strong></td>
+<td align="left">Uni-directional, requires Line-of-Sight (LOS).</td>
+<td align="left">Mobile towers, point-to-point links.</td>
+</tr>
+<tr>
+<td align="left"><strong>Infrared</strong></td>
+<td align="left">Short-range, LOS required, cannot penetrate walls.</td>
+<td align="left">TV remotes, wireless peripherals.</td>
+</tr>
+<tr>
+<td align="left"><strong>Satellite</strong></td>
+<td align="left">Space-based relay, wide coverage, high latency.</td>
+<td align="left">GPS, DTH TV, remote area connectivity.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3>💡 Pro-Tip for Exams:</h3>
+<p>When differentiating between <strong>Fiber Optic</strong> and <strong>Copper cables</strong> (Twisted/Co-axial), always mention:</p>
+<ol>
+<li>Signal type (Light vs. Electrical)</li>
+<li>EMI Immunity (Fiber is immune, Copper is not)</li>
+<li>Bandwidth/Speed (Fiber is vastly superior)</li>
+</ol>
+
+    </main>
+</body>
+
+</html>

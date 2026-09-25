@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>04 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Concept of Programming (Questions 1 to 25)</h2>
+<h4>Q1. Which of the following is the correct order of program execution stages?</h4>
+<p>A) Edit → Compile → Link → Load → Execute ✅
+B) Compile → Edit → Link → Load → Execute
+C) Edit → Link → Compile → Load → Execute
+D) Load → Edit → Compile → Link → Execute</p>
+<h4>Q2. What is the difference between a syntax error and a runtime error?</h4>
+<p>A) Syntax error occurs during compilation, runtime error during execution ✅
+B) Runtime error occurs during compilation, syntax error during execution
+C) Both occur during compilation
+D) Both occur during execution</p>
+<h4>Q3. Which of the following is NOT a programming paradigm?</h4>
+<p>A) Procedural
+B) Object-Oriented
+C) Functional
+D) Structural ✅ (Structured is a programming style, not a paradigm)</p>
+<h4>Q4. What is the main advantage of assembly language over machine language?</h4>
+<p>A) Faster execution
+B) Easier to remember and use mnemonics ✅
+C) Uses less memory
+D) Machine-independent</p>
+<h4>Q5. What is the role of the preprocessor in C?</h4>
+<p>A) To compile the program
+B) To execute the program
+C) To handle directives like <code>#include</code> and <code>#define</code> ✅
+D) To link object files</p>
+<h4>Q6. Which of the following is an example of a 4th generation language (4GL)?</h4>
+<p>A) C
+B) SQL ✅
+C) Java
+D) Assembly</p>
+<h4>Q7. What is the main characteristic of a 4GL?</h4>
+<p>A) Low-level abstraction
+B) High-level abstraction and often non-procedural ✅
+C) Uses mnemonics
+D) Uses binary code</p>
+<h4>Q8. What is the concept of &quot;modularity&quot; in programming?</h4>
+<p>A) Writing all code in one module
+B) Dividing the program into independent, interchangeable modules ✅
+C) Using only global variables
+D) Writing code without functions</p>
+<h4>Q9. Which of the following is a principle of structured programming?</h4>
+<p>A) Use of goto statements
+B) Single entry, single exit for each block ✅
+C) Use of global variables exclusively
+D) No functions allowed</p>
+<h4>Q10. What is the difference between class and object in OOP?</h4>
+<p>A) Class is an instance, object is a template
+B) Class is a template, object is an instance ✅
+C) Both are the same
+D) Class is a function, object is a variable</p>
+<h4>Q11. What is the purpose of a constructor in OOP?</h4>
+<p>A) To destroy the object
+B) To initialize the object when it is created ✅
+C) To copy the object
+D) To delete the object</p>
+<h4>Q12. What is the purpose of a destructor in OOP?</h4>
+<p>A) To create the object
+B) To initialize the object
+C) To destroy the object and free resources ✅
+D) To copy the object</p>
+<h4>Q13. Which of the following is TRUE about polymorphism?</h4>
+<p>A) One function can have multiple forms ✅
+B) One function can only have one form
+C) Functions cannot have multiple forms
+D) Only classes support polymorphism</p>
+<h4>Q14. What is method overloading?</h4>
+<p>A) Multiple methods with the same name but different parameters ✅
+B) Multiple methods with different names
+C) One method with multiple parameters
+D) Methods that do not return values</p>
+<h4>Q15. What is method overriding?</h4>
+<p>A) Defining a method in a subclass that has the same name as a method in the superclass ✅
+B) Defining multiple methods with the same name
+C) Defining a method that has no return type
+D) Defining a method with the same parameters</p>
+<h4>Q16. What is the difference between a class and a struct in C++?</h4>
+<p>A) Class members are private by default, struct members are public ✅
+B) Struct members are private by default, class members are public
+C) Both are the same
+D) Classes cannot have functions</p>
+<h4>Q17. Which of the following is TRUE about functional programming?</h4>
+<p>A) It uses objects
+B) It uses functions as first-class citizens ✅
+C) It uses global variables
+D) It uses inheritance</p>
+<h4>Q18. What is a pure function in functional programming?</h4>
+<p>A) A function that modifies global state
+B) A function that has side effects
+C) A function that always returns the same output for the same input ✅
+D) A function that uses objects</p>
+<h4>Q19. Which of the following languages is purely functional?</h4>
+<p>A) C
+B) Java
+C) Haskell ✅
+D) C++</p>
+<h4>Q20. What is the concept of &quot;side effects&quot; in programming?</h4>
+<p>A) The desired effect of a function
+B) Any modification of state outside the function&#39;s scope ✅
+C) The return value of a function
+D) The parameters of a function</p>
+<h4>Q21. What is the difference between a compiler and a transpiler?</h4>
+<p>A) Compiler converts to machine code, transpiler converts to another high-level language ✅
+B) Transpiler converts to machine code, compiler converts to another language
+C) Both do the same thing
+D) Transpiler is faster</p>
+<h4>Q22. What is the role of a debugger?</h4>
+<p>A) To compile the program
+B) To execute the program
+C) To help find and fix errors in the program ✅
+D) To design algorithms</p>
+<h4>Q23. Which of the following is a feature of an IDE?</h4>
+<p>A) Code editor
+B) Debugger
+C) Compiler
+D) All of the above ✅</p>
+<h4>Q24. What is the purpose of version control systems like Git?</h4>
+<p>A) To compile code
+B) To track changes and manage different versions of code ✅
+C) To execute code
+D) To design algorithms</p>
+<h4>Q25. Which of the following is a characteristic of open-source software?</h4>
+<p>A) Source code is not available
+B) Source code is available and can be modified ✅
+C) Only compiled code is available
+D) It cannot be distributed</p>
+<hr>
+<h2>Section 2: Algorithm Fundamentals (Questions 26 to 80)</h2>
+<h4>Q26. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j*=2) {
+        for(k=1; k&lt;=n; k/=2) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n log² n) ✅ (n _ log n _ log n)
+B) O(n²)
+C) O(n log n)
+D) O(n² log n)</p>
+<h4>Q27. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j*=2) {
+        // O(1) work
+    }
+}</code></pre><p>A) O(n log n) ✅
+B) O(n²)
+C) O(n)
+D) O(log n)</p>
+<h4>Q28. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=j; k*=2) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n² log n) ✅
+B) O(n³)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q29. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j*=i) {
+        // O(1) work
+    }
+}</code></pre><p>A) O(n)
+B) O(n²)
+C) O(n log n) ✅ (sum of log_i(n) for i=1..n)
+D) O(n² log n)</p>
+<h4>Q30. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=i; j&lt;=n; j++) {
+        for(k=1; k&lt;=j; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (sum of j = O(n³))
+C) O(n log n)
+D) O(n⁴)</p>
+<h4>Q31. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=100; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n)
+B) O(n²) ✅ (since inner is constant)
+C) O(n³)
+D) O(n log n)</p>
+<h4>Q32. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=j; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅
+C) O(n log n)
+D) O(n⁴)</p>
+<h4>Q33. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=i; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (sum of i² = O(n³))
+C) O(n log n)
+D) O(n⁴)</p>
+<h4>Q34. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=i; j++) {
+        for(k=1; k&lt;=n; k++) {
+            // O(1) work
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (n _ sum of i = n _ n² = n³)
+C) O(n log n)
+D) O(n⁴)</p>
+<h4>Q35. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        if(i == j) {
+            for(k=1; k&lt;=n; k++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (when i=j, it runs n times)
+C) O(n)
+D) O(n log n)</p>
+<h4>Q36. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        if(i &lt;= j) {
+            for(k=1; k&lt;=n; k++) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (about half the cases)
+C) O(n)
+D) O(n log n)</p>
+<h4>Q37. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">for(i=1; i&lt;=n; i++) {
+    for(j=1; j&lt;=n; j++) {
+        for(k=1; k&lt;=n; k++) {
+            if(i + j + k == n) {
+                // O(1) work
+            }
+        }
+    }
+}</code></pre><p>A) O(n²)
+B) O(n³) ✅ (still n³ because the if is constant)
+C) O(n)
+D) O(n log n)</p>
+<h4>Q38. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(n)
+B) O(log² n) ✅ (log n * log n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q39. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = n;
+while(i &gt;= 1) {
+    j = i;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i / 2;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q40. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(log² n) ✅ (1 + 2 + 4 + ... + log n = O(log² n))
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q41. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = i;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i + 1;
+}</code></pre><p>A) O(n log n) ✅
+B) O(n²)
+C) O(n)
+D) O(log² n)</p>
+<h4>Q42. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j + 1;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(n) ✅ (n + n/2 + n/4 + ... = O(n))
+B) O(n log n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q43. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i + 1;
+}</code></pre><p>A) O(n log n) ✅
+B) O(n²)
+C) O(n)
+D) O(log² n)</p>
+<h4>Q44. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = n;
+while(i &gt;= 1) {
+    j = 1;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i / 2;
+}</code></pre><p>A) O(n log n)
+B) O(log² n) ✅ (log n * log n)
+C) O(n)
+D) O(n²)</p>
+<h4>Q45. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = n;
+while(i &gt;= 1) {
+    j = i;
+    while(j &gt;= 1) {
+        // O(1) work
+        j = j / 2;
+    }
+    i = i / 2;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q46. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j + 1;
+    }
+    i = i * 3;
+}</code></pre><p>A) O(n log n) ✅ (n * log₃ n)
+B) O(n²)
+C) O(n)
+D) O(log n)</p>
+<h4>Q47. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j + 1;
+    }
+    i = i * 3;
+}</code></pre><p>A) O(n) ✅ (n + n/3 + n/9 + ... = O(n))
+B) O(n log n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q48. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 3;
+    }
+    i = i + 1;
+}</code></pre><p>A) O(n log n) ✅
+B) O(n²)
+C) O(n)
+D) O(log² n)</p>
+<h4>Q49. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 3;
+    }
+    i = i * 3;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q50. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = n;
+while(i &gt;= 1) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i / 2;
+}</code></pre><p>A) O(n) ✅ (n + n/2 + n/4 + ... = O(n))
+B) O(n log n)
+C) O(log² n)
+D) O(n²)</p>
+<h4>Q51. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = n;
+    while(j &gt;= 1) {
+        // O(1) work
+        j = j / 2;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(n log n)
+B) O(log² n) ✅ (log n * log n)
+C) O(n)
+D) O(n²)</p>
+<h4>Q52. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = n;
+    while(j &gt;= i) {
+        // O(1) work
+        j = j / 2;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q53. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = n;
+while(i &gt;= 1) {
+    j = n;
+    while(j &gt;= i) {
+        // O(1) work
+        j = j / 2;
+    }
+    i = i / 2;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q54. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= i) {
+        // O(1) work
+        j = j * 2;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(log² n) ✅
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q55. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = 1;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * i;
+    }
+    i = i * 2;
+}</code></pre><p>A) O(log n) ✅ (log₂ n for i, and for each i, logᵢ n is O(1) for i&gt;1)
+B) O(n)
+C) O(n log n)
+D) O(n²)</p>
+<h4>Q56. What is the time complexity of the following code?</h4>
+<pre><code class="language-c">i = 1;
+while(i &lt;= n) {
+    j = i;
+    while(j &lt;= n) {
+        // O(1) work
+        j = j * i;
+    }
+    i = i + 1;
+}</code></pre><p>A) O(n log n)
+B) O(n²)
+C) O(n) ✅ (for each i, logᵢ n is small, sum is O(n))
+D) O(n³)</p>
+<h4>Q57. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    for(i=1; i&lt;=n; i++) {
+        // O(1) work
+    }
+    func(n/2);
+    func(n/2);
+}</code></pre><p>A) T(n) = 2T(n/2) + O(n) ✅
+B) T(n) = T(n/2) + O(n)
+C) T(n) = 2T(n/2) + O(1)
+D) T(n) = T(n-1) + O(n)</p>
+<h4>Q58. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    for(i=1; i&lt;=n; i++) {
+        // O(1) work
+    }
+    func(n-1);
+}</code></pre><p>A) T(n) = T(n-1) + O(n) ✅
+B) T(n) = T(n/2) + O(n)
+C) T(n) = 2T(n/2) + O(n)
+D) T(n) = T(n-1) + O(1)</p>
+<h4>Q59. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    func(n/2);
+    func(n/2);
+    func(n/2);
+}</code></pre><p>A) T(n) = 3T(n/2) + O(1) ✅
+B) T(n) = T(n/2) + O(n)
+C) T(n) = 2T(n/2) + O(1)
+D) T(n) = 3T(n/2) + O(n)</p>
+<h4>Q60. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    for(i=1; i&lt;=n; i++) {
+        // O(1) work
+    }
+    func(n/2);
+}</code></pre><p>A) T(n) = T(n/2) + O(n) ✅
+B) T(n) = T(n/2) + O(1)
+C) T(n) = 2T(n/2) + O(n)
+D) T(n) = T(n-1) + O(n)</p>
+<h4>Q61. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    func(n/2);
+    func(n/2);
+    for(i=1; i&lt;=n; i++) {
+        // O(1) work
+    }
+}</code></pre><p>A) T(n) = 2T(n/2) + O(n) ✅
+B) T(n) = 2T(n/2) + O(1)
+C) T(n) = T(n/2) + O(n)
+D) T(n) = T(n-1) + O(n)</p>
+<h4>Q62. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    func(n/3);
+    func(n/3);
+    func(n/3);
+    for(i=1; i&lt;=n; i++) {
+        // O(1) work
+    }
+}</code></pre><p>A) T(n) = 3T(n/3) + O(n) ✅
+B) T(n) = 3T(n/3) + O(1)
+C) T(n) = T(n/3) + O(n)
+D) T(n) = 2T(n/3) + O(n)</p>
+<h4>Q63. What is the recurrence for the following algorithm?</h4>
+<pre><code class="language-c">void func(int n) {
+    if(n &lt;= 1) return;
+    func(n/3);
+    func(n/3);
+    func(n/3);
+}</code></pre><p>A) T(n) = 3T(n/3) + O(1) ✅
+B) T(n) = 3T(n/3) + O(n)
+C) T(n) = T(n/3) + O(1)
+D) T(n) = 2T(n/3) + O(1)</p>
+<h4>Q64. What is the time complexity of T(n) = 3T(n/3) + O(n)?</h4>
+<p>A) O(n)
+B) O(n log n) ✅ (a=3, b=3, d=1, a = b^d, so O(n log n))
+C) O(n²)
+D) O(n log² n)</p>
+<h4>Q65. What is the time complexity of T(n) = 3T(n/3) + O(1)?</h4>
+<p>A) O(n) ✅ (a=3, b=3, d=0, a &gt; b^d, so O(n))
+B) O(n log n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q66. What is the time complexity of T(n) = 4T(n/2) + O(n)?</h4>
+<p>A) O(n)
+B) O(n²) ✅ (a=4, b=2, d=1, a &gt; b^d, so O(n²))
+C) O(n log n)
+D) O(n² log n)</p>
+<h4>Q67. What is the time complexity of T(n) = 4T(n/2) + O(n²)?</h4>
+<p>A) O(n²)
+B) O(n² log n) ✅ (a=4, b=2, d=2, a = b^d, so O(n² log n))
+C) O(n³)
+D) O(n log n)</p>
+<h4>Q68. What is the time complexity of T(n) = 8T(n/2) + O(n²)?</h4>
+<p>A) O(n²)
+B) O(n³) ✅ (a=8, b=2, d=2, a &gt; b^d, so O(n³))
+C) O(n² log n)
+D) O(n log n)</p>
+<h4>Q69. What is the time complexity of T(n) = 2T(n/2) + O(n²)?</h4>
+<p>A) O(n²) ✅ (a=2, b=2, d=2, a &lt; b^d, so O(n²))
+B) O(n² log n)
+C) O(n log n)
+D) O(n)</p>
+<h4>Q70. What is the time complexity of T(n) = 2T(n/2) + O(n log n)?</h4>
+<p>A) O(n log n)
+B) O(n log² n) ✅ (a=2, b=2, d=1, a = b^d, so O(n log² n))
+C) O(n²)
+D) O(n² log n)</p>
+<h4>Q71. What is the time complexity of T(n) = 2T(n/2) + O(n² log n)?</h4>
+<p>A) O(n²) ✅ (a=2, b=2, d=2, a &lt; b^d, so O(n²))
+B) O(n² log n)
+C) O(n log² n)
+D) O(n² log² n)</p>
+<h4>Q72. What is the time complexity of T(n) = 9T(n/3) + O(n² log n)?</h4>
+<p>A) O(n² log n)
+B) O(n² log² n) ✅ (a=9, b=3, d=2, a = b^d, so O(n² log² n))
+C) O(n³)
+D) O(n log n)</p>
+<h4>Q73. What is the time complexity of T(n) = 9T(n/3) + O(n³)?</h4>
+<p>A) O(n³) ✅ (a=9, b=3, d=3, a &lt; b^d, so O(n³))
+B) O(n³ log n)
+C) O(n²)
+D) O(n⁴)</p>
+<h4>Q74. What is the time complexity of T(n) = 16T(n/4) + O(n³)?</h4>
+<p>A) O(n³) ✅ (a=16, b=4, d=3, a &lt; b^d, so O(n³))
+B) O(n³ log n)
+C) O(n²)
+D) O(n⁴)</p>
+<h4>Q75. What is the time complexity of T(n) = 16T(n/4) + O(n²)?</h4>
+<p>A) O(n²)
+B) O(n² log n) ✅ (a=16, b=4, d=2, a = b^d, so O(n² log n))
+C) O(n³)
+D) O(n)</p>
+<h4>Q76. What is the time complexity of T(n) = T(n-2) + O(1)?</h4>
+<p>A) O(n) ✅
+B) O(n²)
+C) O(log n)
+D) O(1)</p>
+<h4>Q77. What is the time complexity of T(n) = T(n-2) + O(n)?</h4>
+<p>A) O(n²) ✅
+B) O(n)
+C) O(log n)
+D) O(n² log n)</p>
+<h4>Q78. What is the time complexity of T(n) = T(n/2) + T(n/2) + O(1)?</h4>
+<p>A) O(n) ✅
+B) O(n log n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q79. What is the time complexity of T(n) = T(n/2) + T(n/4) + O(1)?</h4>
+<p>A) O(n) ✅
+B) O(n log n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q80. What is the time complexity of T(n) = T(n/2) + T(n/4) + O(n)?</h4>
+<p>A) O(n) ✅
+B) O(n log n)
+C) O(n²)
+D) O(n log² n)</p>
+<hr>
+<h2>Section 3: Introduction to Problem Solving (Questions 81 to 100)</h2>
+<h4>Q81. What is the primary goal of the problem analysis phase?</h4>
+<p>A) To write code immediately
+B) To understand the problem and its constraints ✅
+C) To test the program
+D) To debug errors</p>
+<h4>Q82. What is the output of the algorithm design phase?</h4>
+<p>A) A working program
+B) A step-by-step solution plan ✅
+C) A list of errors
+D) Test cases</p>
+<h4>Q83. What is the most important quality of a good algorithm?</h4>
+<p>A) It should be long
+B) It should be correct ✅
+C) It should use complex techniques
+D) It should be difficult to understand</p>
+<h4>Q84. What is the difference between testing and debugging?</h4>
+<p>A) Testing finds bugs, debugging fixes them ✅
+B) Debugging finds bugs, testing fixes them
+C) Both find bugs
+D) Both fix bugs</p>
+<h4>Q85. What is a test case?</h4>
+<p>A) A set of conditions to test the program ✅
+B) The final program
+C) The algorithm
+D) The pseudo-code</p>
+<h4>Q86. What is the purpose of boundary value analysis in testing?</h4>
+<p>A) To test normal values
+B) To test values at the boundaries of input ranges ✅
+C) To test random values
+D) To test all possible values</p>
+<h4>Q87. What is equivalence partitioning in testing?</h4>
+<p>A) Dividing input data into groups that should produce similar results ✅
+B) Testing all possible inputs
+C) Testing only the boundary values
+D) Testing random inputs</p>
+<h4>Q88. What is the purpose of white-box testing?</h4>
+<p>A) Testing without knowing the internal code
+B) Testing with knowledge of the internal code ✅
+C) Testing the user interface
+D) Testing the documentation</p>
+<h4>Q89. What is the purpose of black-box testing?</h4>
+<p>A) Testing with knowledge of the internal code
+B) Testing without knowledge of the internal code ✅
+C) Testing the algorithm
+D) Testing the pseudo-code</p>
+<h4>Q90. What is the role of a test plan?</h4>
+<p>A) To write the program
+B) To outline the testing strategy and test cases ✅
+C) To design the algorithm
+D) To debug the program</p>
+<h4>Q91. What is the difference between verification and validation?</h4>
+<p>A) Verification is checking the product, validation is checking the requirements
+B) Verification checks if built correctly, validation checks if correct product is built ✅
+C) Both are the same
+D) Validation is done before verification</p>
+<h4>Q92. What is the purpose of the maintenance phase in the software lifecycle?</h4>
+<p>A) To write the program
+B) To modify and update the program after deployment ✅
+C) To test the program
+D) To design the algorithm</p>
+<h4>Q93. What is a software development life cycle (SDLC)?</h4>
+<p>A) A single step in programming
+B) A process for developing software through multiple phases ✅
+C) A type of programming language
+D) A testing tool</p>
+<h4>Q94. Which SDLC model involves sequential phases?</h4>
+<p>A) Agile
+B) Waterfall ✅
+C) Spiral
+D) Incremental</p>
+<h4>Q95. Which SDLC model involves iterative development cycles?</h4>
+<p>A) Waterfall
+B) Agile ✅
+C) Sequential
+D) Linear</p>
+<h4>Q96. What is the purpose of prototyping in software development?</h4>
+<p>A) To create the final product directly
+B) To create a working model to gather feedback ✅
+C) To test only the algorithm
+D) To write documentation</p>
+<h4>Q97. What is the difference between a bug and a feature request?</h4>
+<p>A) A bug is an error, a feature request is a suggestion for new functionality ✅
+B) A bug is a suggestion, a feature request is an error
+C) Both are the same
+D) Bugs are fixed, feature requests are ignored</p>
+<h4>Q98. What is the purpose of code review?</h4>
+<p>A) To write new code
+B) To examine code for errors and improvements ✅
+C) To test the program
+D) To design the algorithm</p>
+<h4>Q99. What is refactoring in software development?</h4>
+<p>A) Writing new features
+B) Restructuring existing code without changing its behavior ✅
+C) Testing the program
+D) Debugging errors</p>
+<h4>Q100. Which of the following is the most important phase in the problem-solving process?</h4>
+<p>A) Coding (since that&#39;s what produces the program)
+B) Testing (since it finds errors)
+C) All phases are equally important ✅
+D) Debugging (since it fixes errors)</p>
+<hr>
+<h2>Answer Key</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>A</td>
+<td>26</td>
+<td>A</td>
+<td>51</td>
+<td>B</td>
+<td>76</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A</td>
+<td>27</td>
+<td>A</td>
+<td>52</td>
+<td>A</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>D</td>
+<td>28</td>
+<td>A</td>
+<td>53</td>
+<td>A</td>
+<td>78</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>B</td>
+<td>29</td>
+<td>C</td>
+<td>54</td>
+<td>A</td>
+<td>79</td>
+<td>A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>C</td>
+<td>30</td>
+<td>B</td>
+<td>55</td>
+<td>A</td>
+<td>80</td>
+<td>A</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>C</td>
+<td>81</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td>32</td>
+<td>B</td>
+<td>57</td>
+<td>A</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>B</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>B</td>
+</tr>
+<tr>
+<td>9</td>
+<td>B</td>
+<td>34</td>
+<td>B</td>
+<td>59</td>
+<td>A</td>
+<td>84</td>
+<td>A</td>
+</tr>
+<tr>
+<td>10</td>
+<td>B</td>
+<td>35</td>
+<td>B</td>
+<td>60</td>
+<td>A</td>
+<td>85</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>B</td>
+<td>61</td>
+<td>A</td>
+<td>86</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>C</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>A</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>A</td>
+<td>39</td>
+<td>A</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>A</td>
+<td>40</td>
+<td>A</td>
+<td>65</td>
+<td>A</td>
+<td>90</td>
+<td>B</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A</td>
+<td>41</td>
+<td>A</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>A</td>
+<td>67</td>
+<td>B</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>43</td>
+<td>A</td>
+<td>68</td>
+<td>B</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>C</td>
+<td>44</td>
+<td>B</td>
+<td>69</td>
+<td>A</td>
+<td>94</td>
+<td>B</td>
+</tr>
+<tr>
+<td>20</td>
+<td>B</td>
+<td>45</td>
+<td>A</td>
+<td>70</td>
+<td>B</td>
+<td>95</td>
+<td>B</td>
+</tr>
+<tr>
+<td>21</td>
+<td>A</td>
+<td>46</td>
+<td>A</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>C</td>
+<td>47</td>
+<td>A</td>
+<td>72</td>
+<td>B</td>
+<td>97</td>
+<td>A</td>
+</tr>
+<tr>
+<td>23</td>
+<td>D</td>
+<td>48</td>
+<td>A</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>B</td>
+</tr>
+<tr>
+<td>24</td>
+<td>B</td>
+<td>49</td>
+<td>A</td>
+<td>74</td>
+<td>A</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>B</td>
+<td>50</td>
+<td>A</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>C</td>
+</tr>
+</tbody></table></div>
+
+    </main>
+</body>
+
+</html>

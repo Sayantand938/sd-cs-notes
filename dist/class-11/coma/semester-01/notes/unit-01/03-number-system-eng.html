@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Number System (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Number Systems</h2>
+<p>A <strong>number system</strong> (or numeral system) defines a set of values used to represent quantities. It uses a <strong>base</strong> (or <strong>radix</strong>) which determines the number of unique digits used.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Number System</th>
+<th align="left">Base (Radix)</th>
+<th align="left">Digits Used</th>
+<th align="left">Primary Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Decimal</strong></td>
+<td align="left">10</td>
+<td align="left">0–9</td>
+<td align="left">Everyday human calculations.</td>
+</tr>
+<tr>
+<td align="left"><strong>Binary</strong></td>
+<td align="left">2</td>
+<td align="left">0, 1</td>
+<td align="left">Internal computer processing (logic gates).</td>
+</tr>
+<tr>
+<td align="left"><strong>Octal</strong></td>
+<td align="left">8</td>
+<td align="left">0–7</td>
+<td align="left">Compact representation of binary (obsolete now, but still in syllabus).</td>
+</tr>
+<tr>
+<td align="left"><strong>Hexadecimal</strong></td>
+<td align="left">16</td>
+<td align="left">0–9, A–F (A=10, B=11, C=12, D=13, E=14, F=15)</td>
+<td align="left">Compact representation for memory addresses and colors.</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>General Representation</strong>: Any number in base $r$ is written as $(N)_r$ or $N_r$.
+Example: $(1011)<em>2$ is binary; $(A3)</em>{16}$ is hexadecimal.</p>
+</blockquote>
+<hr>
+<h2>2. Number System Conversions</h2>
+<h3>2.1 Conversion Flowchart</h3>
+<pre class="mermaid">graph LR
+    A[Decimal] --&gt;|Multiply or divide by 2| B[Binary]
+    B --&gt;|Group into 3s or 4s| C[Octal or Hex]
+    C --&gt;|Split into bits| B</pre><hr>
+<h3>2.2 Decimal to Other Bases</h3>
+<p><strong>Method</strong>: Repeated Division by the target base. Read the remainders from <strong>bottom to top</strong>.</p>
+<p><strong>Example</strong>: Convert $(25)_{10}$ to Binary (Base 2):</p>
+<ul>
+<li>25 ÷ 2 → Quotient 12, Remainder 1</li>
+<li>12 ÷ 2 → Q=6, R=0</li>
+<li>6 ÷ 2 → Q=3, R=0</li>
+<li>3 ÷ 2 → Q=1, R=1</li>
+<li>1 ÷ 2 → Q=0, R=1</li>
+<li>Read bottom to top: $(11001)_2$</li>
+</ul>
+<p><strong>Check</strong>: $1 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 16+8+0+0+1 = 25$</p>
+<hr>
+<h3>2.3 Other Bases to Decimal</h3>
+<p><strong>Method</strong>: Expand the number using powers of its base: $(N)_r = \sum d_i \times r^i$</p>
+<p><strong>Example</strong>: Convert $(A2)_{16}$ to Decimal:</p>
+<ul>
+<li>$A = 10$</li>
+<li>$10 \times 16^1 + 2 \times 16^0 = 160 + 2 = 162$</li>
+<li>So $(A2)<em>{16} = (162)</em>{10}$</li>
+</ul>
+<hr>
+<h3>2.4 Binary ↔ Octal (Grouping by 3)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Octal Digit</th>
+<th align="left">Binary Equivalent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">000</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">001</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">010</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">011</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">100</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">101</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">110</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">111</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><p><strong>Binary to Octal</strong>: Group binary digits from <strong>right to left</strong> into sets of 3. Add leading zeros if needed.</p>
+<ul>
+<li>Example: $(110101)_2$ → 110 | 101 → $(65)_8$</li>
+</ul>
+</li>
+<li><p><strong>Octal to Binary</strong>: Replace each octal digit with its 3-bit binary equivalent.</p>
+<ul>
+<li>Example: $(72)_8$ → 111 | 010 → $(111010)_2$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>2.5 Binary ↔ Hexadecimal (Grouping by 4)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Hex Digit</th>
+<th align="left">Binary Equivalent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0000</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0001</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">0010</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">0011</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">0100</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">0101</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">0110</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">0111</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">1000</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">1001</td>
+</tr>
+<tr>
+<td align="left">A</td>
+<td align="left">1010</td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left">1011</td>
+</tr>
+<tr>
+<td align="left">C</td>
+<td align="left">1100</td>
+</tr>
+<tr>
+<td align="left">D</td>
+<td align="left">1101</td>
+</tr>
+<tr>
+<td align="left">E</td>
+<td align="left">1110</td>
+</tr>
+<tr>
+<td align="left">F</td>
+<td align="left">1111</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><p><strong>Binary to Hex</strong>: Group binary digits from <strong>right to left</strong> into sets of 4.</p>
+<ul>
+<li>Example: $(11010110)<em>2$ → 1101 | 0110 → $(D6)</em>{16}$</li>
+</ul>
+</li>
+<li><p><strong>Hex to Binary</strong>: Replace each hex digit with its 4-bit binary equivalent.</p>
+<ul>
+<li>Example: $(3F)_{16}$ → 0011 | 1111 → $(00111111)_2$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>3. Weighted Codes</h2>
+<p>In <strong>weighted codes</strong>, each position of a binary digit has a fixed weight (place value). The decimal value is the sum of the weights where the bit is 1.</p>
+<h3>3.1 Straight Binary (Natural Binary Code)</h3>
+<ul>
+<li>Weights: $... 2^3, 2^2, 2^1, 2^0$ (i.e., 8, 4, 2, 1).</li>
+<li>Example: $(1011)_2 = 1 \times 8 + 0 \times 4 + 1 \times 2 + 1 \times 1 = 11$</li>
+</ul>
+<hr>
+<h3>3.2 Binary Coded Decimal (BCD) – 8421 Code</h3>
+<ul>
+<li><strong>Definition</strong>: Each decimal digit (0–9) is represented by its 4-bit binary equivalent.</li>
+<li><strong>Weights</strong>: 8, 4, 2, 1.</li>
+<li><strong>Very Important</strong>: Only digits 0 to 9 are valid. 1010 (10) to 1111 (15) are invalid in BCD.</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Decimal</th>
+<th align="left">BCD (8421)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">5</td>
+<td align="left">0101</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">1001</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">0001 0010</td>
+</tr>
+</tbody></table></div>
+<p><strong>Example</strong>: $(348)_{10}$ in BCD → 3 = 0011, 4 = 0100, 8 = 1000 → <code>0011 0100 1000</code></p>
+<hr>
+<h3>3.3 84-2-1 Code</h3>
+<ul>
+<li><strong>Weights</strong>: 8, 4, -2, -1.</li>
+<li><strong>Note</strong>: This is a <strong>self-complementing</strong> code (the 9&#39;s complement of a digit is obtained by complementing its bits).</li>
+<li>Weights: Position 3 = 8, Position 2 = 4, Position 1 = -2, Position 0 = -1.</li>
+</ul>
+<p><strong>Example</strong>: Represent 4 in 84-2-1:</p>
+<ul>
+<li>Find combination: $0 \times 8 + 1 \times 4 + 0 \times (-2) + 0 \times (-1) = 4$ → <code>0100</code>.</li>
+<li>Represent 7: $1 \times 8 + 0 \times 4 + 1 \times (-2) + 1 \times (-1) = 5$ ? Let&#39;s find: $1\times8 + 0\times4 + 1\times(-2) + 1\times(-1) = 5$ (wrong).
+Let&#39;s try $1\times8 + 0\times4 + 0\times(-2) + 1\times(-1) = 7$ → <code>1001</code>.
+So 7 = <code>1001</code>.</li>
+</ul>
+<hr>
+<h2>4. Non-Weighted Codes</h2>
+<p>In non-weighted codes, the positional weights have no fixed arithmetic value. The code is defined by a specific mapping rule.</p>
+<h3>4.1 Gray Code (Reflected Binary Code)</h3>
+<ul>
+<li><strong>Definition</strong>: A binary sequence where <strong>two successive values differ in exactly one bit</strong> (Hamming distance = 1).</li>
+<li><strong>Uses</strong>: Shaft encoders, Karnaugh maps, error correction.</li>
+</ul>
+<p><strong>Binary to Gray Code Conversion</strong>:</p>
+<ol>
+<li>MSB of Gray = MSB of Binary.</li>
+<li>Next Gray bits = XOR of adjacent binary bits.</li>
+</ol>
+<p><strong>Example</strong>: Convert $(1011)_2$ to Gray:</p>
+<ul>
+<li>G3 = B3 = 1</li>
+<li>G2 = B3 ⊕ B2 = 1 ⊕ 0 = 1</li>
+<li>G1 = B2 ⊕ B1 = 0 ⊕ 1 = 1</li>
+<li>G0 = B1 ⊕ B0 = 1 ⊕ 1 = 0</li>
+<li>Result: $(1110)_{Gray}$</li>
+</ul>
+<p><strong>Gray to Binary Code Conversion</strong>:</p>
+<ol>
+<li>MSB of Binary = MSB of Gray.</li>
+<li>Next Binary bits = Previous Binary bit ⊕ Current Gray bit.</li>
+</ol>
+<hr>
+<h3>4.2 Excess-3 (XS-3) Code</h3>
+<ul>
+<li><strong>Definition</strong>: It is a non-weighted code derived from BCD by adding 3 to each decimal digit before converting to binary.</li>
+<li><strong>Self-complementing</strong>: 9&#39;s complement of a decimal is obtained by complementing the bits.</li>
+<li><strong>Uses</strong>: Used in old calculators and digital logic (BCD addition).</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Decimal</th>
+<th align="left">BCD</th>
+<th align="left">Excess-3 (BCD + 3)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0000</td>
+<td align="left">0011</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0001</td>
+<td align="left">0100</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">0010</td>
+<td align="left">0101</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">0101</td>
+<td align="left">1000</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">1001</td>
+<td align="left">1100</td>
+</tr>
+</tbody></table></div>
+<p><strong>Example</strong>: Represent $(59)_{10}$ in XS-3:</p>
+<ul>
+<li>5 → 0101 + 0011 = 1000</li>
+<li>9 → 1001 + 0011 = 1100</li>
+<li>Result: <code>1000 1100</code></li>
+</ul>
+<hr>
+<h2>5. Encoding Schemes (Character Representation)</h2>
+<h3>5.1 ASCII (American Standard Code for Information Interchange)</h3>
+<ul>
+<li><strong>Bits</strong>: Uses 7 bits to represent characters (128 codes: 0–127).</li>
+<li><strong>Extended ASCII</strong>: Uses 8 bits (256 codes: 0–255) for additional symbols.</li>
+<li><strong>Examples</strong>: &#39;A&#39; = 65, &#39;a&#39; = 97, &#39;0&#39; = 48, Space = 32.</li>
+</ul>
+<h3>5.2 ISCII (Indian Standard Code for Information Interchange)</h3>
+<ul>
+<li><strong>Bits</strong>: Uses 8 bits (256 codes).</li>
+<li><strong>Purpose</strong>: Designed to support Indian scripts like Devanagari, Tamil, Telugu, etc.</li>
+<li><strong>Limitations</strong>: It is an 8-bit code but can only support one script at a time using code pages (like Brahmi-based scripts).</li>
+</ul>
+<h3>5.3 UNICODE (Universal Character Encoding)</h3>
+<ul>
+<li><strong>Purpose</strong>: A universal standard that represents characters from <strong>all languages</strong> (scripts) across the world, including emojis and symbols.</li>
+<li><strong>Encoding Forms</strong>:<ul>
+<li><strong>UTF-8</strong>: Variable length (1 to 4 bytes). Backward compatible with ASCII.</li>
+<li><strong>UTF-16</strong>: Uses 2 or 4 bytes (most common for Java/Windows).</li>
+<li><strong>UTF-32</strong>: Fixed 4 bytes.</li>
+</ul>
+</li>
+<li><strong>Examples</strong>: U+0041 = &#39;A&#39;, U+0905 = &#39;अ&#39; (Devanagari).</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Encoding</th>
+<th align="left">Bits/Character</th>
+<th align="left">Standard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ASCII</td>
+<td align="left">7 bits</td>
+<td align="left">American English</td>
+</tr>
+<tr>
+<td align="left">ISCII</td>
+<td align="left">8 bits</td>
+<td align="left">Indian Languages</td>
+</tr>
+<tr>
+<td align="left">Unicode (UTF-8)</td>
+<td align="left">8 to 32 bits</td>
+<td align="left">Universal (Global)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>6. Complements of Binary Numbers</h2>
+<p>Complements are used in computers to perform <strong>subtraction</strong> by addition and to represent <strong>signed numbers</strong> (negative integers).</p>
+<h3>6.1 1&#39;s Complement</h3>
+<ul>
+<li><strong>Method</strong>: Flip (invert) all bits of the binary number (0 → 1, 1 → 0).</li>
+<li><strong>Range</strong>: For an n-bit number, range is $-(2^{n-1} - 1)$ to $+(2^{n-1} - 1)$.</li>
+<li><strong>Drawback</strong>: Has two representations for zero (<code>+0</code> and <code>-0</code>).</li>
+</ul>
+<p><strong>Example</strong>: Find 1&#39;s complement of $(1010)_2$:</p>
+<ul>
+<li>Flip bits → <code>0101</code></li>
+</ul>
+<hr>
+<h3>6.2 2&#39;s Complement</h3>
+<ul>
+<li><strong>Method</strong>: Find the 1&#39;s complement and add 1 to the Least Significant Bit (LSB).</li>
+<li><strong>Formula</strong>: $2$&#39;s complement = $1$&#39;s complement + 1.</li>
+<li><strong>Range</strong>: For an n-bit number, range is $-2^{n-1}$ to $+(2^{n-1} - 1)$.</li>
+<li><strong>Advantage</strong>: No separate representation for zero; used universally for signed integers in computers.</li>
+</ul>
+<p><strong>Example</strong>: Find 2&#39;s complement of $(1010)_2$:</p>
+<ul>
+<li>1&#39;s complement = <code>0101</code></li>
+<li>Add 1 → <code>0101 + 0001 = 0110</code></li>
+</ul>
+<p><strong>Representing Negative Numbers</strong>: To represent $(-5)_{10}$ in 4-bit binary:</p>
+<ol>
+<li>+5 in binary = <code>0101</code>.</li>
+<li>1&#39;s complement = <code>1010</code>.</li>
+<li>Add 1 → <code>1011</code>.</li>
+<li>So, <code>1011</code> represents -5 in 2&#39;s complement.</li>
+</ol>
+<blockquote>
+<p><strong>Important Rule</strong>: To get the magnitude of a negative number stored in 2&#39;s complement, just take the 2&#39;s complement again.</p>
+</blockquote>
+<h2>7. MCQ</h2>
+<h4>Q1. What is the base (radix) of the Binary number system?</h4>
+<p>A) 10
+B) 2 ✅
+C) 8
+D) 16</p>
+<h4>Q2. Which digits are used in the Hexadecimal number system?</h4>
+<p>A) 0 and 1
+B) 0 to 7
+C) 0 to 9
+D) 0 to 9 and A to F ✅</p>
+<h4>Q3. The Octal number system has a base of:</h4>
+<p>A) 2
+B) 8 ✅
+C) 10
+D) 16</p>
+<h4>Q4. Which number system is primarily used for internal computer processing?</h4>
+<p>A) Decimal
+B) Binary ✅
+C) Octal
+D) Hexadecimal</p>
+<h4>Q5. What is the general representation for a number in base r?</h4>
+<p>A) <code>(N)r or Nr</code> ✅
+B) <code>[N]r</code>
+C) <code>{N}r</code>
+D) <code>&lt;N&gt;r</code></p>
+<h4>Q6. The Decimal number system uses how many unique digits?</h4>
+<p>A) 2
+B) 8
+C) 10 ✅
+D) 16</p>
+<h4>Q7. Which number system is used for compact representation of memory addresses?</h4>
+<p>A) Binary
+B) Octal
+C) Hexadecimal ✅
+D) Decimal</p>
+<h4>Q8. In Hexadecimal, the letter &#39;A&#39; represents which decimal value?</h4>
+<p>A) 10 ✅
+B) 11
+C) 12
+D) 15</p>
+<h4>Q9. In Hexadecimal, the letter &#39;F&#39; represents which decimal value?</h4>
+<p>A) 10
+B) 12
+C) 14
+D) 15 ✅</p>
+<h4>Q10. Which number system uses digits from 0 to 7?</h4>
+<p>A) Binary
+B) Octal ✅
+C) Decimal
+D) Hexadecimal</p>
+<h4>Q11. Convert (25)₁₀ to Binary using repeated division method:</h4>
+<p>A) (11001)₂ ✅
+B) (10011)₂
+C) (11100)₂
+D) (10101)₂</p>
+<h4>Q12. In repeated division method for decimal to binary conversion, remainders are read from:</h4>
+<p>A) Top to bottom
+B) Bottom to top ✅
+C) Left to right
+D) Right to left</p>
+<h4>Q13. What is the binary equivalent of (13)₁₀?</h4>
+<p>A) (1101)₂ ✅
+B) (1011)₂
+C) (1110)₂
+D) (1001)₂</p>
+<h4>Q14. Convert (A2)₁₆ to decimal:</h4>
+<p>A) 160
+B) 162 ✅
+C) 164
+D) 168</p>
+<h4>Q15. Convert (1011)₂ to decimal:</h4>
+<p>A) 9
+B) 10
+C) 11 ✅
+D) 12</p>
+<h4>Q16. Convert (110101)₂ to Octal by grouping:</h4>
+<p>A) (65)₈ ✅
+B) (56)₈
+C) (66)₈
+D) (55)₈</p>
+<h4>Q17. Convert (72)₈ to Binary:</h4>
+<p>A) (111010)₂ ✅
+B) (110111)₂
+C) (101110)₂
+D) (111001)₂</p>
+<h4>Q18. Binary to Octal conversion groups bits into sets of:</h4>
+<p>A) 2
+B) 3 ✅
+C) 4
+D) 8</p>
+<h4>Q19. Convert (11010110)₂ to Hexadecimal:</h4>
+<p>A) (D6)₁₆ ✅
+B) (6D)₁₆
+C) (D5)₁₆
+D) (5D)₁₆</p>
+<h4>Q20. Convert (3F)₁₆ to Binary:</h4>
+<p>A) (00111111)₂ ✅
+B) (11110000)₂
+C) (00110011)₂
+D) (11111100)₂</p>
+<h4>Q21. Binary to Hexadecimal conversion groups bits into sets of:</h4>
+<p>A) 2
+B) 3
+C) 4 ✅
+D) 8</p>
+<h4>Q22. Which Octal digit corresponds to binary 101?</h4>
+<p>A) 4
+B) 5 ✅
+C) 6
+D) 7</p>
+<h4>Q23. Which Octal digit corresponds to binary 111?</h4>
+<p>A) 5
+B) 6
+C) 7 ✅
+D) 8</p>
+<h4>Q24. Which Hexadecimal digit corresponds to binary 1010?</h4>
+<p>A) A ✅
+B) B
+C) C
+D) D</p>
+<h4>Q25. Which Hexadecimal digit corresponds to binary 1101?</h4>
+<p>A) B
+B) C
+C) D ✅
+D) E</p>
+<h4>Q26. What is the Octal equivalent of (111100)₂?</h4>
+<p>A) (70)₈
+B) (74)₈ ✅
+C) (76)₈
+D) (72)₈</p>
+<h4>Q27. What is the Hexadecimal equivalent of (11110000)₂?</h4>
+<p>A) (F0)₁₆ ✅
+B) (0F)₁₆
+C) (F1)₁₆
+D) (1F)₁₆</p>
+<h4>Q28. In weighted codes, each position of a binary digit has:</h4>
+<p>A) A fixed weight (place value) ✅
+B) Variable weight
+C) No weight
+D) Equal weight</p>
+<h4>Q29. Natural Binary Code uses which weights?</h4>
+<p>A) 8, 4, 2, 1 ✅
+B) 8, 4, -2, -1
+C) 16, 8, 4, 2
+D) 4, 2, 1, 0</p>
+<h4>Q30. (1011)₂ in Natural Binary Code equals:</h4>
+<p>A) 9
+B) 10
+C) 11 ✅
+D) 12</p>
+<h4>Q31. BCD stands for:</h4>
+<p>A) Binary Coded Decimal ✅
+B) Bit Coded Decimal
+C) Binary Coded Digit
+D) Basic Coded Decimal</p>
+<h4>Q32. In BCD, each decimal digit is represented by how many bits?</h4>
+<p>A) 3
+B) 4 ✅
+C) 8
+D) 16</p>
+<h4>Q33. What is the BCD representation of decimal 5?</h4>
+<p>A) 0101 ✅
+B) 1010
+C) 0110
+D) 1001</p>
+<h4>Q34. What is the BCD representation of decimal 9?</h4>
+<p>A) 0101
+B) 0110
+C) 1001 ✅
+D) 1010</p>
+<h4>Q35. Which of the following is an invalid BCD code?</h4>
+<p>A) 0001
+B) 0100
+C) 1010 ✅
+D) 1001</p>
+<h4>Q36. What is the BCD representation of (348)₁₀?</h4>
+<p>A) 0011 0100 1000 ✅
+B) 0100 0011 1000
+C) 1000 0100 0011
+D) 0011 1000 0100</p>
+<h4>Q37. BCD uses which weights?</h4>
+<p>A) 8, 4, -2, -1
+B) 8, 4, 2, 1 ✅
+C) 16, 8, 4, 2
+D) 4, 2, 1, 0</p>
+<h4>Q38. The 84-2-1 code has weights:</h4>
+<p>A) 8, 4, 2, 1
+B) 8, 4, -2, -1 ✅
+C) 16, 8, 4, 2
+D) 4, 2, 1, 0</p>
+<h4>Q39. The 84-2-1 code is an example of a:</h4>
+<p>A) Weighted code ✅
+B) Non-weighted code
+C) Error-correcting code
+D) Character encoding</p>
+<h4>Q40. What is 4 represented as in 84-2-1 code?</h4>
+<p>A) 0100 ✅
+B) 0010
+C) 1000
+D) 1100</p>
+<h4>Q41. What is 7 represented as in 84-2-1 code?</h4>
+<p>A) 0111
+B) 1010
+C) 1001 ✅
+D) 1100</p>
+<h4>Q42. The 84-2-1 code is a self-complementing code. What does this mean?</h4>
+<p>A) It can correct errors
+B) The 9&#39;s complement is obtained by complementing its bits ✅
+C) It is used for subtraction
+D) It has no redundancy</p>
+<h4>Q43. In non-weighted codes, the positional weights have:</h4>
+<p>A) Fixed arithmetic value
+B) No fixed arithmetic value ✅
+C) Equal value
+D) Decimal value</p>
+<h4>Q44. Gray Code is also known as:</h4>
+<p>A) BCD Code
+B) Reflected Binary Code ✅
+C) ASCII Code
+D) Excess-3 Code</p>
+<h4>Q45. In Gray Code, two successive values differ in exactly:</h4>
+<p>A) Two bits
+B) One bit ✅
+C) Three bits
+D) Zero bits</p>
+<h4>Q46. Gray Code has a Hamming distance of:</h4>
+<p>A) 0
+B) 1 ✅
+C) 2
+D) 3</p>
+<h4>Q47. What is the Gray Code equivalent of (1011)₂?</h4>
+<p>A) (1011)Gray
+B) (1110)Gray ✅
+C) (1101)Gray
+D) (0111)Gray</p>
+<h4>Q48. In binary to Gray code conversion, the MSB of Gray is:</h4>
+<p>A) XOR of all bits
+B) MSB of Binary ✅
+C) LSB of Binary
+D) Complement of MSB</p>
+<h4>Q49. In binary to Gray code conversion, the next Gray bits are obtained by:</h4>
+<p>A) AND of adjacent binary bits
+B) OR of adjacent binary bits
+C) XOR of adjacent binary bits ✅
+D) Complement of adjacent binary bits</p>
+<h4>Q50. Gray Code is used in:</h4>
+<p>A) Banking applications
+B) Shaft encoders and Karnaugh maps ✅
+C) Text processing
+D) Database management</p>
+<h4>Q51. Excess-3 (XS-3) code is derived from BCD by:</h4>
+<p>A) Adding 2
+B) Adding 3 ✅
+C) Subtracting 3
+D) Multiplying by 3</p>
+<h4>Q52. Excess-3 code is an example of a:</h4>
+<p>A) Weighted code
+B) Non-weighted code ✅
+C) Binary code
+D) Hexadecimal code</p>
+<h4>Q53. What is the Excess-3 code for decimal 0?</h4>
+<p>A) 0000
+B) 0011 ✅
+C) 0010
+D) 0100</p>
+<h4>Q54. What is the Excess-3 code for decimal 5?</h4>
+<p>A) 0101
+B) 1000 ✅
+C) 1001
+D) 1010</p>
+<h4>Q55. What is the Excess-3 code for decimal 9?</h4>
+<p>A) 1001
+B) 1010
+C) 1100 ✅
+D) 1101</p>
+<h4>Q56. Excess-3 code is a self-complementing code. This means:</h4>
+<p>A) The 9&#39;s complement is obtained by complementing the bits ✅
+B) It can detect errors
+C) It is used for encryption
+D) It has even parity</p>
+<h4>Q57. What is the Excess-3 representation of (59)₁₀?</h4>
+<p>A) 0101 1001
+B) 1000 1100 ✅
+C) 1100 1000
+D) 1001 0101</p>
+<h4>Q58. ASCII stands for:</h4>
+<p>A) American Standard Code for Information Interchange ✅
+B) American System Code for Information Interchange
+C) Advanced Standard Code for Information Interchange
+D) American Standard Character for Information</p>
+<h4>Q59. Standard ASCII uses how many bits?</h4>
+<p>A) 5 bits
+B) 7 bits ✅
+C) 8 bits
+D) 16 bits</p>
+<h4>Q60. How many characters can standard ASCII represent?</h4>
+<p>A) 64
+B) 128 ✅
+C) 256
+D) 512</p>
+<h4>Q61. Extended ASCII uses how many bits?</h4>
+<p>A) 7 bits
+B) 8 bits ✅
+C) 16 bits
+D) 32 bits</p>
+<h4>Q62. What is the ASCII value of &#39;A&#39;?</h4>
+<p>A) 41
+B) 65 ✅
+C) 97
+D) 48</p>
+<h4>Q63. What is the ASCII value of &#39;a&#39;?</h4>
+<p>A) 65
+B) 97 ✅
+C) 48
+D) 32</p>
+<h4>Q64. What is the ASCII value of &#39;0&#39; (zero)?</h4>
+<p>A) 65
+B) 97
+C) 48 ✅
+D) 32</p>
+<h4>Q65. What is the ASCII value of Space?</h4>
+<p>A) 65
+B) 97
+C) 48
+D) 32 ✅</p>
+<h4>Q66. ISCII stands for:</h4>
+<p>A) Indian Standard Code for Information Interchange ✅
+B) International Standard Code for Information Interchange
+C) Indian System Code for Information Interchange
+D) International System Code for Information</p>
+<h4>Q67. ISCII uses how many bits?</h4>
+<p>A) 7 bits
+B) 8 bits ✅
+C) 16 bits
+D) 32 bits</p>
+<h4>Q68. ISCII was designed to support:</h4>
+<p>A) Only English
+B) Indian scripts like Devanagari, Tamil, Telugu ✅
+C) European languages
+D) Chinese and Japanese</p>
+<h4>Q69. ISCII can support how many scripts at a time?</h4>
+<p>A) All scripts simultaneously
+B) One script at a time using code pages ✅
+C) Two scripts
+D) No scripts</p>
+<h4>Q70. UNICODE is a universal standard that represents characters from:</h4>
+<p>A) Only English
+B) Only European languages
+C) All languages across the world ✅
+D) Only Indian languages</p>
+<h4>Q71. UTF-8 uses how many bytes per character?</h4>
+<p>A) Fixed 1 byte
+B) Variable 1 to 4 bytes ✅
+C) Fixed 2 bytes
+D) Variable 2 to 4 bytes</p>
+<h4>Q72. UTF-16 uses how many bytes per character?</h4>
+<p>A) 1 byte
+B) 2 or 4 bytes ✅
+C) 4 bytes
+D) 1 to 4 bytes</p>
+<h4>Q73. UTF-32 uses how many bytes per character?</h4>
+<p>A) 1 byte
+B) 2 bytes
+C) 4 bytes ✅
+D) 8 bytes</p>
+<h4>Q74. UTF-8 is backward compatible with which encoding?</h4>
+<p>A) ISCII
+B) ASCII ✅
+C) EBCDIC
+D) BCD</p>
+<h4>Q75. What is the Unicode representation format for &#39;A&#39;?</h4>
+<p>A) U+0041 ✅
+B) U+0042
+C) U+0043
+D) U+0044</p>
+<h4>Q76. What is the Unicode representation for Devanagari &#39;अ&#39;?</h4>
+<p>A) U+0905 ✅
+B) U+0906
+C) U+0907
+D) U+0908</p>
+<h4>Q77. 1&#39;s complement of a binary number is obtained by:</h4>
+<p>A) Adding 1 to the number
+B) Flipping all bits ✅
+C) Subtracting 1 from the number
+D) Dividing by 2</p>
+<h4>Q78. Find the 1&#39;s complement of (1010)₂:</h4>
+<p>A) 0101 ✅
+B) 1011
+C) 0110
+D) 1100</p>
+<h4>Q79. 2&#39;s complement is obtained by:</h4>
+<p>A) Flipping all bits
+B) 1&#39;s complement + 1 ✅
+C) Subtracting 1 from 1&#39;s complement
+D) Adding 2 to the number</p>
+<h4>Q80. Find the 2&#39;s complement of (1010)₂:</h4>
+<p>A) 0101
+B) 1011
+C) 0110 ✅
+D) 1100</p>
+<h4>Q81. What is the 2&#39;s complement representation of (-5)₁₀ in 4 bits?</h4>
+<p>A) 0101
+B) 1010
+C) 1011 ✅
+D) 1101</p>
+<h4>Q82. The range of an n-bit number in 1&#39;s complement is:</h4>
+<p>A) -(2ⁿ⁻¹) to +(2ⁿ⁻¹ - 1)
+B) -(2ⁿ⁻¹ - 1) to +(2ⁿ⁻¹ - 1) ✅
+C) -(2ⁿ⁻¹) to +(2ⁿ⁻¹)
+D) 0 to (2ⁿ - 1)</p>
+<h4>Q83. The range of an n-bit number in 2&#39;s complement is:</h4>
+<p>A) -(2ⁿ⁻¹) to +(2ⁿ⁻¹ - 1) ✅
+B) -(2ⁿ⁻¹ - 1) to +(2ⁿ⁻¹ - 1)
+C) -(2ⁿ⁻¹) to +(2ⁿ⁻¹)
+D) 0 to (2ⁿ - 1)</p>
+<h4>Q84. Which representation has two representations for zero?</h4>
+<p>A) 2&#39;s complement
+B) 1&#39;s complement ✅
+C) 84-2-1 code
+D) Excess-3 code</p>
+<h4>Q85. Which representation is universally used for signed integers in computers?</h4>
+<p>A) 1&#39;s complement
+B) 2&#39;s complement ✅
+C) Sign-magnitude
+D) Gray Code</p>
+<h4>Q86. To get the magnitude of a negative number stored in 2&#39;s complement, you:</h4>
+<p>A) Take the 1&#39;s complement
+B) Take the 2&#39;s complement again ✅
+C) Add 1 to it
+D) Subtract 1 from it</p>
+<h4>Q87. Complements of binary numbers are used to perform:</h4>
+<p>A) Multiplication by addition
+B) Subtraction by addition ✅
+C) Addition by subtraction
+D) Division by multiplication</p>
+<h4>Q88. What is the 1&#39;s complement of (1111)₂?</h4>
+<p>A) 0000 ✅
+B) 1110
+C) 1000
+D) 0001</p>
+<h4>Q89. What is the 2&#39;s complement of (1111)₂?</h4>
+<p>A) 0000
+B) 1110
+C) 0001 ✅
+D) 1001</p>
+<h4>Q90. In Excess-3 code, the decimal digit 7 is represented as:</h4>
+<p>A) 0111
+B) 1000
+C) 1010 ✅
+D) 1100</p>
+<h4>Q91. In 84-2-1 code, the decimal digit 5 is represented as:</h4>
+<p>A) 0101
+B) 1011 ✅
+C) 0110
+D) 1100</p>
+<h4>Q92. The main advantage of 2&#39;s complement over 1&#39;s complement is:</h4>
+<p>A) It is easier to compute
+B) It has no separate representation for zero ✅
+C) It uses fewer bits
+D) It is faster</p>
+<h4>Q93. Which encoding scheme is universal and supports emojis and symbols?</h4>
+<p>A) ASCII
+B) ISCII
+C) UNICODE ✅
+D) BCD</p>
+<h4>Q94. UTF-8 is variable length from:</h4>
+<p>A) 1 to 2 bytes
+B) 1 to 4 bytes ✅
+C) 2 to 4 bytes
+D) 2 to 8 bytes</p>
+<h4>Q95. Which of the following is TRUE about Gray Code?</h4>
+<p>A) Two successive values differ in exactly two bits
+B) It is used for decimal arithmetic
+C) It is also called Reflected Binary Code ✅
+D) It is a weighted code</p>
+<h4>Q96. The octal number (13)₈ converted to binary is:</h4>
+<p>A) (001011)₂ ✅
+B) (001101)₂
+C) (010011)₂
+D) (011001)₂</p>
+<h4>Q97. The hexadecimal number (2B)₁₆ converted to decimal is:</h4>
+<p>A) 41
+B) 42
+C) 43 ✅
+D) 44</p>
+<h4>Q98. The decimal number (15)₁₀ converted to hexadecimal is:</h4>
+<p>A) (F)₁₆ ✅
+B) (E)₁₆
+C) (10)₁₆
+D) (15)₁₆</p>
+<h4>Q99. The binary number (1001)₂ in Gray Code is:</h4>
+<p>A) 1001
+B) 1010
+C) 1101 ✅
+D) 1110</p>
+<h4>Q100. Which of the following is a self-complementing code?</h4>
+<p>A) BCD
+B) Straight Binary
+C) ASCII
+D) Excess-3 and 84-2-1 ✅</p>
+
+    </main>
+</body>
+
+</html>

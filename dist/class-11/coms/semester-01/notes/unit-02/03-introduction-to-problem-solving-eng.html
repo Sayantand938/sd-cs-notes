@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Introduction To Problem Solving (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Problem Solving</h2>
+<p><strong>Problem Solving</strong> in computer science is the process of transforming a given problem (real-world or theoretical) into a working, efficient, and correct software solution. It is the most fundamental skill for a programmer and involves logical thinking, analysis, and systematic execution.</p>
+<hr>
+<h2>2. Steps for Problem Solving</h2>
+<p>The process of solving a problem using a computer follows a standard <strong>5-step lifecycle</strong>. This is an iterative process—meaning if a later step fails (e.g., testing), you must go back to a previous step.</p>
+<pre class="mermaid">graph TD
+    A[Step 1: Analyzing&lt;br&gt;the Problem] --&gt; B[Step 2: Developing&lt;br&gt;an Algorithm]
+    B --&gt; C[Step 3: Coding]
+    C --&gt; D[Step 4: Testing]
+    D --&gt; E{Errors Found?}
+    E --&gt;|No| F[Step 5: Successful&lt;br&gt;Solution &amp; Deployment]
+    E --&gt;|Yes| G[Step 5: Debugging]
+    G --&gt; H{Fix Logic&lt;br&gt;or Design?}
+    H --&gt;|Yes| B
+    H --&gt;|No| C
+    H --&gt;|Hardware/Environment| A</pre><hr>
+<h3>Step 1: Analyzing the Problem</h3>
+<p><strong>Definition</strong>: This is the most crucial phase. It involves understanding the problem deeply before attempting to solve it. If you misunderstand the problem, the entire solution will be wrong.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li><strong>Read and Re-read</strong>: Carefully read the problem statement multiple times.</li>
+<li><strong>Identify Inputs</strong>: What data does the problem provide? (e.g., numbers, strings, files).</li>
+<li><strong>Identify Outputs</strong>: What is the expected result? (e.g., sum, sorted list, a boolean true/false).</li>
+<li><strong>Identify Constraints</strong>: Are there any limitations? (e.g., input size, time limits, memory limits, valid ranges).</li>
+<li><strong>Stakeholder Queries</strong>: Ask &quot;what if&quot; questions to clarify ambiguous parts.</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li><strong>Problem</strong>: Calculate the area of a rectangle.</li>
+<li><strong>Analysis</strong>:<ul>
+<li>Inputs: Length ($L$) and Breadth ($B$). Must be positive real numbers.</li>
+<li>Output: Area ($A = L \times B$).</li>
+<li>Constraints: $L &gt; 0$, $B &gt; 0$.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>Step 2: Developing an Algorithm</h3>
+<p><strong>Definition</strong>: Once the problem is understood, the next step is to design a step-by-step logical procedure (the algorithm) to solve it.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li>Break down the main problem into smaller, manageable sub-problems (Modularization).</li>
+<li>Write down the exact sequence of operations.</li>
+<li>Choose the appropriate control structures: <strong>Sequence</strong>, <strong>Selection</strong> (if-else), and <strong>Iteration</strong> (loops).</li>
+<li>Represent the algorithm using:<ul>
+<li><strong>Flowcharts</strong> (graphical representation).</li>
+<li><strong>Pseudo-code</strong> (textual representation).</li>
+</ul>
+</li>
+</ol>
+<p><strong>Example</strong> (Rectangle Area Algorithm in Pseudo-code):</p>
+<pre><code>BEGIN
+    INPUT L, B
+    AREA ← L * B
+    OUTPUT AREA
+END</code></pre><hr>
+<h3>Step 3: Coding</h3>
+<p><strong>Definition</strong>: Translating the algorithm (pseudo-code/flowchart) into a specific programming language (like C, C++, Python, Java) that the computer can understand and execute.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li>Choose an appropriate programming language based on the problem domain.</li>
+<li>Write the source code following strict <strong>syntax rules</strong> (grammar of the language).</li>
+<li>Use meaningful variable names and proper indentation to make the code readable (maintainability).</li>
+<li><strong>Integrate</strong> the various modules (if the algorithm was broken into functions/procedures).</li>
+</ol>
+<p><strong>Example</strong> (Coding the Rectangle Area in Python):</p>
+<pre><code class="language-python"># Step 3: Coding
+L = float(input(&quot;Enter length: &quot;))
+B = float(input(&quot;Enter breadth: &quot;))
+Area = L * B
+print(&quot;Area is:&quot;, Area)</code></pre><hr>
+<h3>Step 4: Testing</h3>
+<p><strong>Definition</strong>: Running the program with various sets of input data (test cases) to verify that the algorithm/code produces the correct output.</p>
+<p><strong>Key Activities</strong>:</p>
+<ol>
+<li><strong>Unit Testing</strong>: Testing individual components/functions of the program.</li>
+<li><strong>Integration Testing</strong>: Testing the interaction between combined modules.</li>
+<li><strong>System Testing</strong>: Testing the entire program as a whole.</li>
+<li><strong>Types of Test Cases</strong>:<ul>
+<li><strong>Valid / Normal</strong>: Standard expected inputs (e.g., $L=5, B=10$).</li>
+<li><strong>Boundary / Edge</strong>: Values at the extreme limits (e.g., $L=0$, $B=1$).</li>
+<li><strong>Invalid / Erroneous</strong>: Incorrect data types or out-of-range values (e.g., $L=\text{&quot;abc&quot;}$).</li>
+</ul>
+</li>
+<li><strong>Expected vs Actual</strong>: Compare the actual output of the program against the manually calculated expected output.</li>
+</ol>
+<hr>
+<h3>Step 5: Debugging</h3>
+<p><strong>Definition</strong>: The systematic process of finding, isolating, and correcting <strong>errors (bugs)</strong> in the program discovered during testing.</p>
+<p><strong>Types of Errors (Bugs)</strong>:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Error Type</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+<th align="left">Detection Method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Syntax Error</strong></td>
+<td align="left">Violates the grammatical rules of the language.</td>
+<td align="left">Writing <code>prnit</code> instead of <code>print</code> in Python.</td>
+<td align="left">Compiler / Interpreter</td>
+</tr>
+<tr>
+<td align="left"><strong>Runtime Error</strong></td>
+<td align="left">Occurs during execution; crashes the program.</td>
+<td align="left">Dividing by zero (<code>10/0</code>), accessing a missing file.</td>
+<td align="left">During execution (crashes)</td>
+</tr>
+<tr>
+<td align="left"><strong>Logical Error</strong></td>
+<td align="left">Program runs without crashing but gives wrong results.</td>
+<td align="left">Using <code>L + B</code> instead of <code>L * B</code> for area.</td>
+<td align="left">Dry-run, Manual testing, Print statements. (Hardest to find)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Debugging Techniques</strong>:</p>
+<ol>
+<li><strong>Dry Run</strong>: Manually execute the code on paper with sample inputs, tracking variable values.</li>
+<li><strong>Print Statements</strong>: Insert temporary <code>print</code> commands to check variable states at various points.</li>
+<li><strong>Debugging Tools (Debuggers)</strong>: Use tools like <code>pdb</code> (Python), GDB (C/C++), or IDE built-in debuggers. They allow you to set <strong>breakpoints</strong> and step through the code line-by-line.</li>
+<li><strong>Rubber Duck Debugging</strong>: Explaining the code logic aloud to someone (or an inanimate object) often reveals the flaw.</li>
+</ol>
+<hr>
+<h2>3. Iterative Nature of Problem Solving</h2>
+<p>It is crucial to understand that problem-solving is <strong>not linear</strong>. It is a <strong>feedback loop</strong>.</p>
+<ul>
+<li>If <strong>Testing</strong> finds a logical error → you go back to <strong>Coding</strong>.</li>
+<li>If the algorithm design seems too complex or flawed → you go back to <strong>Developing the Algorithm</strong>.</li>
+<li>If the problem constraints change or were misunderstood → you go back to <strong>Analyzing the Problem</strong>.</li>
+</ul>
+<h2>4. MCQ</h2>
+<h4>Q1. Problem Solving in computer science is the process of:</h4>
+<p>A) Writing code without planning
+B) Transforming a problem into a working, efficient, and correct software solution ✅
+C) Designing hardware components
+D) Installing operating systems</p>
+<h4>Q2. What is the most fundamental skill for a programmer?</h4>
+<p>A) Typing speed
+B) Problem Solving ✅
+C) Hardware knowledge
+D) Networking</p>
+<h4>Q3. The problem-solving process follows how many steps in the standard lifecycle?</h4>
+<p>A) 3
+B) 4
+C) 5 ✅
+D) 6</p>
+<h4>Q4. The problem-solving lifecycle is described as:</h4>
+<p>A) Linear
+B) Iterative ✅
+C) Random
+D) Unidirectional</p>
+<h4>Q5. If testing finds errors, the process goes back to which step?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding or Algorithm development ✅
+D) Deployment</p>
+<h4>Q6. The first step in problem solving is:</h4>
+<p>A) Coding
+B) Testing
+C) Analyzing the Problem ✅
+D) Developing an Algorithm</p>
+<h4>Q7. Which step is described as the most crucial phase?</h4>
+<p>A) Coding
+B) Testing
+C) Analyzing the Problem ✅
+D) Debugging</p>
+<h4>Q8. If you misunderstand the problem, what will happen?</h4>
+<p>A) The entire solution will be wrong ✅
+B) Only the output will be wrong
+C) The code will not compile
+D) Nothing will happen</p>
+<h4>Q9. Which of the following is NOT a key activity in problem analysis?</h4>
+<p>A) Read and re-read the problem
+B) Identify inputs and outputs
+C) Write the final code ✅
+D) Identify constraints</p>
+<h4>Q10. In problem analysis, what should you identify about inputs?</h4>
+<p>A) Their color
+B) Their data type and source ✅
+C) Their location in memory
+D) Their file size</p>
+<h4>Q11. In problem analysis, outputs refer to:</h4>
+<p>A) The error messages
+B) The expected result ✅
+C) The input data
+D) The algorithm steps</p>
+<h4>Q12. Constraints in problem analysis refer to:</h4>
+<p>A) The programming language used
+B) Limitations like input size, time limits, memory limits ✅
+C) The output format
+D) The number of developers</p>
+<h4>Q13. For the problem &quot;Calculate the area of a rectangle&quot;, the inputs are:</h4>
+<p>A) Area only
+B) Length and Breadth ✅
+C) Length, Breadth, and Area
+D) Only Length</p>
+<h4>Q14. For the problem &quot;Calculate the area of a rectangle&quot;, what are the constraints?</h4>
+<p>A) L &gt; 0, B &gt; 0 ✅
+B) L ≥ 0, B ≥ 0
+C) L &lt; 0, B &lt; 0
+D) No constraints</p>
+<h4>Q15. The second step in problem solving is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm ✅
+C) Coding
+D) Testing</p>
+<h4>Q16. Breaking down the main problem into smaller sub-problems is called:</h4>
+<p>A) Coding
+B) Debugging
+C) Modularization ✅
+D) Testing</p>
+<h4>Q17. Which control structures are used in algorithm development?</h4>
+<p>A) Sequence, Selection, Iteration ✅
+B) Only Sequence
+C) Only Selection
+D) Only Iteration</p>
+<h4>Q18. Algorithms can be represented using:</h4>
+<p>A) Only Flowcharts
+B) Only Pseudo-code
+C) Flowcharts and Pseudo-code ✅
+D) Only C code</p>
+<h4>Q19. The rectangle area algorithm in pseudo-code uses which steps?</h4>
+<p>A) INPUT, PROCESS, OUTPUT ✅
+B) WRITE, READ, CALCULATE
+C) START, MIDDLE, END
+D) BEGIN, EXECUTE, FINISH</p>
+<h4>Q20. The third step in problem solving is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding ✅
+D) Testing</p>
+<h4>Q21. Coding is defined as:</h4>
+<p>A) Designing the algorithm
+B) Translating the algorithm into a specific programming language ✅
+C) Running the program
+D) Finding errors</p>
+<h4>Q22. While coding, what syntax rules must be followed?</h4>
+<p>A) The grammar rules of the programming language ✅
+B) The grammar rules of English
+C) No rules
+D) Only indentation rules</p>
+<h4>Q23. Using meaningful variable names and proper indentation improves:</h4>
+<p>A) Execution speed
+B) Code readability and maintainability ✅
+C) Memory usage
+D) Compilation time</p>
+<h4>Q24. The fourth step in problem solving is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Testing ✅</p>
+<h4>Q25. Testing involves running the program with:</h4>
+<p>A) Only one set of input data
+B) Various sets of input data (test cases) ✅
+C) No input data
+D) Only invalid data</p>
+<h4>Q26. Testing individual components/functions is called:</h4>
+<p>A) System Testing
+B) Integration Testing
+C) Unit Testing ✅
+D) Acceptance Testing</p>
+<h4>Q27. Testing the interaction between combined modules is called:</h4>
+<p>A) Unit Testing
+B) Integration Testing ✅
+C) System Testing
+D) Alpha Testing</p>
+<h4>Q28. Testing the entire program as a whole is called:</h4>
+<p>A) Unit Testing
+B) Integration Testing
+C) System Testing ✅
+D) Unit Testing</p>
+<h4>Q29. Valid/Normal test cases use:</h4>
+<p>A) Values at extreme limits
+B) Standard expected inputs ✅
+C) Incorrect data types
+D) Out-of-range values</p>
+<h4>Q30. Boundary/Edge test cases use:</h4>
+<p>A) Standard expected inputs
+B) Values at extreme limits ✅
+C) Incorrect data types
+D) Random values</p>
+<h4>Q31. Invalid/Erroneous test cases use:</h4>
+<p>A) Standard expected inputs
+B) Values at extreme limits
+C) Incorrect data types or out-of-range values ✅
+D) Only positive numbers</p>
+<h4>Q32. In testing, expected output is compared with:</h4>
+<p>A) The algorithm
+B) The actual output ✅
+C) The input data
+D) The pseudo-code</p>
+<h4>Q33. The fifth step in problem solving when errors are found is:</h4>
+<p>A) Coding
+B) Testing
+C) Debugging ✅
+D) Deployment</p>
+<h4>Q34. Debugging is the process of:</h4>
+<p>A) Writing new code
+B) Finding, isolating, and correcting errors ✅
+C) Designing algorithms
+D) Testing the program</p>
+<h4>Q35. Errors in programs are commonly called:</h4>
+<p>A) Features
+B) Bugs ✅
+C) Enhancements
+D) Updates</p>
+<h4>Q36. Which type of error violates the grammatical rules of the language?</h4>
+<p>A) Logical Error
+B) Runtime Error
+C) Syntax Error ✅
+D) Semantic Error</p>
+<h4>Q37. Writing <code>prnit</code> instead of <code>print</code> in Python is an example of:</h4>
+<p>A) Logical Error
+B) Runtime Error
+C) Syntax Error ✅
+D) Design Error</p>
+<h4>Q38. Syntax errors are detected by:</h4>
+<p>A) The user
+B) The compiler or interpreter ✅
+C) Runtime execution
+D) Test cases</p>
+<h4>Q39. Which type of error occurs during execution and crashes the program?</h4>
+<p>A) Syntax Error
+B) Runtime Error ✅
+C) Logical Error
+D) Compilation Error</p>
+<h4>Q40. Dividing by zero (10/0) is an example of:</h4>
+<p>A) Syntax Error
+B) Runtime Error ✅
+C) Logical Error
+D) Design Error</p>
+<h4>Q41. Which type of error causes the program to run without crashing but gives wrong results?</h4>
+<p>A) Syntax Error
+B) Runtime Error
+C) Logical Error ✅
+D) Compilation Error</p>
+<h4>Q42. Using <code>L + B</code> instead of <code>L * B</code> for area calculation is an example of:</h4>
+<p>A) Syntax Error
+B) Runtime Error
+C) Logical Error ✅
+D) Compilation Error</p>
+<h4>Q43. Which type of error is the hardest to find?</h4>
+<p>A) Syntax Error
+B) Runtime Error
+C) Logical Error ✅
+D) Compilation Error</p>
+<h4>Q44. Logical errors are detected by:</h4>
+<p>A) The compiler
+B) The interpreter
+C) Dry-run and manual testing ✅
+D) Automatic detection</p>
+<h4>Q45. Manually executing code on paper with sample inputs is called:</h4>
+<p>A) Compiling
+B) Debugging
+C) Dry Run ✅
+D) Testing</p>
+<h4>Q46. Inserting temporary print commands to check variable states is a debugging technique called:</h4>
+<p>A) Breakpoints
+B) Print Statements ✅
+C) Rubber Duck Debugging
+D) Dry Run</p>
+<h4>Q47. Debugging tools that allow setting breakpoints and stepping through code are called:</h4>
+<p>A) Compilers
+B) Interpreters
+C) Debuggers ✅
+D) Linkers</p>
+<h4>Q48. Explaining code logic aloud to someone (or an inanimate object) is called:</h4>
+<p>A) Pair Programming
+B) Code Review
+C) Rubber Duck Debugging ✅
+D) Dry Run</p>
+<h4>Q49. If testing finds a logical error, the process should go back to:</h4>
+<p>A) Analyzing the Problem
+B) Developing the Algorithm
+C) Coding ✅
+D) Deployment</p>
+<h4>Q50. If the algorithm design seems too complex or flawed, the process goes back to:</h4>
+<p>A) Analyzing the Problem
+B) Developing the Algorithm ✅
+C) Coding
+D) Testing</p>
+<h4>Q51. If problem constraints change or were misunderstood, the process goes back to:</h4>
+<p>A) Analyzing the Problem ✅
+B) Developing the Algorithm
+C) Coding
+D) Testing</p>
+<h4>Q52. The problem-solving lifecycle is best described as:</h4>
+<p>A) A straight line
+B) A feedback loop ✅
+C) A circle with no exit
+D) A random process</p>
+<h4>Q53. The 5-step problem-solving lifecycle includes:</h4>
+<p>A) Analysis, Algorithm, Coding, Testing, Debugging ✅
+B) Planning, Design, Code, Execute, Maintain
+C) Input, Process, Output, Store, Retrieve
+D) Start, Middle, End, Loop, Stop</p>
+<h4>Q54. In the problem-solving flowchart, after Testing, if no errors are found, the next step is:</h4>
+<p>A) Debugging
+B) Successful Solution &amp; Deployment ✅
+C) Coding
+D) Algorithm Development</p>
+<h4>Q55. In the problem-solving flowchart, after Debugging, if the logic needs fixing, the process goes to:</h4>
+<p>A) Analyzing the Problem
+B) Developing the Algorithm ✅
+C) Coding
+D) Testing</p>
+<h4>Q56. In the problem-solving flowchart, after Debugging, if the code needs fixing, the process goes to:</h4>
+<p>A) Analyzing the Problem
+B) Developing the Algorithm
+C) Coding ✅
+D) Testing</p>
+<h4>Q57. In the problem-solving flowchart, after Debugging, if hardware/environment issues exist, the process goes to:</h4>
+<p>A) Analyzing the Problem ✅
+B) Developing the Algorithm
+C) Coding
+D) Testing</p>
+<h4>Q58. The most crucial phase in problem solving is:</h4>
+<p>A) Coding
+B) Testing
+C) Analyzing the Problem ✅
+D) Debugging</p>
+<h4>Q59. The phase where the algorithm is translated into a specific programming language is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding ✅
+D) Testing</p>
+<h4>Q60. The phase where the program is run with various input sets is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Testing ✅</p>
+<h4>Q61. The phase where errors are found and corrected is:</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Debugging ✅</p>
+<h4>Q62. Unit Testing, Integration Testing, and System Testing are part of which phase?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Testing ✅</p>
+<h4>Q63. Which of the following is an example of a normal test case for rectangle area?</h4>
+<p>A) L=0, B=10
+B) L=-5, B=10
+C) L=5, B=10 ✅
+D) L=&quot;abc&quot;, B=10</p>
+<h4>Q64. Which of the following is an example of a boundary test case for rectangle area?</h4>
+<p>A) L=5, B=10
+B) L=0, B=10 ✅
+C) L=-5, B=10
+D) L=&quot;abc&quot;, B=10</p>
+<h4>Q65. Which of the following is an example of an invalid test case for rectangle area?</h4>
+<p>A) L=5, B=10
+B) L=0, B=10
+C) L=-5, B=10 ✅
+D) L=1, B=1</p>
+<h4>Q66. For an algorithm, the term &quot;Iterative&quot; in the context of problem solving means:</h4>
+<p>A) It uses loops
+B) It repeats steps with feedback ✅
+C) It is written in iterative language
+D) It never ends</p>
+<h4>Q67. What is the output of the rectangle area algorithm if L=5 and B=10?</h4>
+<p>A) 15
+B) 50 ✅
+C) 2
+D) 5</p>
+<h4>Q68. If the area algorithm uses <code>L + B</code> instead of <code>L * B</code>, this is a:</h4>
+<p>A) Syntax Error
+B) Runtime Error
+C) Logical Error ✅
+D) Compilation Error</p>
+<h4>Q69. Which debugging technique involves tracking variable values on paper?</h4>
+<p>A) Print Statements
+B) Using Debuggers
+C) Dry Run ✅
+D) Rubber Duck Debugging</p>
+<h4>Q70. GDB (GNU Debugger) is used for which programming language primarily?</h4>
+<p>A) Python
+B) Java
+C) C/C++ ✅
+D) JavaScript</p>
+<h4>Q71. In the problem-solving process, what should you do first when given a problem?</h4>
+<p>A) Start coding immediately
+B) Read and re-read the problem statement ✅
+C) Draw a flowchart
+D) Write test cases</p>
+<h4>Q72. Which of the following is NOT a type of error in programs?</h4>
+<p>A) Syntax Error
+B) Runtime Error
+C) Design Error ✅
+D) Logical Error</p>
+<h4>Q73. Compilation errors are another name for:</h4>
+<p>A) Syntax Errors ✅
+B) Runtime Errors
+C) Logical Errors
+D) Semantic Errors</p>
+<h4>Q74. Runtime errors are also called:</h4>
+<p>A) Compilation errors
+B) Execution errors ✅
+C) Logical errors
+D) Design errors</p>
+<h4>Q75. Logical errors are also called:</h4>
+<p>A) Compilation errors
+B) Execution errors
+C) Semantic errors ✅
+D) Syntax errors</p>
+<h4>Q76. The feedback loop in problem solving ensures:</h4>
+<p>A) The process is always linear
+B) Issues can be fixed by revisiting earlier steps ✅
+C) No changes are ever made
+D) Only testing is important</p>
+<h4>Q77. Which step comes immediately after Developing an Algorithm?</h4>
+<p>A) Analyzing the Problem
+B) Coding ✅
+C) Testing
+D) Debugging</p>
+<h4>Q78. Which step comes immediately after Coding?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Testing ✅
+D) Debugging</p>
+<h4>Q79. Which step comes immediately after Testing if errors are found?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Debugging ✅</p>
+<h4>Q80. Successful Solution &amp; Deployment happens after which step?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Testing (with no errors) ✅</p>
+<h4>Q81. In the analysis phase, &quot;Stakeholder Queries&quot; involve:</h4>
+<p>A) Asking the compiler
+B) Asking &quot;what if&quot; questions to clarify ambiguous parts ✅
+C) Asking the debugger
+D) Asking for more time</p>
+<h4>Q82. The acronym for the types of test cases is:</h4>
+<p>A) VBI (Valid, Boundary, Invalid) ✅
+B) VIB (Valid, Invalid, Boundary)
+C) BVI (Boundary, Valid, Invalid)
+D) IVB (Invalid, Valid, Boundary)</p>
+<h4>Q83. Which of the following is an example of a runtime error?</h4>
+<p>A) <code>printf(&quot;%d&quot;, x);</code> where x is undeclared
+B) <code>10 / 0</code> ✅
+C) <code>sum = a + b;</code> when it should be <code>sum = a - b;</code>
+D) <code>prnit(&quot;Hello&quot;);</code></p>
+<h4>Q84. Which of the following is an example of a syntax error?</h4>
+<p>A) <code>10 / 0</code>
+B) <code>prnit(&quot;Hello&quot;);</code> ✅
+C) <code>sum = a + b;</code> when it should be <code>sum = a - b;</code>
+D) File not found</p>
+<h4>Q85. Which of the following is an example of a logical error?</h4>
+<p>A) <code>10 / 0</code>
+B) <code>prnit(&quot;Hello&quot;);</code>
+C) <code>sum = a + b;</code> when it should be <code>sum = a - b;</code> ✅
+D) File not found</p>
+<h4>Q86. The process of finding the root cause of a bug is called:</h4>
+<p>A) Testing
+B) Coding
+C) Debugging ✅
+D) Analyzing</p>
+<h4>Q87. Breakpoints are used in which debugging technique?</h4>
+<p>A) Print Statements
+B) Dry Run
+C) Debuggers ✅
+D) Rubber Duck Debugging</p>
+<h4>Q88. Which of the following is NOT a debugging technique?</h4>
+<p>A) Dry Run
+B) Print Statements
+C) Using Debuggers
+D) Compiling ✅</p>
+<h4>Q89. In the problem-solving flowchart, what does the diamond decision represent?</h4>
+<p>A) Start/End
+B) Process
+C) Errors Found? ✅
+D) Input/Output</p>
+<h4>Q90. The rectangle area problem analysis identified constraints as:</h4>
+<p>A) L &gt; 0, B &gt; 0 ✅
+B) L &gt;= 0, B &gt;= 0
+C) L &lt; 0, B &lt; 0
+D) No constraints</p>
+<h4>Q91. If the output of the program does not match the expected output, what should be done?</h4>
+<p>A) Ignore it
+B) Run the program again
+C) Debug the program ✅
+D) Change the requirements</p>
+<h4>Q92. Which is the most time-consuming phase in problem solving?</h4>
+<p>A) Analyzing the Problem
+B) Developing an Algorithm
+C) Coding
+D) Depends on the problem, often Debugging ✅</p>
+<h4>Q93. The problem-solving process requires:</h4>
+<p>A) Only technical skills
+B) Only logical thinking
+C) Logical thinking, analysis, and systematic execution ✅
+D) Only coding skills</p>
+<h4>Q94. In the analysis phase, identifying inputs and outputs helps to:</h4>
+<p>A) Write the code directly
+B) Understand what data is given and what result is expected ✅
+C) Test the program
+D) Deploy the solution</p>
+<h4>Q95. The term &quot;Modularization&quot; in algorithm development means:</h4>
+<p>A) Writing the entire algorithm in one block
+B) Breaking the main problem into smaller, manageable sub-problems ✅
+C) Using only one module
+D) Avoiding functions</p>
+<h4>Q96. Which of the following is the correct order of the problem-solving steps?</h4>
+<p>A) Analysis → Algorithm → Coding → Testing → Debugging ✅
+B) Algorithm → Analysis → Coding → Testing → Debugging
+C) Coding → Analysis → Algorithm → Testing → Debugging
+D) Testing → Analysis → Algorithm → Coding → Debugging</p>
+<h4>Q97. The expected output in testing is calculated by:</h4>
+<p>A) The computer
+B) The compiler
+C) Manual calculation based on the problem ✅
+D) The debugger</p>
+<h4>Q98. What happens if a test case fails?</h4>
+<p>A) The program is deployed
+B) Debugging is performed to find and fix the error ✅
+C) The program is ignored
+D) The test case is deleted</p>
+<h4>Q99. The purpose of using test cases is to:</h4>
+<p>A) Make the program run faster
+B) Verify that the algorithm/code produces the correct output ✅
+C) Increase memory usage
+D) Add more features</p>
+<h4>Q100. Which of the following best describes the relationship between the 5 steps?</h4>
+<p>A) Each step is independent and does not affect others
+B) They are part of an iterative feedback loop ✅
+C) Only the first step matters
+D) The steps must always be in reverse order</p>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Introduction To Networking (Beng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 কম্পিউটার নেটওয়ার্ক: নেটওয়ার্কিং পরিচিতি</h1>
+<p><strong>ক্লাস ১১-এর বিস্তারিত স্টাডি নোটস</strong><br><em>(নম্বর বণ্টন: ১০ নম্বর | আনুমানিক পড়ার সময়: ২০ ঘণ্টা)</em></p>
+<hr>
+<h2>১. অ্যানালগ এবং ডিজিটাল যোগাযোগ (Analogue and Digital Communication)</h2>
+<p>যোগাযোগ হলো একটি ট্রান্সমিশন মিডিয়ার মাধ্যমে দুটি ডিভাইসের মধ্যে ডেটা আদান-প্রদান করা। ডেটা মূলত দুটি মৌলিক রূপে প্রেরণ করা যায়:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">বৈশিষ্ট্য</th>
+<th align="left">অ্যানালগ যোগাযোগ (Analogue)</th>
+<th align="left">ডিজিটাল যোগাযোগ (Digital)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>সিগন্যালের ধরন</strong></td>
+<td align="left">অবিচ্ছিন্ন, মসৃণ এবং তরঙ্গের মতো (Continuous, wave-like) সিগন্যাল।</td>
+<td align="left">বিচ্ছিন্ন, অ-অবিচ্ছিন্ন সিগন্যাল (বাইনারি: ০ এবং ১)।</td>
+</tr>
+<tr>
+<td align="left"><strong>উপস্থাপন</strong></td>
+<td align="left">সাইন ওয়েভ (Sine waves) দ্বারা উপস্থাপিত হয়।</td>
+<td align="left">স্কোয়ার ওয়েভ (Square waves) দ্বারা উপস্থাপিত হয়।</td>
+</tr>
+<tr>
+<td align="left"><strong>উদাহরণ</strong></td>
+<td align="left">মানুষের কণ্ঠস্বর, প্রথাগত রেডিও, ল্যান্ডলাইন টেলিফোন।</td>
+<td align="left">কম্পিউটার, স্মার্টফোন, আধুনিক ইন্টারনেট, সিডি (CD)।</td>
+</tr>
+<tr>
+<td align="left"><strong>নয়েজ বা ব্যাঘাত</strong></td>
+<td align="left">নয়েজ এবং বিকৃতির প্রতি অত্যন্ত সংবেদনশীল।</td>
+<td align="left">নয়েজের প্রতি কম সংবেদনশীল; ত্রুটি শনাক্ত ও সংশোধন করা যায়।</td>
+</tr>
+<tr>
+<td align="left"><strong>ব্যান্ডউইথ</strong></td>
+<td align="left">কম ব্যান্ডউইথ প্রয়োজন হয়।</td>
+<td align="left">বেশি ব্যান্ডউইথ প্রয়োজন হয়।</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">graph LR
+    subgraph Analogue Signal
+        A1(( )) --- A2(( )) --- A3(( )) --- A4(( )) --- A5(( ))
+        style A1 fill:#f9d0c4,stroke:#333
+        style A3 fill:#f9d0c4,stroke:#333
+        style A5 fill:#f9d0c4,stroke:#333
+    end
+    
+    subgraph Digital Signal
+        D1[1] --- D2[0] --- D3[1] --- D4[1] --- D5[0]
+        style D1 fill:#d4e6f1,stroke:#333
+        style D2 fill:#d4e6f1,stroke:#333
+        style D3 fill:#d4e6f1,stroke:#333
+        style D4 fill:#d4e6f1,stroke:#333
+        style D5 fill:#d4e6f1,stroke:#333
+    end
+    
+    Analogue[&quot;Continuous Wave&lt;br/&gt;(e.g., Voice)&quot;] --&gt; Digital[&quot;Discrete Bits&lt;br/&gt;(e.g., Computer Data)&quot;]</pre><p><em>(দ্রষ্টব্য: অ্যানালগ ডায়াগ্রামটি ধারণাগতভাবে একটি মসৃণ, অবিচ্ছিন্ন তরঙ্গ নির্দেশ করে, যেখানে ডিজিটাল ডায়াগ্রামটি বিচ্ছিন্ন, ধাপের মতো বাইনারি মান নির্দেশ করে।)</em></p>
+<hr>
+<h2>২. যোগাযোগের ধরন (Mode of Communication)</h2>
+<p>এটি দুটি সংযুক্ত ডিভাইসের মধ্যে ডেটা প্রবাহের দিক নির্দেশ করে।</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">মোড</th>
+<th align="left">প্রবাহের দিক</th>
+<th align="left">বিবরণ</th>
+<th align="left">বাস্তব জীবনের উদাহরণ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>সিমপ্লেক্স (Simplex)</strong></td>
+<td align="left">শুধুমাত্র একমুখী</td>
+<td align="left">ডেটা শুধুমাত্র এক দিকে প্রবাহিত হয়। একটি ডিভাইস কঠোরভাবে প্রেরক (Sender), অন্যটি গ্রাহক (Receiver)।</td>
+<td align="left">কিবোর্ড থেকে CPU, রেডিও সম্প্রচার, টিভি।</td>
+</tr>
+<tr>
+<td align="left"><strong>হাফ ডুপ্লেক্স (Half Duplex)</strong></td>
+<td align="left">দ্বিমুখী, কিন্তু একসাথে নয়</td>
+<td align="left">উভয় ডিভাইস পাঠাতে ও গ্রহণ করতে পারে, কিন্তু <strong>একই সময়ে নয়</strong>। যখন একটি পাঠায়, অন্যটিকে অপেক্ষা করতে হয়।</td>
+<td align="left">ওয়াকি-টকি, সিবি রেডিও।</td>
+</tr>
+<tr>
+<td align="left"><strong>ফুল ডুপ্লেক্স (Full Duplex)</strong></td>
+<td align="left">একই সময়ে দ্বিমুখী</td>
+<td align="left">উভয় ডিভাইস <strong>একই সময়ে</strong> ডেটা পাঠাতে ও গ্রহণ করতে পারে।</td>
+<td align="left">মোবাইল ফোন, আধুনিক ইথারনেট নেটওয়ার্ক।</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">flowchart LR
+    subgraph Simplex
+        S1[Sender] ==&gt;|Data flows one way| S2[Receiver]
+    end
+
+    subgraph Half_Duplex[&quot;Half Duplex&quot;]
+        H1[Device A] &lt;-.-&gt;|Data flows both ways, but ONE AT A TIME| H2[Device B]
+    end
+
+    subgraph Full_Duplex[&quot;Full Duplex&quot;]
+        F1[Device A] &lt;==&gt;|Data flows both ways SIMULTANEOUSLY| F2[Device B]
+    end</pre><hr>
+<h2>৩. নেটওয়ার্ক আর্কিটেকচার (Network Architecture)</h2>
+<p>নেটওয়ার্ক আর্কিটেকচার সংজ্ঞায়িত করে যে একটি নেটওয়ার্কে কম্পিউটারগুলো কীভাবে সাজানো থাকে এবং কীভাবে কাজ বণ্টন করা হয়।</p>
+<h3>ক. ক্লায়েন্ট-সার্ভার নেটওয়ার্ক (Client-Server Network)</h3>
+<ul>
+<li><strong>ধারণা</strong>: একটি কেন্দ্রীভূত মডেল যেখানে একটি শক্তিশালী কম্পিউটার (<strong>সার্ভার</strong>) রিসোর্স, সেবা বা ডেটা প্রদান করে এবং অন্য কম্পিউটারগুলো (<strong>ক্লায়েন্ট</strong>) সেগুলো অনুরোধ করে ব্যবহার করে।</li>
+<li><strong>সুবিধা</strong>: কেন্দ্রীভূত নিরাপত্তা, ডেটা ব্যাকআপ করা সহজ, স্কেলেবল (বড় করা সহজ)।</li>
+<li><strong>অসুবিধা</strong>: স্থাপন করতে ব্যয়বহুল, সার্ভার বন্ধ হলে পুরো নেটওয়ার্ক প্রভাবিত হয় (Single point of failure)।</li>
+<li><strong>উদাহরণ</strong>: ওয়েব ব্রাউজিং (আপনার ব্রাউজার ক্লায়েন্ট, গুগলের কম্পিউটার সার্ভার), স্কুলের কম্পিউটার ল্যাব।</li>
+</ul>
+<h3>খ. পিয়ার-টু-পিয়ার নেটওয়ার্ক (Peer-to-Peer / P2P Network)</h3>
+<ul>
+<li><strong>ধারণা</strong>: একটি বিকেন্দ্রীভূত মডেল যেখানে সব কম্পিউটার (পিয়ার) সমান মর্যাদার। প্রতিটি কম্পিউটার একই সাথে ক্লায়েন্ট এবং সার্ভার হিসেবে কাজ করতে পারে এবং সরাসরি অন্যদের সাথে রিসোর্স শেয়ার করতে পারে।</li>
+<li><strong>সুবিধা</strong>: স্থাপন করতে সস্তা, কোনো কেন্দ্রীয় সার্ভারের প্রয়োজন নেই, কনফিগার করা সহজ।</li>
+<li><strong>অসুবিধা</strong>: নিরাপত্তা দুর্বল, ব্যাকআপ করা কঠিন, বড় নেটওয়ার্কের জন্য উপযুক্ত নয়।</li>
+<li><strong>উদাহরণ</strong>: ফাইল শেয়ারিংয়ের জন্য হোম ওয়াই-ফাই নেটওয়ার্ক, বিটটরেন্ট (BitTorrent)।</li>
+</ul>
+<pre class="mermaid">flowchart TD
+    subgraph Client-Server
+        CS_Server[(Central Server)]
+        CS_Client1[Client 1]
+        CS_Client2[Client 2]
+        CS_Client3[Client 3]
+        CS_Server --&gt;|Provides Service| CS_Client1
+        CS_Server --&gt;|Provides Service| CS_Client2
+        CS_Server --&gt;|Provides Service| CS_Client3
+    end
+
+    subgraph Peer-to-Peer
+        P2P_1((Peer 1))
+        P2P_2((Peer 2))
+        P2P_3((Peer 3))
+        P2P_1 &lt;--&gt;|Shares equally| P2P_2
+        P2P_2 &lt;--&gt;|Shares equally| P2P_3
+        P2P_3 &lt;--&gt;|Shares equally| P2P_1
+    end</pre><hr>
+<h2>৪. সিরিয়াল এবং প্যারালাল যোগাযোগ (Serial and Parallel Communication)</h2>
+<p>এটি নির্দেশ করে যে একটি যোগাযোগ চ্যানেলের ওপর দিয়ে কীভাবে বিট (bits) ভৌতভাবে প্রেরণ করা হয়।</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">বৈশিষ্ট্য</th>
+<th align="left">সিরিয়াল যোগাযোগ (Serial)</th>
+<th align="left">প্যারালাল যোগাযোগ (Parallel)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>ট্রান্সমিশন</strong></td>
+<td align="left">বিটগুলো <strong>একটির পর একটি</strong> করে একটি <strong>একক তার/চ্যানেল</strong> দিয়ে পাঠানো হয়।</td>
+<td align="left">একাধিক বিট <strong>একই সময়ে</strong> <strong>একাধিক তার/চ্যানেল</strong> দিয়ে পাঠানো হয়।</td>
+</tr>
+<tr>
+<td align="left"><strong>গতি (Speed)</strong></td>
+<td align="left">স্বল্প দূরত্বের জন্য ধীর, কিন্তু দীর্ঘ দূরত্বের জন্য <strong>দ্রুত এবং বেশি নির্ভরযোগ্য</strong> (কোনো স্কিউ বা বিচ্যুতি হয় না)।</td>
+<td align="left">স্বল্প দূরত্বের জন্য দ্রুত, কিন্তু দীর্ঘ দূরত্বে <strong>স্কিউ (Skew)</strong> বা বিট ভিন্ন সময়ে পৌঁছানোর সমস্যায় পড়ে।</td>
+</tr>
+<tr>
+<td align="left"><strong>খরচ</strong></td>
+<td align="left">সস্তা (কম তার বা কেবল প্রয়োজন)।</td>
+<td align="left">বেশি ব্যয়বহুল (চওড়া, বহু-তারের কেবল প্রয়োজন)।</td>
+</tr>
+<tr>
+<td align="left"><strong>উদাহরণ</strong></td>
+<td align="left">USB, SATA, ইথারনেট, ফাইবার অপটিক্স।</td>
+<td align="left">পুরনো প্রিন্টার পোর্ট (LPT), IDE হার্ড ড্রাইভ কেবল।</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">flowchart LR
+    subgraph Serial
+        direction LR
+        SB1[1] --&gt; SB2[0] --&gt; SB3[1] --&gt; SB4[0]
+        SWire[Single Wire]
+    end
+
+    subgraph Parallel
+        direction LR
+        PB1[1] --&gt; PB1_End[1]
+        PB2[0] --&gt; PB2_End[0]
+        PB3[1] --&gt; PB3_End[1]
+        PB4[0] --&gt; PB4_End[0]
+        PWire[Multiple Wires]
+    end
+    
+    SerialNote[&quot;One bit at a time&quot;] --- Serial
+    ParallelNote[&quot;Multiple bits at once&quot;] --- Parallel</pre><hr>
+<h2>৫. যোগাযোগ মাধ্যমের ক্ষমতা পরিমাপ (Measuring Capacity of Communication Media)</h2>
+<p>একটি নেটওয়ার্ক কতটা ডেটা পরিচালনা করতে পারে তা বোঝার জন্য আমরা তিনটি মূল পরিভাষা ব্যবহার করি:</p>
+<ol>
+<li><strong>ব্যান্ডউইথ (Bandwidth)</strong>: <ul>
+<li><strong>সংজ্ঞা</strong>: একটি নির্দিষ্ট সময়ে একটি নেটওয়ার্ক পথের মধ্য দিয়ে সর্বোচ্চ যে হারে ডেটা স্থানান্তর করা যায়। </li>
+<li><strong>একক</strong>: বিটস পার সেকেন্ড (bps), Kbps, Mbps, Gbps.</li>
+<li><strong>উপমা</strong>: একটি জলের পাইপের প্রস্থ। পাইপ যত চওড়া (বেশি ব্যান্ডউইথ), এর মধ্য দিয়ে তত বেশি জল (ডেটা) প্রবাহিত হতে পারে।</li>
+</ul>
+</li>
+<li><strong>চ্যানেল ক্যাপাসিটি (Channel Capacity)</strong>: <ul>
+<li><strong>সংজ্ঞা</strong>: আদর্শ পরিস্থিতিতে একটি নির্দিষ্ট যোগাযোগ চ্যানেলের মধ্য দিয়ে ত্রুটিমুক্ত ডেটা প্রেরণের <em>তাত্ত্বিক সর্বোচ্চ</em> হার (শ্যাননের উপপাদ্য দ্বারা সংজ্ঞায়িত)। এটি ব্যান্ডউইথ এবং সিগন্যাল-টু-নয়েজ রেশিও (SNR)-এর ওপর নির্ভর করে।</li>
+<li><strong>একক</strong>: বিটস পার সেকেন্ড (bps)।</li>
+</ul>
+</li>
+<li><strong>বড রেট (Baud Rate)</strong>: <ul>
+<li><strong>সংজ্ঞা</strong>: একটি যোগাযোগ চ্যানেলে প্রতি সেকেন্ডে <strong>সিগন্যাল পরিবর্তনের</strong> (বা সিম্বলের) সংখ্যা। </li>
+<li><strong>একক</strong>: বড (Baud) বা সিম্বলস পার সেকেন্ড।</li>
+<li><strong>গুরুত্বপূর্ণ বিষয়</strong>: বড রেট <strong>সর্বদা</strong> বিট রেট (bps)-এর সমান হয় না। যদি একটি সিগন্যাল পরিবর্তন ১ বিট নির্দেশ করে, তবে Baud = bps। যদি একটি সিগন্যাল পরিবর্তন ৪ বিট নির্দেশ করে (জটিল মডুলেশন ব্যবহার করে), তবে bps = ৪ × Baud rate.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>৬. সিঙ্ক্রোনাস এবং অ্যাসিঙ্ক্রোনাস ট্রান্সমিশন মোড (Synchronous and Asynchronous Transmission Mode)</h2>
+<p>এটি সংজ্ঞায়িত করে যে কীভাবে প্রেরক এবং গ্রাহক ডেটা ট্রান্সমিশনের সময়ের (timing) সমন্বয় সাধন করে।</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">বৈশিষ্ট্য</th>
+<th align="left">সিঙ্ক্রোনাস ট্রান্সমিশন (Synchronous)</th>
+<th align="left">অ্যাসিঙ্ক্রোনাস ট্রান্সমিশন (Asynchronous)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>ডেটা ইউনিট</strong></td>
+<td align="left">ডেটা <strong>ব্লক বা ফ্রেম</strong> আকারে প্রেরণ করে।</td>
+<td align="left">ডেটা <strong>একটি বাইট (বা ক্যারেক্টার)</strong> করে প্রেরণ করে।</td>
+</tr>
+<tr>
+<td align="left"><strong>টাইমিং/ক্লক</strong></td>
+<td align="left">প্রেরক ও গ্রাহককে পুরোপুরি সিঙ্ক্রোনাইজড রাখতে একটি <strong>সাধারণ ক্লক সিগন্যাল</strong> ব্যবহার করে।</td>
+<td align="left">কোনো সাধারণ ক্লক ব্যবহার করে <strong>না</strong>। প্রতিটি বাইটকে ফ্রেম করতে <strong>স্টার্ট (Start)</strong> এবং <strong>স্টপ (Stop)</strong> বিট ব্যবহার করে।</td>
+</tr>
+<tr>
+<td align="left"><strong>ওভারহেড (Overhead)</strong></td>
+<td align="left">কম ওভারহেড (প্রতিটি বাইটের জন্য স্টার্ট/স্টপ বিট নেই), তাই বড় ডেটার জন্য অত্যন্ত দক্ষ।</td>
+<td align="left">বেশি ওভারহেড (প্রতিটি বাইটের জন্য ২-৩টি অতিরিক্ত বিট), তাই কম দক্ষ।</td>
+</tr>
+<tr>
+<td align="left"><strong>গতি</strong></td>
+<td align="left">উচ্চ গতি, উচ্চ-কার্যক্ষমতা সম্পন্ন নেটওয়ার্কে ব্যবহৃত হয়।</td>
+<td align="left">নিম্ন গতি, সাধারণ ও কম খরচের ডিভাইসে ব্যবহৃত হয়।</td>
+</tr>
+<tr>
+<td align="left"><strong>উদাহরণ</strong></td>
+<td align="left">ফাইবার অপটিক যোগাযোগ, আধুনিক LAN.</td>
+<td align="left">কিবোর্ড ইনপুট, পুরনো মডেম, RS-232 সিরিয়াল পোর্ট।</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">sequenceDiagram
+    participant S as Synchronous
+    participant A as Asynchronous
+    
+    note over S: [Clock] [Sync] [Data Block 1] [Data Block 2] [Sync]
+    note over A: [Start] [Data Byte] [Stop] [Start] [Data Byte] [Stop]</pre><hr>
+<h2>৭. বেসব্যান্ড এবং ব্রডব্যান্ড নেটওয়ার্ক (Baseband and Broadband Network)</h2>
+<p>এই পরিভাষাগুলো বর্ণনা করে যে কীভাবে একটি ট্রান্সমিশন মিডিয়ার ক্ষমতা (ব্যান্ডউইথ) ব্যবহার করা হয়।</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">বৈশিষ্ট্য</th>
+<th align="left">বেসব্যান্ড ট্রান্সমিশন (Baseband)</th>
+<th align="left">ব্রডব্যান্ড ট্রান্সমিশন (Broadband)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>সিগন্যালের ধরন</strong></td>
+<td align="left"><strong>ডিজিটাল</strong> সিগন্যাল।</td>
+<td align="left"><strong>অ্যানালগ</strong> সিগন্যাল (প্রায়শই মডুলেশনের মাধ্যমে ডিজিটাল ডেটা বহন করে)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ব্যান্ডউইথ ব্যবহার</strong></td>
+<td align="left">একটি <strong>একক সিগন্যালের</strong> জন্য মিডিয়ার <strong>সম্পূর্ণ ব্যান্ডউইথ</strong> ব্যবহার করে।</td>
+<td align="left">ব্যান্ডউইথকে <strong>একাধিক স্বাধীন চ্যানেলে</strong> বিভক্ত করে (ফ্রিকোয়েন্সি ডিভিশন মাল্টিপ্লেক্সিং - FDM ব্যবহার করে)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ডেটার দিক</strong></td>
+<td align="left">সাধারণত হাফ-ডুপ্লেক্স বা ফুল-ডুপ্লেক্স (প্রকৃত ফুল-ডুপ্লেক্সের জন্য দুটি কেবল প্রয়োজন)।</td>
+<td align="left">ফুল-ডুপ্লেক্স (পাঠানো ও গ্রহণ করার জন্য ভিন্ন ফ্রিকোয়েন্সি ব্যবহার করে)।</td>
+</tr>
+<tr>
+<td align="left"><strong>দূরত্ব</strong></td>
+<td align="left">স্বল্প দূরত্বের জন্য উপযুক্ত (যেমন: একটি বিল্ডিংয়ের ভেতরে)।</td>
+<td align="left">দীর্ঘ দূরত্বের জন্য উপযুক্ত (সহজেই অ্যাম্প্লিফাই বা শক্তিশালী করা যায়)।</td>
+</tr>
+<tr>
+<td align="left"><strong>উদাহরণ</strong></td>
+<td align="left">ইথারনেট LAN (যেমন: 100BASE-TX), USB.</td>
+<td align="left">কেবল টিভি, DSL ইন্টারনেট, ওয়াই-ফাই (Wi-Fi), সেলুলার নেটওয়ার্ক।</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>📝 দ্রুত রিভিশন সারাংশ (চিট শিট)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">ধারণা (Concept)</th>
+<th align="left">মনে রাখার মূল বাক্য (Key Phrase)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>অ্যানালগ (Analogue)</strong></td>
+<td align="left">অবিচ্ছিন্ন তরঙ্গ, নয়েজ-প্রবণ (মানুষের কণ্ঠস্বর)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ডিজিটাল (Digital)</strong></td>
+<td align="left">বিচ্ছিন্ন ০ এবং ১, নয়েজ-প্রতিরোধী (কম্পিউটার)।</td>
+</tr>
+<tr>
+<td align="left"><strong>সিমপ্লেক্স (Simplex)</strong></td>
+<td align="left">একমুখী রাস্তা (রেডিও)।</td>
+</tr>
+<tr>
+<td align="left"><strong>হাফ ডুপ্লেক্স (Half Duplex)</strong></td>
+<td align="left">দ্বিমুখী, কিন্তু একসাথে নয় (ওয়াকি-টকি)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ফুল ডুপ্লেক্স (Full Duplex)</strong></td>
+<td align="left">দ্বিমুখী, একই সময়ে (মোবাইল ফোন)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ক্লায়েন্ট-সার্ভার (Client-Server)</strong></td>
+<td align="left">কেন্দ্রীভূত, বস-কর্মী সম্পর্ক।</td>
+</tr>
+<tr>
+<td align="left"><strong>পিয়ার-টু-পিয়ার (P2P)</strong></td>
+<td align="left">বিকেন্দ্রীভূত, সবাই সমান।</td>
+</tr>
+<tr>
+<td align="left"><strong>সিরিয়াল (Serial)</strong></td>
+<td align="left">এক লেনের রাস্তা, একবারে একটি গাড়ি (USB)।</td>
+</tr>
+<tr>
+<td align="left"><strong>প্যারালাল (Parallel)</strong></td>
+<td align="left">মাল্টি-লেন হাইওয়ে, একসাথে একাধিক গাড়ি (পুরনো প্রিন্টার)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ব্যান্ডউইথ (Bandwidth)</strong></td>
+<td align="left">সর্বোচ্চ ডেটা ট্রান্সফার রেট (পাইপের প্রস্থ)।</td>
+</tr>
+<tr>
+<td align="left"><strong>বড (Baud)</strong></td>
+<td align="left">প্রতি সেকেন্ডে সিগন্যাল পরিবর্তন (সর্বদা bps-এর সমান নয়)।</td>
+</tr>
+<tr>
+<td align="left"><strong>সিঙ্ক্রোনাস (Synchronous)</strong></td>
+<td align="left">ব্লক ট্রান্সমিশন, শেয়ার্ড ক্লক, অত্যন্ত দক্ষ।</td>
+</tr>
+<tr>
+<td align="left"><strong>অ্যাসিঙ্ক্রোনাস (Asynchronous)</strong></td>
+<td align="left">বাইট-বাই-বাইট, স্টার্ট/স্টপ বিট, সরল।</td>
+</tr>
+<tr>
+<td align="left"><strong>বেসব্যান্ড (Baseband)</strong></td>
+<td align="left">ডিজিটাল, সম্পূর্ণ ব্যান্ডউইথ, একক সিগন্যাল (LAN)।</td>
+</tr>
+<tr>
+<td align="left"><strong>ব্রডব্যান্ড (Broadband)</strong></td>
+<td align="left">অ্যানালগ, বিভক্ত ব্যান্ডউইথ, একাধিক সিগন্যাল (কেবল/DSL)।</td>
+</tr>
+</tbody></table></div>
+<hr>
+
+    </main>
+</body>
+
+</html>

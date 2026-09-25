@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>02 Transmission Media (Beng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 কম্পিউটার নেটওয়ার্ক: ট্রান্সমিশন মিডিয়া (Transmission Media)</h1>
+<p><strong>ক্লাস ১১-এর বিস্তারিত স্টাডি নোটস</strong><br><em>(আনুমানিক পড়ার সময়: ৩ ঘণ্টা)</em></p>
+<hr>
+<h2>১. ট্রান্সমিশন মিডিয়া পরিচিতি (Introduction to Transmission Media)</h2>
+<p><strong>ট্রান্সমিশন মিডিয়া</strong> বলতে নেটওয়ার্কে একটি প্রেরক (Sender) থেকে গ্রাহকের (Receiver) কাছে ডেটা প্রেরণের ভৌত পথ বা চ্যানেলকে বোঝায়। এটি প্রধানত দুই শ্রেণিতে বিভক্ত:</p>
+<ol>
+<li><strong>গাইডেড মিডিয়া (Guided Media / Wired)</strong>: ডেটা একটি কঠিন ভৌত মাধ্যম (কেবল বা তার)-এর মধ্য দিয়ে প্রবাহিত হয়।</li>
+<li><strong>আনগাইডেড মিডিয়া (Unguided Media / Wireless)</strong>: ডেটা ইলেক্ট্রোম্যাগনেটিক তরঙ্গ ব্যবহার করে কোনো ভৌত পরিবাহী ছাড়াই বাতাস বা শূন্যস্থানের মধ্য দিয়ে প্রবাহিত হয়।</li>
+</ol>
+<pre class="mermaid">graph TD
+    A[Transmission Media] --&gt; B[Guided / Wired Media]
+    A --&gt; C[Unguided / Wireless Media]
+    
+    B --&gt; B1[Twisted Pair Cable]
+    B --&gt; B2[Co-axial Cable]
+    B --&gt; B3[Fiber Optic Cable]
+    
+    C --&gt; C1[Radio Waves]
+    C --&gt; C2[Microwaves]
+    C --&gt; C3[Infrared]
+    C --&gt; C4[Satellite Communication]</pre><hr>
+<h2>২. তারযুক্ত যোগাযোগ মাধ্যম (Wired Communication Media / Guided Media)</h2>
+<p>গাইডেড মিডিয়ায় সিগন্যালগুলো একটি নির্দিষ্ট ভৌত লিঙ্কের (তার) মধ্যে দিয়ে পরিচালিত ও সীমাবদ্ধ থাকে।</p>
+<h3>ক. টুইস্টেড পেয়ার কেবল (Twisted Pair Cable)</h3>
+<p>এতে দুটি অন্তরক (insulated) তামার তার একসাথে পাকানো (twisted) থাকে, যাতে ইলেক্ট্রোম্যাগনেটিক ইন্টারফারেন্স (EMI) এবং ক্রসটক (crosstalk) কমানো যায়।</p>
+<ul>
+<li><strong>প্রকারভেদ</strong>: <ul>
+<li><strong>UTP (Unshielded Twisted Pair)</strong>: কোনো অতিরিক্ত শিল্ডিং থাকে না (যেমন: সাধারণ ইথারনেট LAN কেবল)।</li>
+<li><strong>STP (Shielded Twisted Pair)</strong>: ভালো নয়েজ প্রতিরোধের জন্য ধাতব ফয়েল বা বোনা শিল্ড থাকে।</li>
+</ul>
+</li>
+<li><strong>সুবিধা</strong>: সস্তা, ইনস্টল করা সহজ, নমনীয় (flexible)।</li>
+<li><strong>অসুবিধা</strong>: দীর্ঘ দূরত্বে উচ্চ অ্যাটেনুয়েশন (সিগন্যাল লস), EMI-এর প্রতি সংবেদনশীল (বিশেষ করে UTP), ফাইবারের তুলনায় ব্যান্ডউইথ কম।</li>
+<li><strong>উদাহরণ</strong>: টেলিফোন লাইন, লোকাল এরিয়া নেটওয়ার্ক (LAN / Cat5e, Cat6 কেবল)।</li>
+</ul>
+<h3>খ. কো-এক্সিয়াল কেবল (Co-axial Cable)</h3>
+<p>এতে একটি কেন্দ্রীয় কঠিন তামার পরিবাহী থাকে, যার চারপাশে একটি অন্তরক স্তর, একটি বোনা ধাতব শিল্ড এবং সবশেষে একটি বাইরের প্লাস্টিকের জ্যাকেট থাকে।</p>
+<ul>
+<li><strong>সুবিধা</strong>: টুইস্টেড পেয়ারের তুলনায় EMI-এর বিরুদ্ধে ভালো সুরক্ষা, টুইস্টেড পেয়ারের চেয়ে বেশি ব্যান্ডউইথ এবং দীর্ঘ দূরত্ব সমর্থন করে।</li>
+<li><strong>অসুবিধা</strong>: মোটা এবং কম নমনীয়, টুইস্টেড পেয়ারের চেয়ে ব্যয়বহুল, ইনস্টল করা কিছুটা কঠিন।</li>
+<li><strong>উদাহরণ</strong>: কেবল টিভি নেটওয়ার্ক, পুরনো ইথারনেট নেটওয়ার্ক (10BASE2), ব্রডব্যান্ড ইন্টারনেট সংযোগ।</li>
+</ul>
+<h3>গ. ফাইবার অপটিক কেবল (Fiber Optic Cable)</h3>
+<p>এটি অত্যন্ত পাতলা কাঁচ বা প্লাস্টিকের একটি কোর (Core) দিয়ে তৈরি, যার চারপাশে কাঁচের একটি স্তর থাকে যাকে <strong>ক্ল্যাডিং (Cladding)</strong> বলে এবং একটি সুরক্ষামূলক বাইরের জ্যাকেট থাকে।</p>
+<ul>
+<li><strong>কাজের নীতি</strong>: <strong>পূর্ণ অভ্যন্তরীণ প্রতিফলন (Total Internal Reflection)</strong>-এর নীতি ব্যবহার করে আলোর পালস (pulses of light) হিসেবে ডেটা প্রেরণ করে।</li>
+<li><strong>সুবিধা</strong>: <ul>
+<li>সর্বোচ্চ ব্যান্ডউইথ এবং দ্রুততম ডেটা ট্রান্সফার গতি।</li>
+<li>ইলেক্ট্রোম্যাগনেটিক ইন্টারফারেন্স (EMI) এবং রেডিও ফ্রিকোয়েন্সি ইন্টারফারেন্স দ্বারা প্রভাবিত হয় না।</li>
+<li>অত্যন্ত নিরাপদ (ট্যাপ করা বা চুরি করা খুব কঠিন)।</li>
+<li>সিগন্যাল অ্যাটেনুয়েশন নগণ্য (রিপিটার ছাড়াই দশ কিলোমিটারেরও বেশি দূরত্ব অতিক্রম করতে পারে)।</li>
+</ul>
+</li>
+<li><strong>অসুবিধা</strong>: অত্যন্ত ব্যয়বহুল, ভঙ্গুর (fragile), ইনস্টলেশন এবং স্প্লাইসিংয়ের জন্য উচ্চ দক্ষ কারিগরের প্রয়োজন হয়।</li>
+<li><strong>উদাহরণ</strong>: ইন্টারনেট ব্যাকবোন নেটওয়ার্ক, সমুদ্রের তলদেশের কেবল (undersea cables), উচ্চ-গতির FTTH (Fiber to the Home) সংযোগ।</li>
+</ul>
+<hr>
+<h2>৩. বেতার যোগাযোগ মাধ্যম (Wireless Communication Media / Unguided Media)</h2>
+<p>আনগাইডেড মিডিয়ায় কোনো ভৌত পরিবাহী ছাড়াই বাতাস বা শূন্যস্থানের মধ্য দিয়ে ইলেক্ট্রোম্যাগনেটিক তরঙ্গ ব্যবহার করে ডেটা প্রেরণ করা হয়।</p>
+<h3>ক. রেডিও তরঙ্গ (Radio Waves)</h3>
+<p>বেতার স্পেকট্রামে সর্বনিম্ন ফ্রিকোয়েন্সি এবং দীর্ঘতম তরঙ্গদৈর্ঘ্য বিশিষ্ট ইলেক্ট্রোম্যাগনেটিক তরঙ্গ। এগুলো <strong>সর্বমুখী (Omni-directional)</strong>, অর্থাৎ সব দিকে ছড়িয়ে পড়ে।</p>
+<ul>
+<li><strong>সুবিধা</strong>: দেয়াল ও বাধা ভেদ করতে পারে, বাস্তবায়ন করতে সস্তা, বিস্তৃত কভারেজ এলাকা।</li>
+<li><strong>অসুবিধা</strong>: কম ব্যান্ডউইথ, অন্যান্য ডিভাইস থেকে আসা ইন্টারফারেন্সের প্রতি অত্যন্ত সংবেদনশীল, কম নিরাপদ (রেঞ্জের মধ্যে যেকেউ আটকাতে পারে)।</li>
+<li><strong>উদাহরণ</strong>: AM/FM রেডিও সম্প্রচার, ওয়াই-ফাই (Wi-Fi 2.4 GHz), ব্লুটুথ, ওয়াকি-টকি।</li>
+</ul>
+<h3>খ. মাইক্রোওয়েভ (Microwaves)</h3>
+<p>উচ্চ-ফ্রিকোয়েন্সির ইলেক্ট্রোম্যাগনেটিক তরঙ্গ যা সরলরেখায় চলে। এগুলো <strong>একমুখী (Uni-directional)</strong> এবং প্রেরক ও গ্রাহকের মধ্যে <strong>লাইন-অফ-সাইট (Line-of-Sight / LOS)</strong> বা সরাসরি দৃশ্যমান পথের প্রয়োজন হয়।</p>
+<ul>
+<li><strong>প্রকারভেদ</strong>: <ul>
+<li><em>টারেস্ট্রিয়াল মাইক্রোওয়েভ (Terrestrial)</em>: ভূমি-ভিত্তিক টাওয়ার ব্যবহার করে (পৃথিবীর বক্রতার কারণে প্রতি ৩০-৫০ কিমি অন্তর টাওয়ার প্রয়োজন)।</li>
+<li><em>স্যাটেলাইট মাইক্রোওয়েভ (Satellite)</em>: রিলে স্টেশন হিসেবে উপগ্রহ ব্যবহার করে (নিচে বিস্তারিত)।</li>
+</ul>
+</li>
+<li><strong>সুবিধা</strong>: উচ্চ ব্যান্ডউইথ, ভৌত কেবল পাতার প্রয়োজন নেই, পয়েন্ট-টু-পয়েন্ট যোগাযোগের জন্য উপযুক্ত।</li>
+<li><strong>অসুবিধা</strong>: কঠোর Line-of-Sight (LOS) প্রয়োজন, ভবন বা পাহাড় দ্বারা সহজেই অবরুদ্ধ হয়, ভারী বৃষ্টি বা কুয়াশা দ্বারা প্রভাবিত হয় (Rain fade)।</li>
+<li><strong>উদাহরণ</strong>: মোবাইল ফোন নেটওয়ার্ক (4G/5G টাওয়ার), এক ভবন থেকে অন্য ভবনে পয়েন্ট-টু-পয়েন্ট লিঙ্ক, রাডার।</li>
+</ul>
+<h3>গ. ইনফ্রারেড (Infrared / IR)</h3>
+<p>দৃশ্যমান আলোর ঠিক নিচের কম ফ্রিকোয়েন্সির আলোক তরঙ্গ ব্যবহার করে। এটি কঠোরভাবে <strong>স্বল্প-পরিসরের (Short-range)</strong> এবং <strong>লাইন-অফ-সাইট (LOS)</strong> প্রয়োজন হয়।</p>
+<ul>
+<li><strong>সুবিধা</strong>: অত্যন্ত সস্তা, নিরাপদ (দেয়াল ভেদ করতে পারে না, তাই একটি ঘরের মধ্যেই সীমাবদ্ধ থাকে), রেডিও ডিভাইসের সাথে কোনো ইন্টারফারেন্স হয় না।</li>
+<li><strong>অসুবিধা</strong>: খুব স্বল্প পরিসর (কয়েক মিটার), সরাসরি লাইন-অফ-সাইট প্রয়োজন, বাধা বা উজ্জ্বল সূর্যালোক দ্বারা সহজেই বাধাগ্রস্ত হয়।</li>
+<li><strong>উদাহরণ</strong>: টিভি রিমোট কন্ট্রোল, ওয়্যারলেস মাউস/কিবোর্ড, স্বল্প-পরিসরের ডেটা ট্রান্সফার (পুরনো মোবাইল ফোন)।</li>
+</ul>
+<h3>ঘ. স্যাটেলাইট যোগাযোগ (Satellite Communication)</h3>
+<p>পৃথিবীর কক্ষপথে স্থাপিত কৃত্রিম উপগ্রহ (যেমন: Geostationary - GEO, Low Earth Orbit - LEO) মাইক্রোওয়েভ সিগন্যালের রিলে স্টেশন হিসেবে কাজ করে।</p>
+<ul>
+<li><strong>কাজের পদ্ধতি</strong>: একটি গ্রাউন্ড স্টেশন উপগ্রহের দিকে সিগন্যাল পাঠায় যাকে <strong>আপলিঙ্ক (Uplink)</strong> বলে, উপগ্রহ সেটি অ্যাম্প্লিফাই (শক্তিশালী) করে অন্য একটি গ্রাউন্ড স্টেশনে পাঠায় যাকে <strong>ডাউনলিঙ্ক (Downlink)</strong> বলে।</li>
+<li><strong>সুবিধা</strong>: বিশাল ভৌগোলিক এলাকা জুড়ে কভারেজ প্রদান করে (মহাসাগর এবং প্রত্যন্ত গ্রামের জন্যও উপযুক্ত), গ্লোবাল ব্রডকাস্টিং এবং GPS-এর জন্য আদর্শ।</li>
+<li><strong>অসুবিধা</strong>: স্থাপন ও রক্ষণাবেক্ষণের খরচ অত্যন্ত বেশি, উচ্চ লেটেন্সি বা সিগন্যাল বিলম্ব (বিশেষ করে GEO উপগ্রহে), বায়ুমণ্ডলীয় অবস্থার কারণে সিগন্যাল দুর্বল হতে পারে।</li>
+<li><strong>উদাহরণ</strong>: GPS নেভিগেশন, ডিরেক্ট-টু-হোম (DTH) স্যাটেলাইট টিভি, গ্লোবাল ইন্টারনেট সেবা (যেমন: Starlink)।</li>
+</ul>
+<hr>
+<h2>📝 দ্রুত রিভিশন সারাংশ (চিট শিট)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">মিডিয়ার ধরন</th>
+<th align="left">মূল বৈশিষ্ট্য (Key Characteristic)</th>
+<th align="left">সর্বোত্তম ব্যবহার (Best Use Case)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Twisted Pair</strong></td>
+<td align="left">সস্তা, নমনীয়, EMI-এর প্রতি সংবেদনশীল।</td>
+<td align="left">LANs, টেলিফোন ওয়্যারিং।</td>
+</tr>
+<tr>
+<td align="left"><strong>Co-axial</strong></td>
+<td align="left">কেন্দ্রীয় তামার কোর + বোনা ধাতব শিল্ড।</td>
+<td align="left">কেবল টিভি, ব্রডব্যান্ড।</td>
+</tr>
+<tr>
+<td align="left"><strong>Fiber Optic</strong></td>
+<td align="left">আলোর পালস, পূর্ণ অভ্যন্তরীণ প্রতিফলন, EMI-মুক্ত, দ্রুততম।</td>
+<td align="left">ইন্টারনেট ব্যাকবোন, দীর্ঘ দূরত্বের উচ্চ-গতির ডেটা।</td>
+</tr>
+<tr>
+<td align="left"><strong>Radio Waves</strong></td>
+<td align="left">সর্বমুখী (Omni-directional), দেয়াল ভেদ করে, কম ফ্রিকোয়েন্সি।</td>
+<td align="left">Wi-Fi, ব্লুটুথ, FM রেডিও।</td>
+</tr>
+<tr>
+<td align="left"><strong>Microwaves</strong></td>
+<td align="left">একমুখী (Uni-directional), Line-of-Sight (LOS) প্রয়োজন।</td>
+<td align="left">মোবাইল টাওয়ার, পয়েন্ট-টু-পয়েন্ট লিঙ্ক।</td>
+</tr>
+<tr>
+<td align="left"><strong>Infrared</strong></td>
+<td align="left">স্বল্প-পরিসর, LOS প্রয়োজন, দেয়াল ভেদ করতে পারে না।</td>
+<td align="left">টিভি রিমোট, ওয়্যারলেস পেরিফেরালস।</td>
+</tr>
+<tr>
+<td align="left"><strong>Satellite</strong></td>
+<td align="left">মহাকাশ-ভিত্তিক রিলে, বিশাল কভারেজ, উচ্চ লেটেন্সি।</td>
+<td align="left">GPS, DTH টিভি, প্রত্যন্ত এলাকার সংযোগ।</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3>💡 পরীক্ষার জন্য প্রো-টিপ (Pro-Tip for Exams):</h3>
+<p>যখনই <strong>ফাইবার অপটিক</strong> এবং <strong>কপার কেবল</strong> (Twisted Pair/Co-axial)-এর মধ্যে পার্থক্য করতে বলা হবে, অবশ্যই এই ৩টি বিষয় উল্লেখ করবেন:</p>
+<ol>
+<li><strong>সিগন্যালের ধরন</strong>: আলো (Light) বনাম বৈদ্যুতিক প্রবাহ (Electrical signals)।</li>
+<li><strong>EMI প্রতিরোধ</strong>: ফাইবার অপটিক সম্পূর্ণ ইমিউন (Immune), কিন্তু কপার কেবল EMI দ্বারা প্রভাবিত হয়।</li>
+<li><strong>ব্যান্ডউইথ/গতি</strong>: ফাইবার অপটিকের গতি ও ব্যান্ডউইথ কপারের তুলনায় অসামান্যভাবে বেশি।</li>
+</ol>
+
+    </main>
+</body>
+
+</html>

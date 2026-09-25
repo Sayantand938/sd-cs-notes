@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>04 Arrays And Structures In C (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Arrays</h2>
+<p>An <strong>array</strong> is a collection of similar data elements stored in contiguous memory locations under a single variable name. It allows us to store and manipulate a fixed number of elements efficiently.</p>
+<p><strong>Why Arrays?</strong>
+Instead of creating 100 separate variables (e.g., <code>marks1</code>, <code>marks2</code> ... <code>marks100</code>), we create a single array <code>marks[100]</code>.</p>
+<p><strong>Key Properties</strong>:</p>
+<ul>
+<li>All elements are of the <strong>same data type</strong> (homogeneous).</li>
+<li>Indexing starts from <code>0</code>. So <code>arr[0]</code> is the first element.</li>
+<li>Elements are stored in contiguous (adjacent) memory locations, allowing fast random access.</li>
+</ul>
+<hr>
+<h2>2. One-Dimensional Arrays (1D)</h2>
+<h3>2.1 Declaration</h3>
+<p><strong>Syntax</strong>: <code>data_type array_name[size];</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int marks[5];     // Array of 5 integers (indices 0 to 4)
+float prices[10]; // Array of 10 floats
+char name[50];    // Array of 50 characters (also a string)</code></pre><h3>2.2 Initialization</h3>
+<p>We can initialize arrays at the time of declaration.</p>
+<pre><code class="language-c">int arr1[5] = {10, 20, 30, 40, 50};     // Complete initialization.
+int arr2[5] = {1, 2, 3};                // Partial: arr2[0]=1, arr2[1]=2, arr2[2]=3, rest = 0.
+int arr3[] = {1, 2, 3};                 // Size automatically set to 3.
+int arr4[5] = {0};                      // Sets all elements to 0.</code></pre><h3>2.3 Accessing and Reading/Writing</h3>
+<ul>
+<li><strong>Access</strong>: <code>array_name[index]</code> (e.g., <code>marks[2]</code>).</li>
+<li><strong>Read (Input)</strong>: Using loops.</li>
+</ul>
+<p><strong>Example: Read and Print 1D Array</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int arr[5], i;
+
+    // Reading
+    printf(&quot;Enter 5 elements: &quot;);
+    for (i = 0; i &lt; 5; i++) {
+        scanf(&quot;%d&quot;, &amp;arr[i]);
+    }
+
+    // Writing / Printing
+    printf(&quot;Array elements: &quot;);
+    for (i = 0; i &lt; 5; i++) {
+        printf(&quot;%d &quot;, arr[i]);
+    }
+    return 0;
+}</code></pre><h3>2.4 Uses of 1D Arrays</h3>
+<ol>
+<li>Storing a list of values (e.g., marks, ages, IDs).</li>
+<li>Implementing mathematical vectors.</li>
+<li>Sorting algorithms (Bubble Sort, Selection Sort).</li>
+<li>Searching algorithms (Linear Search, Binary Search).</li>
+<li>Handling strings (character arrays).</li>
+</ol>
+<hr>
+<h2>3. Two-Dimensional Arrays (2D)</h2>
+<p>A 2D array is like a <strong>table</strong> (matrix) consisting of rows and columns.</p>
+<h3>3.1 Declaration</h3>
+<p><strong>Syntax</strong>: <code>data_type array_name[row_size][column_size];</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">int matrix[3][4];  // 3 rows, 4 columns (total 12 integers).</code></pre><h3>3.2 Initialization</h3>
+<pre><code class="language-c">int arr[2][3] = { {1, 2, 3}, {4, 5, 6} }; // Row-wise initialization.
+int arr[2][3] = {1, 2, 3, 4, 5, 6};      // Compiler fills row-wise (row 0: 1,2,3; row 1: 4,5,6).
+int arr[][3] = { {1,2}, {4,5} };          // Column size is mandatory; row size can be omitted.</code></pre><blockquote>
+<p><strong>Note</strong>: In C, the second dimension (column count) must always be specified.</p>
+</blockquote>
+<h3>3.3 Memory Representation (Row-Major Order)</h3>
+<p>C stores 2D arrays in <strong>Row-Major Order</strong> (row by row). All elements of Row 0 come first, then Row 1, etc.</p>
+<p><strong>Example</strong>: <code>arr[2][3] = { {1, 2, 3}, {4, 5, 6} }</code></p>
+<pre class="mermaid">graph LR
+    subgraph Memory Layout [Row-Major Order in RAM]
+        direction LR
+        A[Address: 1000] --&gt; B[arr[0][0] = 1]
+        A2[Address: 1004] --&gt; C[arr[0][1] = 2]
+        A3[Address: 1008] --&gt; D[arr[0][2] = 3]
+        A4[Address: 1012] --&gt; E[arr[1][0] = 4]
+        A5[Address: 1016] --&gt; F[arr[1][1] = 5]
+        A6[Address: 1020] --&gt; G[arr[1][2] = 6]
+    end</pre><h3>3.4 Accessing and Read/Write</h3>
+<p>Nested loops are used:</p>
+<ul>
+<li>Outer loop for rows.</li>
+<li>Inner loop for columns.</li>
+</ul>
+<p><strong>Example: Read and Print a 2D Matrix</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int arr[2][3], i, j;
+
+    // Reading
+    printf(&quot;Enter 6 elements (row-wise): &quot;);
+    for (i = 0; i &lt; 2; i++) {
+        for (j = 0; j &lt; 3; j++) {
+            scanf(&quot;%d&quot;, &amp;arr[i][j]);
+        }
+    }
+
+    // Writing (Printing Matrix)
+    printf(&quot;Matrix:\n&quot;);
+    for (i = 0; i &lt; 2; i++) {
+        for (j = 0; j &lt; 3; j++) {
+            printf(&quot;%d &quot;, arr[i][j]);
+        }
+        printf(&quot;\n&quot;); // Newline after each row
+    }
+    return 0;
+}</code></pre><h3>3.5 Uses of 2D Arrays</h3>
+<ol>
+<li><strong>Matrix Operations</strong>: Addition, subtraction, multiplication, transposition.</li>
+<li><strong>Tabular Data</strong>: Storing student marks across multiple subjects.</li>
+<li><strong>Games</strong>: Chessboards, Tic-Tac-Toe (grid representation).</li>
+<li><strong>Image Processing</strong>: Representing pixel values in grayscale/RGB images.</li>
+</ol>
+<hr>
+<h2>4. Strings and String Handling with Arrays</h2>
+<p>A <strong>string</strong> in C is a sequence of characters stored in a <code>char</code> array, terminated by a <strong>null character</strong> (<code>&#39;\0&#39;</code>). This null character marks the end of the string.</p>
+<p><strong>Declaration</strong>:</p>
+<pre><code class="language-c">char str[20];                // Can hold up to 19 characters + &#39;\0&#39;
+char name[5] = &quot;John&quot;;       // Stored as: J, o, h, n, \0</code></pre><h3>4.1 Reading and Writing Strings</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Purpose</th>
+<th align="left">Example</th>
+<th align="left">Caveat</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>scanf(&quot;%s&quot;, str)</code></td>
+<td align="left">Reads a string (stops at space/newline).</td>
+<td align="left"><code>scanf(&quot;%s&quot;, name);</code></td>
+<td align="left">Cannot read multi-word strings.</td>
+</tr>
+<tr>
+<td align="left"><code>gets(str)</code> (deprecated)</td>
+<td align="left">Reads a line including spaces.</td>
+<td align="left"><code>gets(sentence);</code></td>
+<td align="left">Unsafe (buffer overflow) – avoid.</td>
+</tr>
+<tr>
+<td align="left"><code>fgets(str, size, stdin)</code></td>
+<td align="left">Safe reading of a line with spaces.</td>
+<td align="left"><code>fgets(str, 20, stdin);</code></td>
+<td align="left">Reads <code>\n</code> as well.</td>
+</tr>
+<tr>
+<td align="left"><code>printf(&quot;%s&quot;, str)</code></td>
+<td align="left">Prints the string until <code>\0</code>.</td>
+<td align="left"><code>printf(&quot;%s&quot;, name);</code></td>
+<td align="left">Standard output.</td>
+</tr>
+<tr>
+<td align="left"><code>puts(str)</code></td>
+<td align="left">Prints the string and adds a newline.</td>
+<td align="left"><code>puts(name);</code></td>
+<td align="left">Fast and simple.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Example (Read/Write with spaces)</strong>:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    char fullname[50];
+    printf(&quot;Enter full name: &quot;);
+    fgets(fullname, 50, stdin); // Reads &quot;John Doe&quot;
+    printf(&quot;Hello, %s&quot;, fullname); // Note: fgets retains newline, so output has an extra line break.
+    return 0;
+}</code></pre><h3>4.2 String Concatenation and Comparison (Manual &amp; Library)</h3>
+<p>String functions are defined in the header file <code>&lt;string.h&gt;</code>.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Prototype</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>strlen</code></strong></td>
+<td align="left"><code>int strlen(str);</code></td>
+<td align="left">Returns the length (excluding <code>\0</code>).</td>
+<td align="left"><code>int len = strlen(&quot;Hello&quot;);</code> → <code>5</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>strcat</code></strong></td>
+<td align="left"><code>strcat(dest, src);</code></td>
+<td align="left">Concatenates <code>src</code> at the end of <code>dest</code>.</td>
+<td align="left"><code>strcat(s1, s2);</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>strcmp</code></strong></td>
+<td align="left"><code>int strcmp(str1, str2);</code></td>
+<td align="left">Compares lexicographically. Returns <code>0</code> if equal, <code>&lt;0</code> if str1 &lt; str2, <code>&gt;0</code> otherwise.</td>
+<td align="left"><code>if(strcmp(s1, s2)==0) { ... }</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>strcpy</code></strong></td>
+<td align="left"><code>strcpy(dest, src);</code></td>
+<td align="left">Copies <code>src</code> into <code>dest</code>.</td>
+<td align="left"><code>strcpy(copy, original);</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>strlwr</code></strong></td>
+<td align="left"><code>strlwr(str);</code></td>
+<td align="left">Converts all characters to lowercase (non-standard, but common).</td>
+<td align="left"><code>strlwr(str);</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>strupr</code></strong></td>
+<td align="left"><code>strupr(str);</code></td>
+<td align="left">Converts all characters to uppercase (non-standard).</td>
+<td align="left"><code>strupr(str);</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>Manual Concatenation (Logic)</strong>:</p>
+<pre><code class="language-c">int i, j;
+char s1[100] = &quot;Hello&quot;, s2[] = &quot;World&quot;;
+
+// Find end of s1
+i = 0;
+while (s1[i] != &#39;\0&#39;) i++;
+
+// Copy s2 to end of s1
+j = 0;
+while (s2[j] != &#39;\0&#39;) {
+    s1[i] = s2[j];
+    i++;
+    j++;
+}
+s1[i] = &#39;\0&#39;; // Null terminate the result
+printf(&quot;%s&quot;, s1); // Output: HelloWorld</code></pre><p><strong>Manual Comparison (Logic)</strong>:</p>
+<pre><code class="language-c">int flag = 1; // assume equal
+for (i = 0; s1[i] != &#39;\0&#39; || s2[i] != &#39;\0&#39;; i++) {
+    if (s1[i] != s2[i]) {
+        flag = 0;
+        break;
+    }
+}</code></pre><hr>
+<h2>5. Structures</h2>
+<p>A <strong>structure</strong> is a user-defined data type that allows grouping of logically related variables of <strong>different data types</strong> under a single name.</p>
+<h3>5.1 Defining and Declaring a Structure</h3>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">struct struct_name {
+    data_type member1;
+    data_type member2;
+    ...
+};</code></pre><p><strong>Example</strong> (Student Record):</p>
+<pre><code class="language-c">struct Student {
+    int roll_no;
+    char name[50];
+    float marks;
+};</code></pre><h3>5.2 Declaring Structure Variables</h3>
+<pre><code class="language-c">struct Student s1;                // Local variable
+struct Student s2, s3;            // Multiple variables
+struct Student s4 = {101, &quot;Alice&quot;, 85.5}; // Initialization at declaration</code></pre><p><strong>Accessing Members</strong>: Use the <strong>dot (<code>.</code>) operator</strong>.</p>
+<pre><code class="language-c">s1.roll_no = 102;
+strcpy(s1.name, &quot;Bob&quot;);
+s1.marks = 92.0;
+printf(&quot;Roll: %d, Name: %s&quot;, s1.roll_no, s1.name);</code></pre><h3>5.3 Alternative <code>typedef</code> (Optional but useful)</h3>
+<pre><code class="language-c">typedef struct {
+    int roll;
+    char name[50];
+} Student;
+
+Student s1, s2; // No need to write &#39;struct&#39; keyword repeatedly.</code></pre><hr>
+<h2>6. Arrays of Structures</h2>
+<p>We can create an array of structures to store data of multiple entities (e.g., a class of 50 students).</p>
+<p><strong>Declaration</strong>:</p>
+<pre><code class="language-c">struct Student class[50]; // Array of 50 Student structures</code></pre><p><strong>Example</strong> (Reading and Printing 3 Students):</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+struct Student {
+    int roll;
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct Student s[3]; // Array of 3 structures
+    int i;
+
+    // Input
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;Enter roll, name, marks for student %d: &quot;, i+1);
+        scanf(&quot;%d %s %f&quot;, &amp;s[i].roll, s[i].name, &amp;s[i].marks);
+    }
+
+    // Output
+    printf(&quot;\nStudent Details:\n&quot;);
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;%d\t%s\t%.2f\n&quot;, s[i].roll, s[i].name, s[i].marks);
+    }
+    return 0;
+}</code></pre><p><strong>Use Case</strong>: Employee database, library book catalog, student result management.</p>
+<hr>
+<h2>7. Arrays within Structures</h2>
+<p>A structure can contain an array as one of its members. This is very common for storing multiple related data points for a single entity.</p>
+<p><strong>Example</strong> (Storing marks of 5 subjects for a student):</p>
+<pre><code class="language-c">struct Student {
+    int roll;
+    char name[50];
+    int marks[5];     // Array within structure
+};
+
+int main() {
+    struct Student s1;
+    s1.roll = 101;
+    strcpy(s1.name, &quot;Alice&quot;);
+    s1.marks[0] = 85;
+    s1.marks[1] = 90;
+    // ... and so on
+    return 0;
+}</code></pre><hr>
+<h2>8. Nested Structures (Structure within Structure)</h2>
+<p>A structure can contain another structure as a member. This is used to represent complex relationships (e.g., a student has an address, which has city, state, and pin).</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-c">struct Address {
+    char city[30];
+    char state[30];
+    int pin_code;
+};
+
+struct Employee {
+    int emp_id;
+    char name[50];
+    struct Address addr;   // Nested structure
+};
+
+int main() {
+    struct Employee emp1;
+    emp1.emp_id = 1001;
+    strcpy(emp1.name, &quot;John Doe&quot;);
+
+    // Accessing nested structure members
+    strcpy(emp1.addr.city, &quot;New York&quot;);
+    strcpy(emp1.addr.state, &quot;NY&quot;);
+    emp1.addr.pin_code = 10001;
+
+    printf(&quot;City: %s, State: %s&quot;, emp1.addr.city, emp1.addr.state);
+    return 0;
+}</code></pre><p><strong>Memory Representation (Nested Structure)</strong>:</p>
+<pre class="mermaid">graph TD
+    subgraph Employee [struct Employee]
+        ID[emp_id]
+        Name[name]
+        subgraph Addr [struct Address]
+            City[city]
+            State[state]
+            Pin[pin_code]
+        end
+    end</pre><h2>9. MCQ</h2>
+<h4>Q1. An array is a collection of:</h4>
+<p>A) Different data elements stored randomly
+B) Similar data elements stored in contiguous memory locations under a single variable name ✅
+C) Different data elements stored in contiguous memory locations
+D) Similar data elements stored in non-contiguous memory locations</p>
+<h4>Q2. Why are arrays used?</h4>
+<p>A) To create separate variables for each element
+B) To store and manipulate a fixed number of elements efficiently under one name ✅
+C) To store only characters
+D) To avoid using loops</p>
+<h4>Q3. All elements in an array must be of:</h4>
+<p>A) Different data types
+B) The same data type (homogeneous) ✅
+C) Character data type only
+D) Integer data type only</p>
+<h4>Q4. In C, array indexing starts from:</h4>
+<p>A) 1
+B) 0 ✅
+C) -1
+D) Depends on the compiler</p>
+<h4>Q5. Elements of an array are stored in:</h4>
+<p>A) Random memory locations
+B) Contiguous (adjacent) memory locations ✅
+C) Only in cache memory
+D) Non-contiguous memory locations</p>
+<h4>Q6. What is the correct syntax to declare an array of 5 integers?</h4>
+<p>A) <code>int marks(5);</code>
+B) <code>int marks[5];</code> ✅
+C) <code>int 5marks;</code>
+D) <code>array int marks[5];</code></p>
+<h4>Q7. What is the valid declaration for an array of 10 floats?</h4>
+<p>A) <code>float prices(10);</code>
+B) <code>float[10] prices;</code>
+C) <code>float prices[10];</code> ✅
+D) <code>prices float[10];</code></p>
+<h4>Q8. How many elements can the array <code>char name[50]</code> hold excluding the null terminator?</h4>
+<p>A) 50
+B) 49 ✅
+C) 51
+D) 48</p>
+<h4>Q9. What is the output of <code>int arr1[5] = {10, 20, 30, 40, 50}; arr1[2]</code>?</h4>
+<p>A) 10
+B) 20
+C) 30 ✅
+D) 40</p>
+<h4>Q10. If <code>int arr2[5] = {1, 2, 3};</code>, what is the value of <code>arr2[3]</code>?</h4>
+<p>A) 0 ✅
+B) 3
+C) Garbage value
+D) 4</p>
+<h4>Q11. If <code>int arr3[] = {1, 2, 3};</code>, what is the size of the array?</h4>
+<p>A) 2
+B) 3 ✅
+C) 4
+D) 5</p>
+<h4>Q12. How do you set all elements of <code>int arr4[5]</code> to 0?</h4>
+<p>A) <code>int arr4[5] = {};</code>
+B) <code>int arr4[5] = {0};</code> ✅
+C) <code>int arr4[5] = {0, 0, 0, 0, 0};</code>
+D) Both B and C are correct</p>
+<h4>Q13. Which loop is commonly used to read and print array elements?</h4>
+<p>A) <code>do-while</code> loop
+B) <code>for</code> loop ✅
+C) <code>if-else</code> statement
+D) <code>switch</code> statement</p>
+<h4>Q14. In <code>scanf(&quot;%d&quot;, &amp;arr[i]);</code>, why is <code>&amp;</code> used?</h4>
+<p>A) To print the value
+B) To pass the address of the array element ✅
+C) To increment the value
+D) To decrement the value</p>
+<h4>Q15. Which of the following is a use of 1D arrays?</h4>
+<p>A) Storing a list of values ✅
+B) Storing chessboards
+C) Representing images
+D) Matrix multiplication</p>
+<h4>Q16. A 2D array is like a:</h4>
+<p>A) Single row of values
+B) Table (matrix) with rows and columns ✅
+C) List of characters
+D) Stack</p>
+<h4>Q17. What is the syntax to declare a 2D array with 3 rows and 4 columns?</h4>
+<p>A) <code>int matrix[4][3];</code>
+B) <code>int matrix[3][4];</code> ✅
+C) <code>int matrix(3,4);</code>
+D) <code>int matrix[3,4];</code></p>
+<h4>Q18. How many total elements are in <code>int matrix[3][4]</code>?</h4>
+<p>A) 7
+B) 12 ✅
+C) 24
+D) 10</p>
+<h4>Q19. What is the correct initialization for a 2D array with 2 rows and 3 columns?</h4>
+<p>A) <code>int arr[2][3] = { {1, 2, 3}, {4, 5, 6} };</code> ✅
+B) <code>int arr[2][3] = {1, 2, 3, 4, 5, 6};</code> ✅
+C) <code>int arr[2][3] = {1, 2, 3, 4, 5};</code>
+D) Both A and B are correct</p>
+<h4>Q20. In C, for a 2D array, which dimension is mandatory to specify?</h4>
+<p>A) Row size
+B) Column size ✅
+C) Both row and column size
+D) Neither</p>
+<h4>Q21. What is the correct declaration if row size is omitted in a 2D array?</h4>
+<p>A) <code>int arr[][3] = { {1,2}, {4,5} };</code> ✅
+B) <code>int arr[2][] = { {1,2}, {4,5} };</code>
+C) <code>int arr[][] = { {1,2}, {4,5} };</code>
+D) <code>int arr[][ ] = { {1,2}, {4,5} };</code></p>
+<h4>Q22. C stores 2D arrays in which memory order?</h4>
+<p>A) Column-Major Order
+B) Row-Major Order ✅
+C) Diagonal-Major Order
+D) Random Order</p>
+<h4>Q23. In Row-Major Order for <code>arr[2][3]</code>, which element comes first in memory?</h4>
+<p>A) <code>arr[1][0]</code>
+B) <code>arr[0][0]</code> ✅
+C) <code>arr[0][1]</code>
+D) <code>arr[1][2]</code></p>
+<h4>Q24. In Row-Major Order for <code>arr[2][3]</code>, which element comes last in memory?</h4>
+<p>A) <code>arr[0][2]</code>
+B) <code>arr[1][0]</code>
+C) <code>arr[1][2]</code> ✅
+D) <code>arr[1][1]</code></p>
+<h4>Q25. Which type of loop is used to access elements of a 2D array?</h4>
+<p>A) Single loop
+B) Nested loops ✅
+C) Infinite loop
+D) do-while loop</p>
+<h4>Q26. In nested loops for a 2D array, the outer loop iterates over:</h4>
+<p>A) Columns
+B) Rows ✅
+C) Elements
+D) Memory addresses</p>
+<h4>Q27. In nested loops for a 2D array, the inner loop iterates over:</h4>
+<p>A) Rows
+B) Columns ✅
+C) Elements
+D) Memory addresses</p>
+<h4>Q28. A string in C is a sequence of characters stored in a <code>char</code> array terminated by:</h4>
+<p>A) A semicolon (;)
+B) A null character (&#39;\0&#39;) ✅
+C) A newline character
+D) A space</p>
+<h4>Q29. The null character <code>&#39;\0&#39;</code> marks:</h4>
+<p>A) The start of the string
+B) The end of the string ✅
+C) The middle of the string
+D) A tab space</p>
+<h4>Q30. If <code>char name[5] = &quot;John&quot;;</code>, how is it stored in memory?</h4>
+<p>A) J, o, h, n
+B) J, o, h, n, \0 ✅
+C) J, o, h, n, space
+D) J, o, h, n, \n</p>
+<h4>Q31. How many characters can <code>char str[20]</code> hold including the null terminator?</h4>
+<p>A) 20
+B) 19 ✅
+C) 21
+D) 18</p>
+<h4>Q32. Which function safely reads a line including spaces in C?</h4>
+<p>A) <code>scanf(&quot;%s&quot;, str)</code>
+B) <code>gets(str)</code>
+C) <code>fgets(str, size, stdin)</code> ✅
+D) <code>read(str)</code></p>
+<h4>Q33. Which function is deprecated and unsafe due to buffer overflow?</h4>
+<p>A) <code>fgets</code>
+B) <code>gets</code> ✅
+C) <code>scanf</code>
+D) <code>printf</code></p>
+<h4>Q34. Which function prints a string and adds a newline?</h4>
+<p>A) <code>printf(&quot;%s&quot;, str)</code>
+B) <code>puts(str)</code> ✅
+C) <code>fputs(str)</code>
+D) <code>scanf</code></p>
+<h4>Q35. <code>scanf(&quot;%s&quot;, str)</code> cannot read:</h4>
+<p>A) Single characters
+B) Multi-word strings with spaces ✅
+C) Integers
+D) Floating point numbers</p>
+<h4>Q36. The header file for string functions is:</h4>
+<p>A) <code>&lt;stdio.h&gt;</code>
+B) <code>&lt;string.h&gt;</code> ✅
+C) <code>&lt;stdlib.h&gt;</code>
+D) <code>&lt;math.h&gt;</code></p>
+<h4>Q37. <code>strlen(&quot;Hello&quot;)</code> returns:</h4>
+<p>A) 6
+B) 5 ✅
+C) 4
+D) 7</p>
+<h4>Q38. <code>strlen</code> returns the length of the string excluding:</h4>
+<p>A) The first character
+B) The null character &#39;\0&#39; ✅
+C) The last character
+D) All vowels</p>
+<h4>Q39. <code>strcat(dest, src)</code> does what?</h4>
+<p>A) Copies src into dest
+B) Compares dest and src
+C) Concatenates src at the end of dest ✅
+D) Returns the length of dest</p>
+<h4>Q40. <code>strcmp(str1, str2)</code> returns 0 when:</h4>
+<p>A) str1 is greater than str2
+B) str1 is less than str2
+C) str1 and str2 are equal ✅
+D) str2 is greater than str1</p>
+<h4>Q41. <code>strcmp(str1, str2)</code> returns a negative value when:</h4>
+<p>A) str1 is greater than str2
+B) str1 is less than str2 ✅
+C) str1 and str2 are equal
+D) Both are empty</p>
+<h4>Q42. <code>strcpy(dest, src)</code> does what?</h4>
+<p>A) Copies src into dest ✅
+B) Concatenates src at end of dest
+C) Compares dest and src
+D) Returns the length of src</p>
+<h4>Q43. Which function converts a string to lowercase?</h4>
+<p>A) <code>strupr</code>
+B) <code>strlwr</code> ✅
+C) <code>strcmp</code>
+D) <code>strcat</code></p>
+<h4>Q44. Which function converts a string to uppercase?</h4>
+<p>A) <code>strupr</code> ✅
+B) <code>strlwr</code>
+C) <code>strcmp</code>
+D) <code>strcat</code></p>
+<h4>Q45. In manual string concatenation, the first step is to:</h4>
+<p>A) Copy s2 into s1
+B) Find the end of s1 ✅
+C) Compare s1 and s2
+D) Find the length of s2</p>
+<h4>Q46. In manual string concatenation, after copying s2 to s1, the result must be:</h4>
+<p>A) Printed immediately
+B) Null terminated with &#39;\0&#39; ✅
+C) Converted to lowercase
+D) Compared with s2</p>
+<h4>Q47. A structure is a user-defined data type that allows grouping of:</h4>
+<p>A) Variables of the same data type
+B) Variables of different data types under a single name ✅
+C) Only integer variables
+D) Only character variables</p>
+<h4>Q48. What is the correct syntax to define a structure?</h4>
+<p>A) <code>struct Student { int roll; char name[50]; float marks; };</code> ✅
+B) <code>struct Student { int roll, char name[50], float marks; }</code>
+C) <code>struct { int roll; char name[50]; float marks; } Student;</code>
+D) <code>Student struct { int roll; char name[50]; float marks; };</code></p>
+<h4>Q49. Which operator is used to access structure members?</h4>
+<p>A) <code>-&gt;</code> (arrow)
+B) <code>.</code> (dot) ✅
+C) <code>::</code> (scope resolution)
+D) <code>*</code> (asterisk)</p>
+<h4>Q50. How do you set the roll number of structure variable <code>s1</code> to 102?</h4>
+<p>A) <code>s1.roll_no = 102;</code> ✅
+B) <code>s1-&gt;roll_no = 102;</code>
+C) <code>roll_no.s1 = 102;</code>
+D) <code>s1(roll_no) = 102;</code></p>
+<h4>Q51. How do you copy a name to a structure member using string functions?</h4>
+<p>A) <code>s1.name = &quot;Bob&quot;;</code>
+B) <code>s1.name = &#39;Bob&#39;;</code>
+C) <code>strcpy(s1.name, &quot;Bob&quot;);</code> ✅
+D) <code>s1-&gt;name = &quot;Bob&quot;;</code></p>
+<h4>Q52. What is the purpose of <code>typedef</code> in structures?</h4>
+<p>A) To create multiple structures
+B) To avoid writing the keyword &#39;struct&#39; repeatedly ✅
+C) To delete a structure
+D) To copy a structure</p>
+<h4>Q53. With <code>typedef struct { int roll; char name[50]; } Student;</code>, how do you declare a variable?</h4>
+<p>A) <code>struct Student s1;</code>
+B) <code>Student s1;</code> ✅
+C) <code>typedef Student s1;</code>
+D) <code>s1 Student;</code></p>
+<h4>Q54. An array of structures is used to store:</h4>
+<p>A) A single entity&#39;s data
+B) Data of multiple entities of the same structure type ✅
+C) Data of different structure types
+D) Only integer data</p>
+<h4>Q55. What is the declaration for an array of 50 Student structures?</h4>
+<p>A) <code>struct Student class[50];</code> ✅
+B) <code>struct Student[50] class;</code>
+C) <code>Student class(50);</code>
+D) <code>struct class[50] Student;</code></p>
+<h4>Q56. How do you access the name of the second student in an array of structures <code>s</code>?</h4>
+<p>A) <code>s[1].name</code> ✅
+B) <code>s.name[1]</code>
+C) <code>s[2].name</code>
+D) <code>s.name(2)</code></p>
+<h4>Q57. How do you access the marks of the third student in an array of structures <code>s</code>?</h4>
+<p>A) <code>s.marks[3]</code>
+B) <code>s[2].marks</code> ✅
+C) <code>s[3].marks</code>
+D) <code>s.marks(3)</code></p>
+<h4>Q58. An array within a structure means:</h4>
+<p>A) The structure is inside an array
+B) The structure contains an array as one of its members ✅
+C) Both structure and array are same
+D) The array contains structures</p>
+<h4>Q59. In <code>struct Student { int roll; char name[50]; int marks[5]; };</code>, <code>marks</code> is:</h4>
+<p>A) A structure member that is an array ✅
+B) A separate array
+C) A pointer
+D) A nested structure</p>
+<h4>Q60. How do you access the second subject marks of <code>s1</code> in <code>struct Student</code> with <code>marks[5]</code>?</h4>
+<p>A) <code>s1.marks[1]</code> ✅
+B) <code>s1.marks(1)</code>
+C) <code>s1[1].marks</code>
+D) <code>marks[1].s1</code></p>
+<h4>Q61. A nested structure means:</h4>
+<p>A) A structure inside a function
+B) A structure containing another structure as a member ✅
+C) An array inside a structure
+D) A pointer to a structure</p>
+<h4>Q62. In the nested structure example, <code>struct Employee</code> contains:</h4>
+<p>A) Only basic data types
+B) A nested <code>struct Address</code> ✅
+C) An array of addresses
+D) Another Employee structure</p>
+<h4>Q63. How do you access the city of an employee <code>emp1</code> in nested structures?</h4>
+<p>A) <code>emp1.addr.city</code> ✅
+B) <code>emp1.city</code>
+C) <code>addr.emp1.city</code>
+D) <code>city.emp1.addr</code></p>
+<h4>Q64. How do you access the pin code of an employee <code>emp1</code> in nested structures?</h4>
+<p>A) <code>emp1.addr.pin_code</code> ✅
+B) <code>emp1.pin_code</code>
+C) <code>addr.emp1.pin_code</code>
+D) <code>pin_code.emp1.addr</code></p>
+<h4>Q65. In the manual string comparison logic, the loop condition is:</h4>
+<p>A) <code>s1[i] != &#39;\0&#39; || s2[i] != &#39;\0&#39;</code> ✅
+B) <code>s1[i] == &#39;\0&#39; &amp;&amp; s2[i] == &#39;\0&#39;</code>
+C) <code>s1[i] != &#39;\0&#39; &amp;&amp; s2[i] != &#39;\0&#39;</code>
+D) <code>s1[i] == &#39;\0&#39; || s2[i] == &#39;\0&#39;</code></p>
+<h4>Q66. What is the output of <code>strcmp(&quot;apple&quot;, &quot;banana&quot;)</code>?</h4>
+<p>A) 0
+B) Negative ✅
+C) Positive
+D) Undefined</p>
+<h4>Q67. What is the output of <code>strcmp(&quot;banana&quot;, &quot;apple&quot;)</code>?</h4>
+<p>A) 0
+B) Negative
+C) Positive ✅
+D) Undefined</p>
+<h4>Q68. Which of the following is TRUE about structures?</h4>
+<p>A) They store homogeneous data
+B) They store heterogeneous data ✅
+C) They cannot contain arrays
+D) They cannot contain other structures</p>
+<h4>Q69. The dot operator <code>.</code> is used to access structure members for:</h4>
+<p>A) Structure variables ✅
+B) Structure pointers
+C) Both structure variables and pointers
+D) Neither</p>
+<h4>Q70. In <code>scanf(&quot;%d %s %f&quot;, &amp;s[i].roll, s[i].name, &amp;s[i].marks);</code>, why is <code>&amp;</code> not used for <code>s[i].name</code>?</h4>
+<p>A) Because name is a string (array), already an address ✅
+B) Because name is an integer
+C) Because name is a structure
+D) Because name is a float</p>
+<h4>Q71. What is the output of the following? <code>char str[] = &quot;Hello&quot;; printf(&quot;%lu&quot;, sizeof(str));</code></h4>
+<p>A) 5
+B) 6 ✅
+C) 4
+D) 7</p>
+<h4>Q72. What is the output of <code>strlen(&quot;&quot;)</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) -1
+D) Undefined</p>
+<h4>Q73. Which function can read multi-word strings safely?</h4>
+<p>A) <code>scanf(&quot;%s&quot;, str)</code>
+B) <code>fgets(str, size, stdin)</code> ✅
+C) <code>gets(str)</code>
+D) <code>getchar()</code></p>
+<h4>Q74. In manual string concatenation, <code>s1[i] = &#39;\0&#39;;</code> is used to:</h4>
+<p>A) Start the string
+B) Null terminate the result ✅
+C) End the program
+D) Clear the string</p>
+<h4>Q75. A 2D array can be used to represent:</h4>
+<p>A) A list of numbers
+B) A matrix (table) with rows and columns ✅
+C) A single character
+D) A string</p>
+<h4>Q76. In <code>int arr[2][3] = { {1,2,3}, {4,5,6} };</code>, <code>arr[1][2]</code> is:</h4>
+<p>A) 3
+B) 4
+C) 5
+D) 6 ✅</p>
+<h4>Q77. In <code>int arr[2][3] = {1, 2, 3, 4, 5, 6};</code>, <code>arr[0][2]</code> is:</h4>
+<p>A) 1
+B) 2
+C) 3 ✅
+D) 4</p>
+<h4>Q78. For <code>int arr[2][3]</code>, what is the size of the array in bytes (assuming int is 4 bytes)?</h4>
+<p>A) 6 bytes
+B) 12 bytes
+C) 24 bytes ✅
+D) 48 bytes</p>
+<h4>Q79. Strings in C are terminated by:</h4>
+<p>A) Newline
+B) Null character ✅
+C) Space
+D) Tab</p>
+<h4>Q80. The <code>strcat</code> function requires the destination to have:</h4>
+<p>A) Less space
+B) Enough space to hold the concatenated result ✅
+C) Same size as source
+D) Null character at start</p>
+<h4>Q81. In the memory representation of Row-Major Order, the address of <code>arr[1][0]</code> comes after:</h4>
+<p>A) <code>arr[0][2]</code> ✅
+B) <code>arr[1][1]</code>
+C) <code>arr[2][0]</code>
+D) <code>arr[0][0]</code></p>
+<h4>Q82. What is the use of <code>fgets</code> over <code>scanf(&quot;%s&quot;)</code>?</h4>
+<p>A) <code>fgets</code> is faster
+B) <code>fgets</code> can read strings with spaces ✅
+C) <code>fgets</code> only reads integers
+D) <code>fgets</code> is deprecated</p>
+<h4>Q83. The <code>strcmp</code> function returns 0 when:</h4>
+<p>A) Strings are equal ✅
+B) Strings are different
+C) First string is larger
+D) Second string is larger</p>
+<h4>Q84. A structure can contain:</h4>
+<p>A) Only basic data types
+B) Arrays and other structures as members ✅
+C) Only arrays
+D) Only other structures</p>
+<h4>Q85. The <code>strupr</code> and <code>strlwr</code> functions are:</h4>
+<p>A) Part of standard C library
+B) Non-standard but common ✅
+C) Not available in any compiler
+D) Only for Windows</p>
+<h4>Q86. Which of the following correctly initializes a string?</h4>
+<p>A) <code>char str[] = &quot;Hello&quot;;</code> ✅
+B) <code>char str[5] = &quot;Hello&quot;;</code>
+C) <code>char str = &quot;Hello&quot;;</code>
+D) <code>char str(6) = &quot;Hello&quot;;</code></p>
+<h4>Q87. <code>char str[5] = &quot;Hello&quot;;</code> causes:</h4>
+<p>A) No error, stores &quot;Hello&quot;
+B) Error because no space for &#39;\0&#39; ✅
+C) Stores &quot;Hell&quot;
+D) Stores &quot;Hello\0&quot;</p>
+<h4>Q88. In a 2D array declaration <code>int arr[][3] = { {1,2}, {4,5} };</code>, what is the value of <code>arr[1][2]</code>?</h4>
+<p>A) 0 ✅
+B) 5
+C) Garbage value
+D) 4</p>
+<h4>Q89. In a 2D array declaration <code>int arr[2][3] = { {1,2}, {4,5} };</code>, what is the value of <code>arr[0][2]</code>?</h4>
+<p>A) 0 ✅
+B) 3
+C) Garbage value
+D) 2</p>
+<h4>Q90. The <code>strcpy</code> function copies the string including:</h4>
+<p>A) Only the characters
+B) The null character &#39;\0&#39; ✅
+C) Only the first character
+D) A newline</p>
+<h4>Q91. Which of the following is NOT a use of 2D arrays?</h4>
+<p>A) Matrix operations
+B) Storing tabular data
+C) Representing images
+D) Storing a list of names ✅</p>
+<h4>Q92. In nested structures, the outer structure is accessed first, then:</h4>
+<p>A) The inner structure name, then its members ✅
+B) Only the inner structure members directly
+C) The outer structure members only
+D) Both structures are accessed simultaneously</p>
+<h4>Q93. An array of structures is useful for:</h4>
+<p>A) Storing a single student&#39;s data
+B) Storing multiple students&#39; data ✅
+C) Storing only integer data
+D) Storing only string data</p>
+<h4>Q94. Which of the following correctly creates a structure variable and initializes it?</h4>
+<p>A) <code>struct Student s1 = {101, &quot;Alice&quot;, 85.5};</code> ✅
+B) <code>struct Student s1 = 101, &quot;Alice&quot;, 85.5;</code>
+C) <code>struct Student s1(101, &quot;Alice&quot;, 85.5);</code>
+D) <code>Student s1 = (101, &quot;Alice&quot;, 85.5);</code></p>
+<h4>Q95. How do you access the state in nested structures for <code>emp1</code>?</h4>
+<p>A) <code>emp1.state</code>
+B) <code>emp1.addr.state</code> ✅
+C) <code>addr.emp1.state</code>
+D) <code>state.emp1.addr</code></p>
+<h4>Q96. The <code>fgets</code> function reads the newline character as well, which means:</h4>
+<p>A) It must be removed manually if not wanted ✅
+B) It is automatically removed
+C) It causes an error
+D) It is ignored</p>
+<h4>Q97. In the manual string comparison logic, <code>flag</code> is used to:</h4>
+<p>A) Store the result of comparison ✅
+B) Store the length of strings
+C) Store the index
+D) Store the address</p>
+<h4>Q98. If <code>flag = 1</code> after string comparison, it means:</h4>
+<p>A) Strings are equal ✅
+B) Strings are different
+C) Strings are empty
+D) Strings are same length</p>
+<h4>Q99. In the row-major order memory layout diagram, consecutive memory addresses contain:</h4>
+<p>A) Alternate rows
+B) Elements of the same row consecutively ✅
+C) Elements of the same column consecutively
+D) Random elements</p>
+<h4>Q100. Which of the following is TRUE about structures and arrays?</h4>
+<p>A) Arrays store homogeneous data; structures store heterogeneous data ✅
+B) Arrays store heterogeneous data; structures store homogeneous data
+C) Both store only homogeneous data
+D) Both store only heterogeneous data</p>
+
+    </main>
+</body>
+
+</html>

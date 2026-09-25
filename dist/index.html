@@ -5,62 +5,597 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <title>Home – Notes</title>
+    <title>CS Notes Manifest</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof mermaid !== 'undefined') {
-                mermaid.initialize({ startOnLoad: true });
-            }
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        { left: '$$', right: '$$', display: true },
-                        { left: '$', right: '$', display: false }
-                    ],
-                    throwOnError: false
-                });
-            }
-            if (typeof hljs !== 'undefined') {
-                hljs.highlightAll();
-            }
-        });
-    </script>
+    <style>
+        .search-container {
+            margin: 1.5em 0 2em 0;
+        }
+
+        .search-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 14px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #6cacf0;
+        }
+
+        .search-input::placeholder {
+            color: #777;
+        }
+
+        /* Class / Subject / Semester Group */
+        .group-section {
+            margin-bottom: 2.2em;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px 22px;
+        }
+
+        .group-header {
+            margin-top: 0;
+            margin-bottom: 1em;
+            padding-bottom: 0.4em;
+            border-bottom: 1px solid #333;
+            color: #6cacf0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Category / Unit */
+        .category-section {
+            margin: 1em 0;
+            padding-left: 0.5em;
+        }
+
+        .category-title {
+            color: #e0e0e0;
+            font-size: 1.05em;
+            margin: 0.8em 0 0.4em 0;
+            font-weight: 600;
+        }
+
+        /* Clean Link List */
+        .notes-list {
+            list-style: none;
+            margin: 0.4em 0 0.8em 0;
+            padding-left: 1.2em;
+        }
+
+        .notes-list li {
+            margin: 0.4em 0;
+            position: relative;
+        }
+
+        .notes-list li::before {
+            content: "›";
+            position: absolute;
+            left: -1em;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .notes-list a {
+            color: #6cacf0;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.15s;
+        }
+
+        .notes-list a:hover {
+            color: #b0d4ff;
+            text-decoration: underline;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 2em;
+            color: #888;
+            background: #1e1e1e;
+            border: 1px dashed #333;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="metadata-box">
-        <h1>Home – Notes</h1>
-        <p><em>Index of all COMA/COMS notes</em></p>
+        <h1>CS Notes Manifest</h1>
+        <p><em>Complete structured index of all study materials.</em></p>
     </div>
 
-    <hr>
+    <!-- Live Search / Filter Input -->
+    <div class="search-container">
+        <input type="search" id="searchInput" class="search-input"
+            placeholder="🔍 Filter notes by topic, unit, or class..." autocomplete="off">
+    </div>
 
-    <!-- The cards grid is injected here as HTML -->
-    <div class="home-grid">
-            <div class="home-card">
-                <a href="coma-class-11-index.html">
-                    <h3>coma-class-11-index</h3>
-                    
-                </a>
+    <div id="noResults" class="no-results">
+        No notes found matching your filter.
+    </div>
+
+    <main id="manifestRoot">
+        <section class="group-section">
+            <h2 class="group-header">
+                <span>📚 Class 11</span>
+                <span style="color: #666;">•</span>
+                <span>COMA</span>
+                <span style="color: #666;">•</span>
+                <span style="color: #ccc;">Semester 01</span>
+            </h2>
+
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 01</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Computer System And Organization (Eng) Notes - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-01/01-computer-system-and-organization-eng.html">01 Computer System And Organization (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Concepts Of Software (Eng) Notes - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-01/02-concepts-of-software-eng.html">02 Concepts Of Software (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Number System (Eng) Notes - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-01/03-number-system-eng.html">03 Number System (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Boolean Algebra (Eng) Notes - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-01/04-boolean-algebra-eng.html">04 Boolean Algebra (Eng)</a>
+                    </li>
+                </ul>
             </div>
-        
-            <div class="home-card">
-                <a href="coms-class-11-index.html">
-                    <h3>coms-class-11-index</h3>
-                    
-                </a>
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 02</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Concept Of Programming (Eng) Notes - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-02/01-concept-of-programming-eng.html">01 Concept Of Programming (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Algorithm Fundamentals (Eng) Notes - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-02/02-algorithm-fundamentals-eng.html">02 Algorithm Fundamentals (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Introduction To Problem Solving (Eng) Notes - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-02/03-introduction-to-problem-solving-eng.html">03 Introduction To Problem Solving (Eng)</a>
+                    </li>
+                </ul>
             </div>
-        </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 03</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Basic Structure (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/01-basic-structure-eng.html">01 Basic Structure (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Operators (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/02-operators-eng.html">02 Operators (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Branching And Looping In C (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/03-branching-and-looping-in-c-eng.html">03 Branching And Looping In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Arrays And Structures In C (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/04-arrays-and-structures-in-c-eng.html">04 Arrays And Structures In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 User Defined Functions In C (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/05-user-defined-functions-in-c-eng.html">05 User Defined Functions In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="06 Pointers In C (Eng) Notes - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/notes/unit-03/06-pointers-in-c-eng.html">06 Pointers In C (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practical</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="Coms Class 11 Practical (Eng) Practical Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practical/coms-class-11-practical-eng.html">Coms Class 11 Practical (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/miscellaneous/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/miscellaneous/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/miscellaneous/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/miscellaneous/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/miscellaneous/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 01</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-01/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-01/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-01/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-01/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-01/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 02</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-02/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-02/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-02/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-02/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-02/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 03</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-03/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-03/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-03/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-03/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMA Semester 01">
+                        <a href="/class-11/coma/semester-01/practice-papers/unit-03/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="group-section">
+            <h2 class="group-header">
+                <span>📚 Class 11</span>
+                <span style="color: #666;">•</span>
+                <span>COMS</span>
+                <span style="color: #666;">•</span>
+                <span style="color: #ccc;">Semester 01</span>
+            </h2>
+
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 01</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Computer System And Organization (Eng) Notes - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-01/01-computer-system-and-organization-eng.html">01 Computer System And Organization (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Concepts Of Software (Eng) Notes - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-01/02-concepts-of-software-eng.html">02 Concepts Of Software (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Number System (Eng) Notes - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-01/03-number-system-eng.html">03 Number System (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Boolean Algebra (Eng) Notes - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-01/04-boolean-algebra-eng.html">04 Boolean Algebra (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 02</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Concept Of Programming (Eng) Notes - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-02/01-concept-of-programming-eng.html">01 Concept Of Programming (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Algorithm Fundamentals (Eng) Notes - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-02/02-algorithm-fundamentals-eng.html">02 Algorithm Fundamentals (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Introduction To Problem Solving (Eng) Notes - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-02/03-introduction-to-problem-solving-eng.html">03 Introduction To Problem Solving (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Notes - Unit 03</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Basic Structure (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/01-basic-structure-eng.html">01 Basic Structure (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Operators (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/02-operators-eng.html">02 Operators (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Branching And Looping In C (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/03-branching-and-looping-in-c-eng.html">03 Branching And Looping In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Arrays And Structures In C (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/04-arrays-and-structures-in-c-eng.html">04 Arrays And Structures In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 User Defined Functions In C (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/05-user-defined-functions-in-c-eng.html">05 User Defined Functions In C (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="06 Pointers In C (Eng) Notes - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/notes/unit-03/06-pointers-in-c-eng.html">06 Pointers In C (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practical</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="Coms Class 11 Practical (Eng) Practical Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practical/coms-class-11-practical-eng.html">Coms Class 11 Practical (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/miscellaneous/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/miscellaneous/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/miscellaneous/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/miscellaneous/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/miscellaneous/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 01</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-01/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-01/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-01/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-01/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 01 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-01/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 02</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-02/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-02/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-02/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-02/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 02 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-02/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-section">
+                <h3 class="category-title">📂 Practice Papers - Unit 03</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-03/01-practice-paper-eng.html">01 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-03/02-practice-paper-eng.html">02 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-03/03-practice-paper-eng.html">03 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="04 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-03/04-practice-paper-eng.html">04 Practice Paper (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="05 Practice Paper (Eng) Practice Papers - Unit 03 Class 11 COMS Semester 01">
+                        <a href="/class-11/coms/semester-01/practice-papers/unit-03/05-practice-paper-eng.html">05 Practice Paper (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="group-section">
+            <h2 class="group-header">
+                <span>📚 Class 11</span>
+                <span style="color: #666;">•</span>
+                <span>COMS</span>
+                <span style="color: #666;">•</span>
+                <span style="color: #ccc;">Semester 02</span>
+            </h2>
+
+            <div class="category-section">
+                <h3 class="category-title">📂 Unit 02</h3>
+
+                <ul class="notes-list">
+                    <li class="note-item"
+                        data-text="01 Introduction To Networking (Beng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/01-introduction-to-networking-beng.html">01 Introduction To Networking (Beng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="01 Introduction To Networking (Eng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/01-introduction-to-networking-eng.html">01 Introduction To Networking (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Transmission Media (Beng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/02-transmission-media-beng.html">02 Transmission Media (Beng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="02 Transmission Media (Eng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/02-transmission-media-eng.html">02 Transmission Media (Eng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Network Connecting Device (Beng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/03-network-connecting-device-beng.html">03 Network Connecting Device (Beng)</a>
+                    </li>
+                    <li class="note-item"
+                        data-text="03 Network Connecting Device (Eng) Unit 02 Class 11 COMS Semester 02">
+                        <a href="/class-11/coms/semester-02/unit-02/03-network-connecting-device-eng.html">03 Network Connecting Device (Eng)</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const noteItems = document.querySelectorAll('.note-item');
+        const categories = document.querySelectorAll('.category-section');
+        const groups = document.querySelectorAll('.group-section');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let totalVisible = 0;
+
+            noteItems.forEach(item => {
+                const text = (item.getAttribute('data-text') || item.textContent).toLowerCase();
+                const matches = text.includes(query);
+                item.style.display = matches ? '' : 'none';
+                if (matches) totalVisible++;
+            });
+
+            // Hide empty category subsections
+            categories.forEach(cat => {
+                const hasVisible = Array.from(cat.querySelectorAll('.note-item'))
+                    .some(item => item.style.display !== 'none');
+                cat.style.display = hasVisible ? '' : 'none';
+            });
+
+            // Hide empty main group boxes
+            groups.forEach(group => {
+                const hasVisible = Array.from(group.querySelectorAll('.note-item'))
+                    .some(item => item.style.display !== 'none');
+                group.style.display = hasVisible ? '' : 'none';
+            });
+
+            noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+        });
+    </script>
 </body>
 
 </html>

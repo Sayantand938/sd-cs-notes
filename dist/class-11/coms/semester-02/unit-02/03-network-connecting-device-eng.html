@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Network Connecting Device (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 Computer Networks: Network Connecting Devices</h1>
+<p><strong>Detailed Study Notes for Class 11</strong><br><em>(Estimated Study Time: 2 Hours)</em></p>
+<hr>
+<h2>1. Introduction to Network Connecting Devices</h2>
+<p>Network connecting devices (also called networking hardware) are physical components used to connect computers, servers, and other devices together to form a network. They ensure that data is transmitted efficiently, accurately, and securely across the network. They operate at different layers of the OSI model.</p>
+<pre class="mermaid">graph TD
+    A[Network Connecting Devices] --&gt; B[End-Device Connectors]
+    A --&gt; C[Signal &amp; Traffic Managers]
+    A --&gt; D[Network Interconnectors]
+    
+    B --&gt; B1[Ethernet Card / NIC]
+    B --&gt; B2[Wi-Fi Card]
+    B --&gt; B3[RJ45 Connector]
+    B --&gt; B4[Modem]
+    
+    C --&gt; C1[Repeater]
+    C --&gt; C2[Hub]
+    C --&gt; C3[Switch]
+    
+    D --&gt; D1[Router]
+    D --&gt; D2[Gateway]</pre><hr>
+<h2>2. End-Device Connectors &amp; Adapters</h2>
+<h3>A. Modem (Modulator-Demodulator)</h3>
+<ul>
+<li><strong>Function</strong>: Converts digital signals from a computer into analog signals for transmission over telephone lines (<strong>Modulation</strong>), and converts incoming analog signals back into digital signals (<strong>Demodulation</strong>).</li>
+<li><strong>Types</strong>: Internal (installed inside the PC), External (standalone box), DSL/Cable Modems.</li>
+<li><strong>OSI Layer</strong>: Physical Layer (Layer 1) &amp; Data Link Layer (Layer 2).</li>
+<li><strong>Example</strong>: The device provided by your ISP to connect your home to the internet.</li>
+</ul>
+<h3>B. Ethernet Card (Network Interface Card - NIC)</h3>
+<ul>
+<li><strong>Function</strong>: A hardware component installed in a computer that allows it to connect to a wired network. It prepares data for the network medium, sends it, and controls the flow of data.</li>
+<li><strong>Key Feature</strong>: Every NIC has a unique, permanent 48-bit physical address called a <strong>MAC (Media Access Control) Address</strong> burned into it by the manufacturer.</li>
+<li><strong>OSI Layer</strong>: Physical Layer (Layer 1) &amp; Data Link Layer (Layer 2).</li>
+<li><strong>Example</strong>: The port on the back of your desktop PC where you plug in a LAN cable.</li>
+</ul>
+<h3>C. RJ45 (Registered Jack 45)</h3>
+<ul>
+<li><strong>Function</strong>: Not a device itself, but the <strong>standard 8-pin physical connector</strong> used at the ends of twisted-pair Ethernet cables (like Cat5e or Cat6). </li>
+<li><strong>Key Feature</strong>: It resembles a wider telephone jack (RJ11) and &quot;clicks&quot; securely into the Ethernet port of a NIC, Switch, or Router.</li>
+<li><strong>Example</strong>: The transparent plastic plug at the end of your LAN cable.</li>
+</ul>
+<h3>D. Wi-Fi Card (Wireless NIC)</h3>
+<ul>
+<li><strong>Function</strong>: A hardware component (can be internal or a USB dongle) that allows a computer to connect to a wireless network (WLAN). It contains a radio transmitter and receiver to send/receive data via radio waves.</li>
+<li><strong>Key Feature</strong>: Also has a unique MAC address and uses IEEE 802.11 standards (e.g., Wi-Fi 5, Wi-Fi 6).</li>
+<li><strong>OSI Layer</strong>: Physical Layer (Layer 1) &amp; Data Link Layer (Layer 2).</li>
+</ul>
+<hr>
+<h2>3. Signal &amp; Traffic Managers (Layer 1 &amp; 2 Devices)</h2>
+<h3>E. Repeater</h3>
+<ul>
+<li><strong>Function</strong>: Receives a weak or degraded signal, <strong>regenerates</strong> (cleans and amplifies) it, and retransmits it at a higher power level. </li>
+<li><strong>Purpose</strong>: Extends the physical distance a network can cover beyond the standard cable length limits (e.g., beyond 100 meters for Ethernet).</li>
+<li><strong>OSI Layer</strong>: Physical Layer (Layer 1).</li>
+<li><strong>Limitation</strong>: It does not filter traffic; it also amplifies noise along with the signal.</li>
+</ul>
+<h3>F. Hub</h3>
+<ul>
+<li><strong>Function</strong>: A &quot;multi-port repeater.&quot; When a data packet arrives at one port, the Hub blindly <strong>broadcasts</strong> (copies and sends) it to <em>all</em> other active ports.</li>
+<li><strong>Pros</strong>: Very cheap, simple to set up.</li>
+<li><strong>Cons</strong>: Highly inefficient, causes network congestion, and creates a single <strong>Collision Domain</strong> (if two devices transmit at once, data collides and is lost).</li>
+<li><strong>OSI Layer</strong>: Physical Layer (Layer 1).</li>
+<li><strong>Current Status</strong>: Largely obsolete, replaced by Switches.</li>
+</ul>
+<h3>G. Switch</h3>
+<ul>
+<li><strong>Function</strong>: An &quot;intelligent hub.&quot; It learns the <strong>MAC addresses</strong> of all devices connected to its ports and builds a MAC address table. When data arrives, it forwards the packet <strong>only to the specific destination port</strong>, not to all ports.</li>
+<li><strong>Pros</strong>: Highly efficient, reduces network congestion, provides dedicated bandwidth to each port, and creates separate <strong>Collision Domains</strong> for each port.</li>
+<li><strong>OSI Layer</strong>: Data Link Layer (Layer 2). <em>(Note: Layer 3 Switches also exist and can do basic routing).</em></li>
+<li><strong>Example</strong>: The central connecting device in a modern office or school computer lab.</li>
+</ul>
+<hr>
+<h2>4. Network Interconnectors (Layer 3 &amp; Above Devices)</h2>
+<h3>H. Router</h3>
+<ul>
+<li><strong>Function</strong>: Connects <strong>two or more different networks</strong> (e.g., your home LAN to the Internet/WAN) and determines the best path for data to travel. </li>
+<li><strong>How it works</strong>: Uses <strong>IP Addresses</strong> and maintains a <strong>Routing Table</strong> to make intelligent forwarding decisions. It also provides basic firewall/NAT (Network Address Translation) security.</li>
+<li><strong>OSI Layer</strong>: Network Layer (Layer 3).</li>
+<li><strong>Example</strong>: The Wi-Fi router in your home that connects your phones/laptops to the ISP&#39;s network.</li>
+</ul>
+<h3>I. Gateway</h3>
+<ul>
+<li><strong>Function</strong>: A &quot;protocol converter.&quot; It connects two networks that use <strong>entirely different architectures or communication protocols</strong> (e.g., a TCP/IP LAN network connecting to an old IBM Mainframe network, or a corporate network connecting to the internet via an ISP).</li>
+<li><strong>How it works</strong>: It translates data formats, protocols, and architectures so the two disparate networks can understand each other.</li>
+<li><strong>OSI Layer</strong>: Can operate at any layer, but primarily at the Network, Transport, or Application Layer (Layer 3 to Layer 7).</li>
+<li><strong>Example</strong>: A corporate proxy server, or a VoIP gateway converting voice signals to IP packets.</li>
+</ul>
+<hr>
+<h2>📝 Quick Revision Summary (Cheat Sheet)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Device</th>
+<th align="left">Primary Function</th>
+<th align="left">OSI Layer</th>
+<th align="left">Key Identifier / Keyword</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Modem</strong></td>
+<td align="left">Digital ↔ Analog conversion</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">Modulation, Demodulation, ISP connection.</td>
+</tr>
+<tr>
+<td align="left"><strong>Ethernet Card (NIC)</strong></td>
+<td align="left">Connects PC to wired network</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">Has a unique <strong>MAC Address</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>RJ45</strong></td>
+<td align="left">Physical cable connector</td>
+<td align="left">N/A (Physical)</td>
+<td align="left">8-pin plug for Twisted Pair cables.</td>
+</tr>
+<tr>
+<td align="left"><strong>Wi-Fi Card</strong></td>
+<td align="left">Connects PC to wireless network</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">Radio transmitter/receiver, IEEE 802.11.</td>
+</tr>
+<tr>
+<td align="left"><strong>Repeater</strong></td>
+<td align="left">Regenerates and amplifies signals</td>
+<td align="left">Layer 1</td>
+<td align="left">Extends cable distance, amplifies noise too.</td>
+</tr>
+<tr>
+<td align="left"><strong>Hub</strong></td>
+<td align="left">Multi-port repeater, broadcasts to all</td>
+<td align="left">Layer 1</td>
+<td align="left">&quot;Dumb&quot; device, single Collision Domain.</td>
+</tr>
+<tr>
+<td align="left"><strong>Switch</strong></td>
+<td align="left">Forwards data to specific MAC address</td>
+<td align="left">Layer 2</td>
+<td align="left">&quot;Intelligent&quot; device, multiple Collision Domains.</td>
+</tr>
+<tr>
+<td align="left"><strong>Router</strong></td>
+<td align="left">Connects different networks, finds best path</td>
+<td align="left">Layer 3</td>
+<td align="left">Uses <strong>IP Addresses</strong> and Routing Tables.</td>
+</tr>
+<tr>
+<td align="left"><strong>Gateway</strong></td>
+<td align="left">Translates between different protocols</td>
+<td align="left">Layer 3 to 7</td>
+<td align="left">Protocol converter, connects dissimilar networks.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>💡 Pro-Tips for Exams (Common Differentiations)</h2>
+<ol>
+<li><strong>Hub vs. Switch</strong>: <ul>
+<li><em>Hub</em> broadcasts data to everyone (inefficient, Layer 1). </li>
+<li><em>Switch</em> sends data only to the intended recipient using MAC addresses (efficient, Layer 2).</li>
+</ul>
+</li>
+<li><strong>Switch vs. Router</strong>: <ul>
+<li><em>Switch</em> connects devices within the <strong>same</strong> network (LAN). </li>
+<li><em>Router</em> connects <strong>different</strong> networks together (LAN to WAN/Internet) using IP addresses.</li>
+</ul>
+</li>
+<li><strong>Router vs. Gateway</strong>: <ul>
+<li>A <em>Router</em> connects networks using the <em>same</em> protocol (e.g., IP to IP). </li>
+<li>A <em>Gateway</em> connects networks using <em>different</em> protocols (e.g., IP to SNA, or translating formats).</li>
+</ul>
+</li>
+<li><strong>Repeater vs. Amplifier</strong>: A repeater <em>regenerates</em> the digital signal (removes noise), whereas a simple amplifier just boosts the signal (including the noise).</li>
+</ol>
+
+    </main>
+</body>
+
+</html>

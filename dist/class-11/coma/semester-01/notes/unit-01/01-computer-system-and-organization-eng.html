@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Computer System And Organization (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Basic Computer Organization</h2>
+<h3>1.1 Block Diagram</h3>
+<pre class="mermaid">graph TD
+    A[Input Devices] --&gt; B[CPU]
+    B --&gt; C[Output Devices]
+    B --&gt; D[Primary Memory]
+    D --&gt; B
+    B --&gt; E[Secondary Storage]
+    E --&gt; B</pre><p><strong>Function of each block</strong>:</p>
+<ul>
+<li><strong>Input</strong>: Feeds data and instructions.</li>
+<li><strong>CPU</strong>: Processes data.</li>
+<li><strong>Primary Memory</strong>: Holds active data/programs.</li>
+<li><strong>Secondary Storage</strong>: Permanent backup.</li>
+<li><strong>Output</strong>: Displays results.</li>
+</ul>
+<hr>
+<h3>1.2 Central Processing Unit (CPU) – <em>Deep Dive</em></h3>
+<p>The CPU has <strong>three main internal parts</strong>:</p>
+<ol>
+<li><p><strong>Arithmetic Logic Unit (ALU)</strong></p>
+<ul>
+<li>Performs <strong>Arithmetic</strong> operations: <code>+</code>, <code>-</code>, <code>×</code>, <code>÷</code>.</li>
+<li>Performs <strong>Logical</strong> operations: <code>AND</code>, <code>OR</code>, <code>NOT</code>, comparisons (<code>&gt;</code>, <code>&lt;</code>, <code>=</code>).</li>
+</ul>
+</li>
+<li><p><strong>Control Unit (CU)</strong></p>
+<ul>
+<li>Fetches instructions from memory.</li>
+<li>Decodes them to understand what needs to be done.</li>
+<li>Generates control signals to coordinate all other components (like a traffic police).</li>
+</ul>
+</li>
+<li><p><strong>Registers</strong></p>
+<ul>
+<li>Smallest, fastest memory inside the CPU.</li>
+<li>Hold data immediately required for processing (e.g., Accumulator, Program Counter, Instruction Register).</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Speed Hierarchy</strong>: Registers &gt; Cache &gt; RAM &gt; Secondary Storage.</p>
+</blockquote>
+<hr>
+<h3>1.3 Primary Memory – <em>Deep Dive</em></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">RAM (Random Access Memory)</th>
+<th align="left">ROM (Read Only Memory)</th>
+<th align="left">Cache Memory</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Nature</strong></td>
+<td align="left">Volatile (data lost on power off)</td>
+<td align="left">Non-Volatile (retains data)</td>
+<td align="left">Volatile</td>
+</tr>
+<tr>
+<td align="left"><strong>Operation</strong></td>
+<td align="left">Read / Write</td>
+<td align="left">Read Only</td>
+<td align="left">Read / Write</td>
+</tr>
+<tr>
+<td align="left"><strong>Speed</strong></td>
+<td align="left">Slower than Cache</td>
+<td align="left">Slower than RAM</td>
+<td align="left">Fastest among primary (Level 1, 2, 3)</td>
+</tr>
+<tr>
+<td align="left"><strong>Usage</strong></td>
+<td align="left">Stores running programs and OS data.</td>
+<td align="left">Stores BIOS/UEFI and firmware (boot instructions).</td>
+<td align="left">Stores frequently accessed data to reduce access time.</td>
+</tr>
+<tr>
+<td align="left"><strong>Types</strong></td>
+<td align="left">SRAM (Static) &amp; DRAM (Dynamic)</td>
+<td align="left">PROM, EPROM, EEPROM</td>
+<td align="left">L1, L2, L3 (L1 is fastest, inside CPU chip)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3>1.4 Secondary Storage Devices</h3>
+<p>Non-volatile permanent storage. Examples:</p>
+<ul>
+<li><strong>Magnetic</strong>: Hard Disk Drive (HDD) – large capacity, mechanical.</li>
+<li><strong>Solid State</strong>: Solid State Drive (SSD) – no moving parts, faster.</li>
+<li><strong>Optical</strong>: CD, DVD, Blu-ray.</li>
+<li><strong>Flash</strong>: Pen drives, Memory cards.</li>
+</ul>
+<hr>
+<h3>1.5 Input / Output (I/O) Devices</h3>
+<ul>
+<li><strong>Input</strong>: Keyboard, Mouse, Scanner, Joystick, Microphone, Webcam, Barcode reader.</li>
+<li><strong>Output</strong>: Monitor (VDU), Printer (Laser/Inkjet), Plotter, Speakers, Projector.</li>
+</ul>
+<hr>
+<h3>1.6 Units of Memory (Exact Binary Standards)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Unit</th>
+<th align="left">Abbrev.</th>
+<th align="left">Exact Size (Binary)</th>
+<th align="left">Decimal Equivalent (approx)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Bit</strong></td>
+<td align="left">b</td>
+<td align="left">1 binary digit (0 or 1)</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>Byte</strong></td>
+<td align="left">B</td>
+<td align="left">8 bits</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>Kilobyte</strong></td>
+<td align="left">KB</td>
+<td align="left">$2^{10}$ Bytes</td>
+<td align="left">1024 Bytes</td>
+</tr>
+<tr>
+<td align="left"><strong>Megabyte</strong></td>
+<td align="left">MB</td>
+<td align="left">$2^{20}$ Bytes</td>
+<td align="left">1024 KB</td>
+</tr>
+<tr>
+<td align="left"><strong>Gigabyte</strong></td>
+<td align="left">GB</td>
+<td align="left">$2^{30}$ Bytes</td>
+<td align="left">1024 MB</td>
+</tr>
+<tr>
+<td align="left"><strong>Terabyte</strong></td>
+<td align="left">TB</td>
+<td align="left">$2^{40}$ Bytes</td>
+<td align="left">1024 GB</td>
+</tr>
+<tr>
+<td align="left"><strong>Petabyte</strong></td>
+<td align="left">PB</td>
+<td align="left">$2^{50}$ Bytes</td>
+<td align="left">1024 TB</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p><em>Exam Tip</em>: Be careful—storage manufacturers sometimes use decimal (1000), but for Computer Science exams, use <strong>binary multiples</strong> ($2^{10}$).</p>
+</blockquote>
+<hr>
+<h2>2. Classification of Computers</h2>
+<h3>2.1 Hierarchy Diagram</h3>
+<pre class="mermaid">graph TD
+    A[Computers by Size &amp; Power] --&gt; B[Super Computer]
+    A --&gt; C[Mainframe Computer]
+    A --&gt; D[Mini Computer]
+    A --&gt; E[Micro Computer / PC]</pre><h3>2.2 Detailed Comparison Table (All 4 Types)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left"><strong>Super Computer</strong></th>
+<th align="left"><strong>Mainframe Computer</strong></th>
+<th align="left"><strong>Mini Computer</strong></th>
+<th align="left"><strong>Personal Computer (PC)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Size</strong></td>
+<td align="left">Largest (fills a room/building)</td>
+<td align="left">Large (cabinet size)</td>
+<td align="left">Medium (refrigerator size)</td>
+<td align="left">Small (desk/lap size)</td>
+</tr>
+<tr>
+<td align="left"><strong>Speed</strong></td>
+<td align="left">Fastest (Petaflops/Exaflops)</td>
+<td align="left">Very High (millions of transactions/sec)</td>
+<td align="left">Moderate</td>
+<td align="left">Slowest among these</td>
+</tr>
+<tr>
+<td align="left"><strong>Processing</strong></td>
+<td align="left">Parallel processing (thousands of CPUs)</td>
+<td align="left">Massive I/O &amp; transaction processing</td>
+<td align="left">Multi-user, time-sharing</td>
+<td align="left">Single-user</td>
+</tr>
+<tr>
+<td align="left"><strong>Users</strong></td>
+<td align="left">Only specific researchers (single/multi limited)</td>
+<td align="left">Thousands of concurrent users</td>
+<td align="left">Tens to hundreds of users</td>
+<td align="left">Single user</td>
+</tr>
+<tr>
+<td align="left"><strong>Cost</strong></td>
+<td align="left">Extremely Expensive ($ millions)</td>
+<td align="left">Very Expensive</td>
+<td align="left">Moderate</td>
+<td align="left">Cheap / Affordable</td>
+</tr>
+<tr>
+<td align="left"><strong>OS</strong></td>
+<td align="left">Custom Linux/UNIX</td>
+<td align="left">z/OS, IBM Linux</td>
+<td align="left">UNIX, VMS</td>
+<td align="left">Windows, macOS, Linux</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left">Fugaku, Summit, Param (India)</td>
+<td align="left">IBM Z-series, Unisys</td>
+<td align="left">DEC VAX, PDP-11</td>
+<td align="left">Dell, HP, Apple MacBook, Smartphones</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3>2.3 Additional Key Points for Exams</h3>
+<ul>
+<li><strong>Supercomputers</strong> are used for <strong>Weather Forecasting</strong>, <strong>Nuclear Simulations</strong>, <strong>Aerospace</strong>, and <strong>Cryptography</strong>.</li>
+<li><strong>Mainframes</strong> are used in <strong>Banking</strong>, <strong>Railway/Airline Reservations</strong>, and <strong>Insurance</strong> due to high reliability.</li>
+<li><strong>Mini Computers</strong> were popular in the 1960s–80s for departmental systems; now largely replaced by powerful servers.</li>
+<li><strong>PCs</strong> are further divided into <strong>Desktops</strong>, <strong>Laptops</strong>, <strong>Tablets</strong>, and <strong>Smartphones</strong> (Microcomputers).</li>
+</ul>
+<hr>
+<h3>Summary of Volatility (Memory types)</h3>
+<ul>
+<li><strong>Volatile</strong>: RAM, Cache, Registers. (Lost when power is off).</li>
+<li><strong>Non-Volatile</strong>: ROM, Secondary Storage (HDD/SSD), Pen drives. (Retained when power is off).</li>
+</ul>
+<h2>3. MCQ</h2>
+<h4>Q1. What are the three main internal parts of the CPU?</h4>
+<p>A) ALU, Control Unit, and Registers ✅
+B) RAM, ROM, and Cache
+C) Input, Output, and Storage
+D) HDD, SSD, and Flash</p>
+<h4>Q2. Which unit of the CPU performs arithmetic and logical operations?</h4>
+<p>A) Control Unit
+B) Arithmetic Logic Unit (ALU) ✅
+C) Memory Unit
+D) Register Unit</p>
+<h4>Q3. What is the function of the Control Unit (CU)?</h4>
+<p>A) Performs addition and subtraction
+B) Stores permanent data
+C) Fetches, decodes instructions, and generates control signals ✅
+D) Handles input/output devices</p>
+<h4>Q4. Which of the following holds the smallest and fastest memory inside the CPU?</h4>
+<p>A) RAM
+B) Cache
+C) Registers ✅
+D) Secondary Storage</p>
+<h4>Q5. According to the speed hierarchy, which is the fastest?</h4>
+<p>A) RAM
+B) Secondary Storage
+C) Cache
+D) Registers ✅</p>
+<h4>Q6. In the speed hierarchy, which memory is slower than Registers but faster than RAM?</h4>
+<p>A) Secondary Storage
+B) Cache ✅
+C) ROM
+D) Hard Disk</p>
+<h4>Q7. Which component feeds data and instructions into the computer?</h4>
+<p>A) Output Devices
+B) CPU
+C) Primary Memory
+D) Input Devices ✅</p>
+<h4>Q8. The CPU processes data and sends results to which block?</h4>
+<p>A) Primary Memory
+B) Secondary Storage
+C) Output Devices ✅
+D) Input Devices</p>
+<h4>Q9. Which memory holds active data and programs currently in use?</h4>
+<p>A) Secondary Storage
+B) Primary Memory ✅
+C) Registers
+D) Output Devices</p>
+<h4>Q10. What is the nature of RAM?</h4>
+<p>A) Non-Volatile
+B) Volatile ✅
+C) Read Only
+D) Permanent</p>
+<h4>Q11. What is the nature of ROM?</h4>
+<p>A) Volatile
+B) Non-Volatile ✅
+C) Read/Write
+D) Slower than Secondary Storage</p>
+<h4>Q12. Which memory is Read Only by operation?</h4>
+<p>A) RAM
+B) Cache
+C) ROM ✅
+D) Registers</p>
+<h4>Q13. What is the primary usage of ROM?</h4>
+<p>A) Stores running programs
+B) Stores frequently accessed data
+C) Stores BIOS/UEFI and firmware boot instructions ✅
+D) Stores user documents</p>
+<h4>Q14. Which memory is the fastest among primary memory types?</h4>
+<p>A) RAM
+B) ROM
+C) Cache ✅
+D) Secondary Storage</p>
+<h4>Q15. Which type of RAM is static and faster?</h4>
+<p>A) DRAM
+B) SRAM ✅
+C) EEPROM
+D) PROM</p>
+<h4>Q16. Which of the following is an example of Secondary Storage?</h4>
+<p>A) RAM
+B) Registers
+C) Solid State Drive (SSD) ✅
+D) Cache</p>
+<h4>Q17. Which secondary storage device uses magnetic technology and has moving mechanical parts?</h4>
+<p>A) SSD
+B) Pen drive
+C) Hard Disk Drive (HDD) ✅
+D) CD</p>
+<h4>Q18. Which secondary storage device has no moving parts and is faster than HDD?</h4>
+<p>A) Magnetic Tape
+B) SSD ✅
+C) Blu-ray
+D) DVD</p>
+<h4>Q19. Which of the following is an optical secondary storage device?</h4>
+<p>A) Hard Disk Drive
+B) Memory Card
+C) CD, DVD, Blu-ray ✅
+D) Pen drive</p>
+<h4>Q20. Which of the following is a Flash memory device?</h4>
+<p>A) HDD
+B) SSD
+C) Pen drives and Memory cards ✅
+D) Magnetic Tape</p>
+<h4>Q21. Which of the following is an Input Device?</h4>
+<p>A) Monitor
+B) Printer
+C) Scanner ✅
+D) Plotter</p>
+<h4>Q22. Which of the following is an Output Device?</h4>
+<p>A) Keyboard
+B) Mouse
+C) Microphone
+D) Projector ✅</p>
+<h4>Q23. What is the exact binary size of 1 Kilobyte (KB)?</h4>
+<p>A) 1000 Bytes
+B) 1024 Bytes ✅
+C) 2^20 Bytes
+D) 2^30 Bytes</p>
+<h4>Q24. How many Bytes are exactly in 1 Megabyte (MB) according to binary standards?</h4>
+<p>A) 2^10 Bytes
+B) 2^20 Bytes ✅
+C) 1024 Bytes
+D) 2^30 Bytes</p>
+<h4>Q25. 1 Gigabyte (GB) in binary terms is equal to:</h4>
+<p>A) 1024 MB ✅
+B) 1000 MB
+C) 2^20 MB
+D) 1024 KB</p>
+<h4>Q26. What is the binary standard size of 1 Terabyte (TB)?</h4>
+<p>A) 2^20 Bytes
+B) 2^30 Bytes
+C) 2^40 Bytes ✅
+D) 2^50 Bytes</p>
+<h4>Q27. Which unit is equal to 2^50 Bytes?</h4>
+<p>A) Terabyte
+B) Gigabyte
+C) Petabyte ✅
+D) Exabyte</p>
+<h4>Q28. The smallest unit of memory in a computer is:</h4>
+<p>A) Byte
+B) Bit ✅
+C) Nibble
+D) Kilobyte</p>
+<h4>Q29. A Byte consists of how many bits?</h4>
+<p>A) 4
+B) 8 ✅
+C) 16
+D) 32</p>
+<h4>Q30. According to exam tips, which multiples should be used for Computer Science exams?</h4>
+<p>A) Decimal multiples (1000)
+B) Binary multiples (2^10) ✅
+C) Hexadecimal multiples
+D) Octal multiples</p>
+<h4>Q31. In the block diagram, which component has a direct two-way connection with Primary Memory?</h4>
+<p>A) Input Devices
+B) Output Devices
+C) CPU ✅
+D) Secondary Storage</p>
+<h4>Q32. In the block diagram, Secondary Storage connects directly to which component?</h4>
+<p>A) Input Devices
+B) Output Devices
+C) CPU ✅
+D) Primary Memory</p>
+<h4>Q33. Which CPU component is compared to a &quot;traffic police&quot; for coordinating other components?</h4>
+<p>A) ALU
+B) Registers
+C) Control Unit ✅
+D) Memory</p>
+<h4>Q34. Which register holds the address of the next instruction to be executed?</h4>
+<p>A) Accumulator
+B) Instruction Register
+C) Program Counter ✅
+D) Memory Address Register</p>
+<h4>Q35. Which register holds the current instruction being executed?</h4>
+<p>A) Program Counter
+B) Instruction Register ✅
+C) Accumulator
+D) Cache</p>
+<h4>Q36. Which register is commonly used to store intermediate arithmetic results?</h4>
+<p>A) Program Counter
+B) Instruction Register
+C) Accumulator ✅
+D) Memory Buffer Register</p>
+<h4>Q37. Which of the following is a logical operation performed by the ALU?</h4>
+<p>A) Addition
+B) Multiplication
+C) AND, OR, NOT ✅
+D) Division</p>
+<h4>Q38. Which of the following is an arithmetic operation performed by the ALU?</h4>
+<p>A) Comparison (&lt;, &gt;, =)
+B) AND
+C) OR
+D) Division (÷) ✅</p>
+<h4>Q39. Cache memory is typically divided into how many levels?</h4>
+<p>A) 1
+B) 2
+C) 3 (L1, L2, L3) ✅
+D) 4</p>
+<h4>Q40. Which level of cache is the fastest and located inside the CPU chip?</h4>
+<p>A) L3
+B) L2
+C) L1 ✅
+D) All are equally fast</p>
+<h4>Q41. Which of the following is true about RAM?</h4>
+<p>A) It is Non-Volatile
+B) It is Read Only
+C) It stores running programs and OS data ✅
+D) It stores BIOS</p>
+<h4>Q42. Which of the following is an example of ROM types?</h4>
+<p>A) SRAM and DRAM
+B) PROM, EPROM, EEPROM ✅
+C) HDD and SSD
+D) L1, L2, L3</p>
+<h4>Q43. What is the nature of Cache Memory?</h4>
+<p>A) Non-Volatile
+B) Volatile ✅
+C) Read Only
+D) Permanent</p>
+<h4>Q44. According to the speed hierarchy, which is the slowest?</h4>
+<p>A) Registers
+B) Cache
+C) RAM
+D) Secondary Storage ✅</p>
+<h4>Q45. In the classification of computers by size and power, which is the largest?</h4>
+<p>A) Mainframe Computer
+B) Mini Computer
+C) Micro Computer
+D) Super Computer ✅</p>
+<h4>Q46. Which type of computer typically fills a room or building?</h4>
+<p>A) Mainframe
+B) Mini
+C) Super Computer ✅
+D) PC</p>
+<h4>Q47. Which computer is the fastest in terms of processing speed (Petaflops/Exaflops)?</h4>
+<p>A) Mainframe
+B) Mini
+C) Super Computer ✅
+D) Personal Computer</p>
+<h4>Q48. Which type of computer uses parallel processing with thousands of CPUs?</h4>
+<p>A) Mini Computer
+B) Mainframe
+C) Super Computer ✅
+D) PC</p>
+<h4>Q49. Which computer is known for massive I/O and transaction processing?</h4>
+<p>A) Super Computer
+B) Mainframe Computer ✅
+C) Mini Computer
+D) Micro Computer</p>
+<h4>Q50. Which type of computer can handle thousands of concurrent users?</h4>
+<p>A) Super Computer
+B) Mainframe Computer ✅
+C) Personal Computer
+D) Mini Computer</p>
+<h4>Q51. Which computer supports tens to hundreds of users simultaneously?</h4>
+<p>A) Super Computer
+B) Mainframe
+C) Mini Computer ✅
+D) PC</p>
+<h4>Q52. A Personal Computer (PC) is designed for how many users?</h4>
+<p>A) Thousands
+B) Hundreds
+C) Tens
+D) Single user ✅</p>
+<h4>Q53. Which computer type is the most expensive?</h4>
+<p>A) Mainframe
+B) Super Computer ✅
+C) Mini
+D) PC</p>
+<h4>Q54. Which computer is typically cheap and affordable?</h4>
+<p>A) Super Computer
+B) Mainframe
+C) Mini
+D) Personal Computer (PC) ✅</p>
+<h4>Q55. What operating system is commonly used on Super Computers?</h4>
+<p>A) Windows
+B) z/OS
+C) Custom Linux/UNIX ✅
+D) VMS</p>
+<h4>Q56. What operating system is commonly used on Mainframes like IBM Z-series?</h4>
+<p>A) Windows
+B) macOS
+C) z/OS, IBM Linux ✅
+D) Android</p>
+<h4>Q57. Which of the following is an example of a Super Computer?</h4>
+<p>A) IBM Z-series
+B) DEC VAX
+C) Fugaku, Summit, Param ✅
+D) Dell, HP</p>
+<h4>Q58. Which of the following is an example of a Mainframe Computer?</h4>
+<p>A) Fugaku
+B) IBM Z-series ✅
+C) PDP-11
+D) Apple MacBook</p>
+<h4>Q59. Which of the following is an example of a Mini Computer?</h4>
+<p>A) Summit
+B) Unisys
+C) DEC VAX, PDP-11 ✅
+D) Dell</p>
+<h4>Q60. Which of the following is an example of a Personal Computer?</h4>
+<p>A) Param
+B) IBM Z-series
+C) Apple MacBook ✅
+D) DEC VAX</p>
+<h4>Q61. Supercomputers are primarily used for which application?</h4>
+<p>A) Banking
+B) Railway reservations
+C) Weather Forecasting and Nuclear Simulations ✅
+D) Departmental systems</p>
+<h4>Q62. Mainframe computers are primarily used in which sector?</h4>
+<p>A) Aerospace
+B) Cryptography
+C) Banking and Railway reservations ✅
+D) Personal use</p>
+<h4>Q63. Mini Computers were popular in which era?</h4>
+<p>A) 1920s–40s
+B) 1960s–80s ✅
+C) 1990s–2000s
+D) 2010s–present</p>
+<h4>Q64. Which of the following falls under Micro Computers / PCs?</h4>
+<p>A) Desktops, Laptops, Tablets, Smartphones ✅
+B) DEC VAX, PDP-11
+C) IBM Z-series
+D) Fugaku, Summit</p>
+<h4>Q65. Which memory types are volatile?</h4>
+<p>A) ROM and HDD
+B) RAM, Cache, and Registers ✅
+C) SSD and Pen drives
+D) ROM and Cache</p>
+<h4>Q66. Which memory types are non-volatile?</h4>
+<p>A) RAM and Cache
+B) Registers and RAM
+C) ROM and Secondary Storage ✅
+D) Cache and Registers</p>
+<h4>Q67. The CPU connects to Primary Memory and Secondary Storage. Which unit manages this data flow?</h4>
+<p>A) ALU
+B) Registers
+C) Control Unit ✅
+D) Cache</p>
+<h4>Q68. What does ALU stand for?</h4>
+<p>A) Automatic Logic Unit
+B) Arithmetic Logic Unit ✅
+C) Array Logic Unit
+D) Advanced Logical Unit</p>
+<h4>Q69. What does CU stand for?</h4>
+<p>A) Computer Unit
+B) Control Unit ✅
+C) Cache Unit
+D) Central Unit</p>
+<h4>Q70. Which operation is performed by the ALU when comparing two values?</h4>
+<p>A) Arithmetic
+B) Logical ✅
+C) Storage
+D) Input</p>
+<h4>Q71. Which type of memory is used to reduce access time by storing frequently accessed data?</h4>
+<p>A) ROM
+B) Secondary Storage
+C) Cache Memory ✅
+D) Registers</p>
+<h4>Q72. Which is true about SRAM?</h4>
+<p>A) It is dynamic and needs refreshing
+B) It is static and faster ✅
+C) It is non-volatile
+D) It is used for BIOS</p>
+<h4>Q73. Which is true about DRAM?</h4>
+<p>A) It is static
+B) It is dynamic and needs refreshing ✅
+C) It is faster than SRAM
+D) It is non-volatile</p>
+<h4>Q74. What does EEPROM stand for?</h4>
+<p>A) Electrically Erasable Programmable Read-Only Memory ✅
+B) Erasable Electronic Programmable ROM
+C) Electrically Erasable Permanent ROM
+D) Extended Erasable Programmable ROM</p>
+<h4>Q75. Which device is used for permanent backup of data?</h4>
+<p>A) Primary Memory
+B) Registers
+C) Cache
+D) Secondary Storage ✅</p>
+<h4>Q76. Which of the following is an example of a magnetic secondary storage device?</h4>
+<p>A) SSD
+B) Blu-ray
+C) Hard Disk Drive (HDD) ✅
+D) Pen drive</p>
+<h4>Q77. Which of the following is a solid-state secondary storage device?</h4>
+<p>A) HDD
+B) Magnetic Tape
+C) SSD ✅
+D) CD</p>
+<h4>Q78. Which device is an output device used for printing large engineering drawings?</h4>
+<p>A) Printer
+B) Plotter ✅
+C) Scanner
+D) Monitor</p>
+<h4>Q79. Which device is an input device used to read barcodes?</h4>
+<p>A) Mouse
+B) Barcode reader ✅
+C) Webcam
+D) Joystick</p>
+<h4>Q80. Which device is an output device used for visual display?</h4>
+<p>A) Printer
+B) Plotter
+C) Monitor (VDU) ✅
+D) Scanner</p>
+<h4>Q81. In the block diagram, CPU sends data to Output Devices. What is the reverse flow?</h4>
+<p>A) Output Devices send data to CPU
+B) Input Devices send data to CPU ✅
+C) CPU sends data to Secondary Storage
+D) Primary Memory sends data to Secondary Storage</p>
+<h4>Q82. A Program Counter (PC) is a type of:</h4>
+<p>A) Cache
+B) Register ✅
+C) ALU component
+D) RAM</p>
+<h4>Q83. An Instruction Register (IR) holds:</h4>
+<p>A) The address of the next instruction
+B) The current instruction being decoded/executed ✅
+C) Intermediate arithmetic results
+D) Data from input devices</p>
+<h4>Q84. Which of the following is a comparison operation performed by ALU?</h4>
+<p>A) AND
+B) OR
+C) NOT
+D) &gt; (Greater than) ✅</p>
+<h4>Q85. Which memory has a speed hierarchy level between Registers and RAM?</h4>
+<p>A) Secondary Storage
+B) ROM
+C) Cache ✅
+D) HDD</p>
+<h4>Q86. Which type of ROM can be erased using ultraviolet light?</h4>
+<p>A) PROM
+B) EPROM ✅
+C) EEPROM
+D) SRAM</p>
+<h4>Q87. Which type of ROM is programmable only once?</h4>
+<p>A) EPROM
+B) EEPROM
+C) PROM ✅
+D) Flash</p>
+<h4>Q88. What is the use of Cache Memory?</h4>
+<p>A) Permanent storage
+B) Storing BIOS
+C) Reducing access time for frequently accessed data ✅
+D) Storing inactive programs</p>
+<h4>Q89. Which classification of computer is known for high reliability and used in insurance?</h4>
+<p>A) Super Computer
+B) Mini Computer
+C) Mainframe Computer ✅
+D) Personal Computer</p>
+<h4>Q90. Which classification of computer is used for Cryptography?</h4>
+<p>A) Mini Computer
+B) Personal Computer
+C) Mainframe
+D) Super Computer ✅</p>
+<h4>Q91. What is the typical size of a Mini Computer?</h4>
+<p>A) Fills a room
+B) Cabinet size
+C) Refrigerator size ✅
+D) Desk size</p>
+<h4>Q92. What is the typical size of a Mainframe Computer?</h4>
+<p>A) Small (desk)
+B) Large (cabinet size) ✅
+C) Medium (refrigerator)
+D) Largest (room)</p>
+<h4>Q93. What is a distinguishing feature of Supercomputers?</h4>
+<p>A) Single-user
+B) Massive I/O
+C) Parallel processing with thousands of CPUs ✅
+D) Time-sharing</p>
+<h4>Q94. Which characteristic is true for Personal Computers?</h4>
+<p>A) Multi-user
+B) Extremely expensive
+C) Single-user ✅
+D) Parallel processing</p>
+<h4>Q95. Which OS is associated with Mainframes?</h4>
+<p>A) Windows
+B) macOS
+C) z/OS ✅
+D) Android</p>
+<h4>Q96. Which OS is associated with Mini Computers (historically)?</h4>
+<p>A) Windows
+B) z/OS
+C) UNIX, VMS ✅
+D) Linux (custom)</p>
+<h4>Q97. What is the decimal equivalent of 1 KB (approx)?</h4>
+<p>A) 1000 Bytes
+B) 1024 Bytes
+C) 2^20 Bytes
+D) 2^30 Bytes</p>
+<h4>Q98. 1 Petabyte (PB) equals how many Terabytes?</h4>
+<p>A) 1024 TB ✅
+B) 1000 TB
+C) 2^20 TB
+D) 1024 GB</p>
+<h4>Q99. Which of the following is true about the Control Unit&#39;s function?</h4>
+<p>A) Performs addition and subtraction
+B) Stores permanent data
+C) Coordinates all other components ✅
+D) Handles only input devices</p>
+<h4>Q100. In the hierarchy diagram of computers, which category is at the bottom in terms of size and power?</h4>
+<p>A) Super Computer
+B) Mainframe
+C) Mini
+D) Micro Computer / PC ✅</p>
+
+    </main>
+</body>
+
+</html>

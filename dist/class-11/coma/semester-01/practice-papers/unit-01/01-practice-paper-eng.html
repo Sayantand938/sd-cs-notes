@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Basic Computer Organisation (Questions 1 to 20)</h2>
+<h4>Q1. What does CPU stand for?</h4>
+<p>A) Central Processing Unit ✅
+B) Computer Personal Unit
+C) Central Program Unit
+D) Central Processing Utility</p>
+<h4>Q2. Which of the following is a primary memory device?</h4>
+<p>A) Hard Disk
+B) RAM ✅
+C) Pen Drive
+D) CD-ROM</p>
+<h4>Q3. What is the full form of ROM?</h4>
+<p>A) Read Only Memory ✅
+B) Random Only Memory
+C) Read Operate Memory
+D) Random Operate Memory</p>
+<h4>Q4. Which type of memory is volatile?</h4>
+<p>A) ROM
+B) Hard Disk
+C) RAM ✅
+D) DVD</p>
+<h4>Q5. What is the smallest unit of memory?</h4>
+<p>A) Byte
+B) Bit ✅
+C) KB
+D) MB</p>
+<h4>Q6. 1 Kilobyte (KB) is equal to:</h4>
+<p>A) 100 bytes
+B) 1024 bytes ✅
+C) 1024 bits
+D) 1000 bits</p>
+<h4>Q7. Which of the following is a secondary storage device?</h4>
+<p>A) RAM
+B) ROM
+C) Hard Disk ✅
+D) Cache Memory</p>
+<h4>Q8. What is the function of Cache Memory?</h4>
+<p>A) Permanent storage
+B) Storing frequently accessed data for faster access ✅
+C) Storing boot instructions
+D) Input/Output operations</p>
+<h4>Q9. 1 Terabyte (TB) is equal to:</h4>
+<p>A) 1024 GB ✅
+B) 1000 GB
+C) 1024 MB
+D) 1024 KB</p>
+<h4>Q10. Which of the following is an input device?</h4>
+<p>A) Monitor
+B) Printer
+C) Keyboard ✅
+D) Speaker</p>
+<h4>Q11. Which of the following is an output device?</h4>
+<p>A) Mouse
+B) Scanner
+C) Monitor ✅
+D) Microphone</p>
+<h4>Q12. What is the full form of ALU?</h4>
+<p>A) Arithmetic Logic Unit ✅
+B) Arithmetic Logical Unit
+C) Array Logic Unit
+D) Advanced Logic Unit</p>
+<h4>Q13. Which component of CPU performs arithmetic operations?</h4>
+<p>A) CU
+B) ALU ✅
+C) MU
+D) Register</p>
+<h4>Q14. What is the function of the Control Unit (CU)?</h4>
+<p>A) Performs calculations
+B) Stores data
+C) Directs and coordinates operations ✅
+D) Input/output operations</p>
+<h4>Q15. Which of the following memory is fastest?</h4>
+<p>A) RAM
+B) Hard Disk
+C) Cache Memory ✅
+D) ROM</p>
+<h4>Q16. 1 Petabyte (PB) is equal to:</h4>
+<p>A) 1024 TB ✅
+B) 1000 TB
+C) 1024 GB
+D) 1024 MB</p>
+<h4>Q17. What type of memory is used for storing BIOS?</h4>
+<p>A) RAM
+B) ROM ✅
+C) Hard Disk
+D) Cache</p>
+<h4>Q18. Which of the following is NOT a unit of memory?</h4>
+<p>A) Byte
+B) KB
+C) Hertz ✅
+D) GB</p>
+<h4>Q19. The CPU consists of:</h4>
+<p>A) ALU and Registers
+B) ALU and CU ✅
+C) CU and Registers
+D) ALU, CU and Memory</p>
+<h4>Q20. What is the function of the system bus?</h4>
+<p>A) Connects CPU to peripherals
+B) Transfers data between components ✅
+C) Stores data
+D) Performs calculations</p>
+<hr>
+<h2>Section 2: Classification of Computers (Questions 21 to 30)</h2>
+<h4>Q21. Which type of computer has the highest processing power?</h4>
+<p>A) Mainframe Computer
+B) Supercomputer ✅
+C) Mini Computer
+D) Personal Computer</p>
+<h4>Q22. Which type of computer is used for weather forecasting?</h4>
+<p>A) Mainframe Computer
+B) Supercomputer ✅
+C) Mini Computer
+D) Personal Computer</p>
+<h4>Q23. Which computer is used in banks for transaction processing?</h4>
+<p>A) Supercomputer
+B) Mainframe Computer ✅
+C) Mini Computer
+D) Personal Computer</p>
+<h4>Q24. Which type of computer is also known as a workstation?</h4>
+<p>A) Supercomputer
+B) Mainframe Computer
+C) Mini Computer ✅
+D) Microcomputer</p>
+<h4>Q25. Which of the following is the most commonly used computer?</h4>
+<p>A) Supercomputer
+B) Mainframe Computer
+C) Mini Computer
+D) Personal Computer ✅</p>
+<h4>Q26. CRAY X-MP is an example of which type of computer?</h4>
+<p>A) Mainframe
+B) Supercomputer ✅
+C) Mini Computer
+D) Microcomputer</p>
+<h4>Q27. Which type of computer is used in scientific research?</h4>
+<p>A) Mainframe
+B) Supercomputer ✅
+C) Mini Computer
+D) Microcomputer</p>
+<h4>Q28. IBM Z series is an example of which type of computer?</h4>
+<p>A) Supercomputer
+B) Mainframe Computer ✅
+C) Mini Computer
+D) Microcomputer</p>
+<h4>Q29. Which type of computer supports multiple users simultaneously?</h4>
+<p>A) Microcomputer
+B) Mainframe Computer ✅
+C) Personal Computer
+D) Laptop</p>
+<h4>Q30. Which computer is most suitable for small businesses?</h4>
+<p>A) Supercomputer
+B) Mainframe
+C) Mini Computer ✅
+D) Microcomputer</p>
+<hr>
+<h2>Section 3: Concepts of Software (Questions 31 to 55)</h2>
+<h4>Q31. What is software?</h4>
+<p>A) Physical components of a computer
+B) A set of instructions/programs ✅
+C) Input/output devices
+D) Memory storage</p>
+<h4>Q32. Which of the following is system software?</h4>
+<p>A) MS Word
+B) Operating System ✅
+C) Photoshop
+D) Tally</p>
+<h4>Q33. What is the function of an operating system?</h4>
+<p>A) Compile programs
+B) Manage hardware and software resources ✅
+C) Create documents
+D) Browse the internet</p>
+<h4>Q34. Which of the following is an example of application software?</h4>
+<p>A) Windows 10
+B) Linux
+C) Microsoft Word ✅
+D) BIOS</p>
+<h4>Q35. What is a compiler?</h4>
+<p>A) Converts high-level language to machine code ✅
+B) Executes programs line by line
+C) Manages files
+D) Provides user interface</p>
+<h4>Q36. What is an interpreter?</h4>
+<p>A) Converts high-level code to machine code line by line ✅
+B) Converts entire program at once
+C) Combines object files
+D) Loads programs into memory</p>
+<h4>Q37. What is the difference between a compiler and an interpreter?</h4>
+<p>A) Compiler translates all at once, interpreter translates line by line ✅
+B) Interpreter translates all at once, compiler translates line by line
+C) Both work the same
+D) Compiler is used for all languages</p>
+<h4>Q38. What is a linker?</h4>
+<p>A) Converts source code to object code
+B) Combines object files into executable ✅
+C) Loads program into memory
+D) Manages files</p>
+<h4>Q39. What is the function of a loader?</h4>
+<p>A) Converts source code to object code
+B) Combines object files
+C) Loads program into memory for execution ✅
+D) Provides user interface</p>
+<h4>Q40. Which type of OS allows multiple users to work simultaneously?</h4>
+<p>A) Single-user OS
+B) Multi-user OS ✅
+C) Real-time OS
+D) Embedded OS</p>
+<h4>Q41. Which type of OS allows multiple programs to run simultaneously?</h4>
+<p>A) Single-user
+B) Multiprogramming OS ✅
+C) Single-tasking
+D) Batch OS</p>
+<h4>Q42. What is multiprocessing?</h4>
+<p>A) Running multiple programs on one CPU
+B) Using multiple CPUs for processing ✅
+C) Running one program at a time
+D) Using multiple monitors</p>
+<h4>Q43. What is time-sharing?</h4>
+<p>A) CPU time divided among multiple users ✅
+B) Multiple CPUs used simultaneously
+C) One user at a time
+D) Batch processing</p>
+<h4>Q44. What is GUI?</h4>
+<p>A) Graphical User Interface ✅
+B) General User Interface
+C) Graphic Utility Interface
+D) General Utility Interface</p>
+<h4>Q45. What is CUI?</h4>
+<p>A) Character User Interface ✅
+B) Command User Interface
+C) Character Utility Interface
+D) Computer User Interface</p>
+<h4>Q46. Which of the following is a Linux command to list files?</h4>
+<p>A) <code>dir</code>
+B) <code>ls</code> ✅
+C) <code>list</code>
+D) <code>show</code></p>
+<h4>Q47. Which command is used to change directory in Linux?</h4>
+<p>A) <code>cd</code> ✅
+B) <code>chdir</code>
+C) <code>md</code>
+D) <code>rd</code></p>
+<h4>Q48. Which command is used to create a new directory in Linux?</h4>
+<p>A) <code>mkdir</code> ✅
+B) <code>md</code>
+C) <code>cr</code>
+D) <code>newdir</code></p>
+<h4>Q49. What is utility software?</h4>
+<p>A) Software that manages computer resources
+B) Software that performs specific maintenance tasks ✅
+C) Software that creates documents
+D) Software that manages network</p>
+<h4>Q50. Which of the following is an example of utility software?</h4>
+<p>A) Windows 10
+B) Microsoft Word
+C) Antivirus ✅
+D) Google Chrome</p>
+<h4>Q51. What is an assembler?</h4>
+<p>A) Converts assembly language to machine code ✅
+B) Converts high-level language to machine code
+C) Executes programs
+D) Manages memory</p>
+<h4>Q52. Which of the following is a single-user operating system?</h4>
+<p>A) Windows 10 ✅
+B) Linux (server)
+C) UNIX
+D) Windows Server</p>
+<h4>Q53. Which type of operating system is Windows 10?</h4>
+<p>A) Single-user, Single-tasking
+B) Single-user, Multi-tasking ✅
+C) Multi-user, Single-tasking
+D) Multi-user, Multi-tasking</p>
+<h4>Q54. Which of the following is NOT a translator?</h4>
+<p>A) Compiler
+B) Interpreter
+C) Assembler
+D) Loader ✅</p>
+<h4>Q55. What is the purpose of system software?</h4>
+<p>A) To help users do specific tasks
+B) To run and manage the computer hardware ✅
+C) To create documents
+D) To browse the internet</p>
+<hr>
+<h2>Section 4: Number System (Questions 56 to 80)</h2>
+<h4>Q56. What is the base of the binary number system?</h4>
+<p>A) 8
+B) 2 ✅
+C) 10
+D) 16</p>
+<h4>Q57. What is the base of the octal number system?</h4>
+<p>A) 2
+B) 8 ✅
+C) 10
+D) 16</p>
+<h4>Q58. What is the base of the decimal number system?</h4>
+<p>A) 2
+B) 8
+C) 10 ✅
+D) 16</p>
+<h4>Q59. What is the base of the hexadecimal number system?</h4>
+<p>A) 8
+B) 10
+C) 16 ✅
+D) 2</p>
+<h4>Q60. Convert binary <code>1010</code> to decimal.</h4>
+<p>A) 8
+B) 10 ✅
+C) 12
+D) 5</p>
+<h4>Q61. Convert decimal <code>15</code> to binary.</h4>
+<p>A) 1000
+B) 1111 ✅
+C) 1100
+D) 1010</p>
+<h4>Q62. Convert octal <code>17</code> to decimal.</h4>
+<p>A) 15 ✅
+B) 17
+C) 13
+D) 19</p>
+<h4>Q63. Convert decimal <code>25</code> to octal.</h4>
+<p>A) 31 ✅
+B) 30
+C) 32
+D) 33</p>
+<h4>Q64. Convert hexadecimal <code>A</code> to decimal.</h4>
+<p>A) 8
+B) 10 ✅
+C) 11
+D) 12</p>
+<h4>Q65. Convert decimal <code>12</code> to hexadecimal.</h4>
+<p>A) A
+B) B
+C) C ✅
+D) D</p>
+<h4>Q66. What is BCD code?</h4>
+<p>A) Binary Coded Decimal ✅
+B) Basic Coded Decimal
+C) Binary Converted Decimal
+D) Byte Coded Decimal</p>
+<h4>Q67. What is the BCD representation of decimal <code>15</code>?</h4>
+<p>A) 0001 0101 ✅
+B) 1111
+C) 1000 1000
+D) 1111 1111</p>
+<h4>Q68. What is Grey code?</h4>
+<p>A) Weighted code
+B) Non-weighted code ✅
+C) Binary code
+D) BCD code</p>
+<h4>Q69. What is Excess-3 code?</h4>
+<p>A) Weighted code
+B) Non-weighted code ✅
+C) Binary code
+D) BCD code</p>
+<h4>Q70. What is ASCII?</h4>
+<p>A) American Standard Code for Information Interchange ✅
+B) American System Code for Information Interchange
+C) Advanced Standard Code for Information Interchange
+D) American Standard Character for Information Interchange</p>
+<h4>Q71. How many characters can ASCII represent?</h4>
+<p>A) 128 ✅
+B) 64
+C) 256
+D) 512</p>
+<h4>Q72. What is ISCII?</h4>
+<p>A) Indian Standard Code for Information Interchange ✅
+B) Indian System Code for Information Interchange
+C) International Standard Code for Information Interchange
+D) Indian Standard Character for Information Interchange</p>
+<h4>Q73. What is Unicode?</h4>
+<p>A) An encoding scheme for all languages ✅
+B) An encoding scheme for English only
+C) A hardware component
+D) A type of memory</p>
+<h4>Q74. What is 1&#39;s complement of binary <code>1010</code>?</h4>
+<p>A) 0101 ✅
+B) 1010
+C) 1111
+D) 0000</p>
+<h4>Q75. What is 2&#39;s complement of binary <code>1010</code>?</h4>
+<p>A) 0101
+B) 0110 ✅ (1&#39;s complement + 1 = 0101 + 1 = 0110)
+C) 1111
+D) 0000</p>
+<h4>Q76. Which of the following is a weighted code?</h4>
+<p>A) Grey Code
+B) Excess-3
+C) BCD ✅
+D) ASCII</p>
+<h4>Q77. Convert binary <code>1111</code> to hexadecimal.</h4>
+<p>A) F ✅
+B) 15
+C) E
+D) 1F</p>
+<h4>Q78. Convert hexadecimal <code>1A</code> to decimal.</h4>
+<p>A) 16
+B) 26 ✅
+C) 20
+D) 18</p>
+<h4>Q79. Convert octal <code>12</code> to binary.</h4>
+<p>A) 1010
+B) 1110
+C) 1010
+D) 001010 ✅ (1→001, 2→010 → 001010)</p>
+<p>Actually, octal 1 = 001, 2 = 010 → 001010. So D is correct.</p>
+<h4>Q80. Which encoding scheme is used for all modern operating systems?</h4>
+<p>A) ASCII
+B) ISCII
+C) Unicode ✅
+D) BCD</p>
+<hr>
+<h2>Section 5: Boolean Algebra (Questions 81 to 100)</h2>
+<h4>Q81. What is Boolean Algebra?</h4>
+<p>A) Algebra of numbers
+B) Algebra of logic with two values (0 and 1) ✅
+C) Algebra of letters
+D) Algebra of symbols</p>
+<h4>Q82. The AND operation is represented by:</h4>
+<p>A) <code>+</code>
+B) <code>.</code> ✅
+C) <code>^</code>
+D) <code>~</code></p>
+<h4>Q83. The OR operation is represented by:</h4>
+<p>A) <code>+</code> ✅
+B) <code>.</code>
+C) <code>^</code>
+D) <code>~</code></p>
+<h4>Q84. The NOT operation is represented by:</h4>
+<p>A) <code>+</code>
+B) <code>.</code>
+C) <code>^</code>
+D) <code>~</code> or <code>&#39;</code> ✅</p>
+<h4>Q85. What is the output of <code>0 AND 1</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q86. What is the output of <code>1 OR 0</code>?</h4>
+<p>A) 0
+B) 1 ✅
+C) Invalid
+D) Depends</p>
+<h4>Q87. What is the output of <code>NOT 1</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q88. Which logic gate is represented by the symbol <code>&amp;</code>?</h4>
+<p>A) AND ✅
+B) OR
+C) NOT
+D) XOR</p>
+<h4>Q89. What is the truth table entry for <code>1 AND 1</code>?</h4>
+<p>A) 0
+B) 1 ✅
+C) Invalid
+D) Depends</p>
+<h4>Q90. Which gate is known as the universal gate?</h4>
+<p>A) AND
+B) OR
+C) NAND ✅
+D) NOT</p>
+<h4>Q91. What is De Morgan&#39;s first theorem?</h4>
+<p>A) <code>(A + B)&#39; = A&#39; . B&#39;</code> ✅
+B) <code>(A . B)&#39; = A&#39; + B&#39;</code>
+C) <code>A + B = B + A</code>
+D) <code>A . B = B . A</code></p>
+<h4>Q92. What is De Morgan&#39;s second theorem?</h4>
+<p>A) <code>(A + B)&#39; = A&#39; . B&#39;</code>
+B) <code>(A . B)&#39; = A&#39; + B&#39;</code> ✅
+C) <code>A + B = B + A</code>
+D) <code>A . B = B . A</code></p>
+<h4>Q93. What is SOP form?</h4>
+<p>A) Sum of Products ✅
+B) Sum of Products
+C) Standard of Products
+D) Sum of Products</p>
+<h4>Q94. What is POS form?</h4>
+<p>A) Product of Sums ✅
+B) Product of Standards
+C) Product of Systems
+D) Product of Sums</p>
+<h4>Q95. Which gate is also known as a half-adder?</h4>
+<p>A) AND
+B) OR
+C) XOR ✅
+D) NAND</p>
+<h4>Q96. What is the truth table output for XOR gate when both inputs are same?</h4>
+<p>A) 0 ✅
+B) 1
+C) Invalid
+D) Depends</p>
+<h4>Q97. What is K-Map used for?</h4>
+<p>A) Simplifying Boolean expressions ✅
+B) Converting numbers
+C) Designing CPUs
+D) Storing data</p>
+<h4>Q98. How many cells does a 2-variable K-Map have?</h4>
+<p>A) 2
+B) 4 ✅
+C) 8
+D) 16</p>
+<h4>Q99. How many cells does a 3-variable K-Map have?</h4>
+<p>A) 4
+B) 8 ✅
+C) 16
+D) 32</p>
+<h4>Q100. Which of the following is a logic gate?</h4>
+<p>A) XOR ✅
+B) SOX
+C) XOG
+D) XAR</p>
+<hr>
+<h2>Answer Key</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>A</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>A</td>
+<td>76</td>
+<td>C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>A</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td>28</td>
+<td>B</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>D</td>
+<td>79</td>
+<td>D</td>
+</tr>
+<tr>
+<td>5</td>
+<td>B</td>
+<td>30</td>
+<td>C</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>B</td>
+<td>81</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>C</td>
+<td>32</td>
+<td>B</td>
+<td>57</td>
+<td>B</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>B</td>
+<td>58</td>
+<td>C</td>
+<td>83</td>
+<td>A</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A</td>
+<td>34</td>
+<td>C</td>
+<td>59</td>
+<td>C</td>
+<td>84</td>
+<td>D</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C</td>
+<td>35</td>
+<td>A</td>
+<td>60</td>
+<td>B</td>
+<td>85</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>C</td>
+<td>36</td>
+<td>A</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>A</td>
+<td>37</td>
+<td>A</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>B</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>A</td>
+<td>88</td>
+<td>A</td>
+</tr>
+<tr>
+<td>14</td>
+<td>C</td>
+<td>39</td>
+<td>C</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>C</td>
+<td>40</td>
+<td>B</td>
+<td>65</td>
+<td>C</td>
+<td>90</td>
+<td>C</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>A</td>
+<td>91</td>
+<td>A</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>B</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>43</td>
+<td>A</td>
+<td>68</td>
+<td>B</td>
+<td>93</td>
+<td>A</td>
+</tr>
+<tr>
+<td>19</td>
+<td>B</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>B</td>
+<td>94</td>
+<td>A</td>
+</tr>
+<tr>
+<td>20</td>
+<td>B</td>
+<td>45</td>
+<td>A</td>
+<td>70</td>
+<td>A</td>
+<td>95</td>
+<td>C</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>A</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>A</td>
+<td>72</td>
+<td>A</td>
+<td>97</td>
+<td>A</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>A</td>
+<td>73</td>
+<td>A</td>
+<td>98</td>
+<td>B</td>
+</tr>
+<tr>
+<td>24</td>
+<td>C</td>
+<td>49</td>
+<td>B</td>
+<td>74</td>
+<td>A</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>D</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>A</td>
+</tr>
+</tbody></table></div>
+
+    </main>
+</body>
+
+</html>

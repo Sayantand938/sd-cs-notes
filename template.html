@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (typeof mermaid !== 'undefined') {
@@ -38,34 +38,13 @@
 </head>
 
 <body>
-    <div class="metadata-box">
-        {{#if title}}<h1>{{title}}</h1>{{/if}}
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
 
-        {{#if filename}}
-        <p><strong>📄 File:</strong> {{filename}}</p>
-        {{/if}}
-
-        {{#if date}}
-        <p><strong>📅 {{date}}</strong></p>
-        {{/if}}
-
-        {{#if description}}
-        <p><em>{{description}}</em></p>
-        {{/if}}
-
-        {{#if tags}}
-        <p>
-            <strong>🏷️ Tags:</strong>
-            {{#each tags}}
-            <span class="tag-badge">{{this}}</span>
-            {{/each}}
-        </p>
-        {{/if}}
-    </div>
-
-    <hr>
-
-    {{{content}}}
+    <main>
+        {{{content}}}
+    </main>
 </body>
 
 </html>

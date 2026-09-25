@@ -8,45 +8,198 @@
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof mermaid !== 'undefined') {
-                mermaid.initialize({ startOnLoad: true });
-            }
-            if (typeof renderMathInElement !== 'undefined') {
-                renderMathInElement(document.body, {
-                    delimiters: [
-                        { left: '$$', right: '$$', display: true },
-                        { left: '$', right: '$', display: false }
-                    ],
-                    throwOnError: false
-                });
-            }
-            if (typeof hljs !== 'undefined') {
-                hljs.highlightAll();
-            }
-        });
-    </script>
+    <style>
+        .search-container {
+            margin: 1.5em 0 2em 0;
+        }
+
+        .search-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 14px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #6cacf0;
+        }
+
+        .search-input::placeholder {
+            color: #777;
+        }
+
+        /* Class / Subject / Semester Group */
+        .group-section {
+            margin-bottom: 2.2em;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px 22px;
+        }
+
+        .group-header {
+            margin-top: 0;
+            margin-bottom: 1em;
+            padding-bottom: 0.4em;
+            border-bottom: 1px solid #333;
+            color: #6cacf0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Category / Unit */
+        .category-section {
+            margin: 1em 0;
+            padding-left: 0.5em;
+        }
+
+        .category-title {
+            color: #e0e0e0;
+            font-size: 1.05em;
+            margin: 0.8em 0 0.4em 0;
+            font-weight: 600;
+        }
+
+        /* Clean Link List */
+        .notes-list {
+            list-style: none;
+            margin: 0.4em 0 0.8em 0;
+            padding-left: 1.2em;
+        }
+
+        .notes-list li {
+            margin: 0.4em 0;
+            position: relative;
+        }
+
+        .notes-list li::before {
+            content: "›";
+            position: absolute;
+            left: -1em;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .notes-list a {
+            color: #6cacf0;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.15s;
+        }
+
+        .notes-list a:hover {
+            color: #b0d4ff;
+            text-decoration: underline;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 2em;
+            color: #888;
+            background: #1e1e1e;
+            border: 1px dashed #333;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="metadata-box">
         <h1>{{title}}</h1>
-        {{#if description}}<p><em>{{description}}</em></p>{{/if}}
+        {{#if description}}
+        <p><em>{{description}}</em></p>
+        {{/if}}
     </div>
 
-    <hr>
+    <!-- Live Search / Filter Input -->
+    <div class="search-container">
+        <input type="search" id="searchInput" class="search-input"
+            placeholder="🔍 Filter notes by topic, unit, or class..." autocomplete="off">
+    </div>
 
-    <!-- The cards grid is injected here as HTML -->
-    {{{cardsHtml}}}
+    <div id="noResults" class="no-results">
+        No notes found matching your filter.
+    </div>
+
+    <main id="manifestRoot">
+        {{#if manifest.length}}
+        {{#each manifest}}
+        <section class="group-section">
+            <h2 class="group-header">
+                <span>📚 {{this.class}}</span>
+                <span style="color: #666;">•</span>
+                <span>{{this.subject}}</span>
+                <span style="color: #666;">•</span>
+                <span style="color: #ccc;">{{this.semester}}</span>
+            </h2>
+
+            {{#each this.categories}}
+            <div class="category-section">
+                <h3 class="category-title">📂 {{this.name}}</h3>
+
+                <ul class="notes-list">
+                    {{#each this.files}}
+                    <li class="note-item"
+                        data-text="{{this.title}} {{../name}} {{../../class}} {{../../subject}} {{../../semester}}">
+                        <a href="{{this.path}}">{{this.title}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+        </section>
+        {{/each}}
+        {{else}}
+        <p>No notes found in the notes folder.</p>
+        {{/if}}
+    </main>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const noteItems = document.querySelectorAll('.note-item');
+        const categories = document.querySelectorAll('.category-section');
+        const groups = document.querySelectorAll('.group-section');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let totalVisible = 0;
+
+            noteItems.forEach(item => {
+                const text = (item.getAttribute('data-text') || item.textContent).toLowerCase();
+                const matches = text.includes(query);
+                item.style.display = matches ? '' : 'none';
+                if (matches) totalVisible++;
+            });
+
+            // Hide empty category subsections
+            categories.forEach(cat => {
+                const hasVisible = Array.from(cat.querySelectorAll('.note-item'))
+                    .some(item => item.style.display !== 'none');
+                cat.style.display = hasVisible ? '' : 'none';
+            });
+
+            // Hide empty main group boxes
+            groups.forEach(group => {
+                const hasVisible = Array.from(group.querySelectorAll('.note-item'))
+                    .some(item => item.style.display !== 'none');
+                group.style.display = hasVisible ? '' : 'none';
+            });
+
+            noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+        });
+    </script>
 </body>
 
 </html>

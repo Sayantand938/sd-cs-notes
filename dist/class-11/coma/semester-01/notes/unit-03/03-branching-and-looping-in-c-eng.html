@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Branching And Looping In C (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Control Flow</h2>
+<p>By default, a C program executes statements <strong>sequentially</strong> (line by line). However, to solve real-world problems, we need to:</p>
+<ol>
+<li><strong>Make decisions</strong> – Execute certain statements only if a condition is met (Branching).</li>
+<li><strong>Repeat tasks</strong> – Execute a block of code multiple times (Looping).</li>
+</ol>
+<p>C provides powerful constructs for both. The building block for all decisions is the <strong>condition</strong> (an expression that evaluates to <code>0</code> for False, or non-zero for True).</p>
+<hr>
+<h2>2. Branching (Decision Making)</h2>
+<p>Branching statements alter the flow of execution based on a condition.</p>
+<h3>2.1 The <code>if</code> Statement</h3>
+<p>Executes a block of code <strong>only if</strong> the given condition is true.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">if (condition) {
+    // Block of code executes if condition is true (non-zero)
+}</code></pre><p><strong>Flowchart</strong>:</p>
+<pre class="mermaid">graph TD
+    Start[Start] --&gt; Condition{Condition?}
+    Condition --&gt;|True| TrueBlock[Execute Block]
+    Condition --&gt;|False| End[End]
+    TrueBlock --&gt; End</pre><p><strong>Example</strong>:</p>
+<pre><code class="language-c">int age = 18;
+if (age &gt;= 18) {
+    printf(&quot;Eligible to vote.\n&quot;);
+}</code></pre><hr>
+<h3>2.2 The <code>if-else</code> Statement</h3>
+<p>Executes one block if the condition is true, and a different block if the condition is false.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">if (condition) {
+    // Executes if condition is true
+} else {
+    // Executes if condition is false
+}</code></pre><p><strong>Flowchart</strong>:</p>
+<pre class="mermaid">graph TD
+    Start[Start] --&gt; Condition{Condition?}
+    Condition --&gt;|True| TrueBlock[True Block]
+    Condition --&gt;|False| FalseBlock[False Block]
+    TrueBlock --&gt; End[End]
+    FalseBlock --&gt; End</pre><p><strong>Example</strong>:</p>
+<pre><code class="language-c">int num = 7;
+if (num % 2 == 0) {
+    printf(&quot;Even&quot;);
+} else {
+    printf(&quot;Odd&quot;);
+}
+// Output: Odd</code></pre><hr>
+<h3>2.3 The <code>else if</code> Ladder</h3>
+<p>Used when there are <strong>multiple mutually exclusive conditions</strong> to check.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">if (condition1) {
+    // Block 1
+} else if (condition2) {
+    // Block 2
+} else if (condition3) {
+    // Block 3
+} else {
+    // Default block (if none of the above are true)
+}</code></pre><p><strong>Example</strong> (Grading System):</p>
+<pre><code class="language-c">int marks = 85;
+if (marks &gt;= 90) {
+    printf(&quot;Grade A&quot;);
+} else if (marks &gt;= 75) {
+    printf(&quot;Grade B&quot;);
+} else if (marks &gt;= 60) {
+    printf(&quot;Grade C&quot;);
+} else {
+    printf(&quot;Fail&quot;);
+}
+// Output: Grade B</code></pre><hr>
+<h3>2.4 Nested <code>if-else</code></h3>
+<p>An <code>if</code> or <code>if-else</code> inside another <code>if</code> or <code>if-else</code>. Used for checking a condition inside another condition.</p>
+<p><strong>Syntax &amp; Example</strong>:</p>
+<pre><code class="language-c">int age = 25;
+int citizen = 1; // 1 = Yes, 0 = No
+
+if (age &gt;= 18) {
+    if (citizen == 1) {
+        printf(&quot;Eligible to vote.&quot;);
+    } else {
+        printf(&quot;Not a citizen.&quot;);
+    }
+} else {
+    printf(&quot;Too young.&quot;);
+}
+// Output: Eligible to vote.</code></pre><hr>
+<h2>3. Looping (Iteration)</h2>
+<p>Loops allow the execution of a block of statements repeatedly as long as a condition holds true.</p>
+<h3>3.1 The <code>while</code> Loop (Entry-Controlled)</h3>
+<ul>
+<li><strong>Condition is checked first</strong>. If true, the loop body executes. This repeats until the condition becomes false.</li>
+<li>If the condition is initially false, the body <strong>never executes</strong> (Zero iterations possible).</li>
+</ul>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">initialization;
+while (condition) {
+    // Loop body
+    increment/update; // Critical to avoid infinite loop
+}</code></pre><p><strong>Flowchart</strong>:</p>
+<pre class="mermaid">graph TD
+    Start[Start] --&gt; Init[Initialization]
+    Init --&gt; Condition{Condition?}
+    Condition --&gt;|True| Body[Execute Loop Body]
+    Body --&gt; Update[Update Variable]
+    Update --&gt; Condition
+    Condition --&gt;|False| End[End]</pre><p><strong>Example</strong> (Print 1 to 5):</p>
+<pre><code class="language-c">int i = 1;
+while (i &lt;= 5) {
+    printf(&quot;%d &quot;, i);
+    i++; // Update
+}
+// Output: 1 2 3 4 5</code></pre><hr>
+<h3>3.2 The <code>do-while</code> Loop (Exit-Controlled)</h3>
+<ul>
+<li><strong>Executes the loop body first</strong>, then checks the condition.</li>
+<li>Guarantees that the loop body executes <strong>at least once</strong>, even if the condition is false.</li>
+</ul>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">initialization;
+do {
+    // Loop body
+    increment/update;
+} while (condition); // Note the semicolon!</code></pre><p><strong>Flowchart</strong>:</p>
+<pre class="mermaid">graph TD
+    Start[Start] --&gt; Init[Initialization]
+    Init --&gt; Body[Execute Loop Body]
+    Body --&gt; Update[Update Variable]
+    Update --&gt; Condition{Condition?}
+    Condition --&gt;|True| Body
+    Condition --&gt;|False| End[End]</pre><p><strong>Example</strong> (Menu-driven program to accept input at least once):</p>
+<pre><code class="language-c">int choice;
+do {
+    printf(&quot;1. Start\n2. Exit\nEnter choice: &quot;);
+    scanf(&quot;%d&quot;, &amp;choice);
+} while (choice != 2);
+// Runs at least once, always shows the menu.</code></pre><hr>
+<h3>3.3 The <code>for</code> Loop (Entry-Controlled)</h3>
+<ul>
+<li>The most compact and commonly used loop.</li>
+<li>It combines <strong>initialization</strong>, <strong>condition</strong>, and <strong>increment/update</strong> in a single line.</li>
+</ul>
+<p><strong>Syntax</strong>:</p>
+<pre><code class="language-c">for (initialization; condition; increment/update) {
+    // Loop body
+}</code></pre><p><strong>Execution Flow</strong>:</p>
+<ol>
+<li><strong>Initialization</strong> executes once (at the start).</li>
+<li><strong>Condition</strong> is checked.</li>
+<li>If true, the <strong>Body</strong> executes.</li>
+<li><strong>Increment/Update</strong> executes.</li>
+<li>Go back to Step 2.</li>
+</ol>
+<p><strong>Flowchart</strong>:</p>
+<pre class="mermaid">graph TD
+    Start[Start] --&gt; Init[Initialization]
+    Init --&gt; Condition{Condition?}
+    Condition --&gt;|True| Body[Execute Loop Body]
+    Body --&gt; Update[Increment/Update]
+    Update --&gt; Condition
+    Condition --&gt;|False| End[End]</pre><p><strong>Example</strong> (Sum of first 10 natural numbers):</p>
+<pre><code class="language-c">int sum = 0, i;
+for (i = 1; i &lt;= 10; i++) {
+    sum += i; // sum = sum + i
+}
+printf(&quot;Sum = %d&quot;, sum); // Output: 55</code></pre><blockquote>
+<p><strong>Exam Tip</strong>: All three loops (<code>for</code>, <code>while</code>, <code>do-while</code>) are interchangeable. The <code>for</code> loop is preferred when the number of iterations is known beforehand (counting loops).</p>
+</blockquote>
+<hr>
+<h2>4. Nested Loops</h2>
+<p>A loop inside another loop. For each iteration of the outer loop, the inner loop runs completely.</p>
+<p><strong>Example</strong> (Multiplication Table from 1 to 2):</p>
+<pre><code class="language-c">int i, j;
+for (i = 1; i &lt;= 2; i++) {      // Outer loop
+    for (j = 1; j &lt;= 5; j++) {  // Inner loop
+        printf(&quot;%d x %d = %d\t&quot;, i, j, i * j);
+    }
+    printf(&quot;\n&quot;); // Newline after each outer iteration
+}
+// Output:
+// 1x1=1 1x2=2 1x3=3 1x4=4 1x5=5
+// 2x1=2 2x2=4 2x3=6 2x4=8 2x5=10</code></pre><p><strong>Complexity</strong>: Time complexity $O(n \times m)$.</p>
+<hr>
+<h2>5. Comparison Table</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left"><code>if</code> / <code>if-else</code></th>
+<th align="left"><code>while</code></th>
+<th align="left"><code>do-while</code></th>
+<th align="left"><code>for</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Purpose</strong></td>
+<td align="left">Decision / Branching</td>
+<td align="left">Iteration / Repetition</td>
+<td align="left">Iteration / Repetition</td>
+<td align="left">Iteration / Repetition</td>
+</tr>
+<tr>
+<td align="left"><strong>Control Type</strong></td>
+<td align="left">Conditional jump</td>
+<td align="left">Entry-Controlled</td>
+<td align="left">Exit-Controlled</td>
+<td align="left">Entry-Controlled</td>
+</tr>
+<tr>
+<td align="left"><strong>Min Executions</strong></td>
+<td align="left">0 or 1 (runs once at most)</td>
+<td align="left">0 (if condition false initially)</td>
+<td align="left">1 (always runs at least once)</td>
+<td align="left">0 (if condition false initially)</td>
+</tr>
+<tr>
+<td align="left"><strong>Update Statement</strong></td>
+<td align="left">Not required</td>
+<td align="left">Inside body</td>
+<td align="left">Inside body</td>
+<td align="left">In header (easy to forget bug)</td>
+</tr>
+<tr>
+<td align="left"><strong>Use Case</strong></td>
+<td align="left">Testing logic, single decisions</td>
+<td align="left">Unknown iterations, reading files until EOF.</td>
+<td align="left">Menu-driven programs (must execute once).</td>
+<td align="left">Fixed/known number of iterations (counting).</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>6. Infinite Loops and Common Pitfalls</h2>
+<ul>
+<li><strong>Infinite Loop</strong>: The condition never becomes false.<ul>
+<li><code>while (1) { ... }</code> (Runs forever, needs <code>break</code> to stop).</li>
+<li><code>for (;;) { ... }</code> (Same as infinite).</li>
+<li><em>Common Mistake</em>: <code>for(i=0; i&lt;10; i--);</code> (Decrement instead of increment).</li>
+</ul>
+</li>
+<li><strong>Missing Braces</strong>: Without <code>{}</code>, only the <strong>immediate next statement</strong> belongs to the loop/if.<pre><code class="language-c">if (a &gt; b)
+    printf(&quot;A is bigger&quot;); // This is inside &#39;if&#39;
+    printf(&quot;This is always printed!&quot;); // This is outside &#39;if&#39;! (Indentation trick)</code></pre></li>
+<li><strong>Semicolon after condition</strong>:<pre><code class="language-c">while (i &lt;= 5); { // The semicolon creates an empty infinite loop!
+    printf(&quot;%d&quot;, i);
+    i++;
+}</code></pre></li>
+<li><strong>Using <code>=</code> (Assignment) instead of <code>==</code> (Equality)</strong>:<pre><code class="language-c">if (x = 5) { ... } // Assigns 5 to x. Condition is always TRUE (non-zero).</code></pre></li>
+</ul>
+<hr>
+<h2>7. Sample Exam Programs</h2>
+<p><strong>Program 1: Find factorial using <code>for</code></strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int n, i, fact = 1;
+    printf(&quot;Enter number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (i = 1; i &lt;= n; i++) {
+        fact *= i;
+    }
+    printf(&quot;Factorial = %d&quot;, fact);
+    return 0;
+}</code></pre><p><strong>Program 2: Check Prime using <code>while</code></strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int n, i = 2, flag = 1;
+    printf(&quot;Enter number: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    while (i &lt;= n / 2) {
+        if (n % i == 0) {
+            flag = 0;
+            break;
+        }
+        i++;
+    }
+    if (flag) printf(&quot;Prime&quot;);
+    else printf(&quot;Not Prime&quot;);
+    return 0;
+}</code></pre><h2>8. MCQ</h2>
+<h4>Q1. By default, a C program executes statements in which order?</h4>
+<p>A) Random order
+B) Sequential (line by line) ✅
+C) Reverse order
+D) Only the first statement</p>
+<h4>Q2. In C, a condition evaluates to:</h4>
+<p>A) 0 for True, 1 for False
+B) 0 for False, non-zero for True ✅
+C) 1 for True, 0 for False
+D) Only 0 or 1</p>
+<h4>Q3. Which statement executes a block of code only if the given condition is true?</h4>
+<p>A) <code>if</code> ✅
+B) <code>while</code>
+C) <code>for</code>
+D) <code>do-while</code></p>
+<h4>Q4. What is the syntax of the <code>if</code> statement in C?</h4>
+<p>A) <code>if condition { }</code>
+B) <code>if (condition) { }</code> ✅
+C) <code>if [condition] { }</code>
+D) <code>if condition then { }</code></p>
+<h4>Q5. In the <code>if</code> statement, the block executes when the condition is:</h4>
+<p>A) Zero
+B) Non-zero ✅
+C) Negative only
+D) Positive only</p>
+<h4>Q6. In the example <code>if (age &gt;= 18)</code>, what is printed if age = 18?</h4>
+<p>A) Nothing
+B) &quot;Eligible to vote.&quot; ✅
+C) &quot;Not eligible&quot;
+D) Error</p>
+<h4>Q7. Which statement executes one block if condition is true and another if condition is false?</h4>
+<p>A) <code>if</code>
+B) <code>if-else</code> ✅
+C) <code>else if</code>
+D) <code>while</code></p>
+<h4>Q8. What is the output of <code>int num = 7; if (num % 2 == 0) { printf(&quot;Even&quot;); } else { printf(&quot;Odd&quot;); }</code>?</h4>
+<p>A) Even
+B) Odd ✅
+C) Error
+D) Nothing</p>
+<h4>Q9. The <code>else if</code> ladder is used when:</h4>
+<p>A) Only one condition needs checking
+B) There are multiple mutually exclusive conditions ✅
+C) No conditions need checking
+D) Only false conditions exist</p>
+<h4>Q10. In the grading example, if marks = 85, what is the output?</h4>
+<p>A) Grade A
+B) Grade B ✅
+C) Grade C
+D) Fail</p>
+<h4>Q11. In the grading example, if marks = 92, what is the output?</h4>
+<p>A) Grade A ✅
+B) Grade B
+C) Grade C
+D) Fail</p>
+<h4>Q12. In the grading example, if marks = 65, what is the output?</h4>
+<p>A) Grade A
+B) Grade B
+C) Grade C ✅
+D) Fail</p>
+<h4>Q13. A Nested <code>if-else</code> is:</h4>
+<p>A) An <code>if</code> statement inside a loop
+B) An <code>if</code> or <code>if-else</code> inside another <code>if</code> or <code>if-else</code> ✅
+C) An <code>if</code> statement with multiple conditions
+D) An <code>if</code> statement without braces</p>
+<h4>Q14. In the nested <code>if-else</code> example, if age = 25 and citizen = 1, what is the output?</h4>
+<p>A) Too young
+B) Not a citizen
+C) Eligible to vote ✅
+D) Nothing</p>
+<h4>Q15. In the nested <code>if-else</code> example, if age = 16 and citizen = 1, what is the output?</h4>
+<p>A) Too young ✅
+B) Not a citizen
+C) Eligible to vote
+D) Nothing</p>
+<h4>Q16. In the nested <code>if-else</code> example, if age = 25 and citizen = 0, what is the output?</h4>
+<p>A) Too young
+B) Not a citizen ✅
+C) Eligible to vote
+D) Nothing</p>
+<h4>Q17. Which loop checks the condition first before executing the body?</h4>
+<p>A) <code>do-while</code>
+B) <code>while</code> ✅
+C) Both <code>while</code> and <code>do-while</code>
+D) Neither</p>
+<h4>Q18. A <code>while</code> loop is called:</h4>
+<p>A) Exit-Controlled
+B) Entry-Controlled ✅
+C) Condition-Controlled
+D) Counter-Controlled</p>
+<h4>Q19. If the condition in a <code>while</code> loop is initially false, how many times does the body execute?</h4>
+<p>A) 0 ✅
+B) 1
+C) Infinite
+D) Depends on the update</p>
+<h4>Q20. In a <code>while</code> loop, the update statement is:</h4>
+<p>A) In the header
+B) Inside the body ✅
+C) Not required
+D) Before the condition</p>
+<h4>Q21. What is the output of <code>int i = 1; while (i &lt;= 5) { printf(&quot;%d &quot;, i); i++; }</code>?</h4>
+<p>A) 1 2 3 4 5 ✅
+B) 0 1 2 3 4
+C) 1 2 3 4 5 6
+D) Infinite loop</p>
+<h4>Q22. Which loop guarantees execution of the body at least once?</h4>
+<p>A) <code>while</code>
+B) <code>for</code>
+C) <code>do-while</code> ✅
+D) Both <code>while</code> and <code>for</code></p>
+<h4>Q23. A <code>do-while</code> loop is called:</h4>
+<p>A) Entry-Controlled
+B) Exit-Controlled ✅
+C) Condition-Controlled
+D) Counter-Controlled</p>
+<h4>Q24. In a <code>do-while</code> loop, the condition is checked:</h4>
+<p>A) Before the body executes
+B) After the body executes ✅
+C) Only once
+D) Never</p>
+<h4>Q25. The <code>do-while</code> loop syntax ends with:</h4>
+<p>A) No semicolon
+B) A semicolon after while (condition); ✅
+C) A semicolon after do
+D) A comma</p>
+<h4>Q26. The <code>do-while</code> loop is best used for:</h4>
+<p>A) Fixed number of iterations
+B) Menu-driven programs that must execute once ✅
+C) Infinite loops
+D) Array traversal</p>
+<h4>Q27. Which loop combines initialization, condition, and increment in a single line?</h4>
+<p>A) <code>while</code>
+B) <code>do-while</code>
+C) <code>for</code> ✅
+D) None of the above</p>
+<h4>Q28. The <code>for</code> loop is:</h4>
+<p>A) Exit-Controlled
+B) Entry-Controlled ✅
+C) Both Entry and Exit Controlled
+D) Neither</p>
+<h4>Q29. In a <code>for</code> loop, the initialization executes:</h4>
+<p>A) Every iteration
+B) Once at the start ✅
+C) After the body
+D) Only if condition is true</p>
+<h4>Q30. In a <code>for</code> loop, the increment executes:</h4>
+<p>A) Before the body
+B) After the body ✅
+C) Before the condition
+D) Only if condition is true</p>
+<h4>Q31. What is the output of <code>for (i = 1; i &lt;= 10; i++) { sum += i; }</code> for sum starting from 0?</h4>
+<p>A) 45
+B) 50
+C) 55 ✅
+D) 60</p>
+<h4>Q32. Which loop is preferred when the number of iterations is known beforehand?</h4>
+<p>A) <code>while</code>
+B) <code>do-while</code>
+C) <code>for</code> ✅
+D) Any loop is equally preferred</p>
+<h4>Q33. All three loops (<code>for</code>, <code>while</code>, <code>do-while</code>) are:</h4>
+<p>A) Not interchangeable
+B) Interchangeable ✅
+C) Only used for different data types
+D) Only <code>for</code> and <code>while</code> are interchangeable</p>
+<h4>Q34. A Nested Loop is:</h4>
+<p>A) A loop inside another loop ✅
+B) Two loops running parallel
+C) A loop with no body
+D) A loop with multiple conditions</p>
+<h4>Q35. In nested loops, for each iteration of the outer loop:</h4>
+<p>A) The inner loop runs once
+B) The inner loop runs completely ✅
+C) Both loops run simultaneously
+D) Only the outer loop runs</p>
+<h4>Q36. In the multiplication table example with <code>i</code> from 1 to 2 and <code>j</code> from 1 to 5, how many total iterations?</h4>
+<p>A) 5
+B) 7
+C) 10 ✅
+D) 2</p>
+<h4>Q37. The time complexity of nested loops is:</h4>
+<p>A) O(n + m)
+B) O(n × m) ✅
+C) O(n/m)
+D) O(n - m)</p>
+<h4>Q38. An <code>if</code> statement can execute how many times maximum?</h4>
+<p>A) 0
+B) 1 ✅
+C) Infinite
+D) Depends on condition</p>
+<h4>Q39. An <code>if-else</code> statement can execute how many times maximum?</h4>
+<p>A) 0
+B) 1 ✅
+C) Infinite
+D) Depends on condition</p>
+<h4>Q40. A <code>while</code> loop can execute how many times minimum?</h4>
+<p>A) 0 ✅
+B) 1
+C) Infinite
+D) Depends on condition</p>
+<h4>Q41. A <code>do-while</code> loop can execute how many times minimum?</h4>
+<p>A) 0
+B) 1 ✅
+C) Infinite
+D) Depends on condition</p>
+<h4>Q42. A <code>for</code> loop can execute how many times minimum?</h4>
+<p>A) 0 ✅
+B) 1
+C) Infinite
+D) Depends on condition</p>
+<h4>Q43. Which of the following creates an infinite loop?</h4>
+<p>A) <code>while (i &lt;= 5)</code>
+B) <code>while (1)</code> ✅
+C) <code>for (i=0; i&lt;10; i++)</code>
+D) <code>do { } while (i &lt; 5);</code></p>
+<h4>Q44. <code>for (;;)</code> in C creates:</h4>
+<p>A) A loop that never executes
+B) An infinite loop ✅
+C) A syntax error
+D) A loop that executes once</p>
+<h4>Q45. What is the common mistake in <code>for(i=0; i&lt;10; i--);</code>?</h4>
+<p>A) Syntax error
+B) Infinite loop due to decrement instead of increment ✅
+C) Logical error only
+D) No error</p>
+<h4>Q46. Without braces <code>{}</code>, how many statements belong to the <code>if</code> condition?</h4>
+<p>A) All statements
+B) Only the immediate next statement ✅
+C) None
+D) The statement before the condition</p>
+<h4>Q47. What does the following code print? <code>if (a &gt; b) printf(&quot;A is bigger&quot;); printf(&quot;This is always printed!&quot;);</code></h4>
+<p>A) Only &quot;A is bigger&quot;
+B) Only &quot;This is always printed!&quot;
+C) Both statements (conditionally) ✅
+D) Error</p>
+<h4>Q48. What is the issue with <code>while (i &lt;= 5); { printf(&quot;%d&quot;, i); i++; }</code>?</h4>
+<p>A) Syntax error
+B) The semicolon creates an empty infinite loop ✅
+C) Logical error only
+D) No issue</p>
+<h4>Q49. What is the issue with <code>if (x = 5) { ... }</code>?</h4>
+<p>A) Syntax error
+B) Assignment instead of equality; condition always true ✅
+C) Logical error only
+D) No issue</p>
+<h4>Q50. Which operator should be used for equality comparison in C?</h4>
+<p>A) <code>=</code>
+B) <code>==</code> ✅
+C) <code>!=</code>
+D) <code>===</code></p>
+<h4>Q51. The <code>if</code> statement is used for:</h4>
+<p>A) Looping
+B) Decision / Branching ✅
+C) Function definition
+D) Variable declaration</p>
+<h4>Q52. The <code>while</code> loop is used for:</h4>
+<p>A) Decision / Branching
+B) Iteration / Repetition ✅
+C) Function definition
+D) Variable declaration</p>
+<h4>Q53. The <code>do-while</code> loop is used for:</h4>
+<p>A) Decision / Branching
+B) Iteration / Repetition ✅
+C) Function definition
+D) Variable declaration</p>
+<h4>Q54. The <code>for</code> loop is used for:</h4>
+<p>A) Decision / Branching
+B) Iteration / Repetition ✅
+C) Function definition
+D) Variable declaration</p>
+<h4>Q55. Which loop type is Entry-Controlled?</h4>
+<p>A) <code>do-while</code> only
+B) <code>while</code> and <code>for</code> ✅
+C) <code>do-while</code> and <code>while</code>
+D) Only <code>for</code></p>
+<h4>Q56. Which loop type is Exit-Controlled?</h4>
+<p>A) <code>while</code>
+B) <code>for</code>
+C) <code>do-while</code> ✅
+D) All of the above</p>
+<h4>Q57. What is the factorial of 5 from the factorial program?</h4>
+<p>A) 60
+B) 120 ✅
+C) 24
+D) 720</p>
+<h4>Q58. In the factorial program, <code>fact *= i</code> is equivalent to:</h4>
+<p>A) <code>fact = fact * i</code> ✅
+B) <code>fact = fact + i</code>
+C) <code>fact = i</code>
+D) <code>fact = fact / i</code></p>
+<h4>Q59. In the prime checking program, the loop runs until:</h4>
+<p>A) <code>i &lt;= n</code>
+B) <code>i &lt;= n/2</code> ✅
+C) <code>i &lt; n</code>
+D) <code>i &lt;= sqrt(n)</code></p>
+<h4>Q60. In the prime checking program, <code>flag = 0</code> indicates:</h4>
+<p>A) Number is prime
+B) Number is not prime ✅
+C) Number is even
+D) Number is odd</p>
+<h4>Q61. In the prime checking program, <code>break</code> is used to:</h4>
+<p>A) Continue the loop
+B) Exit the loop early ✅
+C) Restart the loop
+D) Skip the iteration</p>
+<h4>Q62. If the input to the prime program is 7, what is the output?</h4>
+<p>A) Prime ✅
+B) Not Prime
+C) Error
+D) Nothing</p>
+<h4>Q63. If the input to the prime program is 9, what is the output?</h4>
+<p>A) Prime
+B) Not Prime ✅
+C) Error
+D) Nothing</p>
+<h4>Q64. What is the minimum number of times a <code>while</code> loop body can execute?</h4>
+<p>A) 0 ✅
+B) 1
+C) Infinite
+D) Depends on initialization</p>
+<h4>Q65. What is the minimum number of times a <code>do-while</code> loop body can execute?</h4>
+<p>A) 0
+B) 1 ✅
+C) Infinite
+D) Depends on condition</p>
+<h4>Q66. In the flowchart for <code>if</code> statement, the condition leads to:</h4>
+<p>A) Only True path
+B) True path and False path (but False goes to End) ✅
+C) Only False path
+D) Both paths execute</p>
+<h4>Q67. In the flowchart for <code>if-else</code>, the condition leads to:</h4>
+<p>A) Only one path
+B) True path and False path ✅
+C) No paths
+D) Both paths merge immediately</p>
+<h4>Q68. In the flowchart for <code>while</code> loop, after executing the body, the flow goes to:</h4>
+<p>A) End
+B) Update, then Condition ✅
+C) Directly to Condition
+D) Directly to End</p>
+<h4>Q69. In the flowchart for <code>do-while</code> loop, after executing the body, the flow goes to:</h4>
+<p>A) Condition ✅
+B) End
+C) Start
+D) Update only</p>
+<h4>Q70. In the flowchart for <code>for</code> loop, after executing the body, the flow goes to:</h4>
+<p>A) End
+B) Increment/Update, then Condition ✅
+C) Directly to Condition
+D) Initialization</p>
+<h4>Q71. Which loop body will execute at least once regardless of condition?</h4>
+<p>A) <code>while</code>
+B) <code>for</code>
+C) <code>do-while</code> ✅
+D) All of the above</p>
+<h4>Q72. The <code>if</code> statement can be used without <code>else</code>:</h4>
+<p>A) True ✅
+B) False
+C) Only in C
+D) Never</p>
+<h4>Q73. The <code>else</code> clause is optional in <code>if-else</code>:</h4>
+<p>A) True, but <code>else</code> requires <code>if</code> ✅
+B) False
+C) Only in loops
+D) Never</p>
+<h4>Q74. The condition <code>(age &gt;= 18)</code> evaluates to:</h4>
+<p>A) 0 if true
+B) Non-zero if true ✅
+C) Only 1 if true
+D) Only 0 if false</p>
+<h4>Q75. In C, the value 0 represents:</h4>
+<p>A) True
+B) False ✅
+C) Both True and False
+D) Neither</p>
+<h4>Q76. In C, any non-zero value represents:</h4>
+<p>A) True ✅
+B) False
+C) Both True and False
+D) Neither</p>
+<h4>Q77. The <code>else if</code> ladder is also called:</h4>
+<p>A) Nested if
+B) Multi-way if ✅
+C) Switch statement
+D) Ternary operator</p>
+<h4>Q78. In the grading example, what is printed for marks = 58?</h4>
+<p>A) Grade A
+B) Grade B
+C) Grade C
+D) Fail ✅</p>
+<h4>Q79. In the grading example, what is printed for marks = 75?</h4>
+<p>A) Grade A
+B) Grade B ✅
+C) Grade C
+D) Fail</p>
+<h4>Q80. Which loop is most suitable when the number of iterations is unknown but a condition must be checked before each iteration?</h4>
+<p>A) <code>for</code>
+B) <code>while</code> ✅
+C) <code>do-while</code>
+D) All are equally suitable</p>
+<h4>Q81. Which loop is most suitable when the number of iterations is known and counting is involved?</h4>
+<p>A) <code>for</code> ✅
+B) <code>while</code>
+C) <code>do-while</code>
+D) All are equally suitable</p>
+<h4>Q82. Which loop is most suitable for menu-driven programs?</h4>
+<p>A) <code>for</code>
+B) <code>while</code>
+C) <code>do-while</code> ✅
+D) None</p>
+<h4>Q83. The statement <code>break</code> in a loop causes:</h4>
+<p>A) The loop to continue
+B) The loop to exit immediately ✅
+C) The program to crash
+D) The condition to be rechecked</p>
+<h4>Q84. In the prime program, if <code>n = 2</code>, what is the output?</h4>
+<p>A) Prime ✅
+B) Not Prime
+C) Error
+D) Nothing</p>
+<h4>Q85. In the prime program, if <code>n = 1</code>, what is the output?</h4>
+<p>A) Prime ✅ (flag remains 1)
+B) Not Prime
+C) Error
+D) Nothing</p>
+<h4>Q86. In the prime program, if <code>n = 4</code>, what is the output?</h4>
+<p>A) Prime
+B) Not Prime ✅
+C) Error
+D) Nothing</p>
+<h4>Q87. The <code>for</code> loop initialization can include multiple variables using:</h4>
+<p>A) Semicolon
+B) Comma operator ✅
+C) And operator
+D) Or operator</p>
+<h4>Q88. The <code>for (i = 0, j = 10; i &lt; 5; i++, j--)</code> is an example of:</h4>
+<p>A) Syntax error
+B) Multiple initializations and updates ✅
+C) Nested loop
+D) Infinite loop</p>
+<h4>Q89. In the <code>do-while</code> loop, the condition is evaluated:</h4>
+<p>A) Before each iteration
+B) After each iteration ✅
+C) Only at the start
+D) Only at the end of the program</p>
+<h4>Q90. In the <code>while</code> loop, the condition is evaluated:</h4>
+<p>A) Before each iteration ✅
+B) After each iteration
+C) Only at the start
+D) Only at the end</p>
+<h4>Q91. In the <code>for</code> loop, the condition is evaluated:</h4>
+<p>A) Before each iteration ✅
+B) After each iteration
+C) Only at the start
+D) Only at the end</p>
+<h4>Q92. What happens if the update statement is missing in a <code>while</code> loop?</h4>
+<p>A) The loop executes once
+B) Infinite loop ✅
+C) Syntax error
+D) The loop never executes</p>
+<h4>Q93. What happens if the condition is missing in a <code>for</code> loop?</h4>
+<p>A) Syntax error
+B) Infinite loop (assumed true) ✅
+C) The loop never executes
+D) The loop executes once</p>
+<h4>Q94. The <code>if</code> statement can be nested inside another <code>if</code>:</h4>
+<p>A) True ✅
+B) False
+C) Only in C++
+D) Never</p>
+<h4>Q95. The <code>else</code> clause in an <code>if-else</code> is:</h4>
+<p>A) Mandatory
+B) Optional ✅
+C) Only for loops
+D) Only for functions</p>
+<h4>Q96. In the factorial program, if n = 0, what is the output?</h4>
+<p>A) 0
+B) 1 ✅ (loop doesn&#39;t execute, fact remains 1)
+C) -1
+D) Error</p>
+<h4>Q97. In the factorial program, if n = 3, what is the output?</h4>
+<p>A) 3
+B) 6 ✅
+C) 9
+D) 12</p>
+<h4>Q98. Which of the following is a valid <code>for</code> loop syntax?</h4>
+<p>A) <code>for (i = 0; i &lt; 10; i++)</code> ✅
+B) <code>for i = 0 to 10</code>
+C) <code>for (i &lt; 10; i++)</code>
+D) <code>for (i = 0; i &lt; 10)</code></p>
+<h4>Q99. Which of the following is a valid <code>while</code> loop syntax?</h4>
+<p>A) <code>while i &lt; 10 { }</code>
+B) <code>while (i &lt; 10) { }</code> ✅
+C) <code>while [i &lt; 10] { }</code>
+D) <code>while (i &lt; 10); { }</code></p>
+<h4>Q100. Which of the following is a valid <code>do-while</code> loop syntax?</h4>
+<p>A) <code>do { } while (i &lt; 10);</code> ✅
+B) <code>do { } while (i &lt; 10)</code>
+C) <code>do { } while i &lt; 10;</code>
+D) <code>do (i &lt; 10) { }</code></p>
+
+    </main>
+</body>
+
+</html>

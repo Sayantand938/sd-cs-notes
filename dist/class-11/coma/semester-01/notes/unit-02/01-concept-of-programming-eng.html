@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Concept Of Programming (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>1. Introduction to Programming</h2>
+<p><strong>Programming</strong> is the process of creating a set of instructions that tell a computer how to perform a specific task. It involves writing code in a programming language, which is then translated into machine-readable form.</p>
+<hr>
+<h2>2. Instruction</h2>
+<h3>Definition</h3>
+<p>An <strong>instruction</strong> is a single, basic command given to a computer&#39;s processor to perform a specific operation (like arithmetic, data movement, or control flow).</p>
+<h3>Characteristics</h3>
+<ul>
+<li>It consists of an <strong>Opcode</strong> (Operation Code – what to do) and an <strong>Operand</strong> (data/address – on what to do it).</li>
+<li>Instructions are executed sequentially unless a jump/branch instruction changes the flow.</li>
+</ul>
+<h3>Examples</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Example (Assembly)</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Data Transfer</td>
+<td align="left"><code>MOV A, 5</code></td>
+<td align="left">Move the value <code>5</code> into register <code>A</code>.</td>
+</tr>
+<tr>
+<td align="left">Arithmetic</td>
+<td align="left"><code>ADD B</code></td>
+<td align="left">Add the value in register <code>B</code> to register <code>A</code>.</td>
+</tr>
+<tr>
+<td align="left">Logical</td>
+<td align="left"><code>AND C</code></td>
+<td align="left">Perform bitwise AND between <code>A</code> and <code>C</code>.</td>
+</tr>
+<tr>
+<td align="left">Control</td>
+<td align="left"><code>JUMP 100</code></td>
+<td align="left">Jump to instruction at memory address <code>100</code>.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>3. Program</h2>
+<h3>Definition</h3>
+<p>A <strong>program</strong> is a collection of instructions written in a specific sequence to accomplish a particular task or solve a problem. It is the final output of programming.</p>
+<h3>Example</h3>
+<p>A simple program in <strong>C</strong> (High-Level) to add two numbers:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int a = 5, b = 10, sum;
+    sum = a + b;       // Instruction 1
+    printf(&quot;%d&quot;, sum); // Instruction 2
+    return 0;
+}</code></pre><p>In <strong>Assembly</strong> (Low-Level) for the same task:</p>
+<pre><code class="language-assembly">MOV R1, #5     ; Move 5 into R1
+MOV R2, #10    ; Move 10 into R2
+ADD R3, R1, R2 ; Add R1 and R2, store in R3</code></pre><hr>
+<h2>4. Programming Languages</h2>
+<p>Based on their level of abstraction from hardware, languages are classified as:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Machine Language (1GL)</th>
+<th align="left">Assembly Language (2GL)</th>
+<th align="left">High-Level Language (3GL/4GL)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Level</strong></td>
+<td align="left">Lowest</td>
+<td align="left">Middle (Low-Level)</td>
+<td align="left">High-Level</td>
+</tr>
+<tr>
+<td align="left"><strong>Format</strong></td>
+<td align="left">Binary (0s and 1s)</td>
+<td align="left">Mnemonics (e.g., MOV, ADD)</td>
+<td align="left">Natural Language-like (e.g., English words)</td>
+</tr>
+<tr>
+<td align="left"><strong>Translation</strong></td>
+<td align="left">Executed directly by CPU.</td>
+<td align="left">Needs an <strong>Assembler</strong>.</td>
+<td align="left">Needs a <strong>Compiler</strong> or <strong>Interpreter</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Readability</strong></td>
+<td align="left">Almost impossible for humans.</td>
+<td align="left">Hard (machine-dependent).</td>
+<td align="left">Easy (machine-independent).</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left"><code>10110000 01100001</code></td>
+<td align="left"><code>MOV AL, 61h</code></td>
+<td align="left">Python, C, Java, C++</td>
+</tr>
+</tbody></table></div>
+<h3>Key Concepts</h3>
+<ul>
+<li><p><strong>Low-Level Language</strong>:</p>
+<ul>
+<li>Closer to hardware. Faster execution, but complex to write.</li>
+<li>Includes <strong>Machine Language</strong> (binary) and <strong>Assembly Language</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Assembly Language</strong>:</p>
+<ul>
+<li>Uses short mnemonic codes for machine instructions (e.g., <code>ADD</code>, <code>SUB</code>, <code>MOV</code>).</li>
+<li><strong>Assembler</strong>: A system software that translates assembly code into machine code.</li>
+<li>It is machine-dependent (specific to a CPU architecture).</li>
+</ul>
+</li>
+<li><p><strong>High-Level Language</strong>:</p>
+<ul>
+<li>Designed to be understood by humans. Uses variables, functions, loops, etc.</li>
+<li>Platform independent (can run on different OS with proper compiler/interpreter).</li>
+<li><strong>Examples</strong>: Python (interpreter), C (compiler), Java (both compiler + JVM).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Visualizing the Language Abstraction</strong>:</p>
+<pre class="mermaid">graph TD
+    A[&quot;High-Level Language&lt;br/&gt;Easy, Machine Independent&quot;] --&gt; B[&quot;Compiler / Interpreter&quot;]
+    B --&gt; C[&quot;Assembly Language&lt;br/&gt;Mnemonics, Machine Dependent&quot;]
+    C --&gt; D[&quot;Assembler&quot;]
+    D --&gt; E[&quot;Machine Language&lt;br/&gt;Binary 0s and 1s&quot;]
+    E --&gt; F[&quot;CPU Hardware&quot;]</pre><hr>
+<h2>5. Programming Paradigms</h2>
+<h3>5.1 Procedural vs Non-Procedural Programming</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Aspect</th>
+<th align="left">Procedural Programming</th>
+<th align="left">Non-Procedural Programming</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Also Called</strong></td>
+<td align="left">Imperative Programming</td>
+<td align="left">Declarative Programming</td>
+</tr>
+<tr>
+<td align="left"><strong>Focus</strong></td>
+<td align="left"><strong>How</strong> to achieve the result (step-by-step instructions).</td>
+<td align="left"><strong>What</strong> result is required (logic and constraints).</td>
+</tr>
+<tr>
+<td align="left"><strong>Approach</strong></td>
+<td align="left">Tells the computer to perform a sequence of steps.</td>
+<td align="left">Tells the computer what the outcome should be.</td>
+</tr>
+<tr>
+<td align="left"><strong>Control Flow</strong></td>
+<td align="left">Explicit (loops, conditionals, function calls).</td>
+<td align="left">Implicit (queries, rules).</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left">C, Pascal, Fortran, Basic.</td>
+<td align="left">SQL (Structured Query Language), Prolog, HTML (declarative structure).</td>
+</tr>
+</tbody></table></div>
+<p><strong>Example</strong>:</p>
+<ul>
+<li><strong>Procedural (C)</strong>: Write a loop to calculate the sum of all numbers in a list.</li>
+<li><strong>Non-Procedural (SQL)</strong>: <code>SELECT SUM(salary) FROM employees WHERE department = &#39;IT&#39;;</code><br><em>(Here, you specify <em>what</em> data to fetch, not <em>how</em> the database should find it).</em></li>
+</ul>
+<hr>
+<h3>5.2 Structured Programming</h3>
+<p><strong>Concept</strong>: A subset of procedural programming that imposes <strong>discipline</strong> on the use of control flow.</p>
+<ul>
+<li><p><strong>Goal</strong>: Improve clarity, quality, and development time by using only specific control structures.</p>
+</li>
+<li><p><strong>Key Elements</strong>:</p>
+<ol>
+<li><strong>Sequence</strong>: Instructions executed one after another.</li>
+<li><strong>Selection</strong>: Conditional branching (if-else, switch-case).</li>
+<li><strong>Iteration</strong>: Loops (for, while, do-while).</li>
+</ol>
+</li>
+<li><p><strong>Golden Rule</strong>: Strictly <strong>avoid the <code>goto</code> statement</strong> (unconditional jumps). This prevents &quot;spaghetti code&quot; (chaotic, hard-to-follow logic).</p>
+</li>
+<li><p><strong>Modularity</strong>: Programs are divided into smaller, reusable functions or procedures.</p>
+</li>
+</ul>
+<p><strong>Visualizing Structured Programming</strong>:</p>
+<pre class="mermaid">graph TD
+    A[Structured Programming] --&gt; B[Sequence&lt;br&gt;Step 1 -&gt; Step 2]
+    A --&gt; C[Selection&lt;br&gt;If-Else / Switch]
+    A --&gt; D[Iteration&lt;br&gt;Loops: For, While]
+    style A fill:#f9f,stroke:#333</pre><hr>
+<h3>5.3 Object Oriented Programming (OOP)</h3>
+<p><strong>Concept</strong>: A paradigm based on <strong>objects</strong> that contain <strong>data</strong> (attributes) and <strong>code</strong> (methods). It models real-world entities.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Fundamental Concept</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Class</strong></td>
+<td align="left">A blueprint or template for creating objects. (e.g., <code>Car</code>).</td>
+</tr>
+<tr>
+<td align="left"><strong>Object</strong></td>
+<td align="left">An instance of a class (e.g., <code>myCar</code> is a specific Car).</td>
+</tr>
+<tr>
+<td align="left"><strong>Encapsulation</strong></td>
+<td align="left">Binding data and methods together; hiding internal details from the outside world (using access specifiers like private/public).</td>
+</tr>
+<tr>
+<td align="left"><strong>Inheritance</strong></td>
+<td align="left">A new class (child) can inherit properties and methods from an existing class (parent). Promotes code reusability.</td>
+</tr>
+<tr>
+<td align="left"><strong>Polymorphism</strong></td>
+<td align="left">&quot;Many forms&quot;. The same function name can behave differently in different contexts (e.g., <code>draw()</code> for a Circle vs Square).</td>
+</tr>
+<tr>
+<td align="left"><strong>Abstraction</strong></td>
+<td align="left">Showing only essential features and hiding background details (e.g., using a car&#39;s steering wheel without knowing the engine mechanics).</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Examples of OOP Languages</strong>: Java, C++, Python, C#.</li>
+</ul>
+<p><strong>OOP vs Procedural Comparison</strong>:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Procedural / Structured</th>
+<th align="left">Object Oriented</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Data</strong></td>
+<td align="left">Data is separate from functions.</td>
+<td align="left">Data and functions are combined into objects.</td>
+</tr>
+<tr>
+<td align="left"><strong>Security</strong></td>
+<td align="left">Low (data can be easily accessed globally).</td>
+<td align="left">High (encapsulation protects data).</td>
+</tr>
+<tr>
+<td align="left"><strong>Reusability</strong></td>
+<td align="left">Moderate (functions).</td>
+<td align="left">High (inheritance and polymorphism).</td>
+</tr>
+<tr>
+<td align="left"><strong>Complexity</strong></td>
+<td align="left">Suitable for small/medium problems.</td>
+<td align="left">Best for large, complex, and real-world simulations.</td>
+</tr>
+</tbody></table></div>
+<h2>6. MCQ</h2>
+<h4>Q1. What is programming?</h4>
+<p>A) The process of creating hardware components
+B) The process of creating a set of instructions to tell a computer how to perform a specific task ✅
+C) The process of assembling computer parts
+D) The process of designing computer networks</p>
+<h4>Q2. An instruction consists of which two parts?</h4>
+<p>A) Opcode and Operand ✅
+B) Source and Destination
+C) Input and Output
+D) Register and Memory</p>
+<h4>Q3. The Opcode in an instruction specifies:</h4>
+<p>A) What to do ✅
+B) On what to do it
+C) Where to store the result
+D) When to execute</p>
+<h4>Q4. The Operand in an instruction specifies:</h4>
+<p>A) The operation to perform
+B) The data or address on which the operation is performed ✅
+C) The next instruction to execute
+D) The type of instruction</p>
+<h4>Q5. Which of the following is an example of a Data Transfer instruction in Assembly?</h4>
+<p>A) ADD B
+B) AND C
+C) MOV A, 5 ✅
+D) JUMP 100</p>
+<h4>Q6. Which type of instruction changes the normal sequential flow of execution?</h4>
+<p>A) Arithmetic instructions
+B) Logical instructions
+C) Control instructions ✅
+D) Data transfer instructions</p>
+<h4>Q7. A program is defined as:</h4>
+<p>A) A single instruction
+B) A collection of instructions written in a specific sequence to accomplish a task ✅
+C) A hardware component
+D) An operating system</p>
+<h4>Q8. In the C program example provided, the instruction <code>sum = a + b;</code> is an example of:</h4>
+<p>A) Data transfer
+B) Arithmetic operation ✅
+C) Control flow
+D) Logical operation</p>
+<h4>Q9. Machine Language instructions are written in:</h4>
+<p>A) Mnemonics
+B) Binary (0s and 1s) ✅
+C) English words
+D) Decimal numbers</p>
+<h4>Q10. Which language is executed directly by the CPU without any translation?</h4>
+<p>A) Assembly Language
+B) High-Level Language
+C) Machine Language ✅
+D) Python</p>
+<h4>Q11. Assembly Language uses:</h4>
+<p>A) Binary codes
+B) Mnemonics like MOV, ADD ✅
+C) Natural English sentences
+D) Machine code</p>
+<h4>Q12. The system software that translates assembly language into machine code is called:</h4>
+<p>A) Compiler
+B) Interpreter
+C) Assembler ✅
+D) Loader</p>
+<h4>Q13. Which language is machine-dependent?</h4>
+<p>A) Python
+B) Java
+C) Assembly Language ✅
+D) C</p>
+<h4>Q14. High-Level Languages are designed to be:</h4>
+<p>A) Understood by humans and machine-independent ✅
+B) Understood only by machines
+C) Dependent on specific CPU
+D) Written in binary</p>
+<h4>Q15. Which of the following is NOT an example of a High-Level Language?</h4>
+<p>A) Python
+B) C
+C) Assembly Language ✅
+D) Java</p>
+<h4>Q16. A program written in a High-Level Language needs a:</h4>
+<p>A) Assembler only
+B) Compiler or Interpreter ✅
+C) Loader only
+D) Linker only</p>
+<h4>Q17. According to the abstraction diagram, the correct order from High-Level to Machine Language is:</h4>
+<p>A) High-Level → Assembler → Assembly → Compiler → Machine
+B) High-Level → Compiler → Assembly → Assembler → Machine ✅
+C) High-Level → Interpreter → Machine → Assembly
+D) High-Level → Assembly → Compiler → Machine</p>
+<h4>Q18. Which programming language is considered the lowest level?</h4>
+<p>A) Assembly
+B) C
+C) Machine Language ✅
+D) Python</p>
+<h4>Q19. Which level of language is closest to hardware?</h4>
+<p>A) High-Level
+B) Low-Level ✅
+C) Middle-Level
+D) All are equal</p>
+<h4>Q20. Which of the following is TRUE about Assembly Language?</h4>
+<p>A) It is machine-independent
+B) It uses mnemonics and is machine-dependent ✅
+C) It is executed directly by the CPU
+D) It is the same as High-Level Language</p>
+<h4>Q21. Procedural Programming is also called:</h4>
+<p>A) Declarative Programming
+B) Imperative Programming ✅
+C) Object-Oriented Programming
+D) Functional Programming</p>
+<h4>Q22. Non-Procedural Programming is also called:</h4>
+<p>A) Imperative Programming
+B) Declarative Programming ✅
+C) Structured Programming
+D) Procedural Programming</p>
+<h4>Q23. Which paradigm focuses on <em>how</em> to achieve the result?</h4>
+<p>A) Non-Procedural
+B) Declarative
+C) Procedural ✅
+D) Object-Oriented</p>
+<h4>Q24. Which paradigm focuses on <em>what</em> result is required?</h4>
+<p>A) Procedural
+B) Imperative
+C) Non-Procedural ✅
+D) Structured</p>
+<h4>Q25. Which of the following is an example of a Non-Procedural language?</h4>
+<p>A) C
+B) Pascal
+C) SQL ✅
+D) Fortran</p>
+<h4>Q26. Which of the following is an example of a Procedural language?</h4>
+<p>A) SQL
+B) Prolog
+C) C ✅
+D) HTML</p>
+<h4>Q27. In Non-Procedural programming, control flow is:</h4>
+<p>A) Explicit
+B) Implicit ✅
+C) Always sequential
+D) Managed by the programmer</p>
+<h4>Q28. The SQL query <code>SELECT SUM(salary) FROM employees WHERE department = &#39;IT&#39;;</code> is an example of:</h4>
+<p>A) Procedural approach
+B) Non-Procedural (declarative) approach ✅
+C) Assembly language
+D) Machine code</p>
+<h4>Q29. Structured Programming is a subset of:</h4>
+<p>A) Non-Procedural Programming
+B) Object-Oriented Programming
+C) Procedural Programming ✅
+D) Declarative Programming</p>
+<h4>Q30. The goal of Structured Programming is to:</h4>
+<p>A) Use <code>goto</code> statements freely
+B) Improve clarity, quality, and development time by using specific control structures ✅
+C) Eliminate all loops
+D) Make code machine-dependent</p>
+<h4>Q31. Which of the following is a key element of Structured Programming?</h4>
+<p>A) Goto statements
+B) Sequence, Selection, Iteration ✅
+C) Objects and classes
+D) Inheritance</p>
+<h4>Q32. In Structured Programming, the golden rule is to:</h4>
+<p>A) Use as many <code>goto</code> statements as possible
+B) Avoid the <code>goto</code> statement ✅
+C) Never use functions
+D) Use only global variables</p>
+<h4>Q33. The use of <code>goto</code> leads to:</h4>
+<p>A) Modular code
+B) Spaghetti code ✅
+C) Structured code
+D) Object-oriented code</p>
+<h4>Q34. Sequence in Structured Programming means:</h4>
+<p>A) Instructions are executed in random order
+B) Instructions are executed one after another ✅
+C) Instructions are skipped
+D) Instructions are repeated</p>
+<h4>Q35. Selection in Structured Programming includes:</h4>
+<p>A) Loops (for, while)
+B) Conditional branching (if-else, switch-case) ✅
+C) Function calls
+D) Jump instructions</p>
+<h4>Q36. Iteration in Structured Programming includes:</h4>
+<p>A) If-else
+B) Loops (for, while) ✅
+C) Switch-case
+D) Goto</p>
+<h4>Q37. Modularity in Structured Programming refers to:</h4>
+<p>A) Writing the entire program in one block
+B) Dividing the program into smaller, reusable functions or procedures ✅
+C) Using only global variables
+D) Avoiding functions</p>
+<h4>Q38. Object-Oriented Programming (OOP) is based on:</h4>
+<p>A) Functions and procedures
+B) Objects containing data and methods ✅
+C) SQL queries
+D) Binary code</p>
+<h4>Q39. A Class in OOP is:</h4>
+<p>A) An instance of an object
+B) A blueprint or template for creating objects ✅
+C) A variable
+D) A loop</p>
+<h4>Q40. An Object in OOP is:</h4>
+<p>A) A class definition
+B) An instance of a class ✅
+C) A function
+D) A data type</p>
+<h4>Q41. Which OOP concept binds data and methods together and hides internal details?</h4>
+<p>A) Inheritance
+B) Polymorphism
+C) Encapsulation ✅
+D) Abstraction</p>
+<h4>Q42. Encapsulation is achieved using:</h4>
+<p>A) Public variables only
+B) Access specifiers like private/public ✅
+C) Global functions
+D) Goto statements</p>
+<h4>Q43. Inheritance in OOP allows:</h4>
+<p>A) A class to have multiple copies
+B) A new class to inherit properties from an existing class ✅
+C) One function to have many names
+D) Data to be hidden</p>
+<h4>Q44. Inheritance promotes:</h4>
+<p>A) Code duplication
+B) Code reusability ✅
+C) Spaghetti code
+D) Hard-to-read code</p>
+<h4>Q45. Polymorphism means:</h4>
+<p>A) One class inherits from another
+B) Many forms; the same function name can behave differently in different contexts ✅
+C) Data and methods are combined
+D) Showing only essential features</p>
+<h4>Q46. An example of polymorphism is:</h4>
+<p>A) <code>Car</code> and <code>myCar</code>
+B) <code>draw()</code> function for Circle vs Square ✅
+C) Private variables
+D) For loop</p>
+<h4>Q47. Abstraction in OOP means:</h4>
+<p>A) Hiding background details and showing only essential features ✅
+B) Inheriting from a parent class
+C) Having multiple forms of a function
+D) Combining data and methods</p>
+<h4>Q48. Using a car&#39;s steering wheel without knowing the engine mechanics is an example of:</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism
+D) Abstraction ✅</p>
+<h4>Q49. Which of the following is an OOP language?</h4>
+<p>A) C
+B) Pascal
+C) Java ✅
+D) Fortran</p>
+<h4>Q50. Which OOP concept is primarily about data security?</h4>
+<p>A) Abstraction
+B) Inheritance
+C) Polymorphism
+D) Encapsulation ✅</p>
+<h4>Q51. In Procedural Programming, data is:</h4>
+<p>A) Combined with functions
+B) Separate from functions ✅
+C) Hidden from functions
+D) Encapsulated inside objects</p>
+<h4>Q52. In OOP, data and functions are:</h4>
+<p>A) Separate
+B) Combined into objects ✅
+C) Stored in global memory
+D) Not related</p>
+<h4>Q53. Which paradigm has higher security due to encapsulation?</h4>
+<p>A) Procedural
+B) Structured
+C) Object-Oriented ✅
+D) Non-Procedural</p>
+<h4>Q54. Which paradigm is best for large, complex, real-world simulations?</h4>
+<p>A) Procedural
+B) Structured
+C) Non-Procedural
+D) Object-Oriented ✅</p>
+<h4>Q55. Which paradigm is suitable for small to medium problems?</h4>
+<p>A) Object-Oriented
+B) Procedural/Structured ✅
+C) Declarative
+D) Functional</p>
+<h4>Q56. In the language abstraction hierarchy, the assembler converts:</h4>
+<p>A) High-Level to Machine
+B) Assembly to Machine ✅
+C) Machine to Assembly
+D) High-Level to Assembly</p>
+<h4>Q57. A High-Level Language program is typically:</h4>
+<p>A) Platform dependent
+B) Platform independent ✅
+C) Written in binary
+D) Executed directly</p>
+<h4>Q58. Which of the following is a characteristic of Machine Language?</h4>
+<p>A) Easy to understand for humans
+B) Machine-independent
+C) Executed directly by the CPU ✅
+D) Uses mnemonics</p>
+<h4>Q59. Which of the following is NOT a characteristic of High-Level Languages?</h4>
+<p>A) Human-readable
+B) Machine-independent
+C) Uses variables and functions
+D) Needs an assembler for translation ✅</p>
+<h4>Q60. Which of the following is TRUE about Low-Level Languages?</h4>
+<p>A) They are easy to write
+B) They are machine-independent
+C) They have faster execution ✅
+D) They are not used anymore</p>
+<h4>Q61. The instruction <code>ADD B</code> in Assembly is an example of:</h4>
+<p>A) Data Transfer
+B) Arithmetic ✅
+C) Logical
+D) Control</p>
+<h4>Q62. The instruction <code>AND C</code> in Assembly is an example of:</h4>
+<p>A) Data Transfer
+B) Arithmetic
+C) Logical ✅
+D) Control</p>
+<h4>Q63. The instruction <code>JUMP 100</code> in Assembly is an example of:</h4>
+<p>A) Data Transfer
+B) Arithmetic
+C) Logical
+D) Control ✅</p>
+<h4>Q64. In the C program example, <code>printf(&quot;%d&quot;, sum);</code> is a:</h4>
+<p>A) Data transfer instruction
+B) Arithmetic instruction
+C) Function call (part of program) ✅
+D) Jump instruction</p>
+<h4>Q65. A program in C is an example of a:</h4>
+<p>A) Low-Level Language
+B) High-Level Language ✅
+C) Machine Language
+D) Assembly Language</p>
+<h4>Q66. Which of the following correctly represents an Assembly instruction?</h4>
+<p>A) <code>10110000 01100001</code>
+B) <code>MOV AL, 61h</code> ✅
+C) <code>sum = a + b;</code>
+D) <code>SELECT * FROM table</code></p>
+<h4>Q67. Which of the following correctly represents a Machine Language instruction?</h4>
+<p>A) <code>MOV R1, #5</code>
+B) <code>a = 5;</code>
+C) <code>10110000 01100001</code> ✅
+D) <code>ADD R3, R1, R2</code></p>
+<h4>Q68. In the abstraction diagram, what does the compiler/interpreter convert?</h4>
+<p>A) Machine to Assembly
+B) High-Level to Assembly ✅
+C) Assembly to High-Level
+D) Machine to High-Level</p>
+<h4>Q69. SQL is an example of which paradigm?</h4>
+<p>A) Procedural
+B) Object-Oriented
+C) Non-Procedural ✅
+D) Structured</p>
+<h4>Q70. Prolog is an example of:</h4>
+<p>A) Procedural
+B) Non-Procedural ✅
+C) Structured
+D) OOP</p>
+<h4>Q71. HTML is considered a:</h4>
+<p>A) Procedural language
+B) Declarative (non-procedural) structure ✅
+C) Object-Oriented language
+D) Low-Level language</p>
+<h4>Q72. Which of the following is NOT a key element of Structured Programming?</h4>
+<p>A) Sequence
+B) Selection
+C) Iteration
+D) Inheritance ✅</p>
+<h4>Q73. The <code>if-else</code> statement in C represents which structured programming element?</h4>
+<p>A) Sequence
+B) Selection ✅
+C) Iteration
+D) Jump</p>
+<h4>Q74. The <code>for</code> loop in C represents which structured programming element?</h4>
+<p>A) Sequence
+B) Selection
+C) Iteration ✅
+D) Goto</p>
+<h4>Q75. Which of the following is an advantage of Structured Programming?</h4>
+<p>A) Code is chaotic
+B) Code is easy to follow and maintain ✅
+C) It uses many <code>goto</code> statements
+D) It is machine-dependent</p>
+<h4>Q76. In OOP, a <code>Car</code> class and <code>myCar</code> object relationship illustrates:</h4>
+<p>A) Encapsulation
+B) Class and Object ✅
+C) Polymorphism
+D) Abstraction</p>
+<h4>Q77. Which OOP concept allows a <code>Vehicle</code> class to be extended by a <code>Car</code> class?</h4>
+<p>A) Encapsulation
+B) Inheritance ✅
+C) Polymorphism
+D) Abstraction</p>
+<h4>Q78. Which OOP concept allows the same method name <code>calculate()</code> to work differently for <code>Circle</code> and <code>Rectangle</code>?</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism ✅
+D) Abstraction</p>
+<h4>Q79. In OOP, hiding data inside a class and providing public methods to access it is:</h4>
+<p>A) Abstraction
+B) Inheritance
+C) Polymorphism
+D) Encapsulation ✅</p>
+<h4>Q80. In OOP, exposing only necessary features and hiding implementation details is:</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism
+D) Abstraction ✅</p>
+<h4>Q81. Which of the following is NOT an OOP language?</h4>
+<p>A) Java
+B) C++
+C) C#
+D) Fortran ✅</p>
+<h4>Q82. Which paradigm allows code reuse through inheritance?</h4>
+<p>A) Procedural
+B) Structured
+C) Object-Oriented ✅
+D) Non-Procedural</p>
+<h4>Q83. Which paradigm models real-world entities?</h4>
+<p>A) Procedural
+B) Object-Oriented ✅
+C) Structured
+D) Non-Procedural</p>
+<h4>Q84. In Procedural Programming, functions are:</h4>
+<p>A) Associated with data
+B) Separate from data ✅
+C) Hidden
+D) Not used</p>
+<h4>Q85. Which of the following is TRUE about Non-Procedural languages?</h4>
+<p>A) They require step-by-step instructions
+B) They specify the outcome rather than the procedure ✅
+C) They use explicit loops and conditionals
+D) They are also called Imperative</p>
+<h4>Q86. Which paradigm uses queries and rules rather than step-by-step instructions?</h4>
+<p>A) Procedural
+B) Structured
+C) Object-Oriented
+D) Non-Procedural ✅</p>
+<h4>Q87. The process of writing code in a programming language is called:</h4>
+<p>A) Compiling
+B) Interpreting
+C) Programming ✅
+D) Assembling</p>
+<h4>Q88. Which of the following is the correct sequence for converting a High-Level program to execution?</h4>
+<p>A) Source → Interpreter → Execute
+B) Source → Compiler → Object → Linker → Executable → Loader → Execute ✅
+C) Source → Assembler → Object → Execute
+D) Source → Compiler → Execute (no linking)</p>
+<h4>Q89. Which component translates assembly mnemonics to machine code?</h4>
+<p>A) Compiler
+B) Interpreter
+C) Assembler ✅
+D) Loader</p>
+<h4>Q90. Which of the following is NOT an example of a High-Level Language?</h4>
+<p>A) C
+B) Java
+C) Assembly ✅
+D) Python</p>
+<h4>Q91. The control instruction <code>JUMP 100</code> causes the CPU to:</h4>
+<p>A) Add 100 to a register
+B) Move 100 to memory
+C) Jump to instruction at memory address 100 ✅
+D) Compare 100 with a value</p>
+<h4>Q92. In structured programming, avoiding <code>goto</code> helps to:</h4>
+<p>A) Increase execution speed
+B) Reduce &quot;spaghetti code&quot; ✅
+C) Use more memory
+D) Make code machine-dependent</p>
+<h4>Q93. Which of the following is TRUE about High-Level Languages?</h4>
+<p>A) They are machine-dependent
+B) They are harder to read than assembly
+C) They are platform independent ✅
+D) They are executed directly by CPU</p>
+<h4>Q94. Which paradigm is also called Imperative Programming?</h4>
+<p>A) Declarative
+B) Procedural ✅
+C) Object-Oriented
+D) Functional</p>
+<h4>Q95. Which paradigm is also called Declarative Programming?</h4>
+<p>A) Procedural
+B) Structured
+C) Non-Procedural ✅
+D) Object-Oriented</p>
+<h4>Q96. The OOP concept that allows a child class to inherit from a parent class is:</h4>
+<p>A) Encapsulation
+B) Inheritance ✅
+C) Polymorphism
+D) Abstraction</p>
+<h4>Q97. The OOP concept that allows one name to have multiple implementations is:</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism ✅
+D) Abstraction</p>
+<h4>Q98. Which of the following is an advantage of OOP over Procedural Programming?</h4>
+<p>A) Simpler for small problems
+B) Higher security and reusability ✅
+C) Faster execution
+D) Requires less memory</p>
+<h4>Q99. In the abstraction diagram, the final output of the assembler is:</h4>
+<p>A) Assembly code
+B) Machine code ✅
+C) High-level code
+D) Executable file</p>
+<h4>Q100. Which of the following best describes a program?</h4>
+<p>A) A single binary instruction
+B) A set of instructions to accomplish a task ✅
+C) A hardware component
+D) An algorithm without implementation</p>
+
+    </main>
+</body>
+
+</html>

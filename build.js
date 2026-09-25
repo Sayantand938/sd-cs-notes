@@ -1,70 +1,58 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { marked } = require('marked');
-const matter = require('gray-matter');
 const Handlebars = require('handlebars');
 
 // ---------- CONFIG ----------
-const BASE_DIR = 'D:/obsidian-vault';
+const BASE_DIR = path.join(__dirname, 'notes');
 const OUTPUT_DIR = './dist';
 const STYLE_FILE = './style.css';
 const TEMPLATE_FILE = './template.html';
 const INDEX_TEMPLATE_FILE = './index-template.html';
-const ERROR_404_TEMPLATE_FILE = './404-template.html';
+const ERROR_404_TEMPLATE_FILE = './default-404.html';
 
-// ---------- STRIP EXTENSION ----------
+// ---------- UTILITIES ----------
 function stripExtension(filename) {
     return filename.replace(/\.md$/i, '');
 }
 
-// ---------- OBSIDIAN [[LINKS]] ----------
-function resolveInternalLinks(markdownContent) {
-    return markdownContent.replace(/\[\[(.*?)\]\]/g, (match, title) => {
-        const cleanTitle = title.trim();
-        return `[${cleanTitle}](${cleanTitle}.html)`;
-    });
+function formatName(str) {
+    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-// ---------- MCQ LINE BREAKS ----------
-function preprocessMarkdown(content) {
-    let processed = resolveInternalLinks(content);
-    const lines = processed.split('\n');
-    const newLines = [];
-    let inMCQ = false;
-    let mcqOptions = [];
+// Formats: "01-computer-system-and-organization-eng" -> "01 Computer System And Organization (Eng)"
+function formatTitle(filename) {
+    let name = filename.replace(/\.md$/i, '');
 
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        const trimmed = line.trim();
-        if (/^[A-D]\)\s/.test(trimmed)) {
-            if (!inMCQ) {
-                inMCQ = true;
-                mcqOptions = [];
-            }
-            const optionLine = line.endsWith('  ') ? line : line + '  ';
-            mcqOptions.push(optionLine);
-            continue;
-        }
-        if (inMCQ) {
-            const optionsHtml = mcqOptions
-                .map(opt => `<span class="option">${opt.trim()}</span>`)
-                .join('\n');
-            newLines.push(`<div class="question-options">${optionsHtml}</div>`);
-            inMCQ = false;
-            mcqOptions = [];
-        }
-        newLines.push(line);
+    // 1. Extract number prefix (e.g. "01-", "1-", "03_")
+    let numberPrefix = '';
+    const numberMatch = name.match(/^(\d+)[\s-_]+/);
+    if (numberMatch) {
+        numberPrefix = numberMatch[1].padStart(2, '0') + ' ';
+        name = name.slice(numberMatch[0].length);
     }
-    if (inMCQ) {
-        const optionsHtml = mcqOptions
-            .map(opt => `<span class="option">${opt.trim()}</span>`)
-            .join('\n');
-        newLines.push(`<div class="question-options">${optionsHtml}</div>`);
+
+    // 2. Extract language suffix (eng / beng)
+    let langSuffix = '';
+    if (/[-_\s]eng$/i.test(name)) {
+        langSuffix = ' (Eng)';
+        name = name.replace(/[-_\s]eng$/i, '');
+    } else if (/[-_\s]beng$/i.test(name)) {
+        langSuffix = ' (Beng)';
+        name = name.replace(/[-_\s]beng$/i, '');
     }
-    return newLines.join('\n');
+
+    // 3. Format words
+    const words = name
+        .split(/[-_]+/)
+        .filter(Boolean)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+    return `${numberPrefix}${words}${langSuffix}`.trim();
 }
 
-// ---------- CUSTOM RENDERER (only for code blocks) ----------
+// ---------- CUSTOM RENDERER ----------
 function escapeHtml(text) {
     return text
         .replace(/&/g, '&amp;')
@@ -75,8 +63,6 @@ function escapeHtml(text) {
 }
 
 const renderer = new marked.Renderer();
-
-// Code blocks (mermaid & syntax highlighting)
 renderer.code = function (token) {
     const code = (typeof token === 'string') ? token : (token.text || '');
     const lang = (typeof token === 'string') ? arguments[1] : (token.lang || '');
@@ -89,238 +75,204 @@ renderer.code = function (token) {
     return `<pre><code${langClass}>${escaped}</code></pre>`;
 };
 
-// ---------- TABLE WRAPPER (post-processing) ----------
+// ---------- TABLE WRAPPER ----------
 function wrapTables(html) {
-    // Wrap every <table> in a <div class="table-wrapper">
-    return html.replace(/<table/g, '<div class="table-wrapper"><table')
+    return html.replace(/<table(\s|>)/g, '<div class="table-wrapper"><table$1')
         .replace(/<\/table>/g, '</table></div>');
 }
 
-// ---------- UTILITY ----------
+// ---------- MANIFEST BUILDER ----------
+function buildManifest(validFiles, baseDir) {
+    const groups = {};
+
+    for (const file of validFiles) {
+        const relativePath = path.relative(baseDir, file.path).replace(/\\/g, '/');
+        const parts = relativePath.split('/');
+
+        const className = parts[0] ? formatName(parts[0]) : 'General';
+        const subject = parts[1] ? parts[1].toUpperCase() : 'General';
+        const semester = parts[2] ? formatName(parts[2]) : 'General';
+        const category = parts[3] ? formatName(parts[3]) : 'General';
+        const unit = (parts[4] && parts[4].toLowerCase().startsWith('unit')) ? formatName(parts[4]) : null;
+
+        const groupKey = `${className} | ${subject} | ${semester}`;
+
+        if (!groups[groupKey]) {
+            groups[groupKey] = { class: className, subject: subject, semester: semester, categories: {} };
+        }
+
+        const catKey = unit ? `${category} - ${unit}` : category;
+        if (!groups[groupKey].categories[catKey]) {
+            groups[groupKey].categories[catKey] = [];
+        }
+
+        groups[groupKey].categories[catKey].push({
+            title: file.title,
+            description: file.description,
+            path: '/' + relativePath.replace(/\.md$/i, '.html'),
+            tags: file.tags
+        });
+    }
+
+    return Object.values(groups).map(g => ({
+        ...g,
+        categories: Object.entries(g.categories).map(([name, files]) => ({
+            name,
+            files: files.sort((a, b) => a.path.localeCompare(b.path))
+        })).sort((a, b) => a.name.localeCompare(b.name))
+    })).sort((a, b) => {
+        if (a.class !== b.class) return a.class.localeCompare(b.class);
+        if (a.subject !== b.subject) return a.subject.localeCompare(b.subject);
+        return a.semester.localeCompare(b.semester);
+    });
+}
+
+// ---------- FILE SCANNER ----------
 async function getFiles(dir) {
     const dirents = await fs.readdir(dir, { withFileTypes: true });
     const files = await Promise.all(dirents.map(async (dirent) => {
         const res = path.resolve(dir, dirent.name);
-        if (dirent.isDirectory()) {
-            return getFiles(res);
-        } else {
-            return res;
-        }
+        if (dirent.isDirectory()) return getFiles(res);
+        else return res;
     }));
     return files.flat();
 }
 
-// ---------- BUILD HOMEPAGE CARDS ----------
-function buildHomepageCards(indexFiles) {
-    if (!indexFiles.length) {
-        return `<p>No index pages found. Create notes with <code>tags: index</code> and <code>coma</code> or <code>coms</code>.</p>`;
-    }
-    let cards = '';
-    for (const file of indexFiles) {
-        const title = file.data.title || path.basename(file.path, '.md');
-        const description = file.data.description || '';
-        const link = `${stripExtension(path.basename(file.path))}.html`;
-        cards += `
-            <div class="home-card">
-                <a href="${link}">
-                    <h3>${escapeHtml(title)}</h3>
-                    ${description ? `<p>${escapeHtml(description)}</p>` : ''}
-                </a>
-            </div>
-        `;
-    }
-    return `<div class="home-grid">${cards}</div>`;
-}
-
-// ---------- MAIN ----------
+// ---------- MAIN BUILD ----------
 async function build() {
     try {
-        // 1. Clean dist
         await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
         await fs.mkdir(OUTPUT_DIR, { recursive: true });
         console.log('🧹 Cleaned dist/');
 
-        // 2. Copy style.css
-        try {
-            await fs.copyFile(STYLE_FILE, path.join(OUTPUT_DIR, 'style.css'));
-            console.log('📁 Copied style.css to dist/');
-        } catch (err) {
-            console.warn('⚠️  No style.css found in root.');
-        }
+        await fs.copyFile(STYLE_FILE, path.join(OUTPUT_DIR, 'style.css'));
+        console.log('📁 Copied style.css to dist/');
 
-        // 3. Load templates
-        let templateSource;
-        try {
-            templateSource = await fs.readFile(TEMPLATE_FILE, 'utf-8');
-            console.log('📄 Loaded template.html');
-        } catch (err) {
-            console.error('❌ template.html not found.');
-            return;
-        }
+        const templateSource = await fs.readFile(TEMPLATE_FILE, 'utf-8');
         const mainTemplate = Handlebars.compile(templateSource);
 
-        let indexTemplate;
-        try {
-            const indexSource = await fs.readFile(INDEX_TEMPLATE_FILE, 'utf-8');
-            indexTemplate = Handlebars.compile(indexSource);
-            console.log('📄 Loaded index-template.html');
-        } catch {
-            console.warn('⚠️  index-template.html not found, falling back to main template.');
-            indexTemplate = mainTemplate;
-        }
+        const indexSource = await fs.readFile(INDEX_TEMPLATE_FILE, 'utf-8');
+        const indexTemplate = Handlebars.compile(indexSource);
 
         let error404Template;
         try {
             const errorSource = await fs.readFile(ERROR_404_TEMPLATE_FILE, 'utf-8');
             error404Template = Handlebars.compile(errorSource);
-            console.log('📄 Loaded 404-template.html');
-        } catch {
-            console.warn('⚠️  404-template.html not found, using hardcoded fallback.');
-            error404Template = null;
-        }
+        } catch { error404Template = null; }
 
-        // 4. Scan source
-        console.log(`📂 Building from vault: ${BASE_DIR}`);
+        console.log(`📂 Building from: ${BASE_DIR}`);
         const allFiles = await getFiles(BASE_DIR);
         const mdFiles = allFiles.filter(f => f.endsWith('.md') || f.endsWith('.markdown'));
 
         if (mdFiles.length === 0) {
-            console.log('⚠️  No Markdown files found.');
+            console.log('⚠️  No Markdown files found in the notes/ directory.');
             return;
         }
 
-        console.log(`📄 Found ${mdFiles.length} Markdown files. Filtering...`);
-
-        let processedCount = 0;
-        let skippedCount = 0;
+        const validFiles = [];
         let custom404Found = false;
-        const indexFiles = [];
 
         for (const filePath of mdFiles) {
-            const fileContent = await fs.readFile(filePath, 'utf-8');
-            const { data, content } = matter(fileContent);
+            const content = await fs.readFile(filePath, 'utf-8');
 
-            if (data.publish !== 1) {
-                skippedCount++;
-                console.log(`⏭️  Skipped ${path.basename(filePath)} (publish !== 1)`);
-                continue;
-            }
-
-            let tags = data.tags;
-            if (!tags) {
-                skippedCount++;
-                console.log(`⏭️  Skipped ${path.basename(filePath)} (no tags)`);
-                continue;
-            }
-
-            if (typeof tags === 'string') {
-                tags = tags.split(',').map(s => s.trim());
-            } else if (!Array.isArray(tags)) {
-                skippedCount++;
-                console.log(`⏭️  Skipped ${path.basename(filePath)} (invalid tags)`);
-                continue;
-            }
-
-            const hasComaOrComs = tags.some(t => t.toLowerCase() === 'coma' || t.toLowerCase() === 'coms');
-            if (!hasComaOrComs) {
-                skippedCount++;
-                console.log(`⏭️  Skipped ${path.basename(filePath)} (tags don't include coma/coms)`);
-                continue;
-            }
-
-            const hasIndex = tags.some(t => t.toLowerCase() === 'index');
-            if (hasIndex) {
-                indexFiles.push({ path: filePath, data });
-            }
-
-            // Build page
-            const processedContent = preprocessMarkdown(content);
-            let htmlContent = marked.parse(processedContent, { renderer });
-            // Wrap tables for horizontal scrolling
-            htmlContent = wrapTables(htmlContent);
-
+            // 1. Extract and format Title using formatTitle()
             const baseName = path.basename(filePath, '.md');
+            const title = formatTitle(baseName);
 
-            const pageData = {
-                title: data.title || '',
-                filename: baseName,
-                date: data.date || '',
-                description: data.description || '',
-                tags: tags,
-                content: htmlContent
-            };
-            const fullHtml = mainTemplate(pageData);
+            // 2. Extract Tags from folder structure
+            const relativePath = path.relative(BASE_DIR, filePath).replace(/\\/g, '/');
+            const pathSegments = relativePath.split('/').slice(0, -1);
+            const tags = pathSegments.map(seg => formatName(seg));
 
-            const relativePath = path.relative(BASE_DIR, filePath);
-            const dir = path.dirname(relativePath);
+            // 3. Extract Description from first non-empty line
+            const lines = content.split('\n');
+            const description = lines.find(line => line.trim() !== '' && !line.startsWith('#')) || '';
 
-            let outputFileName;
-            let outputDir = dir;
+            // 4. Extract Date
+            const stats = await fs.stat(filePath);
+            const date = stats.mtime.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
-            if (baseName.toLowerCase() === '404') {
-                outputFileName = '404.html';
-                outputDir = '.';
-                custom404Found = true;
-                console.log(`⚠️  ${baseName}.md → 404.html (custom error page)`);
-            } else {
-                outputFileName = `${stripExtension(baseName)}.html`;
-            }
-
-            const outputPath = path.join(OUTPUT_DIR, outputDir, outputFileName);
-            await fs.mkdir(path.dirname(outputPath), { recursive: true });
-            await fs.writeFile(outputPath, fullHtml, 'utf-8');
-            console.log(`✅ ${baseName} → ${outputFileName}`);
-            processedCount++;
+            validFiles.push({ path: filePath, content, title, tags, description, date });
         }
 
-        // ---------- HOMEPAGE ----------
-        const cardsHtml = buildHomepageCards(indexFiles);
-        const homepageData = {
-            title: 'Home – Notes',
-            description: 'Index of all COMA/COMS notes',
-            cardsHtml: cardsHtml,
-        };
-        const homepageHtml = indexTemplate(homepageData);
-        const homepagePath = path.join(OUTPUT_DIR, 'index.html');
-        await fs.writeFile(homepagePath, homepageHtml, 'utf-8');
-        console.log(`🏠 Generated homepage (index.html) with ${indexFiles.length} index cards`);
+        console.log(`📄 Processing ${validFiles.length} files...`);
+
+        for (const file of validFiles) {
+            let htmlContent = marked.parse(file.content, { renderer });
+            htmlContent = wrapTables(htmlContent);
+
+            const relativePath = path.relative(BASE_DIR, file.path).replace(/\\/g, '/');
+            const dir = path.dirname(relativePath);
+            const baseName = path.basename(file.path, '.md');
+
+            if (baseName.toLowerCase() === '404') {
+                custom404Found = true;
+                const outputPath = path.join(OUTPUT_DIR, '404.html');
+                await fs.writeFile(outputPath, mainTemplate({
+                    title: '404 – Page Not Found',
+                    filename: '404',
+                    date: '',
+                    description: 'The page you are looking for does not exist.',
+                    tags: [],
+                    content: '<p><a href="/">Go back home</a></p>'
+                }), 'utf-8');
+                continue;
+            }
+
+            const outputPath = path.join(OUTPUT_DIR, dir, `${baseName}.html`);
+            await fs.mkdir(path.dirname(outputPath), { recursive: true });
+
+            await fs.writeFile(outputPath, mainTemplate({
+                title: file.title,
+                filename: baseName,
+                date: file.date,
+                description: file.description,
+                tags: file.tags,
+                content: htmlContent
+            }), 'utf-8');
+
+            console.log(`✅ ${relativePath}`);
+        }
+
+        // ---------- GENERATE MANIFEST INDEX ----------
+        const manifest = buildManifest(validFiles, BASE_DIR);
+        const homepageHtml = indexTemplate({
+            title: 'CS Notes Manifest',
+            description: 'Complete structured index of all study materials.',
+            manifest: manifest
+        });
+
+        await fs.writeFile(path.join(OUTPUT_DIR, 'index.html'), homepageHtml, 'utf-8');
+        console.log(`🏠 Generated manifest-based index.html (${manifest.length} groups)`);
 
         // ---------- DEFAULT 404 ----------
         if (!custom404Found) {
             const default404Path = path.join(OUTPUT_DIR, '404.html');
-            try {
-                await fs.access(default404Path);
-            } catch {
-                if (error404Template) {
-                    const errorData = {
-                        title: '404 – Page Not Found',
-                        message: 'The page you\'re looking for doesn\'t exist.'
-                    };
-                    await fs.writeFile(default404Path, error404Template(errorData), 'utf-8');
-                    console.log('📄 Generated 404.html from template');
-                } else {
-                    const defaultContent = `<!DOCTYPE html>
+            if (error404Template) {
+                await fs.writeFile(default404Path, error404Template({
+                    title: '404 – Page Not Found',
+                    message: 'The page you\'re looking for doesn\'t exist.'
+                }), 'utf-8');
+            } else {
+                await fs.writeFile(default404Path, `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>404 – Page Not Found</h1>
+    <div class="metadata-box"><h1>404 – Page Not Found</h1></div>
     <p>The page you're looking for doesn't exist.</p>
     <p><a href="/">Go back home</a></p>
 </body>
-</html>`;
-                    await fs.writeFile(default404Path, defaultContent, 'utf-8');
-                    console.log('📄 Generated default 404.html (fallback)');
-                }
+</html>`, 'utf-8');
             }
         }
 
-        console.log(`\n🎉 Build complete! Processed ${processedCount} file(s), skipped ${skippedCount} file(s).`);
-        console.log(`👉 To preview, run: npx serve dist`);
+        console.log(`\n🎉 Build complete! Processed ${validFiles.length} file(s).`);
+        console.log(`👉 To preview, run: npm run preview`);
 
     } catch (error) {
         console.error('❌ Build failed:', error);

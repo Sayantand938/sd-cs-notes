@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>03 Network Connecting Device (Beng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 কম্পিউটার নেটওয়ার্ক: নেটওয়ার্ক সংযোগকারী ডিভাইস (Network Connecting Devices)</h1>
+<p><strong>ক্লাস ১১-এর বিস্তারিত স্টাডি নোটস</strong><br><em>(আনুমানিক পড়ার সময়: ২ ঘণ্টা)</em></p>
+<hr>
+<h2>১. নেটওয়ার্ক সংযোগকারী ডিভাইস পরিচিতি (Introduction)</h2>
+<p>নেটওয়ার্ক সংযোগকারী ডিভাইস (যাকে নেটওয়ার্কিং হার্ডওয়্যারও বলা হয়) হলো এমন ভৌত উপাদান যা কম্পিউটার, সার্ভার এবং অন্যান্য ডিভাইসগুলোকে একসাথে যুক্ত করে একটি নেটওয়ার্ক তৈরি করতে সাহায্য করে। এগুলো নিশ্চিত করে যে ডেটা নেটওয়ার্কের মধ্য দিয়ে দক্ষতার সাথে, সঠিকভাবে এবং নিরাপদে প্রেরিত হচ্ছে। এগুলো OSI মডেলের বিভিন্ন স্তরে (Layer) কাজ করে।</p>
+<pre class="mermaid">graph TD
+    A[Network Connecting Devices] --&gt; B[End-Device Connectors]
+    A --&gt; C[Signal &amp; Traffic Managers]
+    A --&gt; D[Network Interconnectors]
+    
+    B --&gt; B1[Ethernet Card / NIC]
+    B --&gt; B2[Wi-Fi Card]
+    B --&gt; B3[RJ45 Connector]
+    B --&gt; B4[Modem]
+    
+    C --&gt; C1[Repeater]
+    C --&gt; C2[Hub]
+    C --&gt; C3[Switch]
+    
+    D --&gt; D1[Router]
+    D --&gt; D2[Gateway]</pre><hr>
+<h2>২. এন্ড-ডিভাইস কানেক্টর এবং অ্যাডাপ্টার (End-Device Connectors &amp; Adapters)</h2>
+<h3>ক. মডেম (Modem - Modulator-Demodulator)</h3>
+<ul>
+<li><strong>কাজ</strong>: কম্পিউটার থেকে আসা ডিজিটাল সিগন্যালকে টেলিফোন লাইনের মধ্য দিয়ে প্রেরণের জন্য অ্যানালগ সিগন্যালে রূপান্তর করে (<strong>Modulation</strong>) এবং আসা অ্যানালগ সিগন্যালকে পুনরায় ডিজিটাল সিগন্যালে রূপান্তর করে (<strong>Demodulation</strong>)।</li>
+<li><strong>প্রকারভেদ</strong>: ইন্টারনাল (পিসির ভেতরে লাগানো), এক্সটারনাল (আলাদা বক্স), DSL/কেবল মডেম।</li>
+<li><strong>OSI স্তর</strong>: ফিজিক্যাল লেয়ার (Layer 1) এবং ডেটা লিঙ্ক লেয়ার (Layer 2)।</li>
+<li><strong>উদাহরণ</strong>: আপনার ISP (ইন্টারনেট প্রোভাইডার) যে ডিভাইসটি দিয়ে আপনার বাড়িকে ইন্টারনেটের সাথে যুক্ত করে।</li>
+</ul>
+<h3>খ. ইথারনেট কার্ড বা নেটওয়ার্ক ইন্টারফেস কার্ড (Ethernet Card / NIC)</h3>
+<ul>
+<li><strong>কাজ</strong>: এটি একটি হার্ডওয়্যার উপাদান যা কম্পিউটারে সংযুক্ত করা হয়, যাতে এটি একটি ওয়্যার্ড (তারযুক্ত) নেটওয়ার্কের সাথে যুক্ত হতে পারে। এটি নেটওয়ার্ক মিডিয়ার জন্য ডেটা প্রস্তুত করে, পাঠায় এবং ডেটা প্রবাহ নিয়ন্ত্রণ করে।</li>
+<li><strong>মূল বৈশিষ্ট্য</strong>: প্রতিটি NIC-এর একটি অনন্য, স্থায়ী ৪৮-বিট ফিজিক্যাল ঠিকানা থাকে, যাকে প্রস্তুতকারক কোম্পানি এর মধ্যে স্থায়ীভাবে সেট করে দেয়। একে <strong>MAC (Media Access Control) Address</strong> বলে।</li>
+<li><strong>OSI স্তর</strong>: ফিজিক্যাল লেয়ার (Layer 1) এবং ডেটা লিঙ্ক লেয়ার (Layer 2)।</li>
+<li><strong>উদাহরণ</strong>: আপনার ডেস্কটপ পিসির পেছনের যে পোর্টে আপনি LAN কেবল প্লাগ করেন।</li>
+</ul>
+<h3>গ. আরজে৪৫ (RJ45 - Registered Jack 45)</h3>
+<ul>
+<li><strong>কাজ</strong>: এটি নিজে কোনো ডিভাইস নয়, বরং এটি টুইস্টেড-পেয়ার ইথারনেট কেবলের (যেমন Cat5e বা Cat6) দুই প্রান্তে ব্যবহৃত একটি <strong>স্ট্যান্ডার্ড ৮-পিন ফিজিক্যাল কানেক্টর</strong>।</li>
+<li><strong>মূল বৈশিষ্ট্য</strong>: এটি দেখতে একটি চওড়া টেলিফোন জ্যাকের (RJ11) মতো এবং এটি NIC, সুইচ বা রাউটারের ইথারনেট পোর্টে &quot;ক্লিক&quot; করে শক্তভাবে আটকে যায়।</li>
+<li><strong>উদাহরণ</strong>: আপনার LAN কেবলের শেষ প্রান্তে থাকা স্বচ্ছ প্লাস্টিকের প্লাগটি।</li>
+</ul>
+<h3>ঘ. ওয়াই-ফাই কার্ড (Wi-Fi Card / Wireless NIC)</h3>
+<ul>
+<li><strong>কাজ</strong>: একটি হার্ডওয়্যার উপাদান (যা ইন্টারনাল বা USB ডঙ্গল হতে পারে) যা একটি কম্পিউটারকে ওয়্যারলেস নেটওয়ার্কের (WLAN) সাথে যুক্ত হতে দেয়। এতে রেডিও তরঙ্গের মাধ্যমে ডেটা পাঠানো ও গ্রহণ করার জন্য একটি রেডিও ট্রান্সমিটার এবং রিসিভার থাকে।</li>
+<li><strong>মূল বৈশিষ্ট্য</strong>: এরও একটি অনন্য MAC অ্যাড্রেস থাকে এবং এটি IEEE 802.11 স্ট্যান্ডার্ড (যেমন: Wi-Fi 5, Wi-Fi 6) ব্যবহার করে।</li>
+<li><strong>OSI স্তর</strong>: ফিজিক্যাল লেয়ার (Layer 1) এবং ডেটা লিঙ্ক লেয়ার (Layer 2)।</li>
+</ul>
+<hr>
+<h2>৩. সিগন্যাল এবং ট্রাফিক ম্যানেজার (Signal &amp; Traffic Managers)</h2>
+<h3>ঙ. রিপিটার (Repeater)</h3>
+<ul>
+<li><strong>কাজ</strong>: একটি দুর্বল বা ক্ষয়প্রাপ্ত সিগন্যাল গ্রহণ করে, সেটিকে <strong>পুনরুজ্জীবিত</strong> (regenerates/পরিষ্কার ও শক্তিশালী) করে এবং উচ্চতর পাওয়ার লেভেলে পুনরায় প্রেরণ করে।</li>
+<li><strong>উদ্দেশ্য</strong>: একটি নেটওয়ার্কের ভৌত দূরত্বকে সাধারণ কেবলের দৈর্ঘ্য সীমার (যেমন ইথারনেটের জন্য ১০০ মিটার) বাইরে প্রসারিত করা।</li>
+<li><strong>OSI স্তর</strong>: ফিজিক্যাল লেয়ার (Layer 1)।</li>
+<li><strong>সীমাবদ্ধতা</strong>: এটি ট্রাফিক ফিল্টার করে না; সিগন্যালের সাথে নয়েজও (noise) একসাথে অ্যাম্প্লিফাই বা শক্তিশালী করে।</li>
+</ul>
+<h3>চ. হাব (Hub)</h3>
+<ul>
+<li><strong>কাজ</strong>: এটি মূলত একটি &quot;মাল্টি-পোর্ট রিপিটার&quot;। যখন একটি পোর্টে ডেটা প্যাকেট আসে, হাবটি অন্ধের মতো সেটিকে <strong>ব্রডকাস্ট</strong> করে (কপি করে) নেটওয়ার্কের <em>অন্য সকল</em> সক্রিয় পোর্টে পাঠিয়ে দেয়।</li>
+<li><strong>সুবিধা</strong>: অত্যন্ত সস্তা, সেটআপ করা সহজ।</li>
+<li><strong>অসুবিধা</strong>: অত্যন্ত অদক্ষ, নেটওয়ার্ক জ্যাম (congestion) তৈরি করে এবং একটি একক <strong>কলিশন ডোমেইন (Collision Domain)</strong> তৈরি করে (যদি দুটি ডিভাইস একসাথে ডেটা পাঠায়, ডেটা সংঘর্ষে লিপ্ত হয় এবং নষ্ট হয়ে যায়)।</li>
+<li><strong>OSI স্তর</strong>: ফিজিক্যাল লেয়ার (Layer 1)।</li>
+<li><strong>বর্তমান অবস্থা</strong>: সুইচ দ্বারা প্রতিস্থাপিত হওয়ায় এটি এখন প্রায় অবলুপ্ত (obsolete)।</li>
+</ul>
+<h3>ছ. সুইচ (Switch)</h3>
+<ul>
+<li><strong>কাজ</strong>: এটি একটি &quot;বুদ্ধিমান হাব&quot; (Intelligent Hub)। এটি এর পোর্টগুলোতে সংযুক্ত সকল ডিভাইসের <strong>MAC অ্যাড্রেস</strong> শিখে নেয় এবং একটি MAC অ্যাড্রেস টেবিল তৈরি করে। যখন ডেটা আসে, এটি প্যাকেটটিকে সকল পোর্টে না পাঠিয়ে <strong>শুধুমাত্র নির্দিষ্ট গন্তব্য পোর্টে</strong> ফরোয়ার্ড করে।</li>
+<li><strong>সুবিধা</strong>: অত্যন্ত দক্ষ, নেটওয়ার্ক জ্যাম কমায়, প্রতিটি পোর্টে ডেডিকেটেড ব্যান্ডউইথ প্রদান করে এবং প্রতিটি পোর্টের জন্য আলাদা <strong>কলিশন ডোমেইন</strong> তৈরি করে।</li>
+<li><strong>OSI স্তর</strong>: ডেটা লিঙ্ক লেয়ার (Layer 2)। <em>(দ্রষ্টব্য: লেয়ার ৩ সুইচও存在 করে যা বেসিক রাউটিং করতে পারে)</em>।</li>
+<li><strong>উদাহরণ</strong>: আধুনিক অফিস বা স্কুলের কম্পিউটার ল্যাবের কেন্দ্রীয় সংযোগকারী ডিভাইস।</li>
+</ul>
+<hr>
+<h2>৪. নেটওয়ার্ক ইন্টারকানেক্টর (Network Interconnectors)</h2>
+<h3>জ. রাউটার (Router)</h3>
+<ul>
+<li><strong>কাজ</strong>: <strong>দুই বা ততোধিক ভিন্ন নেটওয়ার্ককে</strong> (যেমন: আপনার হোম LAN এবং ইন্টারনেট/WAN) সংযুক্ত করে এবং ডেটা ভ্রমণের জন্য সেরা পথ (best path) নির্ধারণ করে।</li>
+<li><strong>কাজের পদ্ধতি</strong>: এটি <strong>IP অ্যাড্রেস</strong> ব্যবহার করে এবং স্মার্ট ফরোয়ার্ডিং সিদ্ধান্ত নেওয়ার জন্য একটি <strong>রাউটিং টেবিল (Routing Table)</strong> বজায় রাখে। এটি বেসিক ফায়ারওয়াল এবং NAT (Network Address Translation) নিরাপত্তাও প্রদান করে।</li>
+<li><strong>OSI স্তর</strong>: নেটওয়ার্ক লেয়ার (Layer 3)।</li>
+<li><strong>উদাহরণ</strong>: আপনার বাড়ির ওয়াই-ফাই রাউটার যা আপনার ফোন/ল্যাপটপকে ISP-এর নেটওয়ার্কের সাথে যুক্ত করে।</li>
+</ul>
+<h3>ঝ. গেটওয়ে (Gateway)</h3>
+<ul>
+<li><strong>কাজ</strong>: এটি মূলত একটি &quot;প্রোটোকল কনভার্টার&quot; (Protocol Converter)। এটি এমন দুটি নেটওয়ার্ককে সংযুক্ত করে যেগুলো <strong>সম্পূর্ণ ভিন্ন আর্কিটেকচার বা যোগাযোগ প্রোটোকল</strong> ব্যবহার করে (যেমন: একটি TCP/IP LAN নেটওয়ার্ককে একটি পুরনো IBM মেইনফ্রেম নেটওয়ার্কের সাথে, অথবা একটি কর্পোরেট নেটওয়ার্ককে ISP-এর মাধ্যমে ইন্টারনেটের সাথে যুক্ত করা)।</li>
+<li><strong>কাজের পদ্ধতি</strong>: এটি ডেটা ফরম্যাট, প্রোটোকল এবং আর্কিটেকচার অনুবাদ (translate) করে, যাতে দুটি ভিন্ন নেটওয়ার্ক একে অপরের ভাষা বুঝতে পারে।</li>
+<li><strong>OSI স্তর</strong>: যেকোনো স্তরে কাজ করতে পারে, তবে প্রধানত নেটওয়ার্ক, ট্রান্সপোর্ট বা অ্যাপ্লিকেশন লেয়ারে (Layer 3 থেকে Layer 7) কাজ করে।</li>
+<li><strong>উদাহরণ</strong>: একটি কর্পোরেট প্রক্সি সার্ভার, বা একটি VoIP গেটওয়ে যা ভয়েস সিগন্যালকে IP প্যাকেটে রূপান্তর করে।</li>
+</ul>
+<hr>
+<h2>📝 দ্রুত রিভিশন সারাংশ (চিট শিট)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">ডিভাইস</th>
+<th align="left">প্রাথমিক কাজ (Primary Function)</th>
+<th align="left">OSI স্তর</th>
+<th align="left">মূল শনাক্তকারী / কি-ওয়ার্ড</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Modem</strong></td>
+<td align="left">ডিজিটাল ↔ অ্যানালগ রূপান্তর</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">Modulation, Demodulation, ISP সংযোগ।</td>
+</tr>
+<tr>
+<td align="left"><strong>Ethernet Card (NIC)</strong></td>
+<td align="left">পিসিকে ওয়্যার্ড নেটওয়ার্কের সাথে যুক্ত করে</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">অনন্য <strong>MAC Address</strong> থাকে।</td>
+</tr>
+<tr>
+<td align="left"><strong>RJ45</strong></td>
+<td align="left">ফিজিক্যাল কেবল কানেক্টর</td>
+<td align="left">N/A (Physical)</td>
+<td align="left">টুইস্টেড পেয়ার কেবলের জন্য ৮-পিন প্লাগ।</td>
+</tr>
+<tr>
+<td align="left"><strong>Wi-Fi Card</strong></td>
+<td align="left">পিসিকে ওয়্যারলেস নেটওয়ার্কের সাথে যুক্ত করে</td>
+<td align="left">Layer 1 / 2</td>
+<td align="left">রেডিও ট্রান্সমিটার/রিসিভার, IEEE 802.11।</td>
+</tr>
+<tr>
+<td align="left"><strong>Repeater</strong></td>
+<td align="left">সিগন্যাল পুনরুজ্জীবিত ও শক্তিশালী করে</td>
+<td align="left">Layer 1</td>
+<td align="left">কেবলের দূরত্ব বাড়ায়, নয়েজও বাড়ায়।</td>
+</tr>
+<tr>
+<td align="left"><strong>Hub</strong></td>
+<td align="left">মাল্টি-পোর্ট রিপিটার, সকলের কাছে পাঠায়</td>
+<td align="left">Layer 1</td>
+<td align="left">&quot;বোকা&quot; (Dumb) ডিভাইস, একক Collision Domain।</td>
+</tr>
+<tr>
+<td align="left"><strong>Switch</strong></td>
+<td align="left">নির্দিষ্ট MAC অ্যাড্রেসে ডেটা পাঠায়</td>
+<td align="left">Layer 2</td>
+<td align="left">&quot;বুদ্ধিমান&quot; (Intelligent) ডিভাইস, একাধিক Collision Domain।</td>
+</tr>
+<tr>
+<td align="left"><strong>Router</strong></td>
+<td align="left">ভিন্ন নেটওয়ার্ক যুক্ত করে, সেরা পথ খুঁজে বের করে</td>
+<td align="left">Layer 3</td>
+<td align="left"><strong>IP Address</strong> এবং Routing Table ব্যবহার করে।</td>
+</tr>
+<tr>
+<td align="left"><strong>Gateway</strong></td>
+<td align="left">ভিন্ন প্রোটোকলের মধ্যে অনুবাদ করে</td>
+<td align="left">Layer 3 to 7</td>
+<td align="left">প্রোটোকল কনভার্টার, ভিন্ন নেটওয়ার্ক যুক্ত করে।</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>💡 পরীক্ষার জন্য প্রো-টিপ (Common Differentiations)</h2>
+<ol>
+<li><strong>Hub বনাম Switch</strong>: <ul>
+<li><em>Hub</em> সকলের কাছে ডেটা ব্রডকাস্ট করে (অদক্ষ, Layer 1)। </li>
+<li><em>Switch</em> শুধুমাত্র উদ্দিষ্ট গ্রাহকের কাছে MAC অ্যাড্রেস ব্যবহার করে ডেটা পাঠায় (দক্ষ, Layer 2)।</li>
+</ul>
+</li>
+<li><strong>Switch বনাম Router</strong>: <ul>
+<li><em>Switch</em> <strong>একই</strong> নেটওয়ার্কের (LAN) ভেতরের ডিভাইসগুলোকে যুক্ত করে। </li>
+<li><em>Router</em> <strong>ভিন্ন</strong> নেটওয়ার্ককে (LAN থেকে WAN/ইন্টারনেট) IP অ্যাড্রেস ব্যবহার করে যুক্ত করে।</li>
+</ul>
+</li>
+<li><strong>Router বনাম Gateway</strong>: <ul>
+<li>একটি <em>Router</em> <strong>একই</strong> প্রোটোকল ব্যবহারকারী নেটওয়ার্ক যুক্ত করে (যেমন: IP থেকে IP)। </li>
+<li>একটি <em>Gateway</em> <strong>ভিন্ন</strong> প্রোটোকল ব্যবহারকারী নেটওয়ার্ক যুক্ত করে (যেমন: IP থেকে SNA, বা ফরম্যাট অনুবাদ করা)।</li>
+</ul>
+</li>
+<li><strong>Repeater বনাম Amplifier</strong>: একটি রিপিটার ডিজিটাল সিগন্যালকে <em>পুনরুজ্জীবিত</em> (regenerate) করে (নয়েজ মুক্ত করে), যেখানে একটি সাধারণ অ্যাম্প্লিফায়ার শুধু সিগন্যালকে বাড়িয়ে দেয় (নয়েজসহ)।</li>
+</ol>
+
+    </main>
+</body>
+
+</html>

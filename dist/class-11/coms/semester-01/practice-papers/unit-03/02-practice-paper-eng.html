@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>02 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Basic Structure (Questions 1-15)</h2>
+<h3>Character Set, Keywords, Identifiers, Constants, Variables, Type Declaration, Pre-processor</h3>
+<h4>Q1. Which of the following is NOT a valid character in C character set?</h4>
+<p>A) Letters A-Z and a-z
+B) Digits 0-9
+C) Special characters like @, #, $
+D) White spaces ✅</p>
+<h4>Q2. Which of the following is a valid identifier in C?</h4>
+<p>A) <code>1st_number</code>
+B) <code>first_number</code> ✅
+C) <code>first number</code>
+D) <code>int</code></p>
+<h4>Q3. How many keywords are there in standard C (ANSI C)?</h4>
+<p>A) 32 ✅
+B) 48
+C) 64
+D) 16</p>
+<h4>Q4. Which of the following is NOT a valid constant in C?</h4>
+<p>A) <code>123</code>
+B) <code>3.14</code>
+C) <code>&#39;A&#39;</code>
+D) <code>&quot;Hello</code> ✅</p>
+<h4>Q5. What is the size of <code>int</code> data type in 32-bit C compiler?</h4>
+<p>A) 1 byte
+B) 2 bytes
+C) 4 bytes ✅
+D) 8 bytes</p>
+<h4>Q6. Which preprocessor directive is used to define a macro?</h4>
+<p>A) <code>#include</code>
+B) <code>#define</code> ✅
+C) <code>#undef</code>
+D) <code>#ifdef</code></p>
+<h4>Q7. What is the output of the following preprocessor code?</h4>
+<pre><code class="language-c">#define PI 3.14
+#define AREA(r) (PI * r * r)
+printf(&quot;%.2f&quot;, AREA(3));</code></pre><p>A) 28.26 ✅
+B) 28.27
+C) 28.26
+D) Compilation Error</p>
+<h4>Q8. Which of the following correctly defines a character constant?</h4>
+<p>A) <code>&quot;A&quot;</code>
+B) <code>&#39;A&#39;</code> ✅
+C) <code>A</code>
+D) <code>\A</code></p>
+<h4>Q9. What is the difference between <code>const</code> and <code>#define</code>?</h4>
+<p>A) <code>const</code> is a preprocessor directive while <code>#define</code> is a keyword
+B) <code>#define</code> is processed by preprocessor, <code>const</code> by compiler ✅
+C) Both are processed by compiler
+D) Both are processed by preprocessor</p>
+<h4>Q10. Which of the following is NOT a valid data type in C?</h4>
+<p>A) <code>int</code>
+B) <code>float</code>
+C) <code>char</code>
+D) <code>string</code> ✅</p>
+<h4>Q11. What will be the size of the variable <code>short int</code> on a 16-bit system?</h4>
+<p>A) 1 byte
+B) 2 bytes ✅
+C) 4 bytes
+D) 8 bytes</p>
+<h4>Q12. Which of the following is TRUE about global variables?</h4>
+<p>A) They are declared inside a function
+B) They have default value 0 if not initialized ✅
+C) They cannot be accessed outside the file
+D) They are stored in the stack</p>
+<h4>Q13. What is the range of <code>unsigned char</code> data type?</h4>
+<p>A) -128 to 127
+B) 0 to 255 ✅
+C) -32768 to 32767
+D) 0 to 65535</p>
+<h4>Q14. Which header file is required for standard input/output operations?</h4>
+<p>A) <code>#include &lt;math.h&gt;</code>
+B) <code>#include &lt;string.h&gt;</code>
+C) <code>#include &lt;stdio.h&gt;</code> ✅
+D) <code>#include &lt;stdlib.h&gt;</code></p>
+<h4>Q15. What is the purpose of the <code>#undef</code> directive?</h4>
+<p>A) To define a new macro
+B) To remove a previously defined macro ✅
+C) To include a header file
+D) To check if a macro is defined</p>
+<hr>
+<h2>Section 2: Operators (Questions 16-35)</h2>
+<h3>Arithmetic, Relational, Logical, Assignment, Increment/Decrement, Conditional, Comma, Precedence, Associativity, Type Conversion, I/O, Escape Sequences</h3>
+<h4>Q16. What is the output of <code>10 % 3</code>?</h4>
+<p>A) 3
+B) 1 ✅
+C) 0
+D) 2</p>
+<h4>Q17. Which operator is used for logical AND?</h4>
+<p>A) <code>&amp;</code>
+B) <code>&amp;&amp;</code> ✅
+C) <code>and</code>
+D) <code>||</code></p>
+<h4>Q18. What is the value of <code>x</code> after <code>int x = 5; x += 3;</code>?</h4>
+<p>A) 5
+B) 8 ✅
+C) 3
+D) 15</p>
+<h4>Q19. What is the output of <code>int x = 5; printf(&quot;%d&quot;, ++x);</code>?</h4>
+<p>A) 5
+B) 6 ✅
+C) 4
+D) Error</p>
+<h4>Q20. Which operator has the highest precedence?</h4>
+<p>A) <code>+</code>
+B) <code>*</code>
+C) <code>()</code>
+D) <code>++</code> ✅</p>
+<h4>Q21. What is the output of <code>int x = 5; int y = x++; printf(&quot;%d %d&quot;, x, y);</code>?</h4>
+<p>A) 5 5
+B) 6 5 ✅
+C) 6 6
+D) 5 6</p>
+<h4>Q22. Which of the following is a Relational Operator?</h4>
+<p>A) <code>=</code>
+B) <code>==</code> ✅
+C) <code>&amp;&amp;</code>
+D) <code>+=</code></p>
+<h4>Q23. What is the value of the expression <code>(5 &gt; 3) &amp;&amp; (4 &lt; 2)</code>?</h4>
+<p>A) 0 ✅
+B) 1
+C) 5
+D) 4</p>
+<h4>Q24. Which escape sequence represents a newline character?</h4>
+<p>A) <code>\n</code> ✅
+B) <code>\t</code>
+C) <code>\r</code>
+D) <code>\a</code></p>
+<h4>Q25. What is the output of <code>printf(&quot;%d&quot;, 5 &amp; 3);</code> (bitwise AND)?</h4>
+<p>A) 1 ✅
+B) 7
+C) 5
+D) 3</p>
+<h4>Q26. Which format specifier is used to print a floating-point number?</h4>
+<p>A) <code>%d</code>
+B) <code>%f</code> ✅
+C) <code>%c</code>
+D) <code>%s</code></p>
+<h4>Q27. What is the output of <code>int x = 5; printf(&quot;%d&quot;, x &lt;&lt; 1);</code> (left shift)?</h4>
+<p>A) 5
+B) 10 ✅
+C) 4
+D) 3</p>
+<h4>Q28. Which operator is known as the conditional operator?</h4>
+<p>A) <code>? :</code> ✅
+B) <code>::</code>
+C) <code>?:</code>
+D) <code>?</code></p>
+<h4>Q29. What is the output of <code>int x = 5; printf(&quot;%d&quot;, (x &gt; 3) ? 10 : 20);</code>?</h4>
+<p>A) 5
+B) 10 ✅
+C) 20
+D) Error</p>
+<h4>Q30. What is the result of implicit type conversion in <code>int x = 5.7;</code>?</h4>
+<p>A) 5 ✅
+B) 6
+C) 5.7
+D) Error</p>
+<h4>Q31. Which of the following is NOT an assignment operator?</h4>
+<p>A) <code>=</code>
+B) <code>+=</code>
+C) <code>==</code> ✅
+D) <code>*=</code></p>
+<h4>Q32. What is the output of <code>printf(&quot;%5.2f&quot;, 3.14159);</code>?</h4>
+<p>A) <code>3.14</code> ✅
+B) <code>3.14159</code>
+C) <code>3.142</code>
+D) <code> 3.14</code></p>
+<h4>Q33. Which of the following correctly reads a character using <code>scanf</code>?</h4>
+<p>A) <code>scanf(&quot;%d&quot;, &amp;ch);</code>
+B) <code>scanf(&quot;%c&quot;, &amp;ch);</code> ✅
+C) <code>scanf(&quot;%s&quot;, ch);</code>
+D) <code>scanf(&quot;%f&quot;, &amp;ch);</code></p>
+<h4>Q34. What is the value of <code>(5, 10, 15)</code> using the comma operator?</h4>
+<p>A) 5
+B) 10
+C) 15 ✅
+D) Error</p>
+<h4>Q35. Which escape sequence produces a beep sound?</h4>
+<p>A) <code>\n</code>
+B) <code>\t</code>
+C) <code>\a</code> ✅
+D) <code>\r</code></p>
+<hr>
+<h2>Section 3: Branching and Looping (Questions 36-50)</h2>
+<h3>if, if-else, while, do-while, for</h3>
+<h4>Q36. What will be the output of the following code?</h4>
+<pre><code class="language-c">int x = 10;
+if(x &gt; 5)
+    printf(&quot;A&quot;);
+else
+    printf(&quot;B&quot;);</code></pre><p>A) A ✅
+B) B
+C) AB
+D) No output</p>
+<h4>Q37. How many times will the following loop execute?</h4>
+<pre><code class="language-c">int i = 0;
+while(i &lt; 5) {
+    i++;
+}</code></pre><p>A) 4
+B) 5 ✅
+C) 6
+D) Infinite</p>
+<h4>Q38. What is the output of the following code?</h4>
+<pre><code class="language-c">int x = 0;
+if(x)
+    printf(&quot;True&quot;);
+else
+    printf(&quot;False&quot;);</code></pre><p>A) True
+B) False ✅
+C) Error
+D) No output</p>
+<h4>Q39. Which loop is guaranteed to execute at least once?</h4>
+<p>A) <code>for</code>
+B) <code>while</code>
+C) <code>do-while</code> ✅
+D) None of the above</p>
+<h4>Q40. What will be the output of the following <code>for</code> loop?</h4>
+<pre><code class="language-c">for(int i=0; i&lt;3; i++)
+    printf(&quot;%d &quot;, i);</code></pre><p>A) 0 1 2 ✅
+B) 1 2 3
+C) 0 1 2 3
+D) 1 2</p>
+<h4>Q41. What is the output of the following <code>switch</code> statement?</h4>
+<pre><code class="language-c">int x = 2;
+switch(x) {
+    case 1: printf(&quot;One&quot;);
+    case 2: printf(&quot;Two&quot;);
+    default: printf(&quot;Default&quot;);
+}</code></pre><p>A) One
+B) Two
+C) TwoDefault ✅
+D) Default</p>
+<h4>Q42. What does the <code>break</code> statement do in a loop?</h4>
+<p>A) Exits the loop immediately ✅
+B) Continues to the next iteration
+C) Restarts the loop
+D) Does nothing</p>
+<h4>Q43. How many times will the following loop execute?</h4>
+<pre><code class="language-c">int i = 5;
+do {
+    i--;
+} while(i &gt; 0);</code></pre><p>A) 4
+B) 5 ✅
+C) 6
+D) Infinite</p>
+<h4>Q44. What is the output of the following code?</h4>
+<pre><code class="language-c">int x = 10;
+if(x = 5)
+    printf(&quot;Yes&quot;);
+else
+    printf(&quot;No&quot;);</code></pre><p>A) Yes ✅
+B) No
+C) Error
+D) YesNo</p>
+<h4>Q45. What is the use of <code>continue</code> statement?</h4>
+<p>A) Exits the loop
+B) Skips the current iteration ✅
+C) Restarts the loop
+D) Ends the program</p>
+<h4>Q46. Which of the following is an infinite loop?</h4>
+<p>A) <code>for(i=0; i&lt;10; i++)</code>
+B) <code>for(;;)</code> ✅
+C) <code>while(i&lt;10)</code>
+D) <code>do-while(i&lt;10)</code></p>
+<h4>Q47. What is the output of the following code?</h4>
+<pre><code class="language-c">int i;
+for(i=0; i&lt;3; i++) {
+    if(i==1) continue;
+    printf(&quot;%d&quot;, i);
+}</code></pre><p>A) 0 1 2
+B) 0 2 ✅
+C) 1 2
+D) 0 1</p>
+<h4>Q48. Which statement is used for multi-way branching?</h4>
+<p>A) <code>if-else</code>
+B) <code>switch-case</code> ✅
+C) <code>while</code>
+D) <code>for</code></p>
+<h4>Q49. What is the output of the following nested loop?</h4>
+<pre><code class="language-c">for(int i=0; i&lt;2; i++) {
+    for(int j=0; j&lt;2; j++) {
+        printf(&quot;*&quot;);
+    }
+}</code></pre><p>A) <code>**</code>
+B) <code>***</code>
+C) <code>****</code> ✅
+D) <code>*</code></p>
+<h4>Q50. What is the output of the following code?</h4>
+<pre><code class="language-c">int x = 1;
+while(x &lt;= 3) {
+    printf(&quot;%d&quot;, x);
+    x++;
+}</code></pre><p>A) 1 2 3 ✅
+B) 1 2 3 4
+C) 0 1 2
+D) 2 3 4</p>
+<hr>
+<h2>Section 4: Arrays and Structures (Questions 51-70)</h2>
+<h3>One-dimensional, Two-dimensional Arrays, String handling, Structures</h3>
+<h4>Q51. What is the index of the first element in an array?</h4>
+<p>A) 1
+B) 0 ✅
+C) -1
+D) Depends on declaration</p>
+<h4>Q52. What is the size of <code>int arr[5]</code> in a 32-bit system?</h4>
+<p>A) 5 bytes
+B) 10 bytes
+C) 20 bytes ✅
+D) 40 bytes</p>
+<h4>Q53. What will be the output?</h4>
+<pre><code class="language-c">int arr[3] = {1, 2, 3};
+printf(&quot;%d&quot;, arr[2]);</code></pre><p>A) 1
+B) 2
+C) 3 ✅
+D) Error</p>
+<h4>Q54. How is a 2D array stored in memory?</h4>
+<p>A) Column-major order
+B) Row-major order ✅
+C) Random order
+D) Diagonal order</p>
+<h4>Q55. What is the output of the following code?</h4>
+<pre><code class="language-c">char str[5] = &quot;Hello&quot;;
+printf(&quot;%lu&quot;, sizeof(str));</code></pre><p>A) 5
+B) 6 ✅
+C) 4
+D) 10</p>
+<h4>Q56. Which function is used to find the length of a string?</h4>
+<p>A) <code>strlen()</code> ✅
+B) <code>strlength()</code>
+C) <code>length()</code>
+D) <code>sizeof()</code></p>
+<h4>Q57. What is the output of the following?</h4>
+<pre><code class="language-c">char str[20] = &quot;Hello&quot;;
+strcat(str, &quot; World&quot;);
+printf(&quot;%s&quot;, str);</code></pre><p>A) Hello
+B) World
+C) Hello World ✅
+D) HelloWorld</p>
+<h4>Q58. Which function compares two strings?</h4>
+<p>A) <code>strcmp()</code> ✅
+B) <code>strcat()</code>
+C) <code>strcpy()</code>
+D) <code>strlen()</code></p>
+<h4>Q59. What is the output of the following?</h4>
+<pre><code class="language-c">struct Student {
+    int roll;
+    char name[20];
+} s1 = {1, &quot;John&quot;};
+printf(&quot;%d&quot;, s1.roll);</code></pre><p>A) 1 ✅
+B) John
+C) Error
+D) 2</p>
+<h4>Q60. What is the correct way to access structure member <code>name</code> using pointer <code>ptr</code>?</h4>
+<p>A) <code>ptr.name</code>
+B) <code>ptr-&gt;name</code> ✅
+C) <code>*ptr.name</code>
+D) <code>&amp;ptr.name</code></p>
+<h4>Q61. What is the output of the following code?</h4>
+<pre><code class="language-c">int arr[2][3] = {{1,2,3},{4,5,6}};
+printf(&quot;%d&quot;, arr[1][2]);</code></pre><p>A) 2
+B) 3
+C) 5
+D) 6 ✅</p>
+<h4>Q62. Which of the following correctly initializes a structure?</h4>
+<p>A) <code>struct s1 = {10, &quot;John&quot;};</code>
+B) <code>struct Student s1 = {10, &quot;John&quot;};</code> ✅
+C) <code>Student s1 = (10, &quot;John&quot;);</code>
+D) <code>s1 = {10, &quot;John&quot;};</code></p>
+<h4>Q63. What does <code>strcpy(dest, src)</code> do?</h4>
+<p>A) Compares two strings
+B) Copies src to dest ✅
+C) Appends src to dest
+D) Returns length of src</p>
+<h4>Q64. What is the output of the following?</h4>
+<pre><code class="language-c">struct {
+    int x;
+    int y;
+} p1 = {5, 10};
+printf(&quot;%d&quot;, p1.y);</code></pre><p>A) 5
+B) 10 ✅
+C) Error
+D) p1.y</p>
+<h4>Q65. How is an array of structures declared?</h4>
+<p>A) <code>struct Student[10] s;</code>
+B) <code>struct Student s[10];</code> ✅
+C) <code>Student s[10];</code>
+D) <code>struct s[10] Student;</code></p>
+<h4>Q66. What is the output of the following?</h4>
+<pre><code class="language-c">char str[20] = &quot;Hello&quot;;
+printf(&quot;%lu&quot;, strlen(str));</code></pre><p>A) 4
+B) 5 ✅
+C) 6
+D) 20</p>
+<h4>Q67. Which function concatenates strings in C?</h4>
+<p>A) <code>strcat()</code> ✅
+B) <code>strcpy()</code>
+C) <code>strcmp()</code>
+D) <code>strlen()</code></p>
+<h4>Q68. What is the size of the following structure (assuming 4-byte int)?</h4>
+<pre><code class="language-c">struct Test {
+    int a;
+    char b;
+    int c;
+};</code></pre><p>A) 9 bytes
+B) 12 bytes ✅
+C) 8 bytes
+D) 10 bytes</p>
+<h4>Q69. What is a nested structure?</h4>
+<p>A) Structure containing another structure ✅
+B) Array of structures
+C) Structure with pointers
+D) Structure without members</p>
+<h4>Q70. Which of the following is TRUE about array initialization?</h4>
+<p>A) <code>int arr[5] = {0};</code> initializes all elements to 0 ✅
+B) <code>int arr[5] = {};</code> is valid
+C) <code>int arr[5] = {1,2,3};</code> leaves rest uninitialized
+D) All of the above</p>
+<hr>
+<h2>Section 5: User-Defined Functions (Questions 71-85)</h2>
+<h3>Need, Call by Reference, Call by Value, Return Value, Nesting, Recursion</h3>
+<h4>Q71. What is a function prototype?</h4>
+<p>A) Function definition
+B) Function declaration ✅
+C) Function call
+D) Function return</p>
+<h4>Q72. What is the default return type of a function in C (if not specified)?</h4>
+<p>A) <code>void</code>
+B) <code>int</code> ✅
+C) <code>char</code>
+D) <code>float</code></p>
+<h4>Q73. What is call by value?</h4>
+<p>A) Passing address of variable
+B) Passing value of variable ✅
+C) Passing reference
+D) Passing pointer</p>
+<h4>Q74. In call by value, changes to formal parameters affect actual parameters?</h4>
+<p>A) Yes, always
+B) No, never ✅
+C) Sometimes
+D) Only for arrays</p>
+<h4>Q75. How is call by reference achieved in C?</h4>
+<p>A) By passing values
+B) By passing addresses using pointers ✅
+C) By using global variables
+D) By using reference variables</p>
+<h4>Q76. What is the output of the following?</h4>
+<pre><code class="language-c">void change(int x) {
+    x = 10;
+}
+int main() {
+    int a = 5;
+    change(a);
+    printf(&quot;%d&quot;, a);
+}</code></pre><p>A) 10
+B) 5 ✅
+C) 0
+D) Error</p>
+<h4>Q77. What is a recursive function?</h4>
+<p>A) Function that calls itself ✅
+B) Function that calls another function
+C) Function with no parameters
+D) Function with no return</p>
+<h4>Q78. What is the output of the following recursive function?</h4>
+<pre><code class="language-c">int fact(int n) {
+    if(n == 0) return 1;
+    return n * fact(n-1);
+}
+// fact(4)</code></pre><p>A) 4
+B) 12
+C) 24 ✅
+D) 6</p>
+<h4>Q79. What is the base case in recursion?</h4>
+<p>A) The condition that terminates recursion ✅
+B) The function call
+C) The return statement
+D) The parameter list</p>
+<h4>Q80. What is the main advantage of recursion?</h4>
+<p>A) Faster execution
+B) Less memory usage
+C) Simpler solution for complex problems ✅
+D) No function calls</p>
+<h4>Q81. What is nesting of functions?</h4>
+<p>A) Calling one function inside another ✅
+B) Defining function inside another
+C) Recursive function
+D) Function with no parameters</p>
+<h4>Q82. Which of the following is TRUE about functions in C?</h4>
+<p>A) Functions can be nested (defined inside another function)
+B) Functions cannot be nested ✅
+C) Functions must return a value
+D) Functions cannot be called from main</p>
+<h4>Q83. What happens when a function returns without specifying a return value (except main)?</h4>
+<p>A) Compilation error
+B) Undefined behavior ✅
+C) Returns 0
+D) Returns -1</p>
+<h4>Q84. What is the output of the following?</h4>
+<pre><code class="language-c">int sum(int a, int b) {
+    return a + b;
+}
+int main() {
+    int result = sum(3, 4);
+    printf(&quot;%d&quot;, result);
+}</code></pre><p>A) 3
+B) 4
+C) 7 ✅
+D) Error</p>
+<h4>Q85. What is the main function in C?</h4>
+<p>A) The first function to execute ✅
+B) A user-defined function
+C) A preprocessor directive
+D) A header file</p>
+<hr>
+<h2>Section 6: Pointers (Questions 86-100)</h2>
+<h3>Declaration, Initialization, Operators, Pointer Arithmetic, Accessing Variables, Pointers with Arrays, Strings, Functions</h3>
+<h4>Q86. What is a pointer?</h4>
+<p>A) A variable that stores address of another variable ✅
+B) A variable that stores value
+C) A keyword
+D) A data type</p>
+<h4>Q87. Which operator is used to get the address of a variable?</h4>
+<p>A) <code>*</code>
+B) <code>&amp;</code> ✅
+C) <code>-&gt;</code>
+D) <code>#</code></p>
+<h4>Q88. Which operator is used to access value at an address?</h4>
+<p>A) <code>*</code> ✅
+B) <code>&amp;</code>
+C) <code>-&gt;</code>
+D) <code>#</code></p>
+<h4>Q89. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 5;
+int *ptr = &amp;x;
+printf(&quot;%d&quot;, *ptr);</code></pre><p>A) Address of x
+B) 5 ✅
+C) 0
+D) Error</p>
+<h4>Q90. What is the size of a pointer on a 64-bit system?</h4>
+<p>A) 2 bytes
+B) 4 bytes
+C) 8 bytes ✅
+D) 16 bytes</p>
+<h4>Q91. What is <code>NULL</code> pointer?</h4>
+<p>A) Pointer pointing to 0 address
+B) Pointer not pointing to any valid memory ✅
+C) Uninitialized pointer
+D) Pointer to main function</p>
+<h4>Q92. What is pointer arithmetic?</h4>
+<p>A) Adding two pointers
+B) Performing arithmetic on pointer values ✅
+C) Multiplying pointers
+D) Dividing pointers</p>
+<h4>Q93. If <code>ptr</code> points to address 1000 and <code>int</code> is 4 bytes, what is <code>ptr + 1</code>?</h4>
+<p>A) 1001
+B) 1004 ✅
+C) 1000
+D) 1008</p>
+<h4>Q94. How are arrays and pointers related?</h4>
+<p>A) Array name is a constant pointer to first element ✅
+B) Arrays and pointers are different
+C) Arrays store addresses
+D) Pointers cannot point to arrays</p>
+<h4>Q95. What is the output of the following?</h4>
+<pre><code class="language-c">int arr[] = {10, 20, 30};
+printf(&quot;%d&quot;, *(arr + 1));</code></pre><p>A) 10
+B) 20 ✅
+C) 30
+D) Error</p>
+<h4>Q96. How to declare a pointer to a function?</h4>
+<p>A) <code>int (*ptr)(int)</code> ✅
+B) <code>int *ptr(int)</code>
+C) <code>int ptr(*int)</code>
+D) <code>ptr int(*)</code></p>
+<h4>Q97. What is the output of the following?</h4>
+<pre><code class="language-c">char str[] = &quot;Hello&quot;;
+char *ptr = str;
+printf(&quot;%c&quot;, *(ptr + 1));</code></pre><p>A) H
+B) e ✅
+C) l
+D) o</p>
+<h4>Q98. Which of the following is TRUE about void pointers?</h4>
+<p>A) They can point to any data type ✅
+B) They cannot be dereferenced
+C) They require typecasting for dereferencing
+D) All of the above</p>
+<h4>Q99. What is the output of the following?</h4>
+<pre><code class="language-c">int x = 5;
+int *ptr = &amp;x;
+*ptr = 10;
+printf(&quot;%d&quot;, x);</code></pre><p>A) 5
+B) 10 ✅
+C) Address of x
+D) Error</p>
+<h4>Q100. What is a dangling pointer?</h4>
+<p>A) Pointer pointing to freed/deallocated memory ✅
+B) NULL pointer
+C) Wild pointer
+D) Pointer to constant</p>
+<hr>
+<h2>Answer Key</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>D</td>
+<td>26</td>
+<td>B</td>
+<td>51</td>
+<td>B</td>
+<td>76</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>C</td>
+<td>77</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td>28</td>
+<td>A</td>
+<td>53</td>
+<td>C</td>
+<td>78</td>
+<td>C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>B</td>
+<td>79</td>
+<td>A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>C</td>
+<td>30</td>
+<td>A</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>C</td>
+<td>56</td>
+<td>A</td>
+<td>81</td>
+<td>A</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A</td>
+<td>32</td>
+<td>A</td>
+<td>57</td>
+<td>C</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>B</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>B</td>
+</tr>
+<tr>
+<td>9</td>
+<td>B</td>
+<td>34</td>
+<td>C</td>
+<td>59</td>
+<td>A</td>
+<td>84</td>
+<td>C</td>
+</tr>
+<tr>
+<td>10</td>
+<td>D</td>
+<td>35</td>
+<td>C</td>
+<td>60</td>
+<td>B</td>
+<td>85</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>A</td>
+<td>61</td>
+<td>D</td>
+<td>86</td>
+<td>A</td>
+</tr>
+<tr>
+<td>12</td>
+<td>B</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>B</td>
+<td>87</td>
+<td>B</td>
+</tr>
+<tr>
+<td>13</td>
+<td>B</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>B</td>
+<td>88</td>
+<td>A</td>
+</tr>
+<tr>
+<td>14</td>
+<td>C</td>
+<td>39</td>
+<td>C</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>B</td>
+<td>40</td>
+<td>A</td>
+<td>65</td>
+<td>B</td>
+<td>90</td>
+<td>C</td>
+</tr>
+<tr>
+<td>16</td>
+<td>B</td>
+<td>41</td>
+<td>C</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>B</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>A</td>
+<td>67</td>
+<td>A</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>B</td>
+<td>43</td>
+<td>B</td>
+<td>68</td>
+<td>B</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>B</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>A</td>
+<td>94</td>
+<td>A</td>
+</tr>
+<tr>
+<td>20</td>
+<td>D</td>
+<td>45</td>
+<td>B</td>
+<td>70</td>
+<td>A</td>
+<td>95</td>
+<td>B</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>B</td>
+<td>96</td>
+<td>A</td>
+</tr>
+<tr>
+<td>22</td>
+<td>B</td>
+<td>47</td>
+<td>B</td>
+<td>72</td>
+<td>B</td>
+<td>97</td>
+<td>B</td>
+</tr>
+<tr>
+<td>23</td>
+<td>A</td>
+<td>48</td>
+<td>B</td>
+<td>73</td>
+<td>B</td>
+<td>98</td>
+<td>D</td>
+</tr>
+<tr>
+<td>24</td>
+<td>A</td>
+<td>49</td>
+<td>C</td>
+<td>74</td>
+<td>B</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>A</td>
+<td>50</td>
+<td>A</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>A</td>
+</tr>
+</tbody></table></div>
+
+    </main>
+</body>
+
+</html>

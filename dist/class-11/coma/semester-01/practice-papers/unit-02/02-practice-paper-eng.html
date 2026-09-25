@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>02 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Concept of Programming (Questions 1 to 25)</h2>
+<h4>Q1. Which of the following is the lowest level of programming language?</h4>
+<p>A) High-Level Language
+B) Assembly Language
+C) Machine Language ✅
+D) Structured Language</p>
+<h4>Q2. Which language uses mnemonics like ADD, MOV, SUB?</h4>
+<p>A) Machine Language
+B) Assembly Language ✅
+C) C Language
+D) Java</p>
+<h4>Q3. What is the main advantage of High-Level Languages?</h4>
+<p>A) Faster execution
+B) Easier to understand and write ✅
+C) Uses less memory
+D) No need for compilers</p>
+<h4>Q4. Which of the following is NOT a high-level language?</h4>
+<p>A) Python
+B) Java
+C) Assembly ✅
+D) C++</p>
+<h4>Q5. What is the difference between an instruction and a program?</h4>
+<p>A) Instruction is a single command, program is a set of instructions ✅
+B) Instruction is a set, program is a single command
+C) Both are the same
+D) Instruction is used only in machine language</p>
+<h4>Q6. Which of the following is an example of a program?</h4>
+<p>A) <code>int x = 5;</code>
+B) A word processor application ✅
+C) A single <code>printf</code> statement
+D) A flowchart</p>
+<h4>Q7. What is the role of a compiler?</h4>
+<p>A) To execute the program directly
+B) To convert high-level code to machine code ✅
+C) To design algorithms
+D) To test the program</p>
+<h4>Q8. Which of the following is TRUE about assembly language?</h4>
+<p>A) It is machine-independent
+B) It uses mnemonics for operations ✅
+C) It is easier than high-level languages
+D) It does not need translation</p>
+<h4>Q9. What is the advantage of machine language?</h4>
+<p>A) Easy to understand
+B) Fast execution ✅
+C) Portable
+D) Easy to debug</p>
+<h4>Q10. Which programming paradigm focuses on functions and procedures?</h4>
+<p>A) Object-Oriented Programming
+B) Procedural Programming ✅
+C) Non-Procedural Programming
+D) Functional Programming</p>
+<h4>Q11. Which of the following is a characteristic of Procedural Programming?</h4>
+<p>A) Data is hidden
+B) Programs are organized around functions ✅
+C) Uses inheritance
+D) Uses polymorphism</p>
+<h4>Q12. What is the main focus of Object-Oriented Programming?</h4>
+<p>A) Functions
+B) Data and objects ✅
+C) Procedures
+D) Algorithms</p>
+<h4>Q13. Which of the following is NOT a principle of OOP?</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism
+D) Recursion ✅</p>
+<h4>Q14. What is encapsulation in OOP?</h4>
+<p>A) Combining data and methods into a single unit ✅
+B) Creating multiple classes
+C) Using many functions
+D) Hiding all code</p>
+<h4>Q15. What is inheritance in OOP?</h4>
+<p>A) Reusing code by deriving new classes from existing ones ✅
+B) Creating multiple objects
+C) Defining many functions
+D) Using pointers</p>
+<h4>Q16. Which of the following languages supports OOP?</h4>
+<p>A) C
+B) FORTRAN
+C) C++ ✅
+D) Assembly</p>
+<h4>Q17. What is the difference between Structured Programming and OOP?</h4>
+<p>A) Structured uses objects, OOP uses functions
+B) Structured uses functions and data separately, OOP combines them ✅
+C) Both are same
+D) Structured is newer</p>
+<h4>Q18. Which concept in OOP allows one interface to be used for multiple data types?</h4>
+<p>A) Encapsulation
+B) Inheritance
+C) Polymorphism ✅
+D) Abstraction</p>
+<h4>Q19. What is abstraction in OOP?</h4>
+<p>A) Hiding implementation details and showing only functionality ✅
+B) Creating many objects
+C) Using multiple inheritance
+D) Writing many functions</p>
+<h4>Q20. Which of the following is a non-procedural language?</h4>
+<p>A) C
+B) Pascal
+C) SQL ✅
+D) FORTRAN</p>
+<h4>Q21. In non-procedural languages, what is the programmer&#39;s focus?</h4>
+<p>A) How to do a task
+B) What to do ✅
+C) Memory management
+D) Function definitions</p>
+<h4>Q22. Which of the following is a characteristic of Structured Programming?</h4>
+<p>A) Top-down design ✅
+B) Use of goto statements
+C) Global variables only
+D) No functions</p>
+<h4>Q23. Who introduced the concept of Structured Programming?</h4>
+<p>A) Dennis Ritchie
+B) Edsger Dijkstra ✅
+C) James Gosling
+D) Alan Turing</p>
+<h4>Q24. Which of the following is NOT a feature of Structured Programming?</h4>
+<p>A) Sequence
+B) Selection
+C) Iteration
+D) Inheritance ✅</p>
+<h4>Q25. What is the main disadvantage of low-level languages?</h4>
+<p>A) Hard to understand and write ✅
+B) Slow execution
+C) Cannot control hardware
+D) They are not portable</p>
+<hr>
+<h2>Section 2: Algorithm Fundamentals (Questions 26 to 80)</h2>
+<h4>Q26. An algorithm must have which of the following?</h4>
+<p>A) Infinite steps
+B) No inputs
+C) Finiteness ✅
+D) No output</p>
+<h4>Q27. What does &quot;definiteness&quot; in an algorithm mean?</h4>
+<p>A) The algorithm must produce some output
+B) Each step must be precisely defined ✅
+C) The algorithm must be short
+D) The algorithm must be recursive</p>
+<h4>Q28. What is the output of an algorithm?</h4>
+<p>A) The result of the problem being solved ✅
+B) The input data
+C) The code
+D) The algorithm itself</p>
+<h4>Q29. Which of the following is an example of a recursive algorithm?</h4>
+<p>A) Sum of array elements using a loop
+B) Binary search using recursion ✅
+C) Finding max using if-else
+D) Swapping two numbers</p>
+<h4>Q30. In recursion, what is the role of the recursive case?</h4>
+<p>A) Terminates the recursion
+B) Calls the function again with smaller problem ✅
+C) Prints the output
+D) Defines the base case</p>
+<h4>Q31. What is the main disadvantage of recursion?</h4>
+<p>A) Code is longer
+B) More memory and time overhead due to stack ✅
+C) Not suitable for any problems
+D) Cannot be implemented in C</p>
+<h4>Q32. What is a flowchart&#39;s purpose?</h4>
+<p>A) To represent an algorithm graphically ✅
+B) To write actual code
+C) To execute a program
+D) To store data</p>
+<h4>Q33. Which symbol is used for processing in a flowchart?</h4>
+<p>A) Rectangle ✅
+B) Diamond
+C) Oval
+D) Parallelogram</p>
+<h4>Q34. Which symbol is used for a loop in a flowchart?</h4>
+<p>A) Rectangle
+B) Diamond (decision) ✅ (loops are represented by decisions)
+C) Oval
+D) Parallelogram</p>
+<h4>Q35. What does a parallelogram represent in a flowchart?</h4>
+<p>A) Start/End
+B) Decision
+C) Input/Output ✅
+D) Processing</p>
+<h4>Q36. What is pseudo-code?</h4>
+<p>A) A high-level programming language
+B) A mix of natural language and programming constructs ✅
+C) Machine code
+D) A type of flowchart</p>
+<h4>Q37. Which of the following is an advantage of pseudo-code?</h4>
+<p>A) It can be executed directly
+B) It is independent of any programming language ✅
+C) It is faster than code
+D) It uses less memory</p>
+<h4>Q38. What is the time complexity of sequential search?</h4>
+<p>A) O(1)
+B) O(n) ✅
+C) O(log n)
+D) O(n²)</p>
+<h4>Q39. What is the time complexity of binary search?</h4>
+<p>A) O(n)
+B) O(log n) ✅
+C) O(n²)
+D) O(n log n)</p>
+<h4>Q40. Which of the following has the highest time complexity?</h4>
+<p>A) O(1)
+B) O(log n)
+C) O(n)
+D) O(n²) ✅</p>
+<h4>Q41. What does O(n²) mean?</h4>
+<p>A) Running time increases linearly
+B) Running time increases quadratically ✅
+C) Running time is constant
+D) Running time increases logarithmically</p>
+<h4>Q42. Which complexity notation is used to express the average-case performance?</h4>
+<p>A) Big O
+B) Big Omega
+C) Big Theta ✅
+D) Little o</p>
+<h4>Q43. What is the worst-case time complexity of insertion sort?</h4>
+<p>A) O(n)
+B) O(n²) ✅
+C) O(log n)
+D) O(n log n)</p>
+<h4>Q44. What is the best-case time complexity of insertion sort?</h4>
+<p>A) O(n) ✅
+B) O(n²)
+C) O(log n)
+D) O(n log n)</p>
+<h4>Q45. What is the time complexity of quick sort in the worst case?</h4>
+<p>A) O(n log n)
+B) O(n²) ✅
+C) O(n)
+D) O(log n)</p>
+<h4>Q46. What is the time complexity of quick sort in the average case?</h4>
+<p>A) O(n²)
+B) O(n log n) ✅
+C) O(n)
+D) O(log n)</p>
+<h4>Q47. Which sorting algorithm has a time complexity of O(n log n) in all cases?</h4>
+<p>A) Bubble sort
+B) Selection sort
+C) Merge sort ✅
+D) Quick sort (worst case)</p>
+<h4>Q48. What is the space complexity of merge sort?</h4>
+<p>A) O(1)
+B) O(n) ✅
+C) O(log n)
+D) O(n²)</p>
+<h4>Q49. Which asymptotic notation gives the tightest bound?</h4>
+<p>A) Big O
+B) Big Omega
+C) Big Theta ✅
+D) Little omega</p>
+<h4>Q50. What is the time complexity of reading an element from an array by index?</h4>
+<p>A) O(n)
+B) O(log n)
+C) O(1) ✅
+D) O(n²)</p>
+<h4>Q51. What is the time complexity of inserting an element at the end of a linked list (if you have a tail pointer)?</h4>
+<p>A) O(1) ✅
+B) O(n)
+C) O(log n)
+D) O(n²)</p>
+<h4>Q52. What is the time complexity of searching in a sorted array using binary search?</h4>
+<p>A) O(n)
+B) O(log n) ✅
+C) O(n²)
+D) O(n log n)</p>
+<h4>Q53. What does Big Omega notation describe?</h4>
+<p>A) Upper bound
+B) Lower bound ✅
+C) Exact bound
+D) Average bound</p>
+<h4>Q54. What is the purpose of algorithm analysis?</h4>
+<p>A) To make the code longer
+B) To estimate resource usage ✅
+C) To add more comments
+D) To make the program unreadable</p>
+<h4>Q55. What is the time complexity of a while loop that runs log n times?</h4>
+<p>A) O(n)
+B) O(log n) ✅
+C) O(1)
+D) O(n²)</p>
+<h4>Q56. What is the time complexity of a loop that runs n/2 times?</h4>
+<p>A) O(n) ✅
+B) O(n/2) (but we drop constants, so O(n))
+C) O(n²)
+D) O(log n)</p>
+<h4>Q57. What is the time complexity of nested loops where outer runs n and inner runs m?</h4>
+<p>A) O(n+m)
+B) O(n*m) ✅
+C) O(n)
+D) O(m)</p>
+<h4>Q58. What is the space complexity of an iterative binary search?</h4>
+<p>A) O(1) ✅
+B) O(log n)
+C) O(n)
+D) O(n²)</p>
+<h4>Q59. What is the space complexity of a recursive binary search?</h4>
+<p>A) O(1)
+B) O(log n) ✅
+C) O(n)
+D) O(n²)</p>
+<h4>Q60. Which of the following is NOT a characteristic of a good algorithm?</h4>
+<p>A) Definiteness
+B) Finiteness
+C) Ambiguity ✅
+D) Effectiveness</p>
+<h4>Q61. What is an &quot;effective&quot; step in an algorithm?</h4>
+<p>A) A step that is vague
+B) A step that can be performed exactly and in a finite time ✅
+C) A step that uses recursion
+D) A step that has no output</p>
+<h4>Q62. What is the difference between an algorithm and a program?</h4>
+<p>A) Algorithm is human-readable, program is machine-readable ✅
+B) Program is human-readable, algorithm is machine-readable
+C) Both are the same
+D) Algorithm is written in a language, program is not</p>
+<h4>Q63. What is the time complexity of finding the minimum element in an unsorted array?</h4>
+<p>A) O(1)
+B) O(n) ✅
+C) O(n²)
+D) O(log n)</p>
+<h4>Q64. What is the time complexity of matrix multiplication (Strassen&#39;s algorithm)?</h4>
+<p>A) O(n³)
+B) O(n².81) ✅ (approx)
+C) O(n log n)
+D) O(n)</p>
+<h4>Q65. Which growth rate is faster?</h4>
+<p>A) O(n)
+B) O(log n)
+C) O(n²) ✅
+D) O(n log n)</p>
+<h4>Q66. What is the time complexity of factorial using iteration?</h4>
+<p>A) O(1)
+B) O(n) ✅
+C) O(n²)
+D) O(log n)</p>
+<h4>Q67. What is the time complexity of Fibonacci using dynamic programming?</h4>
+<p>A) O(2ⁿ)
+B) O(n) ✅
+C) O(n²)
+D) O(n log n)</p>
+<h4>Q68. What is the space complexity of Fibonacci using dynamic programming?</h4>
+<p>A) O(1) ✅ (if using only two variables)
+B) O(n)
+C) O(n²)
+D) O(log n)</p>
+<h4>Q69. What is the primary use of a flowchart?</h4>
+<p>A) To write code
+B) To design and document algorithms visually ✅
+C) To execute programs
+D) To test programs</p>
+<h4>Q70. What is a decision box in a flowchart used for?</h4>
+<p>A) To perform calculations
+B) To make a decision based on a condition ✅
+C) To input data
+D) To output results</p>
+<h4>Q71. Which of the following is a correct pseudo-code representation of a loop?</h4>
+<p>A) <code>for i = 1 to n do</code> ✅
+B) <code>loop i = 1..n</code>
+C) <code>repeat i from 1 to n</code>
+D) <code>while (i &lt;= n)</code></p>
+<h4>Q72. What does the term &quot;space-time tradeoff&quot; mean?</h4>
+<p>A) Using more memory to reduce time or vice versa ✅
+B) Using no memory and no time
+C) Using the same memory and time
+D) Using less memory and more time</p>
+<h4>Q73. Which algorithm design technique divides the problem into smaller subproblems?</h4>
+<p>A) Greedy
+B) Divide and Conquer ✅
+C) Dynamic Programming
+D) Brute Force</p>
+<h4>Q74. Which of the following is a recursive algorithm design technique?</h4>
+<p>A) Divide and Conquer ✅
+B) Iteration
+C) Greedy
+D) Brute Force</p>
+<h4>Q75. What is the time complexity of Tower of Hanoi (recurrence T(n) = 2T(n-1) + 1)?</h4>
+<p>A) O(n)
+B) O(2ⁿ) ✅
+C) O(n²)
+D) O(n log n)</p>
+<h4>Q76. What is the time complexity of exponentiation by squaring (fast power)?</h4>
+<p>A) O(n)
+B) O(log n) ✅
+C) O(n²)
+D) O(2ⁿ)</p>
+<h4>Q77. What is the recurrence for binary search?</h4>
+<p>A) T(n) = T(n-1) + 1
+B) T(n) = T(n/2) + 1 ✅
+C) T(n) = 2T(n/2) + 1
+D) T(n) = T(n/2) + n</p>
+<h4>Q78. What does Big Theta notation represent?</h4>
+<p>A) Both upper and lower bounds ✅
+B) Only upper bound
+C) Only lower bound
+D) Average case</p>
+<h4>Q79. Which asymptotic notation is used for the best-case running time?</h4>
+<p>A) Big O
+B) Big Omega ✅
+C) Big Theta
+D) Little o</p>
+<h4>Q80. Which of the following is not a valid asymptotic notation?</h4>
+<p>A) O(n)
+B) Ω(n)
+C) Θ(n)
+D) Δ(n) ✅</p>
+<hr>
+<h2>Section 3: Introduction to Problem Solving (Questions 81 to 100)</h2>
+<h4>Q81. What is the first step in the problem-solving process?</h4>
+<p>A) Implementation
+B) Algorithm development
+C) Problem understanding ✅
+D) Debugging</p>
+<h4>Q82. What is the role of algorithm development?</h4>
+<p>A) To write code
+B) To design a step-by-step solution ✅
+C) To test the program
+D) To fix errors</p>
+<h4>Q83. What is the last step in problem solving?</h4>
+<p>A) Analysis
+B) Algorithm
+C) Coding
+D) Testing and Debugging ✅</p>
+<h4>Q84. What is the purpose of testing?</h4>
+<p>A) To write the program
+B) To find and fix errors ✅
+C) To design the algorithm
+D) To analyze the problem</p>
+<h4>Q85. Which step involves converting the algorithm into a specific programming language?</h4>
+<p>A) Problem analysis
+B) Algorithm design
+C) Coding ✅
+D) Testing</p>
+<h4>Q86. What is debugging?</h4>
+<p>A) Writing code
+B) Testing the program
+C) Identifying and removing errors ✅
+D) Designing the algorithm</p>
+<h4>Q87. What is the difference between a syntax error and a runtime error?</h4>
+<p>A) Syntax error occurs during compilation, runtime error occurs during execution ✅
+B) Both occur during execution
+C) Both occur during compilation
+D) Runtime error is easier to fix</p>
+<h4>Q88. What is a logical error?</h4>
+<p>A) A violation of language rules
+B) The program runs but produces wrong output ✅
+C) A memory error
+D) A division by zero</p>
+<h4>Q89. Which of the following is a tool used for debugging?</h4>
+<p>A) Compiler
+B) Debugger ✅
+C) Linker
+D) Interpreter</p>
+<h4>Q90. What is the importance of problem analysis?</h4>
+<p>A) It helps in writing code faster
+B) It ensures clear understanding of requirements ✅
+C) It tests the program
+D) It generates errors</p>
+<h4>Q91. What is the difference between testing and debugging?</h4>
+<p>A) Testing finds errors, debugging fixes them ✅
+B) Testing fixes errors, debugging finds them
+C) Both are the same
+D) Testing is done before coding</p>
+<h4>Q92. What is unit testing?</h4>
+<p>A) Testing the entire system
+B) Testing individual components ✅
+C) Testing the algorithm
+D) Testing the user interface</p>
+<h4>Q93. What is integration testing?</h4>
+<p>A) Testing individual modules
+B) Testing combined modules together ✅
+C) Testing the complete system
+D) Testing the database</p>
+<h4>Q94. What is the main goal of problem solving?</h4>
+<p>A) To write as much code as possible
+B) To create a correct and efficient solution ✅
+C) To add more features
+D) To make the program complex</p>
+<h4>Q95. Which step is most time-consuming in problem solving?</h4>
+<p>A) Analysis
+B) Algorithm design
+C) Coding
+D) Testing and Debugging ✅</p>
+<h4>Q96. What is the purpose of pseudo-code in problem solving?</h4>
+<p>A) To execute directly
+B) To plan the algorithm before coding ✅
+C) To test the program
+D) To generate machine code</p>
+<h4>Q97. What is a flowchart used for?</h4>
+<p>A) To execute the program
+B) To visualize the algorithm steps ✅
+C) To store data
+D) To compile code</p>
+<h4>Q98. What is the final output of the problem-solving process?</h4>
+<p>A) An algorithm
+B) A flowchart
+C) A working program ✅
+D) A pseudo-code</p>
+<h4>Q99. What is the role of an IDE in problem solving?</h4>
+<p>A) To design algorithms
+B) To provide tools for coding, testing, and debugging ✅
+C) To analyze problems
+D) To generate pseudo-code</p>
+<h4>Q100. Which of the following is TRUE about the problem-solving process?</h4>
+<p>A) It is linear and never requires iteration
+B) It may require going back to previous steps (iterative) ✅
+C) Testing is not important
+D) Analysis is optional</p>
+<hr>
+<h2>Answer Key</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+<th>Q.No</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>C</td>
+<td>26</td>
+<td>C</td>
+<td>51</td>
+<td>A</td>
+<td>76</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>27</td>
+<td>B</td>
+<td>52</td>
+<td>B</td>
+<td>77</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>28</td>
+<td>A</td>
+<td>53</td>
+<td>B</td>
+<td>78</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>29</td>
+<td>B</td>
+<td>54</td>
+<td>B</td>
+<td>79</td>
+<td>B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A</td>
+<td>30</td>
+<td>B</td>
+<td>55</td>
+<td>B</td>
+<td>80</td>
+<td>D</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td>31</td>
+<td>B</td>
+<td>56</td>
+<td>A</td>
+<td>81</td>
+<td>C</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td>32</td>
+<td>A</td>
+<td>57</td>
+<td>B</td>
+<td>82</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>B</td>
+<td>33</td>
+<td>A</td>
+<td>58</td>
+<td>A</td>
+<td>83</td>
+<td>D</td>
+</tr>
+<tr>
+<td>9</td>
+<td>B</td>
+<td>34</td>
+<td>B</td>
+<td>59</td>
+<td>B</td>
+<td>84</td>
+<td>B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>B</td>
+<td>35</td>
+<td>C</td>
+<td>60</td>
+<td>C</td>
+<td>85</td>
+<td>C</td>
+</tr>
+<tr>
+<td>11</td>
+<td>B</td>
+<td>36</td>
+<td>B</td>
+<td>61</td>
+<td>B</td>
+<td>86</td>
+<td>C</td>
+</tr>
+<tr>
+<td>12</td>
+<td>B</td>
+<td>37</td>
+<td>B</td>
+<td>62</td>
+<td>A</td>
+<td>87</td>
+<td>A</td>
+</tr>
+<tr>
+<td>13</td>
+<td>D</td>
+<td>38</td>
+<td>B</td>
+<td>63</td>
+<td>B</td>
+<td>88</td>
+<td>B</td>
+</tr>
+<tr>
+<td>14</td>
+<td>A</td>
+<td>39</td>
+<td>B</td>
+<td>64</td>
+<td>B</td>
+<td>89</td>
+<td>B</td>
+</tr>
+<tr>
+<td>15</td>
+<td>A</td>
+<td>40</td>
+<td>D</td>
+<td>65</td>
+<td>C</td>
+<td>90</td>
+<td>B</td>
+</tr>
+<tr>
+<td>16</td>
+<td>C</td>
+<td>41</td>
+<td>B</td>
+<td>66</td>
+<td>B</td>
+<td>91</td>
+<td>A</td>
+</tr>
+<tr>
+<td>17</td>
+<td>B</td>
+<td>42</td>
+<td>C</td>
+<td>67</td>
+<td>B</td>
+<td>92</td>
+<td>B</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>43</td>
+<td>B</td>
+<td>68</td>
+<td>A</td>
+<td>93</td>
+<td>B</td>
+</tr>
+<tr>
+<td>19</td>
+<td>A</td>
+<td>44</td>
+<td>A</td>
+<td>69</td>
+<td>B</td>
+<td>94</td>
+<td>B</td>
+</tr>
+<tr>
+<td>20</td>
+<td>C</td>
+<td>45</td>
+<td>B</td>
+<td>70</td>
+<td>B</td>
+<td>95</td>
+<td>D</td>
+</tr>
+<tr>
+<td>21</td>
+<td>B</td>
+<td>46</td>
+<td>B</td>
+<td>71</td>
+<td>A</td>
+<td>96</td>
+<td>B</td>
+</tr>
+<tr>
+<td>22</td>
+<td>A</td>
+<td>47</td>
+<td>C</td>
+<td>72</td>
+<td>A</td>
+<td>97</td>
+<td>B</td>
+</tr>
+<tr>
+<td>23</td>
+<td>B</td>
+<td>48</td>
+<td>B</td>
+<td>73</td>
+<td>B</td>
+<td>98</td>
+<td>C</td>
+</tr>
+<tr>
+<td>24</td>
+<td>D</td>
+<td>49</td>
+<td>C</td>
+<td>74</td>
+<td>A</td>
+<td>99</td>
+<td>B</td>
+</tr>
+<tr>
+<td>25</td>
+<td>A</td>
+<td>50</td>
+<td>C</td>
+<td>75</td>
+<td>B</td>
+<td>100</td>
+<td>B</td>
+</tr>
+</tbody></table></div>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Introduction To Networking (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>📚 Computer Networks: Introduction to Networking</h1>
+<p><strong>Detailed Study Notes for Class 11</strong><br><em>(Weightage: 10 Marks | Estimated Study Time: 20 Hours)</em></p>
+<hr>
+<h2>1. Analogue and Digital Communication</h2>
+<p>Communication is the exchange of data between two devices via a transmission medium. The data can be transmitted in two fundamental forms:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Analogue Communication</th>
+<th align="left">Digital Communication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Signal Type</strong></td>
+<td align="left">Continuous, smooth, wave-like signals.</td>
+<td align="left">Discrete, non-continuous signals (binary: 0s and 1s).</td>
+</tr>
+<tr>
+<td align="left"><strong>Representation</strong></td>
+<td align="left">Represented by sine waves.</td>
+<td align="left">Represented by square waves.</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left">Human voice, traditional radio, landline telephones.</td>
+<td align="left">Computers, smartphones, modern internet, CDs.</td>
+</tr>
+<tr>
+<td align="left"><strong>Noise Susceptibility</strong></td>
+<td align="left">Highly susceptible to noise and distortion.</td>
+<td align="left">Less susceptible; errors can be detected and corrected.</td>
+</tr>
+<tr>
+<td align="left"><strong>Bandwidth</strong></td>
+<td align="left">Requires less bandwidth.</td>
+<td align="left">Requires more bandwidth.</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">graph LR
+    subgraph Analogue Signal
+        A1(( )) --- A2(( )) --- A3(( )) --- A4(( )) --- A5(( ))
+        style A1 fill:#f9d0c4,stroke:#333
+        style A3 fill:#f9d0c4,stroke:#333
+        style A5 fill:#f9d0c4,stroke:#333
+    end
+    
+    subgraph Digital Signal
+        D1[1] --- D2[0] --- D3[1] --- D4[1] --- D5[0]
+        style D1 fill:#d4e6f1,stroke:#333
+        style D2 fill:#d4e6f1,stroke:#333
+        style D3 fill:#d4e6f1,stroke:#333
+        style D4 fill:#d4e6f1,stroke:#333
+        style D5 fill:#d4e6f1,stroke:#333
+    end
+    
+    Analogue[&quot;Continuous Wave&lt;br/&gt;(e.g., Voice)&quot;] --&gt; Digital[&quot;Discrete Bits&lt;br/&gt;(e.g., Computer Data)&quot;]</pre><p><em>(Note: The analogue diagram conceptually represents a smooth, continuous wave, while the digital diagram represents discrete, step-like binary values.)</em></p>
+<hr>
+<h2>2. Mode of Communication</h2>
+<p>This refers to the direction of data flow between two connected devices.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Mode</th>
+<th align="left">Direction of Flow</th>
+<th align="left">Description</th>
+<th align="left">Real-life Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Simplex</strong></td>
+<td align="left">One-way only</td>
+<td align="left">Data flows in only one direction. One device is strictly the sender, the other is strictly the receiver.</td>
+<td align="left">Keyboard to CPU, Radio broadcasting, TV.</td>
+</tr>
+<tr>
+<td align="left"><strong>Half Duplex</strong></td>
+<td align="left">Two-way, but one at a time</td>
+<td align="left">Both devices can send and receive, but <strong>not at the same time</strong>. When one sends, the other must wait.</td>
+<td align="left">Walkie-Talkie, CB Radio.</td>
+</tr>
+<tr>
+<td align="left"><strong>Full Duplex</strong></td>
+<td align="left">Two-way simultaneously</td>
+<td align="left">Both devices can send and receive data <strong>at the exact same time</strong>.</td>
+<td align="left">Mobile phones, Modern Ethernet networks.</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">flowchart LR
+    subgraph Simplex
+        S1[Sender] ==&gt;|Data flows one way| S2[Receiver]
+    end
+
+    subgraph Half_Duplex[&quot;Half Duplex&quot;]
+        H1[Device A] &lt;-.-&gt;|Data flows both ways, but ONE AT A TIME| H2[Device B]
+    end
+
+    subgraph Full_Duplex[&quot;Full Duplex&quot;]
+        F1[Device A] &lt;==&gt;|Data flows both ways SIMULTANEOUSLY| F2[Device B]
+    end</pre><hr>
+<h2>3. Network Architecture</h2>
+<p>Network architecture defines how computers are organized and how tasks are allocated in a network.</p>
+<h3>A. Client-Server Network</h3>
+<ul>
+<li><strong>Concept</strong>: A centralized model where one powerful computer (the <strong>Server</strong>) provides resources, services, or data, and other computers (<strong>Clients</strong>) request and use them.</li>
+<li><strong>Pros</strong>: Centralized security, easy to back up data, scalable.</li>
+<li><strong>Cons</strong>: Expensive to set up, if the server goes down, the whole network is affected (single point of failure).</li>
+<li><strong>Example</strong>: Web browsing (Your browser is the client, Google&#39;s computer is the server), School computer labs.</li>
+</ul>
+<h3>B. Peer-to-Peer (P2P) Network</h3>
+<ul>
+<li><strong>Concept</strong>: A decentralized model where all computers (peers) are equal. Each computer can act as both a client and a server, sharing resources directly with others.</li>
+<li><strong>Pros</strong>: Cheap to set up, no central server needed, easy to configure.</li>
+<li><strong>Cons</strong>: Poor security, difficult to back up, not scalable for large networks.</li>
+<li><strong>Example</strong>: Home Wi-Fi networks sharing files, BitTorrent.</li>
+</ul>
+<pre class="mermaid">flowchart TD
+    subgraph Client-Server
+        CS_Server[(Central Server)]
+        CS_Client1[Client 1]
+        CS_Client2[Client 2]
+        CS_Client3[Client 3]
+        CS_Server --&gt;|Provides Service| CS_Client1
+        CS_Server --&gt;|Provides Service| CS_Client2
+        CS_Server --&gt;|Provides Service| CS_Client3
+    end
+
+    subgraph Peer-to-Peer
+        P2P_1((Peer 1))
+        P2P_2((Peer 2))
+        P2P_3((Peer 3))
+        P2P_1 &lt;--&gt;|Shares equally| P2P_2
+        P2P_2 &lt;--&gt;|Shares equally| P2P_3
+        P2P_3 &lt;--&gt;|Shares equally| P2P_1
+    end</pre><hr>
+<h2>4. Serial and Parallel Communication</h2>
+<p>This refers to how bits are physically transmitted over a communication channel.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Serial Communication</th>
+<th align="left">Parallel Communication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Transmission</strong></td>
+<td align="left">Bits are sent <strong>one after another</strong> over a <strong>single wire/channel</strong>.</td>
+<td align="left">Multiple bits are sent <strong>simultaneously</strong> over <strong>multiple wires/channels</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Speed</strong></td>
+<td align="left">Slower for short distances, but <strong>faster and more reliable for long distances</strong> (no skew).</td>
+<td align="left">Faster for short distances, but prone to <strong>skew</strong> (bits arriving at different times) over long distances.</td>
+</tr>
+<tr>
+<td align="left"><strong>Cost</strong></td>
+<td align="left">Cheaper (requires fewer wires/cables).</td>
+<td align="left">More expensive (requires wider, multi-wire cables).</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left">USB, SATA, Ethernet, Fiber Optics.</td>
+<td align="left">Old Printer ports (LPT), IDE hard drive cables.</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">flowchart LR
+    subgraph Serial
+        direction LR
+        SB1[1] --&gt; SB2[0] --&gt; SB3[1] --&gt; SB4[0]
+        SWire[Single Wire]
+    end
+
+    subgraph Parallel
+        direction LR
+        PB1[1] --&gt; PB1_End[1]
+        PB2[0] --&gt; PB2_End[0]
+        PB3[1] --&gt; PB3_End[1]
+        PB4[0] --&gt; PB4_End[0]
+        PWire[Multiple Wires]
+    end
+    
+    SerialNote[&quot;One bit at a time&quot;] --- Serial
+    ParallelNote[&quot;Multiple bits at once&quot;] --- Parallel</pre><hr>
+<h2>5. Measuring Capacity of Communication Media</h2>
+<p>To understand how much data a network can handle, we use three key terms:</p>
+<ol>
+<li><strong>Bandwidth</strong>: <ul>
+<li><strong>Definition</strong>: The maximum rate at which data can be transferred over a network path in a given amount of time. </li>
+<li><strong>Unit</strong>: Bits per second (bps), Kbps, Mbps, Gbps.</li>
+<li><strong>Analogy</strong>: The width of a water pipe. A wider pipe (higher bandwidth) allows more water (data) to flow through.</li>
+</ul>
+</li>
+<li><strong>Channel Capacity</strong>: <ul>
+<li><strong>Definition</strong>: The <em>theoretical maximum</em> rate of error-free data that can be transmitted over a specific communication channel under ideal conditions (defined by Shannon’s Theorem). It depends on bandwidth and the signal-to-noise ratio.</li>
+<li><strong>Unit</strong>: Bits per second (bps).</li>
+</ul>
+</li>
+<li><strong>Baud Rate</strong>: <ul>
+<li><strong>Definition</strong>: The number of <strong>signal changes</strong> (or symbols) per second in a communication channel. </li>
+<li><strong>Unit</strong>: Baud (symbols per second).</li>
+<li><strong>Important Note</strong>: Baud rate is <strong>not</strong> always equal to bit rate (bps). If one signal change represents 1 bit, Baud = bps. If one signal change represents 4 bits (using complex modulation), then bps = 4 × Baud rate.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>6. Synchronous and Asynchronous Transmission Mode</h2>
+<p>This defines how the sender and receiver coordinate the timing of data transmission.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Synchronous Transmission</th>
+<th align="left">Asynchronous Transmission</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Data Unit</strong></td>
+<td align="left">Transmits data in <strong>blocks or frames</strong>.</td>
+<td align="left">Transmits data <strong>one byte (or character) at a time</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Timing/Clock</strong></td>
+<td align="left">Uses a <strong>common clock signal</strong> to keep sender and receiver perfectly synchronized.</td>
+<td align="left">Does <strong>not</strong> use a common clock. Uses <strong>Start</strong> and <strong>Stop</strong> bits to frame each byte.</td>
+</tr>
+<tr>
+<td align="left"><strong>Overhead</strong></td>
+<td align="left">Low overhead (no start/stop bits for every byte), making it highly efficient for large data.</td>
+<td align="left">High overhead (2-3 extra bits per byte for start/stop), making it less efficient.</td>
+</tr>
+<tr>
+<td align="left"><strong>Speed</strong></td>
+<td align="left">High speed, used in high-performance networks.</td>
+<td align="left">Low speed, used in simple, low-cost devices.</td>
+</tr>
+<tr>
+<td align="left"><strong>Example</strong></td>
+<td align="left">Fiber optic communication, modern LANs.</td>
+<td align="left">Keyboard input, old modems, RS-232 serial ports.</td>
+</tr>
+</tbody></table></div>
+<pre class="mermaid">sequenceDiagram
+    participant S as Synchronous
+    participant A as Asynchronous
+    
+    note over S: [Clock] [Sync] [Data Block 1] [Data Block 2] [Sync]
+    note over A: [Start] [Data Byte] [Stop] [Start] [Data Byte] [Stop]</pre><hr>
+<h2>7. Baseband and Broadband Network</h2>
+<p>These terms describe how the transmission medium&#39;s capacity (bandwidth) is utilized.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Feature</th>
+<th align="left">Baseband Transmission</th>
+<th align="left">Broadband Transmission</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Signal Type</strong></td>
+<td align="left"><strong>Digital</strong> signals.</td>
+<td align="left"><strong>Analog</strong> signals (often carrying digital data via modulation).</td>
+</tr>
+<tr>
+<td align="left"><strong>Bandwidth Usage</strong></td>
+<td align="left">Uses the <strong>entire bandwidth</strong> of the medium for a <strong>single signal</strong>.</td>
+<td align="left">Divides the bandwidth into <strong>multiple independent channels</strong> (using Frequency Division Multiplexing - FDM).</td>
+</tr>
+<tr>
+<td align="left"><strong>Data Direction</strong></td>
+<td align="left">Usually Half-Duplex or Full-Duplex (requires two cables for true full-duplex).</td>
+<td align="left">Full-Duplex (different frequencies for sending and receiving).</td>
+</tr>
+<tr>
+<td align="left"><strong>Distance</strong></td>
+<td align="left">Best for short distances (e.g., within a building).</td>
+<td align="left">Suitable for long distances (can be amplified easily).</td>
+</tr>
+<tr>
+<td align="left"><strong>Examples</strong></td>
+<td align="left">Ethernet LAN (e.g., 100BASE-TX), USB.</td>
+<td align="left">Cable TV, DSL Internet, Wi-Fi, Cellular networks.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>📝 Quick Revision Summary (Cheat Sheet)</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="left">Concept</th>
+<th align="left">Key Phrase to Remember</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Analogue</strong></td>
+<td align="left">Continuous waves, noise-prone (Human voice).</td>
+</tr>
+<tr>
+<td align="left"><strong>Digital</strong></td>
+<td align="left">Discrete 0s and 1s, noise-resistant (Computers).</td>
+</tr>
+<tr>
+<td align="left"><strong>Simplex</strong></td>
+<td align="left">One-way street (Radio).</td>
+</tr>
+<tr>
+<td align="left"><strong>Half Duplex</strong></td>
+<td align="left">Two-way, one at a time (Walkie-Talkie).</td>
+</tr>
+<tr>
+<td align="left"><strong>Full Duplex</strong></td>
+<td align="left">Two-way, simultaneously (Mobile Phone).</td>
+</tr>
+<tr>
+<td align="left"><strong>Client-Server</strong></td>
+<td align="left">Centralized, boss-worker relationship.</td>
+</tr>
+<tr>
+<td align="left"><strong>Peer-to-Peer</strong></td>
+<td align="left">Decentralized, everyone is equal.</td>
+</tr>
+<tr>
+<td align="left"><strong>Serial</strong></td>
+<td align="left">Single lane road, one car at a time (USB).</td>
+</tr>
+<tr>
+<td align="left"><strong>Parallel</strong></td>
+<td align="left">Multi-lane highway, multiple cars at once (Old Printer).</td>
+</tr>
+<tr>
+<td align="left"><strong>Bandwidth</strong></td>
+<td align="left">Max data transfer rate (Width of the pipe).</td>
+</tr>
+<tr>
+<td align="left"><strong>Baud</strong></td>
+<td align="left">Signal changes per second (Not always = bps).</td>
+</tr>
+<tr>
+<td align="left"><strong>Synchronous</strong></td>
+<td align="left">Block transmission, shared clock, efficient.</td>
+</tr>
+<tr>
+<td align="left"><strong>Asynchronous</strong></td>
+<td align="left">Byte-by-byte, start/stop bits, simpler.</td>
+</tr>
+<tr>
+<td align="left"><strong>Baseband</strong></td>
+<td align="left">Digital, entire bandwidth, single signal (LAN).</td>
+</tr>
+<tr>
+<td align="left"><strong>Broadband</strong></td>
+<td align="left">Analog, split bandwidth, multiple signals (Cable/DSL).</td>
+</tr>
+</tbody></table></div>
+<hr>
+
+    </main>
+</body>
+
+</html>

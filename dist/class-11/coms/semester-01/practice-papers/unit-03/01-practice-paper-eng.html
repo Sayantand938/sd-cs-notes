@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>01 Practice Paper (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>Section 1: Introduction to C (Questions 1 to 15)</h2>
+<h4>Q1. Which of the following is a valid variable identifier in C?</h4>
+<p>A) <code>2_sum_total</code><br>B) <code>_sum_total_</code> ✅<br>C) <code>sum-total</code><br>D) <code>double</code></p>
+<h4>Q2. Which of the following statements about C keywords is correct?</h4>
+<p>A) Keywords can be used as variable names if capitalized.<br>B) Keywords are case-sensitive and must always be written in lowercase. ✅<br>C) There are exactly 64 keywords in the standard C89 specification.<br>D) A programmer can redefine keywords using preprocessor directives.</p>
+<h4>Q3. What is the value of the integer constant <code>017</code> in the decimal system?</h4>
+<p>A) 17<br>B) 15 ✅<br>C) 23<br>D) 11</p>
+<h4>Q4. What will be the output of the preprocessor substitution in the following code block?</h4>
+<pre><code class="language-c">#define MULTIPLY(a, b) a * b
+// ...
+int result = MULTIPLY(2 + 3, 4 + 5);</code></pre><p>A) 45<br>B) 23<br>C) 19 ✅<br>D) 29</p>
+<h4>Q5. What is the purpose of the <code>#ifndef</code> preprocessor directive?</h4>
+<p>A) To define a macro if it is already declared.<br>B) To check if a macro is not defined before compiling the subsequent code block. ✅<br>C) To force a compiler error if a macro exists.<br>D) To undefine a previously declared macro.</p>
+<h4>Q6. Which of the following header files contains the definitions of minimum and maximum limits for floating-point data types?</h4>
+<p>A) <code>&lt;limits.h&gt;</code><br>B) <code>&lt;float.h&gt;</code> ✅<br>C) <code>&lt;math.h&gt;</code><br>D) <code>&lt;stdlib.h&gt;</code></p>
+<h4>Q7. Which phase of the C compilation process handles macro expansion and file inclusion?</h4>
+<p>A) Compiler<br>B) Assembler<br>C) Linker<br>D) Preprocessor ✅</p>
+<h4>Q8. If a local variable is declared with the <code>const</code> qualifier, which of the following statements is true?</h4>
+<p>A) Its value can be modified freely at runtime.<br>B) It must be initialized at the time of declaration. ✅<br>C) It is stored in the read-only hardware register of the CPU.<br>D) It can only be used inside the preprocessor directives.</p>
+<h4>Q9. Which of the following represents a hexadecimal character constant in C?</h4>
+<p>A) <code>&#39;\0x41&#39;</code><br>B) <code>&#39;\x41&#39;</code> ✅<br>C) <code>&#39;\h41&#39;</code><br>D) <code>&#39;\41&#39;</code></p>
+<h4>Q10. What is the guaranteed size of the <code>char</code> data type in C according to the ANSI standard?</h4>
+<p>A) At least 2 bytes<br>B) Exactly 1 byte ✅<br>C) Depends entirely on the operating system word size<br>D) At least 4 bytes</p>
+<h4>Q11. Which storage class in C initializes variables to zero by default and retains their value across function calls?</h4>
+<p>A) <code>auto</code><br>B) <code>register</code><br>C) <code>static</code> ✅<br>D) <code>extern</code></p>
+<h4>Q12. What does the expression <code>sizeof(&#39;A&#39;)</code> evaluate to in standard C?</h4>
+<p>A) 1<br>B) The size of an integer ✅<br>C) The size of a double<br>D) It results in a compilation error</p>
+<h4>Q13. Which of the following is the correct way to include a user-defined header file named <code>myheader.h</code> located in the current working directory?</h4>
+<p>A) <code>#include &lt;myheader.h&gt;</code><br>B) <code>#include &quot;myheader.h&quot;</code> ✅<br>C) <code>#import &quot;myheader.h&quot;</code><br>D) <code>#include [myheader.h]</code></p>
+<h4>Q14. What occurs when a variable&#39;s value exceeds the maximum limit defined for its unsigned integer type?</h4>
+<p>A) A runtime error is thrown, terminating the program.<br>B) The compiler flags it as a syntax error.<br>C) The value wraps around to zero. ✅<br>D) The variable is automatically converted to a <code>double</code>.</p>
+<h4>Q15. In C, which character set escape sequence is used to represent a vertical tab?</h4>
+<p>A) <code>\v</code> ✅<br>B) <code>\t</code><br>C) <code>\b</code><br>D) <code>\r</code></p>
+<hr>
+<h2>Section 2: Operators &amp; I/O (Questions 16 to 30)</h2>
+<h4>Q16. What is the value of the expression <code>17 % -5</code> in standard C99?</h4>
+<p>A) -2<br>B) 2 ✅<br>C) -3<br>D) 3</p>
+<h4>Q17. Consider the expression <code>x = 5; y = x++;</code>. What are the values of <code>x</code> and <code>y</code> after execution?</h4>
+<p>A) <code>x = 5, y = 5</code><br>B) <code>x = 6, y = 5</code> ✅<br>C) <code>x = 6, y = 6</code><br>D) <code>x = 5, y = 6</code></p>
+<h4>Q18. What is the output of the following logical expression?</h4>
+<pre><code class="language-c">int a = 5, b = 0, c = 10;
+int result = (a &amp;&amp; b) || (c &amp;&amp; a);</code></pre><p>A) 0<br>B) 1 ✅<br>C) 5<br>D) 10</p>
+<h4>Q19. Due to short-circuit evaluation, what will be the value of <code>y</code> after executing the following code?</h4>
+<pre><code class="language-c">int x = 0;
+int y = 10;
+if (x &amp;&amp; (++y &gt; 10)) {
+    // block
+}</code></pre><p>A) 10 ✅<br>B) 11<br>C) 0<br>D) Undefined</p>
+<h4>Q20. Which of the following operators has the lowest precedence in C?</h4>
+<p>A) Assignment operator (<code>=</code>)<br>B) Comma operator (<code>,</code>) ✅<br>C) Conditional operator (<code>?:</code>)<br>D) Logical OR operator (<code>||</code>)</p>
+<h4>Q21. What is the output of the following statement if <code>a = 3</code> and <code>b = 4</code>?</h4>
+<pre><code class="language-c">printf(&quot;%d&quot;, a &gt; b ? a : b);</code></pre><p>A) 3<br>B) 4 ✅<br>C) 0<br>D) 1</p>
+<h4>Q22. Which format specifier is used to read or print an unsigned octal integer using <code>scanf</code> or <code>printf</code>?</h4>
+<p>A) <code>%o</code> ✅<br>B) <code>%u</code><br>C) <code>%x</code><br>D) <code>%oct</code></p>
+<h4>Q23. What does the function <code>getchar()</code> return when the end of a file is reached?</h4>
+<p>A) <code>0</code><br>B) <code>\0</code><br>C) <code>EOF</code> ✅<br>D) <code>-1</code> only on Windows platforms</p>
+<h4>Q24. How many characters will be printed by the statement <code>printf(&quot;%5.2f&quot;, 123.456);</code>?</h4>
+<p>A) 5<br>B) 6 ✅<br>C) 7<br>D) 8</p>
+<h4>Q25. What is the result of the following implicit type conversion?</h4>
+<pre><code class="language-c">int i = 10;
+double d = 5.5;
+double result = i + d;</code></pre><p>A) 15.0<br>B) 15.5 ✅<br>C) 15<br>D) 16.0</p>
+<h4>Q26. Which of the following functions is designed to write a single character to the standard output stream?</h4>
+<p>A) <code>puts()</code><br>B) <code>printf()</code><br>C) <code>putchar()</code> ✅<br>D) <code>gets()</code></p>
+<h4>Q27. What does the following code print?</h4>
+<pre><code class="language-c">int x = (1, 2, 3);
+printf(&quot;%d&quot;, x);</code></pre><p>A) 1<br>B) 2<br>C) 3 ✅<br>D) Compiler Error</p>
+<h4>Q28. What does <code>scanf</code> return if it successfully reads three integer variables?</h4>
+<p>A) 0<br>B) 1<br>C) 3 ✅<br>D) The sum of the three integers</p>
+<h4>Q29. Which of the following correctly describes the associativity of the assignment operators in C?</h4>
+<p>A) Left-to-Right<br>B) Right-to-Left ✅<br>C) No associativity exists<br>D) Depends on the operands&#39; data types</p>
+<h4>Q30. What is the purpose of the escape sequence <code>\r</code> in C?</h4>
+<p>A) Move the cursor to the next line.<br>B) Move the cursor to the beginning of the current line. ✅<br>C) Backspace by one character space.<br>D) Sound a system alert beep.</p>
+<hr>
+<h2>Section 3: Branching and Looping (Questions 31 to 45)</h2>
+<h4>Q31. In a C <code>switch</code> statement, what data types are allowed for the switch expression?</h4>
+<p>A) <code>float</code> and <code>double</code><br>B) Only <code>char</code><br>C) <code>int</code>, <code>char</code>, and <code>enum</code> ✅<br>D) Any valid C data type</p>
+<h4>Q32. What is the classic &quot;dangling else&quot; problem in C?</h4>
+<p>A) An <code>else</code> statement that does not have a matching condition.<br>B) An ambiguous assignment of an <code>else</code> clause to nested <code>if</code> statements when braces are omitted. ✅<br>C) A runtime error caused by executing an empty <code>else</code> block.<br>D) An <code>else</code> statement that executes before the <code>if</code> block.</p>
+<h4>Q33. How many times will the following loop execute?</h4>
+<pre><code class="language-c">int i = 0;
+while (i &lt; 10) {
+    if (i == 5)
+        continue;
+    i++;
+}</code></pre><p>A) 5 times<br>B) 10 times<br>C) Infinitely ✅<br>D) 6 times</p>
+<h4>Q34. What is the fundamental structural difference between a <code>while</code> loop and a <code>do-while</code> loop?</h4>
+<p>A) A <code>do-while</code> loop checks the condition at the top of the loop.<br>B) A <code>while</code> loop is guaranteed to execute at least once.<br>C) A <code>do-while</code> loop is guaranteed to execute at least once. ✅<br>D) A <code>do-while</code> loop cannot use the <code>break</code> statement.</p>
+<h4>Q35. What is the output of the following program fragment?</h4>
+<pre><code class="language-c">int x = 1;
+switch(x) {
+    case 1: printf(&quot;One &quot;);
+    case 2: printf(&quot;Two &quot;);
+    case 3: printf(&quot;Three &quot;);
+    default: printf(&quot;Default&quot;);
+}</code></pre><p>A) <code>One </code><br>B) <code>One Two Three Default</code> ✅<br>C) <code>One Default</code><br>D) <code>One Two </code></p>
+<h4>Q36. In a <code>for</code> loop, which of the three expressions inside the parentheses is optional?</h4>
+<pre><code class="language-c">for (expr1; expr2; expr3)</code></pre><p>A) Only <code>expr2</code><br>B) Only <code>expr1</code> and <code>expr3</code><br>C) None of them are optional<br>D) All three are optional ✅</p>
+<h4>Q37. What happens when a <code>break</code> statement is executed inside nested loops?</h4>
+<p>A) It terminates all loops and jumps to the end of the program.<br>B) It terminates only the innermost loop in which it is placed. ✅<br>C) It terminates the outermost loop.<br>D) It skips the current iteration and starts the next iteration of the inner loop.</p>
+<h4>Q38. What is the output of the following loop?</h4>
+<pre><code class="language-c">for (int i = 0; i &lt; 5; ++i) {
+    if (i == 3) {
+        break;
+    }
+    printf(&quot;%d &quot;, i);
+}</code></pre><p>A) <code>0 1 2 3 4</code><br>B) <code>0 1 2</code> ✅<br>C) <code>0 1 2 4</code><br>D) <code>3 4</code></p>
+<h4>Q39. What is the value of <code>i</code> after the following loop terminates?</h4>
+<pre><code class="language-c">int i;
+for (i = 0; i &lt; 5; i++) {
+    // Empty body
+}</code></pre><p>A) 4<br>B) 5 ✅<br>C) 6<br>D) Undefined</p>
+<h4>Q40. Which of the following conditional statements evaluates to true in C?</h4>
+<p>A) <code>if (0)</code><br>B) <code>if (-1)</code> ✅<br>C) <code>if (NULL)</code><br>D) <code>if (0.0)</code></p>
+<h4>Q41. What is the output of the following code snippet?</h4>
+<pre><code class="language-c">int x = 10, y = 20;
+if (x = y) {
+    printf(&quot;Equal&quot;);
+} else {
+    printf(&quot;Not Equal&quot;);
+}</code></pre><p>A) Equal ✅<br>B) Not Equal<br>C) Compiler Error<br>D) Runtime Exception</p>
+<h4>Q42. Which loop is best suited when the exact number of iterations is known before entering the loop?</h4>
+<p>A) <code>while</code><br>B) <code>do-while</code><br>C) <code>for</code> ✅<br>D) None of the above</p>
+<h4>Q43. What is the behavior of the following loop structure?</h4>
+<pre><code class="language-c">for ( ; ; ) {
+    // code
+}</code></pre><p>A) It results in a syntax compilation error.<br>B) It executes exactly once.<br>C) It represents an infinite loop. ✅<br>D) It skips execution entirely.</p>
+<h4>Q44. What does the <code>continue</code> statement do when encountered in a loop?</h4>
+<p>A) It terminates the execution of the entire program.<br>B) It transfers control to the switch statement.<br>C) It skips the remaining statements in the current iteration and proceeds to the next iteration. ✅<br>D) It exits the loop entirely.</p>
+<h4>Q45. Which of the following is equivalent to the statement <code>if (val != 0)</code>?</h4>
+<p>A) <code>if (!val)</code><br>B) <code>if (val)</code> ✅<br>C) <code>if (val == 0)</code><br>D) <code>if (~val)</code></p>
+<hr>
+<h2>Section 4: Arrays and Structures (Questions 46 to 70)</h2>
+<h4>Q46. If an integer array is declared as <code>int arr[5] = {1, 2};</code>, what are the values of <code>arr[2]</code>, <code>arr[3]</code>, and <code>arr[4]</code>?</h4>
+<p>A) Garbage values<br>B) 0, 0, 0 ✅<br>C) 1, 2, 1<br>D) Undefined behavior</p>
+<h4>Q47. How is a two-dimensional array stored in the computer&#39;s physical memory in C?</h4>
+<p>A) Column-Major Order<br>B) Row-Major Order ✅<br>C) In a tree structure<br>D) In scattered heap segments</p>
+<h4>Q48. What is the size of the array declared as <code>char str[] = &quot;Hello&quot;;</code>?</h4>
+<p>A) 5 bytes<br>B) 6 bytes ✅<br>C) 4 bytes<br>D) 10 bytes</p>
+<h4>Q49. Which standard library function is used to compare two strings lexicographically?</h4>
+<p>A) <code>strcpy()</code><br>B) <code>strcat()</code><br>C) <code>strcmp()</code> ✅<br>D) <code>strlen()</code></p>
+<h4>Q50. What does the function <code>strcpy(dest, src)</code> do?</h4>
+<p>A) Appends the string <code>src</code> to the end of <code>dest</code>.<br>B) Compares the strings <code>dest</code> and <code>src</code>.<br>C) Copies the string <code>src</code> into the array <code>dest</code>, including the terminating null character. ✅<br>D) Returns the length of the string <code>dest</code>.</p>
+<h4>Q51. What will happen if you attempt to assign one array directly to another using the assignment operator (e.g., <code>arr1 = arr2;</code>)?</h4>
+<p>A) The contents of <code>arr2</code> are successfully copied into <code>arr1</code>.<br>B) A compilation error occurs because array names act as constant pointers. ✅<br>C) A runtime crash occurs due to memory corruption.<br>D) Only the first element is copied.</p>
+<h4>Q52. Which of the following is the correct syntax to initialize a structure variable at the time of declaration?</h4>
+<pre><code class="language-c">struct Point {
+    int x;
+    int y;
+};</code></pre><p>A) <code>struct Point p1 = {10, 20};</code> ✅<br>B) <code>struct Point p1 = (10, 20);</code><br>C) <code>struct Point p1.x = 10; p1.y = 20;</code><br>D) <code>Point p1 = [10, 20];</code></p>
+<h4>Q53. How are structure members stored in physical memory?</h4>
+<p>A) In descending order of their sizes.<br>B) Contiguously, in the order of their declaration (though padding may be inserted). ✅<br>C) In randomized memory locations to optimize access.<br>D) On separate stack frames.</p>
+<h4>Q54. What is the output of <code>sizeof(struct Demo)</code> for the following definition, assuming a 4-byte integer and 1-byte char, without ignoring padding?</h4>
+<pre><code class="language-c">struct Demo {
+    char a;
+    int b;
+};</code></pre><p>A) 5 bytes<br>B) 8 bytes ✅<br>C) 4 bytes<br>D) 6 bytes</p>
+<h4>Q55. Which operator is used to access members of a structure variable directly?</h4>
+<p>A) <code>-&gt;</code><br>B) <code>.</code> ✅<br>C) <code>*</code><br>D) <code>&amp;</code></p>
+<h4>Q56. What does an &quot;Array of Structures&quot; mean?</h4>
+<p>A) A structure containing an array as one of its members.<br>B) An array whose elements are individual structure variables. ✅<br>C) A structure that points to an array.<br>D) A multidimensional array of integers.</p>
+<h4>Q57. Which function is safest to use for reading a string containing spaces from the standard input?</h4>
+<p>A) <code>scanf(&quot;%s&quot;, str)</code><br>B) <code>gets(str)</code><br>C) <code>fgets(str, sizeof(str), stdin)</code> ✅<br>D) <code>getchar(str)</code></p>
+<h4>Q58. If two structure variables are of the exact same type, is the assignment <code>structA = structB;</code> valid?</h4>
+<p>A) No, members must be copied individually.<br>B) Yes, it performs a member-by-member copy (shallow copy). ✅<br>C) Yes, but only if all members are of primitive numeric types.<br>D) No, it requires a call to <code>memcpy</code>.</p>
+<h4>Q59. What does the following structure declaration represent?</h4>
+<pre><code class="language-c">struct Student {
+    char name[50];
+    struct Date {
+        int day;
+        int month;
+        int year;
+    } dob;
+};</code></pre><p>A) Self-referential structure<br>B) Nested structure (structure within structure) ✅<br>C) Structure within an array<br>D) Invalid declaration</p>
+<h4>Q60. If <code>arr</code> is a 2D array of size <code>[3][4]</code>, how is the element at row 2, column 1 accessed using pointers?</h4>
+<p>A) <code>*(*(arr + 2) + 1)</code><br>B) <code>*(arr + 2 + 1)</code><br>C) <code>*(arr[2] + 1)</code><br>D) Both A and C ✅</p>
+<h4>Q61. What does the function <code>strncat(dest, src, n)</code> do?</h4>
+<p>A) Copies exactly <code>n</code> characters from <code>src</code> to <code>dest</code>.<br>B) Appends at most <code>n</code> characters from <code>src</code> to the end of <code>dest</code>, then adds a null terminator. ✅<br>C) Compares <code>n</code> characters of <code>dest</code> and <code>src</code>.<br>D) Finds the position of character <code>n</code> in <code>src</code>.</p>
+<h4>Q62. What is the correct way to declare an array of 10 structures of type <code>struct Book</code>?</h4>
+<p>A) <code>struct Book[10] b;</code><br>B) <code>struct Book b[10];</code> ✅<br>C) <code>Book b[10];</code><br>D) <code>struct b[10] Book;</code></p>
+<h4>Q63. Which of the following defines a structure member that is itself an array?</h4>
+<p>A) <code>struct { int arr[5]; } var;</code> ✅<br>B) <code>struct { int arr; } var[5];</code><br>C) <code>struct { int *arr; } var;</code><br>D) <code>struct arr[5] { int x; } var;</code></p>
+<h4>Q64. What is the result of using the standard relational operator <code>==</code> to compare two structures (e.g., <code>if (struct1 == struct2)</code>)?</h4>
+<p>A) It compares all fields one by one.<br>B) It results in a compilation error because C does not support direct structure comparison. ✅<br>C) It compares the memory addresses of the structures.<br>D) It returns true if the sizes are identical.</p>
+<h4>Q65. What is the purpose of the null character <code>\0</code> in C strings?</h4>
+<p>A) To indicate the beginning of a string.<br>B) To act as a placeholder for capital letters.<br>C) To terminate the sequence of characters in a character array. ✅<br>D) To clear the console screen.</p>
+<h4>Q66. What is the output of <code>strlen(&quot;Hello\0World&quot;);</code>?</h4>
+<p>A) 11<br>B) 5 ✅<br>C) 6<br>D) 10</p>
+<h4>Q67. How do you initialize all elements of a 3x3 2D array to zero?</h4>
+<p>A) <code>int arr[3][3] = {0};</code><br>B) <code>int arr[3][3] = {0,0,0};</code><br>C) <code>int arr[3][3] = {{0}};</code><br>D) All of the above ✅</p>
+<h4>Q68. What will happen if you access <code>arr[10]</code> in an array declared as <code>int arr[10];</code>?</h4>
+<p>A) The program will trigger an out-of-bounds compiler error.<br>B) The program will crash immediately.<br>C) It accesses memory outside the array boundary (undefined behavior). ✅<br>D) It loops back and accesses <code>arr[0]</code>.</p>
+<h4>Q69. What is the type of a structure member that is a pointer to the same structure type?</h4>
+<pre><code class="language-c">struct Node {
+    int data;
+    struct Node *next;
+};</code></pre><p>A) A nested structure<br>B) A self-referential structure member ✅<br>C) An anonymous structure<br>D) An invalid syntax definition</p>
+<h4>Q70. What does the following structure definition allow you to do?</h4>
+<pre><code class="language-c">struct Employee {
+    char name[30];
+    int ID;
+} emp1, emp2;</code></pre><p>A) It defines the structure type and declares variables <code>emp1</code> and <code>emp2</code> simultaneously. ✅<br>B) It creates an array of two employees named <code>emp1</code> and <code>emp2</code>.<br>C) It compiles with an error unless <code>typedef</code> is placed at the front.<br>D) It creates a structure with nested attributes.</p>
+<hr>
+<h2>Section 5: User-Defined Functions (Questions 71 to 85)</h2>
+<h4>Q71. What is the purpose of a function prototype (declaration) in C?</h4>
+<p>A) It tells the compiler the memory size of the function code.<br>B) It provides the compiler with the function&#39;s signature (return type, name, and parameter types) before its actual definition. ✅<br>C) It allocates stack frames for function execution.<br>D) It makes the function inline automatically.</p>
+<h4>Q72. Which parameter passing mechanism is simulated when we pass the address of a variable to a function?</h4>
+<p>A) Call by value<br>B) Call by reference ✅<br>C) Call by name<br>D) Call by assignment</p>
+<h4>Q73. In C, what type of parameter passing is used by default?</h4>
+<p>A) Call by reference<br>B) Call by value ✅<br>C) Call by pointer<br>D) Call by sharing</p>
+<h4>Q74. If a function is declared with a <code>void</code> return type, what does it mean?</h4>
+<p>A) The function does not accept any parameters.<br>B) The function does not return any value to the caller. ✅<br>C) The function can return any arbitrary pointer type.<br>D) The function execution cannot be terminated before reaching the closing brace.</p>
+<h4>Q75. What is a recursive function?</h4>
+<p>A) A function that calls another function from within itself.<br>B) A function that calls itself directly or indirectly. ✅<br>C) A function that is compiled multiple times.<br>D) A function that cannot return any value.</p>
+<h4>Q76. What is the consequence of a recursive function lacking a base case?</h4>
+<p>A) A syntax error during compilation.<br>B) An infinite recursion resulting in a stack overflow at runtime. ✅<br>C) The function executes once and terminates safely.<br>D) The CPU shifts the execution memory to the heap dynamically.</p>
+<h4>Q77. Can a C function be defined inside another function (nested definitions)?</h4>
+<p>A) Yes, C natively supports nested function definitions.<br>B) No, C does not support nested function definitions. ✅<br>C) Yes, but only if the inner function is declared as <code>static</code>.<br>D) Yes, if using the <code>#define</code> preprocessor inside the function.</p>
+<h4>Q78. What does the <code>return</code> statement do inside a user-defined function?</h4>
+<p>A) It halts the entire program execution.<br>B) It yields control back to the operating system immediately.<br>C) It terminates the execution of the function and returns a value to the caller. ✅<br>D) It clears the local stack frame without exiting the function.</p>
+<h4>Q79. What will the following recursive function return for <code>fun(4)</code>?</h4>
+<pre><code class="language-c">int fun(int n) {
+    if (n &lt;= 1)
+        return 1;
+    return n * fun(n - 1);
+}</code></pre><p>A) 4<br>B) 12<br>C) 24 ✅<br>D) 10</p>
+<h4>Q80. In call-by-value, what happens to the actual arguments when the formal arguments are modified inside the function?</h4>
+<p>A) The actual arguments are updated instantly.<br>B) The actual arguments remain unchanged. ✅<br>C) The actual arguments become undefined.<br>D) A runtime pointer exception is raised.</p>
+<h4>Q81. What is the scope of a variable declared inside a function block (without any storage class qualifiers)?</h4>
+<p>A) Global scope<br>B) File scope<br>C) Block/Local scope ✅<br>D) External scope</p>
+<h4>Q82. If a local variable and a global variable share the exact same name, what happens inside the function where the local variable is declared?</h4>
+<p>A) The compiler generates a duplicate identifier error.<br>B) The local variable shadows/hides the global variable inside that function. ✅<br>C) The global variable takes priority over the local variable.<br>D) The values of both variables are merged.</p>
+<h4>Q83. Which of the following is correct when passing a 2D array to a function as a parameter?</h4>
+<p>A) You must specify both dimensions (e.g., <code>void func(int arr[][])</code>).<br>B) You can omit both dimensions (e.g., <code>void func(int **arr)</code>).<br>C) You must specify at least the second (column) dimension (e.g., <code>void func(int arr[][4])</code>). ✅<br>D) You must specify only the first (row) dimension (e.g., <code>void func(int arr[3][])</code>).</p>
+<h4>Q84. What is the default return type of a C function if it is not explicitly declared?</h4>
+<p>A) <code>void</code><br>B) <code>int</code> ✅<br>C) <code>char</code><br>D) <code>float</code></p>
+<h4>Q85. How many values can a standard C function return using a single <code>return</code> statement?</h4>
+<p>A) Multiple values separated by commas<br>B) Exactly one value ✅<br>C) Up to two values<br>D) No limit</p>
+<hr>
+<h2>Section 6: Pointers (Questions 86 to 100)</h2>
+<h4>Q86. What is a pointer variable in C?</h4>
+<p>A) A variable that stores the value of another variable.<br>B) A variable that stores the memory address of another variable. ✅<br>C) A keyword used to point to the main function.<br>D) A special array index.</p>
+<h4>Q87. Which operator is known as the &quot;address-of&quot; operator?</h4>
+<p>A) <code>*</code><br>B) <code>&amp;</code> ✅<br>C) <code>-&gt;</code><br>D) <code>.</code></p>
+<h4>Q88. What is the output of the following pointer code snippet?</h4>
+<pre><code class="language-c">int x = 10;
+int *ptr = &amp;x;
+*ptr = 20;
+printf(&quot;%d&quot;, x);</code></pre><p>A) 10<br>B) 20 ✅<br>C) Address of <code>x</code><br>D) Garbage value</p>
+<h4>Q89. If <code>ptr</code> is a pointer to an integer (<code>int *ptr</code>), and the address stored in <code>ptr</code> is <code>1000</code> on a system where an integer is 4 bytes, what will be the value of <code>ptr + 2</code>?</h4>
+<p>A) 1002<br>B) 1004<br>C) 1008 ✅<br>D) 1016</p>
+<h4>Q90. What is a &quot;null pointer&quot; in C?</h4>
+<p>A) A pointer that points to a garbage address.<br>B) A pointer that does not point to any valid memory location and holds the value <code>0</code> or <code>NULL</code>. ✅<br>C) An uninitialized pointer variable.<br>D) A pointer that points to the string termination character.</p>
+<h4>Q91. What is the correct way to declare a pointer to a pointer (double pointer) of type <code>float</code>?</h4>
+<p>A) <code>float *ptr;</code><br>B) <code>float **ptr;</code> ✅<br>C) <code>float *&amp;ptr;</code><br>D) <code>float ptr**;</code></p>
+<h4>Q92. If <code>arr</code> is an integer array, which of the following expressions is equivalent to <code>arr[i]</code>?</h4>
+<p>A) <code>*(arr + i)</code> ✅<br>B) <code>*arr + i</code><br>C) <code>&amp;(arr + i)</code><br>D) <code>arr + i</code></p>
+<h4>Q93. What is a &quot;wild pointer&quot; in C?</h4>
+<p>A) A pointer that points to multiple data types simultaneously.<br>B) A pointer that has been declared but not initialized to a valid address or NULL. ✅<br>C) A pointer that points to the <code>main</code> function.<br>D) A pointer used inside a recursive function.</p>
+<h4>Q94. What does the expression <code>sizeof(ptr)</code> evaluate to, if <code>ptr</code> is a character pointer (<code>char *ptr</code>)?</h4>
+<p>A) Always 1 byte<br>B) The size of the pointer (typically 4 or 8 bytes depending on system architecture) ✅<br>C) The length of the string it points to<br>D) The size of the character variable it points to</p>
+<h4>Q95. How do you access a structure member when you have a pointer to that structure?</h4>
+<pre><code class="language-c">struct Employee *empPtr;</code></pre><p>A) <code>empPtr.ID</code><br>B) <code>*empPtr.ID</code><br>C) <code>empPtr-&gt;ID</code> ✅<br>D) <code>empPtr.&gt;ID</code></p>
+<h4>Q96. What is the meaning of a <code>void *</code> pointer in C?</h4>
+<p>A) A pointer that points to a function returning void.<br>B) A generic pointer that can point to any data type without explicit casting. ✅<br>C) A pointer that points to nothing and cannot be modified.<br>D) An invalid pointer that causes compilation failures.</p>
+<h4>Q97. Which of the following operations is invalid on pointers?</h4>
+<p>A) Adding an integer to a pointer<br>B) Subtracting an integer from a pointer<br>C) Adding two pointers together ✅<br>D) Subtracting one pointer from another of the same type</p>
+<h4>Q98. What is the danger of returning a pointer to a local variable from a function?</h4>
+<p>A) The program will not compile.<br>B) The local variable&#39;s memory space is deallocated when the function exits, leading to a dangling pointer. ✅<br>C) The returned pointer becomes a global constant automatically.<br>D) The value is converted to NULL.</p>
+<h4>Q99. If <code>char *s = &quot;Hello&quot;;</code>, what does <code>printf(&quot;%s&quot;, s + 2);</code> print?</h4>
+<p>A) <code>He</code><br>B) <code>llo</code> ✅<br>C) <code>lo</code><br>D) <code>Hello</code></p>
+<h4>Q100. What is the correct interpretation of the declaration <code>int *arr[10];</code>?</h4>
+<p>A) <code>arr</code> is a pointer to an array of 10 integers.<br>B) <code>arr</code> is an array of 10 pointers to integers. ✅<br>C) <code>arr</code> is a pointer to an integer with 10 dimensions.<br>D) <code>arr</code> is an invalid pointer array structure.</p>
+
+    </main>
+</body>
+
+</html>
