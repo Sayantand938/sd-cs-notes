@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>07 Referential Model (Eng)</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true });
+            }
+            if (typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav style="margin-bottom: 2em; padding-bottom: 0.8em; border-bottom: 1px solid #333;">
+        <a href="/" style="font-size: 0.95em; color: #6cacf0; text-decoration: none;">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h1>The OSI Reference Model</h1>
+<h2>1. Introduction to the OSI Model</h2>
+<ul>
+<li><strong>Full Form:</strong> <strong>O</strong>pen <strong>S</strong>ystems <strong>I</strong>nterconnection Reference Model.</li>
+<li><strong>Developed By:</strong> The <strong>ISO</strong> (International Organization for Standardization) in <strong>1984</strong>.</li>
+<li><strong>Concept:</strong> It is a theoretical, conceptual framework of <strong>7 distinct layers</strong> that standardizes and explains how network hardware and software interact to transmit data across a network.</li>
+<li><strong>Why Layering?</strong> <ul>
+<li>Modularity: Changes in one layer do not require redesigning the other layers.</li>
+<li>Interoperability: Devices and software from different vendors can communicate seamlessly.</li>
+<li>Troubleshooting: Simplifies problem isolation by narrowing issues down to a specific layer.</li>
+</ul>
+</li>
+</ul>
+<pre class="mermaid">flowchart TD
+    subgraph UpperLayers [Upper / Software Layers - Handled by OS &amp; Applications]
+        L7[Layer 7: Application Layer]
+        L6[Layer 6: Presentation Layer]
+        L5[Layer 5: Session Layer]
+    end
+
+    subgraph Heart [Heart of OSI]
+        L4[Layer 4: Transport Layer]
+    end
+
+    subgraph LowerLayers [Lower / Hardware Layers - Handled by Network Hardware]
+        L3[Layer 3: Network Layer]
+        L2[Layer 2: Data Link Layer]
+        L1[Layer 1: Physical Layer]
+    end
+
+    L7 --&gt; L6 --&gt; L5 --&gt; L4 --&gt; L3 --&gt; L2 --&gt; L1</pre><h3>Helpful Mnemonics to Memorize the 7 Layers:</h3>
+<ul>
+<li><strong>From Layer 7 down to Layer 1:</strong> 
+$$\text{“\textbf{A}ll \textbf{P}eople \textbf{S}eem \textbf{T}o \textbf{N}eed \textbf{D}ata \textbf{P}rocessing”}$$</li>
+<li><strong>From Layer 1 up to Layer 7:</strong> 
+$$\text{“\textbf{P}lease \textbf{D}o \textbf{N}ot \textbf{T}hrow \textbf{S}ausage \textbf{P}izza \textbf{A}way”}$$</li>
+</ul>
+<hr>
+<h2>2. Data Encapsulation &amp; Protocol Data Units (PDUs)</h2>
+<p>As data moves down the stack on the sender&#39;s device, each layer attaches its own control information in the form of a <strong>Header</strong> ($H$) and sometimes a <strong>Trailer</strong> ($T$). This is called <strong>Encapsulation</strong>. </p>
+<p>On the receiver&#39;s machine, each layer strips off its corresponding header as data moves upward. This reverse process is called <strong>Decapsulation</strong>.</p>
+<pre class="mermaid">flowchart LR
+    subgraph Sender [Sender: Encapsulation ↓]
+        direction TB
+        S7[Data] --&gt; S4[Header 4 + Data = Segment]
+        S4 --&gt; S3[Header 3 + Segment = Packet]
+        S3 --&gt; S2[Header 2 + Packet + Trailer 2 = Frame]
+        S2 --&gt; S1[Binary Bitstream: 1011001...]
+    end
+
+    subgraph Medium [Transmission Medium]
+        S1 ==&gt; R1
+    end
+
+    subgraph Receiver [Receiver: Decapsulation ↑]
+        direction BT
+        R1[Binary Bitstream] --&gt; R2[Frame → Strip L2 Header/Trailer]
+        R2 --&gt; R3[Packet → Strip L3 Header]
+        R3 --&gt; R4[Segment → Strip L4 Header]
+        R4 --&gt; R7[Data to Application]
+    end</pre><h3>Mathematical Representation of PDUs:</h3>
+<p>$$\text{PDU}<em>{\text{Layer 4 (Transport)}} = H_4 + \text{Data} = \mathbf{Segment}$$
+$$\text{PDU}</em>{\text{Layer 3 (Network)}} = H_3 + \text{Segment} = \mathbf{Packet}$$
+$$\text{PDU}<em>{\text{Layer 2 (Data Link)}} = H_2 + \text{Packet} + T_2 = \mathbf{Frame}$$
+$$\text{PDU}</em>{\text{Layer 1 (Physical)}} = \mathbf{Raw\ Bits}\ (0\text{s and } 1\text{s})$$</p>
+<hr>
+<h2>3. Deep-Dive into the 7 Layers</h2>
+<hr>
+<h3>Layer 1: Physical Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Bits</strong> ($0$s and $1$s).</li>
+<li><strong>Primary Role:</strong> Transmits unstructured raw bitstreams over a physical transmission medium.</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Signal Representation:</strong> Determines whether bits are transmitted as electrical voltages, optical light pulses, or radio waves.</li>
+<li><strong>Data Rate (Bit Rate):</strong> Defines the transmission speed:
+$$\text{Bit Rate} = \frac{\text{Number of bits transmitted}}{\text{Time (seconds)}}$$</li>
+<li><strong>Physical Topologies &amp; Media:</strong> Governs physical layouts (Bus, Star, Ring) and connectors/cables.</li>
+</ol>
+</li>
+<li><strong>Devices Operating Here:</strong> <strong>Hubs, Repeaters, Cables (Twisted-pair, Coaxial, Fiber), RJ-45 Connectors.</strong></li>
+<li><strong>Protocols / Standards:</strong> IEEE 802.3 (Ethernet Physical), DSL, RS-232.</li>
+</ul>
+<hr>
+<h3>Layer 2: Data Link Layer (DLL)</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Frame</strong>.</li>
+<li><strong>Primary Role:</strong> Provides node-to-node (hop-to-hop) error-free data transfer across the physical link.</li>
+<li><strong>Sub-layers:</strong><ul>
+<li><strong>LLC (Logical Link Control):</strong> Manages flow control and multiplexing protocols.</li>
+<li><strong>MAC (Media Access Control):</strong> Manages access to the physical transmission medium.</li>
+</ul>
+</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Framing:</strong> Groups bits received from the physical layer into distinct logical containers called <em>frames</em>.</li>
+<li><strong>Physical Addressing:</strong> Adds source and destination <strong>MAC Addresses</strong> ($48\text{ bits} / 6\text{ bytes}$).</li>
+<li><strong>Error Detection:</strong> Appends a Frame Check Sequence (FCS) / <strong>CRC (Cyclic Redundancy Check)</strong> trailer to detect corrupted bits.</li>
+</ol>
+</li>
+<li><strong>Devices Operating Here:</strong> <strong>Network Switches (Layer 2), Bridges, Ethernet Cards (NICs), Wi-Fi Cards.</strong></li>
+<li><strong>Protocols:</strong> <strong>PPP (Point-to-Point Protocol), Ethernet (802.3), Wi-Fi (802.11 MAC), ARP.</strong></li>
+</ul>
+<hr>
+<h3>Layer 3: Network Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Packet</strong>.</li>
+<li><strong>Primary Role:</strong> Handles end-to-end host addressing and routes packets across multiple interconnected networks.</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Logical Addressing:</strong> Adds source and destination <strong>IP addresses</strong> (IPv4: 32 bits; IPv6: 128 bits) to every packet.</li>
+<li><strong>Routing:</strong> Determines the optimal, shortest path for data using routing algorithms and tables:
+$$\text{Path Cost} = f(\text{Hop Count, Bandwidth, Delay})$$</li>
+<li><strong>Packet Forwarding:</strong> Moves packets from an incoming interface to an outgoing interface toward their destination.</li>
+</ol>
+</li>
+<li><strong>Devices Operating Here:</strong> <strong>Routers, Layer 3 Switches.</strong></li>
+<li><strong>Protocols:</strong> <strong>IP (IPv4, IPv6), ICMP (used by ping), OSPF, RIP, BGP.</strong></li>
+</ul>
+<hr>
+<h3>Layer 4: Transport Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Segment</strong> (for TCP) or <strong>Datagram</strong> (for UDP).</li>
+<li><strong>Primary Role:</strong> Ensures reliable or best-effort end-to-end (process-to-process) communication between applications. Called the <strong>&quot;Heart of the OSI Model&quot;</strong>.</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Service Point (Port) Addressing:</strong> Ensures packets reach the correct specific program on a computer by appending a <strong>Port Number</strong> ($16\text{ bits}$, values from $0$ to $65,535$).</li>
+<li><strong>Segmentation &amp; Reassembly:</strong> Splits large messages into ordered segments at the sender side and reassembles them at the receiver side.</li>
+<li><strong>Flow &amp; Error Control:</strong> Uses sliding window mechanisms to prevent a fast sender from overwhelming a slow receiver, and handles retransmissions for lost segments.</li>
+</ol>
+</li>
+<li><strong>Devices Operating Here:</strong> Layer 4 Firewalls, Gateways.</li>
+<li><strong>Protocols:</strong> <strong>TCP (Transmission Control Protocol), UDP (User Datagram Protocol).</strong></li>
+</ul>
+<hr>
+<h3>Layer 5: Session Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Data</strong>.</li>
+<li><strong>Primary Role:</strong> Establishes, manages, synchronizes, and terminates interactive sessions/connections between cooperating applications.</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Dialog Control:</strong> Determines which device transmits first and whether transmission is simplex, half-duplex, or full-duplex.</li>
+<li><strong>Synchronization &amp; Checkpointing:</strong> Inserts check marks (synchronization points) into lengthy data streams. If a connection drops during a $100\text{ MB}$ file transfer at $70\text{ MB}$, transfer can resume from the last checkpoint rather than starting from $0\text{ MB}$.</li>
+</ol>
+</li>
+<li><strong>Protocols / APIs:</strong> NetBIOS, RPC (Remote Procedure Call), PPTP.</li>
+</ul>
+<hr>
+<h3>Layer 6: Presentation Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Data</strong>.</li>
+<li><strong>Primary Role:</strong> Formats, structures, and transforms data so that heterogeneous systems can interpret it correctly. Known as the <strong>&quot;Translator of the Network&quot;</strong>.</li>
+<li><strong>Key Functions:</strong><ol>
+<li><strong>Translation:</strong> Converts between different character encoding systems (e.g., ASCII to EBCDIC, or Unicode).</li>
+<li><strong>Encryption / Decryption:</strong> Secures sensitive data before transmission (e.g., SSL/TLS operations).</li>
+<li><strong>Compression:</strong> Reduces data payload size to optimize bandwidth usage (e.g., JPEG, MPEG, MP3, ZIP).</li>
+</ol>
+</li>
+<li><strong>Protocols / Standards:</strong> TLS/SSL, JPEG, MPEG, GIF, ASCII.</li>
+</ul>
+<hr>
+<h3>Layer 7: Application Layer</h3>
+<ul>
+<li><strong>PDU:</strong> <strong>Data</strong>.</li>
+<li><strong>Primary Role:</strong> The topmost layer that directly interfaces with user software applications (like web browsers and email clients) to provide network communication services.</li>
+<li><strong>Key Functions:</strong><ol>
+<li>Facilitates human-to-network application communication.</li>
+<li>Provides high-level protocols for web access, remote administration, and file transfers.</li>
+</ol>
+</li>
+<li><strong>Devices Operating Here:</strong> <strong>Application Gateways, Proxies, Firewalls, End-user hosts (PCs, Servers).</strong></li>
+<li><strong>Protocols:</strong> <strong>HTTP, HTTPS, FTP, SMTP, POP3, TELNET, DNS, DHCP, VoIP (SIP).</strong></li>
+</ul>
+<hr>
+<h2>4. Master OSI Reference Table</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="center">Layer #</th>
+<th align="left">Layer Name</th>
+<th align="left">PDU</th>
+<th align="left">Primary Responsibility</th>
+<th align="left">Addressing Used</th>
+<th align="left">Devices</th>
+<th align="left">Key Protocols</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>7</strong></td>
+<td align="left"><strong>Application</strong></td>
+<td align="left">Data</td>
+<td align="left">User interface &amp; network services</td>
+<td align="left">None</td>
+<td align="left">Application Gateway</td>
+<td align="left">HTTP, HTTPS, FTP, SMTP, POP3, TELNET, VoIP</td>
+</tr>
+<tr>
+<td align="center"><strong>6</strong></td>
+<td align="left"><strong>Presentation</strong></td>
+<td align="left">Data</td>
+<td align="left">Encryption, compression, translation</td>
+<td align="left">None</td>
+<td align="left">Gateway</td>
+<td align="left">SSL, TLS, ASCII, JPEG</td>
+</tr>
+<tr>
+<td align="center"><strong>5</strong></td>
+<td align="left"><strong>Session</strong></td>
+<td align="left">Data</td>
+<td align="left">Session establishment &amp; checkpoints</td>
+<td align="left">None</td>
+<td align="left">Gateway</td>
+<td align="left">NetBIOS, RPC, PPTP</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="left"><strong>Transport</strong></td>
+<td align="left">Segment / Datagram</td>
+<td align="left">End-to-end delivery &amp; reliability</td>
+<td align="left"><strong>Port Numbers</strong> (16-bit)</td>
+<td align="left">Gateway, L4 Firewall</td>
+<td align="left">TCP, UDP</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="left"><strong>Network</strong></td>
+<td align="left">Packet</td>
+<td align="left">Routing &amp; path selection across nets</td>
+<td align="left"><strong>IP Addresses</strong> (32/128-bit)</td>
+<td align="left">Router, Layer 3 Switch</td>
+<td align="left">IPv4, IPv6, ICMP, ARP</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="left"><strong>Data Link</strong></td>
+<td align="left">Frame</td>
+<td align="left">Node-to-node hop delivery &amp; CRC</td>
+<td align="left"><strong>MAC Addresses</strong> (48-bit)</td>
+<td align="left">Switch, Bridge, NIC, Wi-Fi Card</td>
+<td align="left">Ethernet (802.3), PPP, 802.11</td>
+</tr>
+<tr>
+<td align="center"><strong>1</strong></td>
+<td align="left"><strong>Physical</strong></td>
+<td align="left">Bits</td>
+<td align="left">Transmission of raw electrical bits</td>
+<td align="left">Physical Pins / Signals</td>
+<td align="left">Hub, Repeater, RJ-45, Cables</td>
+<td align="left">100BASE-T, RS-232, DSL</td>
+</tr>
+</tbody></table></div>
+<hr>
+
+    </main>
+</body>
+
+</html>
