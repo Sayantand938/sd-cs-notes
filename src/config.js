@@ -53,14 +53,16 @@ module.exports = {
   /**
    * Controls which groups start expanded on the index.
    *
-   * A group is expanded when its *primary* categories hold at most
-   * `openPrimaryThreshold` notes. Primary means unit notes — practice papers
-   * and other bulk material are excluded, because a semester with 20 practice
-   * papers is not thereby harder to browse than one with 5.
-   *
-   * Categories named here are treated as bulk/supplementary.
+   * 'none'  - every group starts folded (the default). The index opens as a
+   *           short table of contents you click into.
+   * 'all'   - every group starts expanded, as one long page.
+   * 'small' - only groups whose unit notes fit `openPrimaryThreshold` start
+   *           expanded. Practice papers are excluded from that count, since a
+   *           semester with twenty papers is not harder to browse than one
+   *           with five — papers are reference material, not reading.
    */
   indexCollapse: {
+    defaultExpanded: 'none',
     openPrimaryThreshold: 15,
     bulkCategories: ['Practice Papers'],
   },

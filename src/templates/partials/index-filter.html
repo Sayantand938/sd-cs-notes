@@ -102,5 +102,13 @@
         }
 
         searchInput.addEventListener('input', applyFilter);
+
+        // Sync the toggle label with the authored open/closed state, so it
+        // reads correctly whichever default the build was configured with.
+        if (toggleAll) {
+            var initiallyOpen = allOpen();
+            toggleAll.textContent = initiallyOpen ? 'Collapse all' : 'Expand all';
+            toggleAll.setAttribute('aria-expanded', initiallyOpen ? 'true' : 'false');
+        }
     })();
 </script>

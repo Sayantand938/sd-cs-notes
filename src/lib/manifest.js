@@ -90,17 +90,22 @@ function buildManifest(notes, options = {}) {
  * Counting every note would collapse a semester simply because it holds many
  * practice papers, which is not a browsing problem — practice papers are
  * reference material you look up, not material you read front to back. So the
- * decision is based on the primary categories only (everything not listed in
+ * `small` mode counts primary categories only (everything not listed in
  * `bulkCategories`).
  *
  * @param {object} group Manifest group with `categories`.
  * @param {object} [options]
+ * @param {'none'|'all'|'small'} [options.mode] Which groups start expanded.
  * @param {number} [options.threshold] Max primary notes for an open group.
  * @param {string[]} [options.bulkCategories] Category names to exclude.
  * @returns {boolean}
  */
 function shouldOpenByDefault(group, options = {}) {
-  const { threshold = 15, bulkCategories = [] } = options;
+  const { mode = 'none', threshold = 15, bulkCategories = [] } = options;
+
+  if (mode === 'all') return true;
+  if (mode !== 'small') return false;
+
   const bulk = new Set(bulkCategories.map((name) => name.toLowerCase()));
 
   const primaryNotes = group.categories

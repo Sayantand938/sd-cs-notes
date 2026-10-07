@@ -95,7 +95,21 @@ function group(counts) {
   };
 }
 
-const OPTS = { threshold: 15, bulkCategories: ['Practice Papers'] };
+const OPTS = { mode: 'small', threshold: 15, bulkCategories: ['Practice Papers'] };
+
+test('mode "none" folds every group', () => {
+  const g = group({ 'Notes - Unit 01': 3 });
+  assert.equal(shouldOpenByDefault(g, { mode: 'none' }), false);
+});
+
+test('mode "all" expands every group, even large ones', () => {
+  const g = group({ 'Notes - Unit 01': 500 });
+  assert.equal(shouldOpenByDefault(g, { mode: 'all' }), true);
+});
+
+test('the default mode folds groups', () => {
+  assert.equal(shouldOpenByDefault(group({ 'Notes': 1 }), {}), false);
+});
 
 test('opens a group whose primary notes are within the threshold', () => {
   assert.equal(shouldOpenByDefault(group({ 'Notes - Unit 01': 10 }), OPTS), true);

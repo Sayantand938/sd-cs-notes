@@ -103,12 +103,12 @@ async function build(options = {}) {
   // 5. Manifest-driven index page.
   const manifest = buildManifest(contentNotes);
 
-  // Decide which groups start expanded. Small groups stay open so the
-  // semester being studied is visible immediately; large ones fold away.
-  const { openPrimaryThreshold, bulkCategories } = config.indexCollapse;
+  // Decide which groups start expanded (see config.indexCollapse).
+  const { defaultExpanded, openPrimaryThreshold, bulkCategories } = config.indexCollapse;
   const groups = manifest.map((group) => ({
     ...group,
     openByDefault: shouldOpenByDefault(group, {
+      mode: defaultExpanded,
       threshold: openPrimaryThreshold,
       bulkCategories,
     }),

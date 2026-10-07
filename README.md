@@ -104,22 +104,27 @@ Notes are grouped by class, subject and semester. Each group is a collapsible
 `<details>` element, so it works with no JavaScript and stays keyboard
 accessible. You also get a live filter box and an expand/collapse-all toggle.
 
-**A group starts expanded when its unit notes are few enough to scan**, and
-collapses once a semester genuinely gets large. Practice papers are excluded
-from that count — a semester with twenty papers is not harder to browse than
-one with five, since papers are reference material rather than something you
-read front to back. Both thresholds live in
+**Groups start folded**, so the index opens as a short table of contents you
+click into. Note content stays in the page either way, so the filter box and
+the browser's own Ctrl+F still find notes inside folded groups — searching
+force-opens whichever group holds the match.
+
+To change the default, edit
 [`src/config.js`](src/config.js):
 
 ```js
 indexCollapse: {
-  openPrimaryThreshold: 15,
+  defaultExpanded: 'none',   // 'none' | 'all' | 'small'
+  openPrimaryThreshold: 15,  // used by 'small'
   bulkCategories: ['Practice Papers'],
 },
 ```
 
-Typing in the filter box force-opens any group containing a match, then
-restores the original open/closed state when you clear it.
+- `'none'` — every group folded (the default)
+- `'all'` — every group expanded, as one long page
+- `'small'` — only groups whose *unit notes* fit the threshold stay expanded.
+  Practice papers are excluded from that count, since a semester with twenty
+  papers is not harder to browse than one with five.
 
 ---
 
