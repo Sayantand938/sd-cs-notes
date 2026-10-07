@@ -151,21 +151,27 @@ test('a missing manifest fails with regeneration advice', async () => {
   );
 });
 
-test('index page lists notes grouped by class, subject and semester', async () => {
+test('index page groups by class, subject, semester, unit and kind', async () => {
   const ws = makeWorkspace({
-    'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE,
-    'class-12/coms/semester-03/notes/unit-01/01-other-eng.md': SAMPLE,
+    'class-11/coms/sem-1/unit-01-computer-organization/notes/01-intro.en.md': SAMPLE,
+    'class-11/coms/sem-1/unit-01-computer-organization/questions/01-intro.en.md': SAMPLE,
+    'class-12/coms/sem-3/unit-01-other/notes/01-other.en.md': SAMPLE,
   });
   await build({ config: configFor(ws), quiet: true });
 
   const html = fs.readFileSync(path.join(ws.outDir, 'index.html'), 'utf-8');
 
   assert.match(html, /Class 11/);
-  assert.match(html, /COMA/);
-  assert.match(html, /Class 12/);
   assert.match(html, /COMS/);
-  assert.match(html, /Notes - Unit 01/);
-  assert.match(html, /href="\/class-11\/coma\/semester-01\/notes\/unit-01\/01-intro-eng\.html"/);
+  assert.match(html, /Sem 1/);
+  assert.match(html, /Class 12/);
+  // The unit carries its topic, and notes/questions sit inside it.
+  assert.match(html, /Notes - Unit 01 Computer Organization/);
+  assert.match(html, /Questions - Unit 01 Computer Organization/);
+  assert.match(
+    html,
+    /href="\/class-11\/coms\/sem-1\/unit-01-computer-organization\/notes\/01-intro\.en\.html"/,
+  );
 });
 
 test('a note named 404.md becomes the custom 404 page', async () => {

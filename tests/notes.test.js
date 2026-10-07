@@ -9,16 +9,36 @@ const {
   describeLocation,
   extractDescription,
   formatDate,
+  formatUnit,
 } = require('../src/lib/notes');
 
-test('describeLocation maps a full path to manifest coordinates', () => {
-  const loc = describeLocation('class-11/coma/semester-01/notes/unit-02/a.md');
+test('describeLocation maps a unit path to manifest coordinates', () => {
+  const loc = describeLocation(
+    'class-11/coms/sem-1/unit-01-computer-organization/notes/01-boolean-algebra.en.md',
+  );
 
   assert.equal(loc.className, 'Class 11');
-  assert.equal(loc.subject, 'COMA'); // subjects are upper-cased
-  assert.equal(loc.semester, 'Semester 01');
+  assert.equal(loc.subject, 'COMS'); // subjects are upper-cased
+  assert.equal(loc.semester, 'Sem 1');
+  // The unit carries its topic, and notes/questions sit inside it.
+  assert.equal(loc.unit, 'Unit 01 Computer Organization');
   assert.equal(loc.category, 'Notes');
-  assert.equal(loc.unit, 'Unit 02');
+});
+
+test('describeLocation reads questions as a category inside the unit', () => {
+  const loc = describeLocation(
+    'class-11/coms/sem-1/unit-03-c-programming/questions/02-operators.en.md',
+  );
+
+  assert.equal(loc.unit, 'Unit 03 C Programming');
+  assert.equal(loc.category, 'Questions');
+});
+
+test('describeLocation treats a semester-level folder as a collection', () => {
+  const loc = describeLocation('class-11/coms/sem-1/mock-tests/01-practice-paper.en.md');
+
+  assert.equal(loc.unit, null);
+  assert.equal(loc.category, 'Mock Tests');
 });
 
 test('describeLocation falls back to General for missing segments', () => {
@@ -31,30 +51,27 @@ test('describeLocation falls back to General for missing segments', () => {
   assert.equal(loc.unit, null);
 });
 
-test('describeLocation ignores a fifth segment that is not a unit folder', () => {
-  const loc = describeLocation('class-11/coma/semester-01/notes/misc/a.md');
-  assert.equal(loc.unit, null);
+test('formatUnit pads the number and title-cases the topic', () => {
+  assert.equal(formatUnit('unit-01-computer-organization'), 'Unit 01 Computer Organization');
+  assert.equal(formatUnit('unit-02-networking'), 'Unit 02 Networking');
+  assert.equal(formatUnit('unit-7'), 'Unit 07');
 });
 
 test('subject defaults to the upper-cased folder name', () => {
-  const loc = describeLocation('class-11/computer-science/semester-01/notes/unit-01/a.md');
-  assert.equal(loc.subject, 'COMPUTER-SCIENCE');
+  const loc = describeLocation('class-11/physics/sem-1/unit-01-x/notes/a.md');
+  assert.equal(loc.subject, 'PHYSICS');
 });
 
 test('subjectLabels maps folder names to display labels', () => {
-  const labels = { 'computer-science': 'COMS', coma: 'COMA' };
+  const labels = { coms: 'COMS', coma: 'COMA' };
 
   assert.equal(
-    describeLocation('class-11/computer-science/semester-01/notes/unit-01/a.md', {
-      subjectLabels: labels,
-    }).subject,
+    describeLocation('class-11/coms/sem-1/unit-01-x/notes/a.md', { subjectLabels: labels }).subject,
     'COMS',
   );
 
   assert.equal(
-    describeLocation('class-11/coma/semester-01/notes/unit-01/a.md', {
-      subjectLabels: labels,
-    }).subject,
+    describeLocation('class-11/coma/sem-1/unit-01-x/notes/a.md', { subjectLabels: labels }).subject,
     'COMA',
   );
 });
@@ -73,10 +90,10 @@ test('an unmapped subject falls back to upper-casing', () => {
   assert.equal(loc.subject, 'PHYSICS');
 });
 
-test('describeLocation keeps nested practice-paper units', () => {
-  const loc = describeLocation('class-11/coma/semester-01/practice-papers/unit-03/a.md');
-  assert.equal(loc.category, 'Practice Papers');
+test('describeLocation handles a unit folder without a topic', () => {
+  const loc = describeLocation('class-11/coms/sem-1/unit-03/questions/a.md');
   assert.equal(loc.unit, 'Unit 03');
+  assert.equal(loc.category, 'Questions');
 });
 
 test('extractDescription takes the first non-heading, non-blank line', () => {

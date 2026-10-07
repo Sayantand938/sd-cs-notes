@@ -11,7 +11,12 @@ const { stripExtension } = require('./text');
  * Compute a note's output path, relative to the output directory.
  *
  * Mirrors the source layout with an `.html` extension:
- *   `class-11/coma/sem-01/unit-01/notes.md` -> `class-11/coma/sem-01/unit-01/notes.html`
+ *   `unit-01-x/notes/boolean-algebra.md`     -> `unit-01-x/notes/boolean-algebra.html`
+ *   `unit-01-x/notes/boolean-algebra.en.md`  -> `unit-01-x/notes/boolean-algebra.en.html`
+ *
+ * The `.en` / `.bn` language marker is kept, because the two language versions
+ * of a note coexist in the same folder and would otherwise overwrite each
+ * other.
  *
  * @param {object} note
  * @returns {string} POSIX-style relative path.

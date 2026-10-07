@@ -16,9 +16,17 @@ const { formatName, formatTitle, stripExtension } = require('./text');
 /**
  * Split a note's path (relative to the notes root) into manifest coordinates.
  *
- * The trailing filename is ignored, so a note sitting at the notes root gets
- * the "General" fallbacks rather than having its filename mistaken for a
- * class name.
+ * The expected shape is:
+ *
+ *   <class>/<subject>/<semester>/<unit-folder>/<kind>/<file>.md
+ *   <class>/<subject>/<semester>/<collection>/<file>.md
+ *
+ * where <kind> is a folder like `notes` or `questions` inside a unit, and
+ * <collection> is a semester-level folder like `mock-tests` or `practicals`.
+ *
+ * The unit folder carries its topic in the name (`unit-01-computer-organization`),
+ * so it becomes the unit label with the number title-cased away: the index
+ * groups by unit, and `notes`/`questions` sit inside it as categories.
  *
  * @param {string} relativePath POSIX-style path relative to the notes root,
  *   including the filename.
@@ -42,11 +50,47 @@ function describeLocation(relativePath, options = {}) {
     : 'General';
 
   const semester = segments[2] ? formatName(segments[2]) : 'General';
-  const category = segments[3] ? formatName(segments[3]) : 'General';
-  const unitRaw = segments[4];
-  const unit = unitRaw && /^unit/i.test(unitRaw) ? formatName(unitRaw) : null;
 
-  return { className, subject, semester, category, unit, segments };
+  const fourth = segments[3];
+  const fifth = segments[4];
+
+  // A unit folder names a unit; anything else at this level is a collection
+  // such as `mock-tests` or `practicals`.
+  const isUnitFolder = Boolean(fourth && /^unit[\s-_]?\d/i.test(fourth));
+
+  if (isUnitFolder) {
+    const unit = formatUnit(fourth);
+
+    // The folder inside the unit says what kind of material this is.
+    const category = fifth ? formatName(fifth) : 'General';
+
+    return { className, subject, semester, category, unit, segments };
+  }
+
+  // No unit level: the whole path below the semester names the category.
+  const category = fourth ? formatName(fourth) : 'General';
+
+  return { className, subject, semester, category, unit: null, segments };
+}
+
+/**
+ * Turn a unit folder name into a display label.
+ *
+ * `unit-01-computer-organization` -> "Unit 01 Computer Organization"
+ * `unit-02-networking`            -> "Unit 02 Networking"
+ * `unit-3`                        -> "Unit 03"
+ *
+ * @param {string} folder
+ * @returns {string}
+ */
+function formatUnit(folder) {
+  const match = folder.match(/^unit[\s-_]?(\d+)[\s-_]*(.*)$/i);
+  if (!match) return formatName(folder);
+
+  const number = match[1].padStart(2, '0');
+  const topic = match[2] ? formatName(match[2]) : '';
+
+  return `Unit ${number}${topic ? ` ${topic}` : ''}`;
 }
 
 /**
@@ -163,6 +207,7 @@ module.exports = {
   describeLocation,
   extractDescription,
   formatDate,
+  formatUnit,
   readNote,
   readNotes,
 };

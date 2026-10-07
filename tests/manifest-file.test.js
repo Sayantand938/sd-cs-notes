@@ -132,38 +132,53 @@ test('the error lists every problem category at once', () => {
 
 // --- title derivation -----------------------------------------------------
 
-test('derives a title from a normal note filename', () => {
+test('derives a title from a unit notes file', () => {
   assert.equal(
-    deriveTitle('class-11/computer-science/semester-01/notes/unit-01/04-boolean-algebra-eng.md'),
-    'Boolean Algebra (Eng)',
+    deriveTitle('class-11/coms/sem-1/unit-01-computer-organization/notes/04-boolean-algebra.en.md'),
+    'Boolean Algebra (EN)',
   );
 });
 
-test('practice papers include the unit, since numbering restarts', () => {
-  const a = deriveTitle('practice-papers/unit-01/01-practice-paper-eng.md');
-  const b = deriveTitle('practice-papers/unit-02/01-practice-paper-eng.md');
+test('a questions file is marked to stay distinct from its note', () => {
+  const note = deriveTitle('class-11/coms/sem-1/unit-01-x/notes/04-boolean-algebra.en.md');
+  const questions = deriveTitle('class-11/coms/sem-1/unit-01-x/questions/04-boolean-algebra.en.md');
 
+  assert.equal(note, 'Boolean Algebra (EN)');
+  assert.equal(questions, 'Boolean Algebra — Questions (EN)');
+  assert.notEqual(note, questions);
+});
+
+test('a numbered practice paper inside a unit carries its unit', () => {
+  const a = deriveTitle('class-11/coms/sem-1/unit-01-x/questions/05-practice-paper.en.md');
+  const b = deriveTitle('class-11/coms/sem-1/unit-02-y/questions/05-practice-paper.en.md');
+
+  assert.equal(a, 'Practice Paper Unit 01 05 (EN)');
   assert.notEqual(a, b);
-  assert.match(a, /Unit 01/);
-  assert.match(b, /Unit 02/);
 });
 
-test('a descriptive practice-paper slug names the topic', () => {
+test('mock tests are named as semester-wide papers', () => {
   assert.equal(
-    deriveTitle('practice-papers/unit-02/01-introduction-to-networking-saq.md'),
-    'Introduction To Networking — SAQ',
+    deriveTitle('class-11/coms/sem-1/mock-tests/03-practice-paper.en.md'),
+    'Mock Test 03 (EN)',
   );
 });
 
-test('miscellaneous papers keep their Misc numbering and language tag', () => {
+test('a practical is named by its kind, not its filename', () => {
   assert.equal(
-    deriveTitle('practice-papers/miscellaneous/misc-01-practice-paper-eng.md'),
-    'Misc 01 Practice Paper (Eng)',
+    deriveTitle('class-11/coms/sem-1/practicals/practical.en.md'),
+    'Practical (EN)',
   );
 });
 
-test('a practical title drops the redundant class prefix', () => {
-  assert.equal(deriveTitle('semester-01/practical/practical-eng.md'), 'Practical (Eng)');
+test('a Bengali file is tagged BN', () => {
+  assert.equal(
+    deriveTitle('class-11/coms/sem-2/unit-02-networking/notes/02-transmission-media.bn.md'),
+    'Transmission Media (BN)',
+  );
+});
+
+test('the older -eng suffix is still understood', () => {
+  assert.equal(deriveTitle('unit-01/04-boolean-algebra-eng.md'), 'Boolean Algebra (EN)');
 });
 
 // --- heading extraction ---------------------------------------------------

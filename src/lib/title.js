@@ -24,6 +24,10 @@ const STRUCTURAL = new Set(['unit', 'semester', 'practice', 'papers', 'paper', '
 /**
  * Split a filename into an optional ordinal, a topic slug, and a language tag.
  *
+ * Accepts both naming conventions in use:
+ *   `01-boolean-algebra-eng.md`  (suffix word)
+ *   `01-boolean-algebra.en.md`   (language before the extension)
+ *
  * @param {string} base Filename without extension.
  * @returns {{ordinal: string|null, slug: string, lang: string}}
  */
@@ -31,10 +35,18 @@ function splitName(base) {
   let rest = base;
   let lang = '';
 
-  const langMatch = rest.match(/[-_](eng|beng)$/i);
-  if (langMatch) {
-    lang = langMatch[1].toLowerCase() === 'eng' ? 'Eng' : 'Beng';
-    rest = rest.slice(0, -langMatch[0].length);
+  // "01-topic.en" -> lang "EN"; also handles "-eng" written as a word.
+  const dotLang = rest.match(/\.(en|bn|eng|beng)$/i);
+  if (dotLang) {
+    const code = dotLang[1].toLowerCase();
+    lang = code === 'en' || code === 'eng' ? 'EN' : 'BN';
+    rest = rest.slice(0, -dotLang[0].length);
+  } else {
+    const wordLang = rest.match(/[-_](eng|beng)$/i);
+    if (wordLang) {
+      lang = wordLang[1].toLowerCase() === 'eng' ? 'EN' : 'BN';
+      rest = rest.slice(0, -wordLang[0].length);
+    }
   }
 
   let ordinal = null;
@@ -65,6 +77,23 @@ function titleCase(slug) {
 /**
  * Derive a title from a note's relative path.
  *
+ * Covers the folder shapes in use:
+ *
+ *   .../unit-01-computer-organization/notes/04-boolean-algebra.en.md
+ *       -> "Boolean Algebra (EN)"
+ *   .../unit-01-computer-organization/questions/04-boolean-algebra.en.md
+ *       -> "Boolean Algebra — Questions (EN)"
+ *   .../unit-01-computer-organization/questions/05-practice-paper.en.md
+ *       -> "Practice Paper Unit 01 05 (EN)"
+ *   .../sem-1/mock-tests/03-practice-paper.en.md
+ *       -> "Mock Test 03 (EN)"
+ *   .../sem-1/practicals/practical.en.md
+ *       -> "Practical (EN)"
+ *
+ * Titles must be unique across the site (the build rejects duplicates). A
+ * `questions/` file shares its basename with the `notes/` file beside it, so
+ * it carries a "— Questions" marker to keep the two distinguishable.
+ *
  * @param {string} relativePath POSIX path relative to the notes root.
  * @returns {string}
  */
@@ -77,48 +106,60 @@ function deriveTitle(relativePath) {
   const { ordinal, slug, lang } = splitName(base);
   const langSuffix = lang ? ` (${lang})` : '';
 
-  const isPracticePapers = parts.includes('practice-papers');
-  const isPractical = parts.includes('practical');
-  const inMisc = parts.includes('miscellaneous');
+  const kindFolder = parts[parts.length - 1] || '';
+  const unitFolder = parts.find((p) => /^unit[\s-_]?\d/.test(p));
+  const unitLabel = unitFolder ? formatUnitLabel(unitFolder) : '';
 
-  // Practice papers -----------------------------------------------------------
-  if (isPracticePapers) {
-    // A descriptive slug wins: it names the topic, not the document type.
-    if (slug && !/^practice[-_]?paper$/i.test(slug)) {
-      const topic = titleCase(slug.replace(/[-_]saq$/i, ''));
-      const kind = /[-_]saq$/i.test(slug) ? ' — SAQ' : '';
-      return `${topic}${kind}${langSuffix}`;
-    }
+  const isMockTests = parts.includes('mock-tests');
+  const isPractical = parts.includes('practicals') || parts.includes('practical');
+  const isQuestions = kindFolder === 'questions';
 
-    // Numbering restarts in each unit folder, so "Practice Paper 05" would be
-    // ambiguous across units. Include the unit to keep titles unique — the
-    // build rejects duplicate titles.
-    const unit = parts.find((p) => /^unit[-_]?\d+/.test(p));
-    const unitLabel = unit ? `${formatName(unit)} ` : '';
-    const num = ordinal ? String(Number(ordinal)).padStart(2, '0') : '';
-    const kind = inMisc ? 'Misc Practice Paper' : 'Practice Paper';
-
-    return `${kind} ${unitLabel}${num}${langSuffix}`.replace(/\s+/g, ' ').trim();
-  }
-
-  // Practical -----------------------------------------------------------------
-  if (isPractical) {
-    if (slug && !/practical/i.test(slug)) return `${titleCase(slug)}${langSuffix}`;
-    const unit = parts.find((p) => /^unit[-_]?\d+/.test(p));
-    const unitLabel = unit ? `${formatName(unit)} ` : '';
-    return `${unitLabel}Practical${langSuffix}`.trim();
-  }
-
-  // Study notes ---------------------------------------------------------------
-  if (slug) {
-    return `${titleCase(slug)}${langSuffix}`;
-  }
-
-  // Bare number inside a unit folder: the folder supplies the only context,
-  // so fall back to a predictable label rather than inventing a topic.
-  const unit = segments[segments.length - 1];
   const num = ordinal ? String(Number(ordinal)).padStart(2, '0') : '';
-  return `${formatName(unit || '')} ${num}`.trim();
+
+  // Semester-wide mock tests: the unit does not apply.
+  if (isMockTests) {
+    return `Mock Test ${num}${langSuffix}`.replace(/\s+/g, ' ').trim();
+  }
+
+  // Practicals: one per semester, usually.
+  if (isPractical) {
+    if (slug && !/^practical/i.test(slug)) return `${titleCase(slug)}${langSuffix}`;
+    return `Practical${langSuffix}`;
+  }
+
+  // A standalone practice paper carrying no topic name.
+  if (isQuestions && /^practice[-_]?paper$/i.test(slug)) {
+    const label = [unitLabel, num].filter(Boolean).join(' ');
+    return `Practice Paper ${label}${langSuffix}`.replace(/\s+/g, ' ').trim();
+  }
+
+  // Everything else is named by its topic.
+  if (slug) {
+    const topic = titleCase(slug);
+    // A topic-named question set sits beside a note of the same name, so it
+    // needs the marker to stay unique.
+    const marker = isQuestions ? ' — Questions' : '';
+    return `${topic}${marker}${langSuffix}`;
+  }
+
+  // Bare number with no slug: the folder is the only context available.
+  const label = unitLabel || formatName(kindFolder);
+  return `${label} ${num}`.replace(/\s+/g, ' ').trim();
 }
 
-module.exports = { deriveTitle, splitName, titleCase, STRUCTURAL };
+/**
+ * "unit-01-computer-organization" -> "Unit 01"
+ *
+ * Titles only need the number to stay unique; the topic is already shown by
+ * the group heading the note sits under.
+ *
+ * @param {string} folder
+ * @returns {string}
+ */
+function formatUnitLabel(folder) {
+  const match = folder.match(/^unit[\s-_]?(\d+)/i);
+  if (!match) return formatName(folder);
+  return `Unit ${match[1].padStart(2, '0')}`;
+}
+
+module.exports = { deriveTitle, splitName, titleCase, formatUnitLabel, STRUCTURAL };

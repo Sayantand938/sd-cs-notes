@@ -48,6 +48,22 @@ function isUsableTitle(text) {
   return true;
 }
 
+/**
+ * True when a heading looks like a title this tool generated earlier.
+ *
+ * Papers were once titled from their filenames, producing headings such as
+ * "Unit 01 04 Practice Paper (Eng)". Those are stale once the file is renamed
+ * into a clearer structure, so the derived title is preferred instead.
+ */
+function looksGenerated(text) {
+  if (!text) return false;
+  return (
+    /^unit\s*\d+\s+\d+\s+practice\s+paper/i.test(text) ||
+    /^unit\s*\d+\s+\d+\s+.*\bsaq\b/i.test(text) ||
+    /^misc\s+\d+\s+practice\s+paper/i.test(text)
+  );
+}
+
 /** Strip leading emoji, trailing "study guide" boilerplate, and extra space. */
 function cleanTitle(text) {
   return text
@@ -118,11 +134,12 @@ async function writeManifest(notesDir) {
     const text = await fs.readFile(path.join(notesDir, rel), 'utf-8');
     const heading = headingTitle(text);
 
-    // A practice paper's own heading is often just its filename in words, so a
-    // clean derived title reads better there; study notes use their heading.
-    const isPractice = /practice-paper|saq/i.test(path.basename(rel));
+    // A question paper's heading is often just its filename in words, and may
+    // be left over from an earlier naming scheme, so a clean derived title
+    // reads better there. Study notes use their own heading.
+    const isQuestionPaper = /\/questions\//.test(rel) || /practice-paper|saq|mock-test/i.test(path.basename(rel));
 
-    if (!isPractice && isUsableTitle(heading)) {
+    if (!isQuestionPaper && isUsableTitle(heading) && !looksGenerated(heading)) {
       out[rel] = { title: trimPrefix(cleanTitle(heading)) };
       fromHeading++;
     } else {
@@ -142,4 +159,11 @@ async function writeManifest(notesDir) {
   };
 }
 
-module.exports = { writeManifest, headingTitle, isUsableTitle, cleanTitle, trimPrefix };
+module.exports = {
+  writeManifest,
+  headingTitle,
+  isUsableTitle,
+  looksGenerated,
+  cleanTitle,
+  trimPrefix,
+};
