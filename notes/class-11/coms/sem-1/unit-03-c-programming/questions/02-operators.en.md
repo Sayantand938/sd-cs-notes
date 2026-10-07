@@ -1,4 +1,4 @@
-# Unit 03 02 Practice Paper (Eng)
+# Operators — Questions (EN)
 
 ## Section 1: Basic Structure (Questions 1-15)
 
@@ -1294,5 +1294,1105 @@ What is a dangling pointer?
 - B) NULL pointer
 - C) Wild pointer
 - D) Pointer to constant
+
+**Answer:** A
+
+### Q101 (mcq)
+
+What is an operator in programming?
+
+- A) A variable that stores data
+- B) A symbol that tells the compiler to perform specific operations on operands
+- C) A function that returns a value
+- D) A loop that repeats code
+
+**Answer:** B
+
+### Q102 (mcq)
+
+In the expression `a + b`, what is `+` called?
+
+- A) Operand
+- B) Operator
+- C) Variable
+- D) Expression
+
+**Answer:** B
+
+### Q103 (mcq)
+
+In the expression `a + b`, what are `a` and `b` called?
+
+- A) Operators
+- B) Operands
+- C) Results
+- D) Statements
+
+**Answer:** B
+
+### Q104 (mcq)
+
+Based on the number of operands, operators are classified into which types?
+
+- A) Unary, Binary, Ternary
+- B) Integer, Float, Character
+- C) Arithmetic, Logical, Relational
+- D) Simple, Complex, Conditional
+
+**Answer:** A
+
+### Q105 (mcq)
+
+A Unary operator acts on how many operands?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** B
+
+### Q106 (mcq)
+
+A Binary operator acts on how many operands?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** C
+
+### Q107 (mcq)
+
+A Ternary operator acts on how many operands?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** D
+
+### Q108 (mcq)
+
+Which of the following is a Unary operator?
+
+- A) `+`
+- B) `-` (as unary minus)
+- C) `*`
+- D) `/`
+
+**Answer:** B
+
+### Q109 (mcq)
+
+Which of the following is NOT an Arithmetic operator?
+
+- A) `+`
+- B) `*`
+- C) `%`
+- D) `&&`
+
+**Answer:** D
+
+### Q110 (mcq)
+
+What is the result of `5 + 2`?
+
+- A) 3
+- B) 7
+- C) 10
+- D) 2.5
+
+**Answer:** B
+
+### Q111 (mcq)
+
+What is the result of `5 - 2`?
+
+- A) 3
+- B) 7
+- C) 10
+- D) 2.5
+
+**Answer:** A
+
+### Q112 (mcq)
+
+What is the result of `5 * 2`?
+
+- A) 3
+- B) 7
+- C) 10
+- D) 2.5
+
+**Answer:** C
+
+### Q113 (mcq)
+
+What is the result of `5 / 2` when both operands are integers?
+
+- A) 2.5
+- B) 2
+- C) 3
+- D) 1
+
+**Answer:** B
+
+### Q114 (mcq)
+
+What is the result of `5.0 / 2`?
+
+- A) 2
+- B) 2.5
+- C) 3
+- D) 1
+
+**Answer:** B
+
+### Q115 (mcq)
+
+What is the result of `5 % 2`?
+
+- A) 2.5
+- B) 2
+- C) 1
+- D) 0
+
+**Answer:** C
+
+### Q116 (mcq)
+
+The modulus operator `%` works only with which data types?
+
+- A) Float and double
+- B) Integers
+- C) Characters
+- D) Strings
+
+**Answer:** B
+
+### Q117 (mcq)
+
+What happens when you attempt division by zero in C?
+
+- A) Compilation error
+- B) Runtime error
+- C) No error, returns 0
+- D) No error, returns infinity
+
+**Answer:** B
+
+### Q118 (mcq)
+
+Relational operators return which values?
+
+- A) 0 or 1
+- B) True or False as strings
+- C) Any integer
+- D) Floating point values
+
+**Answer:** A
+
+### Q119 (mcq)
+
+What is the output of `5 < 3`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** B
+
+### Q120 (mcq)
+
+What is the output of `5 > 3`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q121 (mcq)
+
+What is the output of `5 <= 5`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q122 (mcq)
+
+What is the output of `5 >= 3`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q123 (mcq)
+
+What is the output of `5 == 3`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** B
+
+### Q124 (mcq)
+
+What is the output of `5 != 3`?
+
+- A) 1
+- B) 0
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q125 (mcq)
+
+Which operator is used to check equality in C?
+
+- A) `=`
+- B) `==`
+- C) `!=`
+- D) `===`
+
+**Answer:** B
+
+### Q126 (mcq)
+
+Which operator is used to check inequality in C?
+
+- A) `=`
+- B) `==`
+- C) `!=`
+- D) `<>`
+
+**Answer:** C
+
+### Q127 (mcq)
+
+Logical AND (`&&`) returns true when:
+
+- A) At least one operand is true
+- B) Both operands are true
+- C) Neither operand is true
+- D) The first operand is true
+
+**Answer:** B
+
+### Q128 (mcq)
+
+Logical OR (`||`) returns true when:
+
+- A) At least one operand is true
+- B) Both operands are true
+- C) Neither operand is true
+- D) The first operand is true
+
+**Answer:** A
+
+### Q129 (mcq)
+
+Logical NOT (`!`) reverses:
+
+- A) The value of a variable
+- B) The truth value of an expression
+- C) The sign of a number
+- D) The order of operations
+
+**Answer:** B
+
+### Q130 (mcq)
+
+What is the result of `1 && 0`?
+
+- A) 0
+- B) 1
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q131 (mcq)
+
+What is the result of `1 || 0`?
+
+- A) 0
+- B) 1
+- C) True
+- D) False
+
+**Answer:** B
+
+### Q132 (mcq)
+
+What is the result of `!1`?
+
+- A) 0
+- B) 1
+- C) True
+- D) False
+
+**Answer:** A
+
+### Q133 (mcq)
+
+What is short-circuit evaluation in logical operators?
+
+- A) All operands are evaluated regardless of the result
+- B) Evaluation stops when the overall result is determined
+- C) Evaluation skips the operator
+- D) Evaluation reverses the operands
+
+**Answer:** B
+
+### Q134 (mcq)
+
+In `A && B`, if `A` is false, then:
+
+- A) `B` is evaluated
+- B) `B` is not evaluated
+- C) The result is true
+- D) An error occurs
+
+**Answer:** B
+
+### Q135 (mcq)
+
+In `A || B`, if `A` is true, then:
+
+- A) `B` is evaluated
+- B) `B` is not evaluated
+- C) The result is false
+- D) An error occurs
+
+**Answer:** B
+
+### Q136 (mcq)
+
+Which of the following is an Assignment operator?
+
+- A) `==`
+- B) `!`
+- C) `=`
+- D) `&&`
+
+**Answer:** D
+
+### Q137 (mcq)
+
+What does `x += 3` mean?
+
+- A) `x = x + 3`
+- B) `x = 3`
+- C) `x = x * 3`
+- D) `x = x - 3`
+
+**Answer:** A
+
+### Q138 (mcq)
+
+What does `x -= 3` mean?
+
+- A) `x = x + 3`
+- B) `x = 3`
+- C) `x = x * 3`
+- D) `x = x - 3`
+
+**Answer:** D
+
+### Q139 (mcq)
+
+What does `x *= 3` mean?
+
+- A) `x = x + 3`
+- B) `x = 3`
+- C) `x = x * 3`
+- D) `x = x - 3`
+
+**Answer:** C
+
+### Q140 (mcq)
+
+What does `x /= 3` mean?
+
+- A) `x = x + 3`
+- B) `x = x / 3`
+- C) `x = x * 3`
+- D) `x = x - 3`
+
+**Answer:** B
+
+### Q141 (mcq)
+
+What does `x %= 3` mean?
+
+- A) `x = x + 3`
+- B) `x = x % 3`
+- C) `x = x * 3`
+- D) `x = x - 3`
+
+**Answer:** B
+
+### Q142 (mcq)
+
+The increment operator `++` does what?
+
+- A) Increases value by 0
+- B) Increases value by 1
+- C) Increases value by 2
+- D) Decreases value by 1
+
+**Answer:** B
+
+### Q143 (mcq)
+
+The decrement operator `--` does what?
+
+- A) Increases value by 1
+- B) Decreases value by 1
+- C) Decreases value by 2
+- D) Doubles the value
+
+**Answer:** B
+
+### Q144 (mcq)
+
+What is the difference between prefix (`++a`) and postfix (`a++`)?
+
+- A) No difference
+- B) Prefix increments first, then uses; postfix uses first, then increments
+- C) Prefix uses first, then increments; postfix increments first, then uses
+- D) Both increment and use simultaneously
+
+**Answer:** B
+
+### Q145 (mcq)
+
+If `a = 5`, what is the value of `b = ++a`?
+
+- A) `a=5, b=5`
+- B) `a=6, b=6`
+- C) `a=5, b=6`
+- D) `a=6, b=5`
+
+**Answer:** B
+
+### Q146 (mcq)
+
+If `a = 5`, what is the value of `b = a++`?
+
+- A) `a=5, b=5`
+- B) `a=6, b=6`
+- C) `a=5, b=6`
+- D) `a=6, b=5`
+
+**Answer:** D
+
+### Q147 (mcq)
+
+What is the syntax of the Conditional (Ternary) operator?
+
+- A) `condition ? expression1 : expression2`
+- B) `condition ? expression1 ; expression2`
+- C) `condition : expression1 ? expression2`
+- D) `condition expression1 : expression2`
+
+**Answer:** A
+
+### Q148 (mcq)
+
+In the ternary operator, if the condition is true:
+
+- A) expression2 is evaluated
+- B) expression1 is evaluated
+- C) Both expressions are evaluated
+- D) Neither expression is evaluated
+
+**Answer:** B
+
+### Q149 (mcq)
+
+In the ternary operator, if the condition is false:
+
+- A) expression2 is evaluated
+- B) expression1 is evaluated
+- C) Both expressions are evaluated
+- D) Neither expression is evaluated
+
+**Answer:** A
+
+### Q150 (mcq)
+
+`int max = (a > b) ? a : b;` assigns to `max`:
+
+- A) The value of `a`
+- B) The value of `b`
+- C) The larger value between `a` and `b`
+- D) The smaller value between `a` and `b`
+
+**Answer:** C
+
+### Q151 (mcq)
+
+The Comma operator `,` evaluates expressions:
+
+- A) Right to left
+- B) Left to right
+- C) Randomly
+- D) Only the last expression
+
+**Answer:** B
+
+### Q152 (mcq)
+
+In `b = (a = 5, a * 2);`, what is the value of `b`?
+
+- A) 5
+- B) 10
+- C) 7
+- D) 2.5
+
+**Answer:** B
+
+### Q153 (mcq)
+
+The Comma operator's result is the value of:
+
+- A) The leftmost operand
+- B) The rightmost operand
+- C) The sum of all operands
+- D) The first operand
+
+**Answer:** B
+
+### Q154 (mcq)
+
+The Comma operator is often used in:
+
+- A) While loops
+- B) For loops
+- C) If-else statements
+- D) Switch cases
+
+**Answer:** B
+
+### Q155 (mcq)
+
+Operator Precedence determines:
+
+- A) Which operand is evaluated first
+- B) Which operator is evaluated first
+- C) The direction of evaluation
+- D) The type of conversion
+
+**Answer:** B
+
+### Q156 (mcq)
+
+Operator Associativity determines:
+
+- A) Which operator is evaluated first
+- B) The direction of evaluation when operators have same precedence
+- C) The type of operands
+- D) The result of the expression
+
+**Answer:** B
+
+### Q157 (mcq)
+
+In `10 + 5 * 2`, which operation is performed first?
+
+- A) Addition
+- B) Multiplication
+- C) Both simultaneously
+- D) Depends on associativity
+
+**Answer:** B
+
+### Q158 (mcq)
+
+What is the result of `10 + 5 * 2`?
+
+- A) 20
+- B) 30
+- C) 15
+- D) 25
+
+**Answer:** A
+
+### Q159 (mcq)
+
+Which operator has the highest precedence?
+
+- A) `+`
+- B) `*`
+- C) `()`
+- D) `&&`
+
+**Answer:** D
+
+### Q160 (mcq)
+
+Which operator has the lowest precedence?
+
+- A) `=`
+- B) `,`
+- C) `+`
+- D) `&&`
+
+**Answer:** D
+
+### Q161 (mcq)
+
+The assignment operator `=` has which associativity?
+
+- A) Left to Right
+- B) Right to Left
+- C) Both
+- D) None
+
+**Answer:** B
+
+### Q162 (mcq)
+
+The arithmetic operators `+` and `-` have which associativity?
+
+- A) Left to Right
+- B) Right to Left
+- C) Both
+- D) None
+
+**Answer:** A
+
+### Q163 (mcq)
+
+Implicit Type Conversion is also called:
+
+- A) Type Casting
+- B) Usual Arithmetic Conversion (Promotion)
+- C) Explicit Conversion
+- D) Forced Conversion
+
+**Answer:** B
+
+### Q164 (mcq)
+
+In implicit type conversion, data types are converted:
+
+- A) Manually by the programmer
+- B) Automatically by the compiler
+- C) Never
+- D) Only for floating point
+
+**Answer:** B
+
+### Q165 (mcq)
+
+The hierarchy for implicit conversion from lowest to highest is:
+
+- A) char → int → float → double
+- B) char → int → double → float
+- C) int → char → float → double
+- D) double → float → int → char
+
+**Answer:** D
+
+### Q166 (mcq)
+
+In `float result = 5 / 2;`, what is the value of `result`?
+
+- A) 2.5
+- B) 2.0
+- C) 3.0
+- D) 2.5 (as float)
+
+**Answer:** B
+
+### Q167 (mcq)
+
+Why is `float result = 5 / 2;` equal to `2.0` and not `2.5`?
+
+- A) Integer division is performed, then converted to float
+- B) Float division is performed
+- C) Compilation error
+- D) 5/2 is rounded down
+
+**Answer:** A
+
+### Q168 (mcq)
+
+How can you fix `float result = 5 / 2;` to get `2.5`?
+
+- A) `result = 5 / 2.0;`
+- B) `result = (float)5 / 2;`
+- C) Both A and B
+- D) Cannot be fixed
+
+**Answer:** C
+
+### Q169 (mcq)
+
+Explicit Type Conversion is also called:
+
+- A) Implicit Conversion
+- B) Type Casting
+- C) Automatic Conversion
+- D) Promotion
+
+**Answer:** B
+
+### Q170 (mcq)
+
+What is the syntax for type casting?
+
+- A) `(data_type) expression;`
+- B) `expression as data_type;`
+- C) `data_type(expression);`
+- D) `convert(data_type, expression);`
+
+**Answer:** A
+
+### Q171 (mcq)
+
+In `float result = (float)7 / 3;`, what is the value of `result`?
+
+- A) 2
+- B) 2.33333
+- C) 3
+- D) 2.0
+
+**Answer:** B
+
+### Q172 (mcq)
+
+`getchar()` is used for:
+
+- A) Formatted input
+- B) Unformatted single character input
+- C) String input
+- D) Integer input
+
+**Answer:** B
+
+### Q173 (mcq)
+
+`getchar()` returns the character as:
+
+- A) A char
+- B) An int (ASCII value)
+- C) A string
+- D) A float
+
+**Answer:** B
+
+### Q174 (mcq)
+
+`putchar()` is used for:
+
+- A) Formatted output
+- B) Unformatted single character output
+- C) String output
+- D) Integer output
+
+**Answer:** B
+
+### Q175 (mcq)
+
+Which header file contains `getchar()` and `putchar()`?
+
+- A) `<stdlib.h>`
+- B) `<stdio.h>`
+- C) `<string.h>`
+- D) `<math.h>`
+
+**Answer:** B
+
+### Q176 (mcq)
+
+What is the output of `putchar(65);`?
+
+- A) 65
+- B) 'A'
+- C) 'a'
+- D) Compilation error
+
+**Answer:** B
+
+### Q177 (mcq)
+
+`char ch = getchar();` reads:
+
+- A) A string
+- B) A single character
+- C) An integer
+- D) A floating point number
+
+**Answer:** B
+
+### Q178 (mcq)
+
+An Escape Sequence starts with:
+
+- A) A forward slash `/`
+- B) A backslash `\`
+- C) A percent sign `%`
+- D) An ampersand `&`
+
+**Answer:** B
+
+### Q179 (mcq)
+
+Which escape sequence represents a newline?
+
+- A) `\t`
+- B) `\n`
+- C) `\r`
+- D) `\a`
+
+**Answer:** B
+
+### Q180 (mcq)
+
+Which escape sequence inserts a tab space?
+
+- A) `\t`
+- B) `\n`
+- C) `\r`
+- D) `\a`
+
+**Answer:** A
+
+### Q181 (mcq)
+
+Which escape sequence moves the cursor to the beginning of the current line?
+
+- A) `\t`
+- B) `\n`
+- C) `\r`
+- D) `\a`
+
+**Answer:** C
+
+### Q182 (mcq)
+
+Which escape sequence produces a beep sound?
+
+- A) `\t`
+- B) `\n`
+- C) `\r`
+- D) `\a`
+
+**Answer:** D
+
+### Q183 (mcq)
+
+Which escape sequence prints a literal backslash?
+
+- A) `\`
+- B) `\\`
+- C) `\/`
+- D) `\\\`
+
+**Answer:** B
+
+### Q184 (mcq)
+
+Which escape sequence prints a double quote?
+
+- A) `\`
+- B) `\'`
+- C) `\"`
+- D) `\\`
+
+**Answer:** C
+
+### Q185 (mcq)
+
+Which escape sequence represents the null character?
+
+- A) `\n`
+- B) `\0`
+- C) `\t`
+- D) `\r`
+
+**Answer:** B
+
+### Q186 (mcq)
+
+The null character `\0` marks:
+
+- A) The start of a string
+- B) The end of a string
+- C) A tab space
+- D) A new line
+
+**Answer:** B
+
+### Q187 (mcq)
+
+`printf()` is used for:
+
+- A) Formatted output
+- B) Unformatted output
+- C) Formatted input
+- D) Character input
+
+**Answer:** A
+
+### Q188 (mcq)
+
+`printf()` returns:
+
+- A) The number of characters printed
+- B) A string
+- C) An integer representing success
+- D) Nothing
+
+**Answer:** A
+
+### Q189 (mcq)
+
+`scanf()` is used for:
+
+- A) Formatted output
+- B) Unformatted output
+- C) Formatted input
+- D) Character output
+
+**Answer:** C
+
+### Q190 (mcq)
+
+`scanf()` returns:
+
+- A) The number of items successfully read
+- B) The input value
+- C) A string
+- D) Nothing
+
+**Answer:** A
+
+### Q191 (mcq)
+
+Which format specifier is used for `int`?
+
+- A) `%f`
+- B) `%c`
+- C) `%d` or `%i`
+- D) `%s`
+
+**Answer:** C
+
+### Q192 (mcq)
+
+Which format specifier is used for `float`?
+
+- A) `%d`
+- B) `%f`
+- C) `%c`
+- D) `%s`
+
+**Answer:** B
+
+### Q193 (mcq)
+
+Which format specifier is used for `char`?
+
+- A) `%d`
+- B) `%f`
+- C) `%c`
+- D) `%s`
+
+**Answer:** C
+
+### Q194 (mcq)
+
+Which format specifier is used for a string?
+
+- A) `%d`
+- B) `%f`
+- C) `%c`
+- D) `%s`
+
+**Answer:** D
+
+### Q195 (mcq)
+
+In `scanf`, why is the `&` operator used before variables?
+
+- A) To pass the value of the variable
+- B) To pass the address of the variable
+- C) To increment the variable
+- D) To decrement the variable
+
+**Answer:** B
+
+### Q196 (mcq)
+
+In `scanf`, the `&` operator is NOT required for:
+
+- A) Integers
+- B) Floats
+- C) Characters
+- D) Strings (arrays)
+
+**Answer:** D
+
+### Q197 (mcq)
+
+`printf("%.2f", 3.14159);` prints what?
+
+- A) 3.1
+- B) 3.14
+- C) 3.141
+- D) 3.14159
+
+**Answer:** B
+
+### Q198 (mcq)
+
+`printf("%5d", 25);` prints what?
+
+- A) 25
+- B) `   25` (right-aligned, width 5)
+- C) `25   ` (left-aligned, width 5)
+- D) 00025
+
+**Answer:** B
+
+### Q199 (mcq)
+
+`printf("%-5d", 25);` prints what?
+
+- A) 25
+- B) `   25`
+- C) `25   ` (left-aligned, width 5)
+- D) 00025
+
+**Answer:** C
+
+### Q200 (mcq)
+
+`scanf("%d %f", &a, &b);` reads:
+
+- A) One integer and one float
+- B) One float and one integer
+- C) Two integers
+- D) Two floats
 
 **Answer:** A

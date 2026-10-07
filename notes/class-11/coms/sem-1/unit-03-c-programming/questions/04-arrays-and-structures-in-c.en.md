@@ -1,4 +1,4 @@
-# Unit 03 04 Practice Paper (Eng)
+# Arrays And Structures In C — Questions (EN)
 
 ## Section 1: Basic Structure (Questions 1 to 15)
 
@@ -1391,3 +1391,1103 @@ printf("%d", p[2]);
 - D) Error
 
 **Answer:** C
+
+### Q101 (mcq)
+
+An array is a collection of:
+
+- A) Different data elements stored randomly
+- B) Similar data elements stored in contiguous memory locations under a single variable name
+- C) Different data elements stored in contiguous memory locations
+- D) Similar data elements stored in non-contiguous memory locations
+
+**Answer:** B
+
+### Q102 (mcq)
+
+Why are arrays used?
+
+- A) To create separate variables for each element
+- B) To store and manipulate a fixed number of elements efficiently under one name
+- C) To store only characters
+- D) To avoid using loops
+
+**Answer:** B
+
+### Q103 (mcq)
+
+All elements in an array must be of:
+
+- A) Different data types
+- B) The same data type (homogeneous)
+- C) Character data type only
+- D) Integer data type only
+
+**Answer:** B
+
+### Q104 (mcq)
+
+In C, array indexing starts from:
+
+- A) 1
+- B) 0
+- C) -1
+- D) Depends on the compiler
+
+**Answer:** B
+
+### Q105 (mcq)
+
+Elements of an array are stored in:
+
+- A) Random memory locations
+- B) Contiguous (adjacent) memory locations
+- C) Only in cache memory
+- D) Non-contiguous memory locations
+
+**Answer:** B
+
+### Q106 (mcq)
+
+What is the correct syntax to declare an array of 5 integers?
+
+- A) `int marks(5);`
+- B) `int marks[5];`
+- C) `int 5marks;`
+- D) `array int marks[5];`
+
+**Answer:** B
+
+### Q107 (mcq)
+
+What is the valid declaration for an array of 10 floats?
+
+- A) `float prices(10);`
+- B) `float[10] prices;`
+- C) `float prices[10];`
+- D) `prices float[10];`
+
+**Answer:** C
+
+### Q108 (mcq)
+
+How many elements can the array `char name[50]` hold excluding the null terminator?
+
+- A) 50
+- B) 49
+- C) 51
+- D) 48
+
+**Answer:** B
+
+### Q109 (mcq)
+
+What is the output of `int arr1[5] = {10, 20, 30, 40, 50}; arr1[2]`?
+
+- A) 10
+- B) 20
+- C) 30
+- D) 40
+
+**Answer:** C
+
+### Q110 (mcq)
+
+If `int arr2[5] = {1, 2, 3};`, what is the value of `arr2[3]`?
+
+- A) 0
+- B) 3
+- C) Garbage value
+- D) 4
+
+**Answer:** A
+
+### Q111 (mcq)
+
+If `int arr3[] = {1, 2, 3};`, what is the size of the array?
+
+- A) 2
+- B) 3
+- C) 4
+- D) 5
+
+**Answer:** B
+
+### Q112 (mcq)
+
+How do you set all elements of `int arr4[5]` to 0?
+
+- A) `int arr4[5] = {};`
+- B) `int arr4[5] = {0};`
+- C) `int arr4[5] = {0, 0, 0, 0, 0};`
+- D) Both B and C are correct
+
+**Answer:** B
+
+### Q113 (mcq)
+
+Which loop is commonly used to read and print array elements?
+
+- A) `do-while` loop
+- B) `for` loop
+- C) `if-else` statement
+- D) `switch` statement
+
+**Answer:** B
+
+### Q114 (mcq)
+
+In `scanf("%d", &arr[i]);`, why is `&` used?
+
+- A) To print the value
+- B) To pass the address of the array element
+- C) To increment the value
+- D) To decrement the value
+
+**Answer:** B
+
+### Q115 (mcq)
+
+Which of the following is a use of 1D arrays?
+
+- A) Storing a list of values
+- B) Storing chessboards
+- C) Representing images
+- D) Matrix multiplication
+
+**Answer:** A
+
+### Q116 (mcq)
+
+A 2D array is like a:
+
+- A) Single row of values
+- B) Table (matrix) with rows and columns
+- C) List of characters
+- D) Stack
+
+**Answer:** B
+
+### Q117 (mcq)
+
+What is the syntax to declare a 2D array with 3 rows and 4 columns?
+
+- A) `int matrix[4][3];`
+- B) `int matrix[3][4];`
+- C) `int matrix(3,4);`
+- D) `int matrix[3,4];`
+
+**Answer:** B
+
+### Q118 (mcq)
+
+How many total elements are in `int matrix[3][4]`?
+
+- A) 7
+- B) 12
+- C) 24
+- D) 10
+
+**Answer:** B
+
+### Q119 (mcq)
+
+What is the correct initialization for a 2D array with 2 rows and 3 columns?
+
+- A) `int arr[2][3] = { {1, 2, 3}, {4, 5, 6} };`
+- B) `int arr[2][3] = {1, 2, 3, 4, 5, 6};`
+- C) `int arr[2][3] = {1, 2, 3, 4, 5};`
+- D) Both A and B are correct
+
+**Answer:** A
+
+### Q120 (mcq)
+
+In C, for a 2D array, which dimension is mandatory to specify?
+
+- A) Row size
+- B) Column size
+- C) Both row and column size
+- D) Neither
+
+**Answer:** B
+
+### Q121 (mcq)
+
+What is the correct declaration if row size is omitted in a 2D array?
+
+- A) `int arr[][3] = { {1,2}, {4,5} };`
+- B) `int arr[2][] = { {1,2}, {4,5} };`
+- C) `int arr[][] = { {1,2}, {4,5} };`
+- D) `int arr[][ ] = { {1,2}, {4,5} };`
+
+**Answer:** A
+
+### Q122 (mcq)
+
+C stores 2D arrays in which memory order?
+
+- A) Column-Major Order
+- B) Row-Major Order
+- C) Diagonal-Major Order
+- D) Random Order
+
+**Answer:** B
+
+### Q123 (mcq)
+
+In Row-Major Order for `arr[2][3]`, which element comes first in memory?
+
+- A) `arr[1][0]`
+- B) `arr[0][0]`
+- C) `arr[0][1]`
+- D) `arr[1][2]`
+
+**Answer:** B
+
+### Q124 (mcq)
+
+In Row-Major Order for `arr[2][3]`, which element comes last in memory?
+
+- A) `arr[0][2]`
+- B) `arr[1][0]`
+- C) `arr[1][2]`
+- D) `arr[1][1]`
+
+**Answer:** C
+
+### Q125 (mcq)
+
+Which type of loop is used to access elements of a 2D array?
+
+- A) Single loop
+- B) Nested loops
+- C) Infinite loop
+- D) do-while loop
+
+**Answer:** B
+
+### Q126 (mcq)
+
+In nested loops for a 2D array, the outer loop iterates over:
+
+- A) Columns
+- B) Rows
+- C) Elements
+- D) Memory addresses
+
+**Answer:** B
+
+### Q127 (mcq)
+
+In nested loops for a 2D array, the inner loop iterates over:
+
+- A) Rows
+- B) Columns
+- C) Elements
+- D) Memory addresses
+
+**Answer:** B
+
+### Q128 (mcq)
+
+A string in C is a sequence of characters stored in a `char` array terminated by:
+
+- A) A semicolon (;)
+- B) A null character ('\0')
+- C) A newline character
+- D) A space
+
+**Answer:** B
+
+### Q129 (mcq)
+
+The null character `'\0'` marks:
+
+- A) The start of the string
+- B) The end of the string
+- C) The middle of the string
+- D) A tab space
+
+**Answer:** B
+
+### Q130 (mcq)
+
+If `char name[5] = "John";`, how is it stored in memory?
+
+- A) J, o, h, n
+- B) J, o, h, n, \0
+- C) J, o, h, n, space
+- D) J, o, h, n, \n
+
+**Answer:** B
+
+### Q131 (mcq)
+
+How many characters can `char str[20]` hold including the null terminator?
+
+- A) 20
+- B) 19
+- C) 21
+- D) 18
+
+**Answer:** B
+
+### Q132 (mcq)
+
+Which function safely reads a line including spaces in C?
+
+- A) `scanf("%s", str)`
+- B) `gets(str)`
+- C) `fgets(str, size, stdin)`
+- D) `read(str)`
+
+**Answer:** C
+
+### Q133 (mcq)
+
+Which function is deprecated and unsafe due to buffer overflow?
+
+- A) `fgets`
+- B) `gets`
+- C) `scanf`
+- D) `printf`
+
+**Answer:** B
+
+### Q134 (mcq)
+
+Which function prints a string and adds a newline?
+
+- A) `printf("%s", str)`
+- B) `puts(str)`
+- C) `fputs(str)`
+- D) `scanf`
+
+**Answer:** B
+
+### Q135 (mcq)
+
+`scanf("%s", str)` cannot read:
+
+- A) Single characters
+- B) Multi-word strings with spaces
+- C) Integers
+- D) Floating point numbers
+
+**Answer:** B
+
+### Q136 (mcq)
+
+The header file for string functions is:
+
+- A) `<stdio.h>`
+- B) `<string.h>`
+- C) `<stdlib.h>`
+- D) `<math.h>`
+
+**Answer:** B
+
+### Q137 (mcq)
+
+`strlen("Hello")` returns:
+
+- A) 6
+- B) 5
+- C) 4
+- D) 7
+
+**Answer:** B
+
+### Q138 (mcq)
+
+`strlen` returns the length of the string excluding:
+
+- A) The first character
+- B) The null character '\0'
+- C) The last character
+- D) All vowels
+
+**Answer:** B
+
+### Q139 (mcq)
+
+`strcat(dest, src)` does what?
+
+- A) Copies src into dest
+- B) Compares dest and src
+- C) Concatenates src at the end of dest
+- D) Returns the length of dest
+
+**Answer:** C
+
+### Q140 (mcq)
+
+`strcmp(str1, str2)` returns 0 when:
+
+- A) str1 is greater than str2
+- B) str1 is less than str2
+- C) str1 and str2 are equal
+- D) str2 is greater than str1
+
+**Answer:** C
+
+### Q141 (mcq)
+
+`strcmp(str1, str2)` returns a negative value when:
+
+- A) str1 is greater than str2
+- B) str1 is less than str2
+- C) str1 and str2 are equal
+- D) Both are empty
+
+**Answer:** B
+
+### Q142 (mcq)
+
+`strcpy(dest, src)` does what?
+
+- A) Copies src into dest
+- B) Concatenates src at end of dest
+- C) Compares dest and src
+- D) Returns the length of src
+
+**Answer:** A
+
+### Q143 (mcq)
+
+Which function converts a string to lowercase?
+
+- A) `strupr`
+- B) `strlwr`
+- C) `strcmp`
+- D) `strcat`
+
+**Answer:** B
+
+### Q144 (mcq)
+
+Which function converts a string to uppercase?
+
+- A) `strupr`
+- B) `strlwr`
+- C) `strcmp`
+- D) `strcat`
+
+**Answer:** A
+
+### Q145 (mcq)
+
+In manual string concatenation, the first step is to:
+
+- A) Copy s2 into s1
+- B) Find the end of s1
+- C) Compare s1 and s2
+- D) Find the length of s2
+
+**Answer:** B
+
+### Q146 (mcq)
+
+In manual string concatenation, after copying s2 to s1, the result must be:
+
+- A) Printed immediately
+- B) Null terminated with '\0'
+- C) Converted to lowercase
+- D) Compared with s2
+
+**Answer:** B
+
+### Q147 (mcq)
+
+A structure is a user-defined data type that allows grouping of:
+
+- A) Variables of the same data type
+- B) Variables of different data types under a single name
+- C) Only integer variables
+- D) Only character variables
+
+**Answer:** B
+
+### Q148 (mcq)
+
+What is the correct syntax to define a structure?
+
+- A) `struct Student { int roll; char name[50]; float marks; };`
+- B) `struct Student { int roll, char name[50], float marks; }`
+- C) `struct { int roll; char name[50]; float marks; } Student;`
+- D) `Student struct { int roll; char name[50]; float marks; };`
+
+**Answer:** A
+
+### Q149 (mcq)
+
+Which operator is used to access structure members?
+
+- A) `->` (arrow)
+- B) `.` (dot)
+- C) `::` (scope resolution)
+- D) `*` (asterisk)
+
+**Answer:** B
+
+### Q150 (mcq)
+
+How do you set the roll number of structure variable `s1` to 102?
+
+- A) `s1.roll_no = 102;`
+- B) `s1->roll_no = 102;`
+- C) `roll_no.s1 = 102;`
+- D) `s1(roll_no) = 102;`
+
+**Answer:** A
+
+### Q151 (mcq)
+
+How do you copy a name to a structure member using string functions?
+
+- A) `s1.name = "Bob";`
+- B) `s1.name = 'Bob';`
+- C) `strcpy(s1.name, "Bob");`
+- D) `s1->name = "Bob";`
+
+**Answer:** C
+
+### Q152 (mcq)
+
+What is the purpose of `typedef` in structures?
+
+- A) To create multiple structures
+- B) To avoid writing the keyword 'struct' repeatedly
+- C) To delete a structure
+- D) To copy a structure
+
+**Answer:** B
+
+### Q153 (mcq)
+
+With `typedef struct { int roll; char name[50]; } Student;`, how do you declare a variable?
+
+- A) `struct Student s1;`
+- B) `Student s1;`
+- C) `typedef Student s1;`
+- D) `s1 Student;`
+
+**Answer:** B
+
+### Q154 (mcq)
+
+An array of structures is used to store:
+
+- A) A single entity's data
+- B) Data of multiple entities of the same structure type
+- C) Data of different structure types
+- D) Only integer data
+
+**Answer:** B
+
+### Q155 (mcq)
+
+What is the declaration for an array of 50 Student structures?
+
+- A) `struct Student class[50];`
+- B) `struct Student[50] class;`
+- C) `Student class(50);`
+- D) `struct class[50] Student;`
+
+**Answer:** A
+
+### Q156 (mcq)
+
+How do you access the name of the second student in an array of structures `s`?
+
+- A) `s[1].name`
+- B) `s.name[1]`
+- C) `s[2].name`
+- D) `s.name(2)`
+
+**Answer:** A
+
+### Q157 (mcq)
+
+How do you access the marks of the third student in an array of structures `s`?
+
+- A) `s.marks[3]`
+- B) `s[2].marks`
+- C) `s[3].marks`
+- D) `s.marks(3)`
+
+**Answer:** B
+
+### Q158 (mcq)
+
+An array within a structure means:
+
+- A) The structure is inside an array
+- B) The structure contains an array as one of its members
+- C) Both structure and array are same
+- D) The array contains structures
+
+**Answer:** B
+
+### Q159 (mcq)
+
+In `struct Student { int roll; char name[50]; int marks[5]; };`, `marks` is:
+
+- A) A structure member that is an array
+- B) A separate array
+- C) A pointer
+- D) A nested structure
+
+**Answer:** A
+
+### Q160 (mcq)
+
+How do you access the second subject marks of `s1` in `struct Student` with `marks[5]`?
+
+- A) `s1.marks[1]`
+- B) `s1.marks(1)`
+- C) `s1[1].marks`
+- D) `marks[1].s1`
+
+**Answer:** A
+
+### Q161 (mcq)
+
+A nested structure means:
+
+- A) A structure inside a function
+- B) A structure containing another structure as a member
+- C) An array inside a structure
+- D) A pointer to a structure
+
+**Answer:** B
+
+### Q162 (mcq)
+
+In the nested structure example, `struct Employee` contains:
+
+- A) Only basic data types
+- B) A nested `struct Address`
+- C) An array of addresses
+- D) Another Employee structure
+
+**Answer:** B
+
+### Q163 (mcq)
+
+How do you access the city of an employee `emp1` in nested structures?
+
+- A) `emp1.addr.city`
+- B) `emp1.city`
+- C) `addr.emp1.city`
+- D) `city.emp1.addr`
+
+**Answer:** A
+
+### Q164 (mcq)
+
+How do you access the pin code of an employee `emp1` in nested structures?
+
+- A) `emp1.addr.pin_code`
+- B) `emp1.pin_code`
+- C) `addr.emp1.pin_code`
+- D) `pin_code.emp1.addr`
+
+**Answer:** A
+
+### Q165 (mcq)
+
+In the manual string comparison logic, the loop condition is:
+
+- A) `s1[i] != '\0' || s2[i] != '\0'`
+- B) `s1[i] == '\0' && s2[i] == '\0'`
+- C) `s1[i] != '\0' && s2[i] != '\0'`
+- D) `s1[i] == '\0' || s2[i] == '\0'`
+
+**Answer:** A
+
+### Q166 (mcq)
+
+What is the output of `strcmp("apple", "banana")`?
+
+- A) 0
+- B) Negative
+- C) Positive
+- D) Undefined
+
+**Answer:** B
+
+### Q167 (mcq)
+
+What is the output of `strcmp("banana", "apple")`?
+
+- A) 0
+- B) Negative
+- C) Positive
+- D) Undefined
+
+**Answer:** C
+
+### Q168 (mcq)
+
+Which of the following is TRUE about structures?
+
+- A) They store homogeneous data
+- B) They store heterogeneous data
+- C) They cannot contain arrays
+- D) They cannot contain other structures
+
+**Answer:** B
+
+### Q169 (mcq)
+
+The dot operator `.` is used to access structure members for:
+
+- A) Structure variables
+- B) Structure pointers
+- C) Both structure variables and pointers
+- D) Neither
+
+**Answer:** A
+
+### Q170 (mcq)
+
+In `scanf("%d %s %f", &s[i].roll, s[i].name, &s[i].marks);`, why is `&` not used for `s[i].name`?
+
+- A) Because name is a string (array), already an address
+- B) Because name is an integer
+- C) Because name is a structure
+- D) Because name is a float
+
+**Answer:** A
+
+### Q171 (mcq)
+
+What is the output of the following? `char str[] = "Hello"; printf("%lu", sizeof(str));`
+
+- A) 5
+- B) 6
+- C) 4
+- D) 7
+
+**Answer:** B
+
+### Q172 (mcq)
+
+What is the output of `strlen("")`?
+
+- A) 0
+- B) 1
+- C) -1
+- D) Undefined
+
+**Answer:** A
+
+### Q173 (mcq)
+
+Which function can read multi-word strings safely?
+
+- A) `scanf("%s", str)`
+- B) `fgets(str, size, stdin)`
+- C) `gets(str)`
+- D) `getchar()`
+
+**Answer:** B
+
+### Q174 (mcq)
+
+In manual string concatenation, `s1[i] = '\0';` is used to:
+
+- A) Start the string
+- B) Null terminate the result
+- C) End the program
+- D) Clear the string
+
+**Answer:** B
+
+### Q175 (mcq)
+
+A 2D array can be used to represent:
+
+- A) A list of numbers
+- B) A matrix (table) with rows and columns
+- C) A single character
+- D) A string
+
+**Answer:** B
+
+### Q176 (mcq)
+
+In `int arr[2][3] = { {1,2,3}, {4,5,6} };`, `arr[1][2]` is:
+
+- A) 3
+- B) 4
+- C) 5
+- D) 6
+
+**Answer:** D
+
+### Q177 (mcq)
+
+In `int arr[2][3] = {1, 2, 3, 4, 5, 6};`, `arr[0][2]` is:
+
+- A) 1
+- B) 2
+- C) 3
+- D) 4
+
+**Answer:** C
+
+### Q178 (mcq)
+
+For `int arr[2][3]`, what is the size of the array in bytes (assuming int is 4 bytes)?
+
+- A) 6 bytes
+- B) 12 bytes
+- C) 24 bytes
+- D) 48 bytes
+
+**Answer:** C
+
+### Q179 (mcq)
+
+Strings in C are terminated by:
+
+- A) Newline
+- B) Null character
+- C) Space
+- D) Tab
+
+**Answer:** B
+
+### Q180 (mcq)
+
+The `strcat` function requires the destination to have:
+
+- A) Less space
+- B) Enough space to hold the concatenated result
+- C) Same size as source
+- D) Null character at start
+
+**Answer:** B
+
+### Q181 (mcq)
+
+In the memory representation of Row-Major Order, the address of `arr[1][0]` comes after:
+
+- A) `arr[0][2]`
+- B) `arr[1][1]`
+- C) `arr[2][0]`
+- D) `arr[0][0]`
+
+**Answer:** A
+
+### Q182 (mcq)
+
+What is the use of `fgets` over `scanf("%s")`?
+
+- A) `fgets` is faster
+- B) `fgets` can read strings with spaces
+- C) `fgets` only reads integers
+- D) `fgets` is deprecated
+
+**Answer:** B
+
+### Q183 (mcq)
+
+The `strcmp` function returns 0 when:
+
+- A) Strings are equal
+- B) Strings are different
+- C) First string is larger
+- D) Second string is larger
+
+**Answer:** A
+
+### Q184 (mcq)
+
+A structure can contain:
+
+- A) Only basic data types
+- B) Arrays and other structures as members
+- C) Only arrays
+- D) Only other structures
+
+**Answer:** B
+
+### Q185 (mcq)
+
+The `strupr` and `strlwr` functions are:
+
+- A) Part of standard C library
+- B) Non-standard but common
+- C) Not available in any compiler
+- D) Only for Windows
+
+**Answer:** B
+
+### Q186 (mcq)
+
+Which of the following correctly initializes a string?
+
+- A) `char str[] = "Hello";`
+- B) `char str[5] = "Hello";`
+- C) `char str = "Hello";`
+- D) `char str(6) = "Hello";`
+
+**Answer:** A
+
+### Q187 (mcq)
+
+`char str[5] = "Hello";` causes:
+
+- A) No error, stores "Hello"
+- B) Error because no space for '\0'
+- C) Stores "Hell"
+- D) Stores "Hello\0"
+
+**Answer:** B
+
+### Q188 (mcq)
+
+In a 2D array declaration `int arr[][3] = { {1,2}, {4,5} };`, what is the value of `arr[1][2]`?
+
+- A) 0
+- B) 5
+- C) Garbage value
+- D) 4
+
+**Answer:** A
+
+### Q189 (mcq)
+
+In a 2D array declaration `int arr[2][3] = { {1,2}, {4,5} };`, what is the value of `arr[0][2]`?
+
+- A) 0
+- B) 3
+- C) Garbage value
+- D) 2
+
+**Answer:** A
+
+### Q190 (mcq)
+
+The `strcpy` function copies the string including:
+
+- A) Only the characters
+- B) The null character '\0'
+- C) Only the first character
+- D) A newline
+
+**Answer:** B
+
+### Q191 (mcq)
+
+Which of the following is NOT a use of 2D arrays?
+
+- A) Matrix operations
+- B) Storing tabular data
+- C) Representing images
+- D) Storing a list of names
+
+**Answer:** D
+
+### Q192 (mcq)
+
+In nested structures, the outer structure is accessed first, then:
+
+- A) The inner structure name, then its members
+- B) Only the inner structure members directly
+- C) The outer structure members only
+- D) Both structures are accessed simultaneously
+
+**Answer:** A
+
+### Q193 (mcq)
+
+An array of structures is useful for:
+
+- A) Storing a single student's data
+- B) Storing multiple students' data
+- C) Storing only integer data
+- D) Storing only string data
+
+**Answer:** B
+
+### Q194 (mcq)
+
+Which of the following correctly creates a structure variable and initializes it?
+
+- A) `struct Student s1 = {101, "Alice", 85.5};`
+- B) `struct Student s1 = 101, "Alice", 85.5;`
+- C) `struct Student s1(101, "Alice", 85.5);`
+- D) `Student s1 = (101, "Alice", 85.5);`
+
+**Answer:** A
+
+### Q195 (mcq)
+
+How do you access the state in nested structures for `emp1`?
+
+- A) `emp1.state`
+- B) `emp1.addr.state`
+- C) `addr.emp1.state`
+- D) `state.emp1.addr`
+
+**Answer:** B
+
+### Q196 (mcq)
+
+The `fgets` function reads the newline character as well, which means:
+
+- A) It must be removed manually if not wanted
+- B) It is automatically removed
+- C) It causes an error
+- D) It is ignored
+
+**Answer:** A
+
+### Q197 (mcq)
+
+In the manual string comparison logic, `flag` is used to:
+
+- A) Store the result of comparison
+- B) Store the length of strings
+- C) Store the index
+- D) Store the address
+
+**Answer:** A
+
+### Q198 (mcq)
+
+If `flag = 1` after string comparison, it means:
+
+- A) Strings are equal
+- B) Strings are different
+- C) Strings are empty
+- D) Strings are same length
+
+**Answer:** A
+
+### Q199 (mcq)
+
+In the row-major order memory layout diagram, consecutive memory addresses contain:
+
+- A) Alternate rows
+- B) Elements of the same row consecutively
+- C) Elements of the same column consecutively
+- D) Random elements
+
+**Answer:** B
+
+### Q200 (mcq)
+
+Which of the following is TRUE about structures and arrays?
+
+- A) Arrays store homogeneous data; structures store heterogeneous data
+- B) Arrays store heterogeneous data; structures store homogeneous data
+- C) Both store only homogeneous data
+- D) Both store only heterogeneous data
+
+**Answer:** A

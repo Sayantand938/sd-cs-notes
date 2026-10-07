@@ -1,4 +1,4 @@
-# Unit 01 02 Practice Paper (Eng)
+# Concepts Of Software — Questions (EN)
 
 ## Section 1: Basic Computer Organisation (Questions 1 to 20)
 
@@ -1109,3 +1109,1103 @@ A 4-variable K-Map has how many cells?
 - D) 64
 
 **Answer:** B
+
+### Q101 (mcq)
+
+What is software?
+
+- A) Physical components of a computer
+- B) Collection of programs, data, and instructions that tell a computer how to perform specific tasks
+- C) The monitor and keyboard
+- D) The CPU and memory
+
+**Answer:** B
+
+### Q102 (mcq)
+
+Which equation correctly represents a functional computer system?
+
+- A) Hardware + Software = Functional Computer System
+- B) Hardware - Software = Functional Computer System
+- C) Hardware × Software = Functional Computer System
+- D) Hardware / Software = Functional Computer System
+
+**Answer:** A
+
+### Q103 (mcq)
+
+Which of the following is NOT a type of software?
+
+- A) System Software
+- B) Application Software
+- C) Utility Software
+- D) Hardware Software
+
+**Answer:** D
+
+### Q104 (mcq)
+
+System Software acts as an interface between:
+
+- A) User and hardware only
+- B) Application programs and hardware
+- C) User and application programs only
+- D) Two different computers
+
+**Answer:** B
+
+### Q105 (mcq)
+
+Which of the following is a component of System Software?
+
+- A) Microsoft Word
+- B) Operating System
+- C) Adobe Photoshop
+- D) Chrome Browser
+
+**Answer:** B
+
+### Q106 (mcq)
+
+What is the primary function of an Operating System?
+
+- A) To create documents
+- B) To play games
+- C) To act as an intermediary between the user and computer hardware
+- D) To design graphics
+
+**Answer:** C
+
+### Q107 (mcq)
+
+Which function of the OS allocates CPU time to processes?
+
+- A) Memory Management
+- B) File Management
+- C) Process Management
+- D) Device Management
+
+**Answer:** C
+
+### Q108 (mcq)
+
+Memory Management in an OS refers to:
+
+- A) Organizing files on hard disk
+- B) Managing RAM allocation to programs
+- C) Controlling I/O devices
+- D) User authentication
+
+**Answer:** B
+
+### Q109 (mcq)
+
+File Management in an OS involves:
+
+- A) Managing RAM
+- B) Organizing, storing, retrieving, and managing files on storage devices
+- C) Allocating CPU time
+- D) Detecting errors
+
+**Answer:** B
+
+### Q110 (mcq)
+
+Which OS function uses device drivers?
+
+- A) Process Management
+- B) Memory Management
+- C) File Management
+- D) Device Management
+
+**Answer:** D
+
+### Q111 (mcq)
+
+Security & Protection functions of an OS include:
+
+- A) Defragmentation
+- B) User authentication and access controls
+- C) File compression
+- D) Disk cleanup
+
+**Answer:** B
+
+### Q112 (mcq)
+
+A GUI (Graphical User Interface) is an example of which OS function?
+
+- A) Process Management
+- B) Memory Management
+- C) User Interface
+- D) Device Management
+
+**Answer:** C
+
+### Q113 (mcq)
+
+Which type of OS allows only one user to use the system at a time?
+
+- A) Multi-User OS
+- B) Multiprogramming OS
+- C) Single-User OS
+- D) Multiprocessing OS
+
+**Answer:** C
+
+### Q114 (mcq)
+
+Which of the following is an example of a Single-User OS?
+
+- A) UNIX
+- B) Linux
+- C) MS-DOS
+- D) Windows Server
+
+**Answer:** C
+
+### Q115 (mcq)
+
+A Multi-User OS allows:
+
+- A) Only one user at a time
+- B) Multiple users to access the system simultaneously
+- C) Only administrators to use the system
+- D) No users to access the system
+
+**Answer:** B
+
+### Q116 (mcq)
+
+Which OS type keeps multiple programs in memory simultaneously and switches between them?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** B
+
+### Q117 (mcq)
+
+Which OS supports two or more CPUs executing processes in parallel?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** C
+
+### Q118 (mcq)
+
+In Time-Sharing OS, each user gets:
+
+- A) Unlimited CPU time
+- B) A small time slice (quantum) of CPU
+- C) Dedicated CPU
+- D) No CPU time
+
+**Answer:** B
+
+### Q119 (mcq)
+
+Which OS type makes users feel they have a dedicated system?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** D
+
+### Q120 (mcq)
+
+Which of the following is an example of a Multi-User OS?
+
+- A) MS-DOS
+- B) Windows 95
+- C) UNIX
+- D) Windows 98
+
+**Answer:** C
+
+### Q121 (mcq)
+
+Which translator converts Assembly Language to machine code?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Loader
+
+**Answer:** C
+
+### Q122 (mcq)
+
+An Assembler translates mnemonics into:
+
+- A) High-level code
+- B) Machine code
+- C) Assembly code
+- D) Byte code
+
+**Answer:** B
+
+### Q123 (mcq)
+
+Which translator converts HLL code line-by-line and executes it immediately?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Linker
+
+**Answer:** B
+
+### Q124 (mcq)
+
+Which translator is described as "slow" because it repeats translation each time the program runs?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Loader
+
+**Answer:** B
+
+### Q125 (mcq)
+
+A Compiler translates an entire HLL program:
+
+- A) Line-by-line
+- B) In one go
+- C) Only at runtime
+- D) Never
+
+**Answer:** B
+
+### Q126 (mcq)
+
+Which translator produces a standalone executable file?
+
+- A) Interpreter
+- B) Assembler
+- C) Compiler
+- D) Loader
+
+**Answer:** C
+
+### Q127 (mcq)
+
+The key difference between a Compiler and an Interpreter is:
+
+- A) Compiler is slower
+- B) Compiler translates once; Interpreter translates every time
+- C) Interpreter produces an object file
+- D) Compiler executes line-by-line
+
+**Answer:** B
+
+### Q128 (mcq)
+
+A Loader loads the executable program from:
+
+- A) RAM into secondary storage
+- B) Secondary storage into RAM
+- C) CPU into RAM
+- D) ROM into RAM
+
+**Answer:** B
+
+### Q129 (mcq)
+
+Which system program allocates memory space and hands control to the starting address of the program?
+
+- A) Linker
+- B) Compiler
+- C) Loader
+- D) Interpreter
+
+**Answer:** C
+
+### Q130 (mcq)
+
+A Linker combines multiple object files into:
+
+- A) Object code
+- B) Source code
+- C) A single executable file
+- D) Assembly code
+
+**Answer:** C
+
+### Q131 (mcq)
+
+Which system program resolves external references (like linking library functions)?
+
+- A) Loader
+- B) Linker
+- C) Compiler
+- D) Interpreter
+
+**Answer:** B
+
+### Q132 (mcq)
+
+The correct flow from source code to execution is:
+
+- A) Source Code → Linker → Compiler → Loader → Execute
+- B) Source Code → Compiler → Linker → Loader → Execute
+- C) Source Code → Loader → Compiler → Linker → Execute
+- D) Source Code → Interpreter → Linker → Loader → Execute
+
+**Answer:** B
+
+### Q133 (mcq)
+
+The Linker produces which type of file?
+
+- A) .obj file
+- B) .exe or .out file
+- C) .txt file
+- D) .c file
+
+**Answer:** B
+
+### Q134 (mcq)
+
+The Loader loads the executable file into:
+
+- A) Secondary Storage
+- B) ROM
+- C) RAM
+- D) Cache
+
+**Answer:** C
+
+### Q135 (mcq)
+
+Application Software is designed to:
+
+- A) Manage hardware resources
+- B) Help users perform specific non-system tasks
+- C) Control I/O devices
+- D) Translate high-level code
+
+**Answer:** B
+
+### Q136 (mcq)
+
+Which of the following is Application Software?
+
+- A) Windows 10
+- B) Linux
+- C) MS Word
+- D) UNIX
+
+**Answer:** C
+
+### Q137 (mcq)
+
+Which of the following is NOT Application Software?
+
+- A) Google Docs
+- B) Adobe Photoshop
+- C) MySQL Workbench
+- D) Windows Server
+
+**Answer:** D
+
+### Q138 (mcq)
+
+Utility Software helps to:
+
+- A) Perform user tasks like word processing
+- B) Maintain, optimize, and secure the computer system
+- C) Manage processes
+- D) Browse the internet
+
+**Answer:** B
+
+### Q139 (mcq)
+
+Which of the following is Utility Software?
+
+- A) Google Chrome
+- B) Antivirus (Norton, Kaspersky)
+- C) MS Excel
+- D) VLC Media Player
+
+**Answer:** B
+
+### Q140 (mcq)
+
+Disk Cleanup and Defragmentation tools are examples of:
+
+- A) Application Software
+- B) System Software (Utility)
+- C) Operating System
+- D) Language Translator
+
+**Answer:** B
+
+### Q141 (mcq)
+
+The difference between Utility Software and Application Software is:
+
+- A) Utilities are user-task-oriented; Applications are system-oriented
+- B) Utilities are system-oriented; Applications are user-task-oriented
+- C) Both are the same
+- D) Utilities are hardware components
+
+**Answer:** B
+
+### Q142 (mcq)
+
+CUI stands for:
+
+- A) Computer User Interface
+- B) Character User Interface
+- C) Command User Interface
+- D) Central User Interface
+
+**Answer:** B
+
+### Q143 (mcq)
+
+CLI stands for:
+
+- A) Command Line Interface
+- B) Computer Line Interface
+- C) Central Language Interface
+- D) Character Language Interface
+
+**Answer:** A
+
+### Q144 (mcq)
+
+Which user interface requires knowledge of commands?
+
+- A) GUI
+- B) CUI/CLI
+- C) Both require command knowledge
+- D) Neither requires command knowledge
+
+**Answer:** B
+
+### Q145 (mcq)
+
+Which user interface uses graphical elements like windows, icons, menus, and pointers?
+
+- A) CUI
+- B) CLI
+- C) GUI
+- D) Text-based interface
+
+**Answer:** C
+
+### Q146 (mcq)
+
+WIMP in GUI stands for:
+
+- A) Windows, Icons, Menus, Pointers
+- B) Web, Internet, Mouse, Programs
+- C) Windows, Input, Mouse, Programs
+- D) Work, Icons, Memory, Processors
+
+**Answer:** A
+
+### Q147 (mcq)
+
+Which user interface is more intuitive and visual?
+
+- A) CUI
+- B) CLI
+- C) GUI
+- D) Command-based interface
+
+**Answer:** C
+
+### Q148 (mcq)
+
+Which of the following is an example of CUI?
+
+- A) Windows 10
+- B) macOS
+- C) Linux Terminal (Bash)
+- D) Android
+
+**Answer:** C
+
+### Q149 (mcq)
+
+Which of the following is an example of GUI?
+
+- A) MS-DOS
+- B) Windows Command Prompt
+- C) Linux Terminal
+- D) Windows 7
+
+**Answer:** D
+
+### Q150 (mcq)
+
+GUI requires more:
+
+- A) Command knowledge
+- B) System resources (RAM, GPU)
+- C) Text input
+- D) Keyboard shortcuts
+
+**Answer:** B
+
+### Q151 (mcq)
+
+What is the Linux command to print the current working directory path?
+
+- A) ls
+- B) pwd
+- C) cd
+- D) mkdir
+
+**Answer:** B
+
+### Q152 (mcq)
+
+The 'ls' command in Linux is used to:
+
+- A) Change directory
+- B) List files and directories in current folder
+- C) Create a new directory
+- D) Remove a file
+
+**Answer:** B
+
+### Q153 (mcq)
+
+Which command is used to change directory in Linux?
+
+- A) ls
+- B) pwd
+- C) cd
+- D) mkdir
+
+**Answer:** C
+
+### Q154 (mcq)
+
+To go back one level in Linux directory structure, you use:
+
+- A) cd /
+- B) cd ..
+- C) cd ~
+- D) cd .
+
+**Answer:** D
+
+### Q155 (mcq)
+
+Which command creates a new directory in Linux?
+
+- A) touch
+- B) mkdir
+- C) rmdir
+- D) cp
+
+**Answer:** B
+
+### Q156 (mcq)
+
+The 'rmdir' command in Linux removes:
+
+- A) A file
+- B) An empty directory
+- C) A non-empty directory
+- D) All files in a directory
+
+**Answer:** B
+
+### Q157 (mcq)
+
+Which command creates an empty file in Linux?
+
+- A) mkdir
+- B) touch
+- C) cp
+- D) mv
+
+**Answer:** B
+
+### Q158 (mcq)
+
+The 'cp' command in Linux is used to:
+
+- A) Move a file
+- B) Copy a file
+- C) Remove a file
+- D) Display file content
+
+**Answer:** B
+
+### Q159 (mcq)
+
+Which command is used to move or rename a file in Linux?
+
+- A) cp
+- B) rm
+- C) mv
+- D) cat
+
+**Answer:** C
+
+### Q160 (mcq)
+
+The 'rm' command in Linux is used to:
+
+- A) Remove/delete a file
+- B) Rename a file
+- C) Copy a file
+- D) Display file content
+
+**Answer:** A
+
+### Q161 (mcq)
+
+Which command displays the content of a file in Linux?
+
+- A) cat
+- B) mv
+- C) cp
+- D) touch
+
+**Answer:** A
+
+### Q162 (mcq)
+
+The 'man' command in Linux displays:
+
+- A) The current directory
+- B) The manual/help for a command
+- C) The username
+- D) The file content
+
+**Answer:** B
+
+### Q163 (mcq)
+
+Which command in Linux displays the logged-in username?
+
+- A) pwd
+- B) ls
+- C) whoami
+- D) clear
+
+**Answer:** C
+
+### Q164 (mcq)
+
+The 'clear' command in Linux:
+
+- A) Deletes all files
+- B) Clears the terminal screen
+- C) Removes a directory
+- D) Displays system information
+
+**Answer:** B
+
+### Q165 (mcq)
+
+Linux is described as:
+
+- A) Closed-source, single-user OS
+- B) Open-source, multi-user, multitasking OS
+- C) Closed-source, multi-user OS
+- D) Open-source, single-user OS
+
+**Answer:** B
+
+### Q166 (mcq)
+
+In Linux, the terminal uses which type of interface?
+
+- A) GUI
+- B) CUI
+- C) Both
+- D) Neither
+
+**Answer:** B
+
+### Q167 (mcq)
+
+Which of the following is NOT a function of an Operating System?
+
+- A) Process Management
+- B) File Management
+- C) Graphic Design
+- D) Security & Protection
+
+**Answer:** C
+
+### Q168 (mcq)
+
+Early IBM mainframe OS is an example of which OS type?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** B
+
+### Q169 (mcq)
+
+Windows NT and Linux (on multi-core) are examples of which OS type?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** C
+
+### Q170 (mcq)
+
+Which OS type extends multiprogramming with CPU time slicing?
+
+- A) Single-User OS
+- B) Multiprogramming OS
+- C) Multiprocessing OS
+- D) Time-Sharing OS
+
+**Answer:** D
+
+### Q171 (mcq)
+
+UNIX, Linux, and Windows Server are examples of which OS type?
+
+- A) Single-User OS
+- B) Multi-User OS
+- C) Multiprogramming OS
+- D) Multiprocessing OS
+
+**Answer:** B
+
+### Q172 (mcq)
+
+Which of the following is NOT an example of System Software?
+
+- A) Loader
+- B) Linker
+- C) Operating System
+- D) Microsoft Word
+
+**Answer:** D
+
+### Q173 (mcq)
+
+Which of the following is NOT a type of Language Translator?
+
+- A) Assembler
+- B) Interpreter
+- C) Compiler
+- D) Loader
+
+**Answer:** D
+
+### Q174 (mcq)
+
+Which translator has a one-step process (source → object code)?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Linker
+
+**Answer:** C
+
+### Q175 (mcq)
+
+Which translator does NOT produce a separate object code file?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Linker
+
+**Answer:** B
+
+### Q176 (mcq)
+
+A Compiler produces which file as output?
+
+- A) .exe file
+- B) .obj file
+- C) .txt file
+- D) .out file
+
+**Answer:** B
+
+### Q177 (mcq)
+
+Which translator's execution is described as "fast" because execution happens later without re-translation?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Loader
+
+**Answer:** A
+
+### Q178 (mcq)
+
+A Loader can be of which types?
+
+- A) Absolute, Relocating, Dynamic Linker
+- B) Simple, Complex, Hybrid
+- C) Static, Dynamic, Variable
+- D) Primary, Secondary, Tertiary
+
+**Answer:** A
+
+### Q179 (mcq)
+
+The Linker's output is fed directly to which system program?
+
+- A) Compiler
+- B) Assembler
+- C) Loader
+- D) Interpreter
+
+**Answer:** C
+
+### Q180 (mcq)
+
+Which Linux command would you use to see the manual for the 'ls' command?
+
+- A) man ls
+- B) help ls
+- C) ls --help
+- D) info ls
+
+**Answer:** A
+
+### Q181 (mcq)
+
+In Linux, the 'pwd' command output shows:
+
+- A) The list of files
+- B) The current working directory path
+- C) The current username
+- D) The system date
+
+**Answer:** B
+
+### Q182 (mcq)
+
+Which Linux command sequence would create a directory called 'Projects' and then move into it?
+
+- A) mkdir Projects → cd Projects
+- B) cd Projects → mkdir Projects
+- C) touch Projects → cd Projects
+- D) ls Projects → cd Projects
+
+**Answer:** A
+
+### Q183 (mcq)
+
+To copy a file 'data.txt' to 'backup.txt' in Linux, you would use:
+
+- A) mv data.txt backup.txt
+- B) cp data.txt backup.txt
+- C) rm data.txt backup.txt
+- D) touch data.txt backup.txt
+
+**Answer:** B
+
+### Q184 (mcq)
+
+To rename 'oldfile.txt' to 'newfile.txt' in Linux, you would use:
+
+- A) cp oldfile.txt newfile.txt
+- B) rm oldfile.txt newfile.txt
+- C) mv oldfile.txt newfile.txt
+- D) cat oldfile.txt newfile.txt
+
+**Answer:** C
+
+### Q185 (mcq)
+
+Which of the following statements about Linux commands is TRUE?
+
+- A) 'rm' deletes a directory by default
+- B) 'cat' creates a new file
+- C) 'pwd' shows the current directory path
+- D) 'ls' changes the directory
+
+**Answer:** C
+
+### Q186 (mcq)
+
+Which feature is NOT associated with CUI/CLI?
+
+- A) Requires knowledge of commands
+- B) Low memory/processing overhead
+- C) Uses mouse for navigation
+- D) Faster for advanced users
+
+**Answer:** C
+
+### Q187 (mcq)
+
+Which feature is NOT associated with GUI?
+
+- A) Intuitive and visual
+- B) Uses mouse/touch for navigation
+- C) Requires command knowledge
+- D) Easy for beginners
+
+**Answer:** C
+
+### Q188 (mcq)
+
+Examples of GUI include:
+
+- A) Windows 10, macOS, Android
+- B) MS-DOS, UNIX, Linux Terminal
+- C) Bash, Command Prompt, Terminal
+- D) All of the above
+
+**Answer:** A
+
+### Q189 (mcq)
+
+Examples of CUI include:
+
+- A) Windows 10, macOS
+- B) Linux Terminal (Bash), MS-DOS
+- C) Android, iOS
+- D) GNOME, KDE
+
+**Answer:** B
+
+### Q190 (mcq)
+
+Which of the following is Application Software used for graphics?
+
+- A) MS Word
+- B) MS Excel
+- C) Adobe Photoshop
+- D) MySQL Workbench
+
+**Answer:** C
+
+### Q191 (mcq)
+
+Which of the following is Utility Software used for file compression?
+
+- A) Norton Antivirus
+- B) WinRAR, 7-Zip
+- C) Disk Cleanup
+- D) Backup software
+
+**Answer:** B
+
+### Q192 (mcq)
+
+What is the role of device drivers in an OS?
+
+- A) To manage files
+- B) To control I/O devices
+- C) To manage memory
+- D) To handle user authentication
+
+**Answer:** B
+
+### Q193 (mcq)
+
+Error Detection & Handling in an OS involves:
+
+- A) Creating new files
+- B) Detecting hardware/software errors and taking corrective actions
+- C) Allocating memory
+- D) Managing processes
+
+**Answer:** B
+
+### Q194 (mcq)
+
+The Linux command 'rmdir OldFolder' will:
+
+- A) Delete the file 'OldFolder'
+- B) Remove the empty directory 'OldFolder'
+- C) Rename 'OldFolder'
+- D) Copy 'OldFolder'
+
+**Answer:** B
+
+### Q195 (mcq)
+
+The Linux command 'touch notes.md' will:
+
+- A) Display content of 'notes.md'
+- B) Create an empty file called 'notes.md'
+- C) Delete 'notes.md'
+- D) Move 'notes.md'
+
+**Answer:** B
+
+### Q196 (mcq)
+
+Which system software is a set of programs that manage and control hardware resources and provide a platform for application software?
+
+- A) Application Software
+- B) Utility Software
+- C) System Software
+- D) Firmware
+
+**Answer:** C
+
+### Q197 (mcq)
+
+Which of the following is TRUE about Multiprogramming OS?
+
+- A) It uses multiple CPUs
+- B) It keeps multiple programs in memory simultaneously
+- C) It supports only one user
+- D) It has no memory management
+
+**Answer:** B
+
+### Q198 (mcq)
+
+Which of the following is TRUE about Multiprocessing OS?
+
+- A) It supports only one CPU
+- B) It executes multiple processes in parallel using multiple CPUs
+- C) It is single-user
+- D) It has no process management
+
+**Answer:** B
+
+### Q199 (mcq)
+
+The components of System Software include:
+
+- A) OS, Language Translators, Loader, Linker
+- B) OS, Word Processors, Spreadsheets
+- C) Antivirus, Games, Media Players
+- D) Compilers, Browsers, Graphics Software
+
+**Answer:** A
+
+### Q200 (mcq)
+
+The relationship between hardware, software, and a functional computer system is:
+
+- A) Hardware alone is sufficient
+- B) Software alone is sufficient
+- C) Hardware + Software = Functional Computer System
+- D) Hardware and Software are unrelated
+
+**Answer:** C

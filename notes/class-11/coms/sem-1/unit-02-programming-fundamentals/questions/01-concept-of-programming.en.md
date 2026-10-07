@@ -1,4 +1,4 @@
-# Unit 02 01 Practice Paper (Eng)
+# Concept Of Programming — Questions (EN)
 
 ## Section 1: Concept of Programming (Questions 1 to 25)
 
@@ -1105,3 +1105,1103 @@ Which statement about problem solving is TRUE?
 - D) Each step is important for a successful solution
 
 **Answer:** D
+
+### Q101 (mcq)
+
+What is programming?
+
+- A) The process of creating hardware components
+- B) The process of creating a set of instructions to tell a computer how to perform a specific task
+- C) The process of assembling computer parts
+- D) The process of designing computer networks
+
+**Answer:** B
+
+### Q102 (mcq)
+
+An instruction consists of which two parts?
+
+- A) Opcode and Operand
+- B) Source and Destination
+- C) Input and Output
+- D) Register and Memory
+
+**Answer:** A
+
+### Q103 (mcq)
+
+The Opcode in an instruction specifies:
+
+- A) What to do
+- B) On what to do it
+- C) Where to store the result
+- D) When to execute
+
+**Answer:** A
+
+### Q104 (mcq)
+
+The Operand in an instruction specifies:
+
+- A) The operation to perform
+- B) The data or address on which the operation is performed
+- C) The next instruction to execute
+- D) The type of instruction
+
+**Answer:** B
+
+### Q105 (mcq)
+
+Which of the following is an example of a Data Transfer instruction in Assembly?
+
+- A) ADD B
+- B) AND C
+- C) MOV A, 5
+- D) JUMP 100
+
+**Answer:** C
+
+### Q106 (mcq)
+
+Which type of instruction changes the normal sequential flow of execution?
+
+- A) Arithmetic instructions
+- B) Logical instructions
+- C) Control instructions
+- D) Data transfer instructions
+
+**Answer:** C
+
+### Q107 (mcq)
+
+A program is defined as:
+
+- A) A single instruction
+- B) A collection of instructions written in a specific sequence to accomplish a task
+- C) A hardware component
+- D) An operating system
+
+**Answer:** B
+
+### Q108 (mcq)
+
+In the C program example provided, the instruction `sum = a + b;` is an example of:
+
+- A) Data transfer
+- B) Arithmetic operation
+- C) Control flow
+- D) Logical operation
+
+**Answer:** B
+
+### Q109 (mcq)
+
+Machine Language instructions are written in:
+
+- A) Mnemonics
+- B) Binary (0s and 1s)
+- C) English words
+- D) Decimal numbers
+
+**Answer:** B
+
+### Q110 (mcq)
+
+Which language is executed directly by the CPU without any translation?
+
+- A) Assembly Language
+- B) High-Level Language
+- C) Machine Language
+- D) Python
+
+**Answer:** C
+
+### Q111 (mcq)
+
+Assembly Language uses:
+
+- A) Binary codes
+- B) Mnemonics like MOV, ADD
+- C) Natural English sentences
+- D) Machine code
+
+**Answer:** B
+
+### Q112 (mcq)
+
+The system software that translates assembly language into machine code is called:
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Loader
+
+**Answer:** C
+
+### Q113 (mcq)
+
+Which language is machine-dependent?
+
+- A) Python
+- B) Java
+- C) Assembly Language
+- D) C
+
+**Answer:** C
+
+### Q114 (mcq)
+
+High-Level Languages are designed to be:
+
+- A) Understood by humans and machine-independent
+- B) Understood only by machines
+- C) Dependent on specific CPU
+- D) Written in binary
+
+**Answer:** A
+
+### Q115 (mcq)
+
+Which of the following is NOT an example of a High-Level Language?
+
+- A) Python
+- B) C
+- C) Assembly Language
+- D) Java
+
+**Answer:** C
+
+### Q116 (mcq)
+
+A program written in a High-Level Language needs a:
+
+- A) Assembler only
+- B) Compiler or Interpreter
+- C) Loader only
+- D) Linker only
+
+**Answer:** B
+
+### Q117 (mcq)
+
+According to the abstraction diagram, the correct order from High-Level to Machine Language is:
+
+- A) High-Level → Assembler → Assembly → Compiler → Machine
+- B) High-Level → Compiler → Assembly → Assembler → Machine
+- C) High-Level → Interpreter → Machine → Assembly
+- D) High-Level → Assembly → Compiler → Machine
+
+**Answer:** B
+
+### Q118 (mcq)
+
+Which programming language is considered the lowest level?
+
+- A) Assembly
+- B) C
+- C) Machine Language
+- D) Python
+
+**Answer:** C
+
+### Q119 (mcq)
+
+Which level of language is closest to hardware?
+
+- A) High-Level
+- B) Low-Level
+- C) Middle-Level
+- D) All are equal
+
+**Answer:** B
+
+### Q120 (mcq)
+
+Which of the following is TRUE about Assembly Language?
+
+- A) It is machine-independent
+- B) It uses mnemonics and is machine-dependent
+- C) It is executed directly by the CPU
+- D) It is the same as High-Level Language
+
+**Answer:** B
+
+### Q121 (mcq)
+
+Procedural Programming is also called:
+
+- A) Declarative Programming
+- B) Imperative Programming
+- C) Object-Oriented Programming
+- D) Functional Programming
+
+**Answer:** B
+
+### Q122 (mcq)
+
+Non-Procedural Programming is also called:
+
+- A) Imperative Programming
+- B) Declarative Programming
+- C) Structured Programming
+- D) Procedural Programming
+
+**Answer:** B
+
+### Q123 (mcq)
+
+Which paradigm focuses on _how_ to achieve the result?
+
+- A) Non-Procedural
+- B) Declarative
+- C) Procedural
+- D) Object-Oriented
+
+**Answer:** C
+
+### Q124 (mcq)
+
+Which paradigm focuses on _what_ result is required?
+
+- A) Procedural
+- B) Imperative
+- C) Non-Procedural
+- D) Structured
+
+**Answer:** C
+
+### Q125 (mcq)
+
+Which of the following is an example of a Non-Procedural language?
+
+- A) C
+- B) Pascal
+- C) SQL
+- D) Fortran
+
+**Answer:** C
+
+### Q126 (mcq)
+
+Which of the following is an example of a Procedural language?
+
+- A) SQL
+- B) Prolog
+- C) C
+- D) HTML
+
+**Answer:** C
+
+### Q127 (mcq)
+
+In Non-Procedural programming, control flow is:
+
+- A) Explicit
+- B) Implicit
+- C) Always sequential
+- D) Managed by the programmer
+
+**Answer:** B
+
+### Q128 (mcq)
+
+The SQL query `SELECT SUM(salary) FROM employees WHERE department = 'IT';` is an example of:
+
+- A) Procedural approach
+- B) Non-Procedural (declarative) approach
+- C) Assembly language
+- D) Machine code
+
+**Answer:** B
+
+### Q129 (mcq)
+
+Structured Programming is a subset of:
+
+- A) Non-Procedural Programming
+- B) Object-Oriented Programming
+- C) Procedural Programming
+- D) Declarative Programming
+
+**Answer:** C
+
+### Q130 (mcq)
+
+The goal of Structured Programming is to:
+
+- A) Use `goto` statements freely
+- B) Improve clarity, quality, and development time by using specific control structures
+- C) Eliminate all loops
+- D) Make code machine-dependent
+
+**Answer:** B
+
+### Q131 (mcq)
+
+Which of the following is a key element of Structured Programming?
+
+- A) Goto statements
+- B) Sequence, Selection, Iteration
+- C) Objects and classes
+- D) Inheritance
+
+**Answer:** B
+
+### Q132 (mcq)
+
+In Structured Programming, the golden rule is to:
+
+- A) Use as many `goto` statements as possible
+- B) Avoid the `goto` statement
+- C) Never use functions
+- D) Use only global variables
+
+**Answer:** B
+
+### Q133 (mcq)
+
+The use of `goto` leads to:
+
+- A) Modular code
+- B) Spaghetti code
+- C) Structured code
+- D) Object-oriented code
+
+**Answer:** B
+
+### Q134 (mcq)
+
+Sequence in Structured Programming means:
+
+- A) Instructions are executed in random order
+- B) Instructions are executed one after another
+- C) Instructions are skipped
+- D) Instructions are repeated
+
+**Answer:** B
+
+### Q135 (mcq)
+
+Selection in Structured Programming includes:
+
+- A) Loops (for, while)
+- B) Conditional branching (if-else, switch-case)
+- C) Function calls
+- D) Jump instructions
+
+**Answer:** B
+
+### Q136 (mcq)
+
+Iteration in Structured Programming includes:
+
+- A) If-else
+- B) Loops (for, while)
+- C) Switch-case
+- D) Goto
+
+**Answer:** B
+
+### Q137 (mcq)
+
+Modularity in Structured Programming refers to:
+
+- A) Writing the entire program in one block
+- B) Dividing the program into smaller, reusable functions or procedures
+- C) Using only global variables
+- D) Avoiding functions
+
+**Answer:** B
+
+### Q138 (mcq)
+
+Object-Oriented Programming (OOP) is based on:
+
+- A) Functions and procedures
+- B) Objects containing data and methods
+- C) SQL queries
+- D) Binary code
+
+**Answer:** B
+
+### Q139 (mcq)
+
+A Class in OOP is:
+
+- A) An instance of an object
+- B) A blueprint or template for creating objects
+- C) A variable
+- D) A loop
+
+**Answer:** B
+
+### Q140 (mcq)
+
+An Object in OOP is:
+
+- A) A class definition
+- B) An instance of a class
+- C) A function
+- D) A data type
+
+**Answer:** B
+
+### Q141 (mcq)
+
+Which OOP concept binds data and methods together and hides internal details?
+
+- A) Inheritance
+- B) Polymorphism
+- C) Encapsulation
+- D) Abstraction
+
+**Answer:** C
+
+### Q142 (mcq)
+
+Encapsulation is achieved using:
+
+- A) Public variables only
+- B) Access specifiers like private/public
+- C) Global functions
+- D) Goto statements
+
+**Answer:** B
+
+### Q143 (mcq)
+
+Inheritance in OOP allows:
+
+- A) A class to have multiple copies
+- B) A new class to inherit properties from an existing class
+- C) One function to have many names
+- D) Data to be hidden
+
+**Answer:** B
+
+### Q144 (mcq)
+
+Inheritance promotes:
+
+- A) Code duplication
+- B) Code reusability
+- C) Spaghetti code
+- D) Hard-to-read code
+
+**Answer:** B
+
+### Q145 (mcq)
+
+Polymorphism means:
+
+- A) One class inherits from another
+- B) Many forms; the same function name can behave differently in different contexts
+- C) Data and methods are combined
+- D) Showing only essential features
+
+**Answer:** B
+
+### Q146 (mcq)
+
+An example of polymorphism is:
+
+- A) `Car` and `myCar`
+- B) `draw()` function for Circle vs Square
+- C) Private variables
+- D) For loop
+
+**Answer:** B
+
+### Q147 (mcq)
+
+Abstraction in OOP means:
+
+- A) Hiding background details and showing only essential features
+- B) Inheriting from a parent class
+- C) Having multiple forms of a function
+- D) Combining data and methods
+
+**Answer:** A
+
+### Q148 (mcq)
+
+Using a car's steering wheel without knowing the engine mechanics is an example of:
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** D
+
+### Q149 (mcq)
+
+Which of the following is an OOP language?
+
+- A) C
+- B) Pascal
+- C) Java
+- D) Fortran
+
+**Answer:** C
+
+### Q150 (mcq)
+
+Which OOP concept is primarily about data security?
+
+- A) Abstraction
+- B) Inheritance
+- C) Polymorphism
+- D) Encapsulation
+
+**Answer:** D
+
+### Q151 (mcq)
+
+In Procedural Programming, data is:
+
+- A) Combined with functions
+- B) Separate from functions
+- C) Hidden from functions
+- D) Encapsulated inside objects
+
+**Answer:** B
+
+### Q152 (mcq)
+
+In OOP, data and functions are:
+
+- A) Separate
+- B) Combined into objects
+- C) Stored in global memory
+- D) Not related
+
+**Answer:** B
+
+### Q153 (mcq)
+
+Which paradigm has higher security due to encapsulation?
+
+- A) Procedural
+- B) Structured
+- C) Object-Oriented
+- D) Non-Procedural
+
+**Answer:** C
+
+### Q154 (mcq)
+
+Which paradigm is best for large, complex, real-world simulations?
+
+- A) Procedural
+- B) Structured
+- C) Non-Procedural
+- D) Object-Oriented
+
+**Answer:** D
+
+### Q155 (mcq)
+
+Which paradigm is suitable for small to medium problems?
+
+- A) Object-Oriented
+- B) Procedural/Structured
+- C) Declarative
+- D) Functional
+
+**Answer:** B
+
+### Q156 (mcq)
+
+In the language abstraction hierarchy, the assembler converts:
+
+- A) High-Level to Machine
+- B) Assembly to Machine
+- C) Machine to Assembly
+- D) High-Level to Assembly
+
+**Answer:** B
+
+### Q157 (mcq)
+
+A High-Level Language program is typically:
+
+- A) Platform dependent
+- B) Platform independent
+- C) Written in binary
+- D) Executed directly
+
+**Answer:** B
+
+### Q158 (mcq)
+
+Which of the following is a characteristic of Machine Language?
+
+- A) Easy to understand for humans
+- B) Machine-independent
+- C) Executed directly by the CPU
+- D) Uses mnemonics
+
+**Answer:** C
+
+### Q159 (mcq)
+
+Which of the following is NOT a characteristic of High-Level Languages?
+
+- A) Human-readable
+- B) Machine-independent
+- C) Uses variables and functions
+- D) Needs an assembler for translation
+
+**Answer:** D
+
+### Q160 (mcq)
+
+Which of the following is TRUE about Low-Level Languages?
+
+- A) They are easy to write
+- B) They are machine-independent
+- C) They have faster execution
+- D) They are not used anymore
+
+**Answer:** C
+
+### Q161 (mcq)
+
+The instruction `ADD B` in Assembly is an example of:
+
+- A) Data Transfer
+- B) Arithmetic
+- C) Logical
+- D) Control
+
+**Answer:** B
+
+### Q162 (mcq)
+
+The instruction `AND C` in Assembly is an example of:
+
+- A) Data Transfer
+- B) Arithmetic
+- C) Logical
+- D) Control
+
+**Answer:** C
+
+### Q163 (mcq)
+
+The instruction `JUMP 100` in Assembly is an example of:
+
+- A) Data Transfer
+- B) Arithmetic
+- C) Logical
+- D) Control
+
+**Answer:** D
+
+### Q164 (mcq)
+
+In the C program example, `printf("%d", sum);` is a:
+
+- A) Data transfer instruction
+- B) Arithmetic instruction
+- C) Function call (part of program)
+- D) Jump instruction
+
+**Answer:** C
+
+### Q165 (mcq)
+
+A program in C is an example of a:
+
+- A) Low-Level Language
+- B) High-Level Language
+- C) Machine Language
+- D) Assembly Language
+
+**Answer:** B
+
+### Q166 (mcq)
+
+Which of the following correctly represents an Assembly instruction?
+
+- A) `10110000 01100001`
+- B) `MOV AL, 61h`
+- C) `sum = a + b;`
+- D) `SELECT * FROM table`
+
+**Answer:** B
+
+### Q167 (mcq)
+
+Which of the following correctly represents a Machine Language instruction?
+
+- A) `MOV R1, #5`
+- B) `a = 5;`
+- C) `10110000 01100001`
+- D) `ADD R3, R1, R2`
+
+**Answer:** C
+
+### Q168 (mcq)
+
+In the abstraction diagram, what does the compiler/interpreter convert?
+
+- A) Machine to Assembly
+- B) High-Level to Assembly
+- C) Assembly to High-Level
+- D) Machine to High-Level
+
+**Answer:** B
+
+### Q169 (mcq)
+
+SQL is an example of which paradigm?
+
+- A) Procedural
+- B) Object-Oriented
+- C) Non-Procedural
+- D) Structured
+
+**Answer:** C
+
+### Q170 (mcq)
+
+Prolog is an example of:
+
+- A) Procedural
+- B) Non-Procedural
+- C) Structured
+- D) OOP
+
+**Answer:** B
+
+### Q171 (mcq)
+
+HTML is considered a:
+
+- A) Procedural language
+- B) Declarative (non-procedural) structure
+- C) Object-Oriented language
+- D) Low-Level language
+
+**Answer:** B
+
+### Q172 (mcq)
+
+Which of the following is NOT a key element of Structured Programming?
+
+- A) Sequence
+- B) Selection
+- C) Iteration
+- D) Inheritance
+
+**Answer:** D
+
+### Q173 (mcq)
+
+The `if-else` statement in C represents which structured programming element?
+
+- A) Sequence
+- B) Selection
+- C) Iteration
+- D) Jump
+
+**Answer:** B
+
+### Q174 (mcq)
+
+The `for` loop in C represents which structured programming element?
+
+- A) Sequence
+- B) Selection
+- C) Iteration
+- D) Goto
+
+**Answer:** C
+
+### Q175 (mcq)
+
+Which of the following is an advantage of Structured Programming?
+
+- A) Code is chaotic
+- B) Code is easy to follow and maintain
+- C) It uses many `goto` statements
+- D) It is machine-dependent
+
+**Answer:** B
+
+### Q176 (mcq)
+
+In OOP, a `Car` class and `myCar` object relationship illustrates:
+
+- A) Encapsulation
+- B) Class and Object
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** B
+
+### Q177 (mcq)
+
+Which OOP concept allows a `Vehicle` class to be extended by a `Car` class?
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** B
+
+### Q178 (mcq)
+
+Which OOP concept allows the same method name `calculate()` to work differently for `Circle` and `Rectangle`?
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** C
+
+### Q179 (mcq)
+
+In OOP, hiding data inside a class and providing public methods to access it is:
+
+- A) Abstraction
+- B) Inheritance
+- C) Polymorphism
+- D) Encapsulation
+
+**Answer:** D
+
+### Q180 (mcq)
+
+In OOP, exposing only necessary features and hiding implementation details is:
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** D
+
+### Q181 (mcq)
+
+Which of the following is NOT an OOP language?
+
+- A) Java
+- B) C++
+- C) C#
+- D) Fortran
+
+**Answer:** D
+
+### Q182 (mcq)
+
+Which paradigm allows code reuse through inheritance?
+
+- A) Procedural
+- B) Structured
+- C) Object-Oriented
+- D) Non-Procedural
+
+**Answer:** C
+
+### Q183 (mcq)
+
+Which paradigm models real-world entities?
+
+- A) Procedural
+- B) Object-Oriented
+- C) Structured
+- D) Non-Procedural
+
+**Answer:** B
+
+### Q184 (mcq)
+
+In Procedural Programming, functions are:
+
+- A) Associated with data
+- B) Separate from data
+- C) Hidden
+- D) Not used
+
+**Answer:** B
+
+### Q185 (mcq)
+
+Which of the following is TRUE about Non-Procedural languages?
+
+- A) They require step-by-step instructions
+- B) They specify the outcome rather than the procedure
+- C) They use explicit loops and conditionals
+- D) They are also called Imperative
+
+**Answer:** B
+
+### Q186 (mcq)
+
+Which paradigm uses queries and rules rather than step-by-step instructions?
+
+- A) Procedural
+- B) Structured
+- C) Object-Oriented
+- D) Non-Procedural
+
+**Answer:** D
+
+### Q187 (mcq)
+
+The process of writing code in a programming language is called:
+
+- A) Compiling
+- B) Interpreting
+- C) Programming
+- D) Assembling
+
+**Answer:** C
+
+### Q188 (mcq)
+
+Which of the following is the correct sequence for converting a High-Level program to execution?
+
+- A) Source → Interpreter → Execute
+- B) Source → Compiler → Object → Linker → Executable → Loader → Execute
+- C) Source → Assembler → Object → Execute
+- D) Source → Compiler → Execute (no linking)
+
+**Answer:** B
+
+### Q189 (mcq)
+
+Which component translates assembly mnemonics to machine code?
+
+- A) Compiler
+- B) Interpreter
+- C) Assembler
+- D) Loader
+
+**Answer:** C
+
+### Q190 (mcq)
+
+Which of the following is NOT an example of a High-Level Language?
+
+- A) C
+- B) Java
+- C) Assembly
+- D) Python
+
+**Answer:** C
+
+### Q191 (mcq)
+
+The control instruction `JUMP 100` causes the CPU to:
+
+- A) Add 100 to a register
+- B) Move 100 to memory
+- C) Jump to instruction at memory address 100
+- D) Compare 100 with a value
+
+**Answer:** C
+
+### Q192 (mcq)
+
+In structured programming, avoiding `goto` helps to:
+
+- A) Increase execution speed
+- B) Reduce "spaghetti code"
+- C) Use more memory
+- D) Make code machine-dependent
+
+**Answer:** B
+
+### Q193 (mcq)
+
+Which of the following is TRUE about High-Level Languages?
+
+- A) They are machine-dependent
+- B) They are harder to read than assembly
+- C) They are platform independent
+- D) They are executed directly by CPU
+
+**Answer:** C
+
+### Q194 (mcq)
+
+Which paradigm is also called Imperative Programming?
+
+- A) Declarative
+- B) Procedural
+- C) Object-Oriented
+- D) Functional
+
+**Answer:** B
+
+### Q195 (mcq)
+
+Which paradigm is also called Declarative Programming?
+
+- A) Procedural
+- B) Structured
+- C) Non-Procedural
+- D) Object-Oriented
+
+**Answer:** C
+
+### Q196 (mcq)
+
+The OOP concept that allows a child class to inherit from a parent class is:
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** B
+
+### Q197 (mcq)
+
+The OOP concept that allows one name to have multiple implementations is:
+
+- A) Encapsulation
+- B) Inheritance
+- C) Polymorphism
+- D) Abstraction
+
+**Answer:** C
+
+### Q198 (mcq)
+
+Which of the following is an advantage of OOP over Procedural Programming?
+
+- A) Simpler for small problems
+- B) Higher security and reusability
+- C) Faster execution
+- D) Requires less memory
+
+**Answer:** B
+
+### Q199 (mcq)
+
+In the abstraction diagram, the final output of the assembler is:
+
+- A) Assembly code
+- B) Machine code
+- C) High-level code
+- D) Executable file
+
+**Answer:** B
+
+### Q200 (mcq)
+
+Which of the following best describes a program?
+
+- A) A single binary instruction
+- B) A set of instructions to accomplish a task
+- C) A hardware component
+- D) An algorithm without implementation
+
+**Answer:** B

@@ -33,11 +33,51 @@
  *     type marker, defaulting to mcq when omitted.
  */
 
-/** Heading that starts a question: "### Q12 (mcq)" or "### 12. ..." or "### Q3". */
-const QUESTION_HEADING = /^(#{2,6})\s*(?:Q)?(\d+)\s*(?:[.):])?\s*(.*)$/;
+/**
+ * Heading that starts a question.
+ *
+ * A heading is only a question when it is unambiguous:
+ *
+ *   "### Q12 (mcq)"   explicit Q prefix, optionally typed
+ *   "### 12. Text"    period after the number
+ *   "### 12) Text"    bracket after the number
+ *
+ * A section heading such as "## 1. Introduction to Boolean Algebra" also has a
+ * number and a period, so the `Q` prefix or the type marker is what keeps the
+ * two apart. Requiring an explicit marker after the number is what stops a
+ * study note's own numbered headings being parsed as questions — a note with
+ * 117 sections would otherwise become 117 unanswered questions.
+ */
+const QUESTION_HEADING = /^(#{2,6})\s*(?:Q\s*(\d+)\s*(?:[.):])?|(\d+)\s*(?:[.):]))\s*(.*)$/;
 
 /** Optional type marker on the heading: "(mcq)" or "(saq)". */
 const TYPE_MARKER = /^\((mcq|saq|short-answer)\)\s*/i;
+
+/**
+ * True when a heading line should be treated as a question.
+ *
+ * @param {string} line
+ * @returns {{indent: number, sl: number, rest: string}|null}
+ */
+function matchQuestionHeading(line) {
+  const match = line.match(QUESTION_HEADING);
+  if (!match) return null;
+
+  // Group 1 is the explicit "Q<number>" form; group 3 is a bare number.
+  const sl = match[2] !== undefined ? Number(match[2]) : Number(match[3]);
+  if (!Number.isInteger(sl)) return null;
+
+  const rest = match[4] || '';
+
+  // A bare "## 1. Text" with no type marker is a section heading, not a
+  // question. Requiring the marker keeps study notes out of the question path.
+  if (match[2] === undefined && !TYPE_MARKER.test(rest)) return null;
+
+  // A study note's own H1 title ("# Boolean Algebra") must never be a question.
+  if (match[1].length === 1) return null;
+
+  return { indent: match[1].length, sl, rest };
+}
 
 /** An option list item: "- A) text", "* B. text", "- (C) text". */
 const OPTION_ITEM = /^\s*[-*+]\s+[(\[]?([A-Za-z])[)\].:]\s+(.*)$/;
@@ -108,29 +148,24 @@ function parseQuestions(markdown) {
   };
 
   for (const line of lines) {
-    const heading = line.match(QUESTION_HEADING);
+    const heading = matchQuestionHeading(line);
 
-    // A numbered heading outside a question starts a new question.
-    if (heading && !line.startsWith('**')) {
-      const indent = heading[1].length;
-      const rest = heading[3];
-
-      // Guard: a "## Answer Key" style heading has no number, so it will not
-      // match QUESTION_HEADING; a numbered one always starts a question.
+    // A question heading starts a new question.
+    if (heading) {
       finish();
 
-      const typeMatch = rest.match(TYPE_MARKER);
+      const typeMatch = heading.rest.match(TYPE_MARKER);
       const type = typeMatch ? typeMatch[1].toLowerCase() : 'mcq';
-      const text = typeMatch ? rest.slice(typeMatch[0].length) : rest;
+      const text = typeMatch ? heading.rest.slice(typeMatch[0].length) : heading.rest;
 
       current = {
-        sl: Number(heading[2]),
+        sl: heading.sl,
         type: type === 'short-answer' ? 'saq' : type,
         question: text,
         prefixLines: [],
         options: [],
         answerLines: [],
-        indent,
+        indent: heading.indent,
       };
       mode = 'preamble';
       continue;
@@ -138,7 +173,7 @@ function parseQuestions(markdown) {
 
     if (!current) continue;
 
-    // A non-numbered heading ends the current question block.
+    // Any other heading ends the current question block.
     if (/^#{1,6}\s/.test(line)) {
       finish();
       mode = 'idle';
@@ -227,6 +262,7 @@ function hasQuestions(markdown) {
 module.exports = {
   parseQuestions,
   hasQuestions,
+  matchQuestionHeading,
   QUESTION_HEADING,
   TYPE_MARKER,
   OPTION_ITEM,

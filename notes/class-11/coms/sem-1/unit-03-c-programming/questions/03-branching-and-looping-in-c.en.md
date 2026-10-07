@@ -1,4 +1,4 @@
-# Unit 03 03 practice paper eng
+# Branching And Looping In C — Questions (EN)
 
 ### Q1 (mcq)
 
@@ -1320,5 +1320,1105 @@ Which of the following is TRUE about array name as pointer?
 - B) It can be incremented
 - C) It can be assigned to another array
 - D) It stores the size of the array
+
+**Answer:** A
+
+### Q101 (mcq)
+
+By default, a C program executes statements in which order?
+
+- A) Random order
+- B) Sequential (line by line)
+- C) Reverse order
+- D) Only the first statement
+
+**Answer:** B
+
+### Q102 (mcq)
+
+In C, a condition evaluates to:
+
+- A) 0 for True, 1 for False
+- B) 0 for False, non-zero for True
+- C) 1 for True, 0 for False
+- D) Only 0 or 1
+
+**Answer:** B
+
+### Q103 (mcq)
+
+Which statement executes a block of code only if the given condition is true?
+
+- A) `if`
+- B) `while`
+- C) `for`
+- D) `do-while`
+
+**Answer:** A
+
+### Q104 (mcq)
+
+What is the syntax of the `if` statement in C?
+
+- A) `if condition { }`
+- B) `if (condition) { }`
+- C) `if [condition] { }`
+- D) `if condition then { }`
+
+**Answer:** B
+
+### Q105 (mcq)
+
+In the `if` statement, the block executes when the condition is:
+
+- A) Zero
+- B) Non-zero
+- C) Negative only
+- D) Positive only
+
+**Answer:** B
+
+### Q106 (mcq)
+
+In the example `if (age >= 18)`, what is printed if age = 18?
+
+- A) Nothing
+- B) "Eligible to vote."
+- C) "Not eligible"
+- D) Error
+
+**Answer:** B
+
+### Q107 (mcq)
+
+Which statement executes one block if condition is true and another if condition is false?
+
+- A) `if`
+- B) `if-else`
+- C) `else if`
+- D) `while`
+
+**Answer:** B
+
+### Q108 (mcq)
+
+What is the output of `int num = 7; if (num % 2 == 0) { printf("Even"); } else { printf("Odd"); }`?
+
+- A) Even
+- B) Odd
+- C) Error
+- D) Nothing
+
+**Answer:** B
+
+### Q109 (mcq)
+
+The `else if` ladder is used when:
+
+- A) Only one condition needs checking
+- B) There are multiple mutually exclusive conditions
+- C) No conditions need checking
+- D) Only false conditions exist
+
+**Answer:** B
+
+### Q110 (mcq)
+
+In the grading example, if marks = 85, what is the output?
+
+- A) Grade A
+- B) Grade B
+- C) Grade C
+- D) Fail
+
+**Answer:** B
+
+### Q111 (mcq)
+
+In the grading example, if marks = 92, what is the output?
+
+- A) Grade A
+- B) Grade B
+- C) Grade C
+- D) Fail
+
+**Answer:** A
+
+### Q112 (mcq)
+
+In the grading example, if marks = 65, what is the output?
+
+- A) Grade A
+- B) Grade B
+- C) Grade C
+- D) Fail
+
+**Answer:** C
+
+### Q113 (mcq)
+
+A Nested `if-else` is:
+
+- A) An `if` statement inside a loop
+- B) An `if` or `if-else` inside another `if` or `if-else`
+- C) An `if` statement with multiple conditions
+- D) An `if` statement without braces
+
+**Answer:** B
+
+### Q114 (mcq)
+
+In the nested `if-else` example, if age = 25 and citizen = 1, what is the output?
+
+- A) Too young
+- B) Not a citizen
+- C) Eligible to vote
+- D) Nothing
+
+**Answer:** C
+
+### Q115 (mcq)
+
+In the nested `if-else` example, if age = 16 and citizen = 1, what is the output?
+
+- A) Too young
+- B) Not a citizen
+- C) Eligible to vote
+- D) Nothing
+
+**Answer:** A
+
+### Q116 (mcq)
+
+In the nested `if-else` example, if age = 25 and citizen = 0, what is the output?
+
+- A) Too young
+- B) Not a citizen
+- C) Eligible to vote
+- D) Nothing
+
+**Answer:** B
+
+### Q117 (mcq)
+
+Which loop checks the condition first before executing the body?
+
+- A) `do-while`
+- B) `while`
+- C) Both `while` and `do-while`
+- D) Neither
+
+**Answer:** B
+
+### Q118 (mcq)
+
+A `while` loop is called:
+
+- A) Exit-Controlled
+- B) Entry-Controlled
+- C) Condition-Controlled
+- D) Counter-Controlled
+
+**Answer:** B
+
+### Q119 (mcq)
+
+If the condition in a `while` loop is initially false, how many times does the body execute?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on the update
+
+**Answer:** A
+
+### Q120 (mcq)
+
+In a `while` loop, the update statement is:
+
+- A) In the header
+- B) Inside the body
+- C) Not required
+- D) Before the condition
+
+**Answer:** B
+
+### Q121 (mcq)
+
+What is the output of `int i = 1; while (i <= 5) { printf("%d ", i); i++; }`?
+
+- A) 1 2 3 4 5
+- B) 0 1 2 3 4
+- C) 1 2 3 4 5 6
+- D) Infinite loop
+
+**Answer:** A
+
+### Q122 (mcq)
+
+Which loop guarantees execution of the body at least once?
+
+- A) `while`
+- B) `for`
+- C) `do-while`
+- D) Both `while` and `for`
+
+**Answer:** C
+
+### Q123 (mcq)
+
+A `do-while` loop is called:
+
+- A) Entry-Controlled
+- B) Exit-Controlled
+- C) Condition-Controlled
+- D) Counter-Controlled
+
+**Answer:** B
+
+### Q124 (mcq)
+
+In a `do-while` loop, the condition is checked:
+
+- A) Before the body executes
+- B) After the body executes
+- C) Only once
+- D) Never
+
+**Answer:** B
+
+### Q125 (mcq)
+
+The `do-while` loop syntax ends with:
+
+- A) No semicolon
+- B) A semicolon after while (condition);
+- C) A semicolon after do
+- D) A comma
+
+**Answer:** B
+
+### Q126 (mcq)
+
+The `do-while` loop is best used for:
+
+- A) Fixed number of iterations
+- B) Menu-driven programs that must execute once
+- C) Infinite loops
+- D) Array traversal
+
+**Answer:** B
+
+### Q127 (mcq)
+
+Which loop combines initialization, condition, and increment in a single line?
+
+- A) `while`
+- B) `do-while`
+- C) `for`
+- D) None of the above
+
+**Answer:** C
+
+### Q128 (mcq)
+
+The `for` loop is:
+
+- A) Exit-Controlled
+- B) Entry-Controlled
+- C) Both Entry and Exit Controlled
+- D) Neither
+
+**Answer:** B
+
+### Q129 (mcq)
+
+In a `for` loop, the initialization executes:
+
+- A) Every iteration
+- B) Once at the start
+- C) After the body
+- D) Only if condition is true
+
+**Answer:** B
+
+### Q130 (mcq)
+
+In a `for` loop, the increment executes:
+
+- A) Before the body
+- B) After the body
+- C) Before the condition
+- D) Only if condition is true
+
+**Answer:** B
+
+### Q131 (mcq)
+
+What is the output of `for (i = 1; i <= 10; i++) { sum += i; }` for sum starting from 0?
+
+- A) 45
+- B) 50
+- C) 55
+- D) 60
+
+**Answer:** C
+
+### Q132 (mcq)
+
+Which loop is preferred when the number of iterations is known beforehand?
+
+- A) `while`
+- B) `do-while`
+- C) `for`
+- D) Any loop is equally preferred
+
+**Answer:** C
+
+### Q133 (mcq)
+
+All three loops (`for`, `while`, `do-while`) are:
+
+- A) Not interchangeable
+- B) Interchangeable
+- C) Only used for different data types
+- D) Only `for` and `while` are interchangeable
+
+**Answer:** B
+
+### Q134 (mcq)
+
+A Nested Loop is:
+
+- A) A loop inside another loop
+- B) Two loops running parallel
+- C) A loop with no body
+- D) A loop with multiple conditions
+
+**Answer:** A
+
+### Q135 (mcq)
+
+In nested loops, for each iteration of the outer loop:
+
+- A) The inner loop runs once
+- B) The inner loop runs completely
+- C) Both loops run simultaneously
+- D) Only the outer loop runs
+
+**Answer:** B
+
+### Q136 (mcq)
+
+In the multiplication table example with `i` from 1 to 2 and `j` from 1 to 5, how many total iterations?
+
+- A) 5
+- B) 7
+- C) 10
+- D) 2
+
+**Answer:** C
+
+### Q137 (mcq)
+
+The time complexity of nested loops is:
+
+- A) O(n + m)
+- B) O(n × m)
+- C) O(n/m)
+- D) O(n - m)
+
+**Answer:** B
+
+### Q138 (mcq)
+
+An `if` statement can execute how many times maximum?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** B
+
+### Q139 (mcq)
+
+An `if-else` statement can execute how many times maximum?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** B
+
+### Q140 (mcq)
+
+A `while` loop can execute how many times minimum?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** A
+
+### Q141 (mcq)
+
+A `do-while` loop can execute how many times minimum?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** B
+
+### Q142 (mcq)
+
+A `for` loop can execute how many times minimum?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** A
+
+### Q143 (mcq)
+
+Which of the following creates an infinite loop?
+
+- A) `while (i <= 5)`
+- B) `while (1)`
+- C) `for (i=0; i<10; i++)`
+- D) `do { } while (i < 5);`
+
+**Answer:** B
+
+### Q144 (mcq)
+
+`for (;;)` in C creates:
+
+- A) A loop that never executes
+- B) An infinite loop
+- C) A syntax error
+- D) A loop that executes once
+
+**Answer:** B
+
+### Q145 (mcq)
+
+What is the common mistake in `for(i=0; i<10; i--);`?
+
+- A) Syntax error
+- B) Infinite loop due to decrement instead of increment
+- C) Logical error only
+- D) No error
+
+**Answer:** B
+
+### Q146 (mcq)
+
+Without braces `{}`, how many statements belong to the `if` condition?
+
+- A) All statements
+- B) Only the immediate next statement
+- C) None
+- D) The statement before the condition
+
+**Answer:** B
+
+### Q147 (mcq)
+
+What does the following code print? `if (a > b) printf("A is bigger"); printf("This is always printed!");`
+
+- A) Only "A is bigger"
+- B) Only "This is always printed!"
+- C) Both statements (conditionally)
+- D) Error
+
+**Answer:** C
+
+### Q148 (mcq)
+
+What is the issue with `while (i <= 5); { printf("%d", i); i++; }`?
+
+- A) Syntax error
+- B) The semicolon creates an empty infinite loop
+- C) Logical error only
+- D) No issue
+
+**Answer:** B
+
+### Q149 (mcq)
+
+What is the issue with `if (x = 5) { ... }`?
+
+- A) Syntax error
+- B) Assignment instead of equality; condition always true
+- C) Logical error only
+- D) No issue
+
+**Answer:** B
+
+### Q150 (mcq)
+
+Which operator should be used for equality comparison in C?
+
+- A) `=`
+- B) `==`
+- C) `!=`
+- D) `===`
+
+**Answer:** B
+
+### Q151 (mcq)
+
+The `if` statement is used for:
+
+- A) Looping
+- B) Decision / Branching
+- C) Function definition
+- D) Variable declaration
+
+**Answer:** B
+
+### Q152 (mcq)
+
+The `while` loop is used for:
+
+- A) Decision / Branching
+- B) Iteration / Repetition
+- C) Function definition
+- D) Variable declaration
+
+**Answer:** B
+
+### Q153 (mcq)
+
+The `do-while` loop is used for:
+
+- A) Decision / Branching
+- B) Iteration / Repetition
+- C) Function definition
+- D) Variable declaration
+
+**Answer:** B
+
+### Q154 (mcq)
+
+The `for` loop is used for:
+
+- A) Decision / Branching
+- B) Iteration / Repetition
+- C) Function definition
+- D) Variable declaration
+
+**Answer:** B
+
+### Q155 (mcq)
+
+Which loop type is Entry-Controlled?
+
+- A) `do-while` only
+- B) `while` and `for`
+- C) `do-while` and `while`
+- D) Only `for`
+
+**Answer:** B
+
+### Q156 (mcq)
+
+Which loop type is Exit-Controlled?
+
+- A) `while`
+- B) `for`
+- C) `do-while`
+- D) All of the above
+
+**Answer:** C
+
+### Q157 (mcq)
+
+What is the factorial of 5 from the factorial program?
+
+- A) 60
+- B) 120
+- C) 24
+- D) 720
+
+**Answer:** B
+
+### Q158 (mcq)
+
+In the factorial program, `fact *= i` is equivalent to:
+
+- A) `fact = fact * i`
+- B) `fact = fact + i`
+- C) `fact = i`
+- D) `fact = fact / i`
+
+**Answer:** A
+
+### Q159 (mcq)
+
+In the prime checking program, the loop runs until:
+
+- A) `i <= n`
+- B) `i <= n/2`
+- C) `i < n`
+- D) `i <= sqrt(n)`
+
+**Answer:** B
+
+### Q160 (mcq)
+
+In the prime checking program, `flag = 0` indicates:
+
+- A) Number is prime
+- B) Number is not prime
+- C) Number is even
+- D) Number is odd
+
+**Answer:** B
+
+### Q161 (mcq)
+
+In the prime checking program, `break` is used to:
+
+- A) Continue the loop
+- B) Exit the loop early
+- C) Restart the loop
+- D) Skip the iteration
+
+**Answer:** B
+
+### Q162 (mcq)
+
+If the input to the prime program is 7, what is the output?
+
+- A) Prime
+- B) Not Prime
+- C) Error
+- D) Nothing
+
+**Answer:** A
+
+### Q163 (mcq)
+
+If the input to the prime program is 9, what is the output?
+
+- A) Prime
+- B) Not Prime
+- C) Error
+- D) Nothing
+
+**Answer:** B
+
+### Q164 (mcq)
+
+What is the minimum number of times a `while` loop body can execute?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on initialization
+
+**Answer:** A
+
+### Q165 (mcq)
+
+What is the minimum number of times a `do-while` loop body can execute?
+
+- A) 0
+- B) 1
+- C) Infinite
+- D) Depends on condition
+
+**Answer:** B
+
+### Q166 (mcq)
+
+In the flowchart for `if` statement, the condition leads to:
+
+- A) Only True path
+- B) True path and False path (but False goes to End)
+- C) Only False path
+- D) Both paths execute
+
+**Answer:** B
+
+### Q167 (mcq)
+
+In the flowchart for `if-else`, the condition leads to:
+
+- A) Only one path
+- B) True path and False path
+- C) No paths
+- D) Both paths merge immediately
+
+**Answer:** B
+
+### Q168 (mcq)
+
+In the flowchart for `while` loop, after executing the body, the flow goes to:
+
+- A) End
+- B) Update, then Condition
+- C) Directly to Condition
+- D) Directly to End
+
+**Answer:** B
+
+### Q169 (mcq)
+
+In the flowchart for `do-while` loop, after executing the body, the flow goes to:
+
+- A) Condition
+- B) End
+- C) Start
+- D) Update only
+
+**Answer:** A
+
+### Q170 (mcq)
+
+In the flowchart for `for` loop, after executing the body, the flow goes to:
+
+- A) End
+- B) Increment/Update, then Condition
+- C) Directly to Condition
+- D) Initialization
+
+**Answer:** B
+
+### Q171 (mcq)
+
+Which loop body will execute at least once regardless of condition?
+
+- A) `while`
+- B) `for`
+- C) `do-while`
+- D) All of the above
+
+**Answer:** C
+
+### Q172 (mcq)
+
+The `if` statement can be used without `else`:
+
+- A) True
+- B) False
+- C) Only in C
+- D) Never
+
+**Answer:** A
+
+### Q173 (mcq)
+
+The `else` clause is optional in `if-else`:
+
+- A) True, but `else` requires `if`
+- B) False
+- C) Only in loops
+- D) Never
+
+**Answer:** A
+
+### Q174 (mcq)
+
+The condition `(age >= 18)` evaluates to:
+
+- A) 0 if true
+- B) Non-zero if true
+- C) Only 1 if true
+- D) Only 0 if false
+
+**Answer:** B
+
+### Q175 (mcq)
+
+In C, the value 0 represents:
+
+- A) True
+- B) False
+- C) Both True and False
+- D) Neither
+
+**Answer:** B
+
+### Q176 (mcq)
+
+In C, any non-zero value represents:
+
+- A) True
+- B) False
+- C) Both True and False
+- D) Neither
+
+**Answer:** A
+
+### Q177 (mcq)
+
+The `else if` ladder is also called:
+
+- A) Nested if
+- B) Multi-way if
+- C) Switch statement
+- D) Ternary operator
+
+**Answer:** B
+
+### Q178 (mcq)
+
+In the grading example, what is printed for marks = 58?
+
+- A) Grade A
+- B) Grade B
+- C) Grade C
+- D) Fail
+
+**Answer:** D
+
+### Q179 (mcq)
+
+In the grading example, what is printed for marks = 75?
+
+- A) Grade A
+- B) Grade B
+- C) Grade C
+- D) Fail
+
+**Answer:** B
+
+### Q180 (mcq)
+
+Which loop is most suitable when the number of iterations is unknown but a condition must be checked before each iteration?
+
+- A) `for`
+- B) `while`
+- C) `do-while`
+- D) All are equally suitable
+
+**Answer:** B
+
+### Q181 (mcq)
+
+Which loop is most suitable when the number of iterations is known and counting is involved?
+
+- A) `for`
+- B) `while`
+- C) `do-while`
+- D) All are equally suitable
+
+**Answer:** A
+
+### Q182 (mcq)
+
+Which loop is most suitable for menu-driven programs?
+
+- A) `for`
+- B) `while`
+- C) `do-while`
+- D) None
+
+**Answer:** C
+
+### Q183 (mcq)
+
+The statement `break` in a loop causes:
+
+- A) The loop to continue
+- B) The loop to exit immediately
+- C) The program to crash
+- D) The condition to be rechecked
+
+**Answer:** B
+
+### Q184 (mcq)
+
+In the prime program, if `n = 2`, what is the output?
+
+- A) Prime
+- B) Not Prime
+- C) Error
+- D) Nothing
+
+**Answer:** A
+
+### Q185 (mcq)
+
+In the prime program, if `n = 1`, what is the output?
+
+- A) Prime
+- B) Not Prime
+- C) Error
+- D) Nothing
+
+**Answer:** A
+
+### Q186 (mcq)
+
+In the prime program, if `n = 4`, what is the output?
+
+- A) Prime
+- B) Not Prime
+- C) Error
+- D) Nothing
+
+**Answer:** B
+
+### Q187 (mcq)
+
+The `for` loop initialization can include multiple variables using:
+
+- A) Semicolon
+- B) Comma operator
+- C) And operator
+- D) Or operator
+
+**Answer:** B
+
+### Q188 (mcq)
+
+The `for (i = 0, j = 10; i < 5; i++, j--)` is an example of:
+
+- A) Syntax error
+- B) Multiple initializations and updates
+- C) Nested loop
+- D) Infinite loop
+
+**Answer:** B
+
+### Q189 (mcq)
+
+In the `do-while` loop, the condition is evaluated:
+
+- A) Before each iteration
+- B) After each iteration
+- C) Only at the start
+- D) Only at the end of the program
+
+**Answer:** B
+
+### Q190 (mcq)
+
+In the `while` loop, the condition is evaluated:
+
+- A) Before each iteration
+- B) After each iteration
+- C) Only at the start
+- D) Only at the end
+
+**Answer:** A
+
+### Q191 (mcq)
+
+In the `for` loop, the condition is evaluated:
+
+- A) Before each iteration
+- B) After each iteration
+- C) Only at the start
+- D) Only at the end
+
+**Answer:** A
+
+### Q192 (mcq)
+
+What happens if the update statement is missing in a `while` loop?
+
+- A) The loop executes once
+- B) Infinite loop
+- C) Syntax error
+- D) The loop never executes
+
+**Answer:** B
+
+### Q193 (mcq)
+
+What happens if the condition is missing in a `for` loop?
+
+- A) Syntax error
+- B) Infinite loop (assumed true)
+- C) The loop never executes
+- D) The loop executes once
+
+**Answer:** B
+
+### Q194 (mcq)
+
+The `if` statement can be nested inside another `if`:
+
+- A) True
+- B) False
+- C) Only in C++
+- D) Never
+
+**Answer:** A
+
+### Q195 (mcq)
+
+The `else` clause in an `if-else` is:
+
+- A) Mandatory
+- B) Optional
+- C) Only for loops
+- D) Only for functions
+
+**Answer:** B
+
+### Q196 (mcq)
+
+In the factorial program, if n = 0, what is the output?
+
+- A) 0
+- B) 1
+- C) -1
+- D) Error
+
+**Answer:** B
+
+### Q197 (mcq)
+
+In the factorial program, if n = 3, what is the output?
+
+- A) 3
+- B) 6
+- C) 9
+- D) 12
+
+**Answer:** B
+
+### Q198 (mcq)
+
+Which of the following is a valid `for` loop syntax?
+
+- A) `for (i = 0; i < 10; i++)`
+- B) `for i = 0 to 10`
+- C) `for (i < 10; i++)`
+- D) `for (i = 0; i < 10)`
+
+**Answer:** A
+
+### Q199 (mcq)
+
+Which of the following is a valid `while` loop syntax?
+
+- A) `while i < 10 { }`
+- B) `while (i < 10) { }`
+- C) `while [i < 10] { }`
+- D) `while (i < 10); { }`
+
+**Answer:** B
+
+### Q200 (mcq)
+
+Which of the following is a valid `do-while` loop syntax?
+
+- A) `do { } while (i < 10);`
+- B) `do { } while (i < 10)`
+- C) `do { } while i < 10;`
+- D) `do (i < 10) { }`
 
 **Answer:** A

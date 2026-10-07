@@ -1,4 +1,4 @@
-# Unit 01 01 Practice Paper (Eng)
+# Computer System And Organization — Questions (EN)
 
 ## Section 1: Basic Computer Organisation (Questions 1 to 20)
 
@@ -1109,3 +1109,1103 @@ Which of the following is a logic gate?
 - D) XAR
 
 **Answer:** A
+
+### Q101 (mcq)
+
+What are the three main internal parts of the CPU?
+
+- A) ALU, Control Unit, and Registers
+- B) RAM, ROM, and Cache
+- C) Input, Output, and Storage
+- D) HDD, SSD, and Flash
+
+**Answer:** A
+
+### Q102 (mcq)
+
+Which unit of the CPU performs arithmetic and logical operations?
+
+- A) Control Unit
+- B) Arithmetic Logic Unit (ALU)
+- C) Memory Unit
+- D) Register Unit
+
+**Answer:** B
+
+### Q103 (mcq)
+
+What is the function of the Control Unit (CU)?
+
+- A) Performs addition and subtraction
+- B) Stores permanent data
+- C) Fetches, decodes instructions, and generates control signals
+- D) Handles input/output devices
+
+**Answer:** C
+
+### Q104 (mcq)
+
+Which of the following holds the smallest and fastest memory inside the CPU?
+
+- A) RAM
+- B) Cache
+- C) Registers
+- D) Secondary Storage
+
+**Answer:** C
+
+### Q105 (mcq)
+
+According to the speed hierarchy, which is the fastest?
+
+- A) RAM
+- B) Secondary Storage
+- C) Cache
+- D) Registers
+
+**Answer:** D
+
+### Q106 (mcq)
+
+In the speed hierarchy, which memory is slower than Registers but faster than RAM?
+
+- A) Secondary Storage
+- B) Cache
+- C) ROM
+- D) Hard Disk
+
+**Answer:** B
+
+### Q107 (mcq)
+
+Which component feeds data and instructions into the computer?
+
+- A) Output Devices
+- B) CPU
+- C) Primary Memory
+- D) Input Devices
+
+**Answer:** D
+
+### Q108 (mcq)
+
+The CPU processes data and sends results to which block?
+
+- A) Primary Memory
+- B) Secondary Storage
+- C) Output Devices
+- D) Input Devices
+
+**Answer:** C
+
+### Q109 (mcq)
+
+Which memory holds active data and programs currently in use?
+
+- A) Secondary Storage
+- B) Primary Memory
+- C) Registers
+- D) Output Devices
+
+**Answer:** B
+
+### Q110 (mcq)
+
+What is the nature of RAM?
+
+- A) Non-Volatile
+- B) Volatile
+- C) Read Only
+- D) Permanent
+
+**Answer:** B
+
+### Q111 (mcq)
+
+What is the nature of ROM?
+
+- A) Volatile
+- B) Non-Volatile
+- C) Read/Write
+- D) Slower than Secondary Storage
+
+**Answer:** B
+
+### Q112 (mcq)
+
+Which memory is Read Only by operation?
+
+- A) RAM
+- B) Cache
+- C) ROM
+- D) Registers
+
+**Answer:** C
+
+### Q113 (mcq)
+
+What is the primary usage of ROM?
+
+- A) Stores running programs
+- B) Stores frequently accessed data
+- C) Stores BIOS/UEFI and firmware boot instructions
+- D) Stores user documents
+
+**Answer:** C
+
+### Q114 (mcq)
+
+Which memory is the fastest among primary memory types?
+
+- A) RAM
+- B) ROM
+- C) Cache
+- D) Secondary Storage
+
+**Answer:** C
+
+### Q115 (mcq)
+
+Which type of RAM is static and faster?
+
+- A) DRAM
+- B) SRAM
+- C) EEPROM
+- D) PROM
+
+**Answer:** B
+
+### Q116 (mcq)
+
+Which of the following is an example of Secondary Storage?
+
+- A) RAM
+- B) Registers
+- C) Solid State Drive (SSD)
+- D) Cache
+
+**Answer:** C
+
+### Q117 (mcq)
+
+Which secondary storage device uses magnetic technology and has moving mechanical parts?
+
+- A) SSD
+- B) Pen drive
+- C) Hard Disk Drive (HDD)
+- D) CD
+
+**Answer:** C
+
+### Q118 (mcq)
+
+Which secondary storage device has no moving parts and is faster than HDD?
+
+- A) Magnetic Tape
+- B) SSD
+- C) Blu-ray
+- D) DVD
+
+**Answer:** B
+
+### Q119 (mcq)
+
+Which of the following is an optical secondary storage device?
+
+- A) Hard Disk Drive
+- B) Memory Card
+- C) CD, DVD, Blu-ray
+- D) Pen drive
+
+**Answer:** C
+
+### Q120 (mcq)
+
+Which of the following is a Flash memory device?
+
+- A) HDD
+- B) SSD
+- C) Pen drives and Memory cards
+- D) Magnetic Tape
+
+**Answer:** C
+
+### Q121 (mcq)
+
+Which of the following is an Input Device?
+
+- A) Monitor
+- B) Printer
+- C) Scanner
+- D) Plotter
+
+**Answer:** C
+
+### Q122 (mcq)
+
+Which of the following is an Output Device?
+
+- A) Keyboard
+- B) Mouse
+- C) Microphone
+- D) Projector
+
+**Answer:** D
+
+### Q123 (mcq)
+
+What is the exact binary size of 1 Kilobyte (KB)?
+
+- A) 1000 Bytes
+- B) 1024 Bytes
+- C) 2^20 Bytes
+- D) 2^30 Bytes
+
+**Answer:** B
+
+### Q124 (mcq)
+
+How many Bytes are exactly in 1 Megabyte (MB) according to binary standards?
+
+- A) 2^10 Bytes
+- B) 2^20 Bytes
+- C) 1024 Bytes
+- D) 2^30 Bytes
+
+**Answer:** B
+
+### Q125 (mcq)
+
+1 Gigabyte (GB) in binary terms is equal to:
+
+- A) 1024 MB
+- B) 1000 MB
+- C) 2^20 MB
+- D) 1024 KB
+
+**Answer:** A
+
+### Q126 (mcq)
+
+What is the binary standard size of 1 Terabyte (TB)?
+
+- A) 2^20 Bytes
+- B) 2^30 Bytes
+- C) 2^40 Bytes
+- D) 2^50 Bytes
+
+**Answer:** C
+
+### Q127 (mcq)
+
+Which unit is equal to 2^50 Bytes?
+
+- A) Terabyte
+- B) Gigabyte
+- C) Petabyte
+- D) Exabyte
+
+**Answer:** C
+
+### Q128 (mcq)
+
+The smallest unit of memory in a computer is:
+
+- A) Byte
+- B) Bit
+- C) Nibble
+- D) Kilobyte
+
+**Answer:** B
+
+### Q129 (mcq)
+
+A Byte consists of how many bits?
+
+- A) 4
+- B) 8
+- C) 16
+- D) 32
+
+**Answer:** B
+
+### Q130 (mcq)
+
+According to exam tips, which multiples should be used for Computer Science exams?
+
+- A) Decimal multiples (1000)
+- B) Binary multiples (2^10)
+- C) Hexadecimal multiples
+- D) Octal multiples
+
+**Answer:** B
+
+### Q131 (mcq)
+
+In the block diagram, which component has a direct two-way connection with Primary Memory?
+
+- A) Input Devices
+- B) Output Devices
+- C) CPU
+- D) Secondary Storage
+
+**Answer:** C
+
+### Q132 (mcq)
+
+In the block diagram, Secondary Storage connects directly to which component?
+
+- A) Input Devices
+- B) Output Devices
+- C) CPU
+- D) Primary Memory
+
+**Answer:** C
+
+### Q133 (mcq)
+
+Which CPU component is compared to a "traffic police" for coordinating other components?
+
+- A) ALU
+- B) Registers
+- C) Control Unit
+- D) Memory
+
+**Answer:** C
+
+### Q134 (mcq)
+
+Which register holds the address of the next instruction to be executed?
+
+- A) Accumulator
+- B) Instruction Register
+- C) Program Counter
+- D) Memory Address Register
+
+**Answer:** C
+
+### Q135 (mcq)
+
+Which register holds the current instruction being executed?
+
+- A) Program Counter
+- B) Instruction Register
+- C) Accumulator
+- D) Cache
+
+**Answer:** B
+
+### Q136 (mcq)
+
+Which register is commonly used to store intermediate arithmetic results?
+
+- A) Program Counter
+- B) Instruction Register
+- C) Accumulator
+- D) Memory Buffer Register
+
+**Answer:** C
+
+### Q137 (mcq)
+
+Which of the following is a logical operation performed by the ALU?
+
+- A) Addition
+- B) Multiplication
+- C) AND, OR, NOT
+- D) Division
+
+**Answer:** C
+
+### Q138 (mcq)
+
+Which of the following is an arithmetic operation performed by the ALU?
+
+- A) Comparison (<, >, =)
+- B) AND
+- C) OR
+- D) Division (÷)
+
+**Answer:** D
+
+### Q139 (mcq)
+
+Cache memory is typically divided into how many levels?
+
+- A) 1
+- B) 2
+- C) 3 (L1, L2, L3)
+- D) 4
+
+**Answer:** C
+
+### Q140 (mcq)
+
+Which level of cache is the fastest and located inside the CPU chip?
+
+- A) L3
+- B) L2
+- C) L1
+- D) All are equally fast
+
+**Answer:** C
+
+### Q141 (mcq)
+
+Which of the following is true about RAM?
+
+- A) It is Non-Volatile
+- B) It is Read Only
+- C) It stores running programs and OS data
+- D) It stores BIOS
+
+**Answer:** C
+
+### Q142 (mcq)
+
+Which of the following is an example of ROM types?
+
+- A) SRAM and DRAM
+- B) PROM, EPROM, EEPROM
+- C) HDD and SSD
+- D) L1, L2, L3
+
+**Answer:** B
+
+### Q143 (mcq)
+
+What is the nature of Cache Memory?
+
+- A) Non-Volatile
+- B) Volatile
+- C) Read Only
+- D) Permanent
+
+**Answer:** B
+
+### Q144 (mcq)
+
+According to the speed hierarchy, which is the slowest?
+
+- A) Registers
+- B) Cache
+- C) RAM
+- D) Secondary Storage
+
+**Answer:** D
+
+### Q145 (mcq)
+
+In the classification of computers by size and power, which is the largest?
+
+- A) Mainframe Computer
+- B) Mini Computer
+- C) Micro Computer
+- D) Super Computer
+
+**Answer:** D
+
+### Q146 (mcq)
+
+Which type of computer typically fills a room or building?
+
+- A) Mainframe
+- B) Mini
+- C) Super Computer
+- D) PC
+
+**Answer:** C
+
+### Q147 (mcq)
+
+Which computer is the fastest in terms of processing speed (Petaflops/Exaflops)?
+
+- A) Mainframe
+- B) Mini
+- C) Super Computer
+- D) Personal Computer
+
+**Answer:** C
+
+### Q148 (mcq)
+
+Which type of computer uses parallel processing with thousands of CPUs?
+
+- A) Mini Computer
+- B) Mainframe
+- C) Super Computer
+- D) PC
+
+**Answer:** C
+
+### Q149 (mcq)
+
+Which computer is known for massive I/O and transaction processing?
+
+- A) Super Computer
+- B) Mainframe Computer
+- C) Mini Computer
+- D) Micro Computer
+
+**Answer:** B
+
+### Q150 (mcq)
+
+Which type of computer can handle thousands of concurrent users?
+
+- A) Super Computer
+- B) Mainframe Computer
+- C) Personal Computer
+- D) Mini Computer
+
+**Answer:** B
+
+### Q151 (mcq)
+
+Which computer supports tens to hundreds of users simultaneously?
+
+- A) Super Computer
+- B) Mainframe
+- C) Mini Computer
+- D) PC
+
+**Answer:** C
+
+### Q152 (mcq)
+
+A Personal Computer (PC) is designed for how many users?
+
+- A) Thousands
+- B) Hundreds
+- C) Tens
+- D) Single user
+
+**Answer:** D
+
+### Q153 (mcq)
+
+Which computer type is the most expensive?
+
+- A) Mainframe
+- B) Super Computer
+- C) Mini
+- D) PC
+
+**Answer:** B
+
+### Q154 (mcq)
+
+Which computer is typically cheap and affordable?
+
+- A) Super Computer
+- B) Mainframe
+- C) Mini
+- D) Personal Computer (PC)
+
+**Answer:** D
+
+### Q155 (mcq)
+
+What operating system is commonly used on Super Computers?
+
+- A) Windows
+- B) z/OS
+- C) Custom Linux/UNIX
+- D) VMS
+
+**Answer:** C
+
+### Q156 (mcq)
+
+What operating system is commonly used on Mainframes like IBM Z-series?
+
+- A) Windows
+- B) macOS
+- C) z/OS, IBM Linux
+- D) Android
+
+**Answer:** C
+
+### Q157 (mcq)
+
+Which of the following is an example of a Super Computer?
+
+- A) IBM Z-series
+- B) DEC VAX
+- C) Fugaku, Summit, Param
+- D) Dell, HP
+
+**Answer:** C
+
+### Q158 (mcq)
+
+Which of the following is an example of a Mainframe Computer?
+
+- A) Fugaku
+- B) IBM Z-series
+- C) PDP-11
+- D) Apple MacBook
+
+**Answer:** B
+
+### Q159 (mcq)
+
+Which of the following is an example of a Mini Computer?
+
+- A) Summit
+- B) Unisys
+- C) DEC VAX, PDP-11
+- D) Dell
+
+**Answer:** C
+
+### Q160 (mcq)
+
+Which of the following is an example of a Personal Computer?
+
+- A) Param
+- B) IBM Z-series
+- C) Apple MacBook
+- D) DEC VAX
+
+**Answer:** C
+
+### Q161 (mcq)
+
+Supercomputers are primarily used for which application?
+
+- A) Banking
+- B) Railway reservations
+- C) Weather Forecasting and Nuclear Simulations
+- D) Departmental systems
+
+**Answer:** C
+
+### Q162 (mcq)
+
+Mainframe computers are primarily used in which sector?
+
+- A) Aerospace
+- B) Cryptography
+- C) Banking and Railway reservations
+- D) Personal use
+
+**Answer:** C
+
+### Q163 (mcq)
+
+Mini Computers were popular in which era?
+
+- A) 1920s–40s
+- B) 1960s–80s
+- C) 1990s–2000s
+- D) 2010s–present
+
+**Answer:** B
+
+### Q164 (mcq)
+
+Which of the following falls under Micro Computers / PCs?
+
+- A) Desktops, Laptops, Tablets, Smartphones
+- B) DEC VAX, PDP-11
+- C) IBM Z-series
+- D) Fugaku, Summit
+
+**Answer:** A
+
+### Q165 (mcq)
+
+Which memory types are volatile?
+
+- A) ROM and HDD
+- B) RAM, Cache, and Registers
+- C) SSD and Pen drives
+- D) ROM and Cache
+
+**Answer:** B
+
+### Q166 (mcq)
+
+Which memory types are non-volatile?
+
+- A) RAM and Cache
+- B) Registers and RAM
+- C) ROM and Secondary Storage
+- D) Cache and Registers
+
+**Answer:** C
+
+### Q167 (mcq)
+
+The CPU connects to Primary Memory and Secondary Storage. Which unit manages this data flow?
+
+- A) ALU
+- B) Registers
+- C) Control Unit
+- D) Cache
+
+**Answer:** C
+
+### Q168 (mcq)
+
+What does ALU stand for?
+
+- A) Automatic Logic Unit
+- B) Arithmetic Logic Unit
+- C) Array Logic Unit
+- D) Advanced Logical Unit
+
+**Answer:** B
+
+### Q169 (mcq)
+
+What does CU stand for?
+
+- A) Computer Unit
+- B) Control Unit
+- C) Cache Unit
+- D) Central Unit
+
+**Answer:** B
+
+### Q170 (mcq)
+
+Which operation is performed by the ALU when comparing two values?
+
+- A) Arithmetic
+- B) Logical
+- C) Storage
+- D) Input
+
+**Answer:** B
+
+### Q171 (mcq)
+
+Which type of memory is used to reduce access time by storing frequently accessed data?
+
+- A) ROM
+- B) Secondary Storage
+- C) Cache Memory
+- D) Registers
+
+**Answer:** C
+
+### Q172 (mcq)
+
+Which is true about SRAM?
+
+- A) It is dynamic and needs refreshing
+- B) It is static and faster
+- C) It is non-volatile
+- D) It is used for BIOS
+
+**Answer:** B
+
+### Q173 (mcq)
+
+Which is true about DRAM?
+
+- A) It is static
+- B) It is dynamic and needs refreshing
+- C) It is faster than SRAM
+- D) It is non-volatile
+
+**Answer:** B
+
+### Q174 (mcq)
+
+What does EEPROM stand for?
+
+- A) Electrically Erasable Programmable Read-Only Memory
+- B) Erasable Electronic Programmable ROM
+- C) Electrically Erasable Permanent ROM
+- D) Extended Erasable Programmable ROM
+
+**Answer:** A
+
+### Q175 (mcq)
+
+Which device is used for permanent backup of data?
+
+- A) Primary Memory
+- B) Registers
+- C) Cache
+- D) Secondary Storage
+
+**Answer:** D
+
+### Q176 (mcq)
+
+Which of the following is an example of a magnetic secondary storage device?
+
+- A) SSD
+- B) Blu-ray
+- C) Hard Disk Drive (HDD)
+- D) Pen drive
+
+**Answer:** C
+
+### Q177 (mcq)
+
+Which of the following is a solid-state secondary storage device?
+
+- A) HDD
+- B) Magnetic Tape
+- C) SSD
+- D) CD
+
+**Answer:** C
+
+### Q178 (mcq)
+
+Which device is an output device used for printing large engineering drawings?
+
+- A) Printer
+- B) Plotter
+- C) Scanner
+- D) Monitor
+
+**Answer:** B
+
+### Q179 (mcq)
+
+Which device is an input device used to read barcodes?
+
+- A) Mouse
+- B) Barcode reader
+- C) Webcam
+- D) Joystick
+
+**Answer:** B
+
+### Q180 (mcq)
+
+Which device is an output device used for visual display?
+
+- A) Printer
+- B) Plotter
+- C) Monitor (VDU)
+- D) Scanner
+
+**Answer:** C
+
+### Q181 (mcq)
+
+In the block diagram, CPU sends data to Output Devices. What is the reverse flow?
+
+- A) Output Devices send data to CPU
+- B) Input Devices send data to CPU
+- C) CPU sends data to Secondary Storage
+- D) Primary Memory sends data to Secondary Storage
+
+**Answer:** B
+
+### Q182 (mcq)
+
+A Program Counter (PC) is a type of:
+
+- A) Cache
+- B) Register
+- C) ALU component
+- D) RAM
+
+**Answer:** B
+
+### Q183 (mcq)
+
+An Instruction Register (IR) holds:
+
+- A) The address of the next instruction
+- B) The current instruction being decoded/executed
+- C) Intermediate arithmetic results
+- D) Data from input devices
+
+**Answer:** B
+
+### Q184 (mcq)
+
+Which of the following is a comparison operation performed by ALU?
+
+- A) AND
+- B) OR
+- C) NOT
+- D) > (Greater than)
+
+**Answer:** D
+
+### Q185 (mcq)
+
+Which memory has a speed hierarchy level between Registers and RAM?
+
+- A) Secondary Storage
+- B) ROM
+- C) Cache
+- D) HDD
+
+**Answer:** C
+
+### Q186 (mcq)
+
+Which type of ROM can be erased using ultraviolet light?
+
+- A) PROM
+- B) EPROM
+- C) EEPROM
+- D) SRAM
+
+**Answer:** B
+
+### Q187 (mcq)
+
+Which type of ROM is programmable only once?
+
+- A) EPROM
+- B) EEPROM
+- C) PROM
+- D) Flash
+
+**Answer:** C
+
+### Q188 (mcq)
+
+What is the use of Cache Memory?
+
+- A) Permanent storage
+- B) Storing BIOS
+- C) Reducing access time for frequently accessed data
+- D) Storing inactive programs
+
+**Answer:** C
+
+### Q189 (mcq)
+
+Which classification of computer is known for high reliability and used in insurance?
+
+- A) Super Computer
+- B) Mini Computer
+- C) Mainframe Computer
+- D) Personal Computer
+
+**Answer:** C
+
+### Q190 (mcq)
+
+Which classification of computer is used for Cryptography?
+
+- A) Mini Computer
+- B) Personal Computer
+- C) Mainframe
+- D) Super Computer
+
+**Answer:** D
+
+### Q191 (mcq)
+
+What is the typical size of a Mini Computer?
+
+- A) Fills a room
+- B) Cabinet size
+- C) Refrigerator size
+- D) Desk size
+
+**Answer:** C
+
+### Q192 (mcq)
+
+What is the typical size of a Mainframe Computer?
+
+- A) Small (desk)
+- B) Large (cabinet size)
+- C) Medium (refrigerator)
+- D) Largest (room)
+
+**Answer:** B
+
+### Q193 (mcq)
+
+What is a distinguishing feature of Supercomputers?
+
+- A) Single-user
+- B) Massive I/O
+- C) Parallel processing with thousands of CPUs
+- D) Time-sharing
+
+**Answer:** C
+
+### Q194 (mcq)
+
+Which characteristic is true for Personal Computers?
+
+- A) Multi-user
+- B) Extremely expensive
+- C) Single-user
+- D) Parallel processing
+
+**Answer:** C
+
+### Q195 (mcq)
+
+Which OS is associated with Mainframes?
+
+- A) Windows
+- B) macOS
+- C) z/OS
+- D) Android
+
+**Answer:** C
+
+### Q196 (mcq)
+
+Which OS is associated with Mini Computers (historically)?
+
+- A) Windows
+- B) z/OS
+- C) UNIX, VMS
+- D) Linux (custom)
+
+**Answer:** C
+
+### Q197 (mcq)
+
+What is the decimal equivalent of 1 KB (approx)?
+
+- A) 1000 Bytes
+- B) 1024 Bytes
+- C) 2^20 Bytes
+- D) 2^30 Bytes
+
+**Answer:** B
+
+### Q198 (mcq)
+
+1 Petabyte (PB) equals how many Terabytes?
+
+- A) 1024 TB
+- B) 1000 TB
+- C) 2^20 TB
+- D) 1024 GB
+
+**Answer:** A
+
+### Q199 (mcq)
+
+Which of the following is true about the Control Unit's function?
+
+- A) Performs addition and subtraction
+- B) Stores permanent data
+- C) Coordinates all other components
+- D) Handles only input devices
+
+**Answer:** C
+
+### Q200 (mcq)
+
+In the hierarchy diagram of computers, which category is at the bottom in terms of size and power?
+
+- A) Super Computer
+- B) Mainframe
+- C) Mini
+- D) Micro Computer / PC
+
+**Answer:** D

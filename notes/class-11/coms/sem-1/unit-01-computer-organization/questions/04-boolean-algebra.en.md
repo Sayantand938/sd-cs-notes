@@ -1,4 +1,4 @@
-# Unit 01 04 Practice Paper (Eng)
+# Boolean Algebra — Questions (EN)
 
 ## Section 1: Basic Computer Organisation (Questions 1 to 20)
 
@@ -1111,5 +1111,1105 @@ What is the sum of all minterms of a Boolean function?
 - B) 1
 - C) Depends on variables
 - D) Cannot be determined
+
+**Answer:** B
+
+### Q101 (mcq)
+
+Who introduced Boolean Algebra?
+
+- A) Alan Turing
+- B) George Boole
+- C) Charles Babbage
+- D) John von Neumann
+
+**Answer:** B
+
+### Q102 (mcq)
+
+Boolean Algebra deals with variables that can have how many values?
+
+- A) 1
+- B) 2
+- C) 8
+- D) 10
+
+**Answer:** B
+
+### Q103 (mcq)
+
+In Boolean Algebra, the value '1' represents:
+
+- A) False
+- B) True
+- C) Maybe
+- D) Undefined
+
+**Answer:** B
+
+### Q104 (mcq)
+
+In Boolean Algebra, the value '0' represents:
+
+- A) True
+- B) False
+- C) Maybe
+- D) Undefined
+
+**Answer:** B
+
+### Q105 (mcq)
+
+Which operator represents the AND operation in Boolean Algebra?
+
+- A) +
+- B) · or no sign
+- C) '
+- D) ¬
+
+**Answer:** B
+
+### Q106 (mcq)
+
+Which operator represents the OR operation in Boolean Algebra?
+
+- A) +
+- B) · or no sign
+- C) '
+- D) ¬
+
+**Answer:** A
+
+### Q107 (mcq)
+
+Which operator represents the NOT operation in Boolean Algebra?
+
+- A) +
+- B) ·
+- C) ' or ¬
+- D) ⊕
+
+**Answer:** C
+
+### Q108 (mcq)
+
+According to the Identity Law, what is A · 1 equal to?
+
+- A) 0
+- B) A
+- C) 1
+- D) A'
+
+**Answer:** B
+
+### Q109 (mcq)
+
+According to the Identity Law, what is A + 0 equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** C
+
+### Q110 (mcq)
+
+According to the Null or Dominance Law, what is A · 0 equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** A
+
+### Q111 (mcq)
+
+According to the Null or Dominance Law, what is A + 1 equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** B
+
+### Q112 (mcq)
+
+According to the Idempotent Law, what is A · A equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** C
+
+### Q113 (mcq)
+
+According to the Idempotent Law, what is A + A equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** C
+
+### Q114 (mcq)
+
+According to the Complement Law, what is A · A' equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** A
+
+### Q115 (mcq)
+
+According to the Complement Law, what is A + A' equal to?
+
+- A) 0
+- B) 1
+- C) A
+- D) A'
+
+**Answer:** B
+
+### Q116 (mcq)
+
+What is the Double Negation (Involution) Law?
+
+- A) (A')' = A
+- B) (A')' = A'
+- C) (A')' = 1
+- D) (A')' = 0
+
+**Answer:** A
+
+### Q117 (mcq)
+
+The Commutative Law for AND states that:
+
+- A) A · B = B · A
+- B) A · B = B + A
+- C) A · B = A + B
+- D) A · B = A · B'
+
+**Answer:** A
+
+### Q118 (mcq)
+
+The Commutative Law for OR states that:
+
+- A) A + B = B · A
+- B) A + B = B + A
+- C) A + B = B'
+- D) A + B = A · B
+
+**Answer:** B
+
+### Q119 (mcq)
+
+According to the Associative Law, (A · B) · C equals:
+
+- A) A · (B + C)
+- B) A · (B · C)
+- C) A + (B · C)
+- D) (A + B) · C
+
+**Answer:** B
+
+### Q120 (mcq)
+
+According to the Associative Law, (A + B) + C equals:
+
+- A) A + (B + C)
+- B) A + (B · C)
+- C) A · (B + C)
+- D) (A · B) + C
+
+**Answer:** A
+
+### Q121 (mcq)
+
+The Distributive Law states that A · (B + C) equals:
+
+- A) (A · B) + C
+- B) (A + B) · (A + C)
+- C) (A · B) + (A · C)
+- D) A + (B · C)
+
+**Answer:** C
+
+### Q122 (mcq)
+
+The Distributive Law states that A + (B · C) equals:
+
+- A) (A + B) · (A + C)
+- B) (A · B) + (A · C)
+- C) (A + B) + C
+- D) A · B + A · C
+
+**Answer:** A
+
+### Q123 (mcq)
+
+According to the Absorption Law, what is A · (A + B) equal to?
+
+- A) A
+- B) B
+- C) A · B
+- D) A + B
+
+**Answer:** A
+
+### Q124 (mcq)
+
+According to the Absorption Law, what is A + (A · B) equal to?
+
+- A) A
+- B) B
+- C) A · B
+- D) A + B
+
+**Answer:** A
+
+### Q125 (mcq)
+
+According to Absorption Law (Variant), A · (A' + B) equals:
+
+- A) A
+- B) B
+- C) A · B
+- D) A + B
+
+**Answer:** C
+
+### Q126 (mcq)
+
+According to Absorption Law (Variant), A + (A' · B) equals:
+
+- A) A
+- B) B
+- C) A · B
+- D) A + B
+
+**Answer:** D
+
+### Q127 (mcq)
+
+The NOT gate is also called:
+
+- A) Inverter
+- B) Amplifier
+- C) Buffer
+- D) Adder
+
+**Answer:** A
+
+### Q128 (mcq)
+
+The Boolean expression for the AND gate is:
+
+- A) Y = A + B
+- B) Y = A · B
+- C) Y = (A · B)'
+- D) Y = A ⊕ B
+
+**Answer:** B
+
+### Q129 (mcq)
+
+The Boolean expression for the OR gate is:
+
+- A) Y = A · B
+- B) Y = A + B
+- C) Y = (A + B)'
+- D) Y = A ⊕ B
+
+**Answer:** B
+
+### Q130 (mcq)
+
+The NAND gate is an AND gate followed by a:
+
+- A) AND gate
+- B) OR gate
+- C) NOT gate
+- D) XOR gate
+
+**Answer:** C
+
+### Q131 (mcq)
+
+The Boolean expression for the NAND gate is:
+
+- A) Y = A · B
+- B) Y = A + B
+- C) Y = (A · B)'
+- D) Y = (A + B)'
+
+**Answer:** C
+
+### Q132 (mcq)
+
+The NOR gate is an OR gate followed by a:
+
+- A) AND gate
+- B) OR gate
+- C) NOT gate
+- D) XNOR gate
+
+**Answer:** C
+
+### Q133 (mcq)
+
+The Boolean expression for the NOR gate is:
+
+- A) Y = A · B
+- B) Y = A + B
+- C) Y = (A · B)'
+- D) Y = (A + B)'
+
+**Answer:** D
+
+### Q134 (mcq)
+
+The Boolean expression for the XOR gate is:
+
+- A) Y = A + B
+- B) Y = A · B
+- C) Y = A'B + AB'
+- D) Y = AB + A'B'
+
+**Answer:** C
+
+### Q135 (mcq)
+
+The XOR gate outputs 1 when:
+
+- A) Both inputs are 0
+- B) Both inputs are 1
+- C) Inputs are different
+- D) Inputs are same
+
+**Answer:** C
+
+### Q136 (mcq)
+
+The Boolean expression for the XNOR gate is:
+
+- A) Y = A'B + AB'
+- B) Y = AB + A'B'
+- C) Y = A + B
+- D) Y = (A · B)'
+
+**Answer:** B
+
+### Q137 (mcq)
+
+The XNOR gate outputs 1 when:
+
+- A) Both inputs are 0
+- B) Both inputs are 1
+- C) Inputs are same
+- D) Inputs are different
+
+**Answer:** C
+
+### Q138 (mcq)
+
+What is the output of an AND gate when A=1 and B=1?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** B
+
+### Q139 (mcq)
+
+What is the output of an OR gate when A=0 and B=0?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** A
+
+### Q140 (mcq)
+
+What is the output of a NAND gate when A=1 and B=1?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** A
+
+### Q141 (mcq)
+
+What is the output of a NOR gate when A=0 and B=0?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** B
+
+### Q142 (mcq)
+
+What is the output of an XOR gate when A=1 and B=1?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** A
+
+### Q143 (mcq)
+
+What is the output of an XNOR gate when A=1 and B=1?
+
+- A) 0
+- B) 1
+- C) Invalid
+- D) Don't Care
+
+**Answer:** B
+
+### Q144 (mcq)
+
+De Morgan's Theorem 1 states that (A · B)' equals:
+
+- A) A' + B'
+- B) A' · B'
+- C) A + B
+- D) A · B
+
+**Answer:** A
+
+### Q145 (mcq)
+
+De Morgan's Theorem 2 states that (A + B)' equals:
+
+- A) A' + B'
+- B) A' · B'
+- C) A + B
+- D) A · B
+
+**Answer:** B
+
+### Q146 (mcq)
+
+According to De Morgan's Theorem, NAND gate is equivalent to:
+
+- A) Bubbled AND
+- B) Bubbled OR
+- C) Bubbled NOR
+- D) Bubbled XOR
+
+**Answer:** B
+
+### Q147 (mcq)
+
+According to De Morgan's Theorem, NOR gate is equivalent to:
+
+- A) Bubbled AND
+- B) Bubbled OR
+- C) Bubbled NAND
+- D) Bubbled XOR
+
+**Answer:** A
+
+### Q148 (mcq)
+
+The generalization of De Morgan's Theorem for n variables states that (A · B · C ...)' equals:
+
+- A) A' + B' + C' + ...
+- B) A' · B' · C' · ...
+- C) A + B + C + ...
+- D) A · B · C · ...
+
+**Answer:** A
+
+### Q149 (mcq)
+
+The generalization of De Morgan's Theorem for n variables states that (A + B + C ...)' equals:
+
+- A) A' + B' + C' + ...
+- B) A' · B' · C' · ...
+- C) A + B + C + ...
+- D) A · B · C · ...
+
+**Answer:** B
+
+### Q150 (mcq)
+
+A minterm is a product term where every variable appears exactly once. It yields:
+
+- A) 0 for exactly one combination
+- B) 1 for exactly one combination
+- C) 0 for all combinations
+- D) 1 for all combinations
+
+**Answer:** B
+
+### Q151 (mcq)
+
+A maxterm is a sum term where every variable appears exactly once. It yields:
+
+- A) 0 for exactly one combination
+- B) 1 for exactly one combination
+- C) 0 for all combinations
+- D) 1 for all combinations
+
+**Answer:** A
+
+### Q152 (mcq)
+
+For two variables A and B, the minterm m0 is:
+
+- A) A'B'
+- B) A'B
+- C) AB'
+- D) AB
+
+**Answer:** D
+
+### Q153 (mcq)
+
+For two variables A and B, the minterm m1 is:
+
+- A) A'B'
+- B) A'B
+- C) AB'
+- D) AB
+
+**Answer:** B
+
+### Q154 (mcq)
+
+For two variables A and B, the maxterm M0 is:
+
+- A) A + B
+- B) A + B'
+- C) A' + B
+- D) A' + B'
+
+**Answer:** A
+
+### Q155 (mcq)
+
+For two variables A and B, the maxterm M3 is:
+
+- A) A + B
+- B) A + B'
+- C) A' + B
+- D) A' + B'
+
+**Answer:** D
+
+### Q156 (mcq)
+
+The relationship between a minterm and maxterm with the same index is:
+
+- A) mi = Mi
+- B) mi = Mi'
+- C) mi = 1 + Mi
+- D) mi = 0 · Mi
+
+**Answer:** B
+
+### Q157 (mcq)
+
+SOP stands for:
+
+- A) Sum of Products
+- B) Sum of Positives
+- C) Standard of Products
+- D) System of Products
+
+**Answer:** A
+
+### Q158 (mcq)
+
+In canonical SOP, product terms (minterms) are:
+
+- A) ANDed together
+- B) ORed together
+- C) XORed together
+- D) NOTed together
+
+**Answer:** B
+
+### Q159 (mcq)
+
+In canonical SOP, the expression includes:
+
+- A) All minterms where output is 0
+- B) All minterms where output is 1
+- C) Only minterms with don't cares
+- D) Only the first minterm
+
+**Answer:** B
+
+### Q160 (mcq)
+
+Canonical SOP is denoted as:
+
+- A) ∑ m(indices)
+- B) ∏ m(indices)
+- C) ∑ M(indices)
+- D) ∏ M(indices)
+
+**Answer:** A
+
+### Q161 (mcq)
+
+POS stands for:
+
+- A) Product of Sums
+- B) Product of Systems
+- C) Power of Sums
+- D) Positive of Sums
+
+**Answer:** A
+
+### Q162 (mcq)
+
+In canonical POS, sum terms (maxterms) are:
+
+- A) ANDed together
+- B) ORed together
+- C) XORed together
+- D) NOTed together
+
+**Answer:** A
+
+### Q163 (mcq)
+
+In canonical POS, the expression includes:
+
+- A) All maxterms where output is 1
+- B) All maxterms where output is 0
+- C) Only maxterms with don't cares
+- D) Only the first maxterm
+
+**Answer:** B
+
+### Q164 (mcq)
+
+Canonical POS is denoted as:
+
+- A) ∑ m(indices)
+- B) ∏ m(indices)
+- C) ∑ M(indices)
+- D) ∏ M(indices)
+
+**Answer:** D
+
+### Q165 (mcq)
+
+If F = ∑ m(0, 2), then F' equals:
+
+- A) ∑ m(0, 2)
+- B) ∑ m(1, 3)
+- C) ∏ m(0, 2)
+- D) ∏ m(1, 3)
+
+**Answer:** B
+
+### Q166 (mcq)
+
+Simplify: F = A'BC + A'BC' + AB'C' + AB'C
+
+- A) A + B
+- B) A'B + AB'
+- C) AB + A'B'
+- D) A ⊕ B'
+
+**Answer:** B
+
+### Q167 (mcq)
+
+Simplify: F = (A + B)(A + B')
+
+- A) A
+- B) B
+- C) 1
+- D) 0
+
+**Answer:** A
+
+### Q168 (mcq)
+
+Simplify: F = A + A'B
+
+- A) A
+- B) B
+- C) A + B
+- D) A · B
+
+**Answer:** C
+
+### Q169 (mcq)
+
+Simplify: F = A(A' + B)
+
+- A) A
+- B) B
+- C) A · B
+- D) A + B
+
+**Answer:** C
+
+### Q170 (mcq)
+
+Simplify: F = AB + AB'
+
+- A) A
+- B) B
+- C) 1
+- D) 0
+
+**Answer:** A
+
+### Q171 (mcq)
+
+A K-Map is a graphical method to:
+
+- A) Convert binary to decimal
+- B) Minimize boolean expressions
+- C) Generate truth tables
+- D) Design circuits
+
+**Answer:** B
+
+### Q172 (mcq)
+
+K-Map uses the concept of:
+
+- A) Binary code
+- B) Gray code
+- C) ASCII code
+- D) BCD code
+
+**Answer:** B
+
+### Q173 (mcq)
+
+In a K-Map, adjacent cells differ by:
+
+- A) 2 bits
+- B) 1 bit
+- C) 0 bits
+- D) 3 bits
+
+**Answer:** B
+
+### Q174 (mcq)
+
+In K-Map simplification, groups must be in powers of:
+
+- A) 2
+- B) 3
+- C) 4
+- D) 8
+
+**Answer:** A
+
+### Q175 (mcq)
+
+In K-Map, valid group sizes include:
+
+- A) 1, 2, 4, 8
+- B) 1, 3, 5, 7
+- C) 2, 4, 6, 8
+- D) 1, 2, 3, 4
+
+**Answer:** A
+
+### Q176 (mcq)
+
+In a 2-variable K-Map, how many cells are there?
+
+- A) 2
+- B) 4
+- C) 8
+- D) 16
+
+**Answer:** B
+
+### Q177 (mcq)
+
+In a 3-variable K-Map, how many cells are there?
+
+- A) 4
+- B) 8
+- C) 16
+- D) 32
+
+**Answer:** B
+
+### Q178 (mcq)
+
+In a 4-variable K-Map, how many cells are there?
+
+- A) 4
+- B) 8
+- C) 16
+- D) 32
+
+**Answer:** C
+
+### Q179 (mcq)
+
+In K-Map, the order of rows/columns follows:
+
+- A) Binary sequence (00, 01, 10, 11)
+- B) Gray code sequence (00, 01, 11, 10)
+- C) Random sequence
+- D) Octal sequence
+
+**Answer:** B
+
+### Q180 (mcq)
+
+In K-Map, larger groups reduce the expression:
+
+- A) Less
+- B) More
+- C) Not at all
+- D) By adding terms
+
+**Answer:** B
+
+### Q181 (mcq)
+
+In K-Map, every '1' must be covered at least once. Overlapping is:
+
+- A) Allowed
+- B) Not allowed
+- C) Mandatory
+- D) Optional
+
+**Answer:** A
+
+### Q182 (mcq)
+
+In a 3-variable K-Map, what is the simplified expression for a group of 4 cells?
+
+- A) A single variable
+- B) Two variables
+- C) Three variables
+- D) A constant
+
+**Answer:** A
+
+### Q183 (mcq)
+
+In a 4-variable K-Map, what is the simplified expression for a group of 8 cells?
+
+- A) A single variable
+- B) Two variables
+- C) Three variables
+- D) Four variables
+
+**Answer:** A
+
+### Q184 (mcq)
+
+Simplify using K-Map: F = ∑ m(0, 1, 3, 7, 5) for 3 variables
+
+- A) A'B + C
+- B) A' + C
+- C) A + C'
+- D) B' + C
+
+**Answer:** B
+
+### Q185 (mcq)
+
+In a K-Map, a group of 2 cells eliminates how many variables?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** B
+
+### Q186 (mcq)
+
+In a K-Map, a group of 4 cells eliminates how many variables?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** C
+
+### Q187 (mcq)
+
+In a K-Map, a group of 8 cells eliminates how many variables?
+
+- A) 1
+- B) 2
+- C) 3
+- D) 4
+
+**Answer:** C
+
+### Q188 (mcq)
+
+K-Map cells can wrap around:
+
+- A) Only horizontally
+- B) Only vertically
+- C) Both horizontally and vertically
+- D) Diagonally
+
+**Answer:** C
+
+### Q189 (mcq)
+
+The logic circuit for F = AB + C' requires:
+
+- A) AND, NOT, OR gates
+- B) AND, OR, NAND gates
+- C) OR, NOT, NOR gates
+- D) Only AND gates
+
+**Answer:** A
+
+### Q190 (mcq)
+
+The expression F = A'B + AB' is the:
+
+- A) AND function
+- B) OR function
+- C) XOR function
+- D) XNOR function
+
+**Answer:** C
+
+### Q191 (mcq)
+
+The expression F = AB + A'B' is the:
+
+- A) AND function
+- B) OR function
+- C) XOR function
+- D) XNOR function
+
+**Answer:** D
+
+### Q192 (mcq)
+
+Which gate is known as a "universal gate"?
+
+- A) AND and OR
+- B) NAND and NOR
+- C) XOR and XNOR
+- D) NOT only
+
+**Answer:** B
+
+### Q193 (mcq)
+
+Which of the following is NOT a basic logic gate?
+
+- A) AND
+- B) OR
+- C) NOT
+- D) XOR (it's derived)
+
+**Answer:** D
+
+### Q194 (mcq)
+
+SOP expressions are implemented using:
+
+- A) AND-OR logic
+- B) OR-AND logic
+- C) NAND-NAND logic
+- D) NOR-NOR logic
+
+**Answer:** A
+
+### Q195 (mcq)
+
+POS expressions are implemented using:
+
+- A) AND-OR logic
+- B) OR-AND logic
+- C) NAND-NAND logic
+- D) NOR-NOR logic
+
+**Answer:** B
+
+### Q196 (mcq)
+
+In a 2-variable K-Map, if F = ∑ m(0, 3), what is the simplified expression?
+
+- A) A
+- B) B
+- C) A ⊕ B
+- D) A' + B'
+
+**Answer:** C
+
+### Q197 (mcq)
+
+In a 3-variable K-Map, a group of 2 cells eliminates:
+
+- A) 1 variable
+- B) 2 variables
+- C) 3 variables
+- D) 0 variables
+
+**Answer:** A
+
+### Q198 (mcq)
+
+Which Boolean law states that A + 0 = A?
+
+- A) Null Law
+- B) Identity Law
+- C) Complement Law
+- D) Idempotent Law
+
+**Answer:** B
+
+### Q199 (mcq)
+
+Which Boolean law states that A · A' = 0?
+
+- A) Null Law
+- B) Identity Law
+- C) Complement Law
+- D) Idempotent Law
+
+**Answer:** C
+
+### Q200 (mcq)
+
+De Morgan's Theorem is used to:
+
+- A) Add binary numbers
+- B) Simplify expressions and convert between gate types
+- C) Convert decimal to binary
+- D) Multiply binary numbers
 
 **Answer:** B

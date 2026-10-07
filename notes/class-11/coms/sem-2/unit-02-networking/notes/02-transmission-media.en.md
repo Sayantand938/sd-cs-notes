@@ -1,4 +1,5 @@
-# 📚 Computer Networks: Transmission Media  
+# Transmission Media
+
 **Detailed Study Notes for Class 11**  
 *(Estimated Study Time: 3 Hours)*
 

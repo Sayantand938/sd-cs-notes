@@ -1,4 +1,5 @@
-# 📚 Computer Networks: Introduction to Networking 
+# Introduction to Networking
+
 **Detailed Study Notes for Class 11**  
 *(Weightage: 10 Marks | Estimated Study Time: 20 Hours)*
 

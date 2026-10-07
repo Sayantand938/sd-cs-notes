@@ -7,7 +7,7 @@ const { marked } = require('marked');
 const { escapeHtml } = require('./text');
 const { wrapTables } = require('./html');
 const { renderQuestionBank } = require('./questions');
-const { parseQuestions } = require('./question-markdown');
+const { parseQuestions, matchQuestionHeading } = require('./question-markdown');
 
 /**
  * Matches the start of a multiple-choice option line:
@@ -196,6 +196,7 @@ function renderProse(markdown) {
 function locateQuestionSpans(lines) {
   const spans = [];
   let start = -1;
+  let inFence = false;
 
   const close = (end) => {
     if (start !== -1) spans.push({ start, end });
@@ -203,10 +204,13 @@ function locateQuestionSpans(lines) {
   };
 
   lines.forEach((line, index) => {
-    const heading = line.match(/^#{2,6}\s*(?:Q)?(\d+)\s*(?:[.):])?\s*(.*)$/);
-    const isQuestionHeading = heading && !/^#{1,6}\s*Answer/i.test(line);
+    // A fence toggles code context; `#` inside a code block is a comment in
+    // the highlighted language, never a heading.
+    if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+    if (inFence) return;
 
-    if (isQuestionHeading) {
+    // Use the one shared matcher, so this cannot drift from the parser.
+    if (matchQuestionHeading(line)) {
       close(index);
       start = index;
       return;

@@ -1,4 +1,4 @@
-# Misc 01 Practice Paper (Eng)
+# Mock Test 01 (EN)
 
 ## Section 1: Computer System and Organisation (Questions 1 to 20)
 

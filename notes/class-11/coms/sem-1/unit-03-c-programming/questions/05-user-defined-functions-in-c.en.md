@@ -1,4 +1,4 @@
-# Unit 03 05 practice paper eng
+# User Defined Functions In C — Questions (EN)
 
 ### Q1 (mcq)
 
@@ -1368,3 +1368,1103 @@ printf("%d", p[1]);
 - D) Error
 
 **Answer:** B
+
+### Q101 (mcq)
+
+A function is defined as:
+
+- A) A collection of variables
+- B) A self-contained block of code that performs a specific task
+- C) A data structure
+- D) A type of loop
+
+**Answer:** B
+
+### Q102 (mcq)
+
+Which of the following is a Library Function in C?
+
+- A) `add()`
+- B) `subtract()`
+- C) `printf()`
+- D) `swap()`
+
+**Answer:** C
+
+### Q103 (mcq)
+
+User-Defined Functions are:
+
+- A) Functions provided by C
+- B) Functions created by the programmer
+- C) Functions that cannot be called
+- D) Functions without a return type
+
+**Answer:** B
+
+### Q104 (mcq)
+
+Which of the following is NOT an advantage of functions?
+
+- A) Modularity
+- B) Reusability
+- C) Increased code duplication
+- D) Ease of debugging
+
+**Answer:** C
+
+### Q105 (mcq)
+
+The DRY Principle in functions stands for:
+
+- A) Don't Run Yourself
+- B) Don't Repeat Yourself
+- C) Do Repeat Yourself
+- D) Don't Return Yourself
+
+**Answer:** B
+
+### Q106 (mcq)
+
+Functions help in modularity by:
+
+- A) Making the program longer
+- B) Breaking a large program into smaller, manageable modules
+- C) Combining all code into one block
+- D) Removing all loops
+
+**Answer:** B
+
+### Q107 (mcq)
+
+Which advantage of functions allows different programmers to work on different parts simultaneously?
+
+- A) Reusability
+- B) Readability
+- C) Team Development
+- D) Memory Efficiency
+
+**Answer:** C
+
+### Q108 (mcq)
+
+Functions save memory by:
+
+- A) Duplicating code
+- B) Executing shared code without duplicating it
+- C) Using more variables
+- D) Creating multiple copies
+
+**Answer:** B
+
+### Q109 (mcq)
+
+The three parts of a function are:
+
+- A) Declaration, Definition, Call
+- B) Declaration, Initialization, Execution
+- C) Definition, Execution, Return
+- D) Call, Return, Print
+
+**Answer:** A
+
+### Q110 (mcq)
+
+The function prototype tells the compiler about:
+
+- A) The function's body
+- B) The function's name, return type, and parameters
+- C) The function's local variables
+- D) The function's memory address
+
+**Answer:** B
+
+### Q111 (mcq)
+
+What is the syntax of a function definition?
+
+- A) `return_type function_name(parameter_list) { body }`
+- B) `function_name(parameter_list) return_type { body }`
+- C) `{ body } function_name(parameter_list) return_type`
+- D) `return_type { body } function_name(parameter_list)`
+
+**Answer:** A
+
+### Q112 (mcq)
+
+In the function `int add(int a, int b)`, what is the return type?
+
+- A) `void`
+- B) `int`
+- C) `float`
+- D) `char`
+
+**Answer:** B
+
+### Q113 (mcq)
+
+In the function `int add(int a, int b)`, what are `a` and `b` called?
+
+- A) Return values
+- B) Local variables
+- C) Parameters
+- D) Global variables
+
+**Answer:** C
+
+### Q114 (mcq)
+
+In Call by Value, what is passed to the formal parameter?
+
+- A) The address of the variable
+- B) A copy of the actual argument's value
+- C) The variable itself
+- D) A pointer
+
+**Answer:** B
+
+### Q115 (mcq)
+
+In Call by Value, changes made inside the function:
+
+- A) Affect the original variable
+- B) Do not affect the original variable
+- C) Cause a compilation error
+- D) Affect all variables
+
+**Answer:** B
+
+### Q116 (mcq)
+
+What is the default parameter passing mechanism in C?
+
+- A) Call by Reference
+- B) Call by Value
+- C) Call by Address
+- D) Call by Pointer
+
+**Answer:** B
+
+### Q117 (mcq)
+
+In the example `void changeValue(int x) { x = 20; }`, if `a = 10` and `changeValue(a)` is called, what is the output of `printf("%d", a);`?
+
+- A) 10
+- B) 20
+- C) 0
+- D) Garbage value
+
+**Answer:** A
+
+### Q118 (mcq)
+
+Call by Reference in C is simulated using:
+
+- A) Arrays
+- B) Pointers
+- C) Structures
+- D) Global variables
+
+**Answer:** B
+
+### Q119 (mcq)
+
+In Call by Reference, what is passed to the function?
+
+- A) The value of the variable
+- B) The address of the variable
+- C) A copy of the variable
+- D) The variable name
+
+**Answer:** B
+
+### Q120 (mcq)
+
+To modify the original variable in a function, the parameter must be:
+
+- A) An integer
+- B) A float
+- C) A pointer
+- D) A character
+
+**Answer:** C
+
+### Q121 (mcq)
+
+In the swap function `void swap(int *x, int *y)`, `*x` is used to:
+
+- A) Get the address of x
+- B) Dereference x to get its value
+- C) Assign a new address to x
+- D) Increment x
+
+**Answer:** B
+
+### Q122 (mcq)
+
+In the swap function, `swap(&a, &b)` passes:
+
+- A) The values of a and b
+- B) The addresses of a and b
+- C) Copies of a and b
+- D) The size of a and b
+
+**Answer:** B
+
+### Q123 (mcq)
+
+What is the output of the swap program if `a = 5` and `b = 10` before the swap?
+
+- A) a=5, b=10
+- B) a=10, b=5
+- C) a=0, b=0
+- D) a=5, b=5
+
+**Answer:** B
+
+### Q124 (mcq)
+
+Which parameter passing method protects the original variable from modification?
+
+- A) Call by Reference
+- B) Call by Value
+- C) Call by Address
+- D) Call by Pointer
+
+**Answer:** B
+
+### Q125 (mcq)
+
+Which parameter passing method is faster for large structures?
+
+- A) Call by Value
+- B) Call by Reference
+- C) Both are equally fast
+- D) Depends on the data type
+
+**Answer:** B
+
+### Q126 (mcq)
+
+In Call by Value, memory is:
+
+- A) Shared between actual and formal parameters
+- B) Separately allocated for the formal parameter
+- C) Not allocated
+- D) Freed immediately
+
+**Answer:** B
+
+### Q127 (mcq)
+
+In Call by Reference, the pointer variable stores:
+
+- A) The value of the variable
+- B) The address of the variable
+- C) A copy of the variable
+- D) The size of the variable
+
+**Answer:** B
+
+### Q128 (mcq)
+
+The `return` statement in a function:
+
+- A) Continues the function execution
+- B) Exits the function immediately
+- C) Restarts the function
+- D) Skips the next statement
+
+**Answer:** B
+
+### Q129 (mcq)
+
+A function with return type `void`:
+
+- A) Returns an integer
+- B) Returns a float
+- C) Returns nothing
+- D) Returns a character
+
+**Answer:** C
+
+### Q130 (mcq)
+
+Which of the following is a valid function with `void` return type?
+
+- A) `int add(int a, int b) { return a+b; }`
+- B) `void printHello() { printf("Hello"); }`
+- C) `float area(float r) { return 3.14*r*r; }`
+- D) `char* getName() { return "John"; }`
+
+**Answer:** B
+
+### Q131 (mcq)
+
+A function can return how many values directly?
+
+- A) 0
+- B) 1
+- C) 2
+- D) Multiple
+
+**Answer:** B
+
+### Q132 (mcq)
+
+How can a function return multiple values indirectly?
+
+- A) Using global variables
+- B) Using pointers (Call by Reference)
+- C) Using multiple return statements
+- D) Using void functions
+
+**Answer:** B
+
+### Q133 (mcq)
+
+In `void calculate(int a, int b, int *sum, int *diff)`, `sum` and `diff` are:
+
+- A) Return values
+- B) Pointers used to return multiple values
+- C) Local variables
+- D) Global variables
+
+**Answer:** B
+
+### Q134 (mcq)
+
+C allows:
+
+- A) Nested function definitions
+- B) Nested function calls
+- C) Both nested definitions and calls
+- D) Neither
+
+**Answer:** B
+
+### Q135 (mcq)
+
+Nested function calls means:
+
+- A) Defining one function inside another
+- B) Calling one function from inside another function
+- C) A function calling itself
+- D) Two functions calling each other
+
+**Answer:** B
+
+### Q136 (mcq)
+
+In `calculate(3, 2)` calling `add(3, 2)` and then `multiply(5, 2)`, this is an example of:
+
+- A) Recursion
+- B) Nested function calls
+- C) Infinite loop
+- D) Call by Reference
+
+**Answer:** B
+
+### Q137 (mcq)
+
+What is the output of the nested call example: `calculate(3, 2)` where `calculate` does `add(x, y)` then `multiply(sum, y)`?
+
+- A) 5
+- B) 6
+- C) 10
+- D) 12
+
+**Answer:** C
+
+### Q138 (mcq)
+
+Recursion is a technique where a function:
+
+- A) Calls another function
+- B) Calls itself
+- C) Is defined inside another function
+- D) Has no return statement
+
+**Answer:** B
+
+### Q139 (mcq)
+
+A recursive function must have:
+
+- A) Only a recursive case
+- B) Only a base case
+- C) Both a base case and a recursive case
+- D) No cases
+
+**Answer:** C
+
+### Q140 (mcq)
+
+The base case in recursion:
+
+- A) Calls the function again
+- B) Stops the recursion and returns a direct answer
+- C) Increases the recursion depth
+- D) Causes infinite recursion
+
+**Answer:** B
+
+### Q141 (mcq)
+
+The recursive case in recursion:
+
+- A) Stops the recursion
+- B) Calls the function with a modified input toward the base case
+- C) Returns immediately
+- D) Has no effect
+
+**Answer:** B
+
+### Q142 (mcq)
+
+What is the base case for the factorial recursive function?
+
+- A) `n == 1`
+- B) `n == 0`
+- C) `n < 0`
+- D) Both A and B are correct
+
+**Answer:** A
+
+### Q143 (mcq)
+
+What is the factorial of 5 using recursion?
+
+- A) 60
+- B) 120
+- C) 24
+- D) 720
+
+**Answer:** B
+
+### Q144 (mcq)
+
+In recursive factorial, `factorial(5)` calls:
+
+- A) `factorial(6)`
+- B) `factorial(4)`
+- C) `factorial(3)`
+- D) `factorial(2)`
+
+**Answer:** B
+
+### Q145 (mcq)
+
+The time complexity of recursive factorial is:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(2ⁿ)
+
+**Answer:** B
+
+### Q146 (mcq)
+
+Each recursive call creates a new:
+
+- A) Variable
+- B) Activation record (stack frame)
+- C) Function
+- D) Loop
+
+**Answer:** B
+
+### Q147 (mcq)
+
+Excessive recursion can lead to:
+
+- A) Faster execution
+- B) Stack Overflow
+- C) Memory optimization
+- D) Infinite loop
+
+**Answer:** B
+
+### Q148 (mcq)
+
+What is the Fibonacci series base case for `n == 0`?
+
+- A) 0
+- B) 1
+- C) -1
+- D) Undefined
+
+**Answer:** A
+
+### Q149 (mcq)
+
+What is the Fibonacci series base case for `n == 1`?
+
+- A) 0
+- B) 1
+- C) -1
+- D) Undefined
+
+**Answer:** B
+
+### Q150 (mcq)
+
+What is `fibonacci(5)`?
+
+- A) 3
+- B) 5
+- C) 8
+- D) 13
+
+**Answer:** B
+
+### Q151 (mcq)
+
+The time complexity of recursive Fibonacci is:
+
+- A) O(n)
+- B) O(n²)
+- C) O(2ⁿ)
+- D) O(log n)
+
+**Answer:** C
+
+### Q152 (mcq)
+
+Recursive code is generally:
+
+- A) Longer and more verbose than iterative
+- B) Shorter and cleaner than iterative
+- C) The same length as iterative
+- D) Not comparable
+
+**Answer:** B
+
+### Q153 (mcq)
+
+Iterative code uses:
+
+- A) High memory (stack frames)
+- B) Low memory (constant memory)
+- C) No memory
+- D) Only recursion
+
+**Answer:** B
+
+### Q154 (mcq)
+
+Recursive code has higher memory usage because:
+
+- A) It uses more variables
+- B) Each call creates a stack frame
+- C) It uses global memory
+- D) It uses heap memory
+
+**Answer:** B
+
+### Q155 (mcq)
+
+Recursive code is generally:
+
+- A) Faster than iterative
+- B) Slower than iterative (due to function call overhead)
+- C) The same speed as iterative
+- D) Not comparable
+
+**Answer:** B
+
+### Q156 (mcq)
+
+Recursion is best for:
+
+- A) Simple repetitions
+- B) Tree/Graph traversals and Divide-and-Conquer
+- C) Mathematical computations only
+- D) All problems equally
+
+**Answer:** B
+
+### Q157 (mcq)
+
+Iteration is best for:
+
+- A) Tree traversals
+- B) Simple repetitions and mathematical computations
+- C) Recursive problems only
+- D) Graph problems
+
+**Answer:** B
+
+### Q158 (mcq)
+
+What happens if the base case is missing in a recursive function?
+
+- A) The function runs once
+- B) Infinite recursion leading to stack overflow
+- C) The function returns 0
+- D) Compilation error
+
+**Answer:** B
+
+### Q159 (mcq)
+
+In the factorial recursion, the call stack unwinds:
+
+- A) From the base case back to the original call
+- B) From the original call to the base case
+- C) In a random order
+- D) Only once
+
+**Answer:** A
+
+### Q160 (mcq)
+
+In the mermaid diagram for factorial recursion, `factorial(5)` returns:
+
+- A) 5 \* factorial(4)
+- B) 5 + factorial(4)
+- C) 5 / factorial(4)
+- D) 5 - factorial(4)
+
+**Answer:** A
+
+### Q161 (mcq)
+
+The function declaration is also called:
+
+- A) Function definition
+- B) Function prototype
+- C) Function call
+- D) Function body
+
+**Answer:** B
+
+### Q162 (mcq)
+
+Which of the following is a function prototype for `add`?
+
+- A) `int add(int a, int b) { return a+b; }`
+- B) `int add(int a, int b);`
+- C) `add(5, 3);`
+- D) `void add(int a, int b);`
+
+**Answer:** B
+
+### Q163 (mcq)
+
+If a function is defined before it is called, the prototype is:
+
+- A) Mandatory
+- B) Optional
+- C) Not allowed
+- D) Always required
+
+**Answer:** B
+
+### Q164 (mcq)
+
+Which of the following is TRUE about the `return` statement?
+
+- A) A function can have multiple return statements
+- B) A function cannot have multiple return statements
+- C) The return statement is optional for all functions
+- D) The return statement must be the last line
+
+**Answer:** A
+
+### Q165 (mcq)
+
+In `int* getAddress()`, the function returns:
+
+- A) An integer
+- B) A pointer to an integer
+- C) A float
+- D) A character
+
+**Answer:** B
+
+### Q166 (mcq)
+
+Returning a pointer to a local variable is:
+
+- A) Safe
+- B) Dangerous (local variable goes out of scope)
+- C) Recommended
+- D) Not possible
+
+**Answer:** B
+
+### Q167 (mcq)
+
+The call stack in recursion stores:
+
+- A) Only the return values
+- B) Local variables and return addresses for each call
+- C) Only the function names
+- D) Only the parameters
+
+**Answer:** B
+
+### Q168 (mcq)
+
+What is the output of `factorial(0)` in the recursive factorial function?
+
+- A) 0
+- B) 1
+- C) -1
+- D) Undefined
+
+**Answer:** B
+
+### Q169 (mcq)
+
+What is the output of `factorial(3)`?
+
+- A) 3
+- B) 6
+- C) 9
+- D) 12
+
+**Answer:** B
+
+### Q170 (mcq)
+
+In the recursive factorial, the expression `n * factorial(n - 1)` is:
+
+- A) The base case
+- B) The recursive case
+- C) The return statement
+- D) The function call
+
+**Answer:** B
+
+### Q171 (mcq)
+
+Which of the following is an advantage of recursion?
+
+- A) Lower memory usage
+- B) Faster execution
+- C) Elegant solution for problems with recursive structure
+- D) No risk of stack overflow
+
+**Answer:** C
+
+### Q172 (mcq)
+
+Which of the following is a disadvantage of recursion?
+
+- A) Code becomes longer
+- B) Risk of stack overflow
+- C) Cannot solve complex problems
+- D) Not suitable for any problem
+
+**Answer:** B
+
+### Q173 (mcq)
+
+In the Fibonacci recursion, `fibonacci(4)` calls:
+
+- A) `fibonacci(3)` and `fibonacci(2)`
+- B) `fibonacci(5)` and `fibonacci(3)`
+- C) `fibonacci(3)` only
+- D) `fibonacci(2)` only
+
+**Answer:** A
+
+### Q174 (mcq)
+
+The recurrence relation for recursive factorial is:
+
+- A) T(n) = T(n-1) + O(n)
+- B) T(n) = T(n-1) + O(1)
+- C) T(n) = T(n/2) + O(1)
+- D) T(n) = 2T(n-1) + O(1)
+
+**Answer:** B
+
+### Q175 (mcq)
+
+The recurrence relation for recursive Fibonacci is:
+
+- A) T(n) = T(n-1) + O(1)
+- B) T(n) = T(n-1) + T(n-2) + O(1)
+- C) T(n) = T(n/2) + O(1)
+- D) T(n) = 2T(n-1) + O(1)
+
+**Answer:** B
+
+### Q176 (mcq)
+
+A function can be called from:
+
+- A) Only main()
+- B) Only other functions
+- C) Any function including main() and itself
+- D) Only from global scope
+
+**Answer:** C
+
+### Q177 (mcq)
+
+In Call by Value, the formal parameter is:
+
+- A) A pointer
+- B) A separate memory location holding a copy
+- C) The actual variable
+- D) A global variable
+
+**Answer:** B
+
+### Q178 (mcq)
+
+In Call by Reference, the formal parameter is:
+
+- A) An integer
+- B) A pointer
+- C) A float
+- D) A character
+
+**Answer:** B
+
+### Q179 (mcq)
+
+The `&` operator in `swap(&a, &b)` is used to:
+
+- A) Get the value of a
+- B) Get the address of a
+- C) Dereference a
+- D) Increment a
+
+**Answer:** B
+
+### Q180 (mcq)
+
+The `*` operator in `*x = *y` is used to:
+
+- A) Get the address of x
+- B) Dereference x to get its value
+- C) Assign a new address to x
+- D) Increment x
+
+**Answer:** B
+
+### Q181 (mcq)
+
+Which of the following is NOT a valid return type for a function in C?
+
+- A) `void`
+- B) `int`
+- C) `string`
+- D) `float`
+
+**Answer:** C
+
+### Q182 (mcq)
+
+In C, `char*` is used to return:
+
+- A) A single character
+- B) A string (character pointer)
+- C) An integer
+- D) A float
+
+**Answer:** B
+
+### Q183 (mcq)
+
+A function with return type `struct Student`:
+
+- A) Returns a pointer to a structure
+- B) Returns an entire structure by value
+- C) Returns an integer
+- D) Returns nothing
+
+**Answer:** B
+
+### Q184 (mcq)
+
+The `return` statement can appear:
+
+- A) Only at the end of the function
+- B) Anywhere in the function
+- C) Only in main()
+- D) Only in loops
+
+**Answer:** B
+
+### Q185 (mcq)
+
+What is the purpose of the function prototype?
+
+- A) To define the function body
+- B) To inform the compiler about the function before it is called
+- C) To call the function
+- D) To return a value
+
+**Answer:** B
+
+### Q186 (mcq)
+
+In nested calls, the call stack grows:
+
+- A) With each function call
+- B) With each return
+- C) In a random order
+- D) Only with recursive calls
+
+**Answer:** A
+
+### Q187 (mcq)
+
+The call stack in nested calls unwinds:
+
+- A) From the first call to the last
+- B) From the last call back to the first
+- C) In a random order
+- D) Only with recursive calls
+
+**Answer:** B
+
+### Q188 (mcq)
+
+Recursion is a type of:
+
+- A) Iteration
+- B) Function calling itself
+- C) Array manipulation
+- D) Structure definition
+
+**Answer:** B
+
+### Q189 (mcq)
+
+Which of the following problems is best solved using recursion?
+
+- A) Sum of array elements
+- B) Factorial
+- C) Finding maximum in array
+- D) Simple addition
+
+**Answer:** B
+
+### Q190 (mcq)
+
+Which of the following problems is best solved using iteration?
+
+- A) Tree traversal
+- B) Graph traversal
+- C) Sum of first n numbers
+- D) Fibonacci
+
+**Answer:** C
+
+### Q191 (mcq)
+
+The term "activation record" refers to:
+
+- A) A file on disk
+- B) A stack frame created for each function call
+- C) A global variable
+- D) A loop iteration
+
+**Answer:** B
+
+### Q192 (mcq)
+
+In the factorial recursion, the multiplication happens:
+
+- A) Before the recursive call
+- B) After the recursive call returns
+- C) During the recursive call
+- D) At the base case
+
+**Answer:** B
+
+### Q193 (mcq)
+
+In the Fibonacci recursion, the addition happens:
+
+- A) Before the recursive calls
+- B) After the recursive calls return
+- C) During the recursive calls
+- D) At the base case
+
+**Answer:** B
+
+### Q194 (mcq)
+
+A function with no return statement and return type `void`:
+
+- A) Causes a compilation error
+- B) Executes and returns automatically
+- C) Returns garbage value
+- D) Returns 0
+
+**Answer:** B
+
+### Q195 (mcq)
+
+Which of the following is TRUE about function parameters in C?
+
+- A) All parameters are passed by reference
+- B) All parameters are passed by value (by default)
+- C) Parameters cannot be modified
+- D) Parameters are global
+
+**Answer:** B
+
+### Q196 (mcq)
+
+In the swap function, after `swap(&a, &b)`, the values of a and b:
+
+- A) Remain unchanged
+- B) Are swapped
+- C) Become 0
+- D) Become garbage
+
+**Answer:** B
+
+### Q197 (mcq)
+
+Which of the following would NOT cause infinite recursion?
+
+- A) Missing base case
+- B) Base case never reached
+- C) Proper base case with decreasing input
+- D) Recursive case that doesn't change the input
+
+**Answer:** C
+
+### Q198 (mcq)
+
+The `fibonacci(2)` using recursion returns:
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** B
+
+### Q199 (mcq)
+
+The `fibonacci(3)` using recursion returns:
+
+- A) 1
+- B) 2
+- C) 3
+- D) 5
+
+**Answer:** B
+
+### Q200 (mcq)
+
+Which of the following is a valid recursive function structure?
+
+- A) `if (base_condition) return base_value; else return recursive_call;`
+- B) `while (condition) recursive_call;`
+- C) `for (i=0; i<n; i++) recursive_call;`
+- D) `return recursive_call;` (without base case)
+
+**Answer:** A

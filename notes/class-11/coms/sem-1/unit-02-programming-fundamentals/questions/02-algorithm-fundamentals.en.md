@@ -1,4 +1,4 @@
-# Unit 02 02 Practice Paper (Eng)
+# Algorithm Fundamentals — Questions (EN)
 
 ## Section 1: Concept of Programming (Questions 1 to 25)
 
@@ -1105,3 +1105,1103 @@ Which of the following is TRUE about the problem-solving process?
 - D) Analysis is optional
 
 **Answer:** B
+
+### Q101 (mcq)
+
+What is an algorithm?
+
+- A) A programming language
+- B) A step-by-step procedure to solve a problem
+- C) A type of computer hardware
+- D) An operating system
+
+**Answer:** B
+
+### Q102 (mcq)
+
+An algorithm is described as a:
+
+- A) Language-dependent code
+- B) Language-independent blueprint
+- C) Hardware component
+- D) Data structure
+
+**Answer:** B
+
+### Q103 (mcq)
+
+In the real-life example of finding the largest test score, what is the first step?
+
+- A) Check each score
+- B) Return the largest
+- C) Remember the first score as the "largest"
+- D) Sort all scores
+
+**Answer:** C
+
+### Q104 (mcq)
+
+Which of the following is TRUE about algorithms?
+
+- A) An algorithm is code written in a specific language
+- B) An algorithm is a language-independent blueprint
+- C) An algorithm must always be written in Python
+- D) An algorithm cannot be represented visually
+
+**Answer:** B
+
+### Q105 (mcq)
+
+The C function `find_maximum` returns:
+
+- A) The minimum value in the array
+- B) The maximum value in the array
+- C) The sum of all elements
+- D) The average of all elements
+
+**Answer:** B
+
+### Q106 (mcq)
+
+In `find_maximum`, `max_value` is initialized to:
+
+- A) 0
+- B) The first element of the array
+- C) The last element of the array
+- D) The size of the array
+
+**Answer:** B
+
+### Q107 (mcq)
+
+The mnemonic for characteristics of an algorithm is:
+
+- A) I Often Drink Fresh Eggnog
+- B) I Only Drink Fresh Espresso
+- C) Input Output Definite Finite Effective
+- D) All Algorithms Need Clear Steps
+
+**Answer:** A
+
+### Q108 (mcq)
+
+How many inputs can an algorithm have?
+
+- A) At least 1
+- B) 0 or more
+- C) Exactly 2
+- D) Exactly 1
+
+**Answer:** B
+
+### Q109 (mcq)
+
+How many outputs must an algorithm produce?
+
+- A) 0 or more
+- B) At least 1
+- C) Exactly 1
+- D) At least 2
+
+**Answer:** B
+
+### Q110 (mcq)
+
+Definiteness in an algorithm means:
+
+- A) Each step is unambiguous
+- B) The algorithm must be short
+- C) The algorithm must use numbers
+- D) The algorithm must have no loops
+
+**Answer:** A
+
+### Q111 (mcq)
+
+Finiteness in an algorithm means:
+
+- A) It must produce multiple outputs
+- B) It must terminate
+- C) It must have no inputs
+- D) It must be written in C
+
+**Answer:** B
+
+### Q112 (mcq)
+
+Effectiveness in an algorithm means:
+
+- A) Steps are feasible to perform
+- B) Steps are written in English
+- C) Steps are theoretical
+- D) Steps are not important
+
+**Answer:** A
+
+### Q113 (mcq)
+
+Which of the following violates the Finiteness characteristic?
+
+- A) `for (i = 0; i < 10; i++)`
+- B) `while (True)`
+- C) `if (x > 5)`
+- D) `return sum`
+
+**Answer:** B
+
+### Q114 (mcq)
+
+"Add some salt" in a recipe violates which characteristic?
+
+- A) Input
+- B) Output
+- C) Definiteness
+- D) Finiteness
+
+**Answer:** C
+
+### Q115 (mcq)
+
+`add(a, b)` has how many inputs?
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**Answer:** C
+
+### Q116 (mcq)
+
+A Recursive Algorithm is one where:
+
+- A) A function calls itself to solve smaller instances
+- B) A function uses loops
+- C) A function has no return value
+- D) A function calls another function
+
+**Answer:** A
+
+### Q117 (mcq)
+
+The base case in a recursive function:
+
+- A) Makes the function run forever
+- B) Stops the recursion
+- C) Increases the recursion depth
+- D) Causes an error
+
+**Answer:** B
+
+### Q118 (mcq)
+
+What is the base case in the factorial recursive function?
+
+- A) `n > 1`
+- B) `n <= 1`
+- C) `n == 0`
+- D) `n < 0`
+
+**Answer:** B
+
+### Q119 (mcq)
+
+What is the result of `factorial(4)`?
+
+- A) 6
+- B) 12
+- C) 24
+- D) 120
+
+**Answer:** C
+
+### Q120 (mcq)
+
+In recursion, the recursive case:
+
+- A) Stops the recursion
+- B) Calls the function with a smaller input
+- C) Increases the input size
+- D) Terminates the program
+
+**Answer:** B
+
+### Q121 (mcq)
+
+The recursion stack for `factorial(4)` shows:
+
+- A) 4 × 3 × 2 × 1
+- B) 4 + 3 + 2 + 1
+- C) 4 × 3 × 2
+- D) 1 × 2 × 3 × 4
+
+**Answer:** A
+
+### Q122 (mcq)
+
+Which of the following is a PRO of recursive algorithms?
+
+- A) Memory-efficient
+- B) Clean code for tree/graph problems
+- C) No risk of stack overflow
+- D) Always faster than iterative
+
+**Answer:** B
+
+### Q123 (mcq)
+
+Which of the following is a CON of recursive algorithms?
+
+- A) Complex for tree problems
+- B) Memory-heavy, risk of stack overflow
+- C) Always slower than iterative
+- D) Cannot be used for factorial
+
+**Answer:** B
+
+### Q124 (mcq)
+
+An Iterative Algorithm uses:
+
+- A) Self-calls
+- B) Loops instead of self-calls
+- C) No loops
+- D) Only recursion
+
+**Answer:** B
+
+### Q125 (mcq)
+
+Which algorithm type is more memory-efficient?
+
+- A) Recursive
+- B) Iterative
+- C) Both are equally efficient
+- D) Depends on the language
+
+**Answer:** B
+
+### Q126 (mcq)
+
+Iterative algorithms are generally:
+
+- A) Slower than recursive
+- B) Faster than recursive
+- C) The same speed
+- D) Not comparable
+
+**Answer:** B
+
+### Q127 (mcq)
+
+Recursive algorithms are best for:
+
+- A) Simple loops
+- B) Trees and divide-and-conquer
+- C) Array traversal
+- D) Basic arithmetic
+
+**Answer:** B
+
+### Q128 (mcq)
+
+Which of the following is TRUE about recursive vs iterative?
+
+- A) Recursive uses less memory
+- B) Iterative uses high memory
+- C) Recursive uses high memory (stack frames)
+- D) Both use the same memory
+
+**Answer:** C
+
+### Q129 (mcq)
+
+In the C example for iterative sum, the loop runs from:
+
+- A) 0 to n
+- B) 1 to n
+- C) n to 1
+- D) 1 to n-1
+
+**Answer:** B
+
+### Q130 (mcq)
+
+A Flowchart uses a diamond shape for:
+
+- A) Start/End
+- B) Input/Output
+- C) Process
+- D) Decision
+
+**Answer:** D
+
+### Q131 (mcq)
+
+In a flowchart, a parallelogram represents:
+
+- A) Start/End
+- B) Input/Output
+- C) Process
+- D) Decision
+
+**Answer:** B
+
+### Q132 (mcq)
+
+In a flowchart, a rectangle represents:
+
+- A) Start/End
+- B) Input/Output
+- C) Process
+- D) Decision
+
+**Answer:** C
+
+### Q133 (mcq)
+
+In a flowchart, an oval represents:
+
+- A) Start/End
+- B) Input/Output
+- C) Process
+- D) Decision
+
+**Answer:** A
+
+### Q134 (mcq)
+
+In the even/odd flowchart, the diamond checks:
+
+- A) `n > 0`
+- B) `n % 2 == 0`
+- C) `n < 0`
+- D) `n == 0`
+
+**Answer:** B
+
+### Q135 (mcq)
+
+Pseudo code is:
+
+- A) Actual code in a programming language
+- B) Plain-text, language-independent logic
+- C) Machine code
+- D) Assembly code
+
+**Answer:** B
+
+### Q136 (mcq)
+
+In pseudo code, `<-` is used for:
+
+- A) Comparison
+- B) Assignment
+- C) Addition
+- D) Loop
+
+**Answer:** B
+
+### Q137 (mcq)
+
+The pseudo code `total <- 0` means:
+
+- A) Compare total with 0
+- B) Assign total the value 0
+- C) Add total to 0
+- D) Loop from total to 0
+
+**Answer:** B
+
+### Q138 (mcq)
+
+In the average calculation pseudo code, what is checked before division?
+
+- A) If total is 0
+- B) If size is 0
+- C) If list is empty
+- D) If total is negative
+
+**Answer:** B
+
+### Q139 (mcq)
+
+The C implementation of average uses which format specifier for float output?
+
+- A) `%d`
+- B) `%f`
+- C) `%.2f`
+- D) `%c`
+
+**Answer:** C
+
+### Q140 (mcq)
+
+In Python, the average function returns:
+
+- A) Sum of numbers
+- B) Sum divided by length if numbers exist, else 0
+- C) Length of numbers
+- D) Maximum number
+
+**Answer:** B
+
+### Q141 (mcq)
+
+In JavaScript, the average function uses:
+
+- A) `forEach`
+- B) `reduce`
+- C) `map`
+- D) `filter`
+
+**Answer:** B
+
+### Q142 (mcq)
+
+Efficiency of an algorithm measures:
+
+- A) Only time usage
+- B) Only space usage
+- C) Time and space resource usage
+- D) Number of lines of code
+
+**Answer:** C
+
+### Q143 (mcq)
+
+`sum_slow(n)` has a complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** B
+
+### Q144 (mcq)
+
+`sum_fast(n)` has a complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** A
+
+### Q145 (mcq)
+
+For n = 1,000,000, `sum_fast` is approximately how many times faster than `sum_slow`?
+
+- A) 1,000 times
+- B) 10,000 times
+- C) 330,000 times
+- D) 1,000,000 times
+
+**Answer:** C
+
+### Q146 (mcq)
+
+The three performance cases for algorithms are:
+
+- A) Fast, Medium, Slow
+- B) Best, Average, Worst
+- C) Minimum, Typical, Maximum
+- D) Low, Medium, High
+
+**Answer:** B
+
+### Q147 (mcq)
+
+Worst case analysis provides:
+
+- A) Minimum resources needed
+- B) A guaranteed bound on resources
+- C) Average resource usage
+- D) No useful information
+
+**Answer:** B
+
+### Q148 (mcq)
+
+Space Complexity measures:
+
+- A) Speed of execution
+- B) Memory usage vs input size
+- C) Number of operations
+- D) Code readability
+
+**Answer:** B
+
+### Q149 (mcq)
+
+`sum_array` that uses only a `total` variable has space complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** A
+
+### Q150 (mcq)
+
+`duplicate_array` that creates a new array of size n has space complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** B
+
+### Q151 (mcq)
+
+Time Complexity measures:
+
+- A) Memory usage vs input size
+- B) Speed vs input size
+- C) Number of variables
+- D) Code length
+
+**Answer:** B
+
+### Q152 (mcq)
+
+O(1) operations for n=100 is:
+
+- A) 1
+- B) 7
+- C) 100
+- D) 10,000
+
+**Answer:** A
+
+### Q153 (mcq)
+
+O(log n) operations for n=100 is approximately:
+
+- A) 1
+- B) 7
+- C) 100
+- D) 10,000
+
+**Answer:** B
+
+### Q154 (mcq)
+
+O(n) operations for n=100 is:
+
+- A) 1
+- B) 7
+- C) 100
+- D) 10,000
+
+**Answer:** C
+
+### Q155 (mcq)
+
+O(n log n) operations for n=100 is approximately:
+
+- A) 100
+- B) 200
+- C) 664
+- D) 1,000
+
+**Answer:** C
+
+### Q156 (mcq)
+
+O(n²) operations for n=100 is:
+
+- A) 100
+- B) 1,000
+- C) 10,000
+- D) 100,000
+
+**Answer:** C
+
+### Q157 (mcq)
+
+Asymptotic Notation is used to:
+
+- A) Write actual code
+- B) Describe growth rates of algorithms
+- C) Debug programs
+- D) Design user interfaces
+
+**Answer:** B
+
+### Q158 (mcq)
+
+Big O notation describes:
+
+- A) Best case
+- B) Worst case (Upper Bound)
+- C) Exact growth
+- D) Average case
+
+**Answer:** B
+
+### Q159 (mcq)
+
+Big O is used when:
+
+- A) Proving minimums
+- B) All cases are the same
+- C) Making performance guarantees
+- D) Describing best case
+
+**Answer:** C
+
+### Q160 (mcq)
+
+Big Omega (Ω) notation describes:
+
+- A) Worst case
+- B) Best case (Lower Bound)
+- C) Exact growth
+- D) Average case
+
+**Answer:** B
+
+### Q161 (mcq)
+
+Big Omega is used when:
+
+- A) Making performance guarantees
+- B) Proving minimums
+- C) All cases are the same
+- D) Describing worst case
+
+**Answer:** B
+
+### Q162 (mcq)
+
+Big Theta (Θ) notation describes:
+
+- A) Worst case
+- B) Best case
+- C) Tight Bound (Exact growth)
+- D) Average case
+
+**Answer:** C
+
+### Q163 (mcq)
+
+Big Theta is used when:
+
+- A) Best and worst cases are different
+- B) All cases are the same
+- C) Only worst case matters
+- D) Only best case matters
+
+**Answer:** B
+
+### Q164 (mcq)
+
+In `linear_search`, the worst case complexity is:
+
+- A) O(1)
+- B) O(n)
+- C) O(log n)
+- D) O(n²)
+
+**Answer:** B
+
+### Q165 (mcq)
+
+In `linear_search`, the best case complexity is:
+
+- A) Ω(1)
+- B) Ω(n)
+- C) Ω(log n)
+- D) Ω(n²)
+
+**Answer:** A
+
+### Q166 (mcq)
+
+`sum_array` always visits every element, so its complexity is:
+
+- A) O(n)
+- B) Ω(n)
+- C) Θ(n)
+- D) O(1)
+
+**Answer:** C
+
+### Q167 (mcq)
+
+The correct order from fastest to slowest is:
+
+- A) O(1) < O(n) < O(log n) < O(n²)
+- B) O(1) < O(log n) < O(n) < O(n log n) < O(n²)
+- C) O(n) < O(1) < O(log n) < O(n²)
+- D) O(n²) < O(n log n) < O(n) < O(log n)
+
+**Answer:** B
+
+### Q168 (mcq)
+
+Binary search has a time complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(log n)
+- D) O(n²)
+
+**Answer:** C
+
+### Q169 (mcq)
+
+Linear search has a time complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(log n)
+- D) O(n²)
+
+**Answer:** B
+
+### Q170 (mcq)
+
+Merge sort has a time complexity of:
+
+- A) O(n)
+- B) O(n²)
+- C) O(n log n)
+- D) O(log n)
+
+**Answer:** C
+
+### Q171 (mcq)
+
+Bubble sort has a time complexity of:
+
+- A) O(n)
+- B) O(log n)
+- C) O(n log n)
+- D) O(n²)
+
+**Answer:** D
+
+### Q172 (mcq)
+
+Array access has a time complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(log n)
+- D) O(n²)
+
+**Answer:** A
+
+### Q173 (mcq)
+
+In Big O notation, O(n) is known as:
+
+- A) Constant time
+- B) Linear time
+- C) Logarithmic time
+- D) Quadratic time
+
+**Answer:** B
+
+### Q174 (mcq)
+
+In Big O notation, O(1) is known as:
+
+- A) Constant time
+- B) Linear time
+- C) Logarithmic time
+- D) Quadratic time
+
+**Answer:** A
+
+### Q175 (mcq)
+
+In Big O notation, O(log n) is known as:
+
+- A) Constant time
+- B) Linear time
+- C) Logarithmic time
+- D) Quadratic time
+
+**Answer:** C
+
+### Q176 (mcq)
+
+In Big O notation, O(n²) is known as:
+
+- A) Constant time
+- B) Linear time
+- C) Logarithmic time
+- D) Quadratic time
+
+**Answer:** D
+
+### Q177 (mcq)
+
+For an algorithm with O(2ⁿ), n=10 gives approximately:
+
+- A) 100 operations
+- B) 1,024 operations
+- C) 10,000 operations
+- D) 20 operations
+
+**Answer:** B
+
+### Q178 (mcq)
+
+Which complexity grows the fastest?
+
+- A) O(n log n)
+- B) O(n²)
+- C) O(2ⁿ)
+- D) O(n)
+
+**Answer:** C
+
+### Q179 (mcq)
+
+The `find_maximum` function has a time complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** B
+
+### Q180 (mcq)
+
+The `find_maximum` function has a space complexity of:
+
+- A) O(1)
+- B) O(n)
+- C) O(n²)
+- D) O(log n)
+
+**Answer:** A
+
+### Q181 (mcq)
+
+An algorithm with no `#include` or function definitions in the representation is:
+
+- A) C code
+- B) Pseudo code
+- C) Machine code
+- D) Assembly
+
+**Answer:** B
+
+### Q182 (mcq)
+
+In recursion, the factorial function calls itself until:
+
+- A) n becomes 0
+- B) n becomes 1 or less
+- C) n becomes negative
+- D) n becomes 10
+
+**Answer:** B
+
+### Q183 (mcq)
+
+The return value of `factorial(0)` would be:
+
+- A) 0
+- B) 1
+- C) -1
+- D) Undefined
+
+**Answer:** B
+
+### Q184 (mcq)
+
+Which of the following is NOT a valid flowchart symbol?
+
+- A) Oval for Start/End
+- B) Parallelogram for Input/Output
+- C) Rectangle for Process
+- D) Triangle for Decision
+
+**Answer:** D
+
+### Q185 (mcq)
+
+In pseudo code, `FOR i <- 0 TO size - 1` means:
+
+- A) Loop while i is less than size
+- B) Loop until i equals size
+- C) Loop forever
+- D) Loop while i is greater than size
+
+**Answer:** A
+
+### Q186 (mcq)
+
+The C implementation of average uses `(float)total / size` to:
+
+- A) Perform integer division
+- B) Perform floating-point division
+- C) Convert size to float
+- D) Convert total to integer
+
+**Answer:** B
+
+### Q187 (mcq)
+
+The Python average function uses the expression:
+
+- A) `sum(numbers) / len(numbers) if numbers else 0`
+- B) `sum(numbers) / len(numbers)`
+- C) `sum(numbers) if numbers else 0`
+- D) `sum(numbers) / 0`
+
+**Answer:** A
+
+### Q188 (mcq)
+
+The JavaScript average function uses:
+
+- A) `numbers.reduce((a,b) => a+b) / numbers.length`
+- B) `numbers.reduce((a,b) => a+b) / numbers.length || 0`
+- C) `numbers.map((a,b) => a+b) / numbers.length`
+- D) `numbers.filter((a,b) => a+b) / numbers.length`
+
+**Answer:** B
+
+### Q189 (mcq)
+
+Which of the following is NOT a characteristic of an algorithm?
+
+- A) Input
+- B) Output
+- C) Randomness
+- D) Finiteness
+
+**Answer:** C
+
+### Q190 (mcq)
+
+An algorithm that never terminates violates:
+
+- A) Input
+- B) Output
+- C) Definiteness
+- D) Finiteness
+
+**Answer:** D
+
+### Q191 (mcq)
+
+The real-life example of finding the largest test score uses:
+
+- A) Recursion
+- B) Iteration
+- C) Both recursion and iteration
+- D) Neither
+
+**Answer:** B
+
+### Q192 (mcq)
+
+A recursive algorithm's call stack grows with:
+
+- A) Each recursive call
+- B) Each loop iteration
+- C) Each variable declaration
+- D) Each function return
+
+**Answer:** A
+
+### Q193 (mcq)
+
+Which is better for memory-constrained environments?
+
+- A) Recursive algorithms
+- B) Iterative algorithms
+- C) Both are equal
+- D) Depends on the problem
+
+**Answer:** B
+
+### Q194 (mcq)
+
+O(n!) is considered:
+
+- A) Efficient
+- B) Very inefficient
+- C) Constant time
+- D) Logarithmic time
+
+**Answer:** B
+
+### Q195 (mcq)
+
+Big O notation ignores:
+
+- A) Constant factors
+- B) Input size
+- C) Worst case
+- D) Growth rate
+
+**Answer:** A
+
+### Q196 (mcq)
+
+The difference between O(n) and O(2n) is:
+
+- A) Significant
+- B) Ignored in Big O notation
+- C) Always 2x
+- D) Always 1.5x
+
+**Answer:** B
+
+### Q197 (mcq)
+
+An algorithm with best=O(1) and worst=O(n) has which exact bound?
+
+- A) Θ(1)
+- B) Θ(n)
+- C) Cannot determine Θ
+- D) Ω(1)
+
+**Answer:** C
+
+### Q198 (mcq)
+
+Which of the following algorithms has Θ(n) complexity?
+
+- A) Binary search
+- B) Linear search (worst case is O(n) but best is Ω(1))
+- C) Sum of array elements
+- D) Bubble sort
+
+**Answer:** C
+
+### Q199 (mcq)
+
+The mermaid diagram for recursion shows:
+
+- A) A loop
+- B) Function calls unwinding
+- C) A decision tree
+- D) A flowchart
+
+**Answer:** B
+
+### Q200 (mcq)
+
+Which complexity is considered the most efficient for large inputs?
+
+- A) O(1)
+- B) O(log n)
+- C) O(n)
+- D) O(n²)
+
+**Answer:** A
