@@ -424,23 +424,6 @@
     {
       "sl": 31,
       "type": "mcq",
-      "question": "Which of the following is NOT a system software?",
-      "options": [
-        "Operating System",
-        "Compiler",
-        "Antivirus",
-        "Windows",
-        "Linux",
-        "MS Word",
-        "BIOS"
-      ],
-      "answer": 3,
-      "answerLetter": "C",
-      "answerSource": "key"
-    },
-    {
-      "sl": 31,
-      "type": "mcq",
       "question": "Which of the following is application software?",
       "options": [
         "Windows 10",

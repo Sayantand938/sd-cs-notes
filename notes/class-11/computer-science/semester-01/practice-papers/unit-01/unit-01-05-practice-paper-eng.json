@@ -648,18 +648,6 @@
     {
       "sl": 47,
       "type": "mcq",
-      "question": "Which Linux command is used to get help for a command?",
-      "options": [
-        "`help`",
-        "`man` (manual pages) also works, but `help` is more basic"
-      ],
-      "answer": 1,
-      "answerLetter": "A",
-      "answerSource": "key"
-    },
-    {
-      "sl": 47,
-      "type": "mcq",
       "question": "Which Linux command shows the manual for a command?",
       "options": [
         "`man`",

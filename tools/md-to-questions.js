@@ -214,6 +214,7 @@ if (require.main === module) {
   let totalIssues = 0;
   const allIssues = [];
   const counts = {};
+  const skipped = [];
 
   for (const file of files.sort()) {
     const { records, issues } = convertPaper(file);
@@ -224,6 +225,22 @@ if (require.main === module) {
 
     if (write) {
       const out = file.replace(/\.md$/, '.json');
+
+      // Refuse to overwrite a populated bank with an empty one. Once a paper
+      // has been rewritten to use {{questions}}, re-running the converter on it
+      // finds no inline questions and would otherwise destroy the bank.
+      if (records.length === 0 && fs.existsSync(out)) {
+        try {
+          const existing = JSON.parse(fs.readFileSync(out, 'utf8'));
+          if (Array.isArray(existing.questions) && existing.questions.length > 0) {
+            skipped.push(`${path.basename(out)}: ${existing.questions.length} questions - refusing to overwrite with an empty bank`);
+            continue;
+          }
+        } catch {
+          // Unreadable existing file: fall through and overwrite.
+        }
+      }
+
       fs.writeFileSync(out, JSON.stringify({
         paper: path.basename(file, '.md'),
         questions: records,
@@ -247,4 +264,9 @@ if (require.main === module) {
 
   if (write) console.log('\nwrote .json files alongside each paper');
   else console.log('\n(dry run - pass --write to emit .json)');
+
+  if (skipped.length) {
+    console.log('\nskipped (would lose data):');
+    for (const s of skipped) console.log('  ! ' + s);
+  }
 }
