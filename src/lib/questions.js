@@ -57,7 +57,11 @@ function renderPreamble(text) {
  * @returns {string}
  */
 function renderShortAnswer(q) {
-  const answer = typeof q.answer === 'string' ? q.answer.trim() : '';
+  // Markdown parsing yields `answerText`; JSON banks use `answer`.
+  const raw = typeof q.answerText === 'string' ? q.answerText
+    : typeof q.answer === 'string' ? q.answer
+      : '';
+  const answer = raw.trim();
   const hasAnswer = answer !== '';
 
   return (
@@ -93,6 +97,9 @@ function renderMarkdownBlock(text) {
 /**
  * Render one question, dispatching on its type.
  *
+ * Accepts both the parsed Markdown shape (from question-markdown.js) and the
+ * legacy JSON-bank shape, so either source works.
+ *
  * @param {object} q Question record.
  * @returns {string}
  */
@@ -104,7 +111,13 @@ function renderQuestion(q) {
   }
 
   const options = Array.isArray(q.options) ? q.options : [];
-  const answerNumber = Number.isInteger(q.answer) ? q.answer : null;
+
+  // The Markdown parser yields an answer letter; JSON banks carry a number.
+  const answerNumber = Number.isInteger(q.answer)
+    ? q.answer
+    : (typeof q.answerLetter === 'string' && q.answerLetter
+        ? q.answerLetter.toUpperCase().charCodeAt(0) - 64
+        : null);
 
   const items = options
     .map((text, index) => {
@@ -145,15 +158,16 @@ function renderQuestion(q) {
 /**
  * Render a whole question bank.
  *
- * @param {object} bank Parsed JSON: {paper, questions}.
+ * @param {object} bank Parsed bank: {questions}.
  * @param {object} [options]
- * @param {number[]} [options.only] Restrict to these question numbers, so a
- *   paper can place each section's questions under its own heading.
+ * @param {number[]} [options.only] Restrict to these question numbers.
+ * @param {boolean} [options.bare] Omit the wrapping list, for callers that
+ *   place questions among other content themselves.
  * @returns {string}
  */
 function renderQuestionBank(bank, options = {}) {
   const all = Array.isArray(bank && bank.questions) ? bank.questions : [];
-  const { only } = options;
+  const { only, bare } = options;
 
   const questions = only
     ? all.filter((q) => only.includes(Number(q.sl)))
@@ -162,6 +176,8 @@ function renderQuestionBank(bank, options = {}) {
   if (questions.length === 0) return '';
 
   const rendered = questions.map(renderQuestion).join('');
+
+  if (bare) return rendered;
 
   return (
     `<div class="question-bank" data-count="${questions.length}">` +

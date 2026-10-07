@@ -6,7 +6,6 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const { renderQuestionBank, renderQuestion } = require('../src/lib/questions');
-const { resolveMarkerRanges, renderMarkdown } = require('../src/lib/render');
 
 const BANK = {
   paper: 'sample',
@@ -115,50 +114,6 @@ test('an empty or missing bank renders nothing', () => {
   assert.equal(renderQuestionBank({ questions: [] }), '');
   assert.equal(renderQuestionBank(null), '');
   assert.equal(renderQuestionBank(undefined), '');
-});
-
-// --- marker range resolution ---------------------------------------------
-
-const PAPER_MD = [
-  '## Section 1: Basics (Questions 1 to 2)',
-  '',
-  '{{questions}}',
-  '',
-  '## Section 2: More (Questions 3 to 3)',
-  '',
-  '{{questions}}',
-].join('\n');
-
-test('resolves one range per marker from the section headings', () => {
-  const ranges = resolveMarkerRanges(PAPER_MD, 2, BANK);
-  assert.deepEqual(ranges[0], [1, 2]);
-  assert.deepEqual(ranges[1], [3]);
-});
-
-test('renderMarkdown substitutes each marker with its own section', () => {
-  const html = renderMarkdown(PAPER_MD, { questionBank: BANK });
-
-  assert.equal((html.match(/<li class="question"/g) || []).length, 3);
-  assert.match(html, /Section 1: Basics/);
-  assert.match(html, /Section 2: More/);
-  assert.doesNotMatch(html, /\{\{questions\}\}/);
-});
-
-test('a marker with no range renders the unclaimed questions', () => {
-  const md = '{{questions}}';
-  const ranges = resolveMarkerRanges(md, 1, BANK);
-  assert.deepEqual(ranges[0], [1, 2, 3]);
-});
-
-test('questions are not duplicated across markers', () => {
-  const ranges = resolveMarkerRanges(PAPER_MD, 2, BANK);
-  const flat = ranges.flat();
-  assert.equal(new Set(flat).size, flat.length);
-});
-
-test('without a bank the marker is left untouched', () => {
-  const html = renderMarkdown('{{questions}}', {});
-  assert.match(html, /\{\{questions\}\}/);
 });
 
 // --- short-answer questions ----------------------------------------------

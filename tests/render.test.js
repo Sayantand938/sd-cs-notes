@@ -97,13 +97,13 @@ test('isOptionLine recognises the common option forms', () => {
   assert.equal(isOptionLine('This is prose'), false);
 });
 
-test('consecutive options become separate block elements', () => {
+test('legacy bare-option questions still render their options', () => {
+  // Papers written before the question-block format used bare "A) text" lines
+  // with no **Answer:** field. They must still render, not silently lose their
+  // options.
   const html = renderMarkdown(OPTIONS_MD);
-
-  assert.match(html, /<div class="question-options">/);
-  // Four options, each its own element, so CSS can stack them.
   assert.equal((html.match(/class="option"/g) || []).length, 4);
-  assert.match(html, /<span class="option">A\) Central Processing Unit<\/span>/);
+  assert.match(html, /Central Processing Unit/);
 });
 
 test('options are not run together into one paragraph', () => {

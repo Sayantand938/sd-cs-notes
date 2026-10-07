@@ -99,103 +99,82 @@ the index page. The file's modification time supplies the date.
 
 ---
 
-## Question banks
+## Writing questions
 
-Practice papers keep their questions in a **JSON file beside the Markdown**, not
-inside it:
-
-```
-practice-papers/unit-01/
-├── unit-01-01-practice-paper-eng.md     ← headings + a {{questions}} marker
-└── unit-01-01-practice-paper-eng.json   ← the questions
-```
-
-The Markdown places a marker where the questions belong, and the build renders
-the bank there:
+Practice papers are a **single Markdown file** holding prose, section headings,
+and questions — MCQ and SAQ together. There is no separate data file.
 
 ```markdown
 ## Section 1: Basic Computer Organisation (Questions 1 to 20)
 
-{{questions}}
+### Q1 (mcq)
+
+What does CPU stand for?
+
+- A) Central Processing Unit
+- B) Computer Personal Unit
+- C) Central Program Unit
+- D) Central Processing Utility
+
+**Answer:** A
+
+### Q2 (saq)
+
+Why is serial communication preferred over long distances?
+
+**Answer:**
+Because parallel links suffer **skew** — bits sent together along separate
+wires arrive at slightly different times, so the receiver reads them out of
+order over a long cable.
 ```
 
-The range in the heading tells the build which questions belong to that
-section, so a 100-question paper keeps its section structure while the bank
-stays a flat list.
+### The rules
 
-### Why not a ```questions fence?
+| Element | How to write it |
+| --- | --- |
+| Question heading | `### Q12 (mcq)` or `### Q12 (saq)`. Type defaults to `mcq`. |
+| Question text | The first non-blank line after the heading. |
+| Code the question refers to | A normal fenced block between the question and its options. |
+| Options | A Markdown list: `- A) text`. Two to four is typical. |
+| Answer (MCQ) | `**Answer:** A` — the option letter. |
+| Answer (SAQ) | `**Answer:**` on its own line, then the prose answer. |
+| Section grouping | A `##` heading before the questions it covers. |
 
-Because **280 questions contain a code fence between the question and its
-options**, and Markdown cannot nest fences — an inner ` ```c ` would terminate
-the outer block. Storing questions as JSON strings removes the problem
-entirely, and makes them editable by scripts and spreadsheet exports.
+SAQ answers accept full Markdown: paragraphs, lists, tables (scroll-wrapped
+like note tables), and fenced code blocks.
 
-### Schema
+**Answers are always visible.** For MCQ the correct option is highlighted and
+an `Answer: A` line closes the question; for SAQ the answer is printed in full
+under an "Answer" label. A question with no answer is rendered with a visible
+"Answer: not recorded" flag, so nothing is silently published as answered.
 
-```json
-{
-  "paper": "unit-01-01-practice-paper-eng",
-  "questions": [
-    {
-      "sl": 1,
-      "type": "mcq",
-      "question": "What does CPU stand for?",
-      "prefix": "```c\nint x = 5;\n```",
-      "options": ["Central Processing Unit", "Computer Personal Unit",
-                  "Central Program Unit", "Central Processing Utility"],
-      "answer": 1,
-      "answerLetter": "A",
-      "answerSource": "key"
-    }
-  ]
-}
-```
+### Why options are list items
 
-- `sl` — question number, matching the source.
-- `prefix` — optional Markdown between the question and its options, usually a
-  code block the question refers to.
-- `answer` — 1-based option number, matching what a student sees.
-- `answerSource` — whether the answer came from the trailing answer key or the
-  `✅` marks.
+Writing options as `- A) text` rather than bare `A) text` means a paragraph
+that happens to contain `A)` — for example *"see option A) for details"* — can
+never be mistaken for an option. The parser still accepts bare `A)` lines, so
+older papers keep working.
 
-For short-answer questions use `type: "saq"` where `answer` is descriptive
-Markdown rather than an option number:
+### Why the answer is a field
 
-```json
-{
-  "sl": 1,
-  "type": "saq",
-  "question": "Why is serial preferred over long distances?",
-  "answer": "Because parallel suffers **skew**:\n\n```text\nbits arrive out of step\n```"
-}
-```
+An explicit `**Answer:**` line means exactly one answer per question, which the
+build can validate. The earlier convention marked the answer with a `✅` inside
+the option text, and it drifted: an audit found 15 disagreements with the
+answer keys, including an answer that had been marked and then corrected in a
+note underneath. A structured field cannot drift that way.
 
-SAQ answers support full Markdown — paragraphs, lists, tables (scroll-wrapped
-like note tables), and fenced code blocks. The answer is shown in full beneath
-the question under an "Answer" label.
+### Checking a paper
 
-Answers are always visible: for MCQ the correct option is highlighted with an
-`Answer: B` summary line; for SAQ the descriptive answer is printed in place.
-
-### Answer source of truth
-
-The **answer-key table is authoritative**, not the `✅` marks — the ticks are
-known to contain self-corrected mistakes, where an option was marked and then
-corrected in a note underneath. Where a paper has no key, the ticks are used.
-
-### Regenerating banks
+The build reports nothing at runtime, but the format is validated by tests:
 
 ```bash
-node tools/md-to-questions.js            # report only
-node tools/md-to-questions.js --write    # emit .json beside each paper
-node tools/verify-conversion.js          # prove the conversion is lossless
-node tools/rewrite-papers.js             # report only
-node tools/rewrite-papers.js --write     # replace inline questions with markers
+pnpm test
 ```
 
-The converter reports every question with a missing or conflicting answer
-rather than guessing, and `rewrite-papers.js` refuses to touch a paper whose
-source has duplicate question numbers.
+`tests/question-markdown.test.js` covers the parser, including missing answers,
+answer letters outside the option range, and questions with too few options.
+`parseQuestions()` returns an `errors` array listing any such problems, which
+is the hook for adding a build-time report later.
 
 KaTeX, Mermaid and highlight.js load from CDN, so note pages need a network
 connection for those three features. Plain text and tables work offline.
@@ -244,7 +223,8 @@ src/
 │   ├── notes.js         Reading notes, deriving metadata from paths
 │   ├── text.js          Pure helpers: titles, names, HTML escaping
 │   ├── render.js        Markdown → HTML, mermaid, MCQ options, tables
-│   ├── questions.js     Question banks → HTML (MCQ and SAQ)
+│   ├── question-markdown.js  Parses question blocks (MCQ + SAQ)
+│   ├── questions.js     Renders parsed questions to HTML
 │   ├── html.js          Shared HTML post-processing (table wrapping)
 │   ├── manifest.js      Grouping/sorting for the index page
 │   ├── templates.js     Handlebars compilation and partials

@@ -7,6 +7,7 @@ const { marked } = require('marked');
 const { escapeHtml } = require('./text');
 const { wrapTables } = require('./html');
 const { renderQuestionBank } = require('./questions');
+const { parseQuestions } = require('./question-markdown');
 
 /**
  * Matches the start of a multiple-choice option line:
@@ -118,105 +119,113 @@ function createRenderer() {
 }
 
 /**
- * Wrap every `<table>` in a scroll container.
+ * Render note Markdown to the HTML fragment that goes inside `<main>`.
  *
- * Re-exported from lib/html so existing callers and tests keep working.
- */
-/** Marker a note uses to place its question bank. */
-const QUESTIONS_MARKER = /\{\{\s*questions\s*\}\}/g;
-
-/**
- * Work out which question numbers each marker should render.
- *
- * A paper places one marker per section, and the section heading states the
- * range — "Section 3: Concepts of Software (Questions 31 to 55)". Reading that
- * range keeps the JSON bank flat while letting the page group questions under
- * their original headings.
- *
- * A marker with no preceding range (or an unparseable one) renders every
- * question not already claimed by another marker.
+ * Question blocks are written directly in the note using the format parsed by
+ * lib/question-markdown, so a paper is a single Markdown file holding both its
+ * prose and its questions (MCQ and SAQ together). They are rendered with the
+ * question styling rather than as ordinary headings and lists.
  *
  * @param {string} markdown
- * @param {number} markerCount
- * @param {object} bank
- * @returns {Array<number[]|null>} Question numbers per marker, or null for "all".
+ * @returns {string}
  */
-function resolveMarkerRanges(markdown, markerCount, bank) {
-  const allNumbers = (bank.questions || []).map((q) => Number(q.sl));
+function renderMarkdown(markdown) {
+  // Single source of truth: lib/question-markdown parses every question block.
+  // Parsing is done once here, then each block is rendered in place so that
+  // section headings, prose, code fences and tables flow normally around it.
+  const { questions } = parseQuestions(markdown);
 
-  // Find each marker's position and the heading range that precedes it.
-  const ranges = [];
-  const markerRe = /\{\{\s*questions\s*\}\}/g;
-  let match;
-
-  while ((match = markerRe.exec(markdown)) !== null) {
-    const before = markdown.slice(0, match.index);
-
-    // The nearest "Questions X to Y" (or "Question X") before this marker.
-    const found = [...before.matchAll(/Questions?\s+(\d+)\s*(?:to|-|–)\s*(\d+)/gi)].pop();
-    const single = [...before.matchAll(/Questions?\s+(\d+)\s*[^\d\s]/gi)].pop();
-
-    if (found) {
-      const from = Number(found[1]);
-      const to = Number(found[2]);
-      ranges.push(allNumbers.filter((n) => n >= from && n <= to));
-    } else if (single) {
-      const n = Number(single[1]);
-      ranges.push([n]);
-    } else {
-      ranges.push(null);
-    }
+  if (questions.length === 0) {
+    return wrapTables(renderProse(markdown));
   }
 
-  // Fill any "all" slots with whatever no other marker claimed.
-  const claimed = new Set(ranges.filter(Boolean).flat());
-  return ranges.map((range) =>
-    range === null ? allNumbers.filter((n) => !claimed.has(n)) : range,
-  );
+  const lines = markdown.split('\n');
+  const parts = [];
+  let buffer = [];
+
+  const flushProse = () => {
+    const text = buffer.join('\n');
+    buffer = [];
+    if (text.trim() !== '') parts.push(renderProse(text));
+  };
+
+  // Locate each block's line span, then pair the spans with the questions the
+  // parser produced (same order), so parsing lives in exactly one place.
+  const spans = locateQuestionSpans(lines);
+
+  let cursor = 0;
+  spans.forEach((span, index) => {
+    const question = questions[index];
+    if (!question) return; // defensive: span without a parsed question
+
+    buffer.push(...lines.slice(cursor, span.start));
+    flushProse();
+    parts.push(renderQuestionBank({ questions: [question] }, { bare: true }));
+    cursor = span.end;
+  });
+
+  buffer.push(...lines.slice(cursor));
+  flushProse();
+
+  return wrapTables(parts.join('\n'));
 }
 
 /**
- * Render note Markdown to the HTML fragment that goes inside `<main>`.
- *
- * A `{{questions}}` marker is replaced with the rendered question bank, if one
- * was supplied. The bank arrives separately because questions can contain code
- * fences, which cannot be nested inside a Markdown fence.
+ * Render a run of non-question Markdown.
  *
  * @param {string} markdown
- * @param {object} [options]
- * @param {object} [options.questionBank] Parsed JSON question bank.
  * @returns {string}
  */
-function renderMarkdown(markdown, options = {}) {
-  const { questionBank } = options;
-
+function renderProse(markdown) {
   const tokens = marked.lexer(markdown);
-  const html = marked.parser(transformOptionParagraphs(tokens), {
+  return marked.parser(transformOptionParagraphs(tokens), {
     renderer: createRenderer(),
   });
-  const withTables = wrapTables(html);
+}
 
-  if (!questionBank) return withTables;
+/**
+ * Find the line span of every question block in a document.
+ *
+ * Only boundaries are computed here; the content of each block is parsed by
+ * lib/question-markdown, so there is a single parser and the two cannot drift.
+ * The spans come back in document order, matching the parser's output order.
+ *
+ * @param {string[]} lines
+ * @returns {Array<{start: number, end: number}>}
+ */
+function locateQuestionSpans(lines) {
+  const spans = [];
+  let start = -1;
 
-  const count = (markdown.match(QUESTIONS_MARKER) || []).length;
-  if (count === 0) return withTables;
+  const close = (end) => {
+    if (start !== -1) spans.push({ start, end });
+    start = -1;
+  };
 
-  const ranges = resolveMarkerRanges(markdown, count, questionBank);
-  let index = 0;
+  lines.forEach((line, index) => {
+    const heading = line.match(/^#{2,6}\s*(?:Q)?(\d+)\s*(?:[.):])?\s*(.*)$/);
+    const isQuestionHeading = heading && !/^#{1,6}\s*Answer/i.test(line);
 
-  return withTables.replace(QUESTIONS_MARKER, () => {
-    const only = ranges[index++] ?? null;
-    return renderQuestionBank(questionBank, only ? { only } : {});
+    if (isQuestionHeading) {
+      close(index);
+      start = index;
+      return;
+    }
+
+    if (/^#{1,6}\s/.test(line)) close(index);
   });
+
+  close(lines.length);
+  return spans;
 }
 
 module.exports = {
   createRenderer,
   wrapTables,
   renderMarkdown,
+  renderProse,
   splitOptionBlock,
   isOptionLine,
   transformOptionParagraphs,
-  resolveMarkerRanges,
-  QUESTIONS_MARKER,
+  locateQuestionSpans,
 };

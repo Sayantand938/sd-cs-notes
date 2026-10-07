@@ -87,7 +87,7 @@ async function build(options = {}) {
       title: note.title,
       headBeforeStyle: pageHeadBeforeStyle,
       headAfterStyle: pageHeadAfterStyle,
-      content: renderMarkdown(note.content, { questionBank: note.questionBank }),
+      content: renderMarkdown(note.content),
     }),
   }));
 
