@@ -103,8 +103,42 @@ async function readNote(filePath, notesDir, options = {}) {
     description: extractDescription(content),
     date: formatDate(stats.mtime),
     content,
+    /** Sibling JSON question bank, when the note has one. */
+    questionBank: await readQuestionBank(filePath),
     ...location,
   };
+}
+
+/**
+ * Load the question bank sitting beside a note, if present.
+ *
+ * A malformed bank is reported rather than silently ignored, so a bad hand-edit
+ * cannot quietly drop a paper's questions from the site.
+ *
+ * @param {string} notePath Absolute path to the `.md`.
+ * @returns {Promise<object|null>}
+ */
+async function readQuestionBank(notePath) {
+  const jsonPath = notePath.replace(/\.(md|markdown)$/i, '.json');
+
+  let raw;
+  try {
+    raw = await fs.readFile(jsonPath, 'utf-8');
+  } catch {
+    return null; // no bank for this note
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed.questions)) {
+      throw new Error('missing "questions" array');
+    }
+    return parsed;
+  } catch (error) {
+    throw new Error(
+      `Invalid question bank ${path.basename(jsonPath)}: ${error.message}`,
+    );
+  }
 }
 
 /**

@@ -5,6 +5,7 @@
 const { marked } = require('marked');
 
 const { escapeHtml } = require('./text');
+const { renderQuestionBank } = require('./questions');
 
 /**
  * Matches the start of a multiple-choice option line:
@@ -125,18 +126,92 @@ function wrapTables(html) {
     .replace(/<\/table>/g, '</table></div>');
 }
 
+/** Marker a note uses to place its question bank. */
+const QUESTIONS_MARKER = /\{\{\s*questions\s*\}\}/g;
+
+/**
+ * Work out which question numbers each marker should render.
+ *
+ * A paper places one marker per section, and the section heading states the
+ * range — "Section 3: Concepts of Software (Questions 31 to 55)". Reading that
+ * range keeps the JSON bank flat while letting the page group questions under
+ * their original headings.
+ *
+ * A marker with no preceding range (or an unparseable one) renders every
+ * question not already claimed by another marker.
+ *
+ * @param {string} markdown
+ * @param {number} markerCount
+ * @param {object} bank
+ * @returns {Array<number[]|null>} Question numbers per marker, or null for "all".
+ */
+function resolveMarkerRanges(markdown, markerCount, bank) {
+  const allNumbers = (bank.questions || []).map((q) => Number(q.sl));
+
+  // Find each marker's position and the heading range that precedes it.
+  const ranges = [];
+  const markerRe = /\{\{\s*questions\s*\}\}/g;
+  let match;
+
+  while ((match = markerRe.exec(markdown)) !== null) {
+    const before = markdown.slice(0, match.index);
+
+    // The nearest "Questions X to Y" (or "Question X") before this marker.
+    const found = [...before.matchAll(/Questions?\s+(\d+)\s*(?:to|-|–)\s*(\d+)/gi)].pop();
+    const single = [...before.matchAll(/Questions?\s+(\d+)\s*[^\d\s]/gi)].pop();
+
+    if (found) {
+      const from = Number(found[1]);
+      const to = Number(found[2]);
+      ranges.push(allNumbers.filter((n) => n >= from && n <= to));
+    } else if (single) {
+      const n = Number(single[1]);
+      ranges.push([n]);
+    } else {
+      ranges.push(null);
+    }
+  }
+
+  // Fill any "all" slots with whatever no other marker claimed.
+  const claimed = new Set(ranges.filter(Boolean).flat());
+  return ranges.map((range) =>
+    range === null ? allNumbers.filter((n) => !claimed.has(n)) : range,
+  );
+}
+
 /**
  * Render note Markdown to the HTML fragment that goes inside `<main>`.
  *
+ * A `{{questions}}` marker is replaced with the rendered question bank, if one
+ * was supplied. The bank arrives separately because questions can contain code
+ * fences, which cannot be nested inside a Markdown fence.
+ *
  * @param {string} markdown
+ * @param {object} [options]
+ * @param {object} [options.questionBank] Parsed JSON question bank.
  * @returns {string}
  */
-function renderMarkdown(markdown) {
+function renderMarkdown(markdown, options = {}) {
+  const { questionBank } = options;
+
   const tokens = marked.lexer(markdown);
   const html = marked.parser(transformOptionParagraphs(tokens), {
     renderer: createRenderer(),
   });
-  return wrapTables(html);
+  const withTables = wrapTables(html);
+
+  if (!questionBank) return withTables;
+
+  const count = (markdown.match(QUESTIONS_MARKER) || []).length;
+  if (count === 0) return withTables;
+
+  const ranges = resolveMarkerRanges(markdown, count, questionBank);
+  let index = 0;
+
+  return withTables.replace(QUESTIONS_MARKER, () => {
+    const only = ranges[index++] ?? null;
+    return renderQuestionBank(questionBank, only ? { only } : {});
+  });
 }
 
 module.exports = {
@@ -146,4 +221,6 @@ module.exports = {
   splitOptionBlock,
   isOptionLine,
   transformOptionParagraphs,
+  resolveMarkerRanges,
+  QUESTIONS_MARKER,
 };

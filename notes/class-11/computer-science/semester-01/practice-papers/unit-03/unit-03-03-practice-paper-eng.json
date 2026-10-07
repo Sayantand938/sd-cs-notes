@@ -1,0 +1,1437 @@
+{
+  "paper": "unit-03-03-practice-paper-eng",
+  "questions": [
+    {
+      "sl": 1,
+      "type": "mcq",
+      "question": "Which of the following is a valid identifier in C?",
+      "options": [
+        "`_variable`",
+        "`2variable`",
+        "`var-iable`",
+        "`int`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 2,
+      "type": "mcq",
+      "question": "What is the size of `float` data type on a 32‑bit compiler?",
+      "options": [
+        "2 bytes",
+        "4 bytes",
+        "8 bytes",
+        "16 bytes"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 3,
+      "type": "mcq",
+      "question": "Which preprocessor directive is used to check if a macro is defined?",
+      "options": [
+        "`#ifdef`",
+        "`#define`",
+        "`#undef`",
+        "`#include`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 4,
+      "type": "mcq",
+      "question": "What is the output of the following code?",
+      "prefix": "```c\n#define SQUARE(x) x*x\nprintf(\"%d\", SQUARE(3+2));\n```",
+      "options": [
+        "25",
+        "13",
+        "11",
+        "9"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 5,
+      "type": "mcq",
+      "question": "Which of the following is NOT a valid data type modifier in C?",
+      "options": [
+        "`signed`",
+        "`unsigned`",
+        "`long`",
+        "`string`"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 6,
+      "type": "mcq",
+      "question": "What is the default value of a global variable if not initialized?",
+      "options": [
+        "0",
+        "Garbage value",
+        "NULL",
+        "Undefined"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 7,
+      "type": "mcq",
+      "question": "Which header file contains functions like `sqrt()` and `pow()`?",
+      "options": [
+        "`stdio.h`",
+        "`stdlib.h`",
+        "`math.h`",
+        "`string.h`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 8,
+      "type": "mcq",
+      "question": "How many bytes does the `long int` occupy on a 64‑bit Linux system?",
+      "options": [
+        "4",
+        "8",
+        "2",
+        "16"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 9,
+      "type": "mcq",
+      "question": "Which of the following is a valid character constant in C?",
+      "options": [
+        "`'ab'`",
+        "`\"a\"`",
+        "`'\\n'`",
+        "`\\a`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 10,
+      "type": "mcq",
+      "question": "The `#ifndef` directive is used to:",
+      "options": [
+        "Define a macro if not defined",
+        "Undefine a macro",
+        "Include a file",
+        "Generate an error"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 11,
+      "type": "mcq",
+      "question": "What is the range of `signed int` on a 16‑bit system?",
+      "options": [
+        "–32768 to 32767",
+        "–2147483648 to 2147483647",
+        "0 to 65535",
+        "–128 to 127"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 12,
+      "type": "mcq",
+      "question": "Which of the following statements about variable declaration is correct?",
+      "options": [
+        "Variables must be declared at the beginning of the function.",
+        "Variables can be declared anywhere before they are used (C99 onwards).",
+        "Variables cannot be declared inside loops.",
+        "Variables must be initialized at declaration."
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 13,
+      "type": "mcq",
+      "question": "What is the purpose of the `typedef` keyword?",
+      "options": [
+        "To define a new data type alias",
+        "To define a macro",
+        "To declare a variable",
+        "To include a header"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 14,
+      "type": "mcq",
+      "question": "Which of the following is NOT a valid escape sequence in C?",
+      "options": [
+        "`\\n`",
+        "`\\t`",
+        "`\\b`",
+        "`\\s`"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 15,
+      "type": "mcq",
+      "question": "What is the output of the following code?",
+      "prefix": "```c\nint x = 10;\nconst int y = 20;\nx = y;\nprintf(\"%d\", x);\n```",
+      "options": [
+        "10",
+        "20",
+        "Error",
+        "Garbage"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 16,
+      "type": "mcq",
+      "question": "What is the result of `7 & 3` (bitwise AND)?",
+      "options": [
+        "1",
+        "3",
+        "7",
+        "4"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 17,
+      "type": "mcq",
+      "question": "Which operator is used to perform logical NOT?",
+      "options": [
+        "`!`",
+        "`~`",
+        "`-`",
+        "`not`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 18,
+      "type": "mcq",
+      "question": "What is the output of `printf(\"%d\", 10 ^ 6);` (bitwise XOR)?",
+      "options": [
+        "12",
+        "16",
+        "10",
+        "6"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 19,
+      "type": "mcq",
+      "question": "What is the value of `x` after `int x = 5; x = x << 2;`?",
+      "options": [
+        "20",
+        "10",
+        "5",
+        "2"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 20,
+      "type": "mcq",
+      "question": "Which of the following has the highest precedence?",
+      "options": [
+        "`*`",
+        "`+`",
+        "`!`",
+        "`&&`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 21,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint a = 5, b = 10, c;\nc = (a > b) ? a : b;\nprintf(\"%d\", c);\n```",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "0"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 22,
+      "type": "mcq",
+      "question": "Which function is used to print a string with a newline automatically?",
+      "options": [
+        "`printf()`",
+        "`puts()`",
+        "`putchar()`",
+        "`write()`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 23,
+      "type": "mcq",
+      "question": "What is the result of `5 / 2` in integer division?",
+      "options": [
+        "2.5",
+        "2",
+        "3",
+        "2.0"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 24,
+      "type": "mcq",
+      "question": "What does the `\\t` escape sequence do?",
+      "options": [
+        "Horizontal tab",
+        "Vertical tab",
+        "Backspace",
+        "Carriage return"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 25,
+      "type": "mcq",
+      "question": "Which format specifier is used to print an unsigned integer?",
+      "options": [
+        "`%d`",
+        "`%u`",
+        "`%o`",
+        "`%x`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 26,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint x = 5;\nprintf(\"%d\", x == 5 ? 10 : 20);\n```",
+      "options": [
+        "5",
+        "10",
+        "20",
+        "Error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 27,
+      "type": "mcq",
+      "question": "Which of the following is NOT a valid assignment operator?",
+      "options": [
+        "`=`",
+        "`+=`",
+        "`<=`",
+        "`*=`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 28,
+      "type": "mcq",
+      "question": "What is the value of `(3, 5, 7, 9)` using the comma operator?",
+      "options": [
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 29,
+      "type": "mcq",
+      "question": "Which function is used to read a line of text including spaces?",
+      "options": [
+        "`scanf()`",
+        "`gets()`",
+        "`fgets()`",
+        "`getchar()`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 30,
+      "type": "mcq",
+      "question": "What is the output of `printf(\"%.2f\", 3.14159);`?",
+      "options": [
+        "`3.14`",
+        "`3.14159`",
+        "`3.142`",
+        "`3.14`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 31,
+      "type": "mcq",
+      "question": "Which operator is used to access the value at a pointer?",
+      "options": [
+        "`&`",
+        "`*`",
+        "`->`",
+        "`.`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 32,
+      "type": "mcq",
+      "question": "What is the result of implicit conversion in `double d = 5 / 2;`?",
+      "options": [
+        "2.5",
+        "2.0",
+        "2",
+        "3.0"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 33,
+      "type": "mcq",
+      "question": "How do you read a single character from standard input?",
+      "options": [
+        "`scanf(\"%c\", &ch);`",
+        "`getchar(ch);`",
+        "`scanf(\"%s\", &ch);`",
+        "`read(ch);`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 34,
+      "type": "mcq",
+      "question": "What is the output of `printf(\"%d\", 8 >> 2);` (right shift)?",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "1"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 35,
+      "type": "mcq",
+      "question": "Which escape sequence produces a backslash?",
+      "options": [
+        "`\\\\`",
+        "`\\b`",
+        "`\\/`",
+        "`\\`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 36,
+      "type": "mcq",
+      "question": "What is the output of the following code?",
+      "prefix": "```c\nint x = 10;\nif (x > 20)\n    printf(\"A\");\nelse if (x > 5)\n    printf(\"B\");\nelse\n    printf(\"C\");\n```",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "AB"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 37,
+      "type": "mcq",
+      "question": "How many times will the following loop execute?",
+      "prefix": "```c\nint i = 0;\ndo {\n    i++;\n} while(i < 3);\n```",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "Infinite"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 38,
+      "type": "mcq",
+      "question": "What will be the output of the following?",
+      "prefix": "```c\nfor(int i=0; i<5; i+=2)\n    printf(\"%d\", i);\n```",
+      "options": [
+        "0 1 2 3 4",
+        "0 2 4",
+        "1 3 5",
+        "0 2 4 6"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 39,
+      "type": "mcq",
+      "question": "What is the output of the following `switch`?",
+      "prefix": "```c\nint x = 1;\nswitch(x) {\n    case 1: printf(\"A\");\n    case 2: printf(\"B\");\n            break;\n    default: printf(\"C\");\n}\n```",
+      "options": [
+        "A",
+        "B",
+        "AB",
+        "AC"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 40,
+      "type": "mcq",
+      "question": "Which loop is guaranteed to execute its body at least once?",
+      "options": [
+        "`while`",
+        "`for`",
+        "`do-while`",
+        "None"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 41,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint i=1;\nwhile(i <= 3) {\n    if(i == 2) break;\n    printf(\"%d\", i);\n    i++;\n}\n```",
+      "options": [
+        "1 2 3",
+        "1",
+        "1 2",
+        "2 3"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 42,
+      "type": "mcq",
+      "question": "What is the purpose of the `default` case in a `switch`?",
+      "options": [
+        "It is mandatory.",
+        "It executes when no case matches.",
+        "It is executed first.",
+        "It terminates the switch."
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 43,
+      "type": "mcq",
+      "question": "How many times will the following loop execute?",
+      "prefix": "```c\nint i = 5;\nwhile(i > 0) {\n    i--;\n}\n```",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "Infinite"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 44,
+      "type": "mcq",
+      "question": "What is the output of the following nested loop?",
+      "prefix": "```c\nfor(int i=1; i<=2; i++) {\n    for(int j=1; j<=2; j++) {\n        if(i == j) continue;\n        printf(\"%d%d\", i, j);\n    }\n}\n```",
+      "options": [
+        "1112 2122",
+        "12 21",
+        "11 22",
+        "1221"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 45,
+      "type": "mcq",
+      "question": "What does `break` do inside a `switch`?",
+      "options": [
+        "Exits the `switch`",
+        "Exits the program",
+        "Continues to next case",
+        "Restarts the switch"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 46,
+      "type": "mcq",
+      "question": "Which of the following is a valid infinite `for` loop?",
+      "options": [
+        "`for(int i=0; i<10; i--)`",
+        "`for( ; ; )`",
+        "`for(int i=0; ; i++)`",
+        "Both B and C"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 47,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint x = 0;\nif(x = 0)\n    printf(\"Zero\");\nelse\n    printf(\"Non-zero\");\n```",
+      "options": [
+        "Zero",
+        "Non-zero",
+        "Error",
+        "ZeroNon-zero"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 48,
+      "type": "mcq",
+      "question": "What is the output of the following `while` loop?",
+      "prefix": "```c\nint i = 0;\nwhile(i++ < 3)\n    printf(\"%d\", i);\n```",
+      "options": [
+        "0 1 2",
+        "1 2 3",
+        "1 2",
+        "0 1 2 3"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 49,
+      "type": "mcq",
+      "question": "Which statement is used to skip the remaining code in a loop iteration?",
+      "options": [
+        "`break`",
+        "`continue`",
+        "`return`",
+        "`goto`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 50,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint i;\nfor(i=0; i<3; i++);\n    printf(\"%d\", i);\n```",
+      "options": [
+        "0 1 2",
+        "3",
+        "2",
+        "0"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 51,
+      "type": "mcq",
+      "question": "What is the index of the last element in an array of size 10?",
+      "options": [
+        "10",
+        "9",
+        "0",
+        "11"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 52,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint arr[5] = {1,2,3};\nprintf(\"%d\", arr[3]);\n```",
+      "options": [
+        "0",
+        "Garbage",
+        "3",
+        "Error"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 53,
+      "type": "mcq",
+      "question": "How is a two-dimensional array of size `[3][4]` stored?",
+      "options": [
+        "Column-major",
+        "Row-major",
+        "Diagonal",
+        "Sparse"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 54,
+      "type": "mcq",
+      "question": "Which function copies one string to another?",
+      "options": [
+        "`strcpy()`",
+        "`strcat()`",
+        "`strcmp()`",
+        "`strlen()`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 55,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nchar str[] = \"C Programming\";\nprintf(\"%lu\", sizeof(str));\n```",
+      "options": [
+        "13",
+        "14",
+        "12",
+        "15"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 56,
+      "type": "mcq",
+      "question": "Which function returns the length of a string excluding the null character?",
+      "options": [
+        "`strlen()`",
+        "`sizeof()`",
+        "`strlength()`",
+        "`strlen()` returns including null"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 57,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nchar s1[10] = \"Hello\";\nchar s2[10] = \"World\";\nstrcat(s1, s2);\nprintf(\"%s\", s1);\n```",
+      "options": [
+        "Hello",
+        "World",
+        "HelloWorld",
+        "Hello World"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 58,
+      "type": "mcq",
+      "question": "How do you initialize a structure variable?",
+      "options": [
+        "`struct Student s1 = {10, \"John\"};`",
+        "`Student s1 = {10, \"John\"};`",
+        "`s1 = (struct Student){10, \"John\"};`",
+        "All of the above are valid."
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 59,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nstruct {\n    int a;\n    int b;\n} p = {5, 10};\nprintf(\"%d\", p.b);\n```",
+      "options": [
+        "5",
+        "10",
+        "Error",
+        "p.b"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 60,
+      "type": "mcq",
+      "question": "How do you access structure member `x` via pointer `ptr`?",
+      "options": [
+        "`ptr.x`",
+        "`ptr->x`",
+        "`*ptr.x`",
+        "`&ptr.x`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 61,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint arr[2][3] = {{1,2,3},{4,5,6}};\nprintf(\"%d\", arr[0][2]);\n```",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 62,
+      "type": "mcq",
+      "question": "Which of the following correctly declares an array of 5 structures of type `Student`?",
+      "options": [
+        "`struct Student[5] s;`",
+        "`struct Student s[5];`",
+        "`Student s[5];`",
+        "`struct s[5] Student;`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 63,
+      "type": "mcq",
+      "question": "What does `strcmp(str1, str2)` return if strings are equal?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "Positive value"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 64,
+      "type": "mcq",
+      "question": "What is a nested structure?",
+      "options": [
+        "A structure that contains another structure as a member",
+        "An array of structures",
+        "A structure with pointers",
+        "A recursive structure"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 65,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nstruct Employee {\n    int id;\n    char name[20];\n} e = {101, \"Rahul\"};\nprintf(\"%d\", e.id);\n```",
+      "options": [
+        "101",
+        "Rahul",
+        "Error",
+        "0"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 66,
+      "type": "mcq",
+      "question": "What is the size of the following structure on a 32‑bit system (ignore padding)?",
+      "prefix": "```c\nstruct Sample {\n    int x;\n    char y;\n};\n```",
+      "options": [
+        "5 bytes",
+        "8 bytes (with padding)",
+        "4 bytes",
+        "6 bytes"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 67,
+      "type": "mcq",
+      "question": "Which function concatenates at most `n` characters?",
+      "options": [
+        "`strncat()`",
+        "`strcat()`",
+        "`strcpy()`",
+        "`strncpy()`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 68,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nchar s[20] = \"Hello\";\nstrcpy(s, \"Hi\");\nprintf(\"%s\", s);\n```",
+      "options": [
+        "Hello",
+        "Hi",
+        "HelloHi",
+        "Error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 69,
+      "type": "mcq",
+      "question": "In C, array name represents:",
+      "options": [
+        "The address of the first element",
+        "The value of the first element",
+        "The size of the array",
+        "The last element"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 70,
+      "type": "mcq",
+      "question": "Which of the following initializes a 2D array completely?",
+      "options": [
+        "`int a[2][3] = {0};`",
+        "`int a[2][3] = {{0,0,0},{0,0,0}};`",
+        "`int a[2][3] = {0,0,0,0,0,0};`",
+        "All of the above"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 71,
+      "type": "mcq",
+      "question": "What is a function declaration called?",
+      "options": [
+        "Prototype",
+        "Definition",
+        "Call",
+        "Return"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 72,
+      "type": "mcq",
+      "question": "In call by value, the formal parameters receive:",
+      "options": [
+        "The address of actual arguments",
+        "A copy of actual arguments",
+        "The original arguments",
+        "Nothing"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 73,
+      "type": "mcq",
+      "question": "How can we achieve call by reference in C?",
+      "options": [
+        "By passing pointers",
+        "By passing values",
+        "By using global variables",
+        "By using `register` variables"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 74,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nvoid inc(int x) {\n    x++;\n}\nint main() {\n    int a = 5;\n    inc(a);\n    printf(\"%d\", a);\n}\n```",
+      "options": [
+        "6",
+        "5",
+        "0",
+        "Error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 75,
+      "type": "mcq",
+      "question": "What is the base case in recursion?",
+      "options": [
+        "The simplest case that can be solved directly",
+        "The recursive call",
+        "The return statement",
+        "The function definition"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 76,
+      "type": "mcq",
+      "question": "What is the output of the following recursive function for `fib(3)`?",
+      "prefix": "```c\nint fib(int n) {\n    if(n <= 1) return n;\n    return fib(n-1) + fib(n-2);\n}\n```",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "0"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 77,
+      "type": "mcq",
+      "question": "Which of the following is a valid function prototype?",
+      "options": [
+        "`int sum(int a, int b);`",
+        "`sum(int a, int b);`",
+        "`int sum(a, b);`",
+        "`sum(a, b) int;`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 78,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint func(int x) {\n    if(x == 0) return 1;\n    return x * func(x-1);\n}\nprintf(\"%d\", func(3));\n```",
+      "options": [
+        "6",
+        "3",
+        "1",
+        "0"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 79,
+      "type": "mcq",
+      "question": "Which keyword makes a variable retain its value between function calls?",
+      "options": [
+        "`static`",
+        "`auto`",
+        "`register`",
+        "`extern`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 80,
+      "type": "mcq",
+      "question": "Can a function in C return multiple values directly?",
+      "options": [
+        "Yes, using a comma.",
+        "No, only one value can be returned.",
+        "Yes, by using arrays.",
+        "Yes, by using structures (by returning a structure)."
+      ],
+      "answer": null,
+      "answerLetter": null,
+      "answerSource": null
+    },
+    {
+      "sl": 81,
+      "type": "mcq",
+      "question": "What is the default return type of a function if omitted?",
+      "options": [
+        "`void`",
+        "`int`",
+        "`char`",
+        "`float`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 82,
+      "type": "mcq",
+      "question": "Which function is called automatically when a program starts?",
+      "options": [
+        "`start()`",
+        "`main()`",
+        "`init()`",
+        "`begin()`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 83,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint square(int x) { return x*x; }\nint main() {\n    int a = square(5);\n    printf(\"%d\", a);\n}\n```",
+      "options": [
+        "25",
+        "10",
+        "5",
+        "Error"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 84,
+      "type": "mcq",
+      "question": "Which storage class makes a variable global accessible across files?",
+      "options": [
+        "`extern`",
+        "`static`",
+        "`auto`",
+        "`register`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 85,
+      "type": "mcq",
+      "question": "What is the maximum depth of recursion in C?",
+      "options": [
+        "Limited by stack size",
+        "Unlimited",
+        "1000",
+        "255"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 86,
+      "type": "mcq",
+      "question": "Which operator gives the address of a variable?",
+      "options": [
+        "`*`",
+        "`&`",
+        "`->`",
+        "`.`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 87,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint x = 20;\nint *p = &x;\nprintf(\"%d\", *p);\n```",
+      "options": [
+        "Address of x",
+        "20",
+        "0",
+        "Garbage"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 88,
+      "type": "mcq",
+      "question": "What is a wild pointer?",
+      "options": [
+        "Pointer that points to a freed memory",
+        "Uninitialized pointer",
+        "NULL pointer",
+        "Pointer to constant"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 89,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint arr[3] = {10,20,30};\nint *p = arr;\nprintf(\"%d\", *(p+2));\n```",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "Error"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 90,
+      "type": "mcq",
+      "question": "If `int *p;` and `sizeof(int)` is 4, what is `p+1`?",
+      "options": [
+        "Address incremented by 1 byte",
+        "Address incremented by 4 bytes",
+        "Address incremented by 2 bytes",
+        "Compilation error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 91,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nchar s[] = \"Good\";\nchar *p = s;\nprintf(\"%c\", *(p+1));\n```",
+      "options": [
+        "G",
+        "o",
+        "o",
+        "d"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 92,
+      "type": "mcq",
+      "question": "Which pointer type can point to any data type without casting?",
+      "options": [
+        "`void *`",
+        "`char *`",
+        "`int *`",
+        "`NULL *`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 93,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint x = 5;\nint *p = &x;\n*p = 15;\nprintf(\"%d\", x);\n```",
+      "options": [
+        "5",
+        "15",
+        "Address",
+        "0"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 94,
+      "type": "mcq",
+      "question": "A dangling pointer refers to:",
+      "options": [
+        "Memory that has been freed",
+        "NULL",
+        "Uninitialized",
+        "Constant address"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 95,
+      "type": "mcq",
+      "question": "Which of the following is invalid pointer arithmetic?",
+      "options": [
+        "`ptr + 1`",
+        "`ptr - 1`",
+        "`ptr1 + ptr2`",
+        "`ptr1 - ptr2`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 96,
+      "type": "mcq",
+      "question": "What is the size of a pointer on a typical 64‑bit system?",
+      "options": [
+        "4 bytes",
+        "8 bytes",
+        "2 bytes",
+        "16 bytes"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 97,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint a[2][2] = {{1,2},{3,4}};\nint *p = &a[0][0];\nprintf(\"%d\", *(p+3));\n```",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 98,
+      "type": "mcq",
+      "question": "How to declare a pointer to a function that takes two ints and returns int?",
+      "options": [
+        "`int (*func)(int, int);`",
+        "`int *func(int, int);`",
+        "`int func(int, int)*;`",
+        "`func *int(int, int);`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 99,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint *p;\nprintf(\"%p\", p);\n```",
+      "options": [
+        "Garbage address",
+        "NULL",
+        "0",
+        "Error"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 100,
+      "type": "mcq",
+      "question": "Which of the following is TRUE about array name as pointer?",
+      "options": [
+        "It is a constant pointer",
+        "It can be incremented",
+        "It can be assigned to another array",
+        "It stores the size of the array"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    }
+  ]
+}

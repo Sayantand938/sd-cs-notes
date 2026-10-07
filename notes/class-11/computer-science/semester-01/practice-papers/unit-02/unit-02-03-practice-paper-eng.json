@@ -1,0 +1,1419 @@
+{
+  "paper": "unit-02-03-practice-paper-eng",
+  "questions": [
+    {
+      "sl": 1,
+      "type": "mcq",
+      "question": "Which of the following is the correct hierarchy of programming languages from lowest to highest level?",
+      "options": [
+        "Assembly → Machine → High-Level",
+        "Machine → Assembly → High-Level",
+        "High-Level → Assembly → Machine",
+        "High-Level → Machine → Assembly"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 2,
+      "type": "mcq",
+      "question": "What is an interpreter?",
+      "options": [
+        "A program that converts high-level code to machine code all at once",
+        "A program that executes high-level code line by line",
+        "A program that converts assembly to machine code",
+        "A program that designs algorithms"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 3,
+      "type": "mcq",
+      "question": "Which of the following is TRUE about compiled languages?",
+      "options": [
+        "They are slower than interpreted languages",
+        "They are executed line by line",
+        "They are converted to machine code before execution",
+        "They do not need a compiler"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 4,
+      "type": "mcq",
+      "question": "What is the main difference between a compiler and an interpreter?",
+      "options": [
+        "Compiler translates all at once, interpreter translates line by line",
+        "Interpreter translates all at once, compiler translates line by line",
+        "Both work the same way",
+        "Compiler is used for high-level languages only"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 5,
+      "type": "mcq",
+      "question": "Which of the following is an example of a compiled language?",
+      "options": [
+        "Python",
+        "JavaScript",
+        "C",
+        "Ruby"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 6,
+      "type": "mcq",
+      "question": "Which of the following is an example of an interpreted language?",
+      "options": [
+        "C",
+        "C++",
+        "Python",
+        "Assembly"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 7,
+      "type": "mcq",
+      "question": "What is the purpose of a linker?",
+      "options": [
+        "To convert high-level code to machine code",
+        "To combine multiple object files into a single executable",
+        "To execute the program",
+        "To design algorithms"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 8,
+      "type": "mcq",
+      "question": "What is the difference between procedural and object-oriented programming?",
+      "options": [
+        "Procedural uses objects, OOP uses functions",
+        "Procedural uses functions and data separately, OOP combines them",
+        "Both are the same",
+        "Procedural is newer than OOP"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 9,
+      "type": "mcq",
+      "question": "Which of the following languages is purely procedural?",
+      "options": [
+        "Java",
+        "C++ (hybrid)",
+        "C",
+        "Python (supports both)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 10,
+      "type": "mcq",
+      "question": "What is the concept of \"data hiding\" in OOP?",
+      "options": [
+        "Making all data public",
+        "Restricting direct access to data",
+        "Deleting all data",
+        "Making data global"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 11,
+      "type": "mcq",
+      "question": "What is the concept of \"abstraction\" in programming?",
+      "options": [
+        "Showing all details to the user",
+        "Hiding complex implementation and showing only essential features",
+        "Creating many functions",
+        "Using recursion"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 12,
+      "type": "mcq",
+      "question": "Which of the following is NOT a characteristic of structured programming?",
+      "options": [
+        "Top-down approach",
+        "Use of control structures",
+        "Use of goto statements excessively",
+        "Modular programming"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 13,
+      "type": "mcq",
+      "question": "What is modular programming?",
+      "options": [
+        "Writing the entire program in one module",
+        "Dividing the program into separate modules/functions",
+        "Using only one function",
+        "Writing code without functions"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 14,
+      "type": "mcq",
+      "question": "Which of the following is a feature of non-procedural languages?",
+      "options": [
+        "They specify the sequence of operations",
+        "They specify the result without specifying the steps",
+        "They use functions",
+        "They are object-oriented"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 15,
+      "type": "mcq",
+      "question": "What is the role of the operating system in program execution?",
+      "options": [
+        "It writes the program",
+        "It manages resources and loads programs into memory",
+        "It compiles the program",
+        "It designs algorithms"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 16,
+      "type": "mcq",
+      "question": "Which of the following is a low-level language feature?",
+      "options": [
+        "Machine-dependent",
+        "Machine-independent",
+        "Easy to understand",
+        "Portable"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 17,
+      "type": "mcq",
+      "question": "What is the advantage of high-level languages over low-level languages?",
+      "options": [
+        "Faster execution",
+        "Better control over hardware",
+        "Easier to learn and use",
+        "Uses less memory"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 18,
+      "type": "mcq",
+      "question": "What is the disadvantage of high-level languages?",
+      "options": [
+        "Hard to learn",
+        "Slower execution compared to low-level languages",
+        "Cannot be used for business applications",
+        "Not portable"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 19,
+      "type": "mcq",
+      "question": "Which programming paradigm is based on mathematical functions?",
+      "options": [
+        "Procedural",
+        "Object-Oriented",
+        "Functional",
+        "Structured"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 20,
+      "type": "mcq",
+      "question": "What is the difference between a class and an object in OOP?",
+      "options": [
+        "Class is an instance, object is a blueprint",
+        "Class is a blueprint, object is an instance",
+        "Both are the same",
+        "Class is a function, object is a variable"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 21,
+      "type": "mcq",
+      "question": "What is the concept of \"message passing\" in OOP?",
+      "options": [
+        "Sending data between functions",
+        "Objects communicating by sending messages to each other",
+        "Passing messages between programmers",
+        "Using global variables"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 22,
+      "type": "mcq",
+      "question": "Which of the following is NOT a type of programming language?",
+      "options": [
+        "Procedural",
+        "Object-Oriented",
+        "Structured",
+        "Mathematical"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 23,
+      "type": "mcq",
+      "question": "What is the main characteristic of assembly language?",
+      "options": [
+        "Uses binary code",
+        "Uses mnemonics for instructions",
+        "Uses English-like syntax",
+        "Uses natural language"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 24,
+      "type": "mcq",
+      "question": "What is the role of a loader?",
+      "options": [
+        "To compile the program",
+        "To load the program into memory for execution",
+        "To link object files",
+        "To design algorithms"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 25,
+      "type": "mcq",
+      "question": "Which of the following is a characteristic of both procedural and structured programming?",
+      "options": [
+        "Use of objects",
+        "Use of functions and control structures",
+        "Use of inheritance",
+        "Use of polymorphism"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 26,
+      "type": "mcq",
+      "question": "What is the recurrence relation for factorial using recursion?",
+      "options": [
+        "T(n) = T(n-1) + 1",
+        "T(n) = T(n/2) + 1",
+        "T(n) = 2T(n-1) + 1",
+        "T(n) = T(n-1) + n"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 27,
+      "type": "mcq",
+      "question": "What is the recurrence relation for Tower of Hanoi?",
+      "options": [
+        "T(n) = T(n-1) + 1",
+        "T(n) = 2T(n-1) + 1",
+        "T(n) = T(n/2) + 1",
+        "T(n) = 2T(n/2) + 1"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 28,
+      "type": "mcq",
+      "question": "What is the time complexity of the Tower of Hanoi?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(2ⁿ)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 29,
+      "type": "mcq",
+      "question": "What is the recurrence relation for merge sort?",
+      "options": [
+        "T(n) = T(n-1) + n",
+        "T(n) = 2T(n/2) + n",
+        "T(n) = 2T(n/2) + 1",
+        "T(n) = T(n/2) + n"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 30,
+      "type": "mcq",
+      "question": "What is the recurrence relation for quick sort (worst case)?",
+      "options": [
+        "T(n) = T(n-1) + n",
+        "T(n) = 2T(n/2) + n",
+        "T(n) = T(n/2) + n",
+        "T(n) = 2T(n-1) + n"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 31,
+      "type": "mcq",
+      "question": "What is the recurrence relation for quick sort (average case)?",
+      "options": [
+        "T(n) = T(n-1) + n",
+        "T(n) = 2T(n/2) + n",
+        "T(n) = T(n/2) + n",
+        "T(n) = 2T(n-1) + n"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 32,
+      "type": "mcq",
+      "question": "What is the master theorem used for?",
+      "options": [
+        "Solving recurrence relations",
+        "Designing algorithms",
+        "Testing programs",
+        "Writing pseudo-code"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 33,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = 2T(n/2) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 34,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = 2T(n/2) + O(n)?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 35,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = T(n-1) + O(n)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 36,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = T(n/2) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(1)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 37,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = 2T(n-1) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(2ⁿ)",
+        "O(log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 38,
+      "type": "mcq",
+      "question": "Which of the following is the fastest growing function?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(2ⁿ)"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 39,
+      "type": "mcq",
+      "question": "Which of the following is the slowest growing function?",
+      "options": [
+        "O(n!)",
+        "O(2ⁿ)",
+        "O(n³)",
+        "O(log n)"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 40,
+      "type": "mcq",
+      "question": "What is the time complexity of finding the nth Fibonacci number using recursion?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(2ⁿ)",
+        "O(n²)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 41,
+      "type": "mcq",
+      "question": "What is the time complexity of finding the nth Fibonacci number using iteration?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(2ⁿ)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 42,
+      "type": "mcq",
+      "question": "What is the time complexity of the following loop?",
+      "prefix": "```c\nfor(i=1; i<=n; i*=2) {\n    // O(1) work\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 43,
+      "type": "mcq",
+      "question": "What is the time complexity of the following loop?",
+      "prefix": "```c\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=i; j++) {\n        // O(1) work\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 44,
+      "type": "mcq",
+      "question": "What is the time complexity of the following loop?",
+      "prefix": "```c\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=n; j+=i) {\n        // O(1) work\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 45,
+      "type": "mcq",
+      "question": "What is the time complexity of the following loop?",
+      "prefix": "```c\nfor(i=n; i>=1; i/=2) {\n    for(j=1; j<=i; j++) {\n        // O(1) work\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(n)"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 46,
+      "type": "mcq",
+      "question": "What is the space complexity of a recursive function with recursion depth n?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 47,
+      "type": "mcq",
+      "question": "What is the space complexity of a recursive function with recursion depth log n?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 48,
+      "type": "mcq",
+      "question": "What is the time complexity of Dijkstra's algorithm (with binary heap)?",
+      "options": [
+        "O(V²)",
+        "O(E log V)",
+        "O(V log V)",
+        "O(V + E)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 49,
+      "type": "mcq",
+      "question": "What is the time complexity of Prim's algorithm (with binary heap)?",
+      "options": [
+        "O(V²)",
+        "O(E log V)",
+        "O(V log V)",
+        "O(V + E)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 50,
+      "type": "mcq",
+      "question": "What is the time complexity of Kruskal's algorithm?",
+      "options": [
+        "O(V²)",
+        "O(E log E)",
+        "O(V log E)",
+        "O(V + E)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 51,
+      "type": "mcq",
+      "question": "What is the time complexity of Floyd-Warshall algorithm?",
+      "options": [
+        "O(V²)",
+        "O(V³)",
+        "O(E log V)",
+        "O(V + E)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 52,
+      "type": "mcq",
+      "question": "What is the time complexity of Bellman-Ford algorithm?",
+      "options": [
+        "O(V²)",
+        "O(VE)",
+        "O(E log V)",
+        "O(V + E)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 53,
+      "type": "mcq",
+      "question": "What is the time complexity of the following recurrence: T(n) = 3T(n/3) + O(n)?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(n³)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 54,
+      "type": "mcq",
+      "question": "What is the time complexity of the following recurrence: T(n) = 4T(n/2) + O(n²)?",
+      "options": [
+        "O(n²)",
+        "O(n² log n)",
+        "O(n³)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 55,
+      "type": "mcq",
+      "question": "What is the time complexity of the following recurrence: T(n) = 8T(n/2) + O(n³)?",
+      "options": [
+        "O(n³)",
+        "O(n³ log n)",
+        "O(n⁴)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 56,
+      "type": "mcq",
+      "question": "What is the time complexity of the following recurrence: T(n) = 9T(n/3) + O(n²)?",
+      "options": [
+        "O(n²)",
+        "O(n² log n)",
+        "O(n³)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 57,
+      "type": "mcq",
+      "question": "What is the time complexity of the following recurrence: T(n) = T(n-1) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(1)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 58,
+      "type": "mcq",
+      "question": "Which of the following is an application of divide and conquer?",
+      "options": [
+        "Linear search",
+        "Binary search",
+        "Bubble sort",
+        "Selection sort"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 59,
+      "type": "mcq",
+      "question": "Which of the following is an application of dynamic programming?",
+      "options": [
+        "Binary search",
+        "Merge sort",
+        "Fibonacci numbers",
+        "Quick sort"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 60,
+      "type": "mcq",
+      "question": "Which of the following is an application of greedy algorithm?",
+      "options": [
+        "Binary search",
+        "Merge sort",
+        "Dijkstra's algorithm",
+        "Quick sort"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 61,
+      "type": "mcq",
+      "question": "What is the time complexity of a loop that runs for n² times but the work inside is O(1)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 62,
+      "type": "mcq",
+      "question": "What is the time complexity of a loop that runs for n times and does O(n) work each time?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 63,
+      "type": "mcq",
+      "question": "What is the time complexity of a nested loop where outer runs n times and inner runs n/2 times?",
+      "options": [
+        "O(n²/2) ≈ O(n²)",
+        "O(n)",
+        "O(n log n)",
+        "O(n² log n)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 64,
+      "type": "mcq",
+      "question": "What is the time complexity of searching an element in an array using linear search?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 65,
+      "type": "mcq",
+      "question": "What is the time complexity of searching an element in a balanced BST?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 66,
+      "type": "mcq",
+      "question": "What is the time complexity of insertion in a hash table (average case)?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 67,
+      "type": "mcq",
+      "question": "What is the time complexity of insertion in a hash table (worst case)?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 68,
+      "type": "mcq",
+      "question": "What is the time complexity of deletion from a balanced BST?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 69,
+      "type": "mcq",
+      "question": "What is the time complexity of accessing an element from a stack?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 70,
+      "type": "mcq",
+      "question": "What is the time complexity of accessing an element from a queue?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 71,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i*=2) {\n    sum += i;\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 72,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=n; j+=2) {\n        sum++;\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 73,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=n; j*=2) {\n        sum++;\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(n² log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 74,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=i; j<=n; j++) {\n        sum++;\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 75,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=i; j*=2) {\n        sum++;\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 76,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=n; i>=1; i/=2) {\n    sum += i;\n}\n```",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 77,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i=i*3) {\n    sum += i;\n}\n```",
+      "options": [
+        "O(n)",
+        "O(log₃ n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 78,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=i; j=j*2) {\n        sum++;\n    }\n}\n```",
+      "options": [
+        "O(n log n)",
+        "O(n²)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 79,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=n; j++) {\n        for(k=1; k<=n; k++) {\n            sum++;\n        }\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n³)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 80,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nint sum = 0;\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=i; j++) {\n        for(k=1; k<=j; k++) {\n            sum++;\n        }\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n³)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 81,
+      "type": "mcq",
+      "question": "What is the first step in developing an algorithm?",
+      "options": [
+        "Writing code",
+        "Understanding the problem",
+        "Testing",
+        "Debugging"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 82,
+      "type": "mcq",
+      "question": "Which step involves designing the solution logic?",
+      "options": [
+        "Problem analysis",
+        "Algorithm development",
+        "Coding",
+        "Testing"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 83,
+      "type": "mcq",
+      "question": "What is the purpose of pseudo-code?",
+      "options": [
+        "To execute the program directly",
+        "To express the algorithm in human-readable form",
+        "To compile the program",
+        "To generate machine code"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 84,
+      "type": "mcq",
+      "question": "Which of the following is TRUE about flowcharting?",
+      "options": [
+        "It is a programming language",
+        "It is a visual representation of the algorithm",
+        "It is used to execute programs",
+        "It is a type of compiler"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 85,
+      "type": "mcq",
+      "question": "What is the difference between verification and validation?",
+      "options": [
+        "Verification checks the product, validation checks the requirements",
+        "Verification checks if built correctly, validation checks if correct product is built",
+        "Both are the same",
+        "Validation is done before verification"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 86,
+      "type": "mcq",
+      "question": "What is the purpose of the \"debugging\" step in problem solving?",
+      "options": [
+        "To write the program",
+        "To identify and fix errors",
+        "To design the algorithm",
+        "To test the program"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 87,
+      "type": "mcq",
+      "question": "Which of the following is NOT a type of error in programming?",
+      "options": [
+        "Syntax error",
+        "Semantic error",
+        "Logical error",
+        "Algorithmic error"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 88,
+      "type": "mcq",
+      "question": "What is a semantic error?",
+      "options": [
+        "Violation of language syntax rules",
+        "The program runs but produces wrong output",
+        "The program crashes during execution",
+        "Incorrect meaning or logic in the program"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 89,
+      "type": "mcq",
+      "question": "What is the difference between top-down and bottom-up approaches?",
+      "options": [
+        "Top-down starts from details, bottom-up starts from the whole",
+        "Top-down starts from the whole, bottom-up starts from details",
+        "Both start from the middle",
+        "They are the same"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 90,
+      "type": "mcq",
+      "question": "Which approach is used in structured programming?",
+      "options": [
+        "Bottom-up",
+        "Top-down",
+        "Middle-out",
+        "Random"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 91,
+      "type": "mcq",
+      "question": "What is the purpose of the \"testing\" step?",
+      "options": [
+        "To find errors",
+        "To fix errors",
+        "To write code",
+        "To design algorithm"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 92,
+      "type": "mcq",
+      "question": "Which type of testing is performed by the end-user?",
+      "options": [
+        "Unit testing",
+        "Integration testing",
+        "Acceptance testing",
+        "System testing"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 93,
+      "type": "mcq",
+      "question": "What is regression testing?",
+      "options": [
+        "Testing new features only",
+        "Testing the entire system to ensure no new errors were introduced",
+        "Testing individual modules",
+        "Testing the algorithm"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 94,
+      "type": "mcq",
+      "question": "What is the output of the problem-solving process?",
+      "options": [
+        "An algorithm",
+        "A flowchart",
+        "A complete, working program",
+        "A pseudo-code"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 95,
+      "type": "mcq",
+      "question": "What is the most critical step in problem solving?",
+      "options": [
+        "Coding",
+        "Testing",
+        "Problem analysis",
+        "Debugging"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 96,
+      "type": "mcq",
+      "question": "Which of the following is a technique for problem solving?",
+      "options": [
+        "Trial and error",
+        "Divide and conquer",
+        "Means-ends analysis",
+        "All of the above"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 97,
+      "type": "mcq",
+      "question": "What is the purpose of using flowcharts in problem solving?",
+      "options": [
+        "To write the final program",
+        "To visualize the solution flow",
+        "To execute the solution",
+        "To debug the program"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 98,
+      "type": "mcq",
+      "question": "What is the role of an IDE in the coding phase?",
+      "options": [
+        "To analyze the problem",
+        "To provide an environment for writing, testing, and debugging code",
+        "To design algorithms",
+        "To generate pseudo-code"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 99,
+      "type": "mcq",
+      "question": "What is the difference between a syntax error and a logical error?",
+      "options": [
+        "Syntax error is easier to find, logical error is harder",
+        "Logical error is easier to find, syntax error is harder",
+        "Both are equally easy",
+        "Both are equally hard"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 100,
+      "type": "mcq",
+      "question": "Which step in problem solving is iterative?",
+      "options": [
+        "Only coding",
+        "Only testing",
+        "All steps may be iterative",
+        "None of the steps are iterative"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    }
+  ]
+}

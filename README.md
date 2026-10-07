@@ -97,6 +97,93 @@ the index page. The file's modification time supplies the date.
   join them into one paragraph, since consecutive lines form a single
   paragraph. Fenced code blocks and tables are left untouched.
 
+---
+
+## Question banks
+
+Practice papers keep their questions in a **JSON file beside the Markdown**, not
+inside it:
+
+```
+practice-papers/unit-01/
+├── unit-01-01-practice-paper-eng.md     ← headings + a {{questions}} marker
+└── unit-01-01-practice-paper-eng.json   ← the questions
+```
+
+The Markdown places a marker where the questions belong, and the build renders
+the bank there:
+
+```markdown
+## Section 1: Basic Computer Organisation (Questions 1 to 20)
+
+{{questions}}
+```
+
+The range in the heading tells the build which questions belong to that
+section, so a 100-question paper keeps its section structure while the bank
+stays a flat list.
+
+### Why not a ```questions fence?
+
+Because **280 questions contain a code fence between the question and its
+options**, and Markdown cannot nest fences — an inner ` ```c ` would terminate
+the outer block. Storing questions as JSON strings removes the problem
+entirely, and makes them editable by scripts and spreadsheet exports.
+
+### Schema
+
+```json
+{
+  "paper": "unit-01-01-practice-paper-eng",
+  "questions": [
+    {
+      "sl": 1,
+      "type": "mcq",
+      "question": "What does CPU stand for?",
+      "prefix": "```c\nint x = 5;\n```",
+      "options": ["Central Processing Unit", "Computer Personal Unit",
+                  "Central Program Unit", "Central Processing Utility"],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    }
+  ]
+}
+```
+
+- `sl` — question number, matching the source.
+- `prefix` — optional Markdown between the question and its options, usually a
+  code block the question refers to.
+- `answer` — 1-based option number, matching what a student sees.
+- `answerSource` — whether the answer came from the trailing answer key or the
+  `✅` marks.
+
+For short-answer questions use `{"sl", "type": "saq", "question", "answer"}`
+where `answer` is the descriptive text.
+
+Answers are always visible: the correct option is highlighted, and an
+`Answer: B` line closes each question.
+
+### Answer source of truth
+
+The **answer-key table is authoritative**, not the `✅` marks — the ticks are
+known to contain self-corrected mistakes, where an option was marked and then
+corrected in a note underneath. Where a paper has no key, the ticks are used.
+
+### Regenerating banks
+
+```bash
+node tools/md-to-questions.js            # report only
+node tools/md-to-questions.js --write    # emit .json beside each paper
+node tools/verify-conversion.js          # prove the conversion is lossless
+node tools/rewrite-papers.js             # report only
+node tools/rewrite-papers.js --write     # replace inline questions with markers
+```
+
+The converter reports every question with a missing or conflicting answer
+rather than guessing, and `rewrite-papers.js` refuses to touch a paper whose
+source has duplicate question numbers.
+
 KaTeX, Mermaid and highlight.js load from CDN, so note pages need a network
 connection for those three features. Plain text and tables work offline.
 
@@ -144,6 +231,7 @@ src/
 │   ├── notes.js         Reading notes, deriving metadata from paths
 │   ├── text.js          Pure helpers: titles, names, HTML escaping
 │   ├── render.js        Markdown → HTML, mermaid, MCQ options, tables
+│   ├── questions.js     Question banks → HTML
 │   ├── manifest.js      Grouping/sorting for the index page
 │   ├── templates.js     Handlebars compilation and partials
 │   └── writer.js        Output path mapping and file writing

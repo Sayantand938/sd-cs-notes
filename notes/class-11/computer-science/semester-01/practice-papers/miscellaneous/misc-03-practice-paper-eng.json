@@ -1,0 +1,1414 @@
+{
+  "paper": "misc-03-practice-paper-eng",
+  "questions": [
+    {
+      "sl": 1,
+      "type": "mcq",
+      "question": "What is the full form of CPU?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Unit",
+        "Central Processing Utility"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 2,
+      "type": "mcq",
+      "question": "Which memory is non-volatile?",
+      "options": [
+        "RAM",
+        "ROM",
+        "Cache",
+        "Register"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 3,
+      "type": "mcq",
+      "question": "1 Byte is equal to how many bits?",
+      "options": [
+        "4",
+        "8",
+        "16",
+        "32"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 4,
+      "type": "mcq",
+      "question": "Which type of computer is used in space research?",
+      "options": [
+        "Mainframe",
+        "Supercomputer",
+        "Mini",
+        "Micro"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 5,
+      "type": "mcq",
+      "question": "Which of the following is an example of system software?",
+      "options": [
+        "MS Office",
+        "Adobe Photoshop",
+        "Windows 10",
+        "Google Chrome"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 6,
+      "type": "mcq",
+      "question": "What is the base of the decimal number system?",
+      "options": [
+        "2",
+        "8",
+        "10",
+        "16"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 7,
+      "type": "mcq",
+      "question": "Convert binary `1100` to decimal.",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 8,
+      "type": "mcq",
+      "question": "What is the output of `0 AND 0` in Boolean algebra?",
+      "options": [
+        "0",
+        "1",
+        "Invalid",
+        "Depends"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 9,
+      "type": "mcq",
+      "question": "Which gate is also known as a universal gate?",
+      "options": [
+        "AND",
+        "OR",
+        "NOR",
+        "NOT"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 10,
+      "type": "mcq",
+      "question": "Which of the following is an input device?",
+      "options": [
+        "Monitor",
+        "Printer",
+        "Scanner",
+        "Speaker"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 11,
+      "type": "mcq",
+      "question": "1 Terabyte (TB) is equal to how many Gigabytes?",
+      "options": [
+        "1000 GB",
+        "1024 GB",
+        "1024 MB",
+        "1000 MB"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 12,
+      "type": "mcq",
+      "question": "Convert decimal `13` to hexadecimal.",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 13,
+      "type": "mcq",
+      "question": "Which Linux command is used to list files in long format?",
+      "options": [
+        "`ls -l`",
+        "`ls -a`",
+        "`ls -r`",
+        "`ls -t`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 14,
+      "type": "mcq",
+      "question": "What is the complement of `A + B`?",
+      "options": [
+        "`A' + B'`",
+        "`A' . B'`",
+        "`A . B`",
+        "`A + B`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 15,
+      "type": "mcq",
+      "question": "1 Exabyte (EB) is equal to:",
+      "options": [
+        "1024 PB",
+        "1000 PB",
+        "1024 TB",
+        "1024 GB"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 16,
+      "type": "mcq",
+      "question": "What is the BCD code for decimal `7`?",
+      "options": [
+        "0111",
+        "1000",
+        "1001",
+        "0100"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 17,
+      "type": "mcq",
+      "question": "Which of the following is a pointing device?",
+      "options": [
+        "Keyboard",
+        "Mouse",
+        "Scanner",
+        "Printer"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 18,
+      "type": "mcq",
+      "question": "What is the full form of BIOS?",
+      "options": [
+        "Basic Input Output System",
+        "Basic Input Output Software",
+        "Basic Interface Output System",
+        "Basic Input Output Standard"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 19,
+      "type": "mcq",
+      "question": "Which gate produces 1 only when inputs are different?",
+      "options": [
+        "AND",
+        "OR",
+        "XOR",
+        "XNOR"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 20,
+      "type": "mcq",
+      "question": "What is the 2's complement of binary `1000`?",
+      "options": [
+        "0111",
+        "1000",
+        "1111",
+        "0000"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 21,
+      "type": "mcq",
+      "question": "Which of the following is an example of an instruction?",
+      "options": [
+        "`a = b + c;`",
+        "Microsoft Word",
+        "Windows 10",
+        "A keyboard"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 22,
+      "type": "mcq",
+      "question": "Which of the following is a High-Level Language?",
+      "options": [
+        "Machine Language",
+        "Assembly Language",
+        "Python",
+        "Binary Code"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 23,
+      "type": "mcq",
+      "question": "What is Non-Procedural Programming?",
+      "options": [
+        "Programming that uses procedures",
+        "Programming where the programmer specifies what to do, not how",
+        "Programming that uses only assembly",
+        "Programming without functions"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 24,
+      "type": "mcq",
+      "question": "Which of the following is a feature of OOP?",
+      "options": [
+        "Encapsulation",
+        "Goto statements",
+        "Global variables",
+        "Procedures only"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 25,
+      "type": "mcq",
+      "question": "An algorithm must have which of the following?",
+      "options": [
+        "Infinite steps",
+        "No inputs",
+        "Finiteness",
+        "No output"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 26,
+      "type": "mcq",
+      "question": "In recursion, what is the base case?",
+      "options": [
+        "The condition that stops the recursion",
+        "The recursive call",
+        "The first step",
+        "The last step"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 27,
+      "type": "mcq",
+      "question": "Which asymptotic notation represents the upper bound?",
+      "options": [
+        "Big O",
+        "Big Omega",
+        "Big Theta",
+        "Little o"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 28,
+      "type": "mcq",
+      "question": "What is the time complexity of bubble sort?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 29,
+      "type": "mcq",
+      "question": "What is the correct order of problem-solving steps?",
+      "options": [
+        "Coding → Testing → Debugging → Analysis",
+        "Analysis → Algorithm → Coding → Testing → Debugging",
+        "Testing → Coding → Analysis → Debugging",
+        "Algorithm → Analysis → Coding → Testing"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 30,
+      "type": "mcq",
+      "question": "What is the purpose of testing?",
+      "options": [
+        "To write the program",
+        "To find errors and verify correctness",
+        "To design the algorithm",
+        "To analyze the problem"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 31,
+      "type": "mcq",
+      "question": "What is the time complexity of the following loop?",
+      "prefix": "```c\nfor(i=1; i<=n; i*=2) {\n    // O(1) work\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 32,
+      "type": "mcq",
+      "question": "What is the role of a compiler?",
+      "options": [
+        "To execute the program directly",
+        "To convert high-level code to machine code",
+        "To design algorithms",
+        "To test the program"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 33,
+      "type": "mcq",
+      "question": "Who introduced the concept of Structured Programming?",
+      "options": [
+        "Dennis Ritchie",
+        "Edsger Dijkstra",
+        "James Gosling",
+        "Alan Turing"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 34,
+      "type": "mcq",
+      "question": "Which notation describes the average-case performance?",
+      "options": [
+        "Big O",
+        "Big Omega",
+        "Big Theta",
+        "Little o"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 35,
+      "type": "mcq",
+      "question": "What is the time complexity of quick sort in the average case?",
+      "options": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 36,
+      "type": "mcq",
+      "question": "Which of the following is a 4th generation language (4GL)?",
+      "options": [
+        "C",
+        "SQL",
+        "Java",
+        "Assembly"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 37,
+      "type": "mcq",
+      "question": "What is a pseudo-code?",
+      "options": [
+        "A high-level programming language",
+        "A simplified, informal description of an algorithm",
+        "A flowchart",
+        "A compiler"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 38,
+      "type": "mcq",
+      "question": "What is the time complexity of insertion sort?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 39,
+      "type": "mcq",
+      "question": "What is the main advantage of recursion?",
+      "options": [
+        "Faster execution",
+        "Less memory usage",
+        "Simpler solution for complex problems",
+        "No function calls"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 40,
+      "type": "mcq",
+      "question": "What is the difference between time complexity and space complexity?",
+      "options": [
+        "Time complexity measures memory, space measures time",
+        "Time complexity measures time, space measures memory",
+        "Both measure time",
+        "Both measure memory"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 41,
+      "type": "mcq",
+      "question": "Which of the following is a valid variable identifier in C?",
+      "options": [
+        "`_variable`",
+        "`2variable`",
+        "`var-iable`",
+        "`int`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 42,
+      "type": "mcq",
+      "question": "What is the purpose of the `#define` preprocessor directive?",
+      "options": [
+        "To include a header file",
+        "To define a macro",
+        "To check if a macro is defined",
+        "To undefine a macro"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 43,
+      "type": "mcq",
+      "question": "What is the value of `sizeof('A')` in standard C?",
+      "options": [
+        "1",
+        "The size of an integer",
+        "The size of a double",
+        "Compilation error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 44,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint x = 10;\nprintf(\"%d\", x > 10 ? 20 : 30);\n```",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "Error"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 45,
+      "type": "mcq",
+      "question": "What is the output of the following `switch`?",
+      "prefix": "```c\nint x = 2;\nswitch(x) {\n    case 1: printf(\"A\");\n    case 2: printf(\"B\");\n    default: printf(\"C\");\n}\n```",
+      "options": [
+        "B",
+        "BC",
+        "C",
+        "ABC"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 46,
+      "type": "mcq",
+      "question": "What will be the output of the following?",
+      "prefix": "```c\nint x = 5;\nif (x = 10)\n    printf(\"Ten\");\nelse\n    printf(\"Not Ten\");\n```",
+      "options": [
+        "Ten",
+        "Not Ten",
+        "Error",
+        "TenNot Ten"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 47,
+      "type": "mcq",
+      "question": "What is the size of the array declared as `int arr[10];` on a 32-bit system?",
+      "options": [
+        "10 bytes",
+        "20 bytes",
+        "40 bytes",
+        "80 bytes"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 48,
+      "type": "mcq",
+      "question": "Which function is used to concatenate two strings?",
+      "options": [
+        "`strcpy()`",
+        "`strcat()`",
+        "`strcmp()`",
+        "`strlen()`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 49,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint arr[3] = {1, 2, 3};\nprintf(\"%d\", arr[2]);\n```",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "Error"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 50,
+      "type": "mcq",
+      "question": "How do you access structure member `x` using pointer `ptr`?",
+      "options": [
+        "`ptr.x`",
+        "`ptr->x`",
+        "`*ptr.x`",
+        "`&ptr.x`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 51,
+      "type": "mcq",
+      "question": "What is the output of `strlen(\"C Programming\");`?",
+      "options": [
+        "12",
+        "13",
+        "14",
+        "11"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 52,
+      "type": "mcq",
+      "question": "Which of the following correctly initializes a structure variable?",
+      "options": [
+        "`struct Point p1 = {10, 20};`",
+        "`struct Point p1 = (10, 20);`",
+        "`struct Point p1.x = 10;`",
+        "`Point p1 = [10, 20];`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 53,
+      "type": "mcq",
+      "question": "What does `strcmp(str1, str2)` return if strings are equal?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "Positive value"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 54,
+      "type": "mcq",
+      "question": "What is the default return type of a C function if not explicitly declared?",
+      "options": [
+        "`void`",
+        "`int`",
+        "`char`",
+        "`float`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 55,
+      "type": "mcq",
+      "question": "In call-by-value, changes to formal parameters affect actual parameters?",
+      "options": [
+        "Yes, always",
+        "No, never",
+        "Sometimes",
+        "Only for arrays"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 56,
+      "type": "mcq",
+      "question": "What is the output of the following recursive function?",
+      "prefix": "```c\nint sum(int n) {\n    if(n == 0) return 0;\n    return n + sum(n-1);\n}\nprintf(\"%d\", sum(3));\n```",
+      "options": [
+        "3",
+        "5",
+        "6",
+        "4"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 57,
+      "type": "mcq",
+      "question": "If `arr` is a 2D array of size `[3][4]`, how is the element at row 2, column 1 accessed using pointers?",
+      "options": [
+        "`*(*(arr + 2) + 1)`",
+        "`*(arr + 2 + 1)`",
+        "`*(arr[2] + 1)`",
+        "Both A and C"
+      ],
+      "answer": 4,
+      "answerLetter": "D",
+      "answerSource": "key"
+    },
+    {
+      "sl": 58,
+      "type": "mcq",
+      "question": "What is the output of the following?",
+      "prefix": "```c\nint *p = NULL;\nprintf(\"%p\", p);\n```",
+      "options": [
+        "0x0 (or (nil))",
+        "Garbage",
+        "Error",
+        "Segmentation fault"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 59,
+      "type": "mcq",
+      "question": "Which storage class makes a variable retain its value between function calls?",
+      "options": [
+        "`auto`",
+        "`static`",
+        "`register`",
+        "`extern`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 60,
+      "type": "mcq",
+      "question": "Which escape sequence represents a tab?",
+      "options": [
+        "`\\n`",
+        "`\\t`",
+        "`\\b`",
+        "`\\r`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 61,
+      "type": "mcq",
+      "question": "Convert decimal `45` to binary.",
+      "options": [
+        "101101",
+        "101010",
+        "111100",
+        "101001"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 62,
+      "type": "mcq",
+      "question": "Which Linux command is used to move or rename files?",
+      "options": [
+        "`cp`",
+        "`mv`",
+        "`rm`",
+        "`rename`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 63,
+      "type": "mcq",
+      "question": "What is the time complexity of binary search?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 64,
+      "type": "mcq",
+      "question": "Which of the following is a valid identifier in C?",
+      "options": [
+        "`_sum`",
+        "`2sum`",
+        "`sum-1`",
+        "`double`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 65,
+      "type": "mcq",
+      "question": "Convert hexadecimal `1A` to decimal.",
+      "options": [
+        "16",
+        "26",
+        "20",
+        "18"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 66,
+      "type": "mcq",
+      "question": "Which gate is the complement of AND?",
+      "options": [
+        "OR",
+        "NOR",
+        "NAND",
+        "XOR"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 67,
+      "type": "mcq",
+      "question": "What is the output of `1 NOR 0`?",
+      "options": [
+        "0",
+        "1",
+        "Invalid",
+        "Depends"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 68,
+      "type": "mcq",
+      "question": "What is the 1's complement of binary `0110`?",
+      "options": [
+        "1001",
+        "0110",
+        "1111",
+        "0000"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 69,
+      "type": "mcq",
+      "question": "Which parameter passing mechanism is simulated when we pass the address of a variable to a function?",
+      "options": [
+        "Call by value",
+        "Call by reference",
+        "Call by name",
+        "Call by assignment"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 70,
+      "type": "mcq",
+      "question": "What does the `break` statement do inside nested loops?",
+      "options": [
+        "Terminates all loops",
+        "Terminates only the innermost loop",
+        "Continues to next iteration",
+        "Restarts the program"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 71,
+      "type": "mcq",
+      "question": "What is the time complexity of finding the maximum element in an array?",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 72,
+      "type": "mcq",
+      "question": "What is the ASCII value of '0'?",
+      "options": [
+        "48",
+        "49",
+        "50",
+        "51"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 73,
+      "type": "mcq",
+      "question": "Which of the following is a non-weighted code?",
+      "options": [
+        "BCD",
+        "8421",
+        "Excess-3",
+        "Binary"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 74,
+      "type": "mcq",
+      "question": "Which component of the CPU stores intermediate results?",
+      "options": [
+        "ALU",
+        "CU",
+        "Registers",
+        "MU"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 75,
+      "type": "mcq",
+      "question": "What is the size of `long int` on a 32-bit system?",
+      "options": [
+        "2 bytes",
+        "4 bytes",
+        "8 bytes",
+        "16 bytes"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 76,
+      "type": "mcq",
+      "question": "What is the output of the following code?",
+      "prefix": "```c\nint x = 5;\nprintf(\"%d\", --x);\n```",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "Error"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 77,
+      "type": "mcq",
+      "question": "How many cells does a 4-variable K-Map have?",
+      "options": [
+        "8",
+        "16",
+        "32",
+        "64"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 78,
+      "type": "mcq",
+      "question": "Which of the following is a utility software?",
+      "options": [
+        "Windows 10",
+        "Compiler",
+        "Antivirus",
+        "MS Word"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 79,
+      "type": "mcq",
+      "question": "Which encoding scheme represents all languages?",
+      "options": [
+        "ASCII",
+        "ISCII",
+        "Unicode",
+        "BCD"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 80,
+      "type": "mcq",
+      "question": "Which statement is used to exit a function early?",
+      "options": [
+        "`break`",
+        "`continue`",
+        "`return`",
+        "`exit`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 81,
+      "type": "mcq",
+      "question": "Convert octal `25` to decimal.",
+      "options": [
+        "21",
+        "22",
+        "23",
+        "24"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 82,
+      "type": "mcq",
+      "question": "Which of the following is an example of Object-Oriented Language?",
+      "options": [
+        "C",
+        "Python (supports OOP)",
+        "FORTRAN",
+        "Assembly"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 83,
+      "type": "mcq",
+      "question": "What is the function of an interpreter?",
+      "options": [
+        "Converts entire program at once",
+        "Translates and executes program line by line",
+        "Combines object files",
+        "Loads program into memory"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 84,
+      "type": "mcq",
+      "question": "What is the output of `0 XNOR 1`?",
+      "options": [
+        "0",
+        "1",
+        "Invalid",
+        "Depends"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 85,
+      "type": "mcq",
+      "question": "Which of the following is a valid string in C?",
+      "options": [
+        "`'Hello'`",
+        "`\"Hello\"`",
+        "`Hello`",
+        "`\\Hello\\`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 86,
+      "type": "mcq",
+      "question": "What is the time complexity of the following code?",
+      "prefix": "```c\nfor(i=1; i<=n; i++) {\n    for(j=1; j<=n; j*=2) {\n        // O(1) work\n    }\n}\n```",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 87,
+      "type": "mcq",
+      "question": "Which type of computer is used in hospitals?",
+      "options": [
+        "Supercomputer",
+        "Mainframe",
+        "Mini Computer",
+        "Microcomputer"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 88,
+      "type": "mcq",
+      "question": "What is the 2's complement of binary `1110`?",
+      "options": [
+        "0001",
+        "0010",
+        "1111",
+        "0000"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 89,
+      "type": "mcq",
+      "question": "Which header file contains the `malloc()` function?",
+      "options": [
+        "`<stdio.h>`",
+        "`<stdlib.h>`",
+        "`<math.h>`",
+        "`<string.h>`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 90,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = T(n/2) + T(n/2) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 91,
+      "type": "mcq",
+      "question": "What is the output of `1 NAND 0`?",
+      "options": [
+        "0",
+        "1",
+        "Invalid",
+        "Depends"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 92,
+      "type": "mcq",
+      "question": "Which Linux command is used to clear the terminal screen?",
+      "options": [
+        "`clear`",
+        "`cls`",
+        "`reset`",
+        "`clean`"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 93,
+      "type": "mcq",
+      "question": "What is the capacity of a typical DVD?",
+      "options": [
+        "700 MB",
+        "4.7 GB",
+        "25 GB",
+        "128 GB"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 94,
+      "type": "mcq",
+      "question": "What is the correct way to declare a pointer to a pointer?",
+      "options": [
+        "`int *ptr;`",
+        "`int **ptr;`",
+        "`int ptr**;`",
+        "`*int ptr;`"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    },
+    {
+      "sl": 95,
+      "type": "mcq",
+      "question": "What is the time complexity of the recurrence T(n) = T(n-1) + O(1)?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(log n)",
+        "O(1)"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 96,
+      "type": "mcq",
+      "question": "Which of the following is a biometric input device?",
+      "options": [
+        "Keyboard",
+        "Mouse",
+        "Fingerprint Scanner",
+        "Touchscreen"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 97,
+      "type": "mcq",
+      "question": "What is the value of `A + A` in Boolean algebra?",
+      "options": [
+        "A",
+        "0",
+        "1",
+        "A'"
+      ],
+      "answer": 1,
+      "answerLetter": "A",
+      "answerSource": "key"
+    },
+    {
+      "sl": 98,
+      "type": "mcq",
+      "question": "Which function is used to read a string with spaces in C?",
+      "options": [
+        "`scanf(\"%s\", str);`",
+        "`gets(str);`",
+        "`fgets(str, size, stdin);`",
+        "`getchar(str);`"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 99,
+      "type": "mcq",
+      "question": "What is the time complexity of selection sort?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "answer": 3,
+      "answerLetter": "C",
+      "answerSource": "key"
+    },
+    {
+      "sl": 100,
+      "type": "mcq",
+      "question": "Which of the following is a characteristic of high-level languages?",
+      "options": [
+        "Machine-dependent",
+        "Easier to debug",
+        "Faster than low-level",
+        "Uses mnemonics"
+      ],
+      "answer": 2,
+      "answerLetter": "B",
+      "answerSource": "key"
+    }
+  ]
+}

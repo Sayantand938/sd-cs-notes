@@ -284,7 +284,7 @@ a:active {
     color: var(--color-text-muted);
 }
 
-/* MCQ option blocks. */
+/* MCQ option blocks (legacy inline format). */
 .question-options {
     margin: 0.2em 0 0.8em 0;
     line-height: 1.5;
@@ -299,6 +299,135 @@ a:active {
 
 .question-options .option:hover {
     border-left-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   10b. Question banks (practice papers)
+   ========================================================================== */
+
+.question-bank {
+    margin: 1.2em 0;
+}
+
+.question-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: question;
+}
+
+.question {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin-bottom: 1em;
+    page-break-inside: avoid;
+}
+
+.question-text {
+    margin: 0 0 0.6em 0;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.question-number {
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+    margin-right: 0.2em;
+}
+
+/* A question's code block, rendered above its options. */
+.question-prefix {
+    margin: 0.6em 0;
+}
+
+.question-prefix pre {
+    margin: 0;
+}
+
+.question-prefix > p:last-child {
+    margin-bottom: 0;
+}
+
+/* Options ---------------------------------------------------------------- */
+
+.question .question-options {
+    list-style: none;
+    margin: 0.2em 0 0.6em 0;
+    padding: 0;
+    border-left: none;
+}
+
+.question .option {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+    padding: 0.28em 0.6em;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid transparent;
+    line-height: 1.5;
+}
+
+.question .option + .option {
+    margin-top: 2px;
+}
+
+.question .option:hover {
+    background: var(--color-surface-alt);
+}
+
+.option-letter {
+    flex: none;
+    width: 1.2em;
+    color: var(--color-text-dim);
+    font-weight: 600;
+}
+
+.option-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.option-text code {
+    font-size: 0.9em;
+}
+
+/* Correct answer: always visible, clearly marked. */
+.question .option-correct {
+    background: rgba(108, 172, 240, 0.12);
+    border-left-color: var(--color-accent);
+}
+
+.question .option-correct .option-letter {
+    color: var(--color-accent);
+}
+
+.question .option-correct .option-text {
+    color: #fff;
+    font-weight: 600;
+}
+
+.option-flag {
+    flex: none;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+/* Answer summary line ---------------------------------------------------- */
+
+.question-answer {
+    margin: 0;
+    padding-top: 0.5em;
+    border-top: 1px dashed var(--color-border);
+    color: var(--color-accent);
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.question-answer-missing {
+    color: #d98b8b;
 }
 
 /* ==========================================================================
@@ -714,6 +843,38 @@ a:active {
 
     .page-nav {
         border-bottom: 1px solid #aaa !important;
+    }
+
+    /* Question banks: answers stay visible on paper, with the correct option
+       marked in a way that survives greyscale printing. */
+    .question {
+        background: #fff !important;
+        border: 1px solid #bbb !important;
+        page-break-inside: avoid;
+    }
+
+    .question .option-correct {
+        background: #eee !important;
+        border-left: 3px solid #000 !important;
+    }
+
+    .question .option-correct .option-text,
+    .question .option-correct .option-letter {
+        color: #000 !important;
+        font-weight: 700;
+    }
+
+    .option-flag,
+    .question-answer {
+        color: #000 !important;
+    }
+
+    .question-answer {
+        border-top: 1px dashed #aaa !important;
+    }
+
+    .question .option:hover {
+        background: transparent !important;
     }
 
     /* Let tables flow to full width on paper instead of scrolling. */
