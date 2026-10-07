@@ -160,3 +160,89 @@ test('without a bank the marker is left untouched', () => {
   const html = renderMarkdown('{{questions}}', {});
   assert.match(html, /\{\{questions\}\}/);
 });
+
+// --- short-answer questions ----------------------------------------------
+
+const SAQ_BANK = {
+  paper: 'sample-saq',
+  questions: [
+    {
+      sl: 1,
+      type: 'saq',
+      question: 'Distinguish analogue from digital communication.',
+      answer: '**Analogue** is a continuous wave.\n\n**Digital** is discrete 0s and 1s.',
+    },
+    {
+      sl: 2,
+      type: 'saq',
+      question: 'Why is serial preferred over long distances?',
+      answer: 'Because parallel suffers **skew**:\n\n```text\nbits arrive out of step\n```',
+    },
+  ],
+};
+
+test('an saq renders its question and a labelled answer', () => {
+  const html = renderQuestionBank(SAQ_BANK);
+  assert.equal((html.match(/question-saq/g) || []).length, 2);
+  assert.equal((html.match(/class="answer-label">Answer</g) || []).length, 2);
+});
+
+test('an saq renders no option list or answer letter', () => {
+  const html = renderQuestionBank(SAQ_BANK);
+  assert.doesNotMatch(html, /question-options/);
+  assert.doesNotMatch(html, /Answer: [A-D]/);
+});
+
+test('markdown inside an saq answer is rendered', () => {
+  const html = renderQuestionBank(SAQ_BANK);
+  assert.match(html, /<strong>Analogue<\/strong>/);
+});
+
+test('a code block inside an saq answer is rendered', () => {
+  const html = renderQuestionBank(SAQ_BANK);
+  assert.match(html, /<pre><code/);
+  assert.match(html, /bits arrive out of step/);
+});
+
+test('a table inside an saq answer is rendered and scroll-wrapped', () => {
+  const bank = {
+    questions: [{
+      sl: 1,
+      type: 'saq',
+      question: 'Compare the modes.',
+      answer: '| Mode | Direction |\n| --- | --- |\n| Simplex | One way |',
+    }],
+  };
+  const html = renderQuestionBank(bank);
+  assert.match(html, /<table/);
+  assert.match(html, /table-wrapper/);
+});
+
+test('an saq with no recorded answer is flagged', () => {
+  const html = renderQuestion({
+    sl: 3, type: 'saq', question: 'Unanswered?', answer: '',
+  });
+  assert.match(html, /question-answer-missing/);
+  assert.match(html, /Not recorded/);
+});
+
+test('mcq and saq can coexist in one bank', () => {
+  const bank = {
+    questions: [
+      { sl: 1, type: 'mcq', question: 'Pick one', options: ['a', 'b'], answer: 1 },
+      { sl: 2, type: 'saq', question: 'Explain', answer: 'Because.' },
+    ],
+  };
+  const html = renderQuestionBank(bank);
+  assert.match(html, /question-options/);
+  assert.match(html, /question-saq/);
+  assert.match(html, /Answer: A/);
+});
+
+test('a question with no type is treated as mcq', () => {
+  const html = renderQuestion({
+    sl: 1, question: 'q', options: ['a', 'b'], answer: 2,
+  });
+  assert.match(html, /question-options/);
+  assert.doesNotMatch(html, /question-saq/);
+});

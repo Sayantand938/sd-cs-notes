@@ -430,6 +430,49 @@ a:active {
     color: #d98b8b;
 }
 
+/* Short-answer questions ------------------------------------------------- */
+
+.question-saq .question-answer-block {
+    margin-top: 0.6em;
+    padding: 10px 14px;
+    background: rgba(108, 172, 240, 0.08);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+}
+
+.question-saq .answer-label {
+    margin: 0 0 0.4em 0;
+    color: var(--color-accent);
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.question-saq .question-answer-block > :first-child {
+    margin-top: 0;
+}
+
+.question-saq .question-answer-block > :last-child {
+    margin-bottom: 0;
+}
+
+.question-saq .question-answer-block p,
+.question-saq .question-answer-block li {
+    line-height: 1.6;
+}
+
+/* An SAQ answer that itself contains a code block or table. */
+.question-saq .question-answer-block pre {
+    margin: 0.6em 0;
+    font-size: 0.85em;
+}
+
+.question-saq .question-answer-block table {
+    margin: 0.6em 0;
+    font-size: 0.85em;
+}
+
 /* ==========================================================================
    10. Index page
    ========================================================================== */

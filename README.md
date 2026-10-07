@@ -158,11 +158,24 @@ entirely, and makes them editable by scripts and spreadsheet exports.
 - `answerSource` — whether the answer came from the trailing answer key or the
   `✅` marks.
 
-For short-answer questions use `{"sl", "type": "saq", "question", "answer"}`
-where `answer` is the descriptive text.
+For short-answer questions use `type: "saq"` where `answer` is descriptive
+Markdown rather than an option number:
 
-Answers are always visible: the correct option is highlighted, and an
-`Answer: B` line closes each question.
+```json
+{
+  "sl": 1,
+  "type": "saq",
+  "question": "Why is serial preferred over long distances?",
+  "answer": "Because parallel suffers **skew**:\n\n```text\nbits arrive out of step\n```"
+}
+```
+
+SAQ answers support full Markdown — paragraphs, lists, tables (scroll-wrapped
+like note tables), and fenced code blocks. The answer is shown in full beneath
+the question under an "Answer" label.
+
+Answers are always visible: for MCQ the correct option is highlighted with an
+`Answer: B` summary line; for SAQ the descriptive answer is printed in place.
 
 ### Answer source of truth
 
@@ -231,7 +244,8 @@ src/
 │   ├── notes.js         Reading notes, deriving metadata from paths
 │   ├── text.js          Pure helpers: titles, names, HTML escaping
 │   ├── render.js        Markdown → HTML, mermaid, MCQ options, tables
-│   ├── questions.js     Question banks → HTML
+│   ├── questions.js     Question banks → HTML (MCQ and SAQ)
+│   ├── html.js          Shared HTML post-processing (table wrapping)
 │   ├── manifest.js      Grouping/sorting for the index page
 │   ├── templates.js     Handlebars compilation and partials
 │   └── writer.js        Output path mapping and file writing

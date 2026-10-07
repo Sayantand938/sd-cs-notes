@@ -12,6 +12,7 @@
 
 const { marked } = require('marked');
 const { escapeHtml } = require('./text');
+const { wrapTables } = require('./html');
 
 /** Option letters, so answer numbers map to the labels students see. */
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -46,12 +47,62 @@ function renderPreamble(text) {
 }
 
 /**
- * Render one MCQ question.
+ * Render one short-answer question.
+ *
+ * The answer is descriptive Markdown rather than an option number, and is
+ * shown in full beneath the question — matching how MCQ answers are always
+ * visible on this site.
+ *
+ * @param {object} q Question record with `answer` as text.
+ * @returns {string}
+ */
+function renderShortAnswer(q) {
+  const answer = typeof q.answer === 'string' ? q.answer.trim() : '';
+  const hasAnswer = answer !== '';
+
+  return (
+    '<li class="question question-saq" id="q' + escapeHtml(String(q.sl)) + '">' +
+    '<p class="question-text">' +
+    `<span class="question-number">${escapeHtml(String(q.sl))}.</span> ` +
+    renderInline(q.question) +
+    '</p>' +
+    renderPreamble(q.prefix) +
+    '<div class="question-answer-block' +
+    (hasAnswer ? '' : ' question-answer-missing') +
+    '">' +
+    '<p class="answer-label">Answer</p>' +
+    (hasAnswer ? renderMarkdownBlock(answer) : '<p><em>Not recorded.</em></p>') +
+    '</div>' +
+    '</li>'
+  );
+}
+
+/**
+ * Render a multi-line Markdown block, such as an SAQ answer.
+ *
+ * Tables are wrapped for horizontal scrolling, exactly as they are in note
+ * bodies, so a wide comparison table in an answer does not overflow the page.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+function renderMarkdownBlock(text) {
+  return wrapTables(marked.parse(text, { async: false }));
+}
+
+/**
+ * Render one question, dispatching on its type.
  *
  * @param {object} q Question record.
  * @returns {string}
  */
 function renderQuestion(q) {
+  const type = (q && q.type) || 'mcq';
+
+  if (type === 'saq' || type === 'short-answer') {
+    return renderShortAnswer(q);
+  }
+
   const options = Array.isArray(q.options) ? q.options : [];
   const answerNumber = Number.isInteger(q.answer) ? q.answer : null;
 
@@ -119,4 +170,10 @@ function renderQuestionBank(bank, options = {}) {
   );
 }
 
-module.exports = { renderQuestionBank, renderQuestion, renderInline, LETTERS };
+module.exports = {
+  renderQuestionBank,
+  renderQuestion,
+  renderShortAnswer,
+  renderInline,
+  LETTERS,
+};

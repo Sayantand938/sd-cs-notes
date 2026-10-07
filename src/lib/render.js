@@ -5,6 +5,7 @@
 const { marked } = require('marked');
 
 const { escapeHtml } = require('./text');
+const { wrapTables } = require('./html');
 const { renderQuestionBank } = require('./questions');
 
 /**
@@ -117,15 +118,10 @@ function createRenderer() {
 }
 
 /**
- * Wrap every `<table>` in a scroll container so wide tables scroll on narrow
- * screens instead of overflowing the page.
+ * Wrap every `<table>` in a scroll container.
+ *
+ * Re-exported from lib/html so existing callers and tests keep working.
  */
-function wrapTables(html) {
-  return html
-    .replace(/<table(\s|>)/g, '<div class="table-wrapper"><table$1')
-    .replace(/<\/table>/g, '</table></div>');
-}
-
 /** Marker a note uses to place its question bank. */
 const QUESTIONS_MARKER = /\{\{\s*questions\s*\}\}/g;
 
