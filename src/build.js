@@ -16,6 +16,7 @@ const fsUtils = require('./lib/fs-utils');
 const notes = require('./lib/notes');
 const { renderMarkdown } = require('./lib/render');
 const { buildManifest, shouldOpenByDefault } = require('./lib/manifest');
+const manifestFile = require('./lib/manifest-file');
 const templates = require('./lib/templates');
 const writer = require('./lib/writer');
 
@@ -61,15 +62,29 @@ async function build(options = {}) {
   const pageHeadBeforeStyle = templates.renderPartial('vendor-scripts');
   const pageHeadAfterStyle = templates.renderPartial('vendor-init');
 
-  // 3. Discover and describe notes.
+  // 3. Discover notes and reconcile them against the manifest. The manifest is
+  //    the source of truth for titles, and is a strict index: any mismatch in
+  //    either direction fails the build rather than silently dropping a page.
   const files = await fsUtils.findMarkdownFiles(config.notesDir, config.markdownExtensions);
   if (files.length === 0) {
     log(`⚠️  No Markdown files found in ${path.relative(config.root, config.notesDir)}`);
     return { pages: [], groups: 0, notes: 0, assets };
   }
 
+  const relativePaths = files.map((file) =>
+    path.relative(config.notesDir, file).split(path.sep).join('/'),
+  );
+
+  const { entries } = await manifestFile.loadManifest(config.notesDir);
+  const validation = manifestFile.validateManifest(entries, relativePaths);
+  const problem = manifestFile.manifestError(validation);
+  if (problem) throw problem;
+
+  log(`📋 Manifest matched ${entries.size} file(s)`);
+
   const allNotes = await notes.readNotes(files, config.notesDir, {
     subjectLabels: config.subjectLabels,
+    manifest: entries,
   });
   log(`📄 Processing ${allNotes.length} file(s)...`);
 

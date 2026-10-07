@@ -60,6 +60,59 @@ subjectLabels: {
 This keeps folder names readable on disk while the index shows course codes.
 Unmapped folders just fall back to upper-casing.
 
+---
+
+## Titles: the manifest
+
+Page titles live in **`notes/notes.manifest.json`**, keyed by path:
+
+```json
+{
+  "class-11/computer-science/semester-01/notes/unit-01/04-boolean-algebra-eng.md": {
+    "title": "Boolean Algebra (Eng)"
+  }
+}
+```
+
+This means **filenames never affect what a reader sees**, so files can be named
+for convenience — short, sortable, easy to type — while the site shows proper
+titles. It also lets two files share a name in different folders.
+
+### The manifest is strict, on purpose
+
+The build **fails** if the manifest and the notes tree disagree in any way:
+
+| Problem | Result |
+| --- | --- |
+| A `.md` file with no manifest entry | Build fails, file listed |
+| A manifest entry with no matching file | Build fails, entry listed |
+| Two entries with the same title | Build fails, both listed |
+
+A manifest's natural failure mode is *silent drift* — you rename a file, forget
+the entry, and a page quietly disappears. Failing loudly turns that into a
+one-line fix. To repair after adding or renaming notes:
+
+```bash
+node src/cli.js --write-manifest
+```
+
+That regenerates entries for new files while **preserving every existing
+title**, so hand-written titles are never lost.
+
+### How titles are seeded
+
+`--write-manifest` uses, in order:
+
+1. The file's own `# Heading`, if it appears in the first few lines and reads
+   like a title. A `#` further down is a section heading, not a title.
+2. Otherwise a title derived from the path.
+
+Emoji and "study guide" boilerplate are stripped, and a `Computer Networks:`
+style prefix is removed where the remainder still reads as a title.
+
+Once written, titles are **yours** — edit the manifest directly and the build
+will use them verbatim.
+
 ### File naming
 
 The filename becomes the page title:
@@ -218,16 +271,19 @@ src/
 ├── config.js            All paths and options, in one place
 ├── cli.js               Command-line entry point (pnpm build)
 ├── build.js             Orchestration: discover → render → write
+├── write-manifest.js    Generates notes.manifest.json
 ├── lib/
 │   ├── fs-utils.js      Directory walking, asset copying
 │   ├── notes.js         Reading notes, deriving metadata from paths
 │   ├── text.js          Pure helpers: titles, names, HTML escaping
+│   ├── title.js         Derives a title when the manifest has none
+│   ├── manifest-file.js Loads and strictly validates the title manifest
 │   ├── render.js        Markdown → HTML, mermaid, MCQ options, tables
 │   ├── question-markdown.js  Parses question blocks (MCQ + SAQ)
 │   ├── questions.js     Renders parsed questions to HTML
-│   ├── html.js          Shared HTML post-processing (table wrapping)
 │   ├── manifest.js      Grouping/sorting for the index page
 │   ├── templates.js     Handlebars compilation and partials
+│   ├── html.js          Shared HTML post-processing (table wrapping)
 │   └── writer.js        Output path mapping and file writing
 ├── templates/
 │   ├── page.html        A single note
@@ -256,6 +312,12 @@ can't quietly break another.
 | `pnpm clean` | Delete `dist/` |
 | `pnpm preview` | Build, then serve `dist/` |
 | `pnpm test` | Run the test suite |
+
+To regenerate the title manifest after adding or renaming notes:
+
+```bash
+node src/cli.js --write-manifest
+```
 
 The preview server is built in (`src/serve.js`) and uses only Node's standard
 library, so it needs no downloads and works offline. It serves on

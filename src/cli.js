@@ -13,6 +13,7 @@ Usage: node src/cli.js [options]
 Options:
   -n, --notes-dir <path>   Markdown source directory (default: notes/)
   -o, --out-dir <path>     Output directory (default: dist/)
+      --write-manifest     Generate notes.manifest.json from the notes tree
   -q, --quiet              Only print errors and the final summary
   -h, --help               Show this message
 
@@ -33,6 +34,7 @@ function parseArgs(argv) {
   const config = {};
   let quiet = false;
   let help = false;
+  let writeManifest = false;
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -51,6 +53,9 @@ function parseArgs(argv) {
       case '--out-dir':
         config.outputDir = path.resolve(next());
         break;
+      case '--write-manifest':
+        writeManifest = true;
+        break;
       case '-q':
       case '--quiet':
         quiet = true;
@@ -64,7 +69,7 @@ function parseArgs(argv) {
     }
   }
 
-  return { config, quiet, help };
+  return { config, quiet, help, writeManifest };
 }
 
 /** Run the CLI. Returns the process exit code. */
@@ -83,6 +88,16 @@ async function main(argv = process.argv.slice(2)) {
   }
 
   try {
+    const notesDir = parsed.config.notesDir || defaultConfig.notesDir;
+
+    if (parsed.writeManifest) {
+      const { writeManifest } = require('./write-manifest');
+      const result = await writeManifest(notesDir);
+      console.log(`📋 Wrote ${result.filename} (${result.entries} entries)`);
+      console.log(`   from heading: ${result.fromHeading}   derived: ${result.derived}   preserved: ${result.preserved}`);
+      return 0;
+    }
+
     const result = await build({ config: parsed.config, quiet: parsed.quiet });
     if (result.notes === 0) {
       console.log('⚠️  Nothing to build.');

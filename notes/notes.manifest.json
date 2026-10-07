@@ -1,0 +1,137 @@
+{
+  "class-11/computer-science/semester-01/notes/unit-01/01-computer-system-and-organization-eng.md": {
+    "title": "Computer System And Organization (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-01/02-concepts-of-software-eng.md": {
+    "title": "Concepts Of Software (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-01/03-number-system-eng.md": {
+    "title": "Number System (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-01/04-boolean-algebra-eng.md": {
+    "title": "Boolean Algebra (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-02/01-concept-of-programming-eng.md": {
+    "title": "Concept Of Programming (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-02/02-algorithm-fundamentals-eng.md": {
+    "title": "Algorithm Fundamentals"
+  },
+  "class-11/computer-science/semester-01/notes/unit-02/03-introduction-to-problem-solving-eng.md": {
+    "title": "Introduction To Problem Solving (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/01-basic-structure-eng.md": {
+    "title": "Basic Structure (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/02-operators-eng.md": {
+    "title": "Operators (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/03-branching-and-looping-in-c-eng.md": {
+    "title": "Branching And Looping In C (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/04-arrays-and-structures-in-c-eng.md": {
+    "title": "Arrays And Structures In C (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/05-user-defined-functions-in-c-eng.md": {
+    "title": "User Defined Functions In C (Eng)"
+  },
+  "class-11/computer-science/semester-01/notes/unit-03/06-pointers-in-c-eng.md": {
+    "title": "Pointers In C (Eng)"
+  },
+  "class-11/computer-science/semester-01/practical/practical-eng.md": {
+    "title": "Practical (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/miscellaneous/misc-01-practice-paper-eng.md": {
+    "title": "Misc 01 Practice Paper (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/miscellaneous/misc-02-practice-paper-eng.md": {
+    "title": "Misc 02 Practice Paper (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/miscellaneous/misc-03-practice-paper-eng.md": {
+    "title": "Misc 03 Practice Paper (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/miscellaneous/misc-04-practice-paper-eng.md": {
+    "title": "Misc 04 Practice Paper (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/miscellaneous/misc-05-practice-paper-eng.md": {
+    "title": "Misc 05 Practice Paper (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-01/01-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 01 01 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-01/02-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 01 02 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-01/03-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 01 03 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-01/04-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 01 04 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-01/05-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 01 05 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-02/01-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 02 01 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-02/02-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 02 02 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-02/03-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 02 03 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-02/04-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 02 04 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-02/05-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 02 05 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-03/01-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 03 01 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-03/02-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 03 02 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-03/03-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 03 03 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-03/04-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 03 04 (Eng)"
+  },
+  "class-11/computer-science/semester-01/practice-papers/unit-03/05-practice-paper-eng.md": {
+    "title": "Practice Paper Unit 03 05 (Eng)"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/01-introduction-to-networking-beng.md": {
+    "title": "নেটওয়ার্কিং পরিচিতি"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/01-introduction-to-networking-eng.md": {
+    "title": "Introduction to Networking"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/02-transmission-media-beng.md": {
+    "title": "ট্রান্সমিশন মিডিয়া (Transmission Media)"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/02-transmission-media-eng.md": {
+    "title": "Transmission Media"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/03-network-connecting-devices-beng.md": {
+    "title": "নেটওয়ার্ক সংযোগকারী ডিভাইস (Network Connecting Devices)"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/03-network-connecting-devices-eng.md": {
+    "title": "Network Connecting Devices"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/04-network-type-and-topologies-eng.md": {
+    "title": "Network Types and Topologies"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/05-network-protocols-eng.md": {
+    "title": "Network Protocols"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/06-referential-model-eng.md": {
+    "title": "The OSI Reference Model"
+  },
+  "class-11/computer-science/semester-02/notes/unit-02/07-introduction-to-web-services-eng.md": {
+    "title": "Introduction to Web Services"
+  },
+  "class-11/computer-science/semester-02/practice-papers/unit-02/01-introduction-to-networking-saq.md": {
+    "title": "Introduction To Networking — SAQ"
+  }
+}

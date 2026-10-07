@@ -15,9 +15,16 @@ const os = require('node:os');
 const path = require('node:path');
 
 const { build } = require('../src/build');
+const { MANIFEST_FILENAME } = require('../src/lib/manifest-file');
+const { deriveTitle } = require('../src/lib/title');
 
-/** Create a temp workspace with the given files, returning its root. */
-function makeWorkspace(files) {
+/**
+ * Create a temp workspace with the given files, returning its root.
+ *
+ * A manifest is written automatically, since the build requires one and treats
+ * any mismatch as a failure. Pass `noManifest` to test that failure.
+ */
+function makeWorkspace(files, options = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sd-cs-notes-'));
   const notesDir = path.join(root, 'notes');
 
@@ -25,6 +32,19 @@ function makeWorkspace(files) {
     const dest = path.join(notesDir, rel);
     fs.mkdirSync(path.dirname(dest), { recursive: true });
     fs.writeFileSync(dest, content, 'utf-8');
+  }
+
+  if (!options.noManifest) {
+    const manifest = {};
+    for (const rel of Object.keys(files)) {
+      manifest[rel] = { title: options.titles?.[rel] || deriveTitle(rel) };
+    }
+    fs.mkdirSync(notesDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(notesDir, MANIFEST_FILENAME),
+      JSON.stringify(manifest, null, 2),
+      'utf-8',
+    );
   }
 
   return { root, notesDir, outDir: path.join(root, 'dist') };
@@ -62,8 +82,9 @@ test('builds a complete site from a notes tree', async () => {
   assert.ok(fs.existsSync(path.join(ws.outDir, 'style.css')));
 });
 
-test('renders the note title and content into the page', async () => {
-  const ws = makeWorkspace({ 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE });
+test('renders the title from the manifest, not the filename', async () => {
+  const rel = 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md';
+  const ws = makeWorkspace({ [rel]: SAMPLE }, { titles: { [rel]: 'Custom Manifest Title' } });
   await build({ config: configFor(ws), quiet: true });
 
   const html = fs.readFileSync(
@@ -71,13 +92,63 @@ test('renders the note title and content into the page', async () => {
     'utf-8',
   );
 
-  assert.match(html, /<title>01 Intro \(Eng\)<\/title>/);
+  assert.match(html, /<title>Custom Manifest Title<\/title>/);
   assert.match(html, /<h2>Heading<\/h2>/);
   assert.match(html, /First line description\./);
   // Tables must be wrapped for horizontal scrolling.
   assert.match(html, /<div class="table-wrapper"><table>/);
   // Local stylesheet is linked absolutely so it resolves at any depth.
   assert.match(html, /<link rel="stylesheet" href="\/style\.css">/);
+});
+
+test('a file with no manifest entry fails the build', async () => {
+  const ws = makeWorkspace({ 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE });
+
+  // Add a file the manifest does not know about.
+  const extra = path.join(ws.notesDir, 'class-11/coma/semester-01/notes/unit-01/02-extra-eng.md');
+  fs.writeFileSync(extra, SAMPLE, 'utf-8');
+
+  await assert.rejects(
+    () => build({ config: configFor(ws), quiet: true }),
+    /no manifest entry/,
+  );
+});
+
+test('a manifest entry with no file fails the build', async () => {
+  const ws = makeWorkspace({ 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE });
+
+  const manifestPath = path.join(ws.notesDir, MANIFEST_FILENAME);
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  manifest['class-11/coma/semester-01/notes/unit-01/ghost.md'] = { title: 'Ghost' };
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+
+  await assert.rejects(
+    () => build({ config: configFor(ws), quiet: true }),
+    /no file/,
+  );
+});
+
+test('duplicate manifest titles fail the build', async () => {
+  const a = 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md';
+  const b = 'class-11/coma/semester-01/notes/unit-02/02-loops-eng.md';
+  const ws = makeWorkspace({ [a]: SAMPLE, [b]: SAMPLE }, { titles: { [a]: 'Same', [b]: 'Same' } });
+
+  await assert.rejects(
+    () => build({ config: configFor(ws), quiet: true }),
+    /duplicated title/,
+  );
+});
+
+test('a missing manifest fails with regeneration advice', async () => {
+  const ws = makeWorkspace(
+    { 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE },
+    { noManifest: true },
+  );
+
+  await assert.rejects(
+    () => build({ config: configFor(ws), quiet: true }),
+    /Manifest not found/,
+  );
 });
 
 test('index page lists notes grouped by class, subject and semester', async () => {
@@ -120,7 +191,10 @@ test('an empty notes tree builds without throwing', async () => {
 });
 
 test('a missing notes directory produces a clear error', async () => {
-  const ws = makeWorkspace({});
+  // Build a workspace, then remove the notes directory entirely.
+  const ws = makeWorkspace({ 'class-11/coma/semester-01/notes/unit-01/01-intro-eng.md': SAMPLE });
+  fs.rmSync(ws.notesDir, { recursive: true, force: true });
+
   await assert.rejects(
     () => build({ config: configFor(ws), quiet: true }),
     /Notes directory not found/,

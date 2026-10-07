@@ -88,6 +88,12 @@ async function readNote(filePath, notesDir, options = {}) {
   const baseName = stripExtension(path.basename(filePath));
   const location = describeLocation(relativePath, options);
 
+  // The manifest is authoritative for titles. `options.manifest` is a Map of
+  // relative path -> { title, ... }; readNote falls back to a derived title
+  // only when no manifest was supplied at all, since the build validates that
+  // every file has an entry before reaching here.
+  const entry = options.manifest ? options.manifest.get(relativePath) : null;
+
   return {
     /** Absolute source path. */
     filePath,
@@ -99,7 +105,7 @@ async function readNote(filePath, notesDir, options = {}) {
     tags: location.segments.map(formatName),
     /** Derived display metadata. */
     baseName,
-    title: formatTitle(baseName),
+    title: entry ? entry.title : formatTitle(baseName),
     description: extractDescription(content),
     date: formatDate(stats.mtime),
     content,
