@@ -1,21 +1,21 @@
 {
-  "class-11/coms/sem-1/mock-tests/01-practice-paper.en.md": {
+  "class-11/coms/sem-1/mock-tests/01-mock-test.en.md": {
     "title": "Mock Test 01 (EN)"
   },
-  "class-11/coms/sem-1/mock-tests/02-practice-paper.en.md": {
+  "class-11/coms/sem-1/mock-tests/02-mock-test.en.md": {
     "title": "Mock Test 02 (EN)"
   },
-  "class-11/coms/sem-1/mock-tests/03-practice-paper.en.md": {
+  "class-11/coms/sem-1/mock-tests/03-mock-test.en.md": {
     "title": "Mock Test 03 (EN)"
   },
-  "class-11/coms/sem-1/mock-tests/04-practice-paper.en.md": {
+  "class-11/coms/sem-1/mock-tests/04-mock-test.en.md": {
     "title": "Mock Test 04 (EN)"
   },
-  "class-11/coms/sem-1/mock-tests/05-practice-paper.en.md": {
+  "class-11/coms/sem-1/mock-tests/05-mock-test.en.md": {
     "title": "Mock Test 05 (EN)"
   },
-  "class-11/coms/sem-1/practicals/practical.en.md": {
-    "title": "Practical (EN)"
+  "class-11/coms/sem-1/practicals/01-practical-lab.en.md": {
+    "title": "Practical LAB (EN)"
   },
   "class-11/coms/sem-1/unit-01-computer-organization/notes/01-computer-system-and-organization.en.md": {
     "title": "Computer System And Organization (EN)"
@@ -48,7 +48,7 @@
     "title": "Concept Of Programming (EN)"
   },
   "class-11/coms/sem-1/unit-02-programming-fundamentals/notes/02-algorithm-fundamentals.en.md": {
-    "title": "Algorithm Fundamentals"
+    "title": "Algorithm Fundamentals (EN)"
   },
   "class-11/coms/sem-1/unit-02-programming-fundamentals/notes/03-introduction-to-problem-solving.en.md": {
     "title": "Introduction To Problem Solving (EN)"
@@ -105,34 +105,34 @@
     "title": "Pointers In C — Questions (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/01-introduction-to-networking.bn.md": {
-    "title": "নেটওয়ার্কিং পরিচিতি"
+    "title": "Introduction To Networking (BN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/01-introduction-to-networking.en.md": {
-    "title": "Introduction to Networking"
+    "title": "Introduction To Networking (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/02-transmission-media.bn.md": {
-    "title": "ট্রান্সমিশন মিডিয়া (Transmission Media)"
+    "title": "Transmission Media (BN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/02-transmission-media.en.md": {
-    "title": "Transmission Media"
+    "title": "Transmission Media (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/03-network-connecting-devices.bn.md": {
-    "title": "নেটওয়ার্ক সংযোগকারী ডিভাইস (Network Connecting Devices)"
+    "title": "Network Connecting Devices (BN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/03-network-connecting-devices.en.md": {
-    "title": "Network Connecting Devices"
+    "title": "Network Connecting Devices (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/04-network-type-and-topologies.en.md": {
-    "title": "Network Types and Topologies"
+    "title": "Network Type And Topologies (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/05-network-protocols.en.md": {
-    "title": "Network Protocols"
+    "title": "Network Protocols (EN)"
   },
-  "class-11/coms/sem-2/unit-02-networking/notes/06-referential-model.en.md": {
-    "title": "The OSI Reference Model"
+  "class-11/coms/sem-2/unit-02-networking/notes/06-osi-reference-model.en.md": {
+    "title": "OSI Reference Model (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/notes/07-introduction-to-web-services.en.md": {
-    "title": "Introduction to Web Services"
+    "title": "Introduction To Web Services (EN)"
   },
   "class-11/coms/sem-2/unit-02-networking/questions/01-introduction-to-networking.en.md": {
     "title": "Introduction To Networking — Questions (EN)"

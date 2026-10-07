@@ -1,10 +1,5 @@
 # Transmission Media
 
-**Detailed Study Notes for Class 11**  
-*(Estimated Study Time: 3 Hours)*
-
----
-
 ## 1. Introduction to Transmission Media
 **Transmission Media** refers to the physical path or channel through which data is transmitted from a sender to a receiver in a network. It is broadly classified into two categories:
 1. **Guided Media (Wired)**: Data travels through a solid physical medium (cables).

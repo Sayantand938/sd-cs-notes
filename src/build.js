@@ -3,10 +3,7 @@
 /**
  * Static site generator.
  *
- * Pipeline: discover -> read/describe -> render -> write -> index.
- *
- * Each stage lives in its own module under `lib/` so it can be tested in
- * isolation; this file is only orchestration.
+ * Pipeline: discover -> auto-generate manifest from filenames -> render -> write -> index.
  */
 
 const path = require('path');
@@ -17,6 +14,7 @@ const notes = require('./lib/notes');
 const { renderMarkdown } = require('./lib/render');
 const { buildManifest, shouldOpenByDefault } = require('./lib/manifest');
 const manifestFile = require('./lib/manifest-file');
+const { writeManifest } = require('./write-manifest');
 const templates = require('./lib/templates');
 const writer = require('./lib/writer');
 
@@ -31,12 +29,12 @@ const writer = require('./lib/writer');
  */
 async function build(options = {}) {
   const config = { ...defaultConfig, ...(options.config || {}) };
-  const log = options.quiet ? () => {} : options.log || ((message) => console.log(message));
+  const log = options.quiet ? () => { } : options.log || ((message) => console.log(message));
 
   if (!(await fsUtils.isDirectory(config.notesDir))) {
     throw new Error(
       `Notes directory not found: ${config.notesDir}\n` +
-        'Create it and add Markdown notes, or point --notes-dir at an existing folder.',
+      'Create it and add Markdown notes, or point --notes-dir at an existing folder.',
     );
   }
 
@@ -57,19 +55,18 @@ async function build(options = {}) {
     templates.compileTemplate(config.templates.notFound),
   ]);
 
-  // Note pages need KaTeX/Mermaid/highlight.js; the index page does not.
-  // Split around style.css to match the original templates' element order.
   const pageHeadBeforeStyle = templates.renderPartial('vendor-scripts');
   const pageHeadAfterStyle = templates.renderPartial('vendor-init');
 
-  // 3. Discover notes and reconcile them against the manifest. The manifest is
-  //    the source of truth for titles, and is a strict index: any mismatch in
-  //    either direction fails the build rather than silently dropping a page.
+  // 3. Discover notes and auto-generate manifest from filenames.
   const files = await fsUtils.findMarkdownFiles(config.notesDir, config.markdownExtensions);
   if (files.length === 0) {
     log(`⚠️  No Markdown files found in ${path.relative(config.root, config.notesDir)}`);
     return { pages: [], groups: 0, notes: 0, assets };
   }
+
+  // Automatically update the manifest from file names on every build
+  await writeManifest(config.notesDir);
 
   const relativePaths = files.map((file) =>
     path.relative(config.notesDir, file).split(path.sep).join('/'),
@@ -80,7 +77,7 @@ async function build(options = {}) {
   const problem = manifestFile.manifestError(validation);
   if (problem) throw problem;
 
-  log(`📋 Manifest matched ${entries.size} file(s)`);
+  log(`📋 Auto-generated manifest for ${entries.size} file(s)`);
 
   const allNotes = await notes.readNotes(files, config.notesDir, {
     subjectLabels: config.subjectLabels,
@@ -88,7 +85,7 @@ async function build(options = {}) {
   });
   log(`📄 Processing ${allNotes.length} file(s)...`);
 
-  // 4. Render each note, separating out a custom 404 if one is present.
+  // 4. Render each note.
   const notFoundNotes = allNotes.filter((note) =>
     writer.isNotFoundNote(note, config.notFoundBasename),
   );
@@ -118,7 +115,6 @@ async function build(options = {}) {
   // 5. Manifest-driven index page.
   const manifest = buildManifest(contentNotes);
 
-  // Decide which groups start expanded (see config.indexCollapse).
   const { defaultExpanded, openPrimaryThreshold, bulkCategories } = config.indexCollapse;
   const groups = manifest.map((group) => ({
     ...group,
@@ -138,9 +134,8 @@ async function build(options = {}) {
   await writer.writePage(config.outputDir, 'index.html', indexHtml);
   log(`🏠 Generated index.html (${manifest.length} group(s))`);
 
-  // 6. 404 page: the custom note wins, otherwise the built-in template.
+  // 6. 404 page.
   if (notFoundNotes.length > 0) {
-    const note = notFoundNotes[0];
     const html = pageTemplate({
       title: '404 – Page Not Found',
       headBeforeStyle: pageHeadBeforeStyle,

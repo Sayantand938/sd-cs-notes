@@ -1,10 +1,5 @@
 # Introduction to Networking
 
-**Detailed Study Notes for Class 11**  
-*(Weightage: 10 Marks | Estimated Study Time: 20 Hours)*
-
----
-
 ## 1. Analogue and Digital Communication
 
 Communication is the exchange of data between two devices via a transmission medium. The data can be transmitted in two fundamental forms:

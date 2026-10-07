@@ -47,13 +47,11 @@ Used to compare two values. They return `1` (true) or `0` (false).
 
 ### 2.3 Logical Operators
 
-| Operator | Meaning | Example  |    |    |   |    |
-| -------- | ------- | -------- | -- | -- | - | -- |
-| `&&`     | AND     | `A && B` |    |    |   |    |
-| `        |         | `        | OR | `A |   | B` |
-| `!`      | NOT     | `!A`     |    |    |   |    |
-
-
+| Operator | Meaning | Example    | Output                                  |
+| :------- | :------ | :--------- | :-------------------------------------- |
+| `&&`     | AND     | `A && B`   | `1` if both are true; `0` otherwise     |
+| `\|\|`   | OR      | `A \|\| B` | `1` if at least one is true; `0` if not |
+| `!`      | NOT     | `!A`       | `1` if operand is false; `0` if true    |
 
 > **Short-Circuit Evaluation**: In `A && B`, if `A` is false, `B` is **not evaluated**. In `A || B`, if `A` is true, `B` is **not evaluated**.
 
@@ -135,19 +133,17 @@ b = (a = 5, a * 2);  // a = 5 (evaluated first), then a*2 = 10 (assigned to b)
 **Precedence** determines which operator is evaluated first in an expression.  
 **Associativity** determines the direction (left-to-right or right-to-left) when operators have the same precedence.
 
-| Priority | Operator                | Associativity |   |               |
-| -------- | ----------------------- | ------------- | - | ------------- |
-| 1        | `()`                    | Left to Right |   |               |
-| 2        | `!`                     | Right to Left |   |               |
-| 3        | `*` `/` `%`             | Left to Right |   |               |
-| 4        | `+` `-`                 | Left to Right |   |               |
-| 5        | `<` `<=` `>` `>=`       | Left to Right |   |               |
-| 6        | `==` `!=`               | Left to Right |   |               |
-| 7        | `&&`                    | Left to Right |   |               |
-| 8        | `                       |               | ` | Left to Right |
-| 9        | `=` `+=` `-=` `*=` `/=` | Right to Left |   |               |
-
-
+| Priority | Operator                | Associativity |
+| :------- | :---------------------- | :------------ |
+| 1        | `()`                    | Left to Right |
+| 2        | `!`                     | Right to Left |
+| 3        | `*` `/` `%`             | Left to Right |
+| 4        | `+` `-`                 | Left to Right |
+| 5        | `<` `<=` `>` `>=`       | Left to Right |
+| 6        | `==` `!=`               | Left to Right |
+| 7        | `&&`                    | Left to Right |
+| 8        | `\|\|`                  | Left to Right |
+| 9        | `=` `+=` `-=` `*=` `/=` | Right to Left |
 
 **Example Evaluation**:
 
