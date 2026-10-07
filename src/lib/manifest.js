@@ -59,17 +59,24 @@ function buildManifest(notes, options = {}) {
   }
 
   return [...groups.values()]
-    .map((group) => ({
-      class: group.class,
-      subject: group.subject,
-      semester: group.semester,
-      categories: [...group.categories.entries()]
+    .map((group) => {
+      const categories = [...group.categories.entries()]
         .map(([name, files]) => ({
           name,
           files: [...files].sort((a, b) => a.path.localeCompare(b.path)),
         }))
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      return {
+        class: group.class,
+        subject: group.subject,
+        semester: group.semester,
+        categories,
+        // Used by the template to label the disclosure and to decide whether
+        // the group should start collapsed.
+        noteCount: categories.reduce((total, category) => total + category.files.length, 0),
+      };
+    })
     .sort((a, b) => {
       if (a.class !== b.class) return a.class.localeCompare(b.class);
       if (a.subject !== b.subject) return a.subject.localeCompare(b.subject);
@@ -77,4 +84,34 @@ function buildManifest(notes, options = {}) {
     });
 }
 
-module.exports = { buildManifest };
+/**
+ * Decide whether a group should start expanded.
+ *
+ * Counting every note would collapse a semester simply because it holds many
+ * practice papers, which is not a browsing problem — practice papers are
+ * reference material you look up, not material you read front to back. So the
+ * decision is based on the primary categories only (everything not listed in
+ * `bulkCategories`).
+ *
+ * @param {object} group Manifest group with `categories`.
+ * @param {object} [options]
+ * @param {number} [options.threshold] Max primary notes for an open group.
+ * @param {string[]} [options.bulkCategories] Category names to exclude.
+ * @returns {boolean}
+ */
+function shouldOpenByDefault(group, options = {}) {
+  const { threshold = 15, bulkCategories = [] } = options;
+  const bulk = new Set(bulkCategories.map((name) => name.toLowerCase()));
+
+  const primaryNotes = group.categories
+    .filter((category) => {
+      // Category names may carry a " - Unit NN" suffix; compare the base name.
+      const base = category.name.split(' - ')[0].toLowerCase();
+      return !bulk.has(base);
+    })
+    .reduce((total, category) => total + category.files.length, 0);
+
+  return primaryNotes <= threshold;
+}
+
+module.exports = { buildManifest, shouldOpenByDefault };

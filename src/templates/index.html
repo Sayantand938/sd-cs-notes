@@ -1,8 +1,14 @@
 {{!--
-  Site index: a filterable manifest of every published note.
+  Site index: a filterable, collapsible manifest of every published note.
 
-  Context: {title, description, manifest}
+  Context: {title, description, manifest, openGroupThreshold}
   Manifest shape is documented in src/lib/manifest.js.
+
+  Each group is a native <details> element, so collapsing works with no
+  JavaScript and stays keyboard-accessible. A group starts open when it holds
+  `openGroupThreshold` notes or fewer, which keeps the semester you are
+  actively studying visible while folding away large ones. The filter script
+  opens matching groups automatically.
 --}}
 {{#> layout stylesheet="style.css" title=title}}
     <div class="metadata-box">
@@ -10,6 +16,10 @@
         {{#if description}}
         <p><em>{{description}}</em></p>
         {{/if}}
+        <p class="manifest-summary">
+            {{manifest.length}} group(s) · {{totalNotes}} note(s)
+            <button type="button" id="toggleAll" class="toggle-all" aria-expanded="false">Expand all</button>
+        </p>
     </div>
 
     <div class="search-container">
@@ -24,30 +34,36 @@
     <main id="manifestRoot">
         {{#if manifest.length}}
         {{#each manifest}}
-        <section class="group-section">
-            <h2 class="group-header">
-                <span>📚 {{this.class}}</span>
-                <span class="group-sep">•</span>
-                <span>{{this.subject}}</span>
-                <span class="group-sep">•</span>
-                <span class="group-semester">{{this.semester}}</span>
-            </h2>
+        <details class="group-section" {{#if this.openByDefault}}open{{/if}}>
+            <summary class="group-header">
+                <span class="group-chevron" aria-hidden="true"></span>
+                <span class="group-label">
+                    <span class="group-class">{{this.class}}</span>
+                    <span class="group-sep">•</span>
+                    <span>{{this.subject}}</span>
+                    <span class="group-sep">•</span>
+                    <span class="group-semester">{{this.semester}}</span>
+                </span>
+                <span class="group-count">{{this.noteCount}}</span>
+            </summary>
 
-            {{#each this.categories}}
-            <div class="category-section">
-                <h3 class="category-title">📂 {{this.name}}</h3>
+            <div class="group-body">
+                {{#each this.categories}}
+                <div class="category-section">
+                    <h3 class="category-title">{{this.name}}</h3>
 
-                <ul class="notes-list">
-                    {{#each this.files}}
-                    <li class="note-item"
-                        data-text="{{this.title}} {{../name}} {{../../class}} {{../../subject}} {{../../semester}}">
-                        <a href="{{this.path}}">{{this.title}}</a>
-                    </li>
-                    {{/each}}
-                </ul>
+                    <ul class="notes-list">
+                        {{#each this.files}}
+                        <li class="note-item"
+                            data-text="{{this.title}} {{../name}} {{../../class}} {{../../subject}} {{../../semester}}">
+                            <a href="{{this.path}}">{{this.title}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </section>
+        </details>
         {{/each}}
         {{else}}
         <p>No notes found in the notes folder.</p>

@@ -98,6 +98,31 @@ connection for those three features. Plain text and tables work offline.
 
 ---
 
+## The index page
+
+Notes are grouped by class, subject and semester. Each group is a collapsible
+`<details>` element, so it works with no JavaScript and stays keyboard
+accessible. You also get a live filter box and an expand/collapse-all toggle.
+
+**A group starts expanded when its unit notes are few enough to scan**, and
+collapses once a semester genuinely gets large. Practice papers are excluded
+from that count — a semester with twenty papers is not harder to browse than
+one with five, since papers are reference material rather than something you
+read front to back. Both thresholds live in
+[`src/config.js`](src/config.js):
+
+```js
+indexCollapse: {
+  openPrimaryThreshold: 15,
+  bulkCategories: ['Practice Papers'],
+},
+```
+
+Typing in the filter box force-opens any group containing a match, then
+restores the original open/closed state when you clear it.
+
+---
+
 ## Project layout
 
 ```

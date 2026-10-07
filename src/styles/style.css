@@ -331,24 +331,94 @@ a:active {
     color: #777;
 }
 
+.manifest-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    flex-wrap: wrap;
+    margin-top: 0.6em !important;
+    color: var(--color-text-dim);
+    font-size: 0.85em;
+}
+
+.toggle-all {
+    font-family: inherit;
+    font-size: 0.95em;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.15em 0.7em;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.toggle-all:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-hover);
+}
+
+/* Collapsible group (native <details>, so no JS is required). */
 .group-section {
-    margin-bottom: 2.2em;
+    margin-bottom: 1em;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 16px 22px;
+    overflow: hidden;
 }
 
 .group-header {
-    margin-top: 0;
-    margin-bottom: 1em;
-    padding-bottom: 0.4em;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-accent);
-    font-size: 1.3em;
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 14px 20px;
+    cursor: pointer;
+    color: var(--color-accent);
+    font-size: 1.15em;
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+/* Hide the default disclosure triangle; we draw our own chevron. */
+.group-header::-webkit-details-marker {
+    display: none;
+}
+
+.group-header:hover {
+    background: var(--color-surface-alt);
+}
+
+.group-section[open] > .group-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.group-chevron {
+    flex: none;
+    width: 0;
+    height: 0;
+    border-left: 6px solid currentColor;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    transition: transform 0.15s ease;
+}
+
+.group-section[open] > .group-header .group-chevron {
+    transform: rotate(90deg);
+}
+
+.group-label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.group-class {
+    color: var(--color-accent);
 }
 
 .group-sep {
@@ -357,6 +427,21 @@ a:active {
 
 .group-semester {
     color: var(--color-text-muted);
+}
+
+.group-count {
+    flex: none;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 10px;
+    padding: 0.05em 0.6em;
+    font-size: 0.7em;
+    font-weight: 400;
+    color: var(--color-text-dim);
+}
+
+.group-body {
+    padding: 4px 22px 16px 22px;
 }
 
 .category-section {
@@ -597,6 +682,34 @@ a:active {
 
     .metadata-box h1 {
         color: #000 !important;
+    }
+
+    /* Collapsed groups would print as bare headings; expand them and hide
+       the interactive chrome that has no meaning on paper. */
+    .group-section {
+        background: #fff !important;
+        border: 1px solid #aaa !important;
+        page-break-inside: avoid;
+    }
+
+    .group-section > .group-body {
+        display: block !important;
+    }
+
+    .group-chevron,
+    .toggle-all,
+    .group-count {
+        display: none !important;
+    }
+
+    .group-header {
+        background: #f4f4f4 !important;
+        color: #000 !important;
+    }
+
+    .search-container,
+    .no-results {
+        display: none !important;
     }
 
     .page-nav {

@@ -5,7 +5,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const { buildManifest } = require('../src/lib/manifest');
+const { buildManifest, shouldOpenByDefault } = require('../src/lib/manifest');
 
 /** Build a minimal note record. */
 function note(overrides = {}) {
@@ -73,4 +73,60 @@ test('accepts a custom href builder', () => {
 
 test('returns an empty array for no notes', () => {
   assert.deepEqual(buildManifest([]), []);
+});
+
+test('reports a note count per group', () => {
+  const manifest = buildManifest([
+    note({ title: 'A' }),
+    note({ title: 'B', relativePath: 'class-11/coma/semester-01/notes/unit-01/b.md' }),
+  ]);
+  assert.equal(manifest[0].noteCount, 2);
+});
+
+// --- shouldOpenByDefault -------------------------------------------------
+
+/** Build a group with the given counts of unit notes and practice papers. */
+function group(counts) {
+  return {
+    categories: Object.entries(counts).map(([name, count]) => ({
+      name,
+      files: Array.from({ length: count }, (_, i) => ({ path: `/${name}/${i}` })),
+    })),
+  };
+}
+
+const OPTS = { threshold: 15, bulkCategories: ['Practice Papers'] };
+
+test('opens a group whose primary notes are within the threshold', () => {
+  assert.equal(shouldOpenByDefault(group({ 'Notes - Unit 01': 10 }), OPTS), true);
+});
+
+test('collapses a group whose primary notes exceed the threshold', () => {
+  assert.equal(shouldOpenByDefault(group({ 'Notes - Unit 01': 30 }), OPTS), false);
+});
+
+test('bulk practice papers do not force a group closed', () => {
+  // 14 real notes + 20 papers: still browsable, so it stays open.
+  assert.equal(
+    shouldOpenByDefault(
+      group({ 'Notes - Unit 01': 14, 'Practice Papers': 20 }),
+      OPTS,
+    ),
+    true,
+  );
+});
+
+test('a papers-only group stays open', () => {
+  assert.equal(shouldOpenByDefault(group({ 'Practice Papers': 40 }), OPTS), true);
+});
+
+test('bulk matching ignores a " - Unit NN" suffix', () => {
+  assert.equal(
+    shouldOpenByDefault(group({ 'Notes - Unit 01': 5, 'Practice Papers - Unit 03': 30 }), OPTS),
+    true,
+  );
+});
+
+test('an open group at exactly the threshold is inclusive', () => {
+  assert.equal(shouldOpenByDefault(group({ 'Notes': 15 }), OPTS), true);
 });

@@ -1,15 +1,20 @@
 {{!--
-  Client-side manifest filter.
+  Client-side manifest behaviour: filtering and bulk expand/collapse.
 
-  Matching is delegated to a per-item `data-text` attribute that the template
-  precomputes (title + category + class + subject + semester), so filtering a
-  single note never touches the DOM beyond toggling visibility. Category and
-  group wrappers are hidden once they contain no visible notes.
+  Filtering is delegated to a per-item `data-text` attribute the template
+  precomputes (title + category + class + subject + semester), so a keystroke
+  never reads the DOM beyond toggling visibility. Categories and groups are
+  hidden once they contain no visible notes.
+
+  Because a match may sit inside a collapsed group, filtering force-opens any
+  group that contains one, and restores the previous open/closed state when the
+  query is cleared.
 --}}
 <script>
     (function () {
         var searchInput = document.getElementById('searchInput');
         var noResults = document.getElementById('noResults');
+        var toggleAll = document.getElementById('toggleAll');
         var items = Array.prototype.slice.call(document.querySelectorAll('.note-item'));
         var categories = Array.prototype.slice.call(document.querySelectorAll('.category-section'));
         var groups = Array.prototype.slice.call(document.querySelectorAll('.group-section'));
@@ -24,6 +29,11 @@
             };
         });
 
+        // Remember each group's authored open state so clearing the search restores it.
+        var authoredOpen = groups.map(function (group) {
+            return group.hasAttribute('open');
+        });
+
         function applyFilter() {
             var query = searchInput.value.toLowerCase().trim();
             var totalVisible = 0;
@@ -34,16 +44,61 @@
                 if (matches) totalVisible++;
             });
 
-            [categories, groups].forEach(function (nodes) {
-                nodes.forEach(function (node) {
-                    var hasVisible = node.querySelector('.note-item:not([style*="display: none"])') !== null;
-                    node.style.display = hasVisible ? '' : 'none';
-                });
+            var hasVisible = function (node) {
+                return node.querySelector('.note-item:not([style*="display: none"])') !== null;
+            };
+
+            categories.forEach(function (category) {
+                category.style.display = hasVisible(category) ? '' : 'none';
+            });
+
+            groups.forEach(function (group, position) {
+                var visible = hasVisible(group);
+                group.style.display = visible ? '' : 'none';
+
+                // While filtering, a matching group must be open to be useful.
+                if (query) {
+                    if (visible) group.setAttribute('open', '');
+                } else if (authoredOpen[position]) {
+                    group.setAttribute('open', '');
+                } else {
+                    group.removeAttribute('open');
+                }
             });
 
             if (noResults) {
                 noResults.style.display = totalVisible === 0 ? 'block' : 'none';
             }
+
+            if (toggleAll) {
+                toggleAll.textContent = allOpen() ? 'Collapse all' : 'Expand all';
+                toggleAll.setAttribute('aria-expanded', allOpen() ? 'true' : 'false');
+            }
+        }
+
+        function visibleGroups() {
+            return groups.filter(function (group) {
+                return group.style.display !== 'none';
+            });
+        }
+
+        function allOpen() {
+            var shown = visibleGroups();
+            return shown.length > 0 && shown.every(function (group) {
+                return group.hasAttribute('open');
+            });
+        }
+
+        if (toggleAll) {
+            toggleAll.addEventListener('click', function () {
+                var shouldOpen = !allOpen();
+                visibleGroups().forEach(function (group) {
+                    if (shouldOpen) group.setAttribute('open', '');
+                    else group.removeAttribute('open');
+                });
+                toggleAll.textContent = shouldOpen ? 'Collapse all' : 'Expand all';
+                toggleAll.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+            });
         }
 
         searchInput.addEventListener('input', applyFilter);

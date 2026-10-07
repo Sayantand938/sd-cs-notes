@@ -51,6 +51,21 @@ module.exports = {
   },
 
   /**
+   * Controls which groups start expanded on the index.
+   *
+   * A group is expanded when its *primary* categories hold at most
+   * `openPrimaryThreshold` notes. Primary means unit notes — practice papers
+   * and other bulk material are excluded, because a semester with 20 practice
+   * papers is not thereby harder to browse than one with 5.
+   *
+   * Categories named here are treated as bulk/supplementary.
+   */
+  indexCollapse: {
+    openPrimaryThreshold: 15,
+    bulkCategories: ['Practice Papers'],
+  },
+
+  /**
    * Display labels for subject folders.
    *
    * Keys are folder names (lower-cased); values are what the index shows.

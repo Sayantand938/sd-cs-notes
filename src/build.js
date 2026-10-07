@@ -15,7 +15,7 @@ const defaultConfig = require('./config');
 const fsUtils = require('./lib/fs-utils');
 const notes = require('./lib/notes');
 const { renderMarkdown } = require('./lib/render');
-const { buildManifest } = require('./lib/manifest');
+const { buildManifest, shouldOpenByDefault } = require('./lib/manifest');
 const templates = require('./lib/templates');
 const writer = require('./lib/writer');
 
@@ -102,10 +102,23 @@ async function build(options = {}) {
 
   // 5. Manifest-driven index page.
   const manifest = buildManifest(contentNotes);
+
+  // Decide which groups start expanded. Small groups stay open so the
+  // semester being studied is visible immediately; large ones fold away.
+  const { openPrimaryThreshold, bulkCategories } = config.indexCollapse;
+  const groups = manifest.map((group) => ({
+    ...group,
+    openByDefault: shouldOpenByDefault(group, {
+      threshold: openPrimaryThreshold,
+      bulkCategories,
+    }),
+  }));
+
   const indexHtml = indexTemplate({
     title: config.indexPage.title,
     description: config.indexPage.description,
-    manifest,
+    manifest: groups,
+    totalNotes: contentNotes.length,
   });
   await writer.writePage(config.outputDir, 'index.html', indexHtml);
   log(`🏠 Generated index.html (${manifest.length} group(s))`);
