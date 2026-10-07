@@ -134,9 +134,20 @@ can't quietly break another.
 | Command | What it does |
 | --- | --- |
 | `npm run build` | Generate the site into `dist/` |
+| `npm run serve` | Serve an existing `dist/` (no rebuild) |
 | `npm run clean` | Delete `dist/` |
-| `npm run preview` | Build and serve `dist/` locally |
+| `npm run preview` | Build, then serve `dist/` |
 | `npm test` | Run the test suite |
+
+The preview server is built in (`src/serve.js`) and uses only Node's standard
+library, so it needs no downloads and works offline. It serves on
+`http://127.0.0.1:3000`, falling back to the next free port if that one is
+taken, and it renders the generated 404 page for unknown paths. Override with
+`PORT` / `HOST`:
+
+```bash
+PORT=8080 npm run serve
+```
 
 ### Build options
 
