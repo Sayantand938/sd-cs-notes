@@ -89,7 +89,7 @@ async function main(argv = process.argv.slice(2)) {
       return 0;
     }
     console.log(`\n🎉 Build complete! Processed ${result.notes} file(s).`);
-    console.log(`👉 To preview, run: npm run preview`);
+    console.log(`👉 To preview, run: pnpm preview`);
     return 0;
   } catch (error) {
     console.error(`❌ Build failed: ${error.message}`);

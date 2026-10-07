@@ -5,6 +5,7 @@
   "private": true,
   "main": "src/build.js",
   "type": "commonjs",
+  "packageManager": "pnpm@12.3.4",
   "engines": {
     "node": ">=18"
   },
@@ -12,7 +13,7 @@
     "build": "node src/cli.js",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
     "serve": "node src/serve.js",
-    "preview": "npm run build && npm run serve",
+    "preview": "pnpm run build && pnpm run serve",
     "test": "node --test tests/"
   },
   "keywords": [

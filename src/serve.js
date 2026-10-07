@@ -3,7 +3,7 @@
 /**
  * Minimal static file server for previewing the built site.
  *
- * Exists so `npm run serve` needs no downloads and works offline. It is a
+ * Exists so `pnpm serve` needs no downloads and works offline. It is a
  * preview convenience only — production hosting is handled by Vercel, which
  * serves dist/ directly.
  */
@@ -122,7 +122,7 @@ function main(argv = process.argv.slice(2)) {
   const dir = argv[0] ? path.resolve(argv[0]) : path.join(projectRoot, 'dist');
 
   if (!fs.existsSync(dir)) {
-    console.error(`❌ Nothing to serve: ${dir} does not exist. Run \`npm run build\` first.`);
+    console.error(`❌ Nothing to serve: ${dir} does not exist. Run \`pnpm build\` first.`);
     return 1;
   }
 

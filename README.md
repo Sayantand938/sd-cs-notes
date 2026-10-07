@@ -7,14 +7,16 @@ Built on Node.js with [Marked](https://marked.js.org/) for Markdown and
 [Handlebars](https://handlebarsjs.com/) for templating. No build tooling, no
 bundler, two runtime dependencies.
 
+Managed with **pnpm** (`packageManager` is pinned in `package.json`).
+
 ---
 
 ## Quick start
 
 ```bash
-npm install
-npm run build     # writes dist/
-npm run preview   # build, then serve dist/ locally
+pnpm install
+pnpm build     # writes dist/
+pnpm preview   # build, then serve dist/ locally
 ```
 
 ---
@@ -101,7 +103,7 @@ connection for those three features. Plain text and tables work offline.
 ```
 src/
 ├── config.js            All paths and options, in one place
-├── cli.js               Command-line entry point (npm run build)
+├── cli.js               Command-line entry point (pnpm build)
 ├── build.js             Orchestration: discover → render → write
 ├── lib/
 │   ├── fs-utils.js      Directory walking, asset copying
@@ -133,11 +135,11 @@ can't quietly break another.
 
 | Command | What it does |
 | --- | --- |
-| `npm run build` | Generate the site into `dist/` |
-| `npm run serve` | Serve an existing `dist/` (no rebuild) |
-| `npm run clean` | Delete `dist/` |
-| `npm run preview` | Build, then serve `dist/` |
-| `npm test` | Run the test suite |
+| `pnpm build` | Generate the site into `dist/` |
+| `pnpm serve` | Serve an existing `dist/` (no rebuild) |
+| `pnpm clean` | Delete `dist/` |
+| `pnpm preview` | Build, then serve `dist/` |
+| `pnpm test` | Run the test suite |
 
 The preview server is built in (`src/serve.js`) and uses only Node's standard
 library, so it needs no downloads and works offline. It serves on
@@ -146,7 +148,7 @@ taken, and it renders the generated 404 page for unknown paths. Override with
 `PORT` / `HOST`:
 
 ```bash
-PORT=8080 npm run serve
+PORT=8080 pnpm serve
 ```
 
 ### Build options
@@ -174,8 +176,9 @@ committed and the live site cannot drift from your notes.
 
 ```json
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install --frozen-lockfile"
 }
 ```
 
@@ -187,7 +190,7 @@ setup works on Netlify or GitHub Pages with an equivalent build command.
 ## Development
 
 ```bash
-npm test
+pnpm test
 ```
 
 The suite covers the pure helpers, manifest grouping, metadata derivation,
