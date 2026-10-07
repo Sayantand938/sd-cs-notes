@@ -92,6 +92,10 @@ the index page. The file's modification time supplies the date.
 - **Diagrams** — fenced ` ```mermaid ` blocks render as diagrams.
 - **Tables** — automatically wrapped so wide tables scroll on mobile.
 - **Code** — syntax-highlighted via highlight.js.
+- **MCQ options** — option lines written without blank lines between them
+  (`A) …`, `B) …`) are rendered on separate lines. Markdown would otherwise
+  join them into one paragraph, since consecutive lines form a single
+  paragraph. Fenced code blocks and tables are left untouched.
 
 KaTeX, Mermaid and highlight.js load from CDN, so note pages need a network
 connection for those three features. Plain text and tables work offline.
@@ -139,7 +143,7 @@ src/
 │   ├── fs-utils.js      Directory walking, asset copying
 │   ├── notes.js         Reading notes, deriving metadata from paths
 │   ├── text.js          Pure helpers: titles, names, HTML escaping
-│   ├── render.js        Markdown → HTML, mermaid, table wrapping
+│   ├── render.js        Markdown → HTML, mermaid, MCQ options, tables
 │   ├── manifest.js      Grouping/sorting for the index page
 │   ├── templates.js     Handlebars compilation and partials
 │   └── writer.js        Output path mapping and file writing
