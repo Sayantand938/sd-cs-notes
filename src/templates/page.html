@@ -1,0 +1,15 @@
+{{!--
+  A single note page.
+
+  Rendered variables: title, content, head.
+  `content` is pre-rendered HTML from lib/render, so it is injected unescaped.
+--}}
+{{#> layout stylesheet="/style.css" title=title}}
+    <nav class="page-nav">
+        <a href="/">← Back to Index</a>
+    </nav>
+
+    <main>
+        {{{content}}}
+    </main>
+{{/layout}}

@@ -1,0 +1,25 @@
+{{!--
+  Initialise the vendor libraries once the DOM is ready.
+
+  Each block is guarded so a CDN failure degrades gracefully instead of
+  throwing and blocking the other two renderers.
+--}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({ startOnLoad: true });
+        }
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+        if (typeof hljs !== 'undefined') {
+            hljs.highlightAll();
+        }
+    });
+</script>

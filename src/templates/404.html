@@ -1,0 +1,11 @@
+{{!--
+  Custom 404 page. Context: {title, message}.
+  Uses an absolute stylesheet path so it resolves from any URL depth.
+--}}
+{{#> layout stylesheet="/style.css" title=title}}
+    <main class="error-page">
+        <h1>{{title}}</h1>
+        <p>{{message}}</p>
+        <p><a href="/">Go back home</a></p>
+    </main>
+{{/layout}}

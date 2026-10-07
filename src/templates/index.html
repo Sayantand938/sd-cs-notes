@@ -1,0 +1,58 @@
+{{!--
+  Site index: a filterable manifest of every published note.
+
+  Context: {title, description, manifest}
+  Manifest shape is documented in src/lib/manifest.js.
+--}}
+{{#> layout stylesheet="style.css" title=title}}
+    <div class="metadata-box">
+        <h1>{{title}}</h1>
+        {{#if description}}
+        <p><em>{{description}}</em></p>
+        {{/if}}
+    </div>
+
+    <div class="search-container">
+        <input type="search" id="searchInput" class="search-input"
+            placeholder="🔍 Filter notes by topic, unit, or class..." autocomplete="off">
+    </div>
+
+    <div id="noResults" class="no-results">
+        No notes found matching your filter.
+    </div>
+
+    <main id="manifestRoot">
+        {{#if manifest.length}}
+        {{#each manifest}}
+        <section class="group-section">
+            <h2 class="group-header">
+                <span>📚 {{this.class}}</span>
+                <span class="group-sep">•</span>
+                <span>{{this.subject}}</span>
+                <span class="group-sep">•</span>
+                <span class="group-semester">{{this.semester}}</span>
+            </h2>
+
+            {{#each this.categories}}
+            <div class="category-section">
+                <h3 class="category-title">📂 {{this.name}}</h3>
+
+                <ul class="notes-list">
+                    {{#each this.files}}
+                    <li class="note-item"
+                        data-text="{{this.title}} {{../name}} {{../../class}} {{../../subject}} {{../../semester}}">
+                        <a href="{{this.path}}">{{this.title}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+        </section>
+        {{/each}}
+        {{else}}
+        <p>No notes found in the notes folder.</p>
+        {{/if}}
+    </main>
+
+{{> index-filter}}
+{{/layout}}

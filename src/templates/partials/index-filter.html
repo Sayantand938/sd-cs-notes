@@ -1,0 +1,51 @@
+{{!--
+  Client-side manifest filter.
+
+  Matching is delegated to a per-item `data-text` attribute that the template
+  precomputes (title + category + class + subject + semester), so filtering a
+  single note never touches the DOM beyond toggling visibility. Category and
+  group wrappers are hidden once they contain no visible notes.
+--}}
+<script>
+    (function () {
+        var searchInput = document.getElementById('searchInput');
+        var noResults = document.getElementById('noResults');
+        var items = Array.prototype.slice.call(document.querySelectorAll('.note-item'));
+        var categories = Array.prototype.slice.call(document.querySelectorAll('.category-section'));
+        var groups = Array.prototype.slice.call(document.querySelectorAll('.group-section'));
+
+        if (!searchInput) return;
+
+        // Precompute the haystack once rather than re-reading attributes per keystroke.
+        var index = items.map(function (item) {
+            return {
+                el: item,
+                text: (item.getAttribute('data-text') || item.textContent || '').toLowerCase()
+            };
+        });
+
+        function applyFilter() {
+            var query = searchInput.value.toLowerCase().trim();
+            var totalVisible = 0;
+
+            index.forEach(function (entry) {
+                var matches = !query || entry.text.indexOf(query) !== -1;
+                entry.el.style.display = matches ? '' : 'none';
+                if (matches) totalVisible++;
+            });
+
+            [categories, groups].forEach(function (nodes) {
+                nodes.forEach(function (node) {
+                    var hasVisible = node.querySelector('.note-item:not([style*="display: none"])') !== null;
+                    node.style.display = hasVisible ? '' : 'none';
+                });
+            });
+
+            if (noResults) {
+                noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', applyFilter);
+    })();
+</script>

@@ -1,0 +1,30 @@
+{{!--
+  Shared document shell.
+
+  Callers wrap their body content in this partial-block:
+
+      {{#> layout stylesheet="/style.css" title=title}}
+        ...body html...
+      {{/layout}}
+
+  Two optional head slots are supported, mirroring the original hand-written
+  templates exactly so generated output is byte-identical:
+
+    headBeforeStyle  vendor stylesheets/scripts, emitted before style.css
+    headAfterStyle   inline init script, emitted after style.css
+--}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{{> head-meta}}
+{{#if headBeforeStyle}}{{{headBeforeStyle}}}
+{{/if}}    <link rel="stylesheet" href="{{stylesheet}}">
+{{#if headAfterStyle}}{{{headAfterStyle}}}{{/if}}
+</head>
+
+<body>
+{{> @partial-block}}
+</body>
+
+</html>
