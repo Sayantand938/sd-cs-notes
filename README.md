@@ -144,11 +144,22 @@ can't quietly break another.
 The preview server is built in (`src/serve.js`) and uses only Node's standard
 library, so it needs no downloads and works offline. It serves on
 `http://127.0.0.1:3000`, falling back to the next free port if that one is
-taken, and it renders the generated 404 page for unknown paths. Override with
-`PORT` / `HOST`:
+taken, and it renders the generated 404 page for unknown paths.
+
+`preview` builds and serves in a single Node process rather than chaining two
+shell commands, so it behaves identically in PowerShell, cmd, and bash
+(`&&` is not valid in Windows PowerShell 5.1).
+
+Override the port or host with environment variables:
 
 ```bash
 PORT=8080 pnpm serve
+```
+
+On Windows PowerShell 5.1, set them with `$env:` instead:
+
+```powershell
+$env:PORT=8080; pnpm serve
 ```
 
 ### Build options

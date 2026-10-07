@@ -116,48 +116,77 @@ function createServer({ dir, port, host, onListen }) {
   return server;
 }
 
-/** CLI entry: serve dist/ on the first free port from the base. */
+/**
+ * CLI entry: optionally build, then serve dist/ on the first free port.
+ *
+ * Building here rather than shell-chaining `build && serve` keeps `preview`
+ * a single command that behaves the same in PowerShell, cmd, and bash —
+ * `&&` is invalid in Windows PowerShell 5.1.
+ *
+ * @param {string[]} argv  Optional directory, plus `--build`.
+ * @returns {number|Promise<number>} Exit code.
+ */
 function main(argv = process.argv.slice(2)) {
   const projectRoot = path.resolve(__dirname, '..');
-  const dir = argv[0] ? path.resolve(argv[0]) : path.join(projectRoot, 'dist');
 
-  if (!fs.existsSync(dir)) {
-    console.error(`❌ Nothing to serve: ${dir} does not exist. Run \`pnpm build\` first.`);
-    return 1;
-  }
+  const buildFirst = argv.includes('--build');
+  const positional = argv.filter((arg) => !arg.startsWith('--'));
+  const dir = positional[0] ? path.resolve(positional[0]) : path.join(projectRoot, 'dist');
 
-  const basePort = Number(process.env.PORT) || 3000;
-  const host = process.env.HOST || '127.0.0.1';
+  const listen = () => {
+    if (!fs.existsSync(dir)) {
+      console.error(`❌ Nothing to serve: ${dir} does not exist. Run \`pnpm build\` first.`);
+      return 1;
+    }
 
-  const start = (port, attemptsLeft) => {
-    const server = createServer({
-      dir,
-      port,
-      host,
-      onListen: (url) => {
-        console.log(`\n👀 Serving ${path.relative(projectRoot, dir) || '.'} at ${url}`);
-        console.log('   Press Ctrl+C to stop.\n');
-      },
-    });
+    const basePort = Number(process.env.PORT) || 3000;
+    const host = process.env.HOST || '127.0.0.1';
 
-    server.on('error', (error) => {
-      if (error.code === 'EADDRINUSE' && attemptsLeft > 0) {
-        start(port + 1, attemptsLeft - 1);
-      } else {
-        console.error(`❌ Could not start server: ${error.message}`);
-        process.exitCode = 1;
-      }
-    });
+    const start = (port, attemptsLeft) => {
+      const server = createServer({
+        dir,
+        port,
+        host,
+        onListen: (url) => {
+          console.log(`\n👀 Serving ${path.relative(projectRoot, dir) || '.'} at ${url}`);
+          console.log('   Press Ctrl+C to stop.\n');
+        },
+      });
+
+      server.on('error', (error) => {
+        if (error.code === 'EADDRINUSE' && attemptsLeft > 0) {
+          start(port + 1, attemptsLeft - 1);
+        } else {
+          console.error(`❌ Could not start server: ${error.message}`);
+          process.exitCode = 1;
+        }
+      });
+    };
+
+    start(basePort, 10);
+    return 0;
   };
 
-  start(basePort, 10);
-  return 0;
+  if (!buildFirst) return listen();
+
+  // Build in-process, then start serving.
+  const { build } = require('./build');
+
+  return build()
+    .then(() => listen())
+    .catch((error) => {
+      console.error(`❌ Build failed: ${error.message}`);
+      return 1;
+    });
 }
 
 if (require.main === module) {
   // Deliberately not process.exit(): listen() is asynchronous, and exiting
   // here would tear the server down before it ever binds the port.
-  process.exitCode = main();
+  // main() returns a Promise when --build is used, so await it either way.
+  Promise.resolve(main()).then((code) => {
+    process.exitCode = code;
+  });
 }
 
 module.exports = { createServer, resolveRequest, main };

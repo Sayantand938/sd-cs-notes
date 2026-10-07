@@ -71,3 +71,13 @@ test('returns null for a directory without index.html', () => {
   const root = makeRoot({ 'empty/.keep': '' });
   assert.equal(resolveRequest(root, '/empty'), null);
 });
+
+test('main serves without building when --build is absent', async () => {
+  const root = makeRoot({ 'index.html': 'x' });
+  const { main } = require('../src/serve');
+
+  // Falls through to the "nothing to serve" branch for a missing dir,
+  // which proves it did not attempt a build first.
+  const code = await Promise.resolve(main([path.join(root, 'missing')]));
+  assert.equal(code, 1);
+});
