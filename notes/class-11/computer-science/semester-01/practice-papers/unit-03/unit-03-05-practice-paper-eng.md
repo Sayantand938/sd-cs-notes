@@ -346,11 +346,15 @@ Which function reads a string including whitespace and is considered unsafe?
 
 What is the output of `printf("%8.3f", 123.456);`?
 
-- A) ` 123.456`
-- B) ` 123.456` (with spaces) Actually `printf("%8.3f", 123.456);` prints ` 123.456` (total width 8, 3 decimals).
+- A) `123.456`
+- B) ` 123.456` (one leading space)
+- C) `123.456  ` (two trailing spaces)
+- D) `123.46`
 
-<!-- TODO: answer not recorded - the source had no tick, or more than one -->
+**Answer:** B
 
+<!-- Width 8 with precision 3 on 123.456 gives 7 characters, so the field
+     is padded to 8 with one leading space. Verified by running it. -->
 ### Q31 (mcq)
 
 Which operator is used to get the address of a variable?
@@ -377,10 +381,17 @@ What is the result of casting `(float)5/2`?
 
 How do you read a character without echo in standard C?
 
-- A) Not possible in standard C
+- A) With `getch()` from `<stdio.h>`.
+- B) It is not possible in standard C — echo is controlled by the
+  terminal, not the language.
+- C) By opening `stdin` with `fopen(..., "r")`.
+- D) With `scanf("%c", &c)` and the `noecho` flag.
 
-<!-- TODO: answer not recorded - the source had no tick, or more than one -->
+**Answer:** B
 
+<!-- ISO C has no echo control. Platform facilities exist - getch() in
+     <conio.h> on DOS/Windows, tcsetattr() with ECHO off in POSIX,
+     noecho() in curses - but none are part of the C standard. -->
 ### Q34 (mcq)
 
 What is the output of `printf("%d", 4 >> 1);` (right shift)?

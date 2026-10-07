@@ -45,6 +45,9 @@ const OPTION_ITEM = /^\s*[-*+]\s+[(\[]?([A-Za-z])[)\].:]\s+(.*)$/;
 /** The answer field, alone on a line: "**Answer:** A" or "**Answer:**". */
 const ANSWER_INLINE = /^\s*\*\*Answer:?\*\*:?\s*(.*)$/i;
 
+/** An HTML comment line, used for authoring notes. Ignored entirely. */
+const HTML_COMMENT_LINE = /^\s*<!--/;
+
 /** Heading that ends a run of questions (e.g. "## Answer Key", "## Notes"). */
 const NON_QUESTION_HEADING = /^#{1,6}\s+(?!\s*(?:Q)?\d)(.*)$/;
 
@@ -143,6 +146,13 @@ function parseQuestions(markdown) {
     }
 
     if (mode === 'done') continue;
+
+    // Authoring notes in HTML comments are ignored wherever they appear, so a
+    // comment after an answer cannot be absorbed into it.
+    if (HTML_COMMENT_LINE.test(line)) {
+      if (mode === 'answer') mode = 'done';
+      continue;
+    }
 
     const optionMatch = line.match(OPTION_ITEM);
     if (optionMatch && current.type === 'mcq') {

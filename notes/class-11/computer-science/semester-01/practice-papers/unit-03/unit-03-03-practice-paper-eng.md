@@ -1051,12 +1051,14 @@ Which keyword makes a variable retain its value between function calls?
 Can a function in C return multiple values directly?
 
 - A) Yes, using a comma.
-- B) No, only one value can be returned.
-- C) Yes, by using arrays.
-- D) Yes, by using structures (by returning a structure).
+- B) No — the `return` statement yields exactly one value.
+- C) Yes, by returning an array.
+- D) Yes, by returning a `struct`.
 
-<!-- TODO: answer not recorded - the source had no tick, or more than one -->
+**Answer:** B
 
+<!-- A struct return is still one value of struct type; the caller reads
+     several members from it. C also has no array return type. -->
 ### Q81 (mcq)
 
 What is the default return type of a function if omitted?

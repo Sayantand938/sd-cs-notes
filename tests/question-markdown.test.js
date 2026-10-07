@@ -153,6 +153,40 @@ test('hasQuestions detects a paper and rejects plain prose', () => {
   assert.equal(hasQuestions('# Just a note\n\nSome text.'), false);
 });
 
+test('an HTML comment after the answer is not absorbed into it', () => {
+  const md = [
+    '### Q1 (mcq)',
+    'What does CPU stand for?',
+    '',
+    '- A) Central Processing Unit',
+    '- B) Other',
+    '',
+    '**Answer:** A',
+    '',
+    '<!-- authoring note: verified with the compiler -->',
+  ].join('\n');
+
+  const { questions, errors } = parseQuestions(md);
+  assert.equal(errors.length, 0);
+  assert.equal(questions[0].answerLetter, 'A');
+});
+
+test('an HTML comment after an saq answer is dropped', () => {
+  const md = [
+    '### Q2 (saq)',
+    'Explain.',
+    '',
+    '**Answer:**',
+    'Because of skew.',
+    '',
+    '<!-- a note to self -->',
+  ].join('\n');
+
+  const { questions } = parseQuestions(md);
+  assert.match(questions[0].answerText, /skew/);
+  assert.doesNotMatch(questions[0].answerText, /note to self/);
+});
+
 // --- rendering ------------------------------------------------------------
 
 test('renderMarkdown renders question blocks, not plain headings', () => {
